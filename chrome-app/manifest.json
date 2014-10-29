@@ -1,6 +1,6 @@
 {
-  "name": "StackEdit",
-  "description": "In-browser markdown editor",
+  "name": "Storee",
+  "description": "The world's finest tiny typewriter",
   "version": "1.0.10",
   "manifest_version": 2,
   "container" : "GOOGLE_DRIVE",
@@ -10,10 +10,10 @@
   },
   "app": {
     "urls": [
-      "https://stackedit.io/"
+      "https://storee.io/"
     ],
     "launch": {
-      "web_url": "https://stackedit.io/editor"
+      "web_url": "https://storee.io/editor"
     }
   },
   "offline_enabled": true,

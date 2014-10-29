@@ -1,55 +1,54 @@
-StackEdit
+Storee
 =========
+Welcome to Storee, the world's finest tiny typewriter. Storee is for story makers and writers who are looking for a clean, consistent and secure writing experience that helps you write and publish your stories, articles, documents and files across the web. 
 
-StackEdit is a full-featured, open-source Markdown editor based on PageDown, the Markdown library used by Stack Overflow and the other Stack Exchange sites.
+**Main showcase:** https://mammal-charter.codio.io:9500.
 
-Main showcase: https://stackedit.io/.
-
-Support StackEdit:
-
-[![](https://cdn.monetizejs.com/resources/button-32.png)](https://monetizejs.com/authorize?client_id=ESTHdCYOi18iLhhO&summary=true)
 
 > **Note:**
 >
 > - Documents are stored in the [browser's local storage][1], which means they are not shared between different browsers/computers. Clearing your browser's data may delete all your local documents.
-> - Full access to Dropbox or Google Drive is required to be able to import any document in StackEdit. Imported documents are downloaded in your browser and are not transmitted to a server.
+> - Full access to CouchDB, Dropbox or Google Drive is required to be able to import any document in Storee. Imported documents are downloaded in your browser and are not transmitted to a server.
 
-### StackEdit can:
+### With Storee, You Can:
 
- - Manage multiple Markdown documents online or offline
- - Export your documents in Markdown, HTML or PDF and format it using a template
- - Synchronize your Markdown documents in the Cloud
- - Edit existing Markdown documents from Google Drive, Dropbox and your local hard drive
- - Post your Markdown document on Blogger/Blogspot, WordPress, Tumblr
- - Publish your Markdown document on GitHub, Gist, Google Drive, Dropbox or any SSH server
- - Share a link to a Markdown document that renders it in a nice viewer
- - Show statistics about your document
- - Convert HTML to Markdown
+ - Write your stories seamlessly, safely, and securely - online or offline
+ - Manage multiple stories, online or offline
+ - Export your stories in Markdown, HTML or PDF and format it using templates
+ - Synchronize your files in the Cloud
+ - Edit existing stories from CouchDB, Google Drive, Dropbox and your local hard drive
+ - Post your stories directly to Ghost, Blogger/Blogspot, WordPress, Tumblr
+ - Publish your Markdown documents on GitHub, Gist, Google Drive, Dropbox or any SSH server
+ - Share a link to your story that renders it in a beautiful, online viewer
+ - Show statistics about your stories and documents
+ - Convert HTML to Markdown, and vise versa
 
-### Features:
+### Core Features:
 
- - Real-time HTML preview with Scroll Link feature to bind editor and preview scrollbars
- - Markdown Extra/GitHub Flavored Markdown support and Prettify/Highlight.js syntax highlighting
+ - Offline or online editing mode
+ - Real-time preview
+ - Online synchronization using CouchDB, Google Drive (multi-accounts) and Dropbox
+ - One-click publish to Ghost, Blogger, Dropbox, Gist, GitHub, Google Drive, SSH server, Tumblr, WordPress, CouchDB and more
+ - Markdown Extra & GitHub Flavored Markdown support and beautiful syntax highlighting
  - LaTeX mathematical expressions using MathJax
- - WYSIWYG control buttons
+ - WYSIWYG editorial buttons
  - Configurable layout
- - Theming support with different themes available
- - A la carte extensions
- - Offline editing
- - Online synchronization using Google Drive (multi-accounts) and Dropbox
- - One click publish on Blogger, Dropbox, Gist, GitHub, Google Drive, SSH server, Tumblr, WordPress
+ - Theming support with 7 different themes already available
+ - Community Extensions
+
 
 ### Documentation:
 
- - [Hello! document][2]
+ - [Writer guide][2]
  - [Developer guide][3]
- - [Theming guide][4]
+ - [Themer guide][4]
 
-> **NOTE:** This page has been written and published with [StackEdit][5].
+> **NOTE:** This page has been written and published with [Storee][5].
 
 
   [1]: https://developer.mozilla.org/en-US/docs/Web/Guide/DOM/Storage#localStorage
-  [2]: https://github.com/benweet/stackedit/blob/master/public/res/WELCOME.md#welcome-to-stackedit---welcome "Welcome document"
-  [3]: https://github.com/benweet/stackedit/blob/master/doc/developer-guide.md#developer-guide "Developer guide"
-  [4]: https://github.com/benweet/stackedit/blob/master/doc/theming.md#stackedit-theming-guide "Theming guide"
-  [5]: https://stackedit.io/ "StackEdit"
+  [2]: https://github.com/BeardandFedora/Storee/blob/master/public/res/WELCOME.md#welcome-to-portapublish---welcome "Welcome document"
+  [3]: https://github.com/BeardandFedora/Storee/blob/master/doc/developer-guide.md#developer-guide "Developer guide"
+  [4]: https://github.com/BeardandFedora/Storee/blob/master/doc/theming.md#portapublish-theming-guide "Theming guide"
+  [5]: https://storee.io/ "Storee"
+

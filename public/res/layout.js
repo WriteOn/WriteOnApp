@@ -480,7 +480,7 @@ define([
 		previewPanel.halfSize = true;
 		previewToggler.$elt.click(_.bind(previewPanel.toggle, previewPanel));
 
-		// Open StackEdit Viewer if failing to open the preview
+		// Open Storee Viewer if failing to open the preview
 		previewPanel.$elt.on('show.layout.toggle', function() {
 			_.defer(function() {
 				if(!previewPanel.isOpen) {

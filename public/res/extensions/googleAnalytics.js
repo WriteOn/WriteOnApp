@@ -9,7 +9,7 @@ define([
 ], function($, _, constants, utils, Extension, settings) {
 
     var googleAnalytics = new Extension("googleAnalytics", "Google Analytics", true);
-    googleAnalytics.settingsBlock = '<p>Sends anonymous statistics about usage and errors to help improve StackEdit.</p>';
+    googleAnalytics.settingsBlock = '<p>Sends anonymous statistics about usage and errors to help improve Storee.</p>';
 
     var isLoaded = false;
     var isOffline = false;
@@ -52,7 +52,7 @@ define([
         ]);
         trackPageView();
 
-        // Track StackEdit version
+        // Track Storee version
         _gaq.push([
             '_trackEvent',
             "About",

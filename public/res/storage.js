@@ -139,7 +139,7 @@ define([
             settings = JSON.parse(localStorage.settings);
             delete settings.editorFontFamily;
             delete settings.editorFontSize;
-            settings.template && (settings.template = settings.template.replace('http://benweet.github.io/stackedit/css/main-min.css', 'http://benweet.github.io/stackedit/res-min/themes/default.css'));
+            settings.template && (settings.template = settings.template.replace('http://beardandfedora.github.io/storee/css/main-min.css', 'http://beardandfedora.github.io/storee/res-min/themes/default.css'));
             localStorage.settings = JSON.stringify(settings);
         }
         version = "v10";
@@ -150,12 +150,12 @@ define([
             settings = JSON.parse(localStorage.settings);
             ((settings.extensionSettings || {}).markdownExtra || {}).extensions && settings.extensionSettings.markdownExtra.extensions.push('smartypants');
             settings.sshProxy == 'http://stackedit-ssh-proxy.herokuapp.com/' && (settings.sshProxy = 'https://stackedit-ssh-proxy.herokuapp.com/');
-            settings.template && (settings.template = settings.template.replace('http://benweet.github.io/stackedit/lib/', 'https://stackedit.io/libs/'));
-            settings.template && (settings.template = settings.template.replace('http://benweet.github.io/stackedit/', 'https://stackedit.io/'));
-            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('http://benweet.github.io/stackedit/lib/', 'https://stackedit.io/libs/'));
-            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('http://benweet.github.io/stackedit/', 'https://stackedit.io/'));
-            settings.defaultContent && (settings.defaultContent = settings.defaultContent.replace('http://benweet.github.io/stackedit/', 'https://stackedit.io/'));
-            settings.commitMsg && (settings.commitMsg = settings.commitMsg.replace('http://benweet.github.io/stackedit/', 'https://stackedit.io/'));
+            settings.template && (settings.template = settings.template.replace('http://beardandfedora.github.io/storee/lib/', 'https://storee.io/libs/'));
+            settings.template && (settings.template = settings.template.replace('http://beardandfedora.github.io/storee/', 'https://storee.io/'));
+            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('http://beardandfedora.github.io/storee/lib/', 'https://storee.io/libs/'));
+            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('http://beardandfedora.github.io/storee/', 'https://storee.io/'));
+            settings.defaultContent && (settings.defaultContent = settings.defaultContent.replace('http://beardandfedora.github.io/storee/', 'https://storee.io/'));
+            settings.commitMsg && (settings.commitMsg = settings.commitMsg.replace('http://beardandfedora.github.io/storee/', 'https://storee.io/'));
             localStorage.settings = JSON.stringify(settings);
         }
         version = "v11";
@@ -169,8 +169,8 @@ define([
             // Force new font
             delete settings.editorFontFamily;
             delete settings.editorFontSize;
-            settings.template && (settings.template = settings.template.replace('https://stackedit.io/res-min/themes/default.css', 'https://stackedit.io/res-min/themes/base.css'));
-            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('https://stackedit.io/res-min/themes/default.css', 'https://stackedit.io/res-min/themes/base.css'));
+            settings.template && (settings.template = settings.template.replace('https://storee.io/res-min/themes/default.css', 'https://storee.io/res-min/themes/base.css'));
+            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('https://storee.io/res-min/themes/default.css', 'https://storee.io/res-min/themes/base.css'));
             localStorage.settings = JSON.stringify(settings);
         }
         version = "v12";
@@ -189,8 +189,8 @@ define([
     if(version == "v14") {
         if(_.has(localStorage, 'settings')) {
             settings = JSON.parse(localStorage.settings);
-            settings.template && (settings.template = settings.template.replace('https://stackedit.io/res-min/themes/default.css', 'https://stackedit.io/res-min/themes/base.css'));
-            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('https://stackedit.io/res-min/themes/default.css', 'https://stackedit.io/res-min/themes/base.css'));
+            settings.template && (settings.template = settings.template.replace('https://storee.io/res-min/themes/default.css', 'https://storee.io/res-min/themes/base.css'));
+            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('https://storee.io/res-min/themes/default.css', 'https://storee.io/res-min/themes/base.css'));
             localStorage.settings = JSON.stringify(settings);
         }
         version = "v15";
@@ -268,7 +268,7 @@ define([
 	if(version == "v21") {
 		if(_.has(localStorage, 'settings')) {
 			settings = JSON.parse(localStorage.settings);
-			settings.template && (settings.template = settings.template.replace('https://stackedit.io/libs/MathJax/', 'https://cdn.mathjax.org/mathjax/latest/'));
+			settings.template && (settings.template = settings.template.replace('https://storee.io/libs/MathJax/', 'https://cdn.mathjax.org/mathjax/latest/'));
 			settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('/libs/MathJax/', '/res/bower-libs/MathJax/'));
 			localStorage.settings = JSON.stringify(settings);
 		}

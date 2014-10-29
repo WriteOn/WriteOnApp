@@ -354,7 +354,7 @@ define([
 			]
 		}, function(err, payments) {
 			if(isSponsor(payments)) {
-				eventMgr.onMessage('Thank you for sponsoring StackEdit!');
+				eventMgr.onMessage('Thank you for sponsoring Storee');
 				removeAlerts();
 			}
 		});
@@ -368,7 +368,7 @@ define([
 			removeAlerts();
 			if(!isSponsor(payments)) {
 				_.each(document.querySelectorAll('.modal-body'), function(modalBodyElt) {
-					var $elt = $('<div class="alert alert-danger">Please consider <a href="#">sponsoring StackEdit</a> for $5/year (or <a href="#">sign in</a> if you\'re already a sponsor).</div>');
+					var $elt = $('<div class="alert alert-danger">Please consider <a href="#">sponsoring Storee</a> for $5/year (or <a href="#">sign in</a> if you\'re already a sponsor).</div>');
 					$elt.find('a').click(performPayment);
 					modalBodyElt.insertBefore($elt[0], modalBodyElt.firstChild);
 					$alerts = $alerts.add($elt);
@@ -491,7 +491,7 @@ define([
 							var currentVersion = parseInt(storage.version.match(/^v(\d+)$/)[1], 10);
 							if(newVersion > currentVersion) {
 								// We manage storage upgrade, not downgrade
-								eventMgr.onError("Incompatible version. Please upgrade StackEdit.");
+								eventMgr.onError("Incompatible version. Please upgrade Storee.");
 							} else {
 								$('.modal-import-docs-settings').modal('show');
 							}
@@ -517,7 +517,7 @@ define([
 		});
 		// Export settings
 		$(".action-export-docs-settings").click(function() {
-			utils.saveAs(JSON.stringify(storage), "StackEdit local storage.json");
+			utils.saveAs(JSON.stringify(storage), "Storee local storage.json");
 		});
 
 		$(".action-default-settings").click(function() {
@@ -541,8 +541,8 @@ define([
 
 		utils.createTooltip(".tooltip-lazy-rendering", 'Disable preview rendering while typing in order to offload CPU. Refresh preview after 500 ms of inactivity.');
 		utils.createTooltip(".tooltip-default-content", [
-			'Thanks for supporting StackEdit by adding a backlink in your documents!<br/><br/>',
-			'<b class="text-danger">NOTE: Backlinks in Stack Exchange Q/A are not welcome.</b>'
+			'Thanks for supporting Storee by adding a backlink in your stories!<br/><br/>',
+			'<b class="text-danger">NOTE: Backlinks in ______ are not welcome.</b>'
 		].join(''));
 		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML);
 		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML);
@@ -576,7 +576,7 @@ define([
 			document.getElementById('input-settings-theme').innerHTML = themeOptions;
 		}
 
-		//$('.modal-header').append('<a class="dialog-header-message" href="https://github.com/benweet/stackedit/issues/385" target="_blank">Give your feedback <i class="icon-megaphone"></i></a>');
+		//$('.modal-header').append('<a class="dialog-header-message" href="https://github.com/beardandfedora/storee/issues" target="_blank">Give your feedback <i class="icon-megaphone"></i></a>');
 		checkPayment();
 	});
 

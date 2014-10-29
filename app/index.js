@@ -7,10 +7,10 @@ var serveStatic = require('serve-static');
 app.set('views', __dirname + '/../views');
 app.engine('html', require('ejs').renderFile);
 
-// Force HTTPS on stackedit.io
+// Force HTTPS on storee.io
 app.all('*', function(req, res, next) {
-	if (req.headers.host == 'stackedit.io' && req.headers['x-forwarded-proto'] != 'https') {
-		return res.redirect('https://stackedit.io' + req.url);
+	if (req.headers.host == 'storee.io' && req.headers['x-forwarded-proto'] != 'https') {
+		return res.redirect('https://storee.io' + req.url);
 	}
 	/\.(eot|ttf|woff|svg)$/.test(req.url) && res.header('Access-Control-Allow-Origin', '*');
 	next();
@@ -41,7 +41,7 @@ app.get('/', function(req, res) {
 	res.renderDebug('landing.html');
 });
 
-// Serve editor.html in /viewer
+// Serve editor.html in /editor
 app.get('/editor', function(req, res) {
 	res.renderDebug('editor.html');
 });

@@ -1,8 +1,8 @@
 {
-  "name": "stackedit",
+  "name": "storee",
   "version": "4.3.1",
   "private": true,
-  "description": "StackEdit is a free, open-source Markdown editor based on PageDown, the Markdown library used by Stack Overflow and the other Stack Exchange sites.",
+  "description": "the world's finest tiny typewriter.",
   "main": "res/main.js",
   "engines": {
     "node": "0.10.x"
@@ -33,18 +33,19 @@
     "gulp-util": "^3.0.1",
     "knox": "^0.9.1",
     "mime": "^1.2.11",
-    "event-stream": "^3.1.7"
+    "event-stream": "^3.1.7",
+    "gulp-shell": "~0.2.10"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/benweet/stackedit.git"
+    "url": "git://github.com/BeardandFedora/Storee.git"
   },
   "author": "Benoit Schweblin",
   "license": "Apache License",
   "bugs": {
-    "url": "https://github.com/benweet/stackedit/issues"
+    "url": "https://github.com/BeardandFedora/Storee/issues"
   }
 }

@@ -94,7 +94,7 @@ define([
 	// Special Elements (can contain anything)
 	var specialElements = makeMap("script,style");
 
-	// benweet: Add iframe
+	// fedora: Add iframe
 	blockElements.iframe = true;
 
 	var validElements = _.extend({},
@@ -112,7 +112,7 @@ define([
 			'scope,scrolling,shape,size,span,start,summary,target,title,type,' +
 			'valign,value,vspace,width'));
 
-	// benweet: Add id and allowfullscreen (YouTube iframe)
+	// fedora: Add id and allowfullscreen (YouTube iframe)
 	validAttrs.id = true;
 	validAttrs.allowfullscreen = true;
 

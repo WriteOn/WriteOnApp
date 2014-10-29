@@ -2,8 +2,8 @@
 <html>
 
     <head>
-        <title>StackEdit - Recovery</title>
-        <link rel="canonical" href="https://stackedit.io/">
+        <title>Storee - Recovery</title>
+        <link rel="canonical" href="https://storee.io/">
         <link rel="icon" href="res-min/img/stackedit-32.ico" type="image/x-icon">
         <link rel="shortcut icon" href="res-min/img/stackedit-32.ico" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,9 +27,9 @@
                 }
                 var failure = false;
                 try {
-                    // Try to use StackEdit dependencies to save a file
+                    // Try to use Storee dependencies to save a file
                     var utils = require('utils');
-                    utils.saveAs(JSON.stringify(localStorage), "StackEdit local storage.json");
+                    utils.saveAs(JSON.stringify(localStorage), "Storee local storage.json");
                 }
                 catch (e) {
                     // Try something safer
@@ -113,14 +113,14 @@
     <body>
         <div class="container">
             <br/>
-            <a href="https://stackedit.io/">
+            <a href="https://storee.io/">
             <img src="res-min/img/logo.svg" width="320" />
             </a>
-            <h3>StackEdit recovery</h3>
+            <h3>Storee recovery</h3>
             <p>
                 <strong>The download of your documents and settings will start in <span id="timer">5</span> seconds...</strong>
             </p>
-            <p>To import your documents and settings back in StackEdit:</p>
+            <p>To import your documents and settings back in Storee:</p>
             <blockquote>
                 <i class="icon-provider-stackedit"></i>
                 <code>Menu</code>
@@ -149,8 +149,8 @@
             <p class="file-list hide"></p>
             <p class="download-success download-failure hide">To fully clear the local storage
                 <a href="javascript:void(0)" onclick="clearLocalStorage()">click here</a>.</p>
-            <p class="download-success download-failure hide">To reopen StackEdit
-                <a href="https://stackedit.io/">click here</a>.</p>
+            <p class="download-success download-failure hide">To reopen Storee
+                <a href="https://storee.io/">click here</a>.</p>
         </div>
     </body>
 

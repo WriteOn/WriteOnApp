@@ -1,4 +1,4 @@
-StackEdit - The Markdown editor powered by PageDown.
+Storee - The world's finest tiny typewriter.
 
-Copyright 2013 Benoit Schweblin (http://www.benoitschweblin.com)
+Copyright 2014 Beard & Fedora (http://www.beardandfedora.com)
 Licensed under an Apache License (http://www.apache.org/licenses/LICENSE-2.0)

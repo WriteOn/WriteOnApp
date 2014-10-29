@@ -264,7 +264,7 @@ define([
 		}
 		if(discussion.type == 'conflict') {
 			result.unshift(_.template(commentTmpl, {
-				author: 'StackEdit',
+				author: 'Storee',
 				content: 'Conflicting changes have been detected.',
 				reply: true
 			}));

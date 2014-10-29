@@ -3,7 +3,7 @@ FROM debian:jessie
 RUN apt-get update
 RUN apt-get upgrade -yq
 RUN apt-get install -yq git nodejs-legacy npm
-RUN git clone https://github.com/benweet/stackedit.git
+RUN git clone https://github.com/BeardandFedora/Storee.git
 
 WORKDIR stackedit
 RUN npm install

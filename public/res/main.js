@@ -183,7 +183,7 @@ try {
 	});
 }
 catch(e) {
-	alert('Your browser is not supported, sorry!');
+	alert('Your browser is not supported, sorry.');
 	throw e;
 }
 

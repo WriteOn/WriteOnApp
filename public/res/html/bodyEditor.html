@@ -78,9 +78,9 @@
 		<div class="panel-content">
 			<div class="list-group">
 
-				<a href="viewer" title="StackEdit Viewer"
+				<a href="viewer" title="PortaPubish Viewer"
 					class="list-group-item">
-					<i class="icon-resize-full"></i> StackEdit Viewer
+					<i class="icon-resize-full"></i> PortaPubish Viewer
 				</a>
 
 			</div>
@@ -575,7 +575,7 @@
                 <p class="msg-default-couchdb hide alert alert-danger"><i class="icon-attention"></i> <b>Careful:</b>
                     You're using the public CouchDB instance.
                     <b>Anybody can open, edit and delete your files there!</b> To setup your own CouchDB instance <a
-                            target="blank" href="https://github.com/benweet/stackedit/blob/master/doc/couchdb-setup.md">click
+                            target="blank" href="https://github.com/beardandfedora/portapublish/blob/master/doc/couchdb-setup.md">click
                         here</a>.
                 </p>
 
@@ -648,7 +648,7 @@
                 <p class="msg-default-couchdb hide alert alert-danger"><i class="icon-attention"></i> <b>Careful:</b>
                     You're using the public CouchDB instance.
                     <b>Anybody can open, edit and delete your files there!</b> To setup your own CouchDB instance <a
-                            target="blank" href="https://github.com/benweet/stackedit/blob/master/doc/couchdb-setup.md">click
+                            target="blank" href="https://github.com/beardandfedora/portapublish/blob/master/doc/couchdb-setup.md">click
                         here</a>.
                 </p>
 
@@ -719,7 +719,7 @@
 							<input type="text" id="input-publish-ssh-host"
 								placeholder="hostname.or.ip" class="form-control"> <span
 								class="help-block"> Host must be accessible publicly,
-								unless you're hosting your own StackEdit instance.
+								unless you're hosting your own PortaPubish instance.
 							</span>
 						</div>
 					</div>
@@ -930,7 +930,7 @@
                     <p><b>Interpreted variables:</b> <code>title</code>.</p>
 				</blockquote>
 				<blockquote class="url-info modal-publish-bloggerpage">
-                    <p><b>About URL:</b> For newly created page , Blogger API will append a generated number to the url like <code>about-me-1234.html</code>, if you deeply care about your URL naming, you should first create the page on Blogger and then update them with StackEdit specifying the pageId when publishing.
+                    <p><b>About URL:</b> For newly created page , Blogger API will append a generated number to the url like <code>about-me-1234.html</code>, if you deeply care about your URL naming, you should first create the page on Blogger and then update them with PortaPubish specifying the pageId when publishing.
                     </p>
                     <p><b>About page visibility:</b> Blogger API does not respect published status for pages.When publishing the page to Blogger, the page will be <strong>live</strong> but not added to the page listing. You should arrange the page listing from Blogger dashboard.
                     </p>
@@ -1003,8 +1003,8 @@
                     Markdown format.</p>
             	</blockquote>
             	<blockquote>
-            		<p><b>Tip:</b> You can open any markdown URL within StackEdit Viewer using <a
-            			href="viewer#!url=https://raw.github.com/benweet/stackedit/master/README.md"
+            		<p><b>Tip:</b> You can open any markdown URL within PortaPubish Viewer using <a
+            			href="viewer#!url=https://raw.github.com/beardandfedora/portapublish/master/README.md"
             			title="Sharing example"><code>viewer#!url=</code></a>.</p>
             	</blockquote>
 			</div>
@@ -1228,7 +1228,7 @@
 									<div class="checkbox">
 									    <label>
 										    <input type="checkbox" id="input-settings-gdrive-full-access" />
-										    Allow StackEdit to open any document in Google Drive
+										    Allow PortaPubish to open any document in Google Drive
 										</label> <span class="help-block">Existing authorization has to be revoked in
 										<a href="https://www.google.com/settings/dashboard" target="_blank">Google Dashboard</a>
 										for this change to take effect.</span>
@@ -1241,9 +1241,9 @@
 									<div class="checkbox">
 									    <label>
 										    <input type="checkbox" id="input-settings-dropbox-full-access" />
-										    Allow StackEdit to open any document in Dropbox
+										    Allow PortaPubish to open any document in Dropbox
 										</label> <span class="help-block">If unchecked, access will be restricted to folder
-										<b>/Applications/StackEdit</b> for existing files.</span>
+										<b>/Applications/PortaPubish</b> for existing files.</span>
 									</div>
 								</div>
 							</div>
@@ -1253,7 +1253,7 @@
 									<div class="checkbox">
 									    <label>
 										    <input type="checkbox" id="input-settings-github-full-access" />
-										    Allow StackEdit to access private repositories in GitHub
+										    Allow PortaPubish to access private repositories in GitHub
 										</label> <span class="help-block">Existing authorization has to be revoked in
 										<a href="https://github.com/settings/applications" target="_blank">GitHub settings</a>
 										for this change to take effect.</span>
@@ -1276,7 +1276,7 @@
 										class="form-control">
                                     <span class="help-block pull-right"><a
                                             target="blank"
-                                            href="https://github.com/benweet/stackedit/blob/master/doc/couchdb-setup.md">Setup
+                                            href="https://github.com/beardandfedora/portapublish/blob/master/doc/couchdb-setup.md">Setup
                                         your own CouchDB...</a></span>
                                 </div>
 							</div>
@@ -1285,14 +1285,14 @@
 					<div class="tab-pane" id="tabpane-settings-extensions">
 						<div class="panel-group accordion-extensions"></div>
 						<span class="help-block pull-right"><a target="_blank"
-							href="https://github.com/benweet/stackedit/blob/master/doc/developer-guide.md#developer-guide">Create
+							href="https://github.com/beardandfedora/portapublish/blob/master/doc/developer-guide.md#developer-guide">Create
 								your own extension...</a></span>
 					</div>
 					<div class="tab-pane" id="tabpane-settings-utils">
 						<div class="tab-pane-button-container">
 							<a href="#" class="btn btn-block btn-default action-welcome-file"
 								data-dismiss="modal"><i class="icon-help-circled"></i>
-								Hello! document</a> <a href="#"
+								Hello World! document</a> <a href="#"
 								class="btn btn-block btn-default action-welcome-tour"
 								data-dismiss="modal"><i
 								class="icon-help-circled"></i> Welcome tour</a>
@@ -1314,7 +1314,7 @@
 								data-dismiss="modal" data-toggle="modal"
 								data-target=".modal-app-reset"><i
 								class="icon-fire"></i> Reset application</a> <a target="_blank" href="recovery.html" class="btn btn-block btn-default"><i
-								class="icon-medkit"></i> StackEdit recovery</a>
+								class="icon-medkit"></i> PortaPubish recovery</a>
 						</div>
 					</div>
 				</div>
@@ -1338,10 +1338,10 @@
 				<h2 class="modal-title">Ooops...</h2>
 			</div>
 			<div class="modal-body">
-				<p>StackEdit has stopped because another instance was running in
+				<p>PortaPubish has stopped because another instance was running in
 					the same browser.</p>
 				<blockquote>
-                    <p>If you want to reopen StackEdit, click on
+                    <p>If you want to reopen PortaPubish, click on
 					"Reload".</p>
                 </blockquote>
 			</div>
@@ -1426,7 +1426,7 @@
 				<h2 class="modal-title">Add Google Drive account</h2>
 			</div>
 			<div class="modal-body">
-				<p>To perform this request, you need to configure another Google Drive account in StackEdit.</p>
+				<p>To perform this request, you need to configure another Google Drive account in PortaPubish.</p>
 				<blockquote><b>Do you want to proceed?</b></blockquote>
 			</div>
 			<div class="modal-footer">
@@ -1449,7 +1449,7 @@
 			</div>
 			<div class="modal-body">
 				<p>This feature is restricted to sponsor users as it's a web service hosted on Amazon EC2.
-                    Note that sponsoring StackEdit would cost you only $5/year.</p>
+                    Note that sponsoring PortaPubish would cost you only $5/year.</p>
 				<p>To see how a PDF looks <a target="_blank" href="/Welcome%20document.pdf">click here</a>.</p>
 				<blockquote>
                     <p><b>Tip:</b> PDFs are fully customizable via Settings>Advanced>PDF template/options.</p>

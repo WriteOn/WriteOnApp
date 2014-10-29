@@ -170,7 +170,7 @@ define([
 			HUB,
 			preview
 		]);
-		HUB.Queue(afterRefreshCallback); //benweet
+		HUB.Queue(afterRefreshCallback); //fedora
 	}
 
 	//
@@ -178,7 +178,7 @@ define([
 	//    if we haven't done that already.
 	//
 	function UpdateMJ() {
-		if(!pending /*benweet (we need to call our afterRefreshCallback) && ready */) {
+		if(!pending /*fedora (we need to call our afterRefreshCallback) && ready */) {
 			pending = true;
 			HUB.Cancel();
 			HUB.Queue(RestartMJ);
@@ -197,8 +197,8 @@ define([
 	});
 
 
-	/*benweet
-	 Don't hash inline math $...$ (see https://github.com/benweet/stackedit/issues/136)
+	/*
+	 Don't hash inline math $...$ 
 	 var u = /(\$\$?|\\(?:begin|end)\{[a-z]*\*?\}|\\[\\{}$]|[{}]|(?:\n\s*)+|@@\d+@@)/i, r;
 	 */
 
