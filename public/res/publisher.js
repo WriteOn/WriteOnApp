@@ -332,8 +332,9 @@ define([
 			var content = publisher.applyTemplate(fileDesc, undefined, currentHTML);
 			utils.saveAs(content, fileDesc.title + (settings.template.indexOf("documentHTML") === -1 ? ".md" : ".html"));
 		});
-		var monetize = new MonetizeJS({
-			applicationID: 'ESTHdCYOi18iLhhO'
+        // monetizeJS payments: http://api.monetizejs.com/
+        var monetize = new MonetizeJS({
+			applicationID: '5d7PNYmOeEl4ANys'
 		});
 		$(".action-download-pdf").click(function() {
 			var fileDesc = fileMgr.currentFile;

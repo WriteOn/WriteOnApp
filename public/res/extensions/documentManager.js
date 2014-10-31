@@ -10,7 +10,7 @@ define([
     "fileSystem"
 ], function($, _, constants, utils, storage, Extension, FolderDescriptor, folderList, fileSystem) {
 
-    var documentManager = new Extension("documentManager", 'Document Manager', false, true);
+    var documentManager = new Extension("documentManager", 'Story Manager', false, true);
 
     var fileMgr;
     documentManager.onFileMgrCreated = function(fileMgrParameter) {

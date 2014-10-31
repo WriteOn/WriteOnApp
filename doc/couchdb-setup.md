@@ -5,9 +5,9 @@
 
 > **Note:**
 > 
-> - In order to work with Storee, our database has to be accessible through HTTPS. We use the hosting service [Couchappy](https://www.couchappy.com/), but you can also [configure your own instance to use SSL](http://docs.couchdb.org/en/latest/config/http.html#ssl).
+> - In order to work with WriteOn, our database has to be accessible through HTTPS. We use the hosting service [Couchappy](https://www.couchappy.com/), but you can also [configure your own instance to use SSL](http://docs.couchdb.org/en/latest/config/http.html#ssl).
 > 
-> - Storee doesn't deal with user access rights, but we still set permissions for our database and configure Storee to connect to it using URL like this: `https://username:password@instance.couchappy.com/documents`.
+> - WriteOn doesn't deal with user access rights, but we still set permissions for our database and configure WriteOn to connect to it using URL like this: `https://username:password@instance.couchappy.com/documents`.
 > 
 > - We have to be sure to remember to trigger database compaction, or to keep the full history of our documents.
 
@@ -21,7 +21,7 @@ Add the following key/value pairs to the CouchDB configuration:
 enable_cors = true
 
 [cors]
-origins = http://localhost, https://storee-box.codio.io
+origins = http://localhost, https://writeon.io, https://beta.writeon.io
 ```
 
 
@@ -34,19 +34,19 @@ curl -X PUT https://instance.couchappy.com/documents
 ### Insert the design documents
 
 ```bash
-curl -O https://raw.githubusercontent.com/BeardandFedora/Storee/master/couchdb/setup.js
+curl -O https://raw.githubusercontent.com/BeardandFedora/WriteOn/master/couchdb/setup.js
 node setup.js https://instance.couchappy.com/documents
 ```
 
 Or directly:
 
 ```bash
-curl https://raw.githubusercontent.com/BeardandFedora/Storee/master/couchdb/setup.js | node /dev/stdin https://instance.couchappy.com/documents
+curl https://raw.githubusercontent.com/BeardandFedora/WriteOn/master/couchdb/setup.js | node /dev/stdin https://instance.couchappy.com/documents
 ```
 
-### Update Storee settings
+### Update WriteOn settings
 
-To configure Storee to use the CouchDB instance, change the in URL in `Menu` > `Settings` > `Advanced` > `CouchDB URL` to `https://instance.couchappy.com/documents`.
+To configure WriteOn to use the CouchDB instance, change the in URL in `Menu` > `Settings` > `Advanced` > `CouchDB URL` to `https://instance.couchappy.com/documents`.
 
 
-> Written with [Storee](https://storee.io/).
+> Written with [WriteOn](https://writeon.io/).

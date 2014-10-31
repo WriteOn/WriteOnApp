@@ -1,11 +1,11 @@
-Storee Theming Guide
+WriteOn Theming Guide
 =======================
 
-In **Storee**, a theme is pretty much a [LESS][1] file that overrides the default look and feel.
+In **WriteOn**, a theme is pretty much a [LESS][1] file that overrides the default look and feel.
 
 ### Create your special theme very quickly by following these steps
 
- 1. Fork **Storee** on [GitHub][2] and clone the repository locally.
+ 1. Fork **WriteOn** on [GitHub][2] and clone the repository locally.
 
  2. Install the development tools as described in the [Developer guide][3].
 
@@ -26,9 +26,9 @@ In **Storee**, a theme is pretty much a [LESS][1] file that overrides the defaul
  7. Commit, push, create a pull request and wait for publishing.
 
 
-> Written with [Storee](http://storee.io).
+> Written with [WriteOn](http://writeon.io).
 
 
   [1]: http://lesscss.org/
-  [2]: https://github.com/BeardandFedora/Storee
-  [3]: https://github.com/BeardandFedora/Storee/blob/master/doc/developer-guide.md#getting-started
+  [2]: https://github.com/BeardandFedora/WriteOn
+  [3]: https://github.com/BeardandFedora/WriteOn/blob/master/doc/developer-guide.md#getting-started

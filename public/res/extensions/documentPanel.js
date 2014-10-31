@@ -7,7 +7,7 @@ define([
     "fileSystem",
 ], function($, _, utils, Extension, folderList, fileSystem) {
 
-    var documentPanel = new Extension("documentPanel", 'Document Panel');
+    var documentPanel = new Extension("documentPanel", 'Story Panel');
 
     var fileMgr;
     documentPanel.onFileMgrCreated = function(fileMgrParameter) {

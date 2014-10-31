@@ -42,10 +42,10 @@
 				<ul class="nav pull-right title-container">
 					<li><div class="working-indicator"></div></li>
 					<li><a class="btn btn-success file-title-navbar" href="#"
-						title="Rename document"> </a></li>
+						title="Rename story"> </a></li>
 					<li><div class="input-file-title-container"><input type="text"
 						class="col-sm-4 form-control hide input-file-title"
-						placeholder="Document title" /></div></li>
+						placeholder="Story title" /></div></li>
 				</ul>
 			</div>
 		</div>
@@ -78,9 +78,9 @@
 		<div class="panel-content">
 			<div class="list-group">
 
-				<a href="viewer" title="PortaPubish Viewer"
+				<a href="viewer" title="WriteOn Viewer"
 					class="list-group-item">
-					<i class="icon-resize-full"></i> PortaPubish Viewer
+					<i class="icon-resize-full"></i> WriteOn Viewer
 				</a>
 
 			</div>
@@ -102,9 +102,9 @@
 	                </ul>
 					<ul class="nav">
 						<li><a href="#" class="action-sync-import-dialog-couchdb"><i
-							class="icon-provider-couchdb"></i> Open from CouchDB <sup class="text-danger">new</sup></a></li>
+							class="icon-provider-couchdb"></i> Open from CouchDB <sup class="text-danger">default</sup></a></li>
 						<li><a href="#" class="action-sync-export-dialog-couchdb"><i
-					        class="icon-provider-couchdb"></i> Save on CouchDB <sup class="text-danger">new</sup></a></li>
+					        class="icon-provider-couchdb"></i> Save on CouchDB <sup class="text-danger">default</sup></a></li>
 						<li><a href="#" class="action-sync-import-dropbox"><i
 							class="icon-provider-dropbox"></i> Open from Dropbox</a></li>
 						<li><a href="#" class="action-sync-export-dialog-dropbox"><i
@@ -188,21 +188,21 @@
 
 
 	<div class="document-panel">
-		<button class="btn toggle-button" title="Select document Ctrl+[ Ctrl+]">
+		<button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">
 			<i class="icon-folder-open"></i>
 		</button>
 		<div class="search-bar clearfix">
 			<ul class="nav">
 				<li><a href="#" class="action-create-file"><i
-						class="icon-file"></i> New document</a></li>
+						class="icon-file"></i> New story</a></li>
 				<li><a href="#" class="action-remove-file-confirm"><i
-						class="icon-trash"></i> Delete document</a></li>
+						class="icon-trash"></i> Delete story</a></li>
 				<li><a href="#" data-toggle="modal" data-target=".modal-document-manager"><i
-						class="icon-layers"></i> Manage documents</a></li>
+						class="icon-layers"></i> Manage stories</a></li>
 	        </ul>
 			<div class="input-group">
 				<span class="input-group-addon"><i class="icon-search"></i></span><input
-					type="text" class="form-control" placeholder="Find document" />
+					type="text" class="form-control" placeholder="Find story" />
 			</div>
 		</div>
 		<div class="panel-content">
@@ -219,7 +219,7 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"
 					aria-hidden="true">&times;</button>
-				<h2 class="modal-title">Manage documents</h2>
+				<h2 class="modal-title">Manage stories</h2>
 			</div>
 			<div class="modal-body">
 				<div></div>
@@ -248,7 +248,7 @@
 							class="folder-count"></span></a></li>
 				</ul>
 				<div class="list-group document-list"></div>
-				<p class="confirm-delete hide">The following documents will be
+				<p class="confirm-delete hide">The following stories will be
 					deleted locally:</p>
 				<p class="choose-folder hide">Please choose a destination
 					folder:</p>
@@ -405,7 +405,7 @@
 				<h2 class="modal-title">Import from URL</h2>
 			</div>
 			<div class="modal-body">
-				<p>Please provide a link to a Markdown document.</p>
+				<p>Please provide a link to a Markdown formatted story.</p>
 				<div class="form-horizontal">
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="input-import-url">URL</label>
@@ -522,7 +522,7 @@
 							for="input-sync-export-dropbox-path">File path</label>
 						<div class="col-sm-8">
 							<input type="text" id="input-sync-export-dropbox-path"
-								placeholder="/path/to/My Document.md" class="form-control">
+								placeholder="/path/to/My Story.md" class="form-control">
 							<span class="help-block"> File path is composed of both
 								folder and filename. </span>
 						</div>
@@ -531,8 +531,8 @@
 				<blockquote>
 					<b>Note:</b>
 					<ul>
-						<li>Dropbox file path does not depend on document title.</li>
-						<li>The title of your document will not be synchronized.</li>
+						<li>Dropbox file path does not depend on story title.</li>
+						<li>The title of your story will not be synchronized.</li>
 						<li>Destination folder must exist.</li>
 						<li>Any existing file at this location will be overwritten.</li>
 					</ul>
@@ -573,15 +573,15 @@
             </div>
             <div class="modal-body">
                 <p class="msg-default-couchdb hide alert alert-danger"><i class="icon-attention"></i> <b>Careful:</b>
-                    You're using the public CouchDB instance.
+                    You're using our public CouchDB instance.
                     <b>Anybody can open, edit and delete your files there!</b> To setup your own CouchDB instance <a
-                            target="blank" href="https://github.com/beardandfedora/portapublish/blob/master/doc/couchdb-setup.md">click
+                            target="blank" href="https://github.com/beardandfedora/WriteOn/blob/master/doc/couchdb-setup.md">click
                         here</a>.
                 </p>
 
                 <div class="form-horizontal byid-mode">
                     <div class="form-group">
-                        <label for="input-sync-import-couchdb-documentid" class="col-sm-3 control-label">Document
+                        <label for="input-sync-import-couchdb-documentid" class="col-sm-3 control-label">Story
                             ID</label>
 
                         <div class="col-sm-9">
@@ -609,10 +609,10 @@
                     <div class="list-group document-list list-mode"></div>
                 <div class="list-mode text-center">
                     <div class="please-wait"><b>Please wait...</b></div>
-                    <div class="no-document"><b>No document.</b></div>
-                    <button class="more-documents btn btn-link"><i class="icon-angle-double-down"></i> More documents!</button>
+                    <div class="no-document"><b>No story.</b></div>
+                    <button class="more-documents btn btn-link"><i class="icon-angle-double-down"></i> More stories</button>
                 </div>
-                <p class="delete-mode hide">The following documents will be
+                <p class="delete-mode hide">The following stories will be
                     removed from CouchDB:</p>
 
                 <div class="delete-mode list-group selected-document-list hide"></div>
@@ -646,9 +646,9 @@
             </div>
             <div class="modal-body">
                 <p class="msg-default-couchdb hide alert alert-danger"><i class="icon-attention"></i> <b>Careful:</b>
-                    You're using the public CouchDB instance.
+                    You're using our public CouchDB instance.
                     <b>Anybody can open, edit and delete your files there!</b> To setup your own CouchDB instance <a
-                            target="blank" href="https://github.com/beardandfedora/portapublish/blob/master/doc/couchdb-setup.md">click
+                            target="blank" href="https://github.com/beardandfedora/WriteOn/blob/master/doc/couchdb-setup.md">click
                         here</a>.
                 </p>
 
@@ -658,8 +658,8 @@
                 <blockquote>
                     <p><b>Tip:</b> You can use a
                     <a href="http://jekyllrb.com/docs/frontmatter/"
-                       target="_blank">YAML front matter</a> to specify tags for your document.</p>
-                    <p>Alternatively, you can place comma separated tags in square brackets at the beginning of the document title.</p>
+                       target="_blank">YAML front matter</a> to specify tags for your story.</p>
+                    <p>Alternatively, you can place comma separated tags in square brackets at the beginning of the story title.</p>
                 </blockquote>
             </div>
             <div class="modal-footer">
@@ -719,7 +719,7 @@
 							<input type="text" id="input-publish-ssh-host"
 								placeholder="hostname.or.ip" class="form-control"> <span
 								class="help-block"> Host must be accessible publicly,
-								unless you're hosting your own PortaPubish instance.
+								unless you're hosting your own WriteOn instance.
 							</span>
 						</div>
 					</div>
@@ -798,6 +798,14 @@
 							</div>
 						</div>
 					</div>
+					<div class="form-group modal-publish-ghost">
+						<label class="col-sm-4 control-label"
+							for="input-publish-ghost-url">Ghost URL</label>
+						<div class="col-sm-7">
+							<input type="text" id="input-publish-ghost-url"
+								placeholder="http://exemple.ghost.org/" class="form-control">
+						</div>
+					</div>
 					<div class="form-group modal-publish-blogger modal-publish-bloggerpage">
 						<label class="col-sm-4 control-label"
 							for="input-publish-blogger-url">Blog URL</label>
@@ -819,15 +827,14 @@
 							for="input-publish-tumblr-hostname">WordPress site</label>
 						<div class="col-sm-7">
 							<input type="text" id="input-publish-wordpress-site"
-								placeholder="exemple.wordpress.com" class="form-control">
+								placeholder="example.wordpress.com" class="form-control">
 							<span class="help-block"> <a target="_blank"
 								href="http://jetpack.me/">Jetpack plugin</a> is required for
 								self-hosted sites.
 							</span>
 						</div>
 					</div>
-					<div
-						class="form-group modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">
+					<div class="form-group modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">
 						<label class="col-sm-4 control-label" for="input-publish-postid">Update
 							existing post ID (optional)</label>
 						<div class="col-sm-7">
@@ -835,8 +842,7 @@
 								class="form-control">
 						</div>
 					</div>
-					<div
-						class="form-group modal-publish-bloggerpage">
+					<div class="form-group modal-publish-bloggerpage">
 						<label class="col-sm-4 control-label" for="input-publish-pageid">Update
 							existing page ID (optional)</label>
 						<div class="col-sm-7">
@@ -849,7 +855,7 @@
 							for="input-publish-dropbox-path">File path</label>
 						<div class="col-sm-7">
 							<input type="text" id="input-publish-dropbox-path"
-								placeholder="/path/to/My Document.html" class="form-control">
+								placeholder="/path/to/My Story.html" class="form-control">
 							<span class="help-block"> File path is composed of both
 								folder and filename. </span>
 						</div>
@@ -873,7 +879,7 @@
 							<input type="text" id="input-publish-gdrive-filename"
 								placeholder="Filename" class="form-control"> <span
 								class="help-block">If no file name is supplied, the
-								document title will be used.</span>
+								story title will be used.</span>
 						</div>
 					</div>
 
@@ -930,7 +936,7 @@
                     <p><b>Interpreted variables:</b> <code>title</code>.</p>
 				</blockquote>
 				<blockquote class="url-info modal-publish-bloggerpage">
-                    <p><b>About URL:</b> For newly created page , Blogger API will append a generated number to the url like <code>about-me-1234.html</code>, if you deeply care about your URL naming, you should first create the page on Blogger and then update them with PortaPubish specifying the pageId when publishing.
+                    <p><b>About URL:</b> For newly created page , Blogger API will append a generated number to the url like <code>about-me-1234.html</code>, if you deeply care about your URL naming, you should first create the page on Blogger and then update them with WriteOn specifying the pageId when publishing.
                     </p>
                     <p><b>About page visibility:</b> Blogger API does not respect published status for pages.When publishing the page to Blogger, the page will be <strong>live</strong> but not added to the page listing. You should arrange the page listing from Blogger dashboard.
                     </p>
@@ -988,7 +994,7 @@
             	</p>
                 <div class="share-editor-list"></div>
             	<blockquote>
-                    <p><b>Note:</b> To collaborate on this document, just <a
+                    <p><b>Note:</b> To collaborate on this story, just <a
                         href="#" class="action-sync-export-dialog-couchdb" data-dismiss="modal">save it on CouchDB</a>.
                     To collaborate via Google Drive or Dropbox, you have to share the file manually from Google Drive/Dropbox websites.</p>
             	</blockquote>
@@ -998,13 +1004,13 @@
             	</p>
                 <div class="share-viewer-list"></div>
             	<blockquote>
-                    <p><b>Note:</b> To share a read-only version of this document, just <a
+                    <p><b>Note:</b> To share a read-only version of this story, just <a
                         href="#" class="action-publish-gist" data-dismiss="modal">publish it as a Gist</a> in
                     Markdown format.</p>
             	</blockquote>
             	<blockquote>
-            		<p><b>Tip:</b> You can open any markdown URL within PortaPubish Viewer using <a
-            			href="viewer#!url=https://raw.github.com/beardandfedora/portapublish/master/README.md"
+            		<p><b>Tip:</b> You can open any markdown URL within WriteOn Viewer using <a
+            			href="viewer#!url=https://raw.github.com/beardandfedora/WriteOn/master/README.md"
             			title="Sharing example"><code>viewer#!url=</code></a>.</p>
             	</blockquote>
 			</div>
@@ -1228,7 +1234,7 @@
 									<div class="checkbox">
 									    <label>
 										    <input type="checkbox" id="input-settings-gdrive-full-access" />
-										    Allow PortaPubish to open any document in Google Drive
+										    Allow WriteOn to open any story in Google Drive
 										</label> <span class="help-block">Existing authorization has to be revoked in
 										<a href="https://www.google.com/settings/dashboard" target="_blank">Google Dashboard</a>
 										for this change to take effect.</span>
@@ -1241,9 +1247,9 @@
 									<div class="checkbox">
 									    <label>
 										    <input type="checkbox" id="input-settings-dropbox-full-access" />
-										    Allow PortaPubish to open any document in Dropbox
+										    Allow WriteOn to open any story in Dropbox
 										</label> <span class="help-block">If unchecked, access will be restricted to folder
-										<b>/Applications/PortaPubish</b> for existing files.</span>
+										<b>/Applications/WriteOn</b> for existing stories.</span>
 									</div>
 								</div>
 							</div>
@@ -1253,7 +1259,7 @@
 									<div class="checkbox">
 									    <label>
 										    <input type="checkbox" id="input-settings-github-full-access" />
-										    Allow PortaPubish to access private repositories in GitHub
+										    Allow WriteOn to access private repositories in GitHub
 										</label> <span class="help-block">Existing authorization has to be revoked in
 										<a href="https://github.com/settings/applications" target="_blank">GitHub settings</a>
 										for this change to take effect.</span>
@@ -1276,7 +1282,7 @@
 										class="form-control">
                                     <span class="help-block pull-right"><a
                                             target="blank"
-                                            href="https://github.com/beardandfedora/portapublish/blob/master/doc/couchdb-setup.md">Setup
+                                            href="https://github.com/beardandfedora/WriteOn/blob/master/doc/couchdb-setup.md">Setup
                                         your own CouchDB...</a></span>
                                 </div>
 							</div>
@@ -1285,14 +1291,14 @@
 					<div class="tab-pane" id="tabpane-settings-extensions">
 						<div class="panel-group accordion-extensions"></div>
 						<span class="help-block pull-right"><a target="_blank"
-							href="https://github.com/beardandfedora/portapublish/blob/master/doc/developer-guide.md#developer-guide">Create
+							href="https://github.com/beardandfedora/WriteOn/blob/master/doc/developer-guide.md#developer-guide">Create
 								your own extension...</a></span>
 					</div>
 					<div class="tab-pane" id="tabpane-settings-utils">
 						<div class="tab-pane-button-container">
 							<a href="#" class="btn btn-block btn-default action-welcome-file"
 								data-dismiss="modal"><i class="icon-help-circled"></i>
-								Hello World! document</a> <a href="#"
+								Hello World! readme</a> <a href="#"
 								class="btn btn-block btn-default action-welcome-tour"
 								data-dismiss="modal"><i
 								class="icon-help-circled"></i> Welcome tour</a>
@@ -1300,10 +1306,10 @@
 						<div class="tab-pane-button-container">
 							<a href="#"
 								class="btn btn-block btn-default action-import-docs-settings"><i
-								class="icon-cog-alt"></i> Import docs & settings</a> <a href="#"
+								class="icon-cog-alt"></i> Import stories & settings</a> <a href="#"
 								class="btn btn-block btn-default action-export-docs-settings"
 								data-dismiss="modal"><i class="icon-cog-alt"></i>
-								Export docs & settings</a> <input type="file"
+								Export stories & settings</a> <input type="file"
 								id="input-file-import-docs-settings" class="hide">
 						</div>
 						<div class="tab-pane-button-container">
@@ -1314,7 +1320,7 @@
 								data-dismiss="modal" data-toggle="modal"
 								data-target=".modal-app-reset"><i
 								class="icon-fire"></i> Reset application</a> <a target="_blank" href="recovery.html" class="btn btn-block btn-default"><i
-								class="icon-medkit"></i> PortaPubish recovery</a>
+								class="icon-medkit"></i> WriteOn recovery</a>
 						</div>
 					</div>
 				</div>
@@ -1338,10 +1344,10 @@
 				<h2 class="modal-title">Ooops...</h2>
 			</div>
 			<div class="modal-body">
-				<p>PortaPubish has stopped because another instance was running in
+				<p>WriteOn has stopped because another instance was running in
 					the same browser.</p>
 				<blockquote>
-                    <p>If you want to reopen PortaPubish, click on
+                    <p>If you want to reopen WriteOn, click on
 					"Reload".</p>
                 </blockquote>
 			</div>
@@ -1384,7 +1390,7 @@
 				<h2 class="modal-title">Reset application</h2>
 			</div>
 			<div class="modal-body">
-				<p>This will delete all your local documents.</p>
+				<p>This will delete all your local stories.</p>
 				<blockquote><b>Are you sure?</b></blockquote>
 			</div>
 			<div class="modal-footer">
@@ -1402,10 +1408,10 @@
 		<div class="modal-content">
 
 			<div class="modal-header">
-				<h2 class="modal-title">Import documents and settings</h2>
+				<h2 class="modal-title">Import stories and settings</h2>
 			</div>
 			<div class="modal-body">
-				<p>This will delete all existing local documents.</p>
+				<p>This will delete all existing local stories.</p>
 				<blockquote><b>Are you sure?</b></blockquote>
 			</div>
 			<div class="modal-footer">
@@ -1426,7 +1432,7 @@
 				<h2 class="modal-title">Add Google Drive account</h2>
 			</div>
 			<div class="modal-body">
-				<p>To perform this request, you need to configure another Google Drive account in PortaPubish.</p>
+				<p>To perform this request, you need to configure another Google Drive account in WriteOn.</p>
 				<blockquote><b>Do you want to proceed?</b></blockquote>
 			</div>
 			<div class="modal-footer">
@@ -1445,12 +1451,12 @@
 		<div class="modal-content">
 
 			<div class="modal-header">
-				<h2 class="modal-title">Sponsor only!</h2>
+				<h2 class="modal-title">Sponsors only</h2>
 			</div>
 			<div class="modal-body">
 				<p>This feature is restricted to sponsor users as it's a web service hosted on Amazon EC2.
-                    Note that sponsoring PortaPubish would cost you only $5/year.</p>
-				<p>To see how a PDF looks <a target="_blank" href="/Welcome%20document.pdf">click here</a>.</p>
+                    Note that sponsoring WriteOn would cost you only $3/month.</p>
+				<p>To see how a PDF looks <a target="_blank" href="/Welcome%story.pdf">click here</a>.</p>
 				<blockquote>
                     <p><b>Tip:</b> PDFs are fully customizable via Settings>Advanced>PDF template/options.</p>
                 </blockquote>
@@ -1464,4 +1470,4 @@
 </div>
 
 
-<div id="dropboxjs" data-app-key="x0k2l8puemfvg0o"></div>
+<div id="dropboxjs" data-app-key="r3vgaee214zfvc7"></div>

@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://storee.io/</loc>
+        <loc>https://writeon.io/</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://storee.io/editor</loc>
+        <loc>https://writeon.io/editor</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://storee.io/viewer</loc>
+        <loc>https://writeon.io/viewer</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://storee.io/privacy_policy.html</loc>
+        <loc>https://writeon.io/privacy_policy.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://storee.io/recovery.html</loc>
+        <loc>https://writeon.io/recovery.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>

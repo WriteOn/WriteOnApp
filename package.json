@@ -1,8 +1,8 @@
 {
-  "name": "storee",
+  "name": "WriteOn",
   "version": "4.3.1",
   "private": true,
-  "description": "the world's finest tiny typewriter.",
+  "description": "Write without distraction and publish without effort.",
   "main": "res/main.js",
   "engines": {
     "node": "0.10.x"
@@ -34,18 +34,19 @@
     "knox": "^0.9.1",
     "mime": "^1.2.11",
     "event-stream": "^3.1.7",
-    "gulp-shell": "~0.2.10"
+    "gulp-shell": "~0.2.10",
+    "gulp-debug": "~1.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/BeardandFedora/Storee.git"
+    "url": "git://github.com/BeardandFedora/WriteOn.git"
   },
-  "author": "Benoit Schweblin",
+  "author": "Beard & Fedora",
   "license": "Apache License",
   "bugs": {
-    "url": "https://github.com/BeardandFedora/Storee/issues"
+    "url": "https://github.com/BeardandFedora/WriteOn/issues"
   }
 }

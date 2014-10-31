@@ -2,8 +2,8 @@
 <html>
 
     <head>
-        <title>Storee - Recovery</title>
-        <link rel="canonical" href="https://storee.io/">
+        <title>WriteOn - Recovery</title>
+        <link rel="canonical" href="https://writeon.io/">
         <link rel="icon" href="res-min/img/typewriter-icon-32.ico" type="image/x-icon">
         <link rel="shortcut icon" href="res-min/img/typewriter-icon-32.ico" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,9 +27,9 @@
                 }
                 var failure = false;
                 try {
-                    // Try to use Storee dependencies to save a file
+                    // Try to use WriteOn dependencies to save a file
                     var utils = require('utils');
-                    utils.saveAs(JSON.stringify(localStorage), "Storee local storage.json");
+                    utils.saveAs(JSON.stringify(localStorage), "WriteOn local storage.json");
                 }
                 catch (e) {
                     // Try something safer
@@ -113,16 +113,16 @@
     <body>
         <div class="container">
             <br/>
-            <a href="https://storee.io/">
+            <a href="https://writeon.io/">
             <img src="res-min/img/logo.svg" width="320" />
             </a>
-            <h3>Storee recovery</h3>
+            <h3>WriteOn recovery</h3>
             <p>
-                <strong>The download of your documents and settings will start in <span id="timer">5</span> seconds...</strong>
+                <strong>The download of your stories and settings will start in <span id="timer">5</span> seconds...</strong>
             </p>
-            <p>To import your documents and settings back in Storee:</p>
+            <p>To import your stories and settings back in WriteOn:</p>
             <blockquote>
-                <i class="icon-provider-stackedit"></i>
+                <i class="icon-provider-writeon"></i>
                 <code>Menu</code>
                 <i class="icon-angle-right"></i>
                 <i class="icon-cog"></i>
@@ -135,7 +135,7 @@
             </blockquote>
             <p class="download-success hide text-primary">
                 <strong>
-                    <i class="icon-ok"></i>Documents and settings have been downloaded successfully.</strong>
+                    <i class="icon-ok"></i>Stories and settings have been downloaded successfully.</strong>
             </p>
             <p class="download-failure hide text-danger">
                 <strong>
@@ -144,13 +144,13 @@
             <p>
                 <textarea class="download-failure hide form-control" rows="10"></textarea>
             </p>
-            <p class="download-success download-failure hide">To remove one document from the local storage
+            <p class="download-success download-failure hide">To remove one story from the local storage
                 <a href="javascript:void(0)" onclick="show(document.querySelector('.file-list'))">click here</a>.</p>
             <p class="file-list hide"></p>
             <p class="download-success download-failure hide">To fully clear the local storage
                 <a href="javascript:void(0)" onclick="clearLocalStorage()">click here</a>.</p>
-            <p class="download-success download-failure hide">To reopen Storee
-                <a href="https://storee.io/">click here</a>.</p>
+            <p class="download-success download-failure hide">To reopen WriteOn
+                <a href="https://writeon.io/">click here</a>.</p>
         </div>
     </body>
 

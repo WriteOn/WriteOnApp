@@ -6,7 +6,7 @@ define([
 	'bootstrap-tour'
 ], function(_, $, storage, Extension, Tour) {
 
-	var welcomeTour = new Extension('welcomeTour', 'Welcome tour', false, true);
+	var welcomeTour = new Extension('welcomeTour', 'Welcome Tour', false, true);
 
 	var eventMgr;
 	welcomeTour.onEventMgrCreated = function(eventMgrParam) {
@@ -61,18 +61,18 @@ define([
 		tour.addSteps([
 			{
 				element: '.navbar-inner',
-				title: 'Storee 4 is ready',
+				title: 'WriteOn is ready',
 				content: [
-					'<p>Hi there. Storee keeps getting better.</p>',
+					'<p>Hi there. Since you\'re new here, take a look.</p>',
 					'Please click <b>Next</b> to take a quick tour.'
 				].join(""),
 				placement: 'bottom'
 			},
 			{
 				element: '.document-panel .toggle-button',
-				title: 'Documents',
+				title: 'Stories',
 				content: [
-					'<p>The <i class="icon-folder-open"></i> <b>document panel</b> allows you to manage your local stories.</p>',
+					'<p>The <i class="icon-folder-open"></i> <b>story panel</b> allows you to manage your local stories.</p>',
 					'<b>Tip:</b> Use <kbd>Ctrl+[</kbd> and <kbd>Ctrl+]</kbd> to toggle stories.'
 				].join(""),
 				placement: 'left',
@@ -82,8 +82,8 @@ define([
 				element: '.menu-panel .toggle-button',
 				title: 'Menu',
 				content: [
-					'<p>The <i class="icon-provider-stackedit"></i> <b>menu panel</b> allows you to synchronize your stories on <i class="icon-provider-couchdb"></i> CouchDB,  <i class="icon-provider-gdrive"></i> Google Drive, <i class="icon-provider-dropbox"></i> Dropbox or to publish them on <i class="icon-provider-github"></i> GitHub, <i class="icon-provider-ghost"></i> Ghost, <i class="icon-provider-blogger"></i> Blogger...</p>',
-					'<b>Tip:</b> Use the <i class="icon-provider-stackedit"></i> <b>menu panel</b> to access the settings.'
+					'<p>The <i class="icon-provider-writeon"></i> <b>menu panel</b> allows you to synchronize your stories on <i class="icon-provider-couchdb"></i> CouchDB,  <i class="icon-provider-gdrive"></i> Google Drive, <i class="icon-provider-dropbox"></i> Dropbox or to publish them on <i class="icon-provider-github"></i> GitHub, <i class="icon-provider-ghost"></i> Ghost, <i class="icon-provider-blogger"></i> Blogger...</p>',
+					'<b>Tip:</b> Use the <i class="icon-provider-writeon"></i> <b>menu panel</b> to access the settings.'
 				].join(""),
 				placement: 'right',
 				reflex: true
@@ -92,7 +92,7 @@ define([
 				element: '.navbar-inner > .nav .button-open-discussion, .navbar .buttons-dropdown > .nav > .btn:not(:hidden)',
 				title: 'Comments/discussions',
 				content: [
-					'<p>New in Storee 4: the <i class="icon-comment-alt"></i> <b>comments</b> button lets you create inline discussions!</p>',
+					'<p>Now in WriteOn: the <i class="icon-comment-alt"></i> <b>comments</b> button lets you create inline discussions!</p>',
 					'<b>Tip:</b> Reopen the Hello World! document from Settings>Utils to discover other new features.'
 				].join(""),
 				placement: 'right',
@@ -100,10 +100,10 @@ define([
 			},
 			{
 				element: '.navbar-inner',
-				title: 'Happy Typing!',
+				title: 'Happy Writing!',
 				content: [
-					'<p>Enjoy, and don\'t forget to rate 5 stars on the <a target="_blank" href="https://chrome.google.com/webstore/detail/storee/[token]/reviews">Chrome Web Store</a>...</p>',
-					'<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://storee.io" data-text="World\'s finest tiny typewriter!" data-via="stackedit" data-size="large"></a>'
+					'<p class="hide">Enjoy, and don\'t forget to rate 5 stars on the <a target="_blank" href="https://chrome.google.com/webstore/detail/writeon/[baf_writeon_app_token]/reviews">Chrome Web Store</a>...</p>',
+					'<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://writeon.io" data-text="Write without distraction and publish without efforts." data-via="writeon" data-size="large"></a>'
 				].join(""),
 				placement: 'bottom',
 				onShown: function() {

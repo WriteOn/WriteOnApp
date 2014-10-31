@@ -16,7 +16,7 @@ define([
 	};
 
 	var monetize = new MonetizeJS({
-		applicationID: 'ESTHdCYOi18iLhhO'
+		applicationID: '5d7PNYmOeEl4ANys'
 	});
 
 	dialogAbout.onReady = function() {

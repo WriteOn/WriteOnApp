@@ -7,10 +7,10 @@ var serveStatic = require('serve-static');
 app.set('views', __dirname + '/../views');
 app.engine('html', require('ejs').renderFile);
 
-// Force HTTPS on storee.io
+// Force HTTPS on writeon.io
 app.all('*', function(req, res, next) {
-	if (req.headers.host == 'storee.io' && req.headers['x-forwarded-proto'] != 'https') {
-		return res.redirect('https://storee.io' + req.url);
+	if (req.headers.host == 'writeon.io' && req.headers['x-forwarded-proto'] != 'https') {
+		return res.redirect('https://writeon.io' + req.url);
 	}
 	/\.(eot|ttf|woff|svg)$/.test(req.url) && res.header('Access-Control-Allow-Origin', '*');
 	next();

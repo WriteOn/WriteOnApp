@@ -1,4 +1,4 @@
-Storee - The world's finest tiny typewriter.
+WriteOn - Write without distraction, publish without effort.
 
-Copyright 2014 Beard & Fedora (http://www.beardandfedora.com)
+Copyleft 2014 Beard & Fedora (http://www.beardandfedora.com)
 Licensed under an Apache License (http://www.apache.org/licenses/LICENSE-2.0)

@@ -1,7 +1,7 @@
 {
-  "name": "storee",
+  "name": "WriteOn",
   "version": "4.3.1",
-  "description": "the world's finest tiny typewriter",
+  "description": "WriteOn let's you write without distraction, and publish without effort.",
   "dependencies": {
     "bootstrap": "3.0.3",
     "jquery": "2.0.3",

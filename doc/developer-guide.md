@@ -8,8 +8,9 @@ Getting started
 
 - [Git][1]
 - [node.js/npm][2]
-- [Gulp][3]
+- [Gulp][3] (good-bye [Grunt][62])
 - [Bower][4]
+- [It's All Chinese To Me][61]
 
 ### Before debugging
 
@@ -21,21 +22,26 @@ Getting started
 
 		bower install
 
-- Serve **Storee** at `http://localhost/` or online with Codio at `http://your-box.codio.io`:
+- Serve **WriteOn** at `http://localhost/` or online with Codio at `http://your-box.codio.io`:
 
-		(export PORT=80 && node server.js)
+		export PORT=80 && node server.js     # localhost (http)
         
-        (export PORT=3000 && node server.js)
+        export PORT=3000 && node server.js   # codio IDE (http)
+        
+        export PORT=9500 && node server.js   # codio IDE (https)
 		
-- Run **Storee** in debug mode (no application cache, serve original files instead of minified):
+- Run **WriteOn** in debug mode (no application cache, serve original files instead of minified - does not work in PROD):
 
 		http://localhost/?debug
         
         http://your-box.codio.io:3000/?debug
 
+        http://beta.writeon.io/?debug
+
+
 ### Add new dependencies
 
-> **NOTE:** Storee uses [RequireJS][5] for asynchronous module definition ([AMD][6]).
+> **NOTE:** WriteOn uses [RequireJS][5] for asynchronous module definition ([AMD][6]).
 
 - Install new dependencies using [Bower][7]:
 
@@ -49,17 +55,47 @@ Getting started
 
 	gulp
 	
+### Independent Build/Minify Steps
+
+	gulp constants # builds constants
+    gulp jshint # builds javascript sources
+    gulp clean-requirejs # removes requireJS modules (./public/res-min/main.js, ./public/res-min/require.js)
+    gulp copy-requirejs # builds requireJS modules
+    gulp requirejs # performs clean-requirejs + copy-requirejs and builds LESS, MathJax, etc.
+    gulp bower-requirejs # SEE note above, requires adding module to bower using --save
+    gulp clean-less # removes ./public/res-min/themes/*.css files
+    gulp less # builds & compresses all LESS ./public/res/styles/base.less + ./public/res/themes/*
+    gulp clean-font # removes all fonts from ./public/res-min/font
+    gulp copy-font # removes and builds fonts    
+    gulp clean-img # removes all images from ./public/res-min/img
+    gulp copy-img # removes and builds images
+    gulp cache-manifest # cleans and builds the cache manifest
+    gulp clean # cleans out all of the above clean tasks
+    gulp default # basic build of the project
+    gulp bump-patch # apply a patch (see https://github.com/webjay/node-bump)
+    gulp bump-minor # apply a minor version
+    gulp bump-major # apply a major version 
+    gulp git-tag # creates a tagged commit & pushes...
+      # Performs git add ./public/res-min, git commit -a -m "Prepare release", git tag -a '_tag_', git push __endpoint__ master --tags
+    gulp patch # runs releaseTask('patch')
+    gulp minor # runs releaseTask('minor')
+    gulp major # runs releaseTask('major')
+    
+    
+    
+    
+
 ### Deployment (also will be used for instance automation)
 
 - on Heroku:
 
-        heroku create `Storee-instance`
+        heroku create `WriteOn-instance`
         git push heroku master
 
 - in a Docker container:
 
-        docker build -t `my-Storee-image` .
-        docker run -p 3000 `my-Storee-image`
+        docker build -t `my-WriteOn-image` .
+        docker run -p 3000 `my-WriteOn-image`
 
 > **NOTE:** OAuth authorizations work out of the box for address `http://localhost/` except for WordPress. To allow another address, we have to add specific keys at the end of `constants.js` and eventually to set up specific proxies with the corresponding key/secret pairs ([WordPress Proxy][9], [Tumblr Proxy][10] and [Gatekeeper][11]).
 
@@ -106,7 +142,7 @@ The `core` module is responsible for:
 > **NOTE:** This is preferred over [jQuery's `.ready()`][17] because it ensures that all AMD modules are loaded by [RequireJS][18].
 
 - `runPeriodically(callback)`: sets a callback to be called every second.
-> **NOTE:** The callback will not run if the user is inactive or in Storee Viewer. User is considered inactive after 5 minutes of inactivity (mouse or keyboard).
+> **NOTE:** The callback will not run if the user is inactive or in WriteOn Viewer. User is considered inactive after 5 minutes of inactivity (mouse or keyboard).
 
 - `setOffline()`: can be called by any other modules when a network timeout occurs for instance.
 > **NOTE:** the offline status is also set by detecting the window `offline` event. `core.isOffline` is automatically set to `false` when the network is recovered.
@@ -224,7 +260,7 @@ The `eventMgr` module is responsible for receiving and dispatching events. Below
 Most events (those that are not triggered by the `eventMgr` module) can be triggered by calling methods of the same name in the `eventMgr` module. For example:
 
 ```js
-eventMgr.onMessage('Storee is awesome!');
+eventMgr.onMessage('WriteOn is awesome!');
 ```
 
 The method `addListener(eventName, callback)` of the `eventMgr` module can be used to listen to these events (except those that can only be handled by `Extension` modules). For example:
@@ -595,7 +631,7 @@ myExtension.onMessage = function(message) {
 
 
 
-> Written with [Storee](https://Storee.io/).
+> Written with [WriteOn](https://writeon.io/).
 
 
   [1]: http://git-scm.com/
@@ -606,10 +642,10 @@ myExtension.onMessage = function(message) {
   [6]: http://en.wikipedia.org/wiki/Asynchronous_module_definition "Asynchronous module definition"
   [7]: http://bower.io/
   [8]: http://requirejs.org/ "RequireJS"
-  [9]: https://github.com/BeardandFedora/Storee-Wordpress-Proxy
-  [10]: https://github.com/BeardandFedora/Storee-Tumblr-Proxy
+  [9]: https://github.com/BeardandFedora/WriteOn-Wordpress-Proxy
+  [10]: https://github.com/BeardandFedora/WriteOn-Tumblr-Proxy
   [11]: https://github.com/prose/gatekeeper
-  [12]: https://lh6.googleusercontent.com/-sr6zRtyaoUk/Un5qSakOzPI/AAAAAAAAFC0/oI5If5fI9Gw/s0/StackEdit%252520architecture%252520-%252520New%252520Page%252520%2525283%252529.png "Storee architecture"
+  [12]: http://mammal-charter.codio.io/doc/img/architecture.png "WriteOn architecture"
   [13]: #module-injection
   [14]: http://layout.jquery-dev.net/ "UI Layout"
   [15]: http://ace.c9.io
@@ -658,3 +694,5 @@ myExtension.onMessage = function(message) {
   [58]: #filedescriptor
   [59]: #filedescriptor
   [60]: #filedescriptor
+  [61]: https://github.com/fex-team/agroup/tree/master
+  [62]: http://gruntjs.com

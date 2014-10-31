@@ -4,7 +4,7 @@ define([
     "classes/Extension"
 ], function($, _, Extension) {
 
-    var documentTitle = new Extension("documentTitle", "Document Title");
+    var documentTitle = new Extension("documentTitle", "Story Title");
 
     var fileDesc;
     var $fileTitleNavbar;

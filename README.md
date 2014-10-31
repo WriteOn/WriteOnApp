@@ -1,16 +1,32 @@
-Storee
+WriteOn
 =========
-Welcome to Storee, the world's finest tiny typewriter. Storee is for story makers and writers who are looking for a clean, consistent and secure writing experience that helps you write and publish your stories, articles, documents and files across the web. 
+Welcome to WriteOn. WriteOn let's you write without distraction, and publish without effort. 
+WriteOn is for story makers and writers who are looking for a clean, consistent and secure writing experience that helps you write and publish your stories, articles, documents and files across the web. 
 
-**Main showcase:** https://mammal-charter.codio.io:9500.
+> "This is what I want to write ABAA on."
+>    
+> "This is titties."
+>
+>   ~ Tyer Goelz - The first writer to use WriteOn
+
+> "I like the other tools, I do. But this is what I use; and, it's perfectly adapted for a young student who is new to technology."
+> 
+>   ~ Nicole Stock - The first teacher to use WriteOn
+
+> "I still don't remember you saying it was addictive. It's all that I use to write, and I know several more of us - personally - that are still trying to get invite codes."
+> 
+>   ~ The first journalist to use WriterOn.
+
+
+### **Main showcase:** https://mammal-charter.codio.io:9500.
 
 
 > **Note:**
 >
 > - Documents are stored in the [browser's local storage][1], which means they are not shared between different browsers/computers. Clearing your browser's data may delete all your local documents.
-> - Full access to CouchDB, Dropbox or Google Drive is required to be able to import any document in Storee. Imported documents are downloaded in your browser and are not transmitted to a server.
+> - Full access to CouchDB, Dropbox or Google Drive is required to be able to import any document in WriteOn. Imported documents are downloaded in your browser and are not transmitted to a server.
 
-### With Storee, You Can:
+### With WriteOn, You Can:
 
  - Write your stories seamlessly, safely, and securely - online or offline
  - Manage multiple stories, online or offline
@@ -43,12 +59,12 @@ Welcome to Storee, the world's finest tiny typewriter. Storee is for story maker
  - [Developer guide][3]
  - [Themer guide][4]
 
-> **NOTE:** This page has been written and published with [Storee][5].
+> **NOTE:** This page has been written and published with [WriteOn][5].
 
 
   [1]: https://developer.mozilla.org/en-US/docs/Web/Guide/DOM/Storage#localStorage
-  [2]: https://github.com/BeardandFedora/Storee/blob/master/public/res/WELCOME.md#welcome-to-portapublish---welcome "Welcome document"
-  [3]: https://github.com/BeardandFedora/Storee/blob/master/doc/developer-guide.md#developer-guide "Developer guide"
-  [4]: https://github.com/BeardandFedora/Storee/blob/master/doc/theming.md#portapublish-theming-guide "Theming guide"
-  [5]: https://storee.io/ "Storee"
+  [2]: https://github.com/BeardandFedora/WriteOn/blob/master/public/res/WELCOME.md#welcome-to-writeon---welcome "Welcome document"
+  [3]: https://github.com/BeardandFedora/WriteOn/blob/master/doc/developer-guide.md#developer-guide "Developer guide"
+  [4]: https://github.com/BeardandFedora/WriteOn/blob/master/doc/theming.md#writeon-theming-guide "Theming guide"
+  [5]: https://writeon.io/ "WriteOn"
 

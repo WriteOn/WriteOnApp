@@ -56,6 +56,7 @@ exports.export = function(req, res, next) {
 		res.statusCode = 408;
 		res.end('Request timeout');
 	}
+    // monetizeJS payments: http://api.monetizejs.com/
 	request({
 		uri: 'https://monetizejs.com/api/payments',
 		qs: {
@@ -63,9 +64,9 @@ exports.export = function(req, res, next) {
 		},
 		json: true
 	}, function (err, paymentsRes, payments) {
-		var authorized = payments && payments.app == 'ESTHdCYOi18iLhhO' && (
+		var authorized = payments && payments.app == '5d7PNYmOeEl4ANys' && (
 			(payments.chargeOption && payments.chargeOption.alias == 'once') ||
-			(payments.subscriptionOption && payments.subscriptionOption.alias == 'yearly'));
+			(payments.subscriptionOption && payments.subscriptionOption.alias == 'monthly'));
 		if(err || paymentsRes.statusCode != 200 || !authorized) {
 			return onUnauthorizedError();
 		}

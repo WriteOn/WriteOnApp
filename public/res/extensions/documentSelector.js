@@ -9,7 +9,7 @@ define([
     "text!html/documentSelectorSettingsBlock.html",
 ], function($, _, crel, utils, Extension, mousetrap, fileSystem, documentSelectorSettingsBlockHTML) {
 
-    var documentSelector = new Extension("documentSelector", 'Document Selector', true);
+    var documentSelector = new Extension("documentSelector", 'Story Selector', true);
     documentSelector.settingsBlock = documentSelectorSettingsBlockHTML;
     documentSelector.defaultConfig = {
         orderBy: "mru",

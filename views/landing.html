@@ -2,15 +2,15 @@
 <html<%- cache ? ' manifest="cache.manifest"' : '' %>>
 
 <head>
-    <title>Storee – The world's finest tiny typewriter</title>
-    <link rel="canonical" href="https://storee.io/">
+    <title>WriteOn – Write without distraction, publish without effort.</title>
+    <link rel="canonical" href="https://writeon.io/">
     <link rel="icon" href="/res-min/img/typewriter-icon-32.ico" type="image/x-icon">
     <link rel="shortcut icon" href="res-min/img/typewriter-icon-32.ico" type="image/x-icon">
     <meta name="description"
           content="The world's finest tiny typewriter.">
     <meta name="author" content="Beard & Fedora">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="/res-min/themes/default.css">
+    <link rel="stylesheet" href="/res-min/themes/blue.css">
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <style>
         body {
@@ -83,6 +83,16 @@
             top: 80px;
             right: 10px;
             font-size: 22px;
+        }
+        h2 {
+            margin: .8em 0 !important;
+        }
+        .icon-provider-couchdb {
+            background-position: -325px 0;
+            width: 34px;
+            height: 34px;
+            margin-left: 0;
+            background-image: url("res-min/img/icons2x.png");
         }
 
         @media (min-width: 600px) {
@@ -175,8 +185,12 @@
             height: 240px;
         }
 
-        .markdown-img {
-            height: 150px;
+        .offline-img {
+            background-image: url(res-min/img/offline-editor.png);
+            background-size: auto 260px;
+            background-repeat: no-repeat;
+            background-position: 30%;
+            height: 206px;
         }
 
         hr {
@@ -205,6 +219,7 @@
                 };
             }
 
+            // hey beard, i know you like smooth scrolling
             $('#scrollToSlide2').click(scrollTo($('#slide2')));
         })
     </script>
@@ -216,23 +231,21 @@
         <div class="navbar navbar-default navbar-fixed">
             <div class="navbar-inner">
                 <div class="nav">
-                    <a class="btn btn-success file-title-navbar" href="editor" title="Editor"><i class="icon-pencil"></i> Start writing
-                        now!</a>
+                    <a class="btn btn-success file-title-navbar" href="editor" title="Writer"><i class="icon-pencil"></i> Start writing now <sup class="text-danger">Beta</sup></a>
                 </div>
             </div>
         </div>
         <div class="centered logo transition transparent scale">
-            <img src="res-min/img/logo.svg"/>
+            <img src="res-min/img/logo.svg"/> 
 
             <div class="subtitle transition transparent scale">
-                In-browser story editor<br>
+                Write without distraction, publish without effort.<br>
 
                 <div class="social">
-                    <a href="https://twitter.com/beardandfedora" target="_blank"><i class="icon-twitter"></i></a>
-                    <a href="https://github.com/BeardandFedora/Storee" target="_blank"><i
-                            class="icon-github-circled"></i></a>
-                    <a href="https://monetizejs.com/authorize?client_id=none_yet_not_working&summary=true"
-                       target="_blank "class="hide"><img src="res-min/img/button.svg"></a>
+                    <a href="https://github.com/organizations/BeardandFedora/settings/applications" target="_blank"><i class="icon-github-circled"></i></a>
+                    <a href="https://console.developers.google.com/project/civil-parsec-748/apiui/api" target="_blank"><i class="icon-refresh"></i></a>
+                    <a href="https://beardandfedora.couchappy.com/_utils/fauxton" target="_blank"><i class="icon-provider-couchdb"></i></a>
+                    <sup class="text-danger">Beta</sup>
                 </div>
             </div>
         </div>
@@ -261,15 +274,16 @@
                     <img class="img modal-content" width="600" src="res-min/img/syntax-highlighting.gif">
                 </div>
                 <div class="col-md-4 col-md-offset-1">
-                    <h2 id="rich-markdown-editor">Rich markdown writer</h2>
+                    <h2 id="rich-markdown-editor">Rich, yet minimalistic</h2>
 
-                    <p>Storee’s markdown syntax highlighting is fast, easy and unique. The refined text formatting of the editor
-                        helps you visualize the final rendering of your story.</p>
+                    <p>WriteOn is an in-browser story editor which is fast, easy and unique. The refined text editor of WriteOn
+                        helps you focus on your writing, while visualizing the shape of it in real time.</p>
                     <br>
 
-                    <h2 id="wysiwyg-control-buttons">WYSIWYG controls</h2>
+                    <h2 id="wysiwyg-control-buttons">Just enough control</h2>
 
-                    <p>Storee provides very handy formatting buttons and shortcuts.</p>
+                    <p>WriteOn provides a set of very handy formatting buttons and shortcuts in a what-you-see-is-what-you-get (WYSIWYG) editor. 
+                        WriteOn has the just the right number of controls to let you focus on writing, not formatting.</p>
                 </div>
             </div>
             <div class="row">
@@ -284,8 +298,9 @@
                 <div class="col-md-6 col-md-offset-3">
                     <h2 id="live-preview-with-scroll-sync" class="text-center">Live preview with Scroll Sync</h2>
 
-                    <p>Storee’s Scroll Sync extension accurately binds the scrollbars of the editor panel and the
-                        preview panel to ensure that you always keep an eye on the output while writing.</p>
+                    <p>WriteOn’s <i>Scroll Sync</i> feature lets you write and view your story at the same time. It does this through an
+                        optional preview panel that allows you to keep an eye on the final output while still writing. It's like an old
+                    typewriter, but more modern and accustomed to <strong>your</strong> writing style.</p>
                 </div>
             </div>
             <br>
@@ -298,14 +313,14 @@
                 <div class="col-md-4 col-md-offset-1">
                     <h2 id="built-in-spell-checking">Built-in spell checking</h2>
 
-                    <p>Storee uses browser’s built-in spell-checker to perform efficient, multi-language
+                    <p>WriteOn uses your browser’s built-in spell-checker to perform efficient, multi-language
                         spell-checking and correction suggestions.</p>
                 </div>
                 <div class="col-md-4 col-md-offset-2">
                     <h2 id="fully-customizable">Fully customizable</h2>
 
-                    <p>Storee offers infinite combinations of settings. Theme, layout, shortcuts can be
-                        personalized. For the hacker, Storee gives you the freedom to make your own extension.</p>
+                    <p>WriteOn offers infinite combinations of settings. Theme, layout, shortcuts and formatting controls can all be
+                        personalized. For the technical savvy, WriteOn gives you the freedom to make your own extension.</p>
                 </div>
             </div>
             <br>
@@ -338,10 +353,10 @@
                 <div class="col-md-4 col-md-offset-1">
                     <br>
 
-                    <h2 id="straight-to-your-blog">Straight to your blog</h2>
+                    <h2 id="straight-to-your-blog">Publish to the web</h2>
 
-                    <p>Storee can upload your stories directly to Ghost, Blogger, GitHub, Tumblr, WordPress and more. You can
-                        choose whether to upload in markdown format, HTML, or to format the output using the Underscore template engine.</p>
+                    <p>WriteOn can upload your stories directly to Ghost, Blogger, GitHub, Tumblr, WordPress and more. You can
+                        choose whether to upload in markdown format, HTML, or to format the output using the WriteOn template engine.</p>
 
                 </div>
             </div>
@@ -362,8 +377,8 @@
                 <div class="col-md-4">
                     <h2 id="simultaneous-collaboration">Simultaneous collaboration</h2>
 
-                    <p>Documents in Storee can be synchronized and shared natively, or through Google Drive and Dropbox. When two
-                        collaborators are working on the same document at the same time, Storee takes care of merging
+                    <p>Documents in WriteOn can be synchronized and shared natively, or through Google Drive and Dropbox. When two
+                        collaborators are working on the same document at the same time, WriteOn takes care of merging
                         the modifications.</p>
                 </div>
                 <div class="col-md-7 col-md-offset-1">
@@ -380,8 +395,8 @@
 
                     <h2 id="review-comments">Review comments</h2>
 
-                    <p>Storee allows you to insert inline comments and embed collaborator discussions in your
-                        documents, much like Google Docs.</p>
+                    <p>WriteOn allows you to insert inline comments and embed editorial or collaborator discussions in your
+                        stories, much like Google Docs or other modern word processors.</p>
                 </div>
             </div>
             <br>
@@ -398,8 +413,8 @@
                 <div class="col-md-6 col-md-offset-3">
                     <h2 id="write-offline" class="text-center">Write offline</h2>
 
-                    <p>Even when you travel or on location, Storee is still accessible and lets you write offline just like any
-                        desktop application. </p>
+                    <p>Even when you travel or are on location, WriteOn is still accessible and lets you write offline just like any
+                        desktop application. Even on Chromebook ;)</p>
                 </div>
             </div>
             <br>
@@ -408,14 +423,14 @@
 
         </div>
     </div>
-    <div class="dark inset-shadow markdown-img">
+    <div class="dark inset-shadow offline-img">
     </div>
     <div class="modal-body">
         <img class="background-img img" width="500" src="res-min/img/toc.gif">
     </div>
     <div class="modal-footer modal-header">
         <div class="container">
-            <h1 id="extended-markdown-support">Extended markdown support.</h1>
+            <h1 id="extended-markdown-support">Extended formatting support.</h1>
 
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
@@ -432,7 +447,7 @@
 
             <div class="row">
                 <div class="col-md-5">
-                    <p>Storee supports different markdown flavors such as Markdown Extra and GFM. Each
+                    <p>WriteOn supports different markdown syntax such as Markdown Extra and GFM. Each
                         markdown feature can be enabled or disabled at your convenience.</p>
                     <br>
                 </div>
@@ -443,14 +458,14 @@
 
             <div class="row">
                 <div class="col-md-5">
-                    <h2 id="latex-mathematical-expressions">Educator tools</h2>
+                    <h2 id="latex-mathematical-expressions">Educator tools <sup class="text-danger">Beta</sup></h2>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-5">
-                    <p>Storee integrates MathJax to render mathematics from LaTeX expressions inside your document, 
-                        to let you write full course plans and notes.</p>
+                    <p>WriteOn integrates MathJax to render mathematics from LaTeX expressions inside your document, 
+                        to let you write full course plans and notes instead of stories.</p>
                     <br>
                 </div>
                 <div class="col-md-6 col-md-offset-1">
@@ -460,13 +475,13 @@
 
             <div class="row">
                 <div class="col-md-5">
-                    <h2 id="uml-diagrams">Designer tools</h2>
+                    <h2 id="uml-diagrams">Designer tools <sup class="text-danger">Beta</sup></h2>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-5">
-                    <p>Storee enables you to write sequence diagrams and flow charts using a simple syntax.</p>
+                    <p>WriteOn enables you to write sequence diagrams and flow charts using a simple syntax. </p>
                     <br>
                 </div>
                 <div class="col-md-6 col-md-offset-1">
@@ -487,13 +502,13 @@
             <div class="text-center">
                 <div class="social">
                     <a href="https://twitter.com/beardandfedora" target="_blank"><i class="icon-twitter"></i></a>
-                    <a href="https://github.com/BeardandFedora/Storee" target="_blank"><i
+                    <a href="https://github.com/BeardandFedora" target="_blank"><i
                             class="icon-github-circled"></i></a>
-                    <a href="https://monetizejs.com/authorize?client_id=none_yet_stopped_working&summary=true"
-                       target="_blank" class="hide"><img src="res-min/img/button.svg"></a>
+                    <a href="https://monetizejs.com/authorize?client_id=5d7PNYmOeEl4ANys&summary=true"
+                       target="_blank" class=""><img src="res-min/img/button.svg"></a>
                 </div>
                 Copyleft 2014 <a href="https://twitter.com/beardandfedora" target="_blank">Beard & Fedora</a><br>
-                Licensed under an <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License</a><br>
+                <span class="hide">Licensed under an <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License</a><br></span>
                 <a href="privacy_policy.html" target="_blank">Privacy Policy</a><br>
             </div>
 

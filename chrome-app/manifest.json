@@ -1,6 +1,6 @@
 {
-  "name": "Storee",
-  "description": "The world's finest tiny typewriter",
+  "name": "WriteOn",
+  "description": "Write without distraction, publish without effort.",
   "version": "1.0.10",
   "manifest_version": 2,
   "container" : "GOOGLE_DRIVE",
@@ -10,10 +10,10 @@
   },
   "app": {
     "urls": [
-      "https://storee.io/"
+      "https://writeon.io/"
     ],
     "launch": {
-      "web_url": "https://storee.io/editor"
+      "web_url": "https://app.writeon.io/editor"
     }
   },
   "offline_enabled": true,

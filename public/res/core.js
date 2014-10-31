@@ -327,7 +327,8 @@ define([
 		eventMgr.onReady();
 	};
 
-	var appId = 'ESTHdCYOi18iLhhO';
+	// MonetizeJS settings - http://api.monetizejs.com
+    var appId = '5d7PNYmOeEl4ANys';
 	var monetize = new MonetizeJS({
 		applicationID: appId
 	});
@@ -336,7 +337,7 @@ define([
 	function isSponsor(payments) {
 		var result = payments && payments.app == appId && (
 			(payments.chargeOption && payments.chargeOption.alias == 'once') ||
-			(payments.subscriptionOption && payments.subscriptionOption.alias == 'yearly'));
+			(payments.subscriptionOption && payments.subscriptionOption.alias == 'monthly'));
 		eventMgr.isSponsor = result;
 		return result;
 	}
@@ -368,7 +369,7 @@ define([
 			removeAlerts();
 			if(!isSponsor(payments)) {
 				_.each(document.querySelectorAll('.modal-body'), function(modalBodyElt) {
-					var $elt = $('<div class="alert alert-danger">Please consider <a href="#">sponsoring Storee</a> for $5/year (or <a href="#">sign in</a> if you\'re already a sponsor).</div>');
+					var $elt = $('<div class="alert alert-danger">Please consider <a href="#">sponsoring Storee</a> for $3/month (or <a href="#">sign in</a> if you\'re already a sponsor).</div>');
 					$elt.find('a').click(performPayment);
 					modalBodyElt.insertBefore($elt[0], modalBodyElt.firstChild);
 					$alerts = $alerts.add($elt);

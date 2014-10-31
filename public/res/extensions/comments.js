@@ -264,7 +264,7 @@ define([
 		}
 		if(discussion.type == 'conflict') {
 			result.unshift(_.template(commentTmpl, {
-				author: 'Storee',
+				author: 'WriteOn',
 				content: 'Conflicting changes have been detected.',
 				reply: true
 			}));

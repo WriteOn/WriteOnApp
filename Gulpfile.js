@@ -1,5 +1,15 @@
+/* Hold on now, this gets wild in 102ms 
+ * 
+ * 
+ * To debug, uncomment: var debug = require('gulp-debug');
+ * For verbose debugging: change to .pipe(debug({verbose: true}))
+ * Debug Help: https://github.com/sindresorhus/gulp-debug
+ * For Gulp Help: http://gulpjs.com
+*/
+
 /* jshint -W015 */
 var gulp = require('gulp');
+//var debug = require('gulp-debug');
 var util = require('gulp-util');
 var clean = require('gulp-clean');
 var jshint = require('gulp-jshint');
@@ -28,6 +38,7 @@ function getVersion() {
 gulp.task('constants', function() {
 	return gulp.src('./public/res/constants.js')
 		.pipe(replace(/constants\.VERSION = .*/, 'constants.VERSION = "' + getVersion() + '";'))
+        // .pipe(debug())
 		.pipe(gulp.dest('./public/res/'));
 });
 
@@ -45,7 +56,8 @@ gulp.task('jshint', function() {
 		'./public/res/providers/**/*.js',
 		'./public/res/*.js'
 	])
-		.pipe(jshint())
+		// .pipe(debug())
+        .pipe(jshint())
 		.pipe(jshint.reporter('default'))
 		.pipe(jshint.reporter('fail'));
 });
@@ -59,12 +71,14 @@ gulp.task('clean-requirejs', function() {
 		'./public/res-min/main.js',
 		'./public/res-min/require.js'
 	])
-		.pipe(clean());
+		// .pipe(debug())
+        .pipe(clean());
 });
 
 gulp.task('copy-requirejs', ['clean-requirejs'], function() {
 	return gulp.src('./public/res/bower-libs/requirejs/require.js')
-		.pipe(gulp.dest('./public/res-min/'));
+		// .pipe(debug())
+        .pipe(gulp.dest('./public/res-min/'));
 });
 
 gulp.task('requirejs', [
@@ -93,7 +107,8 @@ gulp.task('requirejs', [
 				indent_level: 1
 			}
 		}))
-		.pipe(gulp.dest('./public/res-min/'));
+		// .pipe(debug())
+        .pipe(gulp.dest('./public/res-min/'));
 });
 
 gulp.task('bower-requirejs', function(cb) {
@@ -110,7 +125,8 @@ gulp.task('bower-requirejs', function(cb) {
 
 gulp.task('clean-less', function() {
 	return gulp.src('./public/res-min/themes')
-		.pipe(clean());
+		// .pipe(debug())
+        .pipe(clean());
 });
 
 gulp.task('less', ['clean-less'], function() {
@@ -121,7 +137,8 @@ gulp.task('less', ['clean-less'], function() {
 		.pipe(less({
 			compress: true
 		}))
-		.pipe(gulp.dest('./public/res-min/themes/'));
+		// .pipe(debug())
+        .pipe(gulp.dest('./public/res-min/themes/'));
 });
 
 /** __________________________________________
@@ -130,12 +147,14 @@ gulp.task('less', ['clean-less'], function() {
 
 gulp.task('clean-font', function() {
 	return gulp.src('./public/res-min/font')
-		.pipe(clean());
+		// .pipe(debug())
+        .pipe(clean());
 });
 
 gulp.task('copy-font', ['clean-font'], function() {
 	return gulp.src('./public/res/font/*')
-		.pipe(gulp.dest('./public/res-min/font/'));
+		// .pipe(debug())
+        .pipe(gulp.dest('./public/res-min/font/'));
 });
 
 /** __________________________________________
@@ -144,12 +163,14 @@ gulp.task('copy-font', ['clean-font'], function() {
 
 gulp.task('clean-img', function() {
 	return gulp.src('./public/res-min/img')
-		.pipe(clean());
+		// .pipe(debug())
+        .pipe(clean());
 });
 
 gulp.task('copy-img', ['clean-img'], function() {
 	return gulp.src('./public/res/img/*')
-		.pipe(gulp.dest('./public/res-min/img/'));
+		// .pipe(debug())
+        .pipe(gulp.dest('./public/res-min/img/'));
 });
 
 /** __________________________________________
@@ -204,7 +225,8 @@ gulp.task('cache-manifest', function() {
 					return filepath.substring(1);
 				}
 			}))
-		.pipe(gulp.dest('./public/'));
+		// .pipe(debug())
+        .pipe(gulp.dest('./public/'));
 });
 
 gulp.task('clean', [
@@ -232,6 +254,7 @@ function bumpTask(importance) {
 			'./bower.json'
 		])
 			.pipe(bump({type: importance}))
+            // .pipe(debug())
 			.pipe(gulp.dest('./'));
 	};
 }
@@ -264,7 +287,7 @@ gulp.task('git-tag', function(cb) {
 				if(err) {
 					return cb(err);
 				}
-				exec('git push origin master --tags', cb);
+				exec('git push heroku-beta master --tags', cb); // fedora - this is NOT ideal, where we hard code the git direction...needs elegance
 			});
 		});
 	});
@@ -280,6 +303,12 @@ function releaseTask(importance) {
 	};
 }
 
-gulp.task('patch', releaseTask('patch'));
-gulp.task('minor', releaseTask('minor'));
-gulp.task('major', releaseTask('major'));
+
+/* 
+ * Beep, Boop, or Bop New WriteOn Releases using gulp-bump
+ * 
+*/
+
+gulp.task('patch', releaseTask('patch'));     // beep
+gulp.task('minor', releaseTask('minor'));     // boop
+gulp.task('major', releaseTask('major'));     // bop
