@@ -49,6 +49,15 @@ define([], function() {
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr.herokuapp.com/";
 	}
+	else if(location.hostname.indexOf("beta.writeon.io") === 0) {
+		constants.BASE_URL = 'https://beta.writeon.io/';
+		constants.GOOGLE_CLIENT_ID = '94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com';
+		constants.GITHUB_CLIENT_ID = '302c5c415085534c1346';
+		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-beta.herokuapp.com/";
+		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy-beta.herokuapp.com/";
+		constants.WORDPRESS_CLIENT_ID = '34786';
+		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy-beta.herokuapp.com/";
+	}
 	else if(location.hostname.indexOf("writeon-beta.herokuapp.com") === 0) {
 		constants.BASE_URL = 'https://writeon-beta.herokuapp.com/';
 		constants.GOOGLE_CLIENT_ID = '94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com';

@@ -1,5 +1,6 @@
 Developer guide
 ===============
+[TOC]
 
 Getting started
 ---------------
@@ -10,6 +11,8 @@ Getting started
 - [node.js/npm][2]
 - [Gulp][3] (good-bye [Grunt][62])
 - [Bower][4]
+- [CryptoJS][63]
+- [HTML5 Encryption][64]
 - [It's All Chinese To Me][61]
 
 ### Before debugging
@@ -85,7 +88,7 @@ Getting started
     
     
 
-### Deployment (also will be used for instance automation)
+### Deployment (also used for instance automation)
 
 - on Heroku:
 
@@ -107,7 +110,7 @@ Architecture
 
 The modules are loaded by RequireJS in the following order:
 
-1. The 3rd party libraries (jQuery, underscore.js...)
+1. The 3rd party libraries (jQuery, EmberJS, UnderscoreJS...)
 2. The `Extension` modules
 3. The `eventMgr` module
 4. The `core` module
@@ -387,7 +390,7 @@ myExtension.onMessage = function(message) {
 
 ----------
 
-#### file operation events
+#### File operation events
 
 - **`onFileCreated(fileDesc)`**
 
@@ -631,6 +634,42 @@ myExtension.onMessage = function(message) {
 
 
 
+----------
+
+## Encryption and Security
+> **NOTE:** Understanding of advanced cryptology is required.
+
+### Pre-requisites
+
+- [AES Encryption][65]
+- [AES CCM][66]
+- [CryptoJS][63]
+- [HTML5 Encryption][64]
+- [Stanford Javascript Crypto Library (SJCL)][67]
+
+The method of encrypting the localStorage object in WriteOn is the key implementation of the server/client relationship. Without the cloud component of WriteOn, there could be no reliable encryption method available for a local HTML5 app like WriteOn. 
+
+WriteOn has set out to answer the question "*can HTML5 localStorage content be reliably encrypted?*", as asked [here on Quora][68]. The importance of this question to WriteOn is its founding question...can an HTML app than runs and stores all data locally be reliable safe, secure and free from malicious attack.
+
+The methods in which WriteOn implements uses AES CCM Encryption, via  SJCL. Here are the necessary steps to reliable client side storage encryption with WriteOn:
+
+1. Create an account at [writeon.io][69]
+2. Visit the WriteOn dashboard at [i.writeon.io][70]. 
+3. Click on ***Secure My WriteOn***
+4. Choose a reliable password, 12 characters or longer
+OPTIONAL:
+  1. Generate your unique Salt
+  2. Choose your strengthen factor (`1000` is default)
+  3. Select Key Size (`256` bits is default)
+  4. Select Cypher Mode (`CCM` is default)
+    - Initialization Vector is automatically generated
+    - Select Authentication Strength (`128` is default)
+5. Click the ***Generate Your Encryption Keys*** button
+
+
+
+
+
 > Written with [WriteOn](https://writeon.io/).
 
 
@@ -696,3 +735,11 @@ myExtension.onMessage = function(message) {
   [60]: #filedescriptor
   [61]: https://github.com/fex-team/agroup/tree/master
   [62]: http://gruntjs.com
+  [63]: https://code.google.com/p/crypto-js/
+  [64]: http://nekman.se/encrypted-localstorage-in-html5/
+  [65]: https://en.wikipedia.org/wiki/CCM_mode
+  [66]: https://tools.ietf.org/html/rfc3610
+  [67]: https://github.com/bitwiseshiftleft/sjcl
+  [68]: https://www.quora.com/HTML5-can-localStorage-content-be-reliably-encrypted
+  [69]: https://writeon.io
+  [70]: https://i.writeon.io
