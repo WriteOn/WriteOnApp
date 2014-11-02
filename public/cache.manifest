@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#Date Sun Nov 02 2014 17:08:25 GMT+0000 (UTC)
+#Date Sun Nov 02 2014 17:27:00 GMT+0000 (UTC)
 
 CACHE:
 .
@@ -169,14 +169,14 @@ res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/SpacingModLette
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/SuppMathOperators.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Caligraphic/Bold/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Caligraphic/Regular/Main.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/BasicLatin.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/Main.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/Other.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/PUA.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Regular/BasicLatin.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Regular/Other.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Regular/PUA.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/BasicLatin.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/Main.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/Other.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/PUA.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Greek/Bold/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Greek/BoldItalic/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Greek/Italic/Main.js?rev=2.4-beta-2
