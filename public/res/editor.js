@@ -26,7 +26,7 @@ define([
 	var previewElt;
 	var pagedownEditor;
 	var trailingLfNode;
-
+        
 	var refreshPreviewLater = (function() {
 		var elapsedTime = 0;
 		var timeoutId;
