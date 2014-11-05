@@ -41,6 +41,11 @@ app.get('/', function(req, res) {
 	res.renderDebug('landing.html');
 });
 
+// Serve signup.html in /
+app.get('/signup', function(req, res) {
+	res.renderDebug('signup.html');
+});
+
 // Serve editor.html in /editor
 app.get('/editor', function(req, res) {
 	res.renderDebug('editor.html');
