@@ -198,7 +198,7 @@ define([
 				applyTitle();
 			}
 		});
-		$(".action-open-stackedit").click(function() {
+		$(".action-open-writeon").click(function() {
 			window.location.href = "editor";
 		});
 		$(".action-edit-document").click(function() {

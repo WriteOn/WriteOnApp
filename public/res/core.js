@@ -327,7 +327,12 @@ define([
 		eventMgr.onReady();
 	};
 
-	// MonetizeJS settings - http://api.monetizejs.com
+	// MonetizeJS user flow payment hooks for UI - using Stripe as the processor
+    //   Story: As a developer I want to manage the Stripe payment service through an API and management interface for 
+    //   both testing & production scenarios.
+    // MonetizeJS settings - http://api.monetizejs.com
+    // Stripe settings - http://stripe.com
+    // 
     var appId = '5d7PNYmOeEl4ANys';
 	var monetize = new MonetizeJS({
 		applicationID: appId
@@ -369,7 +374,7 @@ define([
 			removeAlerts();
 			if(!isSponsor(payments)) {
 				_.each(document.querySelectorAll('.modal-body'), function(modalBodyElt) {
-					var $elt = $('<div class="alert alert-danger">Please consider <a href="#">sponsoring Storee</a> for $3/month (or <a href="#">sign in</a> if you\'re already a sponsor).</div>');
+					var $elt = $('<div class="alert alert-danger">Please consider <a href="#">sponsoring WriteOn</a> for $3/month (or <a href="#">sign in</a> if you\'re already a sponsor).</div>');
 					$elt.find('a').click(performPayment);
 					modalBodyElt.insertBefore($elt[0], modalBodyElt.firstChild);
 					$alerts = $alerts.add($elt);
