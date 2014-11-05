@@ -36,7 +36,6 @@
     "event-stream": "^3.1.7",
     "gulp-shell": "~0.2.10",
     "gulp-debug": "~1.0.1",
-// move out of dev when done testing
     "passport": "~0.2.1",
     "passport-oauth": "~1.0.0",
     "passport-facebook": "~1.0.3",

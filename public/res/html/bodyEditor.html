@@ -102,9 +102,9 @@
 	                </ul>
 					<ul class="nav">
 						<li><a href="#" class="action-sync-import-dialog-couchdb"><i
-							class="icon-provider-couchdb"></i> Open from CouchDB <sup class="text-danger">default</sup></a></li>
+							class="icon-provider-couchdb"></i> Open from WriteOn <sup class="text-danger">default</sup></a></li>
 						<li><a href="#" class="action-sync-export-dialog-couchdb"><i
-					        class="icon-provider-couchdb"></i> Save on CouchDB <sup class="text-danger">default</sup></a></li>
+					        class="icon-provider-couchdb"></i> Save on WriteOn <sup class="text-danger">default</sup></a></li>
 						<li><a href="#" class="action-sync-import-dropbox"><i
 							class="icon-provider-dropbox"></i> Open from Dropbox</a></li>
 						<li><a href="#" class="action-sync-export-dialog-dropbox"><i
@@ -555,7 +555,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"
                         aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Open from CouchDB</h2>
+                <h2 class="modal-title">Open from WriteOn</h2>
                 <div class="form-horizontal list-mode">
                     <br>
                     <div class="form-group form-inline">
@@ -573,10 +573,8 @@
             </div>
             <div class="modal-body">
                 <p class="msg-default-couchdb hide alert alert-danger"><i class="icon-attention"></i> <b>Careful:</b>
-                    You're using our public CouchDB instance.
-                    <b>Anybody can open, edit and delete your files there!</b> To setup your own CouchDB instance <a
-                            target="blank" href="https://github.com/beardandfedora/WriteOn/blob/master/doc/couchdb-setup.md">click
-                        here</a>.
+                    This is Beta software, and you're using our public WriteOn instance.
+                    <b>Anybody can open, edit and delete your stories there.</b>
                 </p>
 
                 <div class="form-horizontal byid-mode">
@@ -642,18 +640,16 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"
                         aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Save on CouchDB</h2>
+                <h2 class="modal-title">Save on WriteOn</h2>
             </div>
             <div class="modal-body">
                 <p class="msg-default-couchdb hide alert alert-danger"><i class="icon-attention"></i> <b>Careful:</b>
-                    You're using our public CouchDB instance.
-                    <b>Anybody can open, edit and delete your files there!</b> To setup your own CouchDB instance <a
-                            target="blank" href="https://github.com/beardandfedora/WriteOn/blob/master/doc/couchdb-setup.md">click
-                        here</a>.
+                    This is beta software, and you're using our public WriteOn instance.
+                    <b>Anybody can open, edit and delete your stories there.</b>
                 </p>
 
                 <p>
-                    This will save "<span class="file-title"></span>" to CouchDB and keep it synchronized.
+                    This will save "<span class="file-title"></span>" to WriteOn  <sup class="text-danger">Beta</sup> and keep it synchronized.
                 </p>
                 <blockquote>
                     <p><b>Tip:</b> You can use a
@@ -995,7 +991,7 @@
                 <div class="share-editor-list"></div>
             	<blockquote>
                     <p><b>Note:</b> To collaborate on this story, just <a
-                        href="#" class="action-sync-export-dialog-couchdb" data-dismiss="modal">save it on CouchDB</a>.
+                        href="#" class="action-sync-export-dialog-couchdb" data-dismiss="modal">save it on WriteOn</a>.
                     To collaborate via Google Drive or Dropbox, you have to share the file manually from Google Drive/Dropbox websites.</p>
             	</blockquote>
                 <hr>
@@ -1276,14 +1272,13 @@
 							</div>
 							<div class="form-group">
 								<label class="col-sm-4 control-label"
-									for="input-settings-couchdb-url">CouchDB URL</label>
+									for="input-settings-couchdb-url">WriteOn Sync URL</label>
 								<div class="col-sm-7">
 									<input type="text" id="input-settings-couchdb-url"
 										class="form-control">
                                     <span class="help-block pull-right"><a
                                             target="blank"
-                                            href="https://github.com/beardandfedora/WriteOn/blob/master/doc/couchdb-setup.md">Setup
-                                        your own CouchDB...</a></span>
+                                            href="#">See our help docs for more</a></span>
                                 </div>
 							</div>
 						</div>

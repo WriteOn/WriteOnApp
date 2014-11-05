@@ -360,7 +360,7 @@ define([
 			]
 		}, function(err, payments) {
 			if(isSponsor(payments)) {
-				eventMgr.onMessage('Thank you for sponsoring Storee');
+				eventMgr.onMessage('Thank you for sponsoring WriteOn');
 				removeAlerts();
 			}
 		});
@@ -457,7 +457,7 @@ define([
 		var currentTheme = window.theme;
 
 		function applyTheme(theme) {
-			theme = theme || 'default';
+			theme = theme || 'blue';
 			if(currentTheme != theme) {
 				var themeModule = "less!themes/" + theme;
 				if(window.baseDir.indexOf('-min') !== -1) {
@@ -497,7 +497,7 @@ define([
 							var currentVersion = parseInt(storage.version.match(/^v(\d+)$/)[1], 10);
 							if(newVersion > currentVersion) {
 								// We manage storage upgrade, not downgrade
-								eventMgr.onError("Incompatible version. Please upgrade Storee.");
+								eventMgr.onError("Incompatible version. Please upgrade WriteOn.");
 							} else {
 								$('.modal-import-docs-settings').modal('show');
 							}
@@ -523,7 +523,7 @@ define([
 		});
 		// Export settings
 		$(".action-export-docs-settings").click(function() {
-			utils.saveAs(JSON.stringify(storage), "Storee local storage.json");
+			utils.saveAs(JSON.stringify(storage), "WriteOn local storage.json");
 		});
 
 		$(".action-default-settings").click(function() {
@@ -547,7 +547,7 @@ define([
 
 		utils.createTooltip(".tooltip-lazy-rendering", 'Disable preview rendering while typing in order to offload CPU. Refresh preview after 500 ms of inactivity.');
 		utils.createTooltip(".tooltip-default-content", [
-			'Thanks for supporting Storee by adding a backlink in your stories!<br/><br/>',
+			'Thanks for supporting WriteOn by adding a backlink in your stories!<br/><br/>',
 			'<b class="text-danger">NOTE: Backlinks in ______ are not welcome.</b>'
 		].join(''));
 		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML);
@@ -582,7 +582,7 @@ define([
 			document.getElementById('input-settings-theme').innerHTML = themeOptions;
 		}
 
-		//$('.modal-header').append('<a class="dialog-header-message" href="https://github.com/beardandfedora/storee/issues" target="_blank">Give your feedback <i class="icon-megaphone"></i></a>');
+		//$('.modal-header').append('<a class="dialog-header-message" href="https://github.com/beardandfedora/WriteOn/issues" target="_blank">Give your feedback <i class="icon-megaphone"></i></a>');
 		checkPayment();
 	});
 

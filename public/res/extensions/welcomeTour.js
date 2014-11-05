@@ -82,7 +82,7 @@ define([
 				element: '.menu-panel .toggle-button',
 				title: 'Menu',
 				content: [
-					'<p>The <i class="icon-provider-writeon"></i> <b>menu panel</b> allows you to synchronize your stories on <i class="icon-provider-couchdb"></i> CouchDB,  <i class="icon-provider-gdrive"></i> Google Drive, <i class="icon-provider-dropbox"></i> Dropbox or to publish them on <i class="icon-provider-github"></i> GitHub, <i class="icon-provider-ghost"></i> Ghost, <i class="icon-provider-blogger"></i> Blogger...</p>',
+					'<p>The <i class="icon-provider-writeon"></i> <b>menu panel</b> allows you to synchronize your stories on <i class="icon-provider-couchdb"></i> WriteOn,  <i class="icon-provider-gdrive"></i> Google Drive, <i class="icon-provider-dropbox"></i> Dropbox or to publish them on <i class="icon-provider-github"></i> GitHub, <i class="icon-provider-ghost"></i> Ghost, <i class="icon-provider-blogger"></i> Blogger...</p>',
 					'<b>Tip:</b> Use the <i class="icon-provider-writeon"></i> <b>menu panel</b> to access the settings.'
 				].join(""),
 				placement: 'right',
@@ -92,7 +92,7 @@ define([
 				element: '.navbar-inner > .nav .button-open-discussion, .navbar .buttons-dropdown > .nav > .btn:not(:hidden)',
 				title: 'Comments/discussions',
 				content: [
-					'<p>Now in WriteOn: the <i class="icon-comment-alt"></i> <b>comments</b> button lets you create inline discussions!</p>',
+					'<p>Collaborative Writing: the <i class="icon-comment-alt"></i> <b>comments</b> button lets you create inline discussions!</p>',
 					'<b>Tip:</b> Reopen the Hello World! document from Settings>Utils to discover other new features.'
 				].join(""),
 				placement: 'right',

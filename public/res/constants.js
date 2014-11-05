@@ -88,7 +88,7 @@ define([], function() {
 
 	constants.THEME_LIST = {
 		"blue": "Blue",
-		"default": "Default",
+		"neat": "Neat",
 		"gray": "Gray",
 		"night": "Night",
 		"school": "School",
