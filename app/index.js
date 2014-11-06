@@ -3,7 +3,7 @@ var app = express();
 var compression = require('compression');
 var serveStatic = require('serve-static');
 
-// Configure ejs engine
+// Configure expressjs (ejs) engine
 app.set('views', __dirname + '/../views');
 app.engine('html', require('ejs').renderFile);
 
@@ -44,6 +44,11 @@ app.get('/', function(req, res) {
 // Serve signup.html in /
 app.get('/signup', function(req, res) {
 	res.renderDebug('signup.html');
+});
+
+// Serve signin.html in /
+app.get('/signin', function(req, res) {
+	res.renderDebug('signin.html');
 });
 
 // Serve editor.html in /editor

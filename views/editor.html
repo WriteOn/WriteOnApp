@@ -15,7 +15,6 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <script src="res/bower-libs/oauth-js/dist/oauth.min.js"></script>
         <script>
             // Use ?debug to serve original JavaScript files instead of minified
             window.baseDir = 'res';
@@ -26,22 +25,6 @@
                 baseUrl: window.baseDir,
                 deps: ['main']
             };
-
-                //provider can be 'facebook', 'twitter', 'github', or any supported
-    //provider that contain the fields 'firstname' and 'lastname' 
-    //or an equivalent (e.g. "FirstName" or "first-name")
-    var provider = 'facebook';
-    OAuth.initialize('66FZSMLux8c6YMJMfQMaqD_MF04');
-
-    //Using popup
-OAuth.popup('facebook')
-    .done(function(result) {
-      //use result.access_token in your API request 
-      //or use result.get|post|put|del|patch|me methods (see below)
-    })
-    .fail(function (err) {
-      //handle error with err
-});
         </script>
         <script src="res-min/require.js"></script>
     </head>
