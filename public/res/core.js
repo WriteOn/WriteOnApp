@@ -10,6 +10,7 @@ define([
 	"storage",
 	"settings",
 	"eventMgr",
+    "oauth",
 	"monetizejs",
 	"text!html/bodyEditor.html",
 	"text!html/bodyViewer.html",
@@ -17,7 +18,7 @@ define([
 	"text!html/tooltipSettingsPdfOptions.html",
 	"storage",
 	'pagedown'
-], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, MonetizeJS, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsPdfOptionsTooltipHTML) {
+], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, OAuth, MonetizeJS, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsPdfOptionsTooltipHTML) {
 
 	var core = {};
 
@@ -327,6 +328,44 @@ define([
 		eventMgr.onReady();
 	};
 
+    
+    // OAuth login user flow
+    // Story: As a usr, I want to login using one of my existing login methods as a provider, such as Facebook, Twitter, Google, Github, etc
+    // Signin Page (Beta)
+/*
+            OAuth.initialize('bzQNFe28u7EWGZhS0OI3vGn6zlU');
+            
+            function oAuthLogin(oAuthProvider) {
+            
+            console.log('Provider: ', oAuthProvider);
+            OAuth.popup(oAuthProvider)
+                
+            .done(function (result) {
+                result.me()
+                .done(function (response) {
+                    console.log('Firstname: ', response.firstname);
+                    console.log('Lastname: ', response.lastname);
+                    console.log('Auth Session Expires: ', response.expires_in);
+                    app.redirect('/editor');
+                })
+                .fail(function (err) {
+                  //handle error with err
+                });
+            })
+            .fail(function (err) {
+                //handle error with err
+            });
+            
+            } //end oAuthLogin()
+            
+            var oAuthProvider = 'facebook';
+            $( "img.login" ).click(function() {
+              var oAuthProvider = $( this ).attr( "ng-provider" );
+              oAuthLogin(oAuthProvider);
+            });
+*/
+    
+    
 	// MonetizeJS user flow payment hooks for UI - using Stripe as the processor
     //   Story: As a developer I want to manage the Stripe payment service through an API and management interface for 
     //   both testing & production scenarios.

@@ -67,4 +67,8 @@ WriteOn is for story makers and writers who are looking for a clean, consistent 
   [3]: https://github.com/BeardandFedora/WriteOn/blob/master/doc/developer-guide.md#developer-guide "Developer guide"
   [4]: https://github.com/BeardandFedora/WriteOn/blob/master/doc/theming.md#writeon-theming-guide "Theming guide"
   [5]: https://writeon.io/ "WriteOn"
-
+  [6]: https://twitter.com/BeardandFedora
+  
+                                                                                                                                                                             
+                                                                                                                                                                                                                                                          
+                                                                                                                                     

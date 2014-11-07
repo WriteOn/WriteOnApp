@@ -72,8 +72,7 @@
 
 	<div class="menu-panel">
 		<button class="btn toggle-button" title="Menu">
-			<img
-				data-stackedit-src="menu-icon.png" width="24" height="24" />
+			<img data-writeon-src="menu-icon.png" width="24" height="24" />
 		</button>
 		<div class="panel-content">
 			<div class="list-group">
@@ -102,9 +101,11 @@
 	                </ul>
 					<ul class="nav">
 						<li><a href="#" class="action-sync-import-dialog-couchdb"><i
-							class="icon-provider-couchdb"></i> Open from WriteOn <sup class="text-danger">default</sup></a></li>
+							class="icon-download-cloud"></i> Open from My.WriteOn 
+                            <sup class="text-danger"><i class="icon-users"></i></sup></a></li>
 						<li><a href="#" class="action-sync-export-dialog-couchdb"><i
-					        class="icon-provider-couchdb"></i> Save on WriteOn <sup class="text-danger">default</sup></a></li>
+					        class="icon-upload-cloud"></i> Save to My.WriteOn 
+                            <sup class="text-danger"><i class="icon-users"></i></sup></a></li>
 						<li><a href="#" class="action-sync-import-dropbox"><i
 							class="icon-provider-dropbox"></i> Open from Dropbox</a></li>
 						<li><a href="#" class="action-sync-export-dialog-dropbox"><i
@@ -572,9 +573,9 @@
                 </div>
             </div>
             <div class="modal-body">
-                <p class="msg-default-couchdb hide alert alert-danger"><i class="icon-attention"></i> <b>Careful:</b>
-                    This is Beta software, and you're using our public WriteOn instance.
-                    <b>Anybody can open, edit and delete your stories there.</b>
+                <p class="msg-default-couchdb hide alert alert-info"><i class="icon-attention"></i> <b>Careful:</b>
+                    This is Beta software, and you're using our public My.WriteOn instance.
+                    <b>That means anybody can open, edit and delete your stories - and vise versa.</b>
                 </p>
 
                 <div class="form-horizontal byid-mode">
@@ -986,7 +987,7 @@
 			</div>
 			<div class="modal-body">
                 <p>Collaborate on "<span class="file-title"></span>" using the following link(s):</p>
-            	<p class="msg-no-share-editor"><b>No sharing link yet!</b>
+            	<p class="msg-no-share-editor"><b>No sharing link yet.</b>
             	</p>
                 <div class="share-editor-list"></div>
             	<blockquote>
@@ -1264,10 +1265,10 @@
 							</div>
 							<div class="form-group">
 								<label class="col-sm-4 control-label"
-									for="input-settings-publish-commit-msg">GitHub commit message</label>
+									for="input-settings-publish-commit-msg">WriteOn Support</label>
 								<div class="col-sm-7">
 									<input type="text" id="input-settings-publish-commit-msg"
-										class="form-control">
+										class="form-control" readonly>
 								</div>
 							</div>
 							<div class="form-group">
@@ -1275,7 +1276,7 @@
 									for="input-settings-couchdb-url">WriteOn Sync URL</label>
 								<div class="col-sm-7">
 									<input type="text" id="input-settings-couchdb-url"
-										class="form-control">
+										class="form-control" readonly>
                                     <span class="help-block pull-right"><a
                                             target="blank"
                                             href="#">See our help docs for more</a></span>
@@ -1286,8 +1287,7 @@
 					<div class="tab-pane" id="tabpane-settings-extensions">
 						<div class="panel-group accordion-extensions"></div>
 						<span class="help-block pull-right"><a target="_blank"
-							href="https://github.com/beardandfedora/WriteOn/blob/master/doc/developer-guide.md#developer-guide">Create
-								your own extension...</a></span>
+							href="#developer-guide.md">Create your own extension</a></span>
 					</div>
 					<div class="tab-pane" id="tabpane-settings-utils">
 						<div class="tab-pane-button-container">
