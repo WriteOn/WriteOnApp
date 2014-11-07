@@ -309,6 +309,6 @@ function releaseTask(importance) {
  * 
 */
 
-gulp.task('patch', releaseTask('patch'));     // beep
-gulp.task('minor', releaseTask('minor'));     // boop
-gulp.task('major', releaseTask('major'));     // bop
+gulp.task('beep', releaseTask('patch'));     // beep
+gulp.task('boop', releaseTask('minor'));     // boop
+gulp.task('bop', releaseTask('major'));     // bop

@@ -52,6 +52,7 @@ app.get('/signin', function(req, res) {
 });
 
 // Serve editor.html in /editor
+// ==== fedora - let's keep this randomized until we are public
 app.get('/x6ywhf', function(req, res) {
 	res.renderDebug('editor.html');
 });
