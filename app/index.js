@@ -52,7 +52,7 @@ app.get('/signin', function(req, res) {
 });
 
 // Serve editor.html in /editor
-app.get('/editor', function(req, res) {
+app.get('/x6ywhf', function(req, res) {
 	res.renderDebug('editor.html');
 });
 
