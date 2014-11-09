@@ -22,7 +22,7 @@ define([
 		width: 330,
 		height: 160
 	};
-	var menuPanelWidth = 280;
+	var menuPanelWidth = 345;
 	var documentPanelWidth = 320;
 	var titleMinWidth = 200;
 	var previewButtonsClosedOffset = 18;

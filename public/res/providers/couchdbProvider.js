@@ -18,7 +18,7 @@ define([
 
 	var PROVIDER_COUCHDB = "couchdb";
 
-	var couchdbProvider = new Provider(PROVIDER_COUCHDB, "CouchDB");
+	var couchdbProvider = new Provider(PROVIDER_COUCHDB, "WriteOn");
 	couchdbProvider.importPreferencesInputIds = [
 		PROVIDER_COUCHDB + "-tag"
 	];
@@ -66,7 +66,7 @@ define([
 			var syncIndex = createSyncIndex(id);
 			var fileDesc = fileMgr.getFileFromSyncIndex(syncIndex);
 			if(fileDesc !== undefined) {
-				return eventMgr.onError('"' + fileDesc.title + '" is already in your local documents.');
+				return eventMgr.onError('"' + fileDesc.title + '" is already in your local stories.');
 			}
 			importIds.push(id);
 		});
@@ -202,7 +202,7 @@ define([
 					var syncAttributes = change.syncAttributes;
 					// File deleted
 					if(change.deleted === true) {
-						eventMgr.onError('"' + fileDesc.title + '" has been removed from CouchDB.');
+						eventMgr.onError('"' + fileDesc.title + '" has been removed from WriteOn.');
 						fileDesc.removeSyncLocation(syncAttributes);
 						return eventMgr.onSyncRemoved(fileDesc, syncAttributes);
 					}

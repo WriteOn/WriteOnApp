@@ -91,37 +91,26 @@
 					<small>Open, save, collaborate in the Cloud</small>
 				</a>
 				<div class="sub-menu collapse collapse-synchronize clearfix">
-					<ul class="nav alert alert-danger show-already-synchronized">
-						<li><div>"<span class="file-title"></span>" is already synchronized.</div></li>
-						<li><a href="#" class="action-force-synchronization"><i class="icon-refresh"></i>
-							Force synchronization</a></li>
-	                    <li><a href="#" data-toggle="modal" data-target=".modal-manage-sync"
-	                        class="action-reset-input"><i
-	                        class="icon-refresh"></i> Manage synchronization</a></li>
+					<ul class="nav alert alert-default show-already-synchronized">
+						<li class="hide"><div><span class="file-title"></span> is synced.</div></li>
+						<li class="col-sm-6"><a href="#" class="btn btn-primary action-force-synchronization" style="padding:8px 0;"><i class="icon-refresh"></i>
+							Sync</a></li>
+	                    <li class="col-sm-6"><a href="#" data-toggle="modal" data-target=".modal-manage-sync" style="padding:8px 0;"
+	                        class="btn btn-primary action-reset-input"><i
+	                        class="icon-edit"></i> Manage</a></li>
 	                </ul>
 					<ul class="nav">
-						<li><a href="#" class="action-sync-import-dialog-couchdb"><i
-							class="icon-download-cloud"></i> Open from My.WriteOn 
-                            <sup class="text-danger"><i class="icon-users"></i></sup></a></li>
 						<li><a href="#" class="action-sync-export-dialog-couchdb"><i
 					        class="icon-upload-cloud"></i> Save to My.WriteOn 
-                            <sup class="text-danger"><i class="icon-users"></i></sup></a></li>
-						<li><a href="#" class="action-sync-import-dropbox"><i
-							class="icon-provider-dropbox"></i> Open from Dropbox</a></li>
+                            <i class="icon-users"></i></sup></a></li>
 						<li><a href="#" class="action-sync-export-dialog-dropbox"><i
-					        class="icon-provider-dropbox"></i> Save on Dropbox</a></li>
-						<li><a href="#" class="submenu-sync-gdrive action-sync-import-gdrive"><i
-							class="icon-provider-gdrive"></i> Open from Google Drive</a></li>
+					        class="icon-provider-dropbox"></i> Save to Dropbox</a></li>
 						<li><a href="#" class="submenu-sync-gdrive action-sync-export-dialog-gdrive"><i
-							class="icon-provider-gdrive"></i> Save on Google Drive</a></li>
-						<li><a href="#" class="submenu-sync-gdrivesec action-sync-import-gdrivesec"><i
-							class="icon-provider-gdrive"></i> Open from Google Drive<br><small>(2nd account)</small></a></li>
+							class="icon-provider-gdrive"></i> Save to Google Drive</a></li>
 						<li><a href="#" class="submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i
-							class="icon-provider-gdrive"></i> Save on Google Drive<br><small>(2nd account)</small></a></li>
-						<li><a href="#" class="submenu-sync-gdriveter action-sync-import-gdriveter"><i
-							class="icon-provider-gdrive"></i> Open from Google Drive<br><small>(3rd account)</small></a></li>
+							class="icon-provider-gdrive"></i> Save to Google Drive<br><small>(2nd account)</small></a></li>
 						<li><a href="#" class="submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i
-							class="icon-provider-gdrive"></i> Save on Google Drive<br><small>(3rd account)</small></a></li>
+							class="icon-provider-gdrive"></i> Save to Google Drive<br><small>(3rd account)</small></a></li>
 					</ul>
 				</div>
 				<a href="#" data-toggle="collapse" data-target=".collapse-publish-on"
@@ -209,6 +198,23 @@
 		<div class="panel-content">
 			<div class="list-group document-list"></div>
 			<div class="list-group document-list-filtered hide"></div>
+            <a href="#" class="list-group-item folder clearfix collapsed cloud" data-folder-index="cloud.allcloudproviders" 
+               data-toggle="collapse" data-target=".file-list.cloudallcloudproviders">   
+                <i class="icon-download-cloud"></i> My Cloud</a>
+            <div class="file-list cloudallcloudproviders clearfix collapse">
+					<ul class="nav">
+						<li><a href="#" class="list-group-item file action-sync-import-dialog-couchdb"><i
+							class="icon-download-cloud"></i> My.WriteOn</a></li>
+						<li><a href="#" class="list-group-item file action-sync-import-dropbox"><i
+							class="icon-provider-dropbox"></i> Dropbox</a></li>
+						<li><a href="#" class="list-group-item file submenu-sync-gdrive action-sync-import-gdrive"><i
+							class="icon-provider-gdrive"></i> Google Drive</a></li>
+						<li><a href="#" class="list-group-item file submenu-sync-gdrivesec action-sync-import-gdrivesec"><i
+							class="icon-provider-gdrive"></i> Google Drive<br><small>(2nd account)</small></a></li>
+						<li><a href="#" class="list-group-item file submenu-sync-gdriveter action-sync-import-gdriveter"><i
+							class="icon-provider-gdrive"></i> Google Drive<br><small>(3rd account)</small></a></li>
+					</ul>
+            </div>
 		</div>
 	</div>
 </div>
@@ -508,7 +514,7 @@
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal"
 					aria-hidden="true">&times;</button>
-				<h2 class="modal-title">Save on Dropbox</h2>
+				<h2 class="modal-title">Save to Dropbox</h2>
 			</div>
 			<div class="modal-body">
 				<p>
@@ -556,7 +562,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"
                         aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Open from WriteOn</h2>
+                <h2 class="modal-title">Open on My.WriteOn</h2>
                 <div class="form-horizontal list-mode">
                     <br>
                     <div class="form-group form-inline">
@@ -612,7 +618,7 @@
                     <button class="more-documents btn btn-link"><i class="icon-angle-double-down"></i> More stories</button>
                 </div>
                 <p class="delete-mode hide">The following stories will be
-                    removed from CouchDB:</p>
+                    removed from WriteOn:</p>
 
                 <div class="delete-mode list-group selected-document-list hide"></div>
             </div>
@@ -641,16 +647,16 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"
                         aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Save on WriteOn</h2>
+                <h2 class="modal-title">Save to My.WriteOn</h2>
             </div>
             <div class="modal-body">
                 <p class="msg-default-couchdb hide alert alert-danger"><i class="icon-attention"></i> <b>Careful:</b>
-                    This is beta software, and you're using our public WriteOn instance.
+                    This is beta software, and you're using our public My.WriteOn instance.
                     <b>Anybody can open, edit and delete your stories there.</b>
                 </p>
 
                 <p>
-                    This will save "<span class="file-title"></span>" to WriteOn  <sup class="text-danger">Beta</sup> and keep it synchronized.
+                    This will save "<span class="file-title"></span>" to My.WriteOn <sup class="text-danger">Beta</sup> and keep it synchronized.
                 </p>
                 <blockquote>
                     <p><b>Tip:</b> You can use a
@@ -1006,8 +1012,8 @@
                     Markdown format.</p>
             	</blockquote>
             	<blockquote>
-            		<p><b>Tip:</b> You can open any markdown URL within WriteOn Viewer using <a
-            			href="viewer#!url=https://raw.github.com/beardandfedora/WriteOn/master/README.md"
+            		<p><b>Tip:</b> You can open any `.md` or `.markdown` URL using the **WriteOn Viewer** by adding <a
+            			href="viewer#!url=https://raw.githubusercontent.com/github/markup/master/README.md"
             			title="Sharing example"><code>viewer#!url=</code></a>.</p>
             	</blockquote>
 			</div>
@@ -1449,7 +1455,7 @@
 				<h2 class="modal-title">Sponsors only</h2>
 			</div>
 			<div class="modal-body">
-				<p>This feature is restricted to sponsor users as it's a web service hosted on Amazon EC2.
+				<p>This feature is restricted to sponsors.
                     Note that sponsoring WriteOn would cost you only $3/month.</p>
 				<p>To see how a PDF looks <a target="_blank" href="/Welcome%story.pdf">click here</a>.</p>
 				<blockquote>

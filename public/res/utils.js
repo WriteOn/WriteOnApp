@@ -274,7 +274,7 @@ define([
 			.replace(/-+$/, ''); // Trim - from end of text
 	};
 
-	// Check an URL
+	// Check a URL
 	utils.checkUrl = function(url, addSlash) {
 		if(!url) {
 			return url;

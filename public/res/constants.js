@@ -34,7 +34,7 @@ define([], function() {
     constants.COUCHDB_URL = 'https://beardandfedora.couchappy.com/documents';
 
 	// Site dependent
-	constants.BASE_URL = "http://localhost/";
+	constants.BASE_URL = "https://mammal-charter.codio.io:9500/";
 	constants.GOOGLE_CLIENT_ID = '94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com';
 	constants.GITHUB_CLIENT_ID = '20b324f0f33aad6ca2be';
 	constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
@@ -71,7 +71,16 @@ define([], function() {
 		constants.BASE_URL = 'https://mammal-charter.codio.io:9500/';
 		constants.GOOGLE_CLIENT_ID = '94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '235008232d0259c2f036';
-		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/";
+		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
+		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
+		constants.WORDPRESS_CLIENT_ID = '37431';
+		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
+	}
+    else if(location.hostname.indexOf("mammal-charter.codio.io:3000") === 0) {
+		constants.BASE_URL = 'http://mammal-charter.codio.io:3000/';
+		constants.GOOGLE_CLIENT_ID = '94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com';
+		constants.GITHUB_CLIENT_ID = '235008232d0259c2f036';
+		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
 		constants.WORDPRESS_CLIENT_ID = '37431';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
@@ -80,7 +89,7 @@ define([], function() {
         constants.BASE_URL = "https://mammal-charter.codio.io:9501/";
 		constants.GOOGLE_CLIENT_ID = '94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '235008232d0259c2f036';
-		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/";
+		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
 		constants.WORDPRESS_CLIENT_ID = '37432';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";

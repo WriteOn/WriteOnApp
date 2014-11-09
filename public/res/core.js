@@ -399,7 +399,7 @@ define([
 			]
 		}, function(err, payments) {
 			if(isSponsor(payments)) {
-				eventMgr.onMessage('Thank you for sponsoring WriteOn');
+                eventMgr.onMessage('Thank you for sponsoring WriteOn! You are soo awesome :)');
 				removeAlerts();
 			}
 		});
@@ -413,7 +413,7 @@ define([
 			removeAlerts();
 			if(!isSponsor(payments)) {
 				_.each(document.querySelectorAll('.modal-body'), function(modalBodyElt) {
-					var $elt = $('<div class="alert alert-danger">Please consider <a href="#">sponsoring WriteOn</a> for $3/month (or <a href="#">sign in</a> if you\'re already a sponsor).</div>');
+					var $elt = $('<div class="alert alert-warning">Please consider <a href="#">sponsoring</a> WriteOn & help make it better.</div>');
 					$elt.find('a').click(performPayment);
 					modalBodyElt.insertBefore($elt[0], modalBodyElt.firstChild);
 					$alerts = $alerts.add($elt);

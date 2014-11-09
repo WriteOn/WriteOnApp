@@ -81,11 +81,11 @@
 @folder-color: @secondary-color-darker;
 @jgrowl-bg-color: fade(@modal-backdrop-bg, 90%);
 
-/* Sizes */
+/* Layout Sizes */
 @title-max-width: 400px;
-@menu-panel-width: 280px;
+@menu-panel-width: 345px;
 @document-panel-width: 320px;
-@jgrowl-width: 240px;
+@jgrowl-width: 280px;
 @resizer-size: 32px;
 @editor-line-weight: 1.65;
 
@@ -155,6 +155,7 @@
 body {
 	tab-size: 4;
 	text-align: start;
+    font-size: 18px;
 }
 
 * {
@@ -207,6 +208,14 @@ body {
 
 }
 
+/* bootstrap.css overrite */
+@media screen and (min-width: 768px) {
+    .modal-dialog {
+        width: 75%;
+        margin: 30px auto;
+    }
+}
+    
 .modal-content {
 	background-color: @secondary-bg-light;
 }
@@ -323,6 +332,7 @@ a {
 .btn {
 	padding: 8px 11px;
 	.transition(~"background-color ease-in-out .15s, color ease-in-out .15s, border-color ease-in-out .15s");
+    font-size: 18px;
 }
 
 @btn-default-color: @secondary-color-darker;
@@ -456,7 +466,7 @@ a {
 }
 
 .help-block {
-	font-size: 12px;
+	font-size: 16px;
 }
 
 // Input add-on
@@ -561,7 +571,7 @@ a {
 			.icon-link-ext-alt {
 				color: transparent;
 				position: relative;
-				font-size: 12px;
+				font-size: 16px;
 				top: -12px;
 				right: 6px;
 				width: 0;
@@ -582,7 +592,7 @@ a {
         vertical-align: middle;
         .input-file-title {
     		width: @title-max-width;
-            font-size: 16px;
+            font-size: 18px;
             height: @input-height-slim;
         }
 	}
@@ -649,7 +659,7 @@ a {
         }
         i {
     		color: #737373;
-        	font-size: 14px;
+        	font-size: 16px;
         }
 	}
     & .toggle-button:hover, &.panel-open > .toggle-button {
@@ -687,7 +697,15 @@ a {
             }
         }
     }
-	.alert {
+    .nav {
+        > li > a.btn-col {
+            padding: 8px 4px;
+            text-align: left;
+        }
+    }
+    
+
+    .alert {
 		padding: 10px;
 		margin-left: -10px;
 		margin-right: -10px;
@@ -767,6 +785,9 @@ a {
 		font-weight: bold;
 		color: @folder-color;
 		border-top-color: @modal-content-separator-color;
+	}
+	.cloud {
+		color: @primary;
 	}
 	.list-group {
 		margin: 0;
@@ -853,7 +874,7 @@ a {
 	.folder, .document {
 		font-weight: bold;
 		color: @folder-color;
-		font-size: 15px;
+		font-size: 17px;
 		background-color: @transparent;
 	}
 	.name, .date, .file-count {
@@ -1615,7 +1636,7 @@ input[type="file"] {
 
 div.jGrowl {
 	z-index: 1040;
-	font-size: 14px;
+	font-size: 16px;
 	&.bottom-right {
 	    right: 35px;
 	}

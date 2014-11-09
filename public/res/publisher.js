@@ -269,9 +269,9 @@ define([
 	}
 
 	var initPublishButtonTmpl = [
-		'<li>',
+		'<li class="col-sm-6">',
 		'   <a href="#"',
-		'    class="action-init-publish-<%= provider.providerId %>">',
+		'    class="btn btn-default btn-col action-init-publish-<%= provider.providerId %>">',
 		'       <i class="icon-provider-<%= provider.providerId %>"></i> <%= provider.providerName %>',
 		'   </a>',
 		'</li>'
