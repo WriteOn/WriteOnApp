@@ -6882,7 +6882,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  }, utils;
 }), define("constants", [], function() {
  var e = {};
- return e.VERSION = "4.3.1", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-42099274-1", 
+ return e.VERSION = "1.5.0", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-42099274-1", 
  e.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ", e.GOOGLE_DRIVE_APP_ID = "1017251498254", 
  e.DROPBOX_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_APP_SECRET = "1mesyckskczn3f9", 
  e.DROPBOX_RESTRICTED_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_RESTRICTED_APP_SECRET = "1mesyckskczn3f9", 
