@@ -34,7 +34,7 @@
 				<ul class="nav pull-right right-buttons">
 					<li class="offline-status hide">
 					    <div class="text-danger">
-					        <i class="icon-attention-circled"></i>offline
+					        <i class="icon-attention-circled"></i>Offline
 					    </div>
 					</li>
 					<li class="extension-buttons"></li>
@@ -101,8 +101,7 @@
 	                </ul>
 					<ul class="nav">
 						<li><a href="#" class="action-sync-export-dialog-couchdb"><i
-					        class="icon-upload-cloud"></i> Save to My.WriteOn 
-                            <i class="icon-users"></i></sup></a></li>
+					        class="icon-upload-cloud"></i> Save to My.WriteOn</a></li>
 						<li><a href="#" class="action-sync-export-dialog-dropbox"><i
 					        class="icon-provider-dropbox"></i> Save to Dropbox</a></li>
 						<li><a href="#" class="submenu-sync-gdrive action-sync-export-dialog-gdrive"><i
@@ -119,13 +118,13 @@
 					<small>Export to the web</small>
 				</a>
 				<div class="sub-menu collapse collapse-publish-on clearfix">
-					<ul class="nav alert alert-danger show-already-published">
-	                    <li><div>"<span class="file-title"></span>" is already published.</div></li>
-	                    <li><a href="#" class="action-update-publication"><i class="icon-upload"></i>
-	                        Update publication</a></li>
-	                    <li><a href="#" data-toggle="modal" data-target=".modal-manage-publish"
-	                        class="action-reset-input"><i class="icon-upload"></i>
-	                        Manage publication</a></li>
+					<ul class="nav alert alert-default show-already-published">
+	                    <li class="hide"><div>"<span class="file-title"></span>" is already published.</div></li>
+	                    <li class="col-sm-6"><a href="#" class="btn btn-primary action-reset-input action-update-publication"><i class="icon-upload"></i>
+	                        Update</a></li>
+	                    <li class="col-sm-6"><a href="#" data-toggle="modal" data-target=".modal-manage-publish"
+	                        class="btn btn-primary action-reset-input action-reset-input"><i class="icon-upload"></i>
+	                        Manage</a></li>
 					</ul>
 					<ul class="nav publish-on-provider-list">
 					</ul>
@@ -966,12 +965,11 @@
 			</div>
 			<div class="modal-body">
 				<p>
-					"<span class="file-title"></span>" is published on the following
-					location(s):
+					"<span class="file-title"></span>" is published on the following location(s):
 				</p>
 				<div class="publish-list"></div>
 				<blockquote>
-					<p><b>Note:</b> Removing a publish location will not delete the actual publication.</p>
+					<p><b>Note:</b> Removing a published location here will not delete the actual post that was published.</p>
 				</blockquote>
 			</div>
 			<div class="modal-footer">

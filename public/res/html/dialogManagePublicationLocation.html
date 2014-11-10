@@ -5,12 +5,12 @@
 	</span> <input class="form-control" type="text"
                    value="<%= publishDesc %>" disabled/>
     </div>
-    <div class="text-right">
-        <a class="btn btn-link btn-sm open-location<%- publishLocationLink ? '' : ' hide' %>"
+    <div class="text-right" style="padding-top:5px;">
+        <a class="btn btn-primary btn-link btn-sm open-location<%- publishLocationLink ? '' : ' hide' %>"
            target="_blank" href="<%- publishLocationLink %>">
             <i class="icon-link-ext-alt"></i> Open in <%= publishAttributes.provider.providerName %>
         </a>
-        <a class="btn btn-link btn-sm remove-button"
-           data-publish-index="<%= publishAttributes.publishIndex %>"><i class="icon-trash"></i> Remove location</a>
+        <a class="btn btn-danger btn-sm remove-button"
+           data-publish-index="<%= publishAttributes.publishIndex %>"><i class="icon-trash"></i> Remove</a>
     </div>
 </div>

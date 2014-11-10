@@ -23,7 +23,7 @@ define([
 	function connect(task) {
 		task.onRun(function() {
 			if(isOffline === true) {
-				return task.error(new Error("Operation not available in offline mode.|stopPublish"));
+				return task.error(new Error("This is not available in offline mode.|stopPublish"));
 			}
 			task.chain();
 		});
@@ -38,13 +38,13 @@ define([
 			if(token !== undefined) {
 				return task.chain();
 			}
-			var errorMsg = "Failed to retrieve a token from Wordpress.";
+			var errorMsg = "Failed to retrieve an oAuth token from Wordpress.";
 			// We add time for user to enter his credentials
 			task.timeout = constants.ASYNC_TASK_LONG_TIMEOUT;
 			var code;
 
 			function oauthRedirect() {
-				utils.redirectConfirm('You are being redirected to <strong>WordPress</strong> authorization page.', function() {
+				utils.redirectConfirm('You are being redirected to the <strong>WordPress</strong> authorization page.', function() {
 					task.chain(getCode);
 				}, function() {
 					task.error(new Error('Operation canceled.'));
@@ -131,10 +131,10 @@ define([
 				// Handle error
 				if(error.code === 404) {
 					if(error.message == "unknown_blog") {
-						error = 'Site "' + site + '" not found on WordPress.|removePublish';
+						error = 'Site "' + site + '" was not found on WordPress.|removePublish';
 					}
 					else if(error.message == "unknown_post") {
-						error = 'Post ' + postId + ' not found on WordPress.|removePublish';
+						error = 'Post ' + postId + ' was not found on WordPress.|removePublish';
 					}
 				}
 				handleError(error, task);
@@ -164,10 +164,10 @@ define([
 				errorMsg = error;
 			}
 			else {
-				errorMsg = "Could not publish on WordPress.";
+				errorMsg = "Could not publish to WordPress.";
 				if((error.code === 400 && error.message == "invalid_token") || error.code === 401 || error.code === 403) {
 					storage.removeItem("wordpressToken");
-					errorMsg = "Access to WordPress account is not authorized.";
+					errorMsg = "Access to WordPress account was not authorized.";
 					return task.retry(new Error(errorMsg), 1);
 				}
 				else if(error.code <= 0) {

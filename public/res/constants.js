@@ -1,5 +1,5 @@
 // This is the most important part of syncing and publishing - we should make a doc 
-// somewhere of all the keys and urls to all the apia being used here...
+// somewhere of all the keys and urls to all the apis being used here...
 
 define([], function() {
 	var constants = {};
@@ -12,7 +12,7 @@ define([], function() {
 	constants.DROPBOX_APP_SECRET = "1mesyckskczn3f9";
 	constants.DROPBOX_RESTRICTED_APP_KEY = "r3vgaee214zfvc7";
 	constants.DROPBOX_RESTRICTED_APP_SECRET = "1mesyckskczn3f9";
-	constants.BITLY_ACCESS_TOKEN = "b9e0e5589e6479a07b699b8dc4d102061b3c0f60";
+	constants.BITLY_ACCESS_TOKEN = "c93d4289b9c1a0313378f1dad028c2d334bbc3c6";
 	constants.DEFAULT_FILE_TITLE = "Title";
 	constants.DEFAULT_FOLDER_NAME = "New folder";
 	constants.GDRIVE_DEFAULT_FILE_TITLE = "New Story";
@@ -35,23 +35,23 @@ define([], function() {
 
 	// Site dependent
 	constants.BASE_URL = "https://mammal-charter.codio.io:9500/";
-	constants.GOOGLE_CLIENT_ID = '94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com';
+	constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 	constants.GITHUB_CLIENT_ID = '20b324f0f33aad6ca2be';
 	constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
 	constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
-	constants.WORDPRESS_CLIENT_ID = '37430';
+	constants.WORDPRESS_CLIENT_ID = '37431';
 	constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
 
 	if(location.hostname.indexOf("writeon.io") === 0) {
 		constants.BASE_URL = constants.MAIN_URL;
-		constants.GOOGLE_CLIENT_ID = '94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com';
+		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = 'af6858e3fa3165986ce7';
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr.herokuapp.com/";
 	}
 	else if(location.hostname.indexOf("beta.writeon.io") === 0) {
 		constants.BASE_URL = 'https://beta.writeon.io/';
-		constants.GOOGLE_CLIENT_ID = '94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com';
+		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '302c5c415085534c1346';
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-beta.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy-beta.herokuapp.com/";
@@ -69,7 +69,7 @@ define([], function() {
 	}
     else if(location.hostname.indexOf("mammal-charter.codio.io:9500") === 0) {
 		constants.BASE_URL = 'https://mammal-charter.codio.io:9500/';
-		constants.GOOGLE_CLIENT_ID = '94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com';
+		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '235008232d0259c2f036';
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
@@ -78,7 +78,7 @@ define([], function() {
 	}
     else if(location.hostname.indexOf("mammal-charter.codio.io:3000") === 0) {
 		constants.BASE_URL = 'http://mammal-charter.codio.io:3000/';
-		constants.GOOGLE_CLIENT_ID = '94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com';
+		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '235008232d0259c2f036';
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
@@ -87,11 +87,11 @@ define([], function() {
 	}
     else if(location.hostname.indexOf("mammal-charter.codio.io:9501") === 0) {
         constants.BASE_URL = "https://mammal-charter.codio.io:9501/";
-		constants.GOOGLE_CLIENT_ID = '94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com';
+		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '235008232d0259c2f036';
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
-		constants.WORDPRESS_CLIENT_ID = '37432';
+		constants.WORDPRESS_CLIENT_ID = '37431';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
     }
 
