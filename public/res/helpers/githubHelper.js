@@ -27,7 +27,7 @@ define([
         task.onRun(function() {
             if(isOffline === true) {
                 connected = false;
-                task.error(new Error("Operation not available in offline mode.|stopPublish"));
+                task.error(new Error("This is not available in offline mode.|stopPublish"));
                 return;
             }
             if(connected === true) {
@@ -74,16 +74,16 @@ define([
             task.timeout = constants.ASYNC_TASK_LONG_TIMEOUT;
             var code;
             function oauthRedirect() {
-                utils.redirectConfirm('You are being redirected to <strong>GitHub</strong> authorization page.', function() {
+                utils.redirectConfirm('You are being redirected to the <strong>GitHub</strong> authorization page.', function() {
                     task.chain(getCode);
                 }, function() {
-                    task.error(new Error('Operation canceled.'));
+                    task.error(new Error('You canceled it.'));
                 });
             }
             function getCode() {
                 storage.removeItem("githubCode");
                 var scope = settings.githubFullAccess ? 'repo,gist' : 'public_repo,gist';
-                authWindow = utils.popupWindow('html/github-oauth-client.html?client_id=' + constants.GITHUB_CLIENT_ID + '&scope=' + scope, 'stackedit-github-oauth', 960, 600);
+                authWindow = utils.popupWindow('html/github-oauth-client.html?client_id=' + constants.GITHUB_CLIENT_ID + '&scope=' + scope, 'writeon-github-oauth', 960, 600);
                 authWindow.focus();
                 intervalId = setInterval(function() {
                     if(authWindow.closed === true) {
@@ -222,7 +222,7 @@ define([
             gist.read(function(err, gist) {
                 if(err) {
                     // Handle error
-                    task.error(new Error('Error trying to access Gist ' + gistId + '.'));
+                    task.error(new Error('There was an error trying to access Gist ' + gistId + '.'));
                     return;
                 }
                 title = gist.description;
@@ -253,11 +253,11 @@ define([
                 errorMsg = error;
             }
             else {
-                errorMsg = "Could not publish on GitHub.";
+                errorMsg = "We couldn't publish to GitHub. Want to try a different way?";
                 if(error.error === 401 || error.error === 403) {
                     github = undefined;
                     storage.removeItem("githubToken");
-                    errorMsg = "Access to GitHub account is not authorized.";
+                    errorMsg = "Access to this GitHub account is not authorized.";
                     task.retry(new Error(errorMsg), 1);
                     return;
                 }

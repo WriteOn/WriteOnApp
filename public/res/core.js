@@ -413,7 +413,7 @@ define([
 			removeAlerts();
 			if(!isSponsor(payments)) {
 				_.each(document.querySelectorAll('.modal-body'), function(modalBodyElt) {
-					var $elt = $('<div class="alert alert-warning">Please consider <a href="#">sponsoring</a> WriteOn & help make it better.</div>');
+					var $elt = $('<div class="alert alert-warning"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>Please consider <a href="#">sponsoring</a> WriteOn to keep the <code>awesome</code> coming.</div>');
 					$elt.find('a').click(performPayment);
 					modalBodyElt.insertBefore($elt[0], modalBodyElt.firstChild);
 					$alerts = $alerts.add($elt);
@@ -607,7 +607,7 @@ define([
 		// Load images
 		_.each(document.querySelectorAll('img'), function(imgElt) {
 			var $imgElt = $(imgElt);
-			var src = $imgElt.data('stackeditSrc');
+			var src = $imgElt.data('writeonSrc');
 			if(src) {
 				$imgElt.attr('src', window.baseDir + '/img/' + src);
 			}

@@ -7,7 +7,7 @@ define([
 	'eventMgr',
 	'crel',
 	'mousetrap',
-	'hammerjs'
+	'hammerjs',
 ], function($, _, utils, constants, settings, eventMgr, crel, mousetrap, hammer) {
 	var layout = {};
 
@@ -71,7 +71,7 @@ define([
 			transitionEndCallbacks = [];
 		}
 	}
-
+    
 	DomObject.prototype.applyCss = function() {
 
 		// Top/left/Bottom/Right

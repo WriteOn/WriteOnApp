@@ -42,6 +42,8 @@ define([
 	"extensions/comments",
 	"extensions/findReplace",
 	"extensions/htmlSanitizer",
+	"extensions/supportWriteon",
+	"extensions/mysyncURL",
 	"bootstrap",
 	"jquery-waitforimages"
 ], function($, _, crel, mousetrap, utils, logger, Extension, settings, settingsExtensionsAccordionHTML) {

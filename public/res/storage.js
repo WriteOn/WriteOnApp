@@ -149,7 +149,7 @@ define([
         if(_.has(localStorage, 'settings')) {
             settings = JSON.parse(localStorage.settings);
             ((settings.extensionSettings || {}).markdownExtra || {}).extensions && settings.extensionSettings.markdownExtra.extensions.push('smartypants');
-            settings.sshProxy == 'http://stackedit-ssh-proxy.herokuapp.com/' && (settings.sshProxy = 'https://stackedit-ssh-proxy.herokuapp.com/');
+            settings.sshProxy == 'http://writeon-ssh-proxy.herokuapp.com/' && (settings.sshProxy = 'https://writeon-ssh-proxy.herokuapp.com/');
             settings.template && (settings.template = settings.template.replace('http://i.writeon.io/lib/', 'https://i.writeon.io/libs/'));
             settings.template && (settings.template = settings.template.replace('http://i.writeon.io/', 'https://i.writeon.io/'));
             settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('http://i.writeon.io/lib/', 'https://i.writeon.io/libs/'));

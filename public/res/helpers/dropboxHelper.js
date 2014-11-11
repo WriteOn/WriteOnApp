@@ -28,7 +28,7 @@ define([
 		task.onRun(function() {
 			if(isOffline === true) {
 				client = undefined;
-				return task.error(new Error("Operation not available in offline mode.|stopPublish"));
+				return task.error(new Error("That is not available in offline mode.|stopPublish"));
 			}
 			if(client !== undefined) {
 				return task.chain();
@@ -66,16 +66,16 @@ define([
 			var immediate = true;
 
 			function oauthRedirect() {
-				utils.redirectConfirm('You are being redirected to <strong>Dropbox</strong> authorization page.', function() {
+				utils.redirectConfirm('We are being redirected to the <strong>Dropbox</strong> authorization page.', function() {
 					task.chain(localAuthenticate);
 				}, function() {
-					task.error(new Error('Operation canceled.'));
+					task.error(new Error('You canceled that.'));
 				});
 			}
 
 			function localAuthenticate() {
 				if(immediate === false) {
-					// If not immediate we add time for user to enter his
+					// If not immediate we add time for user to enter their
 					// credentials
 					task.timeout = constants.ASYNC_TASK_LONG_TIMEOUT;
 				}
@@ -96,7 +96,7 @@ define([
 						return task.chain(oauthRedirect);
 					}
 					// Error
-					task.error(new Error("Access to Dropbox account is not authorized."));
+					task.error(new Error("Access to that Dropbox account is not authorized."));
 				});
 			}
 
@@ -117,7 +117,7 @@ define([
 				}
 				// Handle error
 				if(error.status === 400) {
-					error = 'Could not upload document into path "' + path + '".';
+                    error = 'We cannot not upload into this location: "' + path + '".';
 				}
 				handleError(error, task);
 			});
@@ -259,7 +259,7 @@ define([
 
 				if(error.status === 401 || error.status === 403) {
 					authenticated = false;
-					errorMsg = "Access to Dropbox account is not authorized.";
+					errorMsg = "Access to that Dropbox account is not authorized.";
 					return task.retry(new Error(errorMsg), 1);
 				}
 				else if(error.status === 400 && error.responseText.indexOf("oauth_nonce") !== -1) {
@@ -293,10 +293,10 @@ define([
 				return task.chain();
 			}
 			function chooserRedirect() {
-				utils.redirectConfirm('You are being redirected to <strong>Dropbox Chooser</strong> page.', function() {
+				utils.redirectConfirm('We are being redirected to the <strong>Dropbox Chooser</strong> page.', function() {
 					task.chain();
 				}, function() {
-					task.error(new Error('Operation canceled.'));
+					task.error(new Error('You canceled.'));
 				});
 			}
 

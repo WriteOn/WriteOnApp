@@ -1,4 +1,5 @@
 // needs Markdown.Converter.js at the moment
+// This section is for artists and the more mindful of engineers.
 
 (function () {
 

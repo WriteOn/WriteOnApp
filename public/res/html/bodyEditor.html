@@ -72,7 +72,7 @@
 
 	<div class="menu-panel">
 		<button class="btn toggle-button" title="Menu">
-			<img data-stackedit-src="menu-icon.png" width="24" height="24" />
+			<img data-writeon-src="menu-icon.png" width="24" height="24" />
 		</button>
 		<div class="panel-content">
 			<div class="list-group">
@@ -115,7 +115,7 @@
 				<a href="#" data-toggle="collapse" data-target=".collapse-publish-on"
 					class="list-group-item">
 					<div><i class="icon-upload"></i>Publish</div>
-					<small>Export to the web</small>
+					<small>Publish to the web</small>
 				</a>
 				<div class="sub-menu collapse collapse-publish-on clearfix">
 					<ul class="nav alert alert-default show-already-published">
@@ -132,38 +132,39 @@
 				<a href="#" data-toggle="modal" data-target=".modal-manage-sharing"
 					class="action-reset-input list-group-item">
 					<div><i class="icon-link"></i>Sharing</div>
-					<small>Share document links</small>
+					<small>Share your stories</small>
 				</a>
-			</div>
-			<div class="list-group">
 
-				<a data-toggle="modal"
-					data-target=".modal-import-harddrive-markdown"
-					class="list-group-item action-reset-input" href="#"><i
-					class="icon-hdd"></i> Import from disk</a>
-				<a href="#" data-toggle="collapse" data-target=".collapse-save-as"
-					class="list-group-item"><i class="icon-hdd"></i> Export to disk</a>
-				<div class="sub-menu collapse collapse-save-as clearfix">
-					<ul class="nav">
-						<li><a class="action-download-md" href="#"><i
-					        class="icon-download"></i> As Markdown</a></li>
-						<li><a class="action-download-html" href="#"><i
-					        class="icon-download"></i> As HTML</a></li>
-						<li><a class="action-download-template" href="#"><i
-					        class="icon-download"></i> Using template</a></li>
-						<li><a class="action-download-pdf" href="#"><i
-					        class="icon-download"></i> As PDF <sup class="text-danger">sponsor</sup></a></li>
-					</ul>
-				</div>
-
-	            <a data-toggle="modal" data-target=".modal-import-url"
-	                class="list-group-item action-reset-input" href="#"><i
-					class="icon-globe"></i> Import from URL</a>
-	            <a data-toggle="modal"
-					data-target=".modal-import-harddrive-html"
-					class="list-group-item action-reset-input" href="#"><i
-					class="icon-code"></i> Convert HTML to Markdown</a>
+				<a href="#" data-toggle="collapse" data-target=".collapse-export-on"
+					class="list-group-item">
+					<div><i class="icon-upload"></i>Export</div>
+					<small>Save things offline</small>
+				</a>
+				<div class="sub-menu collapse collapse-export-on clearfix">
+                
+				<ul class="nav">
+ 					<li class="col-sm-6"><a class="btn btn-default btn-col action-download-md" href="#"
+                        title="Export Markdown file"><i
+					    class="icon-download"></i> Markdown</a></li>
+					<li class="col-sm-6"><a class="btn btn-default btn-col action-download-html" href="#"
+                        title="Export HTML file"><i
+					    class="icon-link-ext"></i> HTML</a></li>
+					<li class="col-sm-6"><a class="btn btn-default btn-col action-download-template" href="#"
+                        title="Export as Template"><i
+					    class="icon-menu"></i> Template</a></li>
+					<li class="col-sm-6"><a class="btn btn-default btn-col action-download-pdf" href="#"
+                        title="Export PDF file"><i
+					    class="icon-file"></i> PDF </a></li>
+                </ul>
 			</div>
+				<a href="#" data-toggle="modal" data-target=".modal-manage-sharing"
+					class="action-reset-input list-group-item">
+					<div><i class="icon-code"></i>Convert</div>
+					<small>Convert HTML to Markdown</small>
+				</a>
+            
+            </div>
+
 			<ul class="nav">
 				<li><a href="#" data-toggle="modal"
 					data-target=".modal-settings" class="action-load-settings"><i
@@ -195,11 +196,9 @@
 			</div>
 		</div>
 		<div class="panel-content">
-			<div class="list-group document-list"></div>
-			<div class="list-group document-list-filtered hide"></div>
             <a href="#" class="list-group-item folder clearfix collapsed cloud" data-folder-index="cloud.allcloudproviders" 
                data-toggle="collapse" data-target=".file-list.cloudallcloudproviders">   
-                <i class="icon-download-cloud"></i> My Cloud</a>
+                <i class="icon-download-cloud"></i> Open & Import</a>
             <div class="file-list cloudallcloudproviders clearfix collapse">
 					<ul class="nav">
 						<li><a href="#" class="list-group-item file action-sync-import-dialog-couchdb"><i
@@ -212,8 +211,21 @@
 							class="icon-provider-gdrive"></i> Google Drive<br><small>(2nd account)</small></a></li>
 						<li><a href="#" class="list-group-item file submenu-sync-gdriveter action-sync-import-gdriveter"><i
 							class="icon-provider-gdrive"></i> Google Drive<br><small>(3rd account)</small></a></li>
-					</ul>
+                        <li><a data-toggle="modal" data-target=".modal-import-url"
+	                    class="list-group-item file list-group-item action-reset-input" href="#"
+                        title="Import from URL"><i
+					    class="icon-globe"></i> Import URL</a></li>
+                        <li><a data-toggle="modal" 
+					    title="Import from disk" data-target=".modal-import-harddrive-markdown" 
+					    class="list-group-item file list-group-item action-reset-input" href="#"><i 
+                        class="icon-hdd"></i> Import from disk</a></li>
+
+                </ul>
             </div>
+            <hr>
+            <div class="list-group document-list"></div>
+			<div class="list-group document-list-filtered hide"></div>
+
 		</div>
 	</div>
 </div>
@@ -478,7 +490,7 @@
 				<p id="dropzone-import-harddrive-html" class="drop-zone">Drop
 					files here</p>
 				<p>Or insert your HTML code here:</p>
-				<textarea id="input-convert-html" class="form-control"></textarea>
+				<textarea id="input-convert-html" class="form-control prettyprint linenums lang-html"></textarea>
 			</div>
 			<div class="modal-footer">
 				<a href="#" class="btn btn-default" data-dismiss="modal">Close</a> <a
@@ -1148,7 +1160,7 @@
 								<label class="col-sm-4 control-label"
 									for="input-settings-font-size">Font size ratio</label>
 								<div class="col-sm-8 form-inline">
-									<input type="text" id="input-settings-font-size"
+									<input type="text" id="input-settings-font-size1"
 										class="form-control col-sm-2">
 								</div>
 							</div>
@@ -1158,7 +1170,7 @@
 								<div class="col-sm-8 form-inline">
 									<input type="text" id="input-settings-max-width"
 										class="form-control col-sm-2">
-								</div>
+                                </div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-4 control-label"
@@ -1267,15 +1279,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label"
-									for="input-settings-publish-commit-msg">WriteOn Support</label>
-								<div class="col-sm-7">
-									<input type="text" id="input-settings-publish-commit-msg"
-										class="form-control" readonly>
-								</div>
-							</div>
-							<div class="form-group">
+							<div class="form-group hidden">
 								<label class="col-sm-4 control-label"
 									for="input-settings-couchdb-url">WriteOn Sync URL</label>
 								<div class="col-sm-7">

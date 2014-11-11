@@ -23,7 +23,7 @@ define([
     function connect(task) {
         task.onRun(function() {
             if(isOffline === true) {
-                task.error(new Error("Operation not available in offline mode.|stopPublish"));
+                task.error(new Error("That is not available in offline mode.|stopPublish"));
                 return;
             }
             task.chain();
@@ -45,7 +45,7 @@ define([
                 task.chain();
                 return;
             }
-            var errorMsg = "Failed to retrieve a token from Tumblr.";
+            var errorMsg = " We `failed` to retrieve a token from Tumblr.";
             // We add time for user to enter his credentials
             task.timeout = constants.ASYNC_TASK_LONG_TIMEOUT;
             var oauth_object;
@@ -61,15 +61,15 @@ define([
                 });
             }
             function oauthRedirect() {
-                utils.redirectConfirm('You are being redirected to <strong>Tumblr</strong> authorization page.', function() {
+                utils.redirectConfirm('We are being redirected to the <strong>Tumblr</strong> authorization page.', function() {
                     task.chain(getVerifier);
                 }, function() {
-                    task.error(new Error('Operation canceled.'));
+                    task.error(new Error('You canceled.'));
                 });
             }
             function getVerifier() {
                 storage.removeItem("tumblrVerifier");
-                authWindow = utils.popupWindow('html/tumblr-oauth-client.html?oauth_token=' + oauth_object.oauth_token, 'stackedit-tumblr-oauth', 800, 600);
+                authWindow = utils.popupWindow('html/tumblr-oauth-client.html?oauth_token=' + oauth_object.oauth_token, 'writeon-tumblr-oauth', 800, 600);
                 authWindow.focus();
                 intervalId = setInterval(function() {
                     if(authWindow.closed === true) {
@@ -141,7 +141,7 @@ define([
                 };
                 // Handle error
                 if(error.code === 404 && postId !== undefined) {
-                    error = 'Post ' + postId + ' not found on Tumblr.|removePublish';
+                    error = 'We could not find post `' + postId + '` on Tumblr.|removePublish';
                 }
                 handleError(error, task);
             });
@@ -164,11 +164,11 @@ define([
                 errorMsg = error;
             }
             else {
-                errorMsg = "Could not publish on Tumblr.";
+                errorMsg = "We could not publish on Tumblr.";
                 if(error.code === 401 || error.code === 403) {
                     oauthParams = undefined;
                     storage.removeItem("tumblrOauthParams");
-                    errorMsg = "Access to Tumblr account is not authorized.";
+                    errorMsg = "Access to that Tumblr account is not authorized.";
                     task.retry(new Error(errorMsg), 1);
                     return;
                 }

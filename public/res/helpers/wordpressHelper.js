@@ -38,22 +38,22 @@ define([
 			if(token !== undefined) {
 				return task.chain();
 			}
-			var errorMsg = "Failed to retrieve an oAuth token from Wordpress.";
+			var errorMsg = "We `failed` to retrieve an oAuth token from Wordpress.";
 			// We add time for user to enter his credentials
 			task.timeout = constants.ASYNC_TASK_LONG_TIMEOUT;
 			var code;
 
 			function oauthRedirect() {
-				utils.redirectConfirm('You are being redirected to the <strong>WordPress</strong> authorization page.', function() {
+				utils.redirectConfirm('We are being redirected to the <strong>WordPress</strong> authorization page.', function() {
 					task.chain(getCode);
 				}, function() {
-					task.error(new Error('Operation canceled.'));
+					task.error(new Error('You canceled.'));
 				});
 			}
 
 			function getCode() {
 				storage.removeItem("wordpressCode");
-				authWindow = utils.popupWindow('html/wordpress-oauth-client.html?client_id=' + constants.WORDPRESS_CLIENT_ID, 'stackedit-wordpress-oauth', 960, 600);
+				authWindow = utils.popupWindow('html/wordpress-oauth-client.html?client_id=' + constants.WORDPRESS_CLIENT_ID, 'writeon-wordpress-oauth', 960, 600);
 				authWindow.focus();
 				intervalId = setInterval(function() {
 					if(authWindow.closed === true) {
@@ -131,10 +131,10 @@ define([
 				// Handle error
 				if(error.code === 404) {
 					if(error.message == "unknown_blog") {
-						error = 'Site "' + site + '" was not found on WordPress.|removePublish';
+						error = 'We could not find Site "' + site + '" on WordPress.|removePublish';
 					}
 					else if(error.message == "unknown_post") {
-						error = 'Post ' + postId + ' was not found on WordPress.|removePublish';
+						error = 'We could not find Post ' + postId + ' on WordPress.|removePublish';
 					}
 				}
 				handleError(error, task);
@@ -167,7 +167,7 @@ define([
 				errorMsg = "Could not publish to WordPress.";
 				if((error.code === 400 && error.message == "invalid_token") || error.code === 401 || error.code === 403) {
 					storage.removeItem("wordpressToken");
-					errorMsg = "Access to WordPress account was not authorized.";
+					errorMsg = "Access to that WordPress account was not authorized.";
 					return task.retry(new Error(errorMsg), 1);
 				}
 				else if(error.code <= 0) {

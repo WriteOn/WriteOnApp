@@ -69,7 +69,7 @@ define([
             }
             function getVerifier() {
                 storage.removeItem("ghostVerifier");
-                authWindow = utils.popupWindow('html/ghost-oauth-client.html?oauth_token=' + oauth_object.oauth_token, 'stackedit-ghost-oauth', 800, 600);
+                authWindow = utils.popupWindow('html/ghost-oauth-client.html?oauth_token=' + oauth_object.oauth_token, 'writeon-ghost-oauth', 800, 600);
                 authWindow.focus();
                 intervalId = setInterval(function() {
                     if(authWindow.closed === true) {
