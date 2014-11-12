@@ -128,8 +128,6 @@ define([
 		utils.setInputValue("#textarea-settings-default-content", settings.defaultContent);
 		// Edit mode
 		utils.setInputRadio("radio-settings-edit-mode", settings.editMode);
-		// Commit message
-		utils.setInputValue("#input-settings-publish-commit-msg", settings.commitMsg);
 		// Markdown MIME type
 		utils.setInputValue("#input-settings-markdown-mime-type", settings.markdownMimeType);
 		// Gdrive multi-accounts
@@ -146,6 +144,8 @@ define([
 		utils.setInputValue("#textarea-settings-pdf-template", settings.pdfTemplate);
 		// PDF options
 		utils.setInputValue("#textarea-settings-pdf-options", settings.pdfOptions);
+		// WriteOn Support (commit) message
+		utils.setInputValue("#input-settings-publish-commit-msg", settings.commitMsg);
 		// CouchDB URL
 		utils.setInputValue("#input-settings-couchdb-url", settings.couchdbUrl);
 
@@ -175,8 +175,6 @@ define([
 		newSettings.defaultContent = utils.getInputValue("#textarea-settings-default-content");
 		// Edit mode
 		newSettings.editMode = utils.getInputRadio("radio-settings-edit-mode");
-		// Commit message
-		newSettings.commitMsg = utils.getInputTextValue("#input-settings-publish-commit-msg", event);
 		// Gdrive multi-accounts
 		newSettings.gdriveMultiAccount = utils.getInputIntValue("#input-settings-gdrive-multiaccount");
 		// Markdown MIME type
@@ -193,6 +191,8 @@ define([
 		newSettings.pdfTemplate = utils.getInputTextValue("#textarea-settings-pdf-template", event);
 		// PDF options
 		newSettings.pdfOptions = utils.getInputJSONValue("#textarea-settings-pdf-options", event);
+		// WriteOn Support (commit) message
+		newSettings.commitMsg = utils.getInputTextValue("#input-settings-publish-commit-msg", event);
 		// My.WriteOn (CouchDB) URL
 		newSettings.couchdbUrl = utils.getInputValue("#input-settings-couchdb-url", event);
 
@@ -380,8 +380,8 @@ define([
 
 	function isSponsor(payments) {
 		var result = payments && payments.app == appId && (
-			(payments.chargeOption && payments.chargeOption.alias == 'once') ||
-			(payments.subscriptionOption && payments.subscriptionOption.alias == 'monthly'));
+			(payments.chargeOption && payments.chargeOption.alias == 'monthly') ||
+			(payments.subscriptionOption && payments.subscriptionOption.alias == 'writer'));
 		eventMgr.isSponsor = result;
 		return result;
 	}
@@ -394,8 +394,8 @@ define([
 	function performPayment() {
 		monetize.getPayments({
 			pricingOptions: [
-				'once',
-				'yearly'
+				'monthly',
+				'writer'
 			]
 		}, function(err, payments) {
 			if(isSponsor(payments)) {

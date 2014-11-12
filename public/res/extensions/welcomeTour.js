@@ -53,7 +53,7 @@ define([
 				'   <div class="popover-content"></div>',
 				'   <nav class="popover-navigation">',
 				'       <button class="btn btn-primary" data-role="next">Next</button>',
-				'       <button class="btn btn-default" data-role="end">Got it!</button>',
+				'       <button class="btn btn-default" data-role="end">Got it</button>',
 				'   </nav>',
 				'</div>'
 			].join("")
@@ -61,29 +61,29 @@ define([
 		tour.addSteps([
 			{
 				element: '.navbar-inner',
-				title: 'WriteOn is ready',
+				title: 'Welcome to WriteOn',
 				content: [
-					'<p>Hi there. Since you\'re new here, take a look.</p>',
-					'Please click <b>Next</b> to take a quick tour.'
+					'<p>Hi there. WriteOn has been successfully installed. And, since you\'re new here, take a look around first.</p>',
+					'Please tap <b>Next</b> to take a quick tour.'
 				].join(""),
 				placement: 'bottom'
 			},
 			{
 				element: '.document-panel .toggle-button',
-				title: 'Stories',
+				title: 'My Stories',
 				content: [
-					'<p>The <i class="icon-folder-open"></i> <b>story panel</b> allows you to manage your local stories.</p>',
-					'<b>Tip:</b> Use <kbd>Ctrl+[</kbd> and <kbd>Ctrl+]</kbd> to toggle stories.'
+					'<p>The <i class="icon-folder-open"></i> <b>My Stories</b> panel allows you to open, import, & manage your stories.</p>',
+					'<b>Tip:</b> Use <kbd>Ctrl+[</kbd> and <kbd>Ctrl+]</kbd> to toggle local stories.'
 				].join(""),
 				placement: 'left',
 				reflex: true
 			},
 			{
 				element: '.menu-panel .toggle-button',
-				title: 'Menu',
+				title: 'My Tool',
 				content: [
-					'<p>The <i class="icon-provider-writeon"></i> <b>menu panel</b> allows you to synchronize your stories on <i class="icon-provider-couchdb"></i> WriteOn,  <i class="icon-provider-gdrive"></i> Google Drive, <i class="icon-provider-dropbox"></i> Dropbox or to publish them on <i class="icon-provider-github"></i> GitHub, <i class="icon-provider-ghost"></i> Ghost, <i class="icon-provider-blogger"></i> Blogger...</p>',
-					'<b>Tip:</b> Use the <i class="icon-provider-writeon"></i> <b>menu panel</b> to access the settings.'
+					'<p>The <i class="icon-provider-writeon"></i> <b>My Tools</b> panel allows you to synchronize your local stories with <br><i class="icon-provider-couchdb"></i> My.WriteOn, <i class="icon-provider-gdrive"></i> Google Drive, <i class="icon-provider-dropbox"></i> or Dropbox. You can also publish stories directly to <i class="icon-provider-tumblr"></i> Tumblr, <i class="icon-provider-ghost"></i> Ghost, <i class="icon-provider-wordpress"></i> Wordpress, <i class="icon-provider-blogger"></i> Blogger, and <i class="icon-provider-github"></i> GitHub.</p>',
+					'<b>Tip:</b> Use the <i class="icon-provider-writeon"></i> <b>My Tools</b> pabel to access your account, settings, extensions, & utilities.'
 				].join(""),
 				placement: 'right',
 				reflex: true
@@ -92,8 +92,8 @@ define([
 				element: '.navbar-inner > .nav .button-open-discussion, .navbar .buttons-dropdown > .nav > .btn:not(:hidden)',
 				title: 'Comments/discussions',
 				content: [
-					'<p>Collaborative Writing: the <i class="icon-comment-alt"></i> <b>comments</b> button lets you create inline discussions!</p>',
-					'<b>Tip:</b> Reopen the Hello World! document from Settings>Utils to discover other new features.'
+					'<p>Collaborative Writing is useful for most authors, and WriteOn boasts a <i class="icon-comment-alt"></i> <strong>robust, yet simple feature</strong> to facilitate collaboration between authors, editors, publishers and readers.</p>',
+					'<b>Tip:</b> Built in discussons facilitate communication, while the built-in <strong>merging</strong> feature provides visible progress on collaborative changes.'
 				].join(""),
 				placement: 'right',
 				reflex: true
@@ -102,8 +102,8 @@ define([
 				element: '.navbar-inner',
 				title: 'Happy Writing!',
 				content: [
-					'<p class="hide">Enjoy, and don\'t forget to rate 5 stars on the <a target="_blank" href="https://chrome.google.com/webstore/detail/writeon/[baf_writeon_app_token]/reviews">Chrome Web Store</a>...</p>',
-					'<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://writeon.io" data-text="Write without distraction and publish without efforts." data-via="writeon" data-size="large"></a>'
+					'<p>Enjoy writing like you always wanted to. Let us know if and when we can be of service to your writing needs by <a href="team@writeon.io?subject=Hi, I am on your tour page right now, and ...">contacting us</a>.</p>',
+					'<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://writeon.io" data-text="Write like you always wanted to." data-via="writeon" data-size="large"></a>'
 				].join(""),
 				placement: 'bottom',
 				onShown: function() {

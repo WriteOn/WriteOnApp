@@ -91,7 +91,7 @@ define([
             showMessage("You are offline.", "icon-attention-circled msg-offline");
         }
         else {
-            showMessage("You are back online!", "icon-signal");
+            showMessage("You are back online.", "icon-signal");
         }
     };
 

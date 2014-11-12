@@ -3,7 +3,7 @@
 
 define([], function() {
 	var constants = {};
-	constants.VERSION = "1.5.1";
+	constants.VERSION = "1.5.2";
 	constants.MAIN_URL = "https://writeon.io/";
 	constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-42099274-1";
 	constants.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ";
@@ -13,7 +13,7 @@ define([], function() {
 	constants.DROPBOX_RESTRICTED_APP_KEY = "r3vgaee214zfvc7";
 	constants.DROPBOX_RESTRICTED_APP_SECRET = "1mesyckskczn3f9";
 	constants.BITLY_ACCESS_TOKEN = "c93d4289b9c1a0313378f1dad028c2d334bbc3c6";
-	constants.DEFAULT_FILE_TITLE = "Title";
+	constants.DEFAULT_FILE_TITLE = "Story Title";
 	constants.DEFAULT_FOLDER_NAME = "New folder";
 	constants.GDRIVE_DEFAULT_FILE_TITLE = "New Story";
 	constants.EDITOR_DEFAULT_PADDING = 35;
@@ -39,8 +39,10 @@ define([], function() {
 	constants.GITHUB_CLIENT_ID = '20b324f0f33aad6ca2be';
 	constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
 	constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
+    constants.GHOST_PROXY_URL = "https://writeon-ghost-proxy.herokuapp.com/";
 	constants.WORDPRESS_CLIENT_ID = '37431';
 	constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
+    
 
 	if(location.hostname.indexOf("writeon.io") === 0) {
 		constants.BASE_URL = constants.MAIN_URL;

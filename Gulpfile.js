@@ -279,7 +279,7 @@ gulp.task('git-tag', function(cb) {
 		if(err) {
 			return cb(err);
 		}
-		exec('git commit -a -m "Prepare release"', function(err) {
+        exec('git commit -a -m "Prepared & released: "' + tag + '.', function(err) {
 			if(err) {
 				return cb(err);
 			}
@@ -296,7 +296,7 @@ gulp.task('git-tag', function(cb) {
 function releaseTask(importance) {
 	return function(cb) {
 		runSequence(
-				'bump-' + importance,
+			'bump-' + importance,
 			'default',
 			'git-tag',
 			cb);

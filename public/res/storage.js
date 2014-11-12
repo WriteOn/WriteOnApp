@@ -139,7 +139,7 @@ define([
             settings = JSON.parse(localStorage.settings);
             delete settings.editorFontFamily;
             delete settings.editorFontSize;
-            settings.template && (settings.template = settings.template.replace('http://i.writeon.io/css/main-min.css', 'http://i.writeon.io/res-min/themes/blue.css'));
+            settings.template && (settings.template = settings.template.replace('http://beta.writeon.io/css/main-min.css', 'http://beta.writeon.io/res-min/themes/neat.css'));
             localStorage.settings = JSON.stringify(settings);
         }
         version = "v10";
@@ -150,12 +150,12 @@ define([
             settings = JSON.parse(localStorage.settings);
             ((settings.extensionSettings || {}).markdownExtra || {}).extensions && settings.extensionSettings.markdownExtra.extensions.push('smartypants');
             settings.sshProxy == 'http://writeon-ssh-proxy.herokuapp.com/' && (settings.sshProxy = 'https://writeon-ssh-proxy.herokuapp.com/');
-            settings.template && (settings.template = settings.template.replace('http://i.writeon.io/lib/', 'https://i.writeon.io/libs/'));
-            settings.template && (settings.template = settings.template.replace('http://i.writeon.io/', 'https://i.writeon.io/'));
-            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('http://i.writeon.io/lib/', 'https://i.writeon.io/libs/'));
-            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('http://i.writeon.io/', 'https://i.writeon.io/'));
-            settings.defaultContent && (settings.defaultContent = settings.defaultContent.replace('http://i.writeon.io/', 'https://i.writeon.io/'));
-            settings.commitMsg && (settings.commitMsg = settings.commitMsg.replace('http://i.writeon.io/', 'https://i.writeon.io/'));
+            settings.template && (settings.template = settings.template.replace('http://beta.writeon.io/lib/', 'https://beta.writeon.io/libs/'));
+            settings.template && (settings.template = settings.template.replace('http://beta.writeon.io/', 'https://beta.writeon.io/'));
+            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('http://beta.writeon.io/lib/', 'https://beta.writeon.io/libs/'));
+            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('http://beta.writeon.io/', 'https://beta.writeon.io/'));
+            settings.defaultContent && (settings.defaultContent = settings.defaultContent.replace('http://beta.writeon.io/', 'https://beta.writeon.io/'));
+            settings.commitMsg && (settings.commitMsg = settings.commitMsg.replace('http://beta.writeon.io/', 'https://beta.writeon.io/'));
             localStorage.settings = JSON.stringify(settings);
         }
         version = "v11";
@@ -169,8 +169,8 @@ define([
             // Force new font
             delete settings.editorFontFamily;
             delete settings.editorFontSize;
-            settings.template && (settings.template = settings.template.replace('https://i.writeon.io/res-min/themes/default.css', 'https://i.writeon.io/res-min/themes/base.css'));
-            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('https://i.writeon.io/res-min/themes/default.css', 'https://i.writeon.io/res-min/themes/base.css'));
+            settings.template && (settings.template = settings.template.replace('https://beta.writeon.io/res-min/themes/default.css', 'https://beta.writeon.io/res-min/themes/base.css'));
+            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('https://beta.writeon.io/res-min/themes/default.css', 'https://beta.writeon.io/res-min/themes/base.css'));
             localStorage.settings = JSON.stringify(settings);
         }
         version = "v12";
@@ -189,8 +189,8 @@ define([
     if(version == "v14") {
         if(_.has(localStorage, 'settings')) {
             settings = JSON.parse(localStorage.settings);
-            settings.template && (settings.template = settings.template.replace('https://i.writeon.io/res-min/themes/default.css', 'https://i.writeon.io/res-min/themes/base.css'));
-            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('https://i.writeon.io/res-min/themes/default.css', 'https://i.writeon.io/res-min/themes/base.css'));
+            settings.template && (settings.template = settings.template.replace('https://beta.writeon.io/res-min/themes/default.css', 'https://beta.writeon.io/res-min/themes/base.css'));
+            settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('https://beta.writeon.io/res-min/themes/default.css', 'https://beta.writeon.io/res-min/themes/base.css'));
             localStorage.settings = JSON.stringify(settings);
         }
         version = "v15";
@@ -268,7 +268,7 @@ define([
 	if(version == "v21") {
 		if(_.has(localStorage, 'settings')) {
 			settings = JSON.parse(localStorage.settings);
-			settings.template && (settings.template = settings.template.replace('https://i.writeon.io/libs/MathJax/', 'https://cdn.mathjax.org/mathjax/latest/'));
+			settings.template && (settings.template = settings.template.replace('https://beta.writeon.io/libs/MathJax/', 'https://cdn.mathjax.org/mathjax/latest/'));
 			settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('/libs/MathJax/', '/res/bower-libs/MathJax/'));
 			localStorage.settings = JSON.stringify(settings);
 		}

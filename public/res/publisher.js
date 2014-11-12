@@ -333,7 +333,7 @@ define([
 			var content = publisher.applyTemplate(fileDesc, undefined, currentHTML);
 			utils.saveAs(content, fileDesc.title + (settings.template.indexOf("documentHTML") === -1 ? ".md" : ".html"));
 		});
-        // monetizeJS payments: http://api.monetizejs.com/
+        // Stripe payments via monetizeJS: http://api.monetizejs.com/
         var monetize = new MonetizeJS({
 			applicationID: '5d7PNYmOeEl4ANys'
 		});
@@ -346,7 +346,7 @@ define([
 			var pdf, token;
 			task.onRun(function() {
 				if(isOffline === true) {
-					eventMgr.onError("Operation not available in offline mode.");
+					eventMgr.onError("That is not available in offline mode.");
 					return task.chain();
 				}
 				if(!eventMgr.isSponsor) {
@@ -375,7 +375,7 @@ define([
 							pdf = this.response;
 						}
 						else {
-							eventMgr.onError("Error when trying to generate PDF: " + this.statusText);
+							eventMgr.onError("There was an error when trying to generate PDF: " + this.statusText);
 						}
 						task.chain();
 					}

@@ -23,7 +23,7 @@ define([
     function connect(task) {
         task.onRun(function() {
             if(isOffline === true) {
-                task.error(new Error("Operation not available in offline mode.|stopPublish"));
+                task.error(new Error("That is not available in offline mode.|stopPublish"));
                 return;
             }
             task.chain();
@@ -45,12 +45,12 @@ define([
                 task.chain();
                 return;
             }
-            var errorMsg = "Failed to retrieve a token from Ghost.";
+            var errorMsg = "We failed to retrieve a token from Ghost.";
             // We add time for user to enter his credentials
             task.timeout = constants.ASYNC_TASK_LONG_TIMEOUT;
             var oauth_object;
             function getOauthToken() {
-                $.getJSON(constants.TUMBLR_PROXY_URL + "request_token", function(data) {
+                $.getJSON(constants.GHOST_PROXY_URL + "request_token", function(data) {
                     if(data.oauth_token !== undefined) {
                         oauth_object = data;
                         task.chain(oauthRedirect);
@@ -61,7 +61,7 @@ define([
                 });
             }
             function oauthRedirect() {
-                utils.redirectConfirm('You are being redirected to <strong>Ghost</strong> authorization page.', function() {
+                utils.redirectConfirm('We are being redirected to the <strong>Ghost</strong> authorization page.', function() {
                     task.chain(getVerifier);
                 }, function() {
                     task.error(new Error('Operation canceled.'));
@@ -87,7 +87,7 @@ define([
                 }, 500);
             }
             function getAccessToken() {
-                $.getJSON(constants.TUMBLR_PROXY_URL + "access_token", oauth_object, function(data) {
+                $.getJSON(constants.GHOST_PROXY_URL + "access_token", oauth_object, function(data) {
                     if(data.access_token !== undefined && data.access_token_secret !== undefined) {
                         storage.ghostOauthParams = JSON.stringify(data);
                         oauthParams = data;
@@ -126,7 +126,7 @@ define([
                 content: content
             }, oauthParams);
             $.ajax({
-                url: constants.TUMBLR_PROXY_URL + "post",
+                url: constants.GHOST_PROXY_URL + "post",
                 data: data,
                 type: "POST",
                 dataType: "json",
@@ -164,11 +164,11 @@ define([
                 errorMsg = error;
             }
             else {
-                errorMsg = "Could not publish on Ghost.";
+                errorMsg = "We could not publish on Ghost.";
                 if(error.code === 401 || error.code === 403) {
                     oauthParams = undefined;
                     storage.removeItem("ghostOauthParams");
-                    errorMsg = "Access to Ghost account is not authorized.";
+                    errorMsg = "Access to this Ghost account is not authorized.";
                     task.retry(new Error(errorMsg), 1);
                     return;
                 }
