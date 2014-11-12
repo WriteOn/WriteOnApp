@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#Date Tue Nov 11 2014 05:56:06 GMT+0000 (UTC)
+#Date Tue Nov 11 2014 15:39:31 GMT+0000 (UTC)
 
 CACHE:
 .
@@ -228,6 +228,7 @@ res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Script/Regular/BasicLatin.j
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Script/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Script/Regular/Other.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Size1/Regular/Main.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Size2/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Size3/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Size4/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Typewriter/Regular/BasicLatin.js?rev=2.4-beta-2
@@ -238,7 +239,6 @@ res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/WinChrome/Regular/Main.js?r
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/WinIE6/Regular/AMS.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/WinIE6/Regular/Bold.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/WinIE6/Regular/Main.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Size2/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/fontdata-1.0.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/fontdata-beta.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/fontdata-extra.js?rev=2.4-beta-2

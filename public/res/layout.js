@@ -116,7 +116,46 @@ define([
 		animate && (transitionEndTimeoutId = setTimeout(onTransitionEnd, 800));
 	};
 
-	DomObject.prototype.createToggler = function(backdrop) {
+/* EXPIREMENTAL CODE WITHOUT BACKDROP */
+
+	DomObject.prototype.createToggler = function() {
+		var pushedEvents = 0;
+		this.toggle = function(show) {
+			if(show === this.isOpen) {
+				return;
+			}
+			this.isOpen = _.isBoolean(show) ? show : !this.isOpen;
+			if(this.isOpen) {
+				this.isShown = true;
+				transitionEndCallbacks.push(_.bind(function() {
+					if(--pushedEvents === 0) {
+						if(this.isOpen) {
+							this.$elt.trigger('shown.layout.toggle');
+						}
+					}
+				}, this));
+			}
+			else {
+				this.$elt.trigger('hide.layout.toggle');
+				transitionEndCallbacks.push(_.bind(function() {
+					if(--pushedEvents === 0) {
+						if(!this.isOpen) {
+							this.isShown = false;
+							this.$elt.removeClass('panel-open bring-to-front').trigger('hidden.layout.toggle');
+						}
+					}
+				}, this));
+			}
+			pushedEvents++;
+			startAnimation();
+			resizeAll();
+		};
+	};
+    
+/* ORIGINAL CODE WITH BACKDROP 
+ * 
+ * 
+ * 	DomObject.prototype.createToggler = function(backdrop) {
 		var $backdropElt;
 		var pushedEvents = 0;
 		this.toggle = function(show) {
@@ -127,7 +166,7 @@ define([
 			if(this.isOpen) {
 				this.isShown = true;
 				this.$elt.addClass('panel-open').trigger('show.layout.toggle');
-				if(backdrop) {
+			    if(backdrop) {
 					$backdropElt = $(utils.createBackdrop(wrapperL1.elt)).on('click.backdrop', _.bind(function() {
 						this.toggle(false);
 					}, this));
@@ -162,6 +201,9 @@ define([
 			resizeAll();
 		};
 	};
+    
+ */
+    
 	DomObject.prototype.initHammer = function(drag) {
 		this.hammer = hammer(this.elt, {
 			drag: drag ? true : false,

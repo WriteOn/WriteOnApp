@@ -193,7 +193,7 @@ define([
 		newSettings.pdfTemplate = utils.getInputTextValue("#textarea-settings-pdf-template", event);
 		// PDF options
 		newSettings.pdfOptions = utils.getInputJSONValue("#textarea-settings-pdf-options", event);
-		// CouchDB URL
+		// My.WriteOn (CouchDB) URL
 		newSettings.couchdbUrl = utils.getInputValue("#input-settings-couchdb-url", event);
 
 		// Save extension settings
@@ -413,7 +413,7 @@ define([
 			removeAlerts();
 			if(!isSponsor(payments)) {
 				_.each(document.querySelectorAll('.modal-body'), function(modalBodyElt) {
-					var $elt = $('<div class="alert alert-warning"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>Please consider <a href="#">sponsoring</a> WriteOn to keep the <code>awesome</code> coming.</div>');
+					var $elt = $('<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>Please consider <a href="#">sponsoring</a> WriteOn to keep the <code>awesome</code> coming.</div>');
 					$elt.find('a').click(performPayment);
 					modalBodyElt.insertBefore($elt[0], modalBodyElt.firstChild);
 					$alerts = $alerts.add($elt);
@@ -496,7 +496,7 @@ define([
 		var currentTheme = window.theme;
 
 		function applyTheme(theme) {
-			theme = theme || 'blue';
+			theme = theme || 'neat';
 			if(currentTheme != theme) {
 				var themeModule = "less!themes/" + theme;
 				if(window.baseDir.indexOf('-min') !== -1) {

@@ -88,28 +88,30 @@
 				<a href="#" data-toggle="collapse" data-target=".collapse-synchronize"
 					class="list-group-item">
 					<div><i class="icon-refresh"></i> Synchronize</div>
-					<small>Open, save, collaborate in the Cloud</small>
+					<small>Save, share, collaborate in the Cloud</small>
 				</a>
 				<div class="sub-menu collapse collapse-synchronize clearfix">
 					<ul class="nav alert alert-default show-already-synchronized">
 						<li class="hide"><div><span class="file-title"></span> is synced.</div></li>
-						<li class="col-sm-6"><a href="#" class="btn btn-primary action-force-synchronization" style="padding:8px 0;"><i class="icon-refresh"></i>
+						<li class="col-sm-6"><a href="#" class="btn btn-primary action-force-synchronization"><i class="icon-refresh"></i>
 							Sync</a></li>
-	                    <li class="col-sm-6"><a href="#" data-toggle="modal" data-target=".modal-manage-sync" style="padding:8px 0;"
+	                    <li class="col-sm-6"><a href="#" data-toggle="modal" data-target=".modal-manage-sync"
 	                        class="btn btn-primary action-reset-input"><i
 	                        class="icon-edit"></i> Manage</a></li>
 	                </ul>
 					<ul class="nav">
-						<li><a href="#" class="action-sync-export-dialog-couchdb"><i
-					        class="icon-upload-cloud"></i> Save to My.WriteOn</a></li>
-						<li><a href="#" class="action-sync-export-dialog-dropbox"><i
-					        class="icon-provider-dropbox"></i> Save to Dropbox</a></li>
-						<li><a href="#" class="submenu-sync-gdrive action-sync-export-dialog-gdrive"><i
-							class="icon-provider-gdrive"></i> Save to Google Drive</a></li>
-						<li><a href="#" class="submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i
-							class="icon-provider-gdrive"></i> Save to Google Drive<br><small>(2nd account)</small></a></li>
-						<li><a href="#" class="submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i
-							class="icon-provider-gdrive"></i> Save to Google Drive<br><small>(3rd account)</small></a></li>
+						<li class="col-sm-6"><a href="#" class="btn btn-default action-sync-export-dialog-couchdb"><i
+					        class="icon-upload-cloud"></i> My.WriteOn</a></li>
+                        <li class="col-sm-6"><a href="#" data-toggle="modal" data-target=".modal-manage-sharing" 
+                            class="btn btn-default action-reset-input"><i class="icon-link"></i> Sharing</a></li>
+						<li class="col-sm-6"><a href="#" class="btn btn-default action-sync-export-dialog-dropbox"><i
+					        class="icon-provider-dropbox"></i> Dropbox Sync</a></li>
+						<li class="col-sm-6"><a href="#" class="btn btn-default submenu-sync-gdrive action-sync-export-dialog-gdrive"><i
+							class="icon-provider-gdrive"></i> Drive Sync</a></li>
+						<li class="col-sm-6"><a href="#" class="btn btn-default submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i
+							class="icon-provider-gdrive"></i> Drive Sync<sup class="text-danger">2</sup></a></li>
+						<li class="col-sm-6"><a href="#" class="btn btn-default submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i
+							class="icon-provider-gdrive"></i> Drive Sync<sup class="text-danger">3</sup></a></li>
 					</ul>
 				</div>
 				<a href="#" data-toggle="collapse" data-target=".collapse-publish-on"
@@ -123,22 +125,17 @@
 	                    <li class="col-sm-6"><a href="#" class="btn btn-primary action-reset-input action-update-publication"><i class="icon-upload"></i>
 	                        Update</a></li>
 	                    <li class="col-sm-6"><a href="#" data-toggle="modal" data-target=".modal-manage-publish"
-	                        class="btn btn-primary action-reset-input action-reset-input"><i class="icon-upload"></i>
+	                        class="btn btn-primary action-reset-input action-reset-input"><i class="icon-edit"></i>
 	                        Manage</a></li>
 					</ul>
 					<ul class="nav publish-on-provider-list">
 					</ul>
 				</div>
-				<a href="#" data-toggle="modal" data-target=".modal-manage-sharing"
-					class="action-reset-input list-group-item">
-					<div><i class="icon-link"></i>Sharing</div>
-					<small>Share your stories</small>
-				</a>
 
 				<a href="#" data-toggle="collapse" data-target=".collapse-export-on"
 					class="list-group-item">
 					<div><i class="icon-upload"></i>Export</div>
-					<small>Save things offline</small>
+					<small>Save & export offline</small>
 				</a>
 				<div class="sub-menu collapse collapse-export-on clearfix">
                 
@@ -157,7 +154,7 @@
 					    class="icon-file"></i> PDF </a></li>
                 </ul>
 			</div>
-				<a href="#" data-toggle="modal" data-target=".modal-manage-sharing"
+				<a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html"
 					class="action-reset-input list-group-item">
 					<div><i class="icon-code"></i>Convert</div>
 					<small>Convert HTML to Markdown</small>
@@ -189,28 +186,21 @@
 						class="icon-trash"></i> Delete story</a></li>
 				<li><a href="#" data-toggle="modal" data-target=".modal-document-manager"><i
 						class="icon-layers"></i> Manage stories</a></li>
-	        </ul>
-			<div class="input-group">
-				<span class="input-group-addon"><i class="icon-search"></i></span><input
-					type="text" class="form-control" placeholder="Find story" />
-			</div>
-		</div>
-		<div class="panel-content">
-            <a href="#" class="list-group-item folder clearfix collapsed cloud" data-folder-index="cloud.allcloudproviders" 
+                <li><a href="#" class="clearfix collapsed" data-folder-index="cloud.allcloudproviders" 
                data-toggle="collapse" data-target=".file-list.cloudallcloudproviders">   
                 <i class="icon-download-cloud"></i> Open & Import</a>
             <div class="file-list cloudallcloudproviders clearfix collapse">
 					<ul class="nav">
 						<li><a href="#" class="list-group-item file action-sync-import-dialog-couchdb"><i
-							class="icon-download-cloud"></i> My.WriteOn</a></li>
+							class="icon-download-cloud" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a></li>
 						<li><a href="#" class="list-group-item file action-sync-import-dropbox"><i
 							class="icon-provider-dropbox"></i> Dropbox</a></li>
 						<li><a href="#" class="list-group-item file submenu-sync-gdrive action-sync-import-gdrive"><i
 							class="icon-provider-gdrive"></i> Google Drive</a></li>
 						<li><a href="#" class="list-group-item file submenu-sync-gdrivesec action-sync-import-gdrivesec"><i
-							class="icon-provider-gdrive"></i> Google Drive<br><small>(2nd account)</small></a></li>
+							class="icon-provider-gdrive"></i> Google Drive<br><sup class="text-danger">2</sup></a></li>
 						<li><a href="#" class="list-group-item file submenu-sync-gdriveter action-sync-import-gdriveter"><i
-							class="icon-provider-gdrive"></i> Google Drive<br><small>(3rd account)</small></a></li>
+							class="icon-provider-gdrive"></i> Google Drive<br><sup class="text-danger">3</sup></a></li>
                         <li><a data-toggle="modal" data-target=".modal-import-url"
 	                    class="list-group-item file list-group-item action-reset-input" href="#"
                         title="Import from URL"><i
@@ -221,8 +211,14 @@
                         class="icon-hdd"></i> Import from disk</a></li>
 
                 </ul>
-            </div>
-            <hr>
+            </div></li>
+	        </ul>
+			<div class="input-group">
+				<span class="input-group-addon"><i class="icon-search"></i></span><input
+					type="text" class="form-control" placeholder="Find story" />
+			</div>
+		</div>
+		<div class="panel-content">
             <div class="list-group document-list"></div>
 			<div class="list-group document-list-filtered hide"></div>
 
@@ -590,7 +586,8 @@
                 </div>
             </div>
             <div class="modal-body">
-                <p class="msg-default-couchdb hide alert alert-info"><i class="icon-attention"></i> <b>Careful:</b>
+                <p class="msg-default-couchdb hide alert alert-warning"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <i class="icon-attention"></i> <b>Careful:</b>
                     This is Beta software, and you're using our public My.WriteOn instance.
                     <b>That means anybody can open, edit and delete your stories - and vise versa.</b>
                 </p>
@@ -661,7 +658,8 @@
                 <h2 class="modal-title">Save to My.WriteOn</h2>
             </div>
             <div class="modal-body">
-                <p class="msg-default-couchdb hide alert alert-danger"><i class="icon-attention"></i> <b>Careful:</b>
+                <p class="msg-default-couchdb hide alert alert-warning"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <i class="icon-attention"></i> <b>Careful:</b>
                     This is beta software, and you're using our public My.WriteOn instance.
                     <b>Anybody can open, edit and delete your stories there.</b>
                 </p>
@@ -1003,24 +1001,21 @@
 			</div>
 			<div class="modal-body">
                 <p>Collaborate on "<span class="file-title"></span>" using the following link(s):</p>
-            	<p class="msg-no-share-editor"><b>No sharing link yet.</b>
+            	<p class="msg-no-share-editor"><b>No sharing link yet.</b> To collaborate on this story, just 
+                    <a href="#" class="action-sync-export-dialog-couchdb" data-dismiss="modal">save it to <code>My.WriteOn</code></a>
             	</p>
                 <div class="share-editor-list"></div>
             	<blockquote>
-                    <p><b>Note:</b> To collaborate on this story, just <a
-                        href="#" class="action-sync-export-dialog-couchdb" data-dismiss="modal">save it on WriteOn</a>.
-                    To collaborate via Google Drive or Dropbox, you have to share the file manually from Google Drive/Dropbox websites.</p>
+                    <p><b>Note:</b> To collaborate via Google Drive or Dropbox, you have to share the story manually from Google Drive/Dropbox.</p>
             	</blockquote>
                 <hr>
                 <p>Share a read-only version of "<span class="file-title"></span>" using the following link(s):</p>
-            	<p class="msg-no-share-viewer"><b>No sharing link yet!</b>
+            	<p class="msg-no-share-viewer"><b>No sharing link yet!</b> <b>Note:</b> To share a read-only version of this story, 
+                    just <a href="#" class="action-publish-gist" data-dismiss="modal">publish it as a Gist</a> in
+                    Markdown format.</p>
             	</p>
                 <div class="share-viewer-list"></div>
-            	<blockquote>
-                    <p><b>Note:</b> To share a read-only version of this story, just <a
-                        href="#" class="action-publish-gist" data-dismiss="modal">publish it as a Gist</a> in
-                    Markdown format.</p>
-            	</blockquote>
+            	
             	<blockquote>
             		<p><b>Tip:</b> You can open any `.md` or `.markdown` URL using the **WriteOn Viewer** by adding <a
             			href="viewer#!url=https://raw.githubusercontent.com/github/markup/master/README.md"

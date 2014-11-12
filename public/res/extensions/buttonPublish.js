@@ -6,7 +6,7 @@ define([
 ], function($, _, crel, Extension) {
 
     var buttonPublish = new Extension("buttonPublish", 'Button "Publish"');
-    // buttonPublish.settingsBlock = '<p>Adds a "Publish document" button in the
+    // buttonPublish.settingsBlock = '<p>Adds a "Publish story" button in the
     // navigation bar.</p>';
 
     var $button;
@@ -35,7 +35,7 @@ define([
     buttonPublish.onCreateButton = function() {
         var button = crel('a', {
             class: 'btn btn-success button-publish',
-            title: 'Update document publication'
+            title: 'Update published story'
         }, crel('i', {
             class: 'icon-upload'
         }));
