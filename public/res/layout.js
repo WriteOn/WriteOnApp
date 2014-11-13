@@ -116,7 +116,7 @@ define([
 		animate && (transitionEndTimeoutId = setTimeout(onTransitionEnd, 800));
 	};
 
-/* EXPIREMENTAL CODE WITHOUT BACKDROP */
+/* EXPERIMENTAL CODE WITHOUT BACKDROP */
 
 	DomObject.prototype.createToggler = function() {
 		var pushedEvents = 0;
@@ -204,7 +204,8 @@ define([
     
  */
     
-	DomObject.prototype.initHammer = function(drag) {
+	/* Get the Touch objects and instructions put into place */
+    DomObject.prototype.initHammer = function(drag) {
 		this.hammer = hammer(this.elt, {
 			drag: drag ? true : false,
 			drag_max_touches: 0,
@@ -562,7 +563,7 @@ define([
 				isModalShown || editor.elt.focus();
 			});
 
-			// Gesture
+			// EXPERIMENTAL GESTURES
 
 			/*
 			navbar.initHammer();

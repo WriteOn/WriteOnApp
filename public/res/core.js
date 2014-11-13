@@ -380,8 +380,8 @@ define([
 
 	function isSponsor(payments) {
 		var result = payments && payments.app == appId && (
-			(payments.chargeOption && payments.chargeOption.alias == 'monthly') ||
-			(payments.subscriptionOption && payments.subscriptionOption.alias == 'writer'));
+			(payments.chargeOption && payments.chargeOption.alias == 'writer') ||
+			(payments.subscriptionOption && payments.subscriptionOption.alias == 'monthly'));
 		eventMgr.isSponsor = result;
 		return result;
 	}
