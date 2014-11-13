@@ -3,7 +3,7 @@
 
 define([], function() {
 	var constants = {};
-	constants.VERSION = "1.5.3";
+	constants.VERSION = "1.5.4";
 	constants.MAIN_URL = "https://writeon.io/";
 	constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1";
 	constants.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ";
@@ -43,10 +43,7 @@ define([], function() {
 	constants.WORDPRESS_CLIENT_ID = '37431';
 	constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
     
-    /*
-     * PRODUCTION ENVIRONMENT VARIABLE CONSTANTS 
-    */
-
+     // PRODUCTION ENVIRONMENT VARIABLE CONSTANTS 
 	if(location.hostname.indexOf("writeon.io") === 0) {
 		constants.BASE_URL = constants.MAIN_URL;
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
@@ -54,9 +51,7 @@ define([], function() {
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr.herokuapp.com/";
 	}
-    /*
-     * BETA/STAGING ENVIRONMENT VARIABLE CONSTANTS 
-    */
+     // BETA/STAGING ENVIRONMENT VARIABLE CONSTANTS 
 	else if(location.hostname.indexOf("beta.writeon.io") === 0) {
 		constants.BASE_URL = 'https://beta.writeon.io/';
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
@@ -79,9 +74,7 @@ define([], function() {
         constants.COUCHDB_URL = 'https://writeon.couchappy.com/documents';
 
     }
-    /*
-     * DEVELOPMENT ENVIRONMENT VARIABLE CONSTANTS 
-    */
+     //DEVELOPMENT ENVIRONMENT VARIABLE CONSTANTS 
     else if(location.hostname.indexOf("mammal-charter.codio.io") === 0) {
 		constants.BASE_URL = 'https://mammal-charter.codio.io:9500/';
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';

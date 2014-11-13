@@ -38,7 +38,7 @@ function getVersion() {
 gulp.task('constants', function() {
 	return gulp.src('./public/res/constants.js')
 		.pipe(replace(/constants\.VERSION = .*/, 'constants.VERSION = "' + getVersion() + '";'))
-        // .pipe(debug())
+        //.pipe(debug())
 		.pipe(gulp.dest('./public/res/'));
 });
 
