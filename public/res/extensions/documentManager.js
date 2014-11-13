@@ -147,7 +147,7 @@ define([
             _.size(orphanDocumentList),
             '</div>',
             '<div class="name"><i class="icon-folder"></i> ',
-            'ROOT folder</div></a>'
+            'My Default Folder</div></a>'
         ].join('');
 
         // Add orphan documents
@@ -286,7 +286,7 @@ define([
                 _.size(orphanDocumentList),
                 '</div>',
                 '<div class="name"><i class="icon-forward"></i> ',
-                'ROOT folder</div></a>'
+                'My Default Folder</div></a>'
             ].join('');
             selectFolderListHtml += _.chain(folderList).sortBy(function(folderDesc) {
                 return folderDesc.name.toLowerCase();

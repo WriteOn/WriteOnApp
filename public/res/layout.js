@@ -116,7 +116,7 @@ define([
 		animate && (transitionEndTimeoutId = setTimeout(onTransitionEnd, 800));
 	};
 
-/* EXPERIMENTAL CODE WITHOUT BACKDROP */
+/* v1.5.x - Fedora - EXPERIMENTAL CODE WITHOUT BACKDROP BUT WITH FULL RESIZE/PUSH - USED FOR menuPanel & as deafult toggler */
 
 	DomObject.prototype.createToggler = function() {
 		var pushedEvents = 0;
@@ -149,6 +149,41 @@ define([
 			pushedEvents++;
 			startAnimation();
 			resizeAll();
+		};
+	};
+
+/* v1.5.x - Fedora - EXPERIMENTAL CODE WITHOUT BACKDROP - USED FOR documentPanel */
+
+	DomObject.prototype.createOverlayToggler = function() {
+		var pushedEvents = 0;
+		this.toggle = function(show) {
+			if(show === this.isOpen) {
+				return;
+			}
+			this.isOpen = _.isBoolean(show) ? show : !this.isOpen;
+			if(this.isOpen) {
+				this.isShown = true;
+				transitionEndCallbacks.push(_.bind(function() {
+					if(--pushedEvents === 0) {
+						if(this.isOpen) {
+							this.$elt.trigger('shown.layout.toggle');
+						}
+					}
+				}, this));
+			}
+			else {
+				this.$elt.trigger('hide.layout.toggle');
+				transitionEndCallbacks.push(_.bind(function() {
+					if(--pushedEvents === 0) {
+						if(!this.isOpen) {
+							this.isShown = false;
+							this.$elt.removeClass('panel-open bring-to-front').trigger('hidden.layout.toggle');
+						}
+					}
+				}, this));
+			}
+			pushedEvents++;
+			startAnimation();
 		};
 	};
     
@@ -536,7 +571,7 @@ define([
 		documentPanel.createToggler(true);
 		documentPanel.$elt.find('.toggle-button').click(_.bind(documentPanel.toggle, documentPanel));
 
-		// Hide panels when clicking on a non collapse element
+		// Hide documentPanel when clicking on a non collapse element
 		documentPanel.$elt.on('click', 'a[data-toggle!=collapse]', _.bind(documentPanel.toggle, documentPanel, false));
 
 		// Focus on editor when document panel is closed
@@ -550,7 +585,7 @@ define([
 			menuPanel.createToggler(true);
 			menuPanel.$elt.find('.toggle-button').click(_.bind(menuPanel.toggle, menuPanel));
 
-			// Hide panels when clicking on a non collapse element
+			// Hide menuPanel when clicking on a non collapse element
 			menuPanel.$elt.on('click', 'a[data-toggle!=collapse]', _.bind(menuPanel.toggle, menuPanel, false));
 
 			// Close all open sub-menus when one submenu opens and when panel is closed

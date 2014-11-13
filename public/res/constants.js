@@ -5,7 +5,7 @@ define([], function() {
 	var constants = {};
 	constants.VERSION = "1.5.3";
 	constants.MAIN_URL = "https://writeon.io/";
-	constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-42099274-1";
+	constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1";
 	constants.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ";
 	constants.GOOGLE_DRIVE_APP_ID = "1017251498254";
 	constants.DROPBOX_APP_KEY = "r3vgaee214zfvc7";
@@ -31,18 +31,21 @@ define([], function() {
 	constants.PICASA_IMPORT_IMG_URL = "/picasaImportImg";
 	constants.SSH_PUBLISH_URL = '/sshPublish';
 	constants.PDF_EXPORT_URL = "/pdfExport";
-    constants.COUCHDB_URL = 'https://beardandfedora.couchappy.com/documents';
+    constants.COUCHDB_URL = 'https://writeon.couchappy.com/documents';
 
 	// Site dependent
 	constants.BASE_URL = "https://mammal-charter.codio.io:9500/";
 	constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
-	constants.GITHUB_CLIENT_ID = '20b324f0f33aad6ca2be';
+	constants.GITHUB_CLIENT_ID = 'af6858e3fa3165986ce7';
 	constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
 	constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
     constants.GHOST_PROXY_URL = "https://writeon-ghost-proxy.herokuapp.com/";
 	constants.WORDPRESS_CLIENT_ID = '37431';
 	constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
     
+    /*
+     * PRODUCTION ENVIRONMENT VARIABLE CONSTANTS 
+    */
 
 	if(location.hostname.indexOf("writeon.io") === 0) {
 		constants.BASE_URL = constants.MAIN_URL;
@@ -51,6 +54,9 @@ define([], function() {
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr.herokuapp.com/";
 	}
+    /*
+     * BETA/STAGING ENVIRONMENT VARIABLE CONSTANTS 
+    */
 	else if(location.hostname.indexOf("beta.writeon.io") === 0) {
 		constants.BASE_URL = 'https://beta.writeon.io/';
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
@@ -59,42 +65,64 @@ define([], function() {
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy-beta.herokuapp.com/";
 		constants.WORDPRESS_CLIENT_ID = '34786';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy-beta.herokuapp.com/";
-	}
+        constants.COUCHDB_URL = 'https://writeon.couchappy.com/documents';
+
+    }
 	else if(location.hostname.indexOf("writeon-beta.herokuapp.com") === 0) {
 		constants.BASE_URL = 'https://writeon-beta.herokuapp.com/';
 		constants.GOOGLE_CLIENT_ID = '94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '302c5c415085534c1346';
-		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
+		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-beta.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
 		constants.WORDPRESS_CLIENT_ID = '34786';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
+        constants.COUCHDB_URL = 'https://writeon.couchappy.com/documents';
+
+    }
+    /*
+     * DEVELOPMENT ENVIRONMENT VARIABLE CONSTANTS 
+    */
+    else if(location.hostname.indexOf("mammal-charter.codio.io") === 0) {
+		constants.BASE_URL = 'https://mammal-charter.codio.io:9500/';
+		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
+		constants.GITHUB_CLIENT_ID = '235008232d0259c2f036';
+		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/";
+		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
+		constants.WORDPRESS_CLIENT_ID = '37431';
+		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
+        constants.COUCHDB_URL = 'https://beardandfedora.couchappy.com/documents';
 	}
     else if(location.hostname.indexOf("mammal-charter.codio.io:9500") === 0) {
 		constants.BASE_URL = 'https://mammal-charter.codio.io:9500/';
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '235008232d0259c2f036';
-		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
+		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
 		constants.WORDPRESS_CLIENT_ID = '37431';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
+        constants.COUCHDB_URL = 'https://beardandfedora.couchappy.com/documents';
 	}
     else if(location.hostname.indexOf("mammal-charter.codio.io:3000") === 0) {
 		constants.BASE_URL = 'http://mammal-charter.codio.io:3000/';
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '235008232d0259c2f036';
-		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
+		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
 		constants.WORDPRESS_CLIENT_ID = '37431';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
-	}
+        constants.COUCHDB_URL = 'https://beardandfedora.couchappy.com/documents';
+
+    }
     else if(location.hostname.indexOf("mammal-charter.codio.io:9501") === 0) {
         constants.BASE_URL = "https://mammal-charter.codio.io:9501/";
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '235008232d0259c2f036';
-		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
+		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
 		constants.WORDPRESS_CLIENT_ID = '37431';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
+        constants.COUCHDB_URL = 'https://beardandfedora.couchappy.com/documents';
+
     }
 
 	constants.THEME_LIST = {
