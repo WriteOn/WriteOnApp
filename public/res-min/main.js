@@ -6882,7 +6882,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  }, utils;
 }), define("constants", [], function() {
  var e = {};
- return e.VERSION = "1.5.4", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
+ return e.VERSION = "1.5.4", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
  e.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ", e.GOOGLE_DRIVE_APP_ID = "1017251498254", 
  e.DROPBOX_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_APP_SECRET = "1mesyckskczn3f9", 
  e.DROPBOX_RESTRICTED_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_RESTRICTED_APP_SECRET = "1mesyckskczn3f9", 
@@ -6894,34 +6894,34 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  e.TEMPORARY_FILE_INDEX = "file.tempIndex", e.WELCOME_DOCUMENT_TITLE = "Hello World!", 
  e.DOWNLOAD_IMPORT_URL = "/downloadImport", e.PICASA_IMPORT_IMG_URL = "/picasaImportImg", 
  e.SSH_PUBLISH_URL = "/sshPublish", e.PDF_EXPORT_URL = "/pdfExport", e.COUCHDB_URL = "https://writeon.couchappy.com/documents", 
- e.BASE_URL = "https://mammal-charter.codio.io:9500/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
+ e.BASE_URL = e.MAIN_URL, e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.GHOST_PROXY_URL = "https://writeon-ghost-proxy.herokuapp.com/", 
  e.WORDPRESS_CLIENT_ID = "37431", e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", 
  0 === location.hostname.indexOf("writeon.io") ? (e.BASE_URL = e.MAIN_URL, e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/", 
- e.TUMBLR_PROXY_URL = "https://writeon-tumblr.herokuapp.com/") : 0 === location.hostname.indexOf("beta.writeon.io") ? (e.BASE_URL = "https://beta.writeon.io/", 
- e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
+ e.TUMBLR_PROXY_URL = "https://writeon-tumblr.herokuapp.com/") : 0 === location.hostname.indexOf("beta.writeon.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
+ e.BASE_URL = "https://beta.writeon.io/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "302c5c415085534c1346", e.GATEKEEPER_URL = "https://writeon-gatekeeper-beta.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy-beta.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "34786", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy-beta.herokuapp.com/", e.COUCHDB_URL = "https://writeon.couchappy.com/documents") : 0 === location.hostname.indexOf("writeon-beta.herokuapp.com") ? (e.BASE_URL = "https://writeon-beta.herokuapp.com/", 
- e.GOOGLE_CLIENT_ID = "94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com", 
+ e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy-beta.herokuapp.com/", e.COUCHDB_URL = "https://writeon.couchappy.com/documents") : 0 === location.hostname.indexOf("writeon-beta.herokuapp.com") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
+ e.BASE_URL = "https://writeon-beta.herokuapp.com/", e.GOOGLE_CLIENT_ID = "94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "302c5c415085534c1346", e.GATEKEEPER_URL = "https://writeon-gatekeeper-beta.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "34786", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://writeon.couchappy.com/documents") : 0 === location.hostname.indexOf("mammal-charter.codio.io") ? (e.BASE_URL = "https://mammal-charter.codio.io:9500/", 
- e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
+ e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://writeon.couchappy.com/documents") : 0 === location.hostname.indexOf("mammal-charter.codio.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
+ e.BASE_URL = "https://mammal-charter.codio.io:9500/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "37431", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://beardandfedora.couchappy.com/documents") : 0 === location.hostname.indexOf("mammal-charter.codio.io:9500") ? (e.BASE_URL = "https://mammal-charter.codio.io:9500/", 
- e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
+ e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://beardandfedora.couchappy.com/documents") : 0 === location.hostname.indexOf("mammal-charter.codio.io:9500") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
+ e.BASE_URL = "https://mammal-charter.codio.io:9500/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "37431", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://beardandfedora.couchappy.com/documents") : 0 === location.hostname.indexOf("mammal-charter.codio.io:3000") ? (e.BASE_URL = "http://mammal-charter.codio.io:3000/", 
- e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
+ e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://beardandfedora.couchappy.com/documents") : 0 === location.hostname.indexOf("mammal-charter.codio.io:3000") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
+ e.BASE_URL = "http://mammal-charter.codio.io:3000/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "37431", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://beardandfedora.couchappy.com/documents") : 0 === location.hostname.indexOf("mammal-charter.codio.io:9501") && (e.BASE_URL = "https://mammal-charter.codio.io:9501/", 
- e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
+ e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://beardandfedora.couchappy.com/documents") : 0 === location.hostname.indexOf("mammal-charter.codio.io:9501") && (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
+ e.BASE_URL = "https://mammal-charter.codio.io:9501/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "37431", 
  e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://beardandfedora.couchappy.com/documents"), 
@@ -13588,7 +13588,7 @@ function() {
   return c;
  });
 }(), define("text!html/dialogAbout.html", [], function() {
- return '<div class="modal-dialog">\n    <div class="modal-content">\n        <div class="modal-header">\n            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n            <img height="64" data-writeon-src="logo.svg" />\n        </div>\n        <div class="modal-body">\n            <div class="text-center">\n                <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://writeon.io" data-text="Write without distraction and publish without effort." data-via="writeon" data-size="large"></a>\n            </div>\n            <dl>\n                <dt>About:</dt>\n                <dd>\n                    <a target="_blank" href="https://github.com/BeardandFedora/WriteOn/issues">WriteOn issue tracker</a>\n                    <br />\n                    <a target="_blank" href="#">Chrome app</a>\n                    <br />\n                    <a target="_blank" href="https://twitter.com/BeardandFedora/">Follow on Twitter</a>\n                    <br />\n                    <a target="_blank" href="https://www.facebook.com/BeardandFedora/">Follow on Facebook</a>\n                    <br />\n                    <a target="_blank" href="https://plus.google.com/BeardandFedora"\n                    rel="publisher">Follow on Google+</a>\n                    <br />\n				</dd>\n			</dl>\n\n			<dl>\n				<dt>Sponsor Development:</dt>\n				<dd>\n                    <a href="#" class="sponsorship-button"><img height="30" data-writeon-src="button.svg" /></a>\n				</dd>\n			</dl>\n			<p>\n				WriteOn <%= version %> &ndash; <a target="_blank" href="privacy_policy.html">Privacy Policy</a><br /> Copyleft 2014 <a\n					target="_blank" href="http://writeon.io">WriteOn</a>\n			</p>\n		</div>\n		<div class="modal-footer">\n			<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>\n		</div>\n	</div>\n</div>\n';
+ return '<div class="modal-dialog">\n    <div class="modal-content">\n        <div class="modal-header">\n            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n            <img height="64" data-writeon-src="logo.svg" />\n        </div>\n        <div class="modal-body">\n            <div class="text-center">\n                <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://writeon.io" data-text="Write without distraction and publish without effort." data-via="writeon" data-size="large"></a>\n            </div>\n            <dl>\n                <dt>About:</dt>\n                <dd>\n                    <a target="_blank" href="https://github.com/BeardandFedora/WriteOn/issues">WriteOn issue tracker</a>\n                    <br />\n                    <a target="_blank" href="#">Chrome app</a>\n                    <br />\n                    <a target="_blank" href="https://twitter.com/BeardandFedora/">Follow on Twitter</a>\n                    <br />\n                    <a target="_blank" href="https://www.facebook.com/BeardandFedora/">Follow on Facebook</a>\n                    <br />\n                    <a target="_blank" href="https://plus.google.com/BeardandFedora"\n                    rel="publisher">Follow on Google+</a>\n                    <br />\n				</dd>\n			</dl>\n			<p>\n				WriteOn <%= version %> &ndash; <a target="_blank" href="privacy_policy.html">Privacy Policy</a><br /> Copyleft 2014 <a\n					target="_blank" href="http://writeon.io">WriteOn</a>\n			</p>\n		</div>\n		<div class="modal-footer">\n			<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>\n		</div>\n	</div>\n</div>\n';
 }), define("extensions/dialogAbout", [ "jquery", "underscore", "constants", "utils", "classes/Extension", "monetizejs", "text!html/dialogAbout.html" ], function(e, t, n, i, r, o, a) {
  var s, l = new r("dialogAbout", 'Dialog "About"');
  l.onEventMgrCreated = function(e) {

@@ -28,7 +28,11 @@ define([
 	"extensions/umlDiagrams",
 	"extensions/markdownExtra",
 	"extensions/toc",
-	"extensions/mathJax",
+	/* Do not load this right now (in DEV)
+	 * 
+	 * "extensions/mathJax",
+	 * 
+	*/
 	"extensions/emailConverter",
 	"extensions/scrollSync",
 	"extensions/buttonSync",

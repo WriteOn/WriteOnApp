@@ -5,7 +5,7 @@ define([], function() {
 	var constants = {};
 	constants.VERSION = "1.5.4";
 	constants.MAIN_URL = "https://writeon.io/";
-	constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1";
+	constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3";
 	constants.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ";
 	constants.GOOGLE_DRIVE_APP_ID = "1017251498254";
 	constants.DROPBOX_APP_KEY = "r3vgaee214zfvc7";
@@ -33,8 +33,8 @@ define([], function() {
 	constants.PDF_EXPORT_URL = "/pdfExport";
     constants.COUCHDB_URL = 'https://writeon.couchappy.com/documents';
 
-	// Site dependent
-	constants.BASE_URL = "https://mammal-charter.codio.io:9500/";
+	// App dependent
+	constants.BASE_URL = constants.MAIN_URL;
 	constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 	constants.GITHUB_CLIENT_ID = 'af6858e3fa3165986ce7';
 	constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
@@ -53,7 +53,8 @@ define([], function() {
 	}
      // BETA/STAGING ENVIRONMENT VARIABLE CONSTANTS 
 	else if(location.hostname.indexOf("beta.writeon.io") === 0) {
-		constants.BASE_URL = 'https://beta.writeon.io/';
+		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1";
+        constants.BASE_URL = 'https://beta.writeon.io/';
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '302c5c415085534c1346';
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-beta.herokuapp.com/";
@@ -64,7 +65,8 @@ define([], function() {
 
     }
 	else if(location.hostname.indexOf("writeon-beta.herokuapp.com") === 0) {
-		constants.BASE_URL = 'https://writeon-beta.herokuapp.com/';
+		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1";
+        constants.BASE_URL = 'https://writeon-beta.herokuapp.com/';
 		constants.GOOGLE_CLIENT_ID = '94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '302c5c415085534c1346';
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-beta.herokuapp.com/";
@@ -76,7 +78,8 @@ define([], function() {
     }
      //DEVELOPMENT ENVIRONMENT VARIABLE CONSTANTS 
     else if(location.hostname.indexOf("mammal-charter.codio.io") === 0) {
-		constants.BASE_URL = 'https://mammal-charter.codio.io:9500/';
+		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2";
+        constants.BASE_URL = 'https://mammal-charter.codio.io:9500/';
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '235008232d0259c2f036';
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/";
@@ -86,7 +89,8 @@ define([], function() {
         constants.COUCHDB_URL = 'https://beardandfedora.couchappy.com/documents';
 	}
     else if(location.hostname.indexOf("mammal-charter.codio.io:9500") === 0) {
-		constants.BASE_URL = 'https://mammal-charter.codio.io:9500/';
+		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2";
+        constants.BASE_URL = 'https://mammal-charter.codio.io:9500/';
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '235008232d0259c2f036';
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/";
@@ -96,7 +100,8 @@ define([], function() {
         constants.COUCHDB_URL = 'https://beardandfedora.couchappy.com/documents';
 	}
     else if(location.hostname.indexOf("mammal-charter.codio.io:3000") === 0) {
-		constants.BASE_URL = 'http://mammal-charter.codio.io:3000/';
+		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2";
+        constants.BASE_URL = 'http://mammal-charter.codio.io:3000/';
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '235008232d0259c2f036';
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/";
@@ -107,6 +112,7 @@ define([], function() {
 
     }
     else if(location.hostname.indexOf("mammal-charter.codio.io:9501") === 0) {
+        constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2";
         constants.BASE_URL = "https://mammal-charter.codio.io:9501/";
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '235008232d0259c2f036';

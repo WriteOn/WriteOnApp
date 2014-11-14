@@ -6,7 +6,7 @@ define([
 	"mathjax"
 ], function(utils, Extension, mathJaxSettingsBlockHTML) {
 
-	var mathJax = new Extension("mathJax", "MathJax", true);
+	var mathJax = new Extension("mathJax", "MathJax", false, false);
 	mathJax.settingsBlock = mathJaxSettingsBlockHTML;
 	mathJax.defaultConfig = {
 		tex    : "{}",
