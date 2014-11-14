@@ -90,15 +90,28 @@ Getting started
 
 ### Deployment (also used for instance automation)
 
-- on Heroku:
+##Heroku:
 
-        heroku create `WriteOn-instance`
-        git push heroku master
+Custom Buildpack: https://github.com/davidmfoley/heroku-buildpack-nodejs-gulp-bower
 
-- in a Docker container:
+        $ heroku create `WriteOn-{instance}`
+        $ git push heroku-dev master
+        $ git push heroku-beta master
+        $ git push heroku master
+        $ gulp beep
+        $ gulp boop
+        $ gulp bop
 
-        docker build -t `my-WriteOn-image` .
-        docker run -p 3000 `my-WriteOn-image`
+### Working With Heorku BuildPack API
+
+See https://github.com/heroku/heroku-repo
+
+        $ heroku repo:purge_cache -a writeon-{instance}
+
+##Docker container:
+
+        $ docker build -t `my-WriteOn-image` .
+        $ docker run -p 3000 `my-WriteOn-image`
 
 > **NOTE:** OAuth authorizations work out of the box for address `http://localhost/` except for WordPress. To allow another address, we have to add specific keys at the end of `constants.js` and eventually to set up specific proxies with the corresponding key/secret pairs ([WordPress Proxy][9], [Tumblr Proxy][10] and [Gatekeeper][11]).
 
