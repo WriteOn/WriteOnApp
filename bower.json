@@ -22,7 +22,7 @@
     "to-markdown": "~0.0.2",
     "xregexp": "~2.0.0",
     "yaml.js": "~0.1.4",
-    "prism": "~0.0.1",
+    "prism": "*",
     "MutationObservers": "https://github.com/Polymer/MutationObservers/archive/0.4.2.zip",
     "rangy": "~1.2.3",
     "google-diff-match-patch-js": "~1.0.0",
