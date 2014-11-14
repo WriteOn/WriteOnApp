@@ -23,7 +23,7 @@
     "xregexp": "d06eff50f87d81d2dd3afc1e854784c38b17bcc4",
     "yaml.js": "~0.1.4",
     "prism": "a12e8692b5f660a0123a06f74935f75386a93042",
-    "MutationObservers": "https://github.com/Polymer/webcomponentsjs.git#~bower cache clean",
+    "MutationObservers": "https://github.com/Polymer/webcomponentsjs.git#~0.5.1",
     "rangy": "~1.2.3",
     "google-diff-match-patch-js": "~1.0.0",
     "jsondiffpatch": "~0.1.20",
