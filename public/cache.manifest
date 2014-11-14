@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#Date Thu Nov 13 2014 23:49:19 GMT+0000 (UTC)
+#Date Fri Nov 14 2014 00:35:52 GMT+0000 (UTC)
 
 CACHE:
 .
@@ -170,11 +170,11 @@ res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/PUA.js?rev=2.4-
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/SpacingModLetters.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/AMS/Regular/SuppMathOperators.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Caligraphic/Bold/Main.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Caligraphic/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/BasicLatin.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/Other.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Bold/PUA.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Caligraphic/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Regular/BasicLatin.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Regular/Other.js?rev=2.4-beta-2
@@ -182,6 +182,7 @@ res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Fraktur/Regular/PUA.js?rev=
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Greek/Bold/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Greek/BoldItalic/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Greek/Italic/Main.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Greek/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Main/Bold/Arrows.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Main/Bold/CombDiacritMarks.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Main/Bold/CombDiactForSymbols.js?rev=2.4-beta-2
@@ -209,6 +210,8 @@ res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Main/Regular/GeometricShape
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Main/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Main/Regular/MiscSymbols.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Main/Regular/SpacingModLetters.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Math/BoldItalic/Main.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Math/Italic/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/SansSerif/Bold/BasicLatin.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/SansSerif/Bold/CombDiacritMarks.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/SansSerif/Bold/Main.js?rev=2.4-beta-2
@@ -224,11 +227,10 @@ res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/SansSerif/Regular/Other.js?
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Script/Regular/BasicLatin.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Script/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Script/Regular/Other.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Math/BoldItalic/Main.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Math/Italic/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Size1/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Size2/Regular/Main.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Greek/Regular/Main.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Size3/Regular/Main.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Size4/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Typewriter/Regular/BasicLatin.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Typewriter/Regular/CombDiacritMarks.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Typewriter/Regular/Main.js?rev=2.4-beta-2
@@ -237,36 +239,10 @@ res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/WinChrome/Regular/Main.js?r
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/WinIE6/Regular/AMS.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/WinIE6/Regular/Bold.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/WinIE6/Regular/Main.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Size4/Regular/Main.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/Size3/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/fontdata-1.0.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/fontdata-beta.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/fontdata-extra.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/fontdata.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/AlphaPresentForms.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/BasicLatin.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/BoxDrawing.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/CombDiactForSymbols.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/ControlPictures.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/CurrencySymbols.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/Cyrillic.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/EnclosedAlphanum.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/GeneralPunctuation.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/GreekAndCoptic.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/GreekBoldItalic.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/GreekSSBoldItalic.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/IPAExtensions.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/Latin1Supplement.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/LatinExtendedA.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/LatinExtendedAdditional.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/LatinExtendedB.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/LetterlikeSymbols.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/Main.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/MathBoldItalic.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/MathBoldScript.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/MathOperators.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/MathSSItalicBold.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/SpacingModLetters.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/Bold/AlphaPresentForms.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/Bold/Arrows.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/Bold/BBBold.js?rev=2.4-beta-2
@@ -303,6 +279,30 @@ res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/Bold/PhoneticExten
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/Bold/SpacingModLetters.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/Bold/SuperAndSubscripts.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/Bold/SuppMathOperators.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/AlphaPresentForms.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/BasicLatin.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/BoxDrawing.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/CombDiactForSymbols.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/ControlPictures.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/CurrencySymbols.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/Cyrillic.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/EnclosedAlphanum.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/GeneralPunctuation.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/GreekAndCoptic.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/GreekBoldItalic.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/GreekSSBoldItalic.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/IPAExtensions.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/Latin1Supplement.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/LatinExtendedA.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/LatinExtendedAdditional.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/LatinExtendedB.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/LetterlikeSymbols.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/Main.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/MathBoldItalic.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/MathBoldScript.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/MathOperators.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/MathSSItalicBold.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/BoldItalic/SpacingModLetters.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/Italic/AlphaPresentForms.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/Italic/BoxDrawing.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/General/Italic/CombDiactForSymbols.js?rev=2.4-beta-2
@@ -407,14 +407,14 @@ res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/NonUnicode/BoldItalic/Priv
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/NonUnicode/Italic/All.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/NonUnicode/Italic/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/NonUnicode/Italic/PrivateUse.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/NonUnicode/Regular/All.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/NonUnicode/Regular/Main.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/NonUnicode/Regular/PrivateUse.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeFiveSym/Regular/All.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeFiveSym/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeFourSym/Bold/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeFourSym/Regular/All.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeFourSym/Regular/Main.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/NonUnicode/Regular/All.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/NonUnicode/Regular/Main.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/NonUnicode/Regular/PrivateUse.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeOneSym/Bold/All.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeOneSym/Bold/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeOneSym/Regular/All.js?rev=2.4-beta-2
@@ -422,13 +422,13 @@ res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeOneSym/Regular/Main.js
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeThreeSym/Bold/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeThreeSym/Regular/All.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeThreeSym/Regular/Main.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeTwoSym/Bold/Main.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeTwoSym/Regular/All.js?rev=2.4-beta-2
+res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeTwoSym/Regular/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/Variants/Bold/All.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/Variants/Bold/Main.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/Variants/Regular/All.js?rev=2.4-beta-2
 res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/Variants/Regular/Main.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeTwoSym/Bold/Main.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeTwoSym/Regular/All.js?rev=2.4-beta-2
-res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/SizeTwoSym/Regular/Main.js?rev=2.4-beta-2
 # end_inject_mathjax
 
 
