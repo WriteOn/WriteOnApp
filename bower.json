@@ -30,7 +30,7 @@
     "hammerjs": "~1.0.10",
     "raphael": "~2.1.2",
     "js-sequence-diagrams": "~1.0.3",
-    "flowchart": "https://github.com/adrai/flowchart.js.git#~1.2.10",
+    "flowchart": "https://github.com/adrai/flowchart.js/archive/v1.3.3.zip",
     "monetizejs": "~0.2.0",
     "MathJax": "~2.4.0",
     "alertify.js": "~0.3.11",
