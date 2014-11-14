@@ -17,7 +17,7 @@
     "requirejs-text": "~2.0.10",
     "bootstrap-tour": "~0.7.1",
     "pagedown-extra": "*",
-    "crel": "~2.1.5",
+    "crel": "*",
     "waitForImages": "~1.4.2",
     "to-markdown": "~0.0.2",
     "xregexp": "~2.0.0",
