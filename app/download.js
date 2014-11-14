@@ -3,7 +3,7 @@ var request = require('request');
 exports.importPublic = function(req, res) {
 	var url = req.param('url');
 	if(!url) {
-		res.send(400, 'No URL parameter');
+		res.send(400, 'Whoops, seems to be no URL parameter.');
 	}
 	else if(url.indexOf("http://") === 0 || url.indexOf("https://") === 0) {
 		var stream = request.get(url);
@@ -15,6 +15,6 @@ exports.importPublic = function(req, res) {
 		});
 	}
 	else {
-		res.send(400, 'Unknown protocol');
+		res.send(400, 'This is unknown <a href="https://en.wikipedia.org/wiki/Lists_of_network_protocols" target="_blank">protocol</a>.');
 	}
 };

@@ -177,7 +177,7 @@ gulp.task('copy-img', ['clean-img'], function() {
  * cache.manifest
  */
 
-gulp.task('cache-manifest', function() {
+gulp.task('cache-manifest-mathjax', function() {
 	return gulp.src('./public/cache.manifest')
 		.pipe(replace(/(#Date ).*/, '$1' + Date()))
 		.pipe(inject(gulp.src([
@@ -222,6 +222,27 @@ gulp.task('cache-manifest', function() {
 					else {
 						filepath += '?rev=2.4-beta-2';
 					}
+					return filepath.substring(1);
+				}
+			}))
+		// .pipe(debug())
+        .pipe(gulp.dest('./public/'));
+});
+
+gulp.task('cache-manifest', function() {
+	return gulp.src('./public/cache.manifest')
+		.pipe(replace(/(#Date ).*/, '$1' + Date()))
+		.pipe(inject(gulp.src([
+				'./res-min/**/*.*'
+			], {
+				read: false,
+				cwd: './public'
+			}),
+			{
+				starttag: '# start_inject_resources',
+				endtag: '# end_inject_resources',
+				ignoreExtensions: true,
+				transform: function(filepath) {
 					return filepath.substring(1);
 				}
 			}))
