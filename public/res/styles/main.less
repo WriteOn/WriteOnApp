@@ -175,7 +175,7 @@ body {
 	.user-select(none);
 }
 
-.dropdown-menu, .modal-content, .panel-content, .search-bar, .popover, .find-replace, .alertify {
+.dropdown-menu, .panel-content, .search-bar, .popover, .find-replace, .alertify {
 	.box-shadow(0 4px 16px rgba(0,0,0,.225));
 }
 
@@ -206,17 +206,26 @@ body {
 		.translate(0, 0);
         width: 730px;
         margin: 30px auto;
+        -webkit-transition: -webkit-transform 0.1s ease-out;
+        -moz-transition: -moz-transform 0.1s ease-out;
+        -o-transition: -o-transform 0.1s ease-out;
+        transition: transform 0.1s ease-out;
 	}
     .modal-header {
         padding: 5px 15px;
         /* enlarged close button */
         .close {
             font-size: 2.15em;
-            padding-top: 10px;
+            padding-top: 2px;
+        }
+        .modal-title {
+            font-size: 1.5em;
         }
     }
     .modal-content {
-        /*min-height: 100%;*/
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        border-radius: 3px;
     }
     .modal-body {
         /*max-height: 100%; */
@@ -228,7 +237,7 @@ body {
 /* bootstrap.css overrite */
 @media screen and (min-width: 768px) {
     .modal-dialog {
-        width: 65%;
+        width: 730px;
         margin: 30px auto;
     }
 }
@@ -667,7 +676,7 @@ a {
     .toggle-button {
     	background-color: @panel-button-bg-color;
         height: @input-height-slim;
-        border-radius: 8px;
+        border-radius: 4px;
 		position: absolute;
 		margin-top: 6px;
         .transition(~"border-width ease-in-out .15s, left ease-in-out 0.15s, right ease-in-out 0.15s, background-color ease-in-out 0.15s");
@@ -677,7 +686,7 @@ a {
         }
         i {
     		color: #737373;
-        	font-size: 16px;
+        	font-size: 26px;
         }
 	}
     & .toggle-button:hover, &.panel-open > .toggle-button {
@@ -697,7 +706,7 @@ a {
 	.layout-panel();
 	width: @menu-panel-width;
 	i {
-		margin-right: 8px;
+		margin-right: 0;
 	}
 	small {
 		color: @dropdown-header-color;
@@ -742,12 +751,14 @@ a {
 		margin-right: -10px;
 	}
     .toggle-button {
+        /* 
         border-top: 4px solid fade(@logo-yellow, @panel-button-border-fade);
         border-right: 5px solid fade(@logo-blue, @panel-button-border-fade);
         border-bottom: 4px solid fade(@logo-orange, @panel-button-border-fade);
+        */
 	    right: -37px;
 		z-index: -1;
-		padding: 0 10px 0 50px;
+		padding: 0 0 0 50px;
 	}
     & .toggle-button:hover, &.panel-open > .toggle-button {
         right: -45px;
@@ -765,14 +776,16 @@ a {
 	right: 0;
 	width: @document-panel-width;
 	.toggle-button {
+        /*
         border-top: 4px solid fade(@logo-yellow, @panel-button-border-fade);
         border-left: 5px solid fade(@logo-green, @panel-button-border-fade);
         border-bottom: 4px solid fade(@logo-orange, @panel-button-border-fade);
+        */
 	    left: -37px;
-		padding: 0 50px 0 3px;
+		padding: 0 50px 0 1px;
 		z-index: -1;
 		i.icon-folder-open {
-       		font-size: 19px;
+       		font-size: 21px;
        		padding-bottom: 1px;
        	}
 	}
@@ -1016,7 +1029,7 @@ a {
  **************************/
 .modal-about {
     .modal-dialog {
-        width: 350px;
+        width: 450px;
     }
 }
 
@@ -1130,7 +1143,7 @@ a {
 }
 /* the range here for desktop/mobile simulation is between 85ms and 110ms */
 .layout-animate {
-	.transition-transform(105ms ease-in-out);
+	.transition-transform(92ms ease-in-out);
 }
 
 .layout-resizer {
@@ -1157,7 +1170,7 @@ a {
     /* the range here for desktop/mobile simulation is between 85ms and 110ms */
     &.layout-toggler-preview {
 		.layout-animate & {
-			.transition-transform(105ms ease-in-out);
+			.transition-transform(92ms ease-in-out);
 		}
 		line-height: 55px;
 		i:before {
@@ -1182,6 +1195,7 @@ a {
 			font-size: 16px;
 			height: 12px;
 			overflow: hidden;
+            margin-top: 20px;
 		}
 	}
 }

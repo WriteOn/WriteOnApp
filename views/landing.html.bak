@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+2<!DOCTYPE html>
 <html<%- cache ? ' manifest="cache.manifest"' : '' %>>
 
 <head>
@@ -9,10 +9,10 @@
     <meta name="description" content="Write without distraction, publish without effort.">
     <meta name="author" content="Beard & Fedora">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="/res-min/themes/neat.css">f
+    <link rel="stylesheet" href="/res-min/themes/neat.css">
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <style>
-        body{font-size:2.7em;font-weight:300;}.navbar-fixed{position:fixed;}.content{position:absolute;width:100%;height:100%;}.slide{position:relative;width:100%;height:100%;}#slide1{height:90%;}.footer{position:absolute;top:inherit;bottom:0;height:50px;width:100%;padding:5px;}.slide,.footer,h1{text-align:center;}.footer .btn{font-size:28px;line-height:1;padding:0 11px;}.btn-info{color:#777;}.centered{position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;}.logo{width:600px;height:250px;}.logo img{height:200px;}.logo .subtitle{position:absolute;text-align:center;color:#888;top:170px;width: 100%;font-size:22px;}h1{margin:1.2em 0;}h2{font-weight:500;font-size:1.5em;margin:.8em 0!important;}.icon-provider-couchdb{background-position:-325px 0;width:34px;height:34px;margin-left:0;background-image:url(res-min/img/icons2x.png);}.transition{-webkit-transition:all ease-in-out 1.5s;transition:all ease-out 1.5s;}.transparent{opacity:0;}.scale{-webkit-transform:scale(1.04);-ms-transform:scale(1.04);transform:scale(1.04);}.navbar .nav{float:none;}.navbar .file-title-navbar{font-size:20px;line-height:1.6;}.file-title-navbar i{line-height:1;}.img{display:block;margin:20px auto;}.social{font-size:26px;margin:0 16px 5px;}.social i::before{margin-right:8px;margin-left:-3px;}.social a{color:#555;}.social img{width:100px;height:25px;}.container{margin-bottom:40px;}.dark{background-color:#aeaeae;}.inset-shadow{-webkit-box-shadow:inset 0 4px 16px rgba(0,0,0,0.2);box-shadow:inset 0 4px 16px rgba(0,0,0,0.2);}.menu-img{background-image:url(res-min/img/menu.png);background-size:auto 240px;background-repeat:no-repeat;background-position:30%;height:240px;}.offline-img{background-image:url(res-min/img/offline-editor.png);background-size:auto 260px;background-repeat:no-repeat;background-position:30%;height:206px;}hr{margin:1em 0;}@media min-width 600px{.logo{width:600px;height:160px;}.logo img{width:600px;height:135px;}.logo .subtitle{text-align:center;top:105px;}}
+        body{font-size:2.7em;font-weight:300;}.navbar-fixed{position:fixed;}.content{position:absolute;width:100%;height:100%;}.slide{position:relative;width:100%;height:100%;}.footer{position:absolute;top:inherit;bottom:0;height:50px;width:100%;padding:5px;}.slide,.footer,h1{text-align:center;}.footer .btn{font-size:28px;line-height:1;padding:0 11px;}.btn-info{color:#777;}.centered{position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;}.logo{width:300px;height:150px;}.logo img{width:300px;height:67px;}.logo .subtitle{position:absolute;text-align:center;color:#888;top:80px;right:10px;font-size:22px;}h1{margin:1.2em 0;}h2{font-weight:500;font-size:1.5em;margin:.8em 0!important;}.icon-provider-couchdb{background-position:-325px 0;width:34px;height:34px;margin-left:0;background-image:url(res-min/img/icons2x.png);}.transition{-webkit-transition:all ease-in-out 1.5s;transition:all ease-out 1.5s;}.transparent{opacity:0;}.scale{-webkit-transform:scale(1.04);-ms-transform:scale(1.04);transform:scale(1.04);}.navbar .nav{float:none;}.navbar .file-title-navbar{font-size:20px;line-height:1.6;}.file-title-navbar i{line-height:1;}.img{display:block;margin:20px auto;}.social{font-size:26px;margin:0 16px 5px;}.social i::before{margin-right:8px;margin-left:-3px;}.social a{color:#555;}.social img{width:100px;height:25px;}.container{margin-bottom:40px;}.dark{background-color:#aeaeae;}.inset-shadow{-webkit-box-shadow:inset 0 4px 16px rgba(0,0,0,0.2);box-shadow:inset 0 4px 16px rgba(0,0,0,0.2);}.menu-img{background-image:url(res-min/img/menu.png);background-size:auto 240px;background-repeat:no-repeat;background-position:30%;height:240px;}.offline-img{background-image:url(res-min/img/offline-editor.png);background-size:auto 260px;background-repeat:no-repeat;background-position:30%;height:206px;}hr{margin:1em 0;}@media min-width 600px{.logo{width:600px;height:160px;}.logo img{width:600px;height:135px;}.logo .subtitle{text-align:right;top:105px;}}
     </style>
     <script>
         function animate(elts) {
@@ -110,11 +110,7 @@
                         paper so he would not be interrupted. <a href="https://en.wikipedia.org/wiki/Ernest_Hemingway">Ernest Hemingway</a> 
                         wrote standing up, and <a href="https://en.wikipedia.org/wiki/J._R._R._Tolkien">J.R.R. Tolkien</a> liked to write 
                         from his attic and even stated in his forward to Lord of the Rings that “<em>the cost of professional typing by 
-                        the ten-fingered was beyond my means.</em>” </p>
-                    <blockquote>
-                        WriteOn was built for writers like these.
-                    </blockquote>
-
+                        the ten-fingered was beyond my means.</em>” WriteOn was built for writers like these.</p>
                 </div>
             </div>
             <br>
@@ -364,7 +360,43 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-md-5">
+                    <h2 id="latex-mathematical-expressions">Education tools <sup class="text-danger">Beta</sup></h2>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-md-5">
+                    <p>WriteOn integrates the LaTeX expressive markup language - commonly used within scientific documents in many fields, 
+                        including mathematics, physics, computer science, statistics, economics, and political science - by using 
+                        <a href="http://www.mathjax.org/" target="_blank">MathJax</a> to render mathematics. Goodbye chalk board. Hello WriteOn.</p>
+                    <br>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <img class="img" width="330" src="res-min/img/math.png">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5">
+                    <h2 id="uml-diagrams">Design tools <sup class="text-danger">Beta</sup></h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5">
+                    <p>WriteOn enables you to write sequence diagrams and flow charts using a simple syntax. This means you can
+                    display complex interactions by simply typing text. Goodbye mouse. Hello WriteOn.</p>
+                    <br>
+                </div>
+                <div class="col-md-6 col-md-offset-1">
+                    <img class="img" width="220" src="res-min/img/diagram.png">
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
 
 
             <div class="row">
