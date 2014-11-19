@@ -3,9 +3,11 @@
 @primary: #808080;
 @navbar-default-bg: #4a4a4a;
 @link-color: #4FA1DB;
+@link-color-gradient: #34495E;
 
 @input-bg: #fff;
 @input-border: @secondary-border-color-light;
+@input-border-hover: #2C3E50;
 @panel-button-box-shadow: ~"0 0 1px rgba(255,255,255,0.75)";
 @modal-backdrop-bg: #606060;
 @input-color: @secondary-color-darkest;
@@ -30,6 +32,11 @@
 	}
 }
 
+// List Groups
+@list-group-default-border: fade(@input-border, 75%);
+@list-group-default-hover-bg: fade(#000, 2%);
+@list-group-default-hover-border: fade(@secondary, 5%);
+
 // Buttons over preview
 @btn-info-hover-bg: @secondary-bg-dark;
 
@@ -49,8 +56,18 @@
 @btn-default-color: @text-color;
 @btn-default-bg: #fff;
 @btn-default-border: fade(@input-border, 75%);
-@btn-default-hover-bg: fade(#000, 2%);
-@btn-default-hover-border: fade(@secondary, 5%);
+@btn-default-hover-bg: fade(@link-color-gradient, 94%);
+@btn-default-hover-border: fade(@input-border-hover, 99%);
+@btn-group-hover-border: fade(@input-border, 99%);
+.btn-default, .alertify-button-cancel {
+    &:hover,
+    &:focus,
+    &:active,
+    .open &.dropdown-toggle {
+    	color: #fff;
+    }
+}
+
 
 @secondary-bg: #fcfcfc;
 @secondary-bg-light: #f6f6f6;
