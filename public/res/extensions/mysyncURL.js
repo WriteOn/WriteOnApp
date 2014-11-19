@@ -1,11 +1,12 @@
 define([
 	"jquery",
 	"underscore",
+    "constants",
     "utils",
     "settings",
 	'classes/Extension',
     "text!html/mysyncURLSettingsBlock.html"
-], function(_, $, utils, settings, Extension, mysyncURLSettingsBlockHTML) {
+], function(_, $, constants, utils, settings, Extension, mysyncURLSettingsBlockHTML) {
 
 	var mysyncURL = new Extension('mysyncURL', 'My.WriteOn Sync URL', false, true);
     mysyncURL.settingsBlock = mysyncURLSettingsBlockHTML;
@@ -18,7 +19,7 @@ define([
     };
 
     mysyncURL.onSaveSettings = function(newConfig, event) {
-        newConfig.couchdburl = utils.getInputIntValue("#input-settings-couchdb-url", event, 1, 60000);
+        newConfig.couchdburl = utils.getInputTextValue("#input-settings-couchdb-url", event);
     };
     
     
