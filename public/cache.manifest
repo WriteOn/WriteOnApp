@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#Date Fri Nov 14 2014 18:43:51 GMT+0000 (UTC)
+#Date Wed Nov 19 2014 06:40:54 GMT+0000 (UTC)
 
 CACHE:
 .
@@ -33,10 +33,11 @@ res-min/img/gittip.png
 res-min/img/icons.png
 res-min/img/icons2x.png
 res-min/img/live-preview.png
-res-min/img/logo-beta.svg
 res-min/img/logo-highres.png
 res-min/img/logo-ipad-retina.png
+res-min/img/logo.beta.svg
 res-min/img/logo.svg
+res-min/img/logo.svg.bak
 res-min/img/math.png
 res-min/img/menu-icon.png
 res-min/img/menu.png
