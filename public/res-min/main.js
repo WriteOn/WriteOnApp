@@ -6882,7 +6882,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  }, utils;
 }), define("constants", [], function() {
  var e = {};
- return e.VERSION = "1.5.6", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
+ return e.VERSION = "1.5.7", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
  e.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ", e.GOOGLE_DRIVE_APP_ID = "1017251498254", 
  e.DROPBOX_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_APP_SECRET = "1mesyckskczn3f9", 
  e.DROPBOX_RESTRICTED_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_RESTRICTED_APP_SECRET = "1mesyckskczn3f9", 
@@ -6894,41 +6894,45 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  e.TEMPORARY_FILE_INDEX = "file.tempIndex", e.WELCOME_DOCUMENT_TITLE = "Hello World!", 
  e.DOWNLOAD_IMPORT_URL = "/downloadImport", e.PICASA_IMPORT_IMG_URL = "/picasaImportImg", 
  e.SSH_PUBLISH_URL = "/sshPublish", e.PDF_EXPORT_URL = "/pdfExport", e.BOOT_MYWRITEON_URL = "/bootmywriteon", 
- e.COUCHDB_SERVER = "https://writeon.couchappy.com", e.COUCHDB_BASIC_AUTH = "YmVhcmRhbmRmZWRvcmE6eWFiMGlz", 
- e.COUCHDB_AUTH_SERVER = "aHR0cHM6Ly9iZWFyZGFuZGZlZG9yYTp5YWIwaXNAd3JpdGVvbi5jb3VjaGFwcHkuY29t", 
- e.COUCHDB_URL = "https://cloud1.writeon.io/documents", e.BASE_URL = e.MAIN_URL, 
- e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
+ e.COUCHDB_URL = "https://cloud1.writeon.io/documents", e.COUCHDB_SERVER = "https://cloud1.writeon.io", 
+ e.COUCHDB_BASIC_AUTH = "YmVhcmRhbmRmZWRvcmE6eWFiMGlz", e.COUCHDB_AUTH_SERVER = "aHR0cHM6Ly9iZWFyZGFuZGZlZG9yYTp5YWIwaXNAd3JpdGVvbi5jb3VjaGFwcHkuY29t", 
+ e.BASE_URL = e.MAIN_URL, e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.GHOST_PROXY_URL = "https://writeon-ghost-proxy.herokuapp.com/", 
  e.WORDPRESS_CLIENT_ID = "37431", e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", 
  0 === location.hostname.indexOf("writeon.io") ? (e.BASE_URL = e.MAIN_URL, e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/", 
- e.TUMBLR_PROXY_URL = "https://writeon-tumblr.herokuapp.com/") : 0 === location.hostname.indexOf("beta.writeon.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
+ e.TUMBLR_PROXY_URL = "https://writeon-tumblr.herokuapp.com/", e.COUCHDB_SERVER = "https://cloud1.writeon.io") : 0 === location.hostname.indexOf("beta.writeon.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
  e.BASE_URL = "https://beta.writeon.io/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "302c5c415085534c1346", e.GATEKEEPER_URL = "https://writeon-gatekeeper-beta.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy-beta.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "34786", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy-beta.herokuapp.com/", e.COUCHDB_URL = "https://cloud2.writeon.io/documents") : 0 === location.hostname.indexOf("writeon-beta.herokuapp.com") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
+ e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy-beta.herokuapp.com/", e.COUCHDB_URL = "https://cloud2.writeon.io/documents", 
+ e.COUCHDB_SERVER = "https://cloud2.writeon.io") : 0 === location.hostname.indexOf("writeon-beta.herokuapp.com") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
  e.BASE_URL = "https://writeon-beta.herokuapp.com/", e.GOOGLE_CLIENT_ID = "94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "302c5c415085534c1346", e.GATEKEEPER_URL = "https://writeon-gatekeeper-beta.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "34786", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://cloud2.writeon.io/documents") : 0 === location.hostname.indexOf("mammal-charter.codio.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
+ e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://cloud2.writeon.io/documents", 
+ e.COUCHDB_SERVER = "https://cloud2.writeon.io") : 0 === location.hostname.indexOf("mammal-charter.codio.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
  e.BASE_URL = "https://mammal-charter.codio.io:9500/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "37431", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://cloud3.writeon.io/documents") : 0 === location.hostname.indexOf("mammal-charter.codio.io:9500") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
+ e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://cloud3.writeon.io/documents", 
+ e.COUCHDB_SERVER = "https://cloud3.writeon.io") : 0 === location.hostname.indexOf("mammal-charter.codio.io:9500") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
  e.BASE_URL = "https://mammal-charter.codio.io:9500/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "37431", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://cloud3.writeon.io/documents") : 0 === location.hostname.indexOf("mammal-charter.codio.io:3000") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
+ e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://cloud3.writeon.io/documents", 
+ e.COUCHDB_SERVER = "https://cloud3.writeon.io") : 0 === location.hostname.indexOf("mammal-charter.codio.io:3000") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
  e.BASE_URL = "http://mammal-charter.codio.io:3000/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "37431", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://cloud3.writeon.io/documents") : 0 === location.hostname.indexOf("mammal-charter.codio.io:9501") && (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
+ e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://cloud3.writeon.io/documents", 
+ e.COUCHDB_SERVER = "https://cloud3.writeon.io") : 0 === location.hostname.indexOf("mammal-charter.codio.io:9501") && (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
  e.BASE_URL = "https://mammal-charter.codio.io:9501/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "37431", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://cloud3.writeon.io/documents"), 
- e.THEME_LIST = {
+ e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_URL = "https://cloud3.writeon.io/documents", 
+ e.COUCHDB_SERVER = "https://cloud3.writeon.io"), e.THEME_LIST = {
   neat: "Neat",
   blue: "Blue",
   gray: "Gray",
@@ -21214,9 +21218,9 @@ function() {
  var r = new n("supportWriteOn", "Support WriteOn", !1, !0);
  return r.settingsBlock = i, r;
 }), define("text!html/mysyncURLSettingsBlock.html", [], function() {
- return '<p>If you want to host your own secure sync server, this is the My.WriteOn service URL.</p>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-5 control-label"\n			for="input-settings-couchdb-url">My.WriteOn Sync URL </label>\n		<div class="col-sm-6">\n			<input type="text" id="input-settings-couchdb-url" class="form-control"><br />\n		</div>		\n        <div class="form-group">\n        <label class="col-sm-5 control-label">My.WriteOn Provisioning </label>\n        <div class="col-sm-6">\n			<a class="btn btn-default action-bootmy-writeon" href="#" title="Create My.WriteOn Instance"><i class="icon-file"></i> Create My.WriteOn Instance </a>\n		</div>\n        </div>\n	</div>\n</div>';
+ return '<p>If you want to host your own secure sync server, this is the My.WriteOn service URL.</p>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-5 control-label"\n			for="input-settings-couchdb-url">My.WriteOn Sync URL </label>\n		<div class="col-sm-6">\n			<input type="text" id="input-settings-couchdb-url" class="form-control"><br />\n		</div>		\n        <div class="form-group">\n        <label class="col-sm-5 control-label">Provision My.WriteOn </label>\n        <div class="col-sm-6">\n			<a class="btn btn-default action-bootmy-writeon" href="#" title="Create My.WriteOn Instance"><i class="icon-file"></i> Create My.WriteOn Instance </a><br />\n		</div>\n        </div>\n        <div class="form-group">\n        <label class="col-sm-5 control-label">Configure My.WriteOn </label>\n        <div class="col-sm-6">\n			<a class="btn btn-default action-configure-writeon" href="#" title="Create My.WriteOn Instance"><i class="icon-file"></i> Configure My.WriteOn Instance </a>\n		</div>\n        </div>\n	</div>\n</div>';
 }), define("extensions/mysyncURL", [ "jquery", "underscore", "constants", "utils", "settings", "classes/Extension", "text!html/mysyncURLSettingsBlock.html" ], function(e, t, n, i, r, o, a) {
- var s = new o("mysyncURL", "My.WriteOn Sync URL", !1, !0);
+ var s = new o("mysyncURL", "My.WriteOn Provisioning Service", !1, !0);
  return s.settingsBlock = a, s.defaultConfig = {
   couchdburl: r.couchdbUrl
  }, s.onLoadSettings = function() {
@@ -25925,31 +25929,78 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
     u(this.statusText, o)));
    }, t.send();
   }), o.onSuccess(function() {
-   t(void 0, n), d.setupmywriteondb(e);
+   t(void 0, n);
   }), o.onError(function(e) {
    t(e);
   }), o.enqueue();
- }, d.setupmywriteondb = function(t, n) {
-  var i, r = a.COUCHDB_SERVER, o = new c();
-  o.onRun(function() {
+ }, d.configuremywriteondb = function(t, n) {
+  var i, r = a.COUCHDB_SERVER, o = r + "/" + t, s = a.COUCHDB_BASIC_AUTH, l = new c();
+  l.onRun(function() {
    e.ajax({
-    type: "POST",
-    url: "/bootmywriteon?" + e.param({
-     mywriteonserver: r,
-     mywriteondb: t
-    }),
+    type: "PUT",
+    url: o + "/_design/validate",
+    headers: {
+     Authorization: "Basic " + s,
+     Accept: "application/json"
+    },
     contentType: "application/json",
-    dataType: "json"
+    dataType: "json",
+    data: JSON.stringify({
+     _id: "_design/validate",
+     validate_doc_update: "function (newDoc) {\n	Object.keys(newDoc).forEach(function(key) {\n		if(key[0] !== '_' && [\n			'updated',\n			'tags',\n			'title'\n		].indexOf(key) === -1) {\n			throw({forbidden: 'Unknown document attribute: ' + key});\n		}\n	});\n	var toString = Object.prototype.toString;\n	if(toString.call(newDoc._id) !== '[object String]') {\n		throw({forbidden: 'ID must be a string.'});\n	}\n	if(!newDoc._id.match(/[a-zA-Z0-9]{24}/)) {\n		throw({forbidden: 'Invalid ID format.'});\n	}\n	if(newDoc._deleted) {\n		if(newDoc.updated !== undefined ||\n			newDoc.tags !== undefined ||\n			newDoc.title !== undefined ||\n			newDoc._attachments !== undefined) {\n			throw({forbidden: 'Deleted document must be empty.'});\n		}\n		return;\n	}\n	if(toString.call(newDoc.updated) !== '[object Number]') {\n		throw({forbidden: 'Update time must be an integer.'});\n	}\n	if(newDoc.updated > Date.now() + 300000) {\n		throw({forbidden: 'Update time is in the future, please check your clock!'});\n	}\n	if(toString.call(newDoc.title) !== '[object String]') {\n		throw({forbidden: 'Title must be a string.'});\n	}\n	if(!newDoc.title) {\n		throw({forbidden: 'Title is empty.'});\n	}\n	if(newDoc.title.length >= 256) {\n		throw({forbidden: 'Title too long.'});\n	}\n	if(newDoc.tags !== undefined) {\n		if(toString.call(newDoc.tags) !== '[object Array]') {\n			throw({forbidden: 'Tags must be an array.'});\n		}\n		if(newDoc.tags.length >= 16) {\n			throw({forbidden: 'Too many tags.'});\n		}\n		newDoc.tags.forEach(function(tag) {\n			if(toString.call(tag) !== '[object String]') {\n				throw({forbidden: 'Tags must contain strings only.'});\n			}\n			if(!tag) {\n				throw({forbidden: 'Tag is empty.'});\n			}\n			if(tag.length > 32) {\n				throw({forbidden: 'Tag is too long.'});\n			}\n		});\n	}\n	var attachment = (newDoc._attachments || {}).content;\n	if(!attachment) {\n		throw({forbidden: 'Missing attached content.'});\n	}\n	if(attachment.content_type != 'text/plain') {\n		throw({forbidden: 'Invalid content type.'});\n	}\n	if(Object.keys(newDoc._attachments).length > 1) {\n		throw({forbidden: 'Too many attachments.'});\n	}\n}"
+    })
    }).done(function(e) {
-    i = e, o.chain();
+    i = e, l.chain();
    }).fail(function(e) {
-    u(e, o);
+    u(e, l);
+   }), e.ajax({
+    type: "PUT",
+    url: o + "/_design/by_update",
+    headers: {
+     Authorization: "Basic " + s,
+     Accept: "application/json"
+    },
+    contentType: "application/json",
+    data: JSON.stringify({
+     _id: "_design/by_update",
+     views: {
+      "default": {
+       map: "function (doc) {\n	if(!doc.tags || !doc.tags.length) {\n		emit(doc.updated, null);\n	}\n}"
+      }
+     },
+     language: "javascript"
+    })
+   }).done(function(e) {
+    i = e, l.chain();
+   }).fail(function(e) {
+    u(e, l);
+   }), e.ajax({
+    type: "PUT",
+    url: o + "/_design/by_tag_and_update",
+    headers: {
+     Authorization: "Basic " + s,
+     Accept: "application/json"
+    },
+    contentType: "application/json",
+    data: JSON.stringify({
+     _id: "_design/by_tag_and_update",
+     views: {
+      "default": {
+       map: "function(doc) {\n	doc.tags && doc.tags.forEach(function(tag) {\n		emit([\n			tag,\n			doc.updated\n		], null);\n	});\n}"
+      }
+     },
+     language: "javascript"
+    })
+   }).done(function(e) {
+    i = e, l.chain();
+   }).fail(function(e) {
+    u(e, l);
    });
-  }), o.onSuccess(function() {
+  }), l.onSuccess(function() {
    n(void 0, i);
-  }), o.onError(function(e) {
+  }), l.onError(function(e) {
    n(e);
-  }), o.enqueue();
+  }), l.enqueue();
  }, d.uploadDocument = function(n, r, o, a, l, d) {
   var p, h = new c();
   h.onRun(function() {
@@ -26213,6 +26264,11 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   e(".action-bootmy-writeon").click(function() {
    var e = "testing";
    f.createmywriteondb(e, function(e, t) {
+    e || "" === t.length;
+   });
+  }), e(".action-configure-writeon").click(function() {
+   var e = "testing";
+   f.configuremywriteondb(e, function(e, t) {
     e || "" === t.length;
    });
   }), w = e("#input-sync-import-couchdb-documentid");
