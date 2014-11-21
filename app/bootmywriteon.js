@@ -1,3 +1,16 @@
+/* Begin : Try and run as a service called bootmywriteon */
+exports.bootmywriteon = function(req, res) {
+
+	//var mywriteonserver = req.param('mywriteonserver');
+    var mywriteonserver = 'https://writeon.couchappy.com';
+    var mywriteondb = req.param('mywriteondb');
+    var mywriteonurl = mywriteonserver + '/' + mywriteondb;
+	if(!mywriteondb) {
+		res.status(400).send('Whoops, seems to be no My.WriteOn DB parameter. If you are trying to create an account, please try again. Server: ' + mywriteonserver + ' | DB: ' + mywriteondb);
+	}
+    else if(mywriteonurl.indexOf("http://") === 0 || mywriteonurl.indexOf("https://") === 0) {
+    
+/* Begin the My.WriteOn Setup Process */   
 var validate = function(newDoc) {
 	Object.keys(newDoc).forEach(function(key) {
 		if(key[0] !== '_' && [
@@ -72,13 +85,13 @@ var validate = function(newDoc) {
 
 var byUpdate = function(doc) {
 	if(!doc.tags || !doc.tags.length) {
-		emit(doc.updated, null);
+		this.emit(doc.updated, null);
 	}
 };
 
 var byTagAndUpdate = function(doc) {
 	doc.tags && doc.tags.forEach(function(tag) {
-		emit([
+		this.emit([
 			tag,
 			doc.updated
 		], null);
@@ -114,20 +127,29 @@ var ddocs = [
 	}
 ];
 
+/* Since we are running as a service that gets called while creating an account, lets disable the node argv method         
+
 if(process.argv.length < 3) {
 	console.error('Missing URL parameter');
 	process.exit(-1);
 }
 
 var url = require('url').parse(process.argv[2]);
-var request = require(url.protocol === 'https:' ? 'https' : 'http').request;
 
-function onError(err, body) {
+*/
+        
+var url = mywriteonurl;
+var request = require(url.protocol === 'https:' ? 'https' : 'http').request;
+var onError;
+var uploadDdoc;
+        
+onError = function onError(err, body) {
 	console.error(err);
 	body && console.error(body);
 	process.exit(1);
-}
-function uploadDdoc() {
+};
+
+uploadDdoc = function uploadDdoc() {
 	if(ddocs.length === 0) {
 		return console.log('All design documents updated successfully.');
 	}
@@ -176,5 +198,10 @@ function uploadDdoc() {
 	})
 		.on('error', onError)
 		.end();
-}
+};
 uploadDdoc();
+
+/* End if(!clouddb) */
+}
+/* End : Try and run as a service */
+};

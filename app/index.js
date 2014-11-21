@@ -3,6 +3,7 @@ var app = express();
 var compression = require('compression');
 var serveStatic = require('serve-static');
 
+
 // Configure expressjs (ejs) engine, for it will be #awesome for us.
 app.set('views', __dirname + '/../views');
 app.engine('html', require('ejs').renderFile);
@@ -19,6 +20,7 @@ app.all('*', function(req, res, next) {
 // Use gzip compression
 app.use(compression());
 
+app.post('/bootmywriteon', require('./bootmywriteon').bootmywriteon);
 app.post('/pdfExport', require('./pdf').export);
 app.post('/sshPublish', require('./ssh').publish);
 app.post('/picasaImportImg', require('./picasa').importImg);

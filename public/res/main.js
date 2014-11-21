@@ -2,6 +2,7 @@
 /*global requirejs */
 requirejs.config({
 	waitSeconds: 0,
+    nodeRequire: require,
 	packages: [
 		{
 			name: 'css',
@@ -73,7 +74,8 @@ requirejs.config({
 		waitForImages: 'bower-libs/waitForImages/dist/jquery.waitforimages',
 		MathJax: 'bower-libs/MathJax/MathJax',
 		alertify: 'bower-libs/alertify.js/lib/alertify',
-        oauth: 'bower-libs/oauth-js/dist/oauth'
+        oauth: 'bower-libs/oauth-js/dist/oauth',
+        couchdb: 'libs/jquery.couch'
 	},
 	shim: {
 		underscore: {

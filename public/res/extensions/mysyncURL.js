@@ -8,7 +8,7 @@ define([
     "text!html/mysyncURLSettingsBlock.html"
 ], function(_, $, constants, utils, settings, Extension, mysyncURLSettingsBlockHTML) {
 
-	var mysyncURL = new Extension('mysyncURL', 'My.WriteOn Sync URL', false, true);
+	var mysyncURL = new Extension('mysyncURL', 'My.WriteOn Provisioning Service', false, true);
     mysyncURL.settingsBlock = mysyncURLSettingsBlockHTML;
     mysyncURL.defaultConfig = {
         couchdburl: settings.couchdbUrl
@@ -22,6 +22,7 @@ define([
         newConfig.couchdburl = utils.getInputTextValue("#input-settings-couchdb-url", event);
     };
     
+   
     
     return mysyncURL;
 

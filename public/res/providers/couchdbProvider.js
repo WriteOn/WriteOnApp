@@ -251,6 +251,46 @@ define([
 			'</a>'
 		].join('');
 
+/* 
+ * ============================================================
+ * 
+ * BEGIN ---
+ * 
+ * THIS IS TEMPROARILY HERE TO TEST THE PROVISIONING SERVICE - 
+ * ============================================================
+ */    
+        $(".action-bootmy-writeon").click(function() {
+            var mywriteondb = 'testing';
+            couchdbHelper.createmywriteondb(mywriteondb, function(error, result) {
+ 				if(error) {
+					return;
+				}
+				if(result.length === '') {
+                    return;
+				}
+           
+		    });  
+        });
+        $(".action-configure-writeon").click(function() {
+            var mywriteondb = 'testing';
+            couchdbHelper.configuremywriteondb(mywriteondb, function(error, result) {
+ 				if(error) {
+					return;
+				}
+				if(result.length === '') {
+                    return;
+				}
+           
+		    });  
+        });
+ /*
+ * ============================================================
+ * 
+ * END ---
+ * 
+ * THIS IS TEMPROARILY HERE TO TEST THE PROVISIONING SERVICE - 
+ * ============================================================
+ */        
 		$documentIdsElt = $('#input-sync-import-couchdb-documentid');
 		var modalElt = document.querySelector('.modal-download-couchdb');
 		var $documentListElt = $(modalElt.querySelector('.document-list'));
