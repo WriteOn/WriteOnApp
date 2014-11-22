@@ -28,7 +28,6 @@ define([
         newConfig.couchdb = utils.getInputTextValue("#input-settings-couchdb");
         newSettings.couchdburl = mysyncURL.config.couchdbserver + utils.getInputTextValue("#input-settings-couchdb");
         newSettings.couchdb = utils.getInputTextValue("#input-settings-couchdb");
-        console.log(event)
     };
     
    
