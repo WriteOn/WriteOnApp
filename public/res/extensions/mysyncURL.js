@@ -9,7 +9,7 @@ define([
 ], function(_, $, constants, utils, settings, Extension, mysyncURLSettingsBlockHTML) {
 
 	var mysyncURL = new Extension('mysyncURL', 'My.WriteOn Account', false, true);
-    var eventMgr;
+    //var eventMgr;
     mysyncURL.settingsBlock = mysyncURLSettingsBlockHTML;
     mysyncURL.defaultConfig = {
         couchdbserver: settings.couchdbserver,
@@ -22,12 +22,13 @@ define([
         utils.setInputValue("#input-settings-couchdb-url", mysyncURL.config.couchdburl);
     };
 
-    mysyncURL.onSaveSettings = function(newConfig, event) {
+    mysyncURL.onSaveSettings = function(newConfig) {
         var newSettings = {};
         newConfig.couchdburl = mysyncURL.config.couchdbserver + utils.getInputTextValue("#input-settings-couchdb");
         newConfig.couchdb = utils.getInputTextValue("#input-settings-couchdb");
         newSettings.couchdburl = mysyncURL.config.couchdbserver + utils.getInputTextValue("#input-settings-couchdb");
         newSettings.couchdb = utils.getInputTextValue("#input-settings-couchdb");
+        console.log(event)
     };
     
    
