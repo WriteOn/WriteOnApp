@@ -31,8 +31,8 @@ define([
     
 	couchdbHelper.createmywriteondb = function(mywriteondb, callback) {
 	// set the base couchdb server
-    var mywriteonserver = constants.COUCHDB_SERVER;
-    var mywriteonauth = constants.COUCHDB_BASIC_AUTH;        //base64 encoded
+    var mywriteonserver = settings.couchdbserver;
+    var mywriteonauth = settings.couchdbauth;        //base64 encoded
     var result;
  
 	    var task = new AsyncTask();
@@ -77,9 +77,9 @@ define([
     
 	couchdbHelper.configuremywriteondb = function(mywriteondb, callback) {
 	//set the base couchdb server
-    var mywriteonserver = constants.COUCHDB_SERVER;
+    var mywriteonserver = settings.couchdbserver;
     var mywriteondesignurl = mywriteonserver + '/' + mywriteondb;
-    var mywriteonauth = constants.COUCHDB_BASIC_AUTH;        //base64 encoded       
+    var mywriteonauth = settings.couchdbauth;        //base64 encoded       
     var result;
  
 	    var task = new AsyncTask();

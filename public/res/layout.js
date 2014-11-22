@@ -22,7 +22,7 @@ define([
 		width: 330,
 		height: 160
 	};
-	var menuPanelWidth = 345;
+	var menuPanelWidth = 335;
 	var documentPanelWidth = 320;
 	var titleMinWidth = 200;
 	var previewButtonsClosedOffset = 18;
@@ -464,6 +464,10 @@ define([
 		navbarToggler.$elt.toggleClass('open', navbar.isOpen);
 		previewToggler.$elt.toggleClass('open', previewPanel.isOpen);
 		previewResizer.$elt.toggleClass('open', previewPanel.isOpen);
+        menuPanel.$elt.find('.toggle-button i').toggleClass('icon-cancel', menuPanel.isOpen);
+        menuPanel.$elt.find('.toggle-button i').toggleClass('icon-menu', menuPanel.isOpen === false);
+        documentPanel.$elt.find('.toggle-button i').toggleClass('icon-cancel', documentPanel.isOpen);
+        documentPanel.$elt.find('.toggle-button i').toggleClass('icon-folder-open', documentPanel.isOpen === false);
 
 		editor.applyCss();
 		previewPanel.applyCss();

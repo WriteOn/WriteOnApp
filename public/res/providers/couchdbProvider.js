@@ -260,7 +260,7 @@ define([
  * ============================================================
  */    
         $(".action-bootmy-writeon").click(function() {
-            var mywriteondb = 'testing';
+            var mywriteondb = utils.getInputTextValue("#input-settings-couchdb-url", event);;
             couchdbHelper.createmywriteondb(mywriteondb, function(error, result) {
  				if(error) {
 					return;
@@ -272,7 +272,7 @@ define([
 		    });  
         });
         $(".action-configure-writeon").click(function() {
-            var mywriteondb = 'testing';
+            var mywriteondb = utils.getInputTextValue("#input-settings-couchdb-url", event);;
             couchdbHelper.configuremywriteondb(mywriteondb, function(error, result) {
  				if(error) {
 					return;

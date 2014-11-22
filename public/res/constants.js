@@ -32,7 +32,7 @@ define([], function() {
 	constants.SSH_PUBLISH_URL = '/sshPublish';
 	constants.PDF_EXPORT_URL = "/pdfExport";
     constants.BOOT_MYWRITEON_URL = "/bootmywriteon";
-    constants.COUCHDB_URL = 'https://cloud1.writeon.io/documents';
+    constants.COUCHDB_DB = 'documents';
     constants.COUCHDB_SERVER = 'https://cloud1.writeon.io';
     constants.COUCHDB_BASIC_AUTH = 'YmVhcmRhbmRmZWRvcmE6eWFiMGlz';
     constants.COUCHDB_AUTH_SERVER = 'aHR0cHM6Ly9iZWFyZGFuZGZlZG9yYTp5YWIwaXNAd3JpdGVvbi5jb3VjaGFwcHkuY29t';
@@ -66,7 +66,7 @@ define([], function() {
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy-beta.herokuapp.com/";
 		constants.WORDPRESS_CLIENT_ID = '34786';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy-beta.herokuapp.com/";
-        constants.COUCHDB_URL = 'https://cloud2.writeon.io/documents';
+        constants.COUCHDB_DB = 'documents';
         constants.COUCHDB_SERVER = 'https://cloud2.writeon.io';
 
     }
@@ -79,7 +79,7 @@ define([], function() {
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
 		constants.WORDPRESS_CLIENT_ID = '34786';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
-        constants.COUCHDB_URL = 'https://cloud2.writeon.io/documents';
+        constants.COUCHDB_DB = 'documents';
         constants.COUCHDB_SERVER = 'https://cloud2.writeon.io';
 
     }
@@ -93,7 +93,7 @@ define([], function() {
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
 		constants.WORDPRESS_CLIENT_ID = '37431';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
-        constants.COUCHDB_URL = 'https://cloud3.writeon.io/documents';
+        constants.COUCHDB_DB = 'documents';
         constants.COUCHDB_SERVER = 'https://cloud3.writeon.io';
 	}
     else if(location.hostname.indexOf("mammal-charter.codio.io:9500") === 0) {
@@ -105,7 +105,7 @@ define([], function() {
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
 		constants.WORDPRESS_CLIENT_ID = '37431';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
-        constants.COUCHDB_URL = 'https://cloud3.writeon.io/documents';
+        constants.COUCHDB_DB = 'documents';
         constants.COUCHDB_SERVER = 'https://cloud3.writeon.io';
 	}
     else if(location.hostname.indexOf("mammal-charter.codio.io:3000") === 0) {
@@ -117,7 +117,7 @@ define([], function() {
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
 		constants.WORDPRESS_CLIENT_ID = '37431';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
-        constants.COUCHDB_URL = 'https://cloud3.writeon.io/documents';
+        constants.COUCHDB_DB = 'documents';
         constants.COUCHDB_SERVER = 'https://cloud3.writeon.io';
 
     }
@@ -130,7 +130,7 @@ define([], function() {
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
 		constants.WORDPRESS_CLIENT_ID = '37431';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
-        constants.COUCHDB_URL = 'https://cloud3.writeon.io/documents';
+        constants.COUCHDB_DB = 'documents';
         constants.COUCHDB_SERVER = 'https://cloud3.writeon.io';
 
     }

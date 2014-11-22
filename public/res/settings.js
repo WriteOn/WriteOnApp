@@ -57,7 +57,10 @@ define([
 			'    "pageSize": "A4"',
 			'}'
 		].join('\n'),
-		couchdbUrl: constants.COUCHDB_URL,
+		couchdb: constants.COUCHDB_DB,
+		couchdbserver: constants.COUCHDB_SERVER,
+        couchdbUrl: constants.COUCHDB_SERVER + '/' + constants.COUCHDB_DB,
+        couchdbauth: constants.COUCHDB_BASIC_AUTH,
 		extensionSettings: {}
 	};
 

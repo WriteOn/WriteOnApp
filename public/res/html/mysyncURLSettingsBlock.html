@@ -1,21 +1,28 @@
-<p>If you want to host your own secure sync server, this is the My.WriteOn service URL.</p>
+<p>To create your own My.WriteOn account, follow these easy steps:</p>
+<ol>
+    <li>Enter your desired account name. <strong>Letters & Numbes Only - No Spaces</strong></li>
+    <li>Click the <i>Create My.WriteOn Account</i> button</li>
+    <li>Click the <i>Configure My.WriteOn Account</i> button</li>
+    <li>Click <i>Ok</i></li>
+</ol>
 <div class="form-horizontal">
 	<div class="form-group">
 		<label class="col-sm-5 control-label"
-			for="input-settings-couchdb-url">My.WriteOn Sync URL </label>
+			for="input-settings-couchdb-url">My.WriteOn Account Name </label>
 		<div class="col-sm-6">
-			<input type="text" id="input-settings-couchdb-url" class="form-control"><br />
+			<input type="text" id="input-settings-couchdb" class="form-control">
+            <input type="hidden" id="input-settings-couchdb-url" value=""><br />
 		</div>		
         <div class="form-group">
-        <label class="col-sm-5 control-label">Provision My.WriteOn </label>
+        <label class="col-sm-5 control-label">Create Account </label>
         <div class="col-sm-6">
-			<a class="btn btn-default action-bootmy-writeon" href="#" title="Create My.WriteOn Instance"><i class="icon-file"></i> Create My.WriteOn Instance </a><br />
+			<a class="btn btn-warning action-bootmy-writeon" href="#" title="Create My.WriteOn Instance"><i class="icon-plus-squared"></i> Create My.WriteOn Account </a><br />
 		</div>
         </div>
         <div class="form-group">
-        <label class="col-sm-5 control-label">Configure My.WriteOn </label>
+        <label class="col-sm-5 control-label">Configure Account</label>
         <div class="col-sm-6">
-			<a class="btn btn-default action-configure-writeon" href="#" title="Create My.WriteOn Instance"><i class="icon-file"></i> Configure My.WriteOn Instance </a>
+			<a class="btn btn-danger action-configure-writeon" href="#" title="Create My.WriteOn Instance"><i class="icon-wrench"></i> Configure My.WriteOn Account </a>
 		</div>
         </div>
 	</div>
