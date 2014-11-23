@@ -32,7 +32,8 @@ define([
 	couchdbHelper.createmywriteondb = function(mywriteondb, callback) {
 	// set the base couchdb server
     var mywriteonserver = settings.couchdbserver;
-    var mywriteonauth = settings.couchdbauth;        //base64 encoded
+    var mywriteonauth = settings.couchdbauth;            //base64 encoded
+    // var mywriteondb = utils.encodeBase64(mywriteondb);
     var result;
  
 	    var task = new AsyncTask();

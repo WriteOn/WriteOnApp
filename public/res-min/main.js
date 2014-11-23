@@ -21221,7 +21221,7 @@ function() {
  var r = new n("supportWriteOn", "Support WriteOn", !1, !0);
  return r.settingsBlock = i, r;
 }), define("text!html/mysyncURLSettingsBlock.html", [], function() {
- return '<p>To create your own My.WriteOn account, follow these easy steps:</p>\n<ol>\n    <li>Enter your desired account name. <strong>Letters & Numbes Only - No Spaces</strong></li>\n    <li>Click the <i>Create My.WriteOn Account</i> button</li>\n    <li>Click the <i>Configure My.WriteOn Account</i> button</li>\n    <li>Click <i>Ok</i></li>\n</ol>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-5 control-label"\n			for="input-settings-couchdb-url">My.WriteOn Account Name </label>\n		<div class="col-sm-6">\n			<input type="text" id="input-settings-couchdb" class="form-control">\n            <input type="hidden" id="input-settings-couchdb-url" value=""><br />\n		</div>		\n        <div class="form-group">\n        <label class="col-sm-5 control-label">Create Account </label>\n        <div class="col-sm-6">\n			<a class="btn btn-warning action-bootmy-writeon" href="#" title="Create My.WriteOn Instance"><i class="icon-plus-squared"></i> Create My.WriteOn Account </a><br />\n		</div>\n        </div>\n        <div class="form-group">\n        <label class="col-sm-5 control-label">Configure Account</label>\n        <div class="col-sm-6">\n			<a class="btn btn-danger action-configure-writeon" href="#" title="Create My.WriteOn Instance"><i class="icon-wrench"></i> Configure My.WriteOn Account </a>\n		</div>\n        </div>\n	</div>\n</div>';
+ return '<p>To create your own My.WriteOn account, follow these easy steps:</p>\n<ol>\n    <li>Enter your desired account name. <strong>Letters & Numbes Only - No Spaces</strong></li>\n    <li>Click the <i>Create My.WriteOn Account</i> button</li>\n    <li>Click the <i>Configure My.WriteOn Account</i> button</li>\n    <li>Click <i>Ok</i></li>\n</ol>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-5 control-label"\n			for="input-settings-couchdb-url">My.WriteOn Account Name </label>\n		<div class="col-sm-6">\n			<input type="text" id="input-settings-couchdb" class="form-control">\n            <input type="hidden" id="input-settings-couchdb-server" value="">\n            <input type="hidden" id="input-settings-couchdb-url" value=""><br />\n		</div>		\n        <div class="form-group">\n        <label class="col-sm-5 control-label">Create Account </label>\n        <div class="col-sm-6">\n			<a class="btn btn-warning action-bootmy-writeon" href="#" title="Create My.WriteOn Instance"><i class="icon-plus-squared"></i> Create My.WriteOn Account </a><br />\n		</div>\n        </div>\n        <div class="form-group">\n        <label class="col-sm-5 control-label">Configure Account</label>\n        <div class="col-sm-6">\n			<a class="btn btn-danger action-configure-writeon" href="#" title="Create My.WriteOn Instance"><i class="icon-wrench"></i> Configure My.WriteOn Account </a>\n		</div>\n        </div>\n	</div>\n</div>';
 }), define("extensions/mysyncURL", [ "jquery", "underscore", "constants", "utils", "settings", "classes/Extension", "text!html/mysyncURLSettingsBlock.html" ], function(e, t, n, i, r, o, a) {
  var s = new o("mysyncURL", "My.WriteOn Account", !1, !0);
  return s.settingsBlock = a, s.defaultConfig = {
@@ -21229,11 +21229,12 @@ function() {
   couchdb: r.couchdb,
   couchdburl: r.couchdburl
  }, s.onLoadSettings = function() {
-  i.setInputValue("#input-settings-couchdb", s.config.couchdb), i.setInputValue("#input-settings-couchdb-url", s.config.couchdburl);
+  i.setInputValue("#input-settings-couchdb", s.config.couchdb), i.setInputValue("#input-settings-couchdb-server", s.config.couchdbserver), 
+  i.setInputValue("#input-settings-couchdb-url", s.config.couchdburl);
  }, s.onSaveSettings = function(e) {
   var t = {};
-  e.couchdburl = s.config.couchdbserver + i.getInputTextValue("#input-settings-couchdb"), 
-  e.couchdb = i.getInputTextValue("#input-settings-couchdb"), t.couchdburl = s.config.couchdbserver + i.getInputTextValue("#input-settings-couchdb"), 
+  e.couchdburl = s.config.couchdbserver + "/" + i.getInputTextValue("#input-settings-couchdb"), 
+  e.couchdb = i.getInputTextValue("#input-settings-couchdb"), t.couchdburl = s.config.couchdbserver + "/" + i.getInputTextValue("#input-settings-couchdb"), 
   t.couchdb = i.getInputTextValue("#input-settings-couchdb");
  }, s;
 }), function(e) {
@@ -24999,7 +25000,8 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   n.dropboxFullAccess = a.getInputChecked("#input-settings-dropbox-full-access"), 
   n.githubFullAccess = a.getInputChecked("#input-settings-github-full-access"), n.template = a.getInputTextValue("#textarea-settings-publish-template", t), 
   n.pdfTemplate = a.getInputTextValue("#textarea-settings-pdf-template", t), n.pdfOptions = a.getInputJSONValue("#textarea-settings-pdf-options", t), 
-  n.commitMsg = a.getInputTextValue("#input-settings-publish-commit-msg", t), n.extensionSettings = {}, 
+  n.commitMsg = a.getInputTextValue("#input-settings-publish-commit-msg", t), n.couchdburl = l.couchdbserver + "/" + a.getInputTextValue("#input-settings-couchdb"), 
+  n.couchdb = a.getInputTextValue("#input-settings-couchdb"), n.extensionSettings = {}, 
   c.onSaveSettings(n.extensionSettings, t), t.isPropagationStopped() || (l.dropboxFullAccess !== n.dropboxFullAccess && s.removeItem("dropbox.lastChangeId"), 
   e.extend(l, n), s.settings = JSON.stringify(l), s.themeV4 = i);
  }

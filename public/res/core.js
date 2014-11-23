@@ -192,12 +192,16 @@ define([
 		newSettings.pdfOptions = utils.getInputJSONValue("#textarea-settings-pdf-options", event);
 		// WriteOn Support (commit) message
 		newSettings.commitMsg = utils.getInputTextValue("#input-settings-publish-commit-msg", event);
+		// NEEDS TO MOVED INTO EXTENSION AND COUCHHELPER/PROVIDER UPDATED
 		// My.WriteOn (CouchDB) URL
-		//newSettings.couchdbUrl = utils.getInputValue("#input-settings-couchdb-url", event);
+        newSettings.couchdburl = settings.couchdbserver + '/' + utils.getInputTextValue("#input-settings-couchdb");
+        newSettings.couchdb = utils.getInputTextValue("#input-settings-couchdb");
 
 		// Save extension settings
 		newSettings.extensionSettings = {};
 		eventMgr.onSaveSettings(newSettings.extensionSettings, event);
+        //alert(JSON.stringify(newSettings.extensionSettings));
+        //alert(JSON.stringify(newSettings.settings));
 
 		if(!event.isPropagationStopped()) {
 			if(settings.dropboxFullAccess !== newSettings.dropboxFullAccess) {
