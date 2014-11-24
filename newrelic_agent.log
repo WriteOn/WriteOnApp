@@ -1,0 +1,15 @@
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":5801,"time":"2014-11-24T19:12:18.494Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":5807,"time":"2014-11-24T19:12:21.897Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":5801,"time":"2014-11-24T19:12:22.953Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/819700/applications/5566798","component":"new_relic_response"}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":5801,"time":"2014-11-24T19:12:22.954Z","msg":"Connected to collector-151.newrelic.com:443 with agent run ID 1422629109.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":5817,"time":"2014-11-24T19:12:22.568Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":5809,"time":"2014-11-24T19:12:22.663Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":5811,"time":"2014-11-24T19:12:22.700Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":5807,"time":"2014-11-24T19:12:25.731Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/819700/applications/5566798","component":"new_relic_response"}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":5807,"time":"2014-11-24T19:12:25.732Z","msg":"Connected to collector-151.newrelic.com:443 with agent run ID 1422629331.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":5817,"time":"2014-11-24T19:12:27.111Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/819700/applications/5566798","component":"new_relic_response"}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":5817,"time":"2014-11-24T19:12:27.111Z","msg":"Connected to collector-151.newrelic.com:443 with agent run ID 1422629439.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":5809,"time":"2014-11-24T19:12:27.248Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/819700/applications/5566798","component":"new_relic_response"}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":5809,"time":"2014-11-24T19:12:27.249Z","msg":"Connected to collector-151.newrelic.com:443 with agent run ID 1422629447.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":5811,"time":"2014-11-24T19:12:27.304Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/819700/applications/5566798","component":"new_relic_response"}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":5811,"time":"2014-11-24T19:12:27.305Z","msg":"Connected to collector-151.newrelic.com:443 with agent run ID 1422629454.","component":"collector_api"}

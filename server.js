@@ -1,3 +1,4 @@
+require('newrelic');
 var cluster = require('cluster');
 var app = require('./app');
 
