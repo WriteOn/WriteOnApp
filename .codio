@@ -10,8 +10,8 @@
   "preview": {
         "Project Index (static)": "https://{{domain}}/{{index}}",
         "Current File (static)": "https://{{domain}}/{{filepath}}",
-        "Box URL": "http://{{domain}}:3000/",
         "Box URL SSL": "https://{{domain}}:9500/",
+        "Box URL": "http://{{domain}}:3000/",
         "Ungit": "http://{{domain}}:8448/#/repository?path=%2Fhome%2Fcodio%2Fworkspace"
   }
 }
