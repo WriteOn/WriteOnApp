@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#Date Tue Nov 25 2014 05:36:03 GMT+0000 (UTC)
+#Date Tue Nov 25 2014 05:57:31 GMT+0000 (UTC)
 
 CACHE:
 .
@@ -25,6 +25,7 @@ res-min/font/SourceSansPro-Regular-webfont.woff
 res-min/font/cursive_standard-webfont.woff
 res-min/font/fontello.svg
 res-min/font/fontello.woff
+res-min/img/THS-6.png
 res-min/img/button.svg
 res-min/img/code-block.png
 res-min/img/comments.png
