@@ -31,7 +31,32 @@
 						<a class="btn btn-success button-open-discussion" title="Comments Ctrl/Cmd+M"><i class="icon-comment-alt"></i></a>
 					</li>
 				</ul>
-				<ul class="nav pull-right right-buttons">
+
+      <ul class="nav pull-right right-buttons import-stories">
+					<li class="pull-right dropdown btn-group">
+          <a href="#" data-toggle="dropdown" title="Open & Import" class="btn"><i class="icon-plus-squared"></i></a>
+						<ul class="dropdown-menu">
+						<li class="disabled text-center"><a href="#"><strong>Import Stories</strong></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#" class="file action-sync-import-dialog-couchdb"><i class="icon-download-cloud text-blue" data-toggle="collapse" 
+              data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a></li>
+						<li><a href="#" class="file action-sync-import-dropbox"><i
+							class="icon-provider-dropbox"></i> Dropbox</a></li>
+						<li><a href="#" class="file submenu-sync-gdrive action-sync-import-gdrive"><i
+							class="icon-provider-gdrive"></i> Google Drive</a></li>
+						<li><a href="#" class="file submenu-sync-gdrivesec action-sync-import-gdrivesec"><i
+							class="icon-provider-gdrive"></i> Google Drive<br><sup class="text-danger">2</sup></a></li>
+						<li><a href="#" class="file submenu-sync-gdriveter action-sync-import-gdriveter"><i
+							class="icon-provider-gdrive"></i> Google Drive<br><sup class="text-danger">3</sup></a></li>
+            <li><a data-toggle="modal" data-target=".modal-import-url" class="file 
+              action-reset-input" href="#" title="Import from URL"><i class="icon-globe text-green"></i> Import URL</a></li>
+            <li><a data-toggle="modal" title="Import from disk" data-target=".modal-import-harddrive-markdown" 
+					    class="file action-reset-input" href="#"><i class="icon-hdd text-orange"></i> Import from disk</a></li>
+						</ul></li>
+      </ul>
+
+                
+                <ul class="nav pull-right right-buttons">
 					<li class="offline-status hide">
 					    <div class="text-danger">
 					        <i class="icon-attention-circled"></i>Offline
@@ -53,7 +78,7 @@
 			<pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>
 			<div class="preview-panel">
 				<div class="layout-resizer layout-resizer-preview"></div>
-				<div class="layout-toggler layout-toggler-navbar btn btn-info" title="Toggle navigation bar"><i class="icon-th"></i></div>
+				<div class="layout-toggler layout-toggler-navbar btn btn-info" title="Toggle navigation bar"><i class="icon-resize-full"></i></div>
 				<div class="layout-toggler layout-toggler-preview btn btn-info" title="Toggle preview"><i class="icon-none"></i></div>
 				<div class="preview-container">
 					<div id="preview-contents">
@@ -72,14 +97,13 @@
 
 	<div class="menu-panel">
 		<button class="btn toggle-button" title="Menu">
-			<strong>Menu</strong> <i class="icon-menu"></i>
+			<i class="icon-menu"></i> <strong>Menu</strong>
 		</button>
 		<div class="panel-content">
 			<div class="list-group">
 
-				<a href="viewer" title="WriteOn Viewer"
-					class="list-group-item">
-					<i class="icon-resize-full"></i> WriteOn Viewer
+				<a href="viewer" title="WriteOn Viewer" class="list-group-item" target="_blank">
+					<i class="icon-link-ext"></i> WriteOn Viewer
 				</a>
 
 			</div>
@@ -187,32 +211,6 @@
 						class="icon-trash"></i> Delete story</a></li>
 				<li><a href="#" data-toggle="modal" data-target=".modal-document-manager"><i
 						class="icon-layers"></i> Manage stories</a></li>
-                <li><a href="#" class="clearfix collapsed" data-folder-index="cloud.allcloudproviders" 
-               data-toggle="collapse" data-target=".file-list.cloudallcloudproviders">   
-                <i class="icon-download-cloud"></i> Open & Import</a>
-            <div class="file-list cloudallcloudproviders clearfix collapse">
-					<ul class="nav">
-						<li><a href="#" class="list-group-item file action-sync-import-dialog-couchdb"><i
-							class="icon-download-cloud" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a></li>
-						<li><a href="#" class="list-group-item file action-sync-import-dropbox"><i
-							class="icon-provider-dropbox"></i> Dropbox</a></li>
-						<li><a href="#" class="list-group-item file submenu-sync-gdrive action-sync-import-gdrive"><i
-							class="icon-provider-gdrive"></i> Google Drive</a></li>
-						<li><a href="#" class="list-group-item file submenu-sync-gdrivesec action-sync-import-gdrivesec"><i
-							class="icon-provider-gdrive"></i> Google Drive<br><sup class="text-danger">2</sup></a></li>
-						<li><a href="#" class="list-group-item file submenu-sync-gdriveter action-sync-import-gdriveter"><i
-							class="icon-provider-gdrive"></i> Google Drive<br><sup class="text-danger">3</sup></a></li>
-                        <li><a data-toggle="modal" data-target=".modal-import-url"
-	                    class="list-group-item file list-group-item action-reset-input" href="#"
-                        title="Import from URL"><i
-					    class="icon-globe"></i> Import URL</a></li>
-                        <li><a data-toggle="modal" 
-					    title="Import from disk" data-target=".modal-import-harddrive-markdown" 
-					    class="list-group-item file list-group-item action-reset-input" href="#"><i 
-                        class="icon-hdd"></i> Import from disk</a></li>
-
-                </ul>
-            </div></li>
 	        </ul>
 			<div class="input-group">
 				<span class="input-group-addon"><i class="icon-search"></i></span><input
@@ -275,8 +273,6 @@
 					class="btn btn-default confirm-delete choose-folder action-cancel hide">Cancel</a>
 				<a href="#"
 					class="btn btn-primary confirm-delete action-delete-items-confirm hide">OK</a>
-				<a href="#" class="btn btn-primary document-list"
-					data-dismiss="modal">Close</a>
 			</div>
 		</div>
 	</div>
@@ -460,9 +456,6 @@
 				<p id="dropzone-import-harddrive-markdown" class="drop-zone">Drop
 					files here</p>
 			</div>
-			<div class="modal-footer">
-				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
-			</div>
 		</div>
 	</div>
 </div>
@@ -490,7 +483,7 @@
 				<textarea id="input-convert-html" class="form-control prettyprint linenums lang-html"></textarea>
 			</div>
 			<div class="modal-footer">
-				<a href="#" class="btn btn-default" data-dismiss="modal">Close</a> <a
+				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a> <a
 					href="#" class="btn btn-primary action-convert-html"
 					data-dismiss="modal">OK</a>
 			</div>
@@ -704,9 +697,6 @@
 					<p><b>Note:</b> Removing a synchronized location will not delete any
 					file.</p>
 				</blockquote>
-			</div>
-			<div class="modal-footer">
-				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
 			</div>
 		</div>
 	</div>
@@ -983,9 +973,6 @@
 					<p><b>Note:</b> Removing a published location here will not delete the actual post that was published.</p>
 				</blockquote>
 			</div>
-			<div class="modal-footer">
-				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
-			</div>
 		</div>
 	</div>
 </div>
@@ -1023,9 +1010,6 @@
             			title="Sharing example"><code>viewer#!url=</code></a>.</p>
             	</blockquote>
 			</div>
-			<div class="modal-footer">
-				<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>
-			</div>
 		</div>
 	</div>
 </div>
@@ -1047,7 +1031,7 @@
 					<li><a class="action-load-settings"
 						href="#tabpane-settings-extensions" data-toggle="tab">Extensions</a></li>
 					<li><a class="action-load-settings"
-						href="#tabpane-settings-utils" data-toggle="tab">Utils</a></li>
+						href="#tabpane-settings-utils" data-toggle="tab">Utilities</a></li>
 				</ul>
 			</div>
 			<div class="modal-body">
@@ -1090,7 +1074,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="form-group">
+							<div class="form-group hide">
 								<div class="col-sm-4"></div>
 								<div class="col-sm-7">
 									<div class="checkbox">
@@ -1447,10 +1431,6 @@
 				<blockquote>
                     <p><b>Tip:</b> PDFs are fully customizable via Settings>Advanced>PDF template/options.</p>
                 </blockquote>
-			</div>
-			<div class="modal-footer">
-				<a href="#" class="btn btn-primary"
-					data-dismiss="modal">Close</a>
 			</div>
 		</div>
 	</div>

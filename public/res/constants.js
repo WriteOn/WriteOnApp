@@ -141,8 +141,8 @@ define([], function() {
 		"gray": "Gray",
 		"night": "Night",
 		"school": "School",
-		"solarized-light": "Solarized Light",
-		"solarized-dark": "Solarized Dark"
+		"solarized-light": "Solarized",
+//		"solarized-dark": "Solarized Dark"
 	};
 
 	return constants;

@@ -31,6 +31,19 @@
 		}
 	}
 }
+.dropdown {
+    .btn {
+        color: @btn-success-color;
+ 		&:hover,
+		&:focus,
+		&:active {
+			color: @btn-success-hover-color;
+            border-color: @primary-border-color;
+            background-color: @btn-success-hover-bg !important; // important to override .nav > li > a:hover
+        }
+       
+    }
+}
 
 // List Groups
 @list-group-default-border: fade(@input-border, 75%);
@@ -103,8 +116,8 @@
 	}
 }
 
-.modal-settings .nav-tabs > li > a:hover, .modal-settings .nav-tabs > li > a:focus {color:#fff;}
-/* .nav-pills > li > a:hover, .nav-pills > li > a:focus, .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {color:#fff;} */
+.modal-settings .nav-tabs > li > a:hover, .modal-settings .nav-tabs > li > a:focus {color:@btn-success-hover-color;}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {color:@btn-success-hover-color;} 
 
 
 .form-control-focus(@color: @link-color) {

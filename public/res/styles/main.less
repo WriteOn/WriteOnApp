@@ -37,7 +37,8 @@
 @logo-orange: #E2670B;
 @logo-green: #BBD500;
 @primary: #0080FF;    // primary blue
-// @primary: #00D50F; // primary green
+@primary-blue: #0080FF;    // primary blue
+@primary-green: #00D50F; // primary green
 @secondary: @primary;
 @tertiary: @primary;
 @primary-desaturated: desaturate(@primary, 70%);
@@ -71,7 +72,7 @@
 @tertiary-color-darker: darken(@tertiary-color, 30%);
 
 // Panel buttons
-@panel-button-bg-color: #FFF;
+@panel-button-bg-color: lighten(@secondary-desaturated, 47%);
 @panel-button-border-fade: 90%;
 @panel-button-box-shadow: ~"0 0 1px rgba(0,0,0,.5)";
 @panel-border-color: fade(@primary-desaturated, 10%);
@@ -82,7 +83,7 @@
 @jgrowl-bg-color: fade(@modal-backdrop-bg, 90%);
 
 /* Layout Sizes */
-@title-max-width: 400px;
+@title-max-width: 250px;
 @menu-panel-width: 335px;
 @document-panel-width: 320px;
 @jgrowl-width: 280px;
@@ -152,6 +153,18 @@
 @state-danger-text: darken(@red-color, 10%);
 @state-danger-bg: fade(@red-color, 10%);
 @state-danger-border: fade(@red-color, 15%);
+
+
+
+/* Color Constants */
+.text-orange {color: @logo-orange !important;}
+.text-dark-yellow {color: @logo-yellow !important;}
+.text-yellow {color: @logo-green !important;}
+.text-blue {color: @primary-blue !important;}
+.text-green {color: @primary-green !important;}
+.text-light-green {color: @logo-blue !important;}
+.text-red {color: @red-color !important;}
+
 
 
 body {
@@ -414,6 +427,21 @@ a {
     }
 }
 
+.dropdown {
+    .btn {
+        color: @btn-success-color;
+ 		&:hover,
+		&:focus,
+		&:active {
+			color: @btn-success-hover-color;
+            border-color: @primary-border-color;
+            background-color: @btn-success-hover-bg !important; // important to override .nav > li > a:hover
+        }
+       
+    }
+}
+
+
 // Buttons over preview
 @btn-info-color: fade(@secondary-desaturated, 35%);
 @btn-info-bg: @transparent;
@@ -537,7 +565,7 @@ a {
 	border-radius: 0;
 	z-index: 20;
 	.left-space, .right-space {
-		width: 25px;
+		width: 70px;
 		height: @input-height-slim;
 	}
 	.nav {
@@ -550,6 +578,7 @@ a {
 		// Dropdown submenu
 		&.pull-right {
 			float: right;
+            padding-right: 10px;
 			& > li > .dropdown-menu {
 				right: 0;
 				left: auto;
@@ -664,7 +693,11 @@ a {
 	    padding: 5px;
         margin: 10px;
 	}
+    .import-stories {
+        padding-right: 16px !important;
+    }
 }
+
 
 
 /*********************
@@ -677,13 +710,15 @@ a {
 	z-index: 30;
 	overflow: initial;
     .toggle-button {
-    	background-color: @panel-button-bg-color;
-        height: @input-height-slim;
-        border-radius: 4px;
+    	color: #737373;
+        background-color: @navbar-default-bg;
+        height: @navbar-height;
+        border-radius: 0; //4px;
 		position: absolute;
-		margin-top: 6px;
+		margin-top: 0; //6px;
         .transition(~"border-width ease-in-out .07s, left ease-in-out 0.07s, right ease-in-out 0.07s, background-color ease-in-out 0.07s");
-        .box-shadow(@panel-button-box-shadow);
+        box-shadow: none; //.box-shadow(@panel-button-box-shadow);
+        border-bottom: 1px solid @primary-border-color;
         &:active {
             .box-shadow(~"inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 1px rgba(0,0,0,.5)");
         }
@@ -694,6 +729,7 @@ a {
 	}
     & .toggle-button:hover, &.panel-open > .toggle-button {
         border-width: 1px;
+        color: #737373;
 	}
 	.panel-content {
 		overflow: auto;
@@ -759,16 +795,16 @@ a {
         border-right: 5px solid fade(@logo-blue, @panel-button-border-fade);
         border-bottom: 4px solid fade(@logo-orange, @panel-button-border-fade);
         */
-	    right: -37px;
+	    right: -91px;
 		z-index: -1;
-		padding: 0 0 0 50px;
+		padding: 0 5px 0 50px;
 	}
     & .toggle-button:hover, &.panel-open > .toggle-button {
         right: -91px;
 	}
 	.panel-content {
 		background-color: @secondary-bg-light;
-		padding-top: 6px;
+		padding-top: 0px;
 		border-right: 1px solid @secondary-border-color-light;
 	}
 }
@@ -784,7 +820,7 @@ a {
         border-left: 5px solid fade(@logo-green, @panel-button-border-fade);
         border-bottom: 4px solid fade(@logo-orange, @panel-button-border-fade);
         */
-	    left: -37px;
+	    left: -108px;
 		padding: 0 50px 0 1px;
 		z-index: -1;
 		i.icon-folder-open {
@@ -1196,7 +1232,6 @@ a {
 		line-height: 0;
 		i {
 			font-size: 16px;
-			height: 12px;
 			overflow: hidden;
             margin-top: 20px;
 		}

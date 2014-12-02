@@ -9,7 +9,7 @@
 	</span> <input class="form-control" type="text" value="<%= syncDesc %>" disabled/>
     </div>
     <div class="text-right col-sm-3 right">
-        <a class="btn btn-default btn-sm open-location<%- syncLocationLink ? '' : ' hide' %>" title="Open in <%= syncAttributes.provider.providerName %>" 
+        <a class="btn btn-primary btn-sm open-location<%- syncLocationLink ? '' : ' hide' %>" title="Open in <%= syncAttributes.provider.providerName %>" 
            target="_blank" href="<%- syncLocationLink %>"><i class="icon-link-ext-alt"></i></a>
         <a class="btn btn-danger btn-sm remove-button" title="Delete from <%= syncAttributes.provider.providerName %>" 
            data-sync-index="<%= syncAttributes.syncIndex %>" style="margin-left: 10px;"><i class="icon-trash"></i></a>

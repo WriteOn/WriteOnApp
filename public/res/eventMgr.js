@@ -28,7 +28,7 @@ define([
 	"extensions/umlDiagrams",
 	"extensions/markdownExtra",
 	"extensions/toc",
-	/* Do not load this right now (in DEV)
+	/* Do not load this
 	 * 
 	 * "extensions/mathJax",
 	 * 
@@ -134,10 +134,10 @@ define([
 			if(extension.extensionId == 'markdownExtra') {
 				utils.setInputChecked("#input-settings-markdown-extra", isChecked);
 			}
-			else if(extension.extensionId == 'mathJax') {
+/*			else if(extension.extensionId == 'mathJax') {
 				utils.setInputChecked("#input-settings-mathjax", isChecked);
 			}
-			var onLoadSettingsListener = extension.onLoadSettings;
+*/			var onLoadSettingsListener = extension.onLoadSettings;
 			onLoadSettingsListener && onLoadSettingsListener();
 		});
 	};
@@ -154,13 +154,13 @@ define([
 					newExtensionConfig.enabled = isChecked;
 				}
 			}
-			else if(extension.extensionId == 'mathJax') {
+/*			else if(extension.extensionId == 'mathJax') {
 				isChecked = utils.getInputChecked("#input-settings-mathjax");
 				if(isChecked != extension.enabled) {
 					newExtensionConfig.enabled = isChecked;
 				}
 			}
-			var onSaveSettingsListener = extension.onSaveSettings;
+*/			var onSaveSettingsListener = extension.onSaveSettings;
 			onSaveSettingsListener && onSaveSettingsListener(newExtensionConfig, event);
 			newExtensionSettings[extension.extensionId] = newExtensionConfig;
 		});
