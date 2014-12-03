@@ -6882,7 +6882,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  }, utils;
 }), define("constants", [], function() {
  var e = {};
- return e.VERSION = "1.5.13", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
+ return e.VERSION = "1.5.14", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
  e.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ", e.GOOGLE_DRIVE_APP_ID = "1017251498254", 
  e.DROPBOX_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_APP_SECRET = "1mesyckskczn3f9", 
  e.DROPBOX_RESTRICTED_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_RESTRICTED_APP_SECRET = "1mesyckskczn3f9", 
@@ -13461,7 +13461,7 @@ function() {
   return c;
  });
 }(), define("text!html/dialogAbout.html", [], function() {
- return '<div class="modal-dialog">\n    <div class="modal-content">\n        <div class="modal-header">\n            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n            <img height="64" data-writeon-src="logo.svg" />\n        </div>\n        <div class="modal-body">\n            <div class="text-center">\n                <!--\n                a href="https://twitter.com/share" class="twitter-share-button" data-url="https://writeon.io" data-text="The world\'s finest writing app." \n                data-via="writeon" data-size="large"></a-->\n            </div>\n            <dl>\n                <dt>About WriteOn:</dt>\n                <dd>\n                    <a target="_blank" href="https://community.writeon.io">WriteOn Support</a>\n                    <br />\n                    <a target="_blank" href="https://blog.writeon.io">WriteOn Blog</a>\n                    <br />\n                    <a target="_blank" href="https://twitter.com/WriteOnApp/">Follow us on Twitter</a>\n                    <br />\n                    <a target="_blank" href="http://writeon.io/teachers">Free For Teachers</a>\n                    <br />\n                    <a target="_blank" href="privacy_policy.html">Privacy Policy</a>\n                    <br />\n				</dd>\n			</dl>\n            <p>Made With <span class="text-danger">♥</span> By <a target="_blank" href="http://writeon.io">WriteOn</a> </p>\n			<p>\n				WriteOn <%= version %>\n			</p>\n		</div>\n	</div>\n</div>\n';
+ return '<div class="modal-dialog">\n    <div class="modal-content">\n        <div class="modal-header">\n            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n            <img height="64" data-writeon-src="logo.svg" />\n        </div>\n        <div class="modal-body">\n            <div class="text-center">\n                <!--\n                a href="https://twitter.com/share" class="twitter-share-button" data-url="https://writeon.io" data-text="The world\'s finest writing app." \n                data-via="writeon" data-size="large"></a-->\n            </div>\n            <dl>\n                <dt>About WriteOn:</dt>\n                <dd>\n                    <a target="_blank" href="https://community.writeon.io">WriteOn Support</a>\n                    <br />\n                    <a target="_blank" href="http://blog.writeon.io">WriteOn Blog</a>\n                    <br />\n                    <a target="_blank" href="https://twitter.com/WriteOnApp/">Follow us on Twitter</a>\n                    <br />\n                    <a target="_blank" href="http://writeon.io/teachers">Free For Teachers</a>\n                    <br />\n                    <a target="_blank" href="privacy_policy.html">Privacy Policy</a>\n                    <br />\n				</dd>\n			</dl>\n            <p>Made With <span class="text-danger">♥</span> By <a target="_blank" href="http://writeon.io">WriteOn</a> </p>\n			<p>\n				WriteOn <%= version %>\n			</p>\n		</div>\n	</div>\n</div>\n';
 }), define("extensions/dialogAbout", [ "jquery", "underscore", "constants", "utils", "classes/Extension", "monetizejs", "text!html/dialogAbout.html" ], function(e, t, n, i, r, o, a) {
  var s, l = new r("dialogAbout", 'Dialog "About"');
  l.onEventMgrCreated = function(e) {
@@ -23983,8 +23983,8 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   var n = (k.elt.offsetWidth - h()) / 2;
   n < i.EDITOR_DEFAULT_PADDING && (n = i.EDITOR_DEFAULT_PADDING), V.style.paddingLeft = n + "px", 
   V.style.paddingRight = n + "px", V.style.paddingBottom = e + "px";
-  var r = rt + st + $ + ot;
-  window.viewerMode && (r = rt + st + $ + at);
+  var r = rt + $ + ot;
+  window.viewerMode && (r = rt + $ + at);
   var a = v.width - r + $;
   nt.forEach(function(e, t) {
    r += e.width, t === nt.length - 1 && (r -= ot), v.width < r ? Q.appendChild(e.elt) : (Y.insertBefore(e.elt, J), 
@@ -24008,7 +24008,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    window.viewerMode) return T.width = x.width, T.height = x.height, k.width = x.width, 
    k.height = x.height, T.applyCss(), k.applyCss(), f();
    if (!(w.isOpen && x.height < O.height + A)) {
-    if (lt) {
+    if (st) {
      if (T.isOpen) {
       if (T.halfSize && (T.height = (x.height + A) / 2), T.height < F.height && (T.height = F.height), 
       T.y = x.height - T.height, T.y < O.height) {
@@ -24130,7 +24130,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   maxWidth: 900 * r.maxWidthRatio
  } ], tt = et.slice(0).reverse(), nt = [], it = [ 80, 80, 160, 160, 80, 40 ].map(function(e) {
   return e + 18;
- }), rt = 86, ot = 40, at = 100, st = 88, lt = "vertical" == r.layoutOrientation;
+ }), rt = 86, ot = 40, at = 100, st = "vertical" == r.layoutOrientation;
  return M.init = function() {
   function n(e, t) {
    t = t || 0, c += [ "@media (min-width: " + t + "px) {", "#wmd-input {", "   font-size: " + e + "px;", "}", "#preview-contents {", "   font-size: " + e + "px;", "}", "}" ].join("\n");
@@ -24153,17 +24153,12 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   J = w.elt.querySelector(".title-container"), Z = w.$elt.find(".file-title-navbar, .input-file-title"), 
   e([ b.elt, y.elt, x.elt ]).on("scroll", function() {
    this.scrollLeft = 0;
-  }), t.each(w.elt.querySelectorAll(".right-buttons"), function(e) {
-   nt.push({
-    elt: e,
-    width: it.shift()
-   });
   }), t.each(w.elt.querySelectorAll(".left-buttons"), function(e) {
    nt.push({
     elt: e,
     width: it.shift()
    });
-  }), b.$elt.toggleClass("layout-vertical", lt), b.$elt.on("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", p), 
+  }), b.$elt.toggleClass("layout-vertical", st), b.$elt.on("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", p), 
   w.isOpen = !0, w.createBackdropToggler(), E.$elt.click(t.bind(w.toggle, w)), T.isOpen = !0, 
   T.createBackdropToggler(), T.halfSize = !0, I.$elt.click(t.bind(T.toggle, T)), T.$elt.on("show.layout.toggle", function() {
    t.defer(function() {
@@ -24186,7 +24181,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
      height: T.height
     };
    }).on("drag", function(e) {
-    lt ? T.height = o.height - e.gesture.deltaY : T.width = o.width - e.gesture.deltaX, 
+    st ? T.height = o.height - e.gesture.deltaY : T.width = o.width - e.gesture.deltaX, 
     e.gesture.preventDefault(), T.halfSize = !1, g();
    });
   }

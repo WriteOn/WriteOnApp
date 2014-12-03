@@ -292,7 +292,7 @@ define([
 	var navbarMarginWidth = 18 * 2 + 25 + 25;
 	var buttonsDropdownWidth = 40;
 	var viewerButtonGroupWidth = 100;
-	var workingIndicatorWidth = 18 + 70;
+	// var workingIndicatorWidth = 18 + 70;
 
 	function onResize() {
 		var paddingBottom = wrapperL3.height - 60;
