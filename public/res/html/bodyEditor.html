@@ -125,9 +125,9 @@
 	                </ul>
 					<ul class="nav">
 						<li class="col-sm-6"><a href="#" class="btn btn-default action-sync-export-dialog-couchdb"><i
-					        class="icon-upload-cloud"></i> My.WriteOn</a></li>
+					        class="icon-upload-cloud text-blue"></i> My.WriteOn</a></li>
                         <li class="col-sm-6"><a href="#" data-toggle="modal" data-target=".modal-manage-sharing" 
-                            class="btn btn-default action-reset-input"><i class="icon-link"></i> Sharing</a></li>
+                            class="btn btn-default action-reset-input"><i class="icon-link text-green"></i> Sharing</a></li>
 						<li class="col-sm-6"><a href="#" class="btn btn-default action-sync-export-dialog-dropbox"><i
 					        class="icon-provider-dropbox"></i> Dropbox Sync</a></li>
 						<li class="col-sm-6"><a href="#" class="btn btn-default submenu-sync-gdrive action-sync-export-dialog-gdrive"><i
@@ -140,7 +140,7 @@
 				</div>
 				<a href="#" data-toggle="collapse" data-target=".collapse-publish-on"
 					class="list-group-item">
-					<div><i class="icon-upload"></i>Publish</div>
+					<div><i class="icon-print"></i>Publish</div>
 					<small>Publish to the web</small>
 				</a>
 				<div class="sub-menu collapse collapse-publish-on clearfix">
@@ -166,13 +166,13 @@
 				<ul class="nav">
  					<li class="col-sm-6"><a class="btn btn-default btn-col action-download-md" href="#"
                         title="Download Markdown file"><i
-					    class="icon-download"></i> Markdown</a></li>
+					    class="icon-book"></i> Markdown</a></li>
 					<li class="col-sm-6"><a class="btn btn-default btn-col action-download-html" href="#"
                         title="Download HTML file"><i
-					    class="icon-link-ext"></i> HTML</a></li>
+					    class="icon-shield"></i> HTML</a></li>
 					<li class="col-sm-6"><a class="btn btn-default btn-col action-download-template" href="#"
                         title="Download as Template"><i
-					    class="icon-menu"></i> Template</a></li>
+					    class="icon-list-alt"></i> Template</a></li>
 					<li class="col-sm-6"><a class="btn btn-default btn-col action-download-pdf" href="#"
                         title="Download PDF file"><i
 					    class="icon-file"></i> PDF </a></li>
@@ -180,7 +180,7 @@
 			</div>
 				<a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html"
 					class="action-reset-input list-group-item">
-					<div><i class="icon-code"></i>Convert</div>
+					<div><i class="icon-paste"></i>Convert</div>
 					<small>Convert HTML to Markdown</small>
 				</a>
 				<a href="#" data-toggle="modal" data-target=".modal-settings"
@@ -206,11 +206,11 @@
 		<div class="search-bar clearfix">
 			<ul class="nav">
 				<li><a href="#" class="action-create-file"><i
-						class="icon-file"></i> New story</a></li>
+						class="icon-file text-blue"></i> New story</a></li>
 				<li><a href="#" class="action-remove-file-confirm"><i
-						class="icon-trash"></i> Delete story</a></li>
+						class="icon-trash text-red"></i> Delete story</a></li>
 				<li><a href="#" data-toggle="modal" data-target=".modal-document-manager"><i
-						class="icon-layers"></i> Manage stories</a></li>
+						class="icon-layers text-black"></i> Manage stories</a></li>
 	        </ul>
 			<div class="input-group">
 				<span class="input-group-addon"><i class="icon-search"></i></span><input
@@ -249,7 +249,7 @@
 							<li><a href="#" class="action-move-items"><i
 									class="icon-forward"></i> Move to folder</a></li>
 							<li><a href="#" class="action-delete-items"><i
-									class="icon-trash"></i> Delete</a></li>
+									class="icon-trash text-red"></i> Delete</a></li>
 						</ul></li>
 					<li class="pull-right"><a href="#"
 						class="action-create-folder"> <i class="icon-folder"></i>
@@ -272,7 +272,7 @@
 				<a href="#"
 					class="btn btn-default confirm-delete choose-folder action-cancel hide">Cancel</a>
 				<a href="#"
-					class="btn btn-primary confirm-delete action-delete-items-confirm hide">OK</a>
+					class="btn btn-danger confirm-delete action-delete-items-confirm hide">OK</a>
 			</div>
 		</div>
 	</div>
@@ -398,7 +398,7 @@
 			</div>
 			<div class="modal-footer">
 				<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-				<a href="#" class="btn btn-primary action-remove-file"
+				<a href="#" class="btn btn-danger action-remove-file"
 					data-dismiss="modal">Delete</a>
 			</div>
 		</div>
@@ -607,7 +607,7 @@
                                         class="icon-check-empty"></i> Unselect all</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#" class="action-delete-items"><i
-                                        class="icon-trash"></i> Delete</a></li>
+                                        class="icon-trash text-red"></i> Delete</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -625,7 +625,7 @@
                 <div class="delete-mode list-group selected-document-list hide"></div>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default pull-left list-mode action-byid-mode">Open by ID...</a>
+                <a href="#" class="btn btn-default pull-left list-mode action-byid-mode"><i class="icon-folder-open-empty"></i> Open by ID...</a>
                 <a href="#"
                    class="btn btn-default delete-mode action-cancel hide">Cancel</a>
                 <a href="#"
@@ -1025,13 +1025,13 @@
 				<h2 class="modal-title">Settings</h2>
 				<ul class="nav nav-tabs">
 					<li class="active"><a class="action-load-settings"
-						href="#tabpane-settings-basic" data-toggle="tab">Basic</a></li>
+						href="#tabpane-settings-basic" data-toggle="tab"><i class="icon-cog"></i> Basic</a></li>
 					<li><a class="action-load-settings"
-						href="#tabpane-settings-advanced" data-toggle="tab">Advanced</a></li>
+						href="#tabpane-settings-advanced" data-toggle="tab"><i class="icon-tasks"></i> Advanced</a></li>
 					<li><a class="action-load-settings"
-						href="#tabpane-settings-extensions" data-toggle="tab">Extensions</a></li>
+						href="#tabpane-settings-extensions" data-toggle="tab"><i class="icon-puzzle"></i> Extensions</a></li>
 					<li><a class="action-load-settings"
-						href="#tabpane-settings-utils" data-toggle="tab">Utilities</a></li>
+						href="#tabpane-settings-utils" data-toggle="tab"><i class="icon-briefcase"></i> Utilities</a></li>
 				</ul>
 			</div>
 			<div class="modal-body">
@@ -1273,14 +1273,14 @@
 								Hello World! readme</a> <a href="#"
 								class="btn btn-block btn-default action-welcome-tour"
 								data-dismiss="modal"><i
-								class="icon-help-circled"></i> Welcome tour</a>
+								class="icon-comment"></i> Welcome tour</a>
 						</div>
 						<div class="tab-pane-button-container">
 							<a href="#"
 								class="btn btn-block btn-default action-import-docs-settings"><i
 								class="icon-cog-alt"></i> Import stories & settings</a> <a href="#"
 								class="btn btn-block btn-default action-export-docs-settings"
-								data-dismiss="modal"><i class="icon-cog-alt"></i>
+								data-dismiss="modal"><i class="icon-share"></i>
 								Export stories & settings</a> <input type="file"
 								id="input-file-import-docs-settings" class="hide">
 						</div>

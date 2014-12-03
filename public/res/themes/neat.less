@@ -77,7 +77,7 @@
     &:focus,
     &:active,
     .open &.dropdown-toggle {
-    	color: #fff;
+    	color: @btn-success-hover-color;
     }
 }
 
@@ -94,6 +94,7 @@
 
 .sub-menu, .file-list .list-group-item {
 	background-color: @secondary-bg;
+    
 }
 
 .extension-preview-buttons.closed {
@@ -117,8 +118,8 @@
 }
 
 .modal-settings .nav-tabs > li > a:hover, .modal-settings .nav-tabs > li > a:focus {color:@btn-success-hover-color;}
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {color:@btn-success-hover-color;} 
-
+.nav-pills > li.open > a:hover, .nav-pills > li.open > a:focus, .nav-pills> li > a:hover, .nav-pills> li > a:active, .nav-pills > li > a:focus, a.list-group-item:hover, a.list-group-item:focus,  .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {color:@btn-success-hover-color;} 
+.document-list > a.list-group-item:hover, .document-list > a.list-group-item:focus, .panel-content > .list-group > a.list-group-item:hover, .panel-content > .list-group > a.list-group-item:focus {color: @link-color-gradient;}
 
 .form-control-focus(@color: @link-color) {
 	@color-rgba: rgba(red(@color), green(@color), blue(@color), .6);

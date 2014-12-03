@@ -619,3 +619,4 @@
 {"v":0,"level":50,"name":"newrelic","hostname":"mammal-charter","pid":435,"time":"2014-12-02T20:19:24.582Z","msg":"Calling analytic_event_data on New Relic failed unexpectedly. Data will be held until it can be submitted:","component":"collector_api","syscall":"read","errno":"ECONNRESET","code":"ECONNRESET"}
 {"v":0,"level":40,"name":"newrelic","hostname":"mammal-charter","pid":435,"time":"2014-12-02T20:19:24.582Z","msg":"analytics events failed to send; re-sampling"}
 {"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":435,"time":"2014-12-02T20:19:24.582Z","msg":"Error on submission to New Relic (data held for redelivery):","syscall":"read","errno":"ECONNRESET","code":"ECONNRESET"}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":429,"time":"2014-12-03T14:35:23.207Z","msg":"Error on submission to New Relic (data held for redelivery):","laterErrors":[{}],"statusCode":503}

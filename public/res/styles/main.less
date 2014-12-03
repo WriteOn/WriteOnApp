@@ -164,7 +164,7 @@
 .text-green {color: @primary-green !important;}
 .text-light-green {color: @logo-blue !important;}
 .text-red {color: @red-color !important;}
-
+.text-black {color:#222 !important;}
 
 
 body {
@@ -283,6 +283,7 @@ a {
 }
 
 .nav-pills > li {
+    margin-legy: 3px;
     > a {
         border: 1px solid @transparent;
         &:hover,
@@ -593,7 +594,7 @@ a {
 	}
 	.btn {
 		height: @input-height-slim;
-		padding: 6px 8px;
+		padding: 3px 8px;
 	}
 	.btn-group > .btn {
 		&.disabled,
@@ -617,7 +618,7 @@ a {
 	.file-title-navbar {
 		display: inline-block;
 		vertical-align: middle;
-		padding: 1px 15px;
+		padding: 0 15px;
 		font-size: 1.5em;
         line-height: 1.45em;
 		font-weight: 200;
@@ -704,13 +705,13 @@ a {
  * Menu/Document panels
  *********************/
 
-// Common style
+// Common styles, like the toggling toggle toggler
 .menu-panel, .document-panel {
 	height: 100%;
 	z-index: 30;
 	overflow: initial;
     .toggle-button {
-    	color: #737373;
+    	color: @btn-success-color;
         background-color: @navbar-default-bg;
         height: @navbar-height;
         border-radius: 0; //4px;
@@ -723,13 +724,16 @@ a {
             .box-shadow(~"inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 1px rgba(0,0,0,.5)");
         }
         i {
-    		color: #737373;
+    		color: @btn-success-color;
         	font-size: 26px;
         }
 	}
     & .toggle-button:hover, &.panel-open > .toggle-button {
         border-width: 1px;
-        color: #737373;
+        color: @btn-success-hover-color;
+            & i {
+                color: @btn-success-hover-color;
+            }
 	}
 	.panel-content {
 		overflow: auto;
@@ -986,12 +990,12 @@ a {
 .extension-preview-buttons > .btn-group {
     & > .btn,
     & > .btn {
-    	border-radius: 0;
+    	border-radius: 3; 
     }
     &:first-child > .btn,
     &:first-child > .btn {
     	border-top-left-radius: 3px;
-    	border-bottom-left-radius: 3px;
+    	border-bottom-left-radius: 3px; 
     }
     &:last-child > .btn,
     &:last-child > .btn {

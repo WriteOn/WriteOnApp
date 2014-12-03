@@ -187,10 +187,12 @@ define([
 		};
 	};
     
-/* ORIGINAL CODE WITH BACKDROP 
+/* 
  * 
+ * ORIGINAL CODE WITH BACKDROP 
  * 
- * 	DomObject.prototype.createToggler = function(backdrop) {
+ */
+    DomObject.prototype.createBackdropToggler = function(backdrop) {
 		var $backdropElt;
 		var pushedEvents = 0;
 		this.toggle = function(show) {
@@ -237,7 +239,7 @@ define([
 		};
 	};
     
- */
+ 
     
 	/* Get the Touch objects and instructions put into place */
     DomObject.prototype.initHammer = function(drag) {
@@ -554,11 +556,11 @@ define([
 		wrapperL1.$elt.on("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", onTransitionEnd);
 
 		navbar.isOpen = true;
-		navbar.createToggler();
+		navbar.createBackdropToggler(); // or createToggler()
 		navbarToggler.$elt.click(_.bind(navbar.toggle, navbar));
 
 		previewPanel.isOpen = true;
-		previewPanel.createToggler();
+		previewPanel.createBackdropToggler(); // or createToggler()
 		previewPanel.halfSize = true;
 		previewToggler.$elt.click(_.bind(previewPanel.toggle, previewPanel));
 
@@ -572,7 +574,7 @@ define([
 		});
 
 		documentPanel.isOpen = false;
-		documentPanel.createToggler(true);
+		documentPanel.createBackdropToggler(true);  // or createToggler()
 		documentPanel.$elt.find('.toggle-button').click(_.bind(documentPanel.toggle, documentPanel));
 
 		// Hide documentPanel when clicking on a non collapse element
@@ -586,7 +588,7 @@ define([
 
 		menuPanel.isOpen = false;
 		if(!window.viewerMode) {
-			menuPanel.createToggler(true);
+			menuPanel.createBackdropToggler(true); // or createToggler()
 			menuPanel.$elt.find('.toggle-button').click(_.bind(menuPanel.toggle, menuPanel));
 
 			// Hide menuPanel when clicking on a non collapse element
