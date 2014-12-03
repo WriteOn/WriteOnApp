@@ -314,9 +314,11 @@ define([
 		previewContentElt.style.paddingRight = previewPadding + 'px';
 		previewContentElt.style.paddingBottom = paddingBottom + 'px';
 
-		var maxWidth = navbarMarginWidth + workingIndicatorWidth + titleMinWidth + buttonsDropdownWidth;
+		// var maxWidth = navbarMarginWidth + workingIndicatorWidth + titleMinWidth + buttonsDropdownWidth;
+        var maxWidth = navbarMarginWidth + titleMinWidth + buttonsDropdownWidth;
 		if(window.viewerMode) {
-			maxWidth = navbarMarginWidth + workingIndicatorWidth + titleMinWidth + viewerButtonGroupWidth;
+			// maxWidth = navbarMarginWidth + workingIndicatorWidth + titleMinWidth + viewerButtonGroupWidth;
+            maxWidth = navbarMarginWidth + titleMinWidth + viewerButtonGroupWidth;
 		}
 		var titleWidth = windowSize.width - maxWidth + titleMinWidth;
 		navbarBtnGroups.forEach(function(group, index) {
@@ -328,6 +330,8 @@ define([
 			else {
 				navbarInnerElt.insertBefore(group.elt, navbarTitleContainerElt);
 				titleWidth = windowSize.width - maxWidth + titleMinWidth;
+                // re-add to show all buttons
+                // navbarDropdownElt.appendChild(group.elt);
 			}
 		});
 		$navbarTitleElt.css({
@@ -539,19 +543,26 @@ define([
 			this.scrollLeft = 0;
 		});
 
+		/* 
+		 * leave the right-buttons out of the formatting menu
+		 * 
+		 * 
+		 * /
 		_.each(navbar.elt.querySelectorAll('.right-buttons'), function(btnGroupElt) {
 			navbarBtnGroups.push({
 				elt: btnGroupElt,
 				width: navbarBtnGroupsWidth.shift()
 			});
 		});
-		_.each(navbar.elt.querySelectorAll('.left-buttons'), function(btnGroupElt) {
+        */
+
+        _.each(navbar.elt.querySelectorAll('.left-buttons'), function(btnGroupElt) {
 			navbarBtnGroups.push({
 				elt: btnGroupElt,
 				width: navbarBtnGroupsWidth.shift()
 			});
 		});
-
+        
 		wrapperL1.$elt.toggleClass('layout-vertical', isVertical);
 		wrapperL1.$elt.on("webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend", onTransitionEnd);
 

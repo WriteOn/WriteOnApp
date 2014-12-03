@@ -37,7 +37,9 @@
             }
 
             // hey beard, i know you like smooth scrolling
-            $('#scrollToSlide2').click(scrollTo($('#slide2')));
+            $('.scrollToSlide1').click(scrollTo($('#slide1')));
+            // hey beard, i know you like smooth scrolling
+            $('.scrollToSlide2').click(scrollTo($('#slide2')));
         })
     </script>
 </head>
@@ -47,8 +49,11 @@
     <div class="slide modal-body" id="slide1">
         <div class="navbar navbar-default navbar-fixed">
             <div class="navbar-inner">
-                <div class="nav">
-                    <a class="btn btn-success file-title-navbar" href="signin" title="Login"><i class="icon-login"></i> Login <sup class="text-danger">Beta</sup></a>
+                <div class="nav pull-left nav-left" style="width: 100px; margin-top: 0;">
+                    <a href="http://writeon.io" title="Home" class="scrollToSlide1"><img src="res-min/img/logo.svg"/> </a>
+                </div>
+                <div class="nav pull-right nav-right">
+                    <a class="btn btn-primary file-title-navbar" href="signin" title="Login"><i class="icon-login"></i> Login</a>
                 </div>
             </div>
          </div>
@@ -62,7 +67,7 @@
         </div>
         <div class="footer preview-panel modal-footer">
             <div class="transition transparent">
-                <a class="btn btn-info" id="scrollToSlide2" href="#slide2"><i class="icon-angle-down"></i></a>
+                <a class="btn btn-info scrollToSlide2" href="#slide2"><i class="icon-angle-down"></i></a>
             </div>
         </div>
     </div>
@@ -70,7 +75,7 @@
     <div id="slide2" class="modal-header">
         <div class="container">
 
-            <h1 id="unrivalled-writing-experience">Unrivalled writing experience.</h1>
+            <h1 id="unrivalled-writing-experience">World's finest writing app.</h1>
 
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">

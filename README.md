@@ -61,6 +61,7 @@ WriteOn is for story makers and writers who are looking for a clean, consistent 
 
 > **NOTE:** This page has been written and published with [WriteOn][5].
 
+[404 image rights](http://www.misskatecuttables.com/products/50-store/jellyfish.php)
 
   [1]: https://developer.mozilla.org/en-US/docs/Web/Guide/DOM/Storage#localStorage
   [2]: https://github.com/BeardandFedora/WriteOn/blob/master/public/res/WELCOME.md#welcome-to-writeon---welcome "Welcome document"

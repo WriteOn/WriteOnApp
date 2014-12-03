@@ -45,6 +45,8 @@
 @secondary-desaturated: desaturate(@secondary, 80%);
 @transparent: fade(#000, 0%);
 @red-color: #E84C3D;
+@purple-color: #C999C3;
+@black-color: #222;
 
 // Navbar
 @primary-bg: lighten(@primary-desaturated, 42%);
@@ -83,7 +85,7 @@
 @jgrowl-bg-color: fade(@modal-backdrop-bg, 90%);
 
 /* Layout Sizes */
-@title-max-width: 250px;
+@title-max-width: 300px;
 @menu-panel-width: 335px;
 @document-panel-width: 320px;
 @jgrowl-width: 280px;
@@ -164,7 +166,8 @@
 .text-green {color: @primary-green !important;}
 .text-light-green {color: @logo-blue !important;}
 .text-red {color: @red-color !important;}
-.text-black {color:#222 !important;}
+.text-purple {color: @purple-color !important;}
+.text-black {color: @black-color !important;}
 
 
 body {
@@ -646,7 +649,8 @@ a {
 	}
 
 	.file-title-navbar {
-		display: inline-block;
+		max-width: 300px;
+        display: inline-block;
 		vertical-align: middle;
 		padding: 0 15px;
 		font-size: 1.5em;
