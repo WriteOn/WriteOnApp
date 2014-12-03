@@ -37,7 +37,7 @@ define([
             }, params));
         }
         $bodyElt = $(document.body);
-        $workingIndicatorElt = $('<div class="hide">');
+        $workingIndicatorElt = $('<div class="hide bars">');
         $('.working-indicator').append($workingIndicatorElt);
         for (var i = 0; i < 3; i++) {
             var name = 'working-indicator-bar' + i;

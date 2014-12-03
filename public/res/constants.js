@@ -26,7 +26,8 @@ define([], function() {
 	constants.IMPORT_IMG_MAX_CONTENT_SIZE = 10000000;
 	constants.COUCHDB_PAGE_SIZE = 25;
 	constants.TEMPORARY_FILE_INDEX = "file.tempIndex";
-	constants.WELCOME_DOCUMENT_TITLE = "Hello World!";
+	constants.WELCOME_DOCUMENT_TITLE = "Welcome Guide";
+	constants.GUIDE_DOCUMENT_TITLE = "Syntax Guide";
 	constants.DOWNLOAD_IMPORT_URL = "/downloadImport";
 	constants.PICASA_IMPORT_IMG_URL = "/picasaImportImg";
 	constants.SSH_PUBLISH_URL = '/sshPublish';

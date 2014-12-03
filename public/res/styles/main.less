@@ -551,6 +551,36 @@ a {
 	}
 }
 
+/*******************
+ * Working Indicator
+ *******************/
+
+.working-indicator {
+		display: block;
+		vertical-align: middle;
+	    overflow: hidden;
+        height: 37px;
+        width: 120px;
+        padding-top: 4px;
+        margin: 50px auto;
+        position: relative;
+        z-index: 2000;
+        .bars {
+            margin: 0 auto;
+            padding: 0 18px;
+            background: rgba(0, 0, 0, 0.75);
+            border-radius: 3px;
+        }
+        .bar {
+		    display: inline-block;
+		    width: 24px;
+            height: 8px;
+            border-radius: 1px;
+            margin: 0 2px;
+            .opacity(0.25);
+            background-color: fade(@btn-success-color, 75%);
+		}
+}
 
 /*******************
  * Navbar
@@ -657,23 +687,6 @@ a {
         }
 	}
 
-	.working-indicator {
-		display: inline-block;
-		vertical-align: middle;
-	    overflow: hidden;
-        height: @input-height-slim;
-        width: 60px;
-        padding-top: 8px;
-		.bar {
-		    display: inline-block;
-		    width: 14px;
-            height: 6px;
-            border-radius: 1px;
-            margin: 0 2px;
-            .opacity(0.25);
-            background-color: fade(@btn-success-color, 75%);
-		}
-	}
 
 	.offline-status > div {
 		display: inline-block;

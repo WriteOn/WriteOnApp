@@ -1,16 +1,23 @@
-<button class="btn btn-success dropdown-toggle button-markdown-syntax" title="Markdown syntax" data-toggle="dropdown">
+<button class="btn btn-success dropdown-toggle button-markdown-syntax" title="Syntax Help" data-toggle="dropdown">
 	<i class="icon-help-circled"></i>
 </button>
 <div class="dropdown-menu pull-right">
 	<h3>WriteOn Syntax Help</h3>
     <hr>
 	<div class="markdown-syntax">
+        <button class="btn btn-default btn-block action-guide-file" title="Load the Syntax Guide">
+            <i class="icon-keyboard"></i> Load the Syntax Guide</button>
+<h4>Insert Table of Contents</h4>
+
+<pre><code>[toc]</code></pre>
+
 <h4>Phrase Emphasis</h4>
 
 <pre><code>*italic*   **bold**
 _italic_   __bold__
 </code></pre>
 
+        
 <h4>Links</h4>
 
 <p>Inline:</p>
@@ -20,8 +27,7 @@ _italic_   __bold__
 
 <p>Reference-style labels (titles are optional):</p>
 
-<pre><code>An [example][id]. Then, anywhere
-else in the doc, define the link:
+<pre><code>An [example][id]. Then, anywhere else, just define the link like so:
 
   [id]: http://example.com/  "Title"
 </code></pre>
@@ -51,7 +57,7 @@ Header 2
 --------
 </code></pre>
 
-<p>atx-style (closing #'s are optional):</p>
+<p>Atx-style (closing #'s are optional):</p>
 
 <pre><code># Header 1 #
 
@@ -98,8 +104,7 @@ Header 2
 
 &gt; #### Headers in blockquotes
 &gt;
-&gt; * You can quote a list.
-&gt; * Etc.
+&gt; * You can even quote a list.
 </code></pre>
 
 <h4>Code Spans</h4>
@@ -107,8 +112,7 @@ Header 2
 <pre><code>`&lt;code&gt;` spans are delimited
 by backticks.
 
-You can include literal backticks
-like `` `this` ``.
+You can include literal backticks like `` `this` ``.
 </code></pre>
 
 <h4>Preformatted Code Blocks</h4>

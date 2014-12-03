@@ -9,8 +9,9 @@ define([
 	"eventMgr",
 	"fileSystem",
 	"classes/FileDescriptor",
-	"text!WELCOME.md"
-], function($, _, constants, core, utils, storage, settings, eventMgr, fileSystem, FileDescriptor, welcomeContent) {
+	"text!WELCOME.md",
+	"text!GUIDE.md"
+], function($, _, constants, core, utils, storage, settings, eventMgr, fileSystem, FileDescriptor, welcomeContent, guideContent) {
 
 	var fileMgr = {};
 
@@ -210,6 +211,10 @@ define([
 		});
 		$(".action-welcome-file").click(function() {
 			var fileDesc = fileMgr.createFile(constants.WELCOME_DOCUMENT_TITLE, welcomeContent);
+			fileMgr.selectFile(fileDesc);
+		});
+		$(".action-guide-file").click(function() {
+			var fileDesc = fileMgr.createFile(constants.GUIDE_DOCUMENT_TITLE, guideContent);
 			fileMgr.selectFile(fileDesc);
 		});
 	});

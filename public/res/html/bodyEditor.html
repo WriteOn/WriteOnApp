@@ -59,13 +59,12 @@
                 <ul class="nav pull-right right-buttons">
 					<li class="offline-status hide">
 					    <div class="text-danger">
-					        <i class="icon-attention-circled"></i>Offline
+                            <a class="btn btn-success" title="You Are Offline"><i class="icon-attention-circled"></i></a>
 					    </div>
 					</li>
 					<li class="extension-buttons"></li>
 				</ul>
 				<ul class="nav pull-right title-container">
-					<li><div class="working-indicator"></div></li>
 					<li><a class="btn btn-success file-title-navbar" href="#"
 						title="Rename story"> </a></li>
 					<li><div class="input-file-title-container"><input type="text"
@@ -74,7 +73,7 @@
 				</ul>
 			</div>
 		</div>
-		<div class="layout-wrapper-l3">
+		<div class="layout-wrapper-l3"><div class="working-indicator"></div>
 			<pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>
 			<div class="preview-panel">
 				<div class="layout-resizer layout-resizer-preview"></div>
@@ -1269,11 +1268,11 @@
 					<div class="tab-pane" id="tabpane-settings-utils">
 						<div class="tab-pane-button-container">
 							<a href="#" class="btn btn-block btn-default action-welcome-file"
-								data-dismiss="modal"><i class="icon-help-circled"></i>
-								Hello World! readme</a> <a href="#"
-								class="btn btn-block btn-default action-welcome-tour"
-								data-dismiss="modal"><i
-								class="icon-comment"></i> Welcome tour</a>
+								data-dismiss="modal"><i class="icon-help-circled"></i> Load Welcome Guide</a> 
+                            <a href="#" class="btn btn-block btn-default action-guide-file"
+								data-dismiss="modal"><i class="icon-keyboard"></i> Load Syntax Guide</a> 
+                            <a href="#" class="btn btn-block btn-default action-welcome-tour"
+								data-dismiss="modal"><i class="icon-comment"></i> Welcome tour</a>
 						</div>
 						<div class="tab-pane-button-container">
 							<a href="#"

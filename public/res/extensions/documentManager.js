@@ -25,7 +25,7 @@ define([
     var folderEltTmpl = [
         '<a href="#" class="list-group-item folder clearfix" data-folder-index="<%= folderDesc.folderIndex %>" data-toggle="collapse" data-target=".modal-document-manager .file-list.<%= id %>">',
         '<label class="checkbox" title="Select"><input type="checkbox"></label>',
-        '<button class="btn btn-default button-delete" title="Delete"><i class="icon-trash"></i></button>',
+        '<button class="btn btn-default button-delete" title="Delete"><i class="icon-trash text-red"></i></button>',
         '<button class="btn btn-default button-rename" title="Rename"><i class="icon-pencil"></i></button>',
         '<div class="pull-right file-count"><%= _.size(folderDesc.fileList) %></div>',
         '<div class="name"><i class="icon-folder"></i> ',
@@ -36,7 +36,7 @@ define([
     var documentEltTmpl = [
         '<li class="list-group-item file clearfix" data-file-index="<%= fileDesc.fileIndex %>">',
         '<label class="checkbox" title="Select"><input type="checkbox"></label>',
-        '<button class="btn btn-default button-delete" title="Delete"><i class="icon-trash"></i></button>',
+        '<button class="btn btn-default button-delete" title="Delete"><i class="icon-trash text-red"></i></button>',
         '<button class="btn btn-default button-rename" title="Rename"><i class="icon-pencil"></i></button>',
         '<div class="name"><%= fileDesc.composeTitle() %></div>',
         '<input type="text" class="input-rename form-control hide"></li>'
