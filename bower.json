@@ -1,6 +1,6 @@
 {
   "name": "WriteOn",
-  "version": "1.5.14",
+  "version": "1.5.15",
   "description": "Write without distraction // Publish without effort.",
   "dependencies": {
     "bootstrap": "3.0.3",
