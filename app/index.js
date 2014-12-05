@@ -1,4 +1,5 @@
 var express = require('express');
+var stormpath = require('express-stormpath');
 var app = express();
 var compression = require('compression');
 var serveStatic = require('serve-static');
@@ -23,6 +24,7 @@ app.all('*', function(req, res, next) {
 // Use gzip compression
 app.use(compression());
 
+//connect some custom POST middleware
 app.post('/bootmywriteon', require('./bootmywriteon').bootmywriteon);
 app.post('/pdfExport', require('./pdf').export);
 app.post('/sshPublish', require('./ssh').publish);
@@ -49,6 +51,23 @@ app.use(function(req, res, next) {
 	next();
 });
 
+
+// get us some auth middleware loaded up...docs via stormpath.com
+app.use(stormpath.init(app, {
+    apiKeyFile: __dirname + '/../app/auth/apiKey.properties',
+    application: 'https://api.stormpath.com/v1/applications/4SgKKI7uk6OY7vbVt8uW4c',
+    secretKey: 'jK&kq xEyh>sO>n+pt7kO3y7DGR9@{6A$|z v6D$Mmff<FQ7zkJkn,L}&VK?gn,=',
+    //sessionDomain: 'writeon.io', // Make the session cookie work on all writeon.io subdomains.
+    //cache: 'memory',
+    //enableHttps: true,
+    googleAnalyticsID: 'UA-56730909-3',
+    redirectUrl: '/x6ywhf',
+    enableAutoLogin: true,
+    enableForgotPassword: true,
+    enableAccountVerification: false
+}));
+
+
 /* KISS. A keep it simple routing scheme here... forever. This app is intended to
  * be a single page app with meta pages, both of which we can assign routes for.
 */ 
@@ -69,12 +88,13 @@ app.get('/signin', function(req, res) {
 
 // Serve editor.html in /editor
 // ==== fedora - let's keep this randomized until we are public
-app.get('/x6ywhf', function(req, res) {
+// Let's also lock this down with stormpath, by directory groups
+app.get('/x6ywhf', stormpath.groupsRequired(['Tier 1', 'Tier 2', 'Admin', 'Beta'], false), function(req, res) {
 	res.renderDebug('editor.html');
 });
 
 // Serve viewer.html in /viewer
-app.get('/viewer', function(req, res) {
+app.get('/viewer', stormpath.groupsRequired(['Tier 1', 'Tier 2', 'Admin', 'Beta'], false), function(req, res) {
 	res.renderDebug('viewer.html');
 });
 
@@ -103,6 +123,7 @@ app.use(function(req, res) {
 	res.status(500);
 	res.render('error_404.html');
 });
+
 
 
 module.exports = app;

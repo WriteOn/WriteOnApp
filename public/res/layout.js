@@ -329,7 +329,7 @@ define([
 			}
 			else {
 				navbarInnerElt.insertBefore(group.elt, navbarTitleContainerElt);
-				titleWidth = windowSize.width - maxWidth + titleMinWidth;
+				//titleWidth = windowSize.width - maxWidth + titleMinWidth;
                 // re-add to show all buttons
                 // navbarDropdownElt.appendChild(group.elt);
 			}

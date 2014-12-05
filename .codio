@@ -6,7 +6,7 @@
         "Node version": "node --version",
         "Always On Node Server 3000 ($ disown -a)": "export PORT=3000 && node server.js&",
         "Always On Node Server 9500 ($ disown -a )": "export PORT=9500 && node server.js&",   
-        "Temp Node Server 9501": "export PORT=9501 && node s2erver.js"
+        "Temp Node Server 9501": "export PORT=9501 && node server.js"
   },
 
 // Preview button configuration

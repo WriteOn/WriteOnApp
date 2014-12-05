@@ -14,7 +14,7 @@ define([], function() {
 	constants.DROPBOX_RESTRICTED_APP_SECRET = "1mesyckskczn3f9";
 	constants.BITLY_ACCESS_TOKEN = "c93d4289b9c1a0313378f1dad028c2d334bbc3c6";
 	constants.DEFAULT_FILE_TITLE = "Story Title";
-	constants.DEFAULT_FOLDER_NAME = "New folder";
+	constants.DEFAULT_FOLDER_NAME = "New Folder";
 	constants.GDRIVE_DEFAULT_FILE_TITLE = "New Story";
 	constants.EDITOR_DEFAULT_PADDING = 35;
 	constants.CHECK_ONLINE_PERIOD = 120000;
