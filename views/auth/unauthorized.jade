@@ -1,0 +1,31 @@
+extends base
+
+block vars
+  - var title = 'Unauthorized'
+  - var description = "You aren't authorized to view this page!"
+  - var bodytag = 'login'
+
+block body
+  div.navbar.navbar-default.navbar-fixed
+    div.navbar-inner
+      div.nav.pull-left.nav-left(style='width: 100px; margin-top: 0;')
+        a.scrollToSlide1(href='/', title='Home')
+          img(src='/res-min/img/logo.svg')
+      div.nav.pull-right.nav-right
+        a.btn.btn-primary.file-title-navbar(href='login', title='Login')
+          i.icon-login
+          | Login
+
+  .container.custom-container
+    .va-wrapper
+      .view.login-view.container
+        .box.row
+          .email-password-area.col-xs-12.large.col-sm-12
+            .header
+              span.
+                Unauthorized
+              p.
+                You are not authorized to view this. Please check your login details or email support for help.
+              a.btn.btn-primary.btn-block.file-title-navbar(href='mailto:support@writeon.io', title='Email Support')
+                i.icon-user
+                | Email Support

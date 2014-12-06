@@ -53,18 +53,33 @@ app.use(function(req, res, next) {
 
 
 // get us some auth middleware loaded up...docs via stormpath.com
+app.set('view engine', 'jade');
 app.use(stormpath.init(app, {
     apiKeyFile: __dirname + '/../app/auth/apiKey.properties',
     application: 'https://api.stormpath.com/v1/applications/4SgKKI7uk6OY7vbVt8uW4c',
     secretKey: 'jK&kq xEyh>sO>n+pt7kO3y7DGR9@{6A$|z v6D$Mmff<FQ7zkJkn,L}&VK?gn,=',
+    googleAnalyticsID: 'UA-56730909-3',
     //sessionDomain: 'writeon.io', // Make the session cookie work on all writeon.io subdomains.
     //cache: 'memory',
     //enableHttps: true,
-    googleAnalyticsID: 'UA-56730909-3',
     redirectUrl: '/x6ywhf',
     enableAutoLogin: true,
     enableForgotPassword: true,
-    enableAccountVerification: false
+    enableAccountVerification: false,
+    registrationView: __dirname + '/../views/auth/register.jade',
+    loginView: __dirname + '/../views/auth/login.jade',
+    forgotPasswordView: __dirname + '/../views/auth/forgot.jade',
+    forgotPasswordEmailSentView: __dirname + '/../views/auth/forgot_email_sent.jade',
+    forgotPasswordChangeView: __dirname + '/../views/auth/forgot_change.jade',
+    forgotPasswordChangeFailedView: __dirname + '/../views/auth/forgot_change_failed.jade',
+    forgotPasswordCompleteView: __dirname + '/../views/auth/forgot_complete.jade',
+    accountVerificationEmailSentView: __dirname + '/../views/auth/verification_email_sent.jade',
+    accountVerificationCompleteView: __dirname + '/../views/auth/verification_complete.jade',
+    accountVerificationFailedView: __dirname + '/../views/auth/verification_failed.jade',
+    idSiteVerificationFailedView: __dirname + '/../views/auth/id_site_verification_failed.jade',
+    googleLoginFailedView: __dirname + '/../views/auth/google_login_failed.jade',
+    facebookLoginFailedView: __dirname + '/../views/auth/facebook_login_failed.jade',
+    unauthorizedView: __dirname + '/../views/auth/unauthorized.jade'
 }));
 
 
