@@ -57,15 +57,32 @@ app.set('view engine', 'jade');
 app.use(stormpath.init(app, {
     apiKeyFile: __dirname + '/../app/auth/apiKey.properties',
     application: 'https://api.stormpath.com/v1/applications/4SgKKI7uk6OY7vbVt8uW4c',
-    secretKey: 'jK&kq xEyh>sO>n+pt7kO3y7DGR9@{6A$|z v6D$Mmff<FQ7zkJkn,L}&VK?gn,=',
+    secretKey: process.env.AUTH_SECRET_KEY,
     googleAnalyticsID: 'UA-56730909-3',
+    enableFacebook: true,
+    enableGoogle: true,
+    social: {
+      facebook: {
+        // store these credentials in environment variables. Please don’t hard code secret credentials into our source code!
+        appId: process.env.FACEBOOK_APP_ID,
+        appSecret: process.env.FACEBOOK_APP_SECRET
+      },
+      google: {
+        // store these credentials in environment variables. Please don’t hard code secret credentials into our source code!
+        clientId: process.env.GOOGLE_CLIENT_ID,
+          clientSecret: process.env.GOOGLE_CLIENT_SECRET
+      }
+    },
     //sessionDomain: 'writeon.io', // Make the session cookie work on all writeon.io subdomains.
-    //cache: 'memory',
+    cache: 'memory',
     //enableHttps: true,
     redirectUrl: '/x6ywhf',
     enableAutoLogin: true,
     enableForgotPassword: true,
-    enableAccountVerification: false,
+    enableAccountVerification: true,
+    enableUsername: true,
+    requireUsername: true,
+    sessionDuration: 1000 * 60 * 15, // Make sessions expire after 15 minutes.
     registrationView: __dirname + '/../views/auth/register.jade',
     loginView: __dirname + '/../views/auth/login.jade',
     forgotPasswordView: __dirname + '/../views/auth/forgot.jade',
@@ -104,12 +121,13 @@ app.get('/signin', function(req, res) {
 // Serve editor.html in /editor
 // ==== fedora - let's keep this randomized until we are public
 // Let's also lock this down with stormpath, by directory groups
-app.get('/x6ywhf', stormpath.groupsRequired(['Tier 1', 'Tier 2', 'Admin', 'Beta'], false), function(req, res) {
+//app.get('/x6ywhf', stormpath.groupsRequired(['Tier 1', 'Tier 2', 'Admin', 'Beta'], false), function(req, res) {
+app.get('/x6ywhf', stormpath.loginRequired, function(req, res) {
 	res.renderDebug('editor.html');
 });
 
 // Serve viewer.html in /viewer
-app.get('/viewer', stormpath.groupsRequired(['Tier 1', 'Tier 2', 'Admin', 'Beta'], false), function(req, res) {
+app.get('/viewer', stormpath.loginRequired, function(req, res) {
 	res.renderDebug('viewer.html');
 });
 
