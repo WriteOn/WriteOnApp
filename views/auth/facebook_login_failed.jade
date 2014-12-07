@@ -6,6 +6,15 @@ block vars
   - var bodytag = 'login'
 
 block body
+  div.navbar.navbar-default.navbar-fixed
+    div.navbar-inner
+      div.nav.pull-left.nav-left(style='width: 100px; margin-top: 0;')
+        a.scrollToSlide1(href='/', title='Home')
+          img(src='/res-min/img/logo.svg')
+      div.nav.pull-right.nav-right
+        a.btn.btn-primary.file-title-navbar(href='login', title='Login')
+          i.icon-login
+          | Login
   .container.custom-container
     .va-wrapper
       .view.login-view.container
@@ -19,4 +28,4 @@ block body
                 several reasons: your verification token might be expired, it
                 might be invalid, or we may just be having issues right now!
                 Please try again, and if you're still having problems, contact
-                the site administrator for help!
+                <a href="mailto:team@writeon.io">our team</a> for help.
