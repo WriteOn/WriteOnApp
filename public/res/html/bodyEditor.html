@@ -59,7 +59,7 @@
                 <ul class="nav pull-right right-buttons">
 					<li class="offline-status hide">
 					    <div class="text-danger">
-                            <a class="btn btn-success" title="You Are Offline"><i class="icon-attention-circled"></i></a>
+                            <a class="btn btn-danger" title="You are offline...It's a great time to write!"><i class="icon-attention-circled"></i></a>
 					    </div>
 					</li>
 					<li class="extension-buttons"></li>
@@ -192,6 +192,7 @@
 
 			<ul class="nav">
 				<li><a href="#" data-toggle="modal" data-target=".modal-about"><i class="icon-help-circled"></i> About</a></li>
+				<li><a href="/logout" data-toggle="modal" data-target=".modal-about"><i class="icon-help-circled"></i> Logout</a></li>
 			</ul>
 
 		</div>
@@ -579,10 +580,11 @@
                 </div>
             </div>
             <div class="modal-body">
-                <p class="msg-default-couchdb hide alert alert-warning"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <p class="msg-default-couchdb alert alert-warning"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     <i class="icon-attention"></i> <b>Careful:</b>
                     This is Beta software, and you're using our public My.WriteOn instance.
                     <b>That means anybody can open, edit and delete your stories - and vise versa.</b>
+                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red">♥</span>
                 </p>
 
                 <div class="form-horizontal byid-mode">

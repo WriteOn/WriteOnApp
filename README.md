@@ -32,25 +32,24 @@ WriteOn is for story makers and writers who are looking for a clean, consistent 
  - Manage multiple stories, online or offline
  - Export your stories in Markdown, HTML or PDF and format it using templates
  - Synchronize your files in the Cloud
- - Edit existing stories from CouchDB, Google Drive, Dropbox and your local hard drive
- - Post your stories directly to Ghost, Blogger/Blogspot, WordPress, Tumblr
+ - Edit existing stories from Google Drive, Dropbox and your local hard drive
+ - Publish your stories directly to Ghost, Blogger/Blogspot, WordPress, Tumblr
  - Publish your Markdown documents on GitHub, Gist, Google Drive, Dropbox or any SSH server
  - Share a link to your story that renders it in a beautiful, online viewer
- - Show statistics about your stories and documents
+ - See vital statistics about your stories and documents, like word count
  - Convert HTML to Markdown, and vise versa
 
 ### Core Features:
 
  - Offline or online editing mode
  - Real-time preview
- - Online synchronization using CouchDB, Google Drive (multi-accounts) and Dropbox
- - One-click publish to Ghost, Blogger, Dropbox, Gist, GitHub, Google Drive, SSH server, Tumblr, WordPress, CouchDB and more
- - Markdown Extra & GitHub Flavored Markdown support and beautiful syntax highlighting
- - LaTeX mathematical expressions using MathJax
+ - Online synchronization using My.WriteOn, Google Drive and Dropbox
+ - One-click publishing to Ghost, Blogger, Dropbox, Gist, GitHub, Google Drive, SSH server, Tumblr, and WordPress
+ - Beautiful syntax highlighting and built-in markdown support
  - WYSIWYG editorial buttons
  - Configurable layout
- - Theming support with 7 different themes already available
- - Community Extensions
+ - Theming support
+ - Community extensions
 
 
 ### Documentation:

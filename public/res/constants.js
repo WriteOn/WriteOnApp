@@ -65,7 +65,7 @@ define([], function() {
 		constants.GITHUB_CLIENT_ID = '302c5c415085534c1346';
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-beta.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy-beta.herokuapp.com/";
-		constants.WORDPRESS_CLIENT_ID = '34786';
+		constants.WORDPRESS_CLIENT_ID = '38332';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy-beta.herokuapp.com/";
         constants.COUCHDB_DB = 'documents';
         constants.COUCHDB_SERVER = 'https://cloud2.writeon.io';
@@ -74,12 +74,12 @@ define([], function() {
 	else if(location.hostname.indexOf("writeon-beta.herokuapp.com") === 0) {
 		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1";
         constants.BASE_URL = 'https://writeon-beta.herokuapp.com/';
-		constants.GOOGLE_CLIENT_ID = '94745106015-a2e0n9pl0aqrv3rtp0njsukbu7d5q9sd.apps.googleusercontent.com';
+		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '302c5c415085534c1346';
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-beta.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
-		constants.WORDPRESS_CLIENT_ID = '34786';
-		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
+		constants.WORDPRESS_CLIENT_ID = '38332';
+		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy-beta.herokuapp.com/";
         constants.COUCHDB_DB = 'documents';
         constants.COUCHDB_SERVER = 'https://cloud2.writeon.io';
 
