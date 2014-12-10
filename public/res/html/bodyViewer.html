@@ -17,32 +17,31 @@
 				<ul class="nav pull-right">
 					<li class="btn-group">
 						<button class="btn btn-success action-edit-document hide"
-							title="Edit this story">
+							title="Edit This Story">
 							<i class="icon-pencil"></i>
 						</button>
 					</li>
 					<li class="btn-group">
 						<button class="btn btn-success dropdown-toggle"
-							data-toggle="dropdown" title="Save this story">
+							data-toggle="dropdown" title="Save This Story">
 							<i class="icon-download"></i>
 						</button>
 						<ul class="dropdown-menu">
 							<li><a class="action-download-md" href="#"><i
-								class="icon-download"></i> Export as Markdown</a></li>
+								class="icon-download"></i> Download as Markdown</a></li>
 							<li><a class="action-download-html" href="#"><i
-								class="icon-download"></i> Export as HTML</a></li>
+								class="icon-download"></i> Download as HTML</a></li>
 							<li><a class="action-download-template" href="#"><i
-								class="icon-download"></i> Export using template</a></li>
+								class="icon-download"></i> Download using template</a></li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="nav pull-right title-container">
-					<li><div class="working-indicator"></div></li>
 					<li><span class="btn btn-success file-title-navbar"></span></li>
 				</ul>
 			</div>
 		</div>
-		<div class="layout-wrapper-l3">
+		<div class="layout-wrapper-l3"><div class="working-indicator"></div>
 			<pre id="wmd-input" class="form-control"><div class="editor-content"></div><div class="editor-margin"></div></pre>
 			<div class="preview-panel">
 				<div class="preview-container">
@@ -61,21 +60,20 @@
 	<div id="wmd-button-bar" class="hide"></div>
 
 	<div class="menu-panel">
-		<button class="btn toggle-button action-open-writeon"
-			title="Open WriteOn">
-			<img data-writeon-src="menu-icon.png" width="24" height="24" />
+        <button class="btn toggle-button action-open-writeon" title="Open WriteOn Editor">
+            <i class="icon-menu"></i> <strong>WriteOn</strong>
 		</button>
 	</div>
 
 
 	<div class="document-panel">
-		<button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">
-			<i class="icon-folder-open"></i>
+        <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">
+			<i class="icon-folder-open"></i> <strong>Stories</strong>
 		</button>
 		<div class="search-bar clearfix">
 			<div class="input-group">
-				<span class="input-group-addon"><i class="icon-search"></i></span><input
-					type="text" class="form-control" placeholder="Find story"></input>
+				<span class="input-group-addon"><i class="icon-search"></i></span>
+                <input type="text" class="form-control" placeholder="Find story" />
 			</div>
 		</div>
 		<div class="panel-content">
@@ -97,8 +95,7 @@
 				<p>WriteOn has stopped because another instance was running in
 					the same browser.</p>
 				<blockquote>
-                    <p>If you want to reopen WriteOn, click on
-					"Reload".</p>
+                    <p>If you want to reopen WriteOn, click on "Reload".</p>
                 </blockquote>
 			</div>
 			<div class="modal-footer">
