@@ -82,7 +82,7 @@ define([
 				element: '.menu-panel .toggle-button',
 				title: 'My Tool',
 				content: [
-					'<p>The <i class="icon-provider-writeon"></i> <b>My Tools</b> panel allows you to synchronize your local stories with <br><i class="icon-provider-couchdb"></i> My.WriteOn, <i class="icon-provider-gdrive"></i> Google Drive, <i class="icon-provider-dropbox"></i> or Dropbox. You can also publish stories directly to <i class="icon-provider-tumblr"></i> Tumblr, <i class="icon-provider-ghost"></i> Ghost, <i class="icon-provider-wordpress"></i> Wordpress, <i class="icon-provider-blogger"></i> Blogger, and <i class="icon-provider-github"></i> GitHub.</p>',
+					'<p>The <i class="icon-provider-writeon"></i> <b>My Tools</b> panel allows you to synchronize your local stories with <br><i class="icon-provider-mywriteon"></i> My.WriteOn, <i class="icon-provider-gdrive"></i> Google Drive, <i class="icon-provider-dropbox"></i> or Dropbox. You can also publish stories directly to <i class="icon-provider-tumblr"></i> Tumblr, <i class="icon-provider-ghost"></i> Ghost, <i class="icon-provider-wordpress"></i> Wordpress, <i class="icon-provider-blogger"></i> Blogger, and <i class="icon-provider-github"></i> GitHub.</p>',
 					'<b>Tip:</b> Use the <i class="icon-provider-writeon"></i> <b>My Tools</b> pabel to access your account, settings, extensions, & utilities.'
 				].join(""),
 				placement: 'right',

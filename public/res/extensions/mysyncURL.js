@@ -18,17 +18,17 @@ define([
     };
 
     mysyncURL.onLoadSettings = function() {
-        utils.setInputValue("#input-settings-couchdb", mysyncURL.config.couchdb);
-        utils.setInputValue("#input-settings-couchdb-server", mysyncURL.config.couchdbserver);
-        utils.setInputValue("#input-settings-couchdb-url", mysyncURL.config.couchdburl);
+        utils.setInputValue("#input-settings-mywriteon", mysyncURL.config.couchdb);
+        utils.setInputValue("#input-settings-mywriteon-server", mysyncURL.config.couchdbserver);
+        utils.setInputValue("#input-settings-mywriteon-url", mysyncURL.config.couchdburl);
     };
 
     mysyncURL.onSaveSettings = function(newConfig) {
         var newSettings = {};
-        newConfig.couchdburl = mysyncURL.config.couchdbserver + '/' + utils.getInputTextValue("#input-settings-couchdb");
-        newConfig.couchdb = utils.getInputTextValue("#input-settings-couchdb");
-        newSettings.couchdburl = mysyncURL.config.couchdbserver + '/' + utils.getInputTextValue("#input-settings-couchdb");
-        newSettings.couchdb = utils.getInputTextValue("#input-settings-couchdb");
+        newConfig.couchdburl = mysyncURL.config.couchdbserver + '/' + utils.getInputTextValue("#input-settings-mywriteon");
+        newConfig.couchdb = utils.getInputTextValue("#input-settings-mywriteon");
+        newSettings.couchdburl = mysyncURL.config.couchdbserver + '/' + utils.getInputTextValue("#input-settings-mywriteon");
+        newSettings.couchdb = utils.getInputTextValue("#input-settings-mywriteon");
     };
     
    

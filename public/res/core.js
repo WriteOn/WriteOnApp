@@ -146,7 +146,7 @@ define([
 		// WriteOn Support (commit) message
 		utils.setInputValue("#input-settings-publish-commit-msg", settings.commitMsg);
 		// CouchDB URL
-		//utils.setInputValue("#input-settings-couchdb-url", settings.couchdbUrl);
+		//utils.setInputValue("#input-settings-mywriteon-url", settings.couchdbUrl);
 
 		// Load extension settings
 		eventMgr.onLoadSettings();
@@ -194,8 +194,8 @@ define([
 		newSettings.commitMsg = utils.getInputTextValue("#input-settings-publish-commit-msg", event);
 		// NEEDS TO MOVED INTO EXTENSION AND COUCHHELPER/PROVIDER UPDATED
 		// My.WriteOn (CouchDB) URL
-        newSettings.couchdburl = settings.couchdbserver + '/' + utils.getInputTextValue("#input-settings-couchdb");
-        newSettings.couchdb = utils.getInputTextValue("#input-settings-couchdb");
+        newSettings.couchdburl = settings.couchdbserver + '/' + utils.getInputTextValue("#input-settings-mywriteon");
+        newSettings.couchdb = utils.getInputTextValue("#input-settings-mywriteon");
 
 		// Save extension settings
 		newSettings.extensionSettings = {};

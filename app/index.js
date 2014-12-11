@@ -82,7 +82,7 @@ app.use(stormpath.init(app, {
     enableAccountVerification: true,
     enableUsername: true,
     requireUsername: true,
-    sessionDuration: 1000 * 60 * 15, // Make sessions expire after 15 minutes.
+    sessionDuration: 1000 * 60 * 60, // Make sessions expire after 60 minutes.
     registrationView: __dirname + '/../views/auth/register.jade',
     loginView: __dirname + '/../views/auth/login.jade',
     forgotPasswordView: __dirname + '/../views/auth/forgot.jade',

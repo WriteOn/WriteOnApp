@@ -38,7 +38,7 @@
                             <li class="disabled text-center"><a href="#"><strong>Import Stories</strong></a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="#" class="file action-sync-import-dialog-couchdb"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a>
+                            <li><a href="#" class="file action-sync-import-dialog-mywriteon"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a>
                             </li>
                             <li><a href="#" class="file action-sync-import-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
                             </li>
@@ -125,7 +125,7 @@ Sync</a>
                         </li>
                     </ul>
                     <ul class="nav">
-                        <li class="col-sm-6"><a href="#" class="btn btn-default action-sync-export-dialog-couchdb"><i class="icon-upload-cloud text-blue"></i> My.WriteOn</a>
+                        <li class="col-sm-6"><a href="#" class="btn btn-default action-sync-export-dialog-mywriteon"><i class="icon-upload-cloud text-blue"></i> My.WriteOn</a>
                         </li>
                         <li class="col-sm-6"><a href="#" data-toggle="modal" data-target=".modal-manage-sharing" class="btn btn-default action-reset-input"><i class="icon-link text-green"></i> Sharing</a>
                         </li>
@@ -479,7 +479,7 @@ folder and filename. </span>
         </div>
     </div>
 </div>
-<div class="modal fade modal-download-couchdb">
+<div class="modal fade modal-download-mywriteon">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -488,8 +488,8 @@ folder and filename. </span>
                 <div class="form-horizontal list-mode">
                     <br>
                     <div class="form-group form-inline">
-                        <label for="input-sync-import-couchdb-tag" class="col-sm-3 control-label">Filter by tag</label>
-                        <select id="input-sync-import-couchdb-tag" class="col-sm-4 form-control">
+                        <label for="input-sync-import-mywriteon-tag" class="col-sm-3 control-label">Filter by tag</label>
+                        <select id="input-sync-import-mywriteon-tag" class="col-sm-4 form-control">
                         </select>
                         <span class="col-sm-5">
 <a class="btn btn-link action-add-tag"><i class="icon-tag"></i> Add
@@ -501,7 +501,7 @@ folder and filename. </span>
                 </div>
             </div>
             <div class="modal-body">
-                <p class="msg-default-couchdb alert alert-warning">
+                <p class="msg-default-mywriteon alert alert-warning">
                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
                     <i class="icon-attention"></i>  <b>Careful:</b>
@@ -511,10 +511,10 @@ folder and filename. </span>
                 </p>
                 <div class="form-horizontal byid-mode">
                     <div class="form-group">
-                        <label for="input-sync-import-couchdb-documentid" class="col-sm-3 control-label">Story ID
+                        <label for="input-sync-import-mywriteon-documentid" class="col-sm-3 control-label">Story ID
                         </label>
                         <div class="col-sm-9">
-                            <input id="input-sync-import-couchdb-documentid" class="form-control" placeholder="DocumentID">
+                            <input id="input-sync-import-mywriteon-documentid" class="form-control" placeholder="DocumentID">
                             <span class="help-block">Multiple IDs can be provided (space separated)</span>
                         </div>
                     </div>
@@ -549,14 +549,14 @@ folder and filename. </span>
                 <a href="#" class="btn btn-default delete-mode action-cancel hide">Cancel</a>
                 <a href="#" class="btn btn-primary delete-mode action-delete-items-confirm hide">Delete</a>
                 <a href="#" class="btn btn-default byid-mode action-cancel">Cancel</a>
-                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-couchdb byid-mode">Open</a>
+                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon byid-mode">Open</a>
                 <a href="#" class="btn btn-default list-mode" data-dismiss="modal">Cancel</a>
-                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-couchdb list-mode">Open</a>
+                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon list-mode">Open</a>
             </div>
         </div>
     </div>
 </div>
-<div class="modal fade modal-upload-couchdb">
+<div class="modal fade modal-upload-mywriteon">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -564,7 +564,7 @@ folder and filename. </span>
                 <h2 class="modal-title">Save to My.WriteOn</h2>
             </div>
             <div class="modal-body">
-                <p class="msg-default-couchdb alert alert-warning">
+                <p class="msg-default-mywriteon alert alert-warning">
                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
                     <i class="icon-attention"></i>  <b>Careful:</b>
@@ -583,7 +583,7 @@ folder and filename. </span>
             </div>
             <div class="modal-footer">
                 <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-couchdb">OK</a>
+                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-mywriteon">OK</a>
             </div>
         </div>
     </div>
@@ -841,7 +841,7 @@ story title will be used.</span>
             <div class="modal-body">
                 <p>Collaborate on "<span class="file-title"></span>" using the following link(s):</p>
                 <p class="msg-no-share-editor"><b>No sharing link yet.</b> To collaborate on this story, just
-                    <a href="#" class="action-sync-export-dialog-couchdb" data-dismiss="modal">save it to <code>My.WriteOn</code></a>
+                    <a href="#" class="action-sync-export-dialog-mywriteon" data-dismiss="modal">save it to <code>My.WriteOn</code></a>
                 </p>
                 <div class="share-editor-list"></div>
                 <blockquote>

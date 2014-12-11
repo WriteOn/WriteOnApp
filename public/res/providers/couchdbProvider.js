@@ -16,7 +16,7 @@ define([
 	"helpers/couchdbHelper"
 ], function($, _, crel, alertify, constants, utils, storage, logger, Provider, settings, eventMgr, fileMgr, fileSystem, editor, couchdbHelper) {
 
-	var PROVIDER_COUCHDB = "couchdb";
+	var PROVIDER_COUCHDB = "mywriteon";
 
 	var couchdbProvider = new Provider(PROVIDER_COUCHDB, "My.WriteOn");
 	couchdbProvider.importPreferencesInputIds = [
@@ -103,7 +103,7 @@ define([
 
 	var $documentIdsElt;
 	couchdbProvider.importFiles = function() {
-		var tag = $('#select-sync-import-couchdb-tag').val();
+		var tag = $('#select-sync-import-' + PROVIDER_COUCHDB + '-tag').val();
 		if(!tag) {
 			var ids = _.chain(($documentIdsElt.val() || '').split(/\s+/))
 				.compact()
@@ -241,7 +241,7 @@ define([
 
 	eventMgr.addListener("onReady", function() {
 		if(constants.COUCHDB_URL == settings.couchdbUrl) {
-			$('.msg-default-couchdb').removeClass('hide');
+			$('.msg-default-' + PROVIDER_COUCHDB).removeClass('hide');
 		}
 		var documentEltTmpl = [
 			'<a href="#" class="list-group-item document clearfix" data-document-id="<%= document._id %>">',
@@ -260,7 +260,7 @@ define([
  * ============================================================
  */    
         $(".action-bootmy-writeon").click(function() {
-            var mywriteondb = utils.getInputTextValue("#input-settings-couchdb-url", event);
+            var mywriteondb = utils.getInputTextValue("#input-settings-" + PROVIDER_COUCHDB + "-url", event);
             couchdbHelper.createmywriteondb(mywriteondb, function(error, result) {
  				if(error) {
 					return;
@@ -272,7 +272,7 @@ define([
 		    });  
         });
         $(".action-configure-writeon").click(function() {
-            var mywriteondb = utils.getInputTextValue("#input-settings-couchdb-url", event);
+            var mywriteondb = utils.getInputTextValue("#input-settings-" + PROVIDER_COUCHDB + "-url", event);
             couchdbHelper.configuremywriteondb(mywriteondb, function(error, result) {
  				if(error) {
 					return;
@@ -291,8 +291,8 @@ define([
  * THIS IS TEMPROARILY HERE TO TEST THE PROVISIONING SERVICE - 
  * ============================================================
  */        
-		$documentIdsElt = $('#input-sync-import-couchdb-documentid');
-		var modalElt = document.querySelector('.modal-download-couchdb');
+		$documentIdsElt = $('#input-sync-import-' + PROVIDER_COUCHDB + '-documentid');
+		var modalElt = document.querySelector('.modal-download-' + PROVIDER_COUCHDB + '');
 		var $documentListElt = $(modalElt.querySelector('.document-list'));
 		var $selectedDocumentListElt = $(modalElt.querySelector('.selected-document-list'));
 		var $pleaseWaitElt = $(modalElt.querySelector('.please-wait'));
@@ -357,7 +357,7 @@ define([
 		}, 10, true);
 
 		var tagList = utils.retrieveIgnoreError(PROVIDER_COUCHDB + '.tagList') || [];
-		var $selectTagElt = $('#input-sync-import-couchdb-tag')
+		var $selectTagElt = $('#input-sync-import-' + PROVIDER_COUCHDB + '-tag')
 			.on('change', function() {
 				clear();
 				updateDocumentList();
