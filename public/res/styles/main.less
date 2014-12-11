@@ -1188,6 +1188,139 @@ a {
 }
 
 
+/*********************************
+ * App Loader
+ *********************************/
+.overlay_loader_wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: @primary-bg;
+    
+    .overlay_loader {
+        text-align: center;
+        width:140px;
+        height:88px;
+        top: 50%;
+        left:50%;
+        position: absolute;
+    }
+    .overlay_loader span {
+        display: inline-block;
+        vertical-align: middle;
+        width: 18px;
+        height: 18px;
+        margin: 44px auto;
+        background: #2878AD;
+        -moz-border-radius: 88px;
+        -moz-animation: overlay_loader 0.5s infinite alternate;
+        -webkit-border-radius: 88px;
+        -webkit-animation: overlay_loader 0.5s infinite alternate;
+        -ms-border-radius: 88px;
+        -ms-animation: overlay_loader 0.5s infinite alternate;
+        -o-border-radius: 88px;
+        -o-animation: overlay_loader 0.5s infinite alternate;
+        border-radius: 88px;
+        animation: overlay_loader 0.5s infinite alternate;
+    }
+    #overlay_loader_1 {
+        -moz-animation-delay: 0.3s;
+        -webkit-animation-delay: 0.3s;
+        -ms-animation-delay: 0.3s;
+        -o-animation-delay: 0.3s;
+        animation-delay: 0.3s;
+    }
+    #overlay_loader_2 {
+        -moz-animation-delay: 0.15s;
+        -webkit-animation-delay: 0.15s;
+        -ms-animation-delay: 0.15s;
+        -o-animation-delay: 0.15s;
+        animation-delay: 0.15s;
+    }
+    #overlay_loader_3 {
+        -moz-animation-delay: 0s;
+        -webkit-animation-delay: 0s;
+        -ms-animation-delay: 0s;
+        -o-animation-delay: 0s;
+        animation-delay: 0s;
+    }
+    @-moz-keyframes overlay_loader {
+        0% {
+            width: 18px;
+            height: 18px;
+            background-color:#2878AD;
+            -moz-transform: translateY(0);
+        }
+        100% {
+            width: 42px;
+            height: 42px;
+            background-color:@primary-bg;
+            -moz-transform: translateY(-37px);
+        }
+    }
+    @-webkit-keyframes overlay_loader {
+        0% {
+            width: 18px;
+            height: 18px;
+            background-color:#2878AD;
+            -webkit-transform: translateY(0);
+        }
+
+        100% {
+            width: 42px;
+            height: 42px;
+            background-color:@primary-bg;
+            -webkit-transform: translateY(-37px);
+        }
+    }
+    @-ms-keyframes overlay_loader {
+        0% {
+            width: 18px;
+            height: 18px;
+            background-color:#2878AD;
+            -ms-transform: translateY(0);
+        }
+
+        100% {
+            width: 42px;
+            height: 42px;
+            background-color:@primary-bg;
+            -ms-transform: translateY(-37px);
+        }
+    }
+    @-o-keyframes overlay_loader {
+        0% {
+            width: 18px;
+            height: 18px;
+            background-color:#2878AD;
+            -o-transform: translateY(0);
+        }
+
+        100% {
+            width: 42px;
+            height: 42px;
+            background-color:@primary-bg;
+            -o-transform: translateY(-37px);
+        }
+    }
+    @keyframes overlay_loader {
+        0% {
+            width: 18px;
+            height: 18px;
+            background-color:#2878AD;
+            transform: translateY(0);
+        }
+        100% {
+            width: 42px;
+            height: 42px;
+            background-color:@primary-bg;
+            transform: translateY(-37px);
+        }
+    }
+}
 
 /*********************************
  * Layout
@@ -1768,6 +1901,10 @@ div.jGrowl {
  * Viewer
  *******************/
 
+/*******************
+ * Viewer
+ *******************/
+
 .viewer {
 	.document-panel .search-bar {
 		padding: 20px 20px 10px;
@@ -1780,7 +1917,19 @@ div.jGrowl {
 	    cursor: initial;
 	    .box-shadow(none);
 	}
+    .menu-panel {
+        .toggle-button {
+	        right: -121px;
+		    z-index: -1;
+		    padding: 0 5px 0 50px;
+	    }
+        & .toggle-button:hover, &.panel-open > .toggle-button {
+            right: -121px;
+	    }
+
+    }
 }
+
 
 
 /**************************************

@@ -464,7 +464,7 @@ define([
 		var currentTheme = window.theme;
 
 		function applyTheme(theme) {
-			theme = theme || 'neat';
+			theme = theme || 'gray';
 			if(currentTheme != theme) {
 				var themeModule = "less!themes/" + theme;
 				if(window.baseDir.indexOf('-min') !== -1) {

@@ -200,14 +200,14 @@ define([
 			}
 		});
 		$(".action-open-writeon").click(function() {
-			window.location.href = "editor";
+			window.location.href = "x6ywhf";
 		});
 		$(".action-edit-document").click(function() {
 			var content = $editorElt.val();
 			var title = fileMgr.currentFile.title;
 			var fileDesc = fileMgr.createFile(title, content);
 			fileMgr.selectFile(fileDesc);
-			window.location.href = "editor";
+			window.location.href = "x6ywhf";
 		});
 		$(".action-welcome-file").click(function() {
 			var fileDesc = fileMgr.createFile(constants.WELCOME_DOCUMENT_TITLE, welcomeContent);

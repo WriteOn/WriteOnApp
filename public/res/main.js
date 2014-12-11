@@ -195,7 +195,7 @@ catch(e) {
 window.viewerMode = /(^| )viewer($| )/.test(document.body.className);
 
 // Keep the theme in a global variable
-window.theme = localStorage.themeV4 || 'neat';
+window.theme = localStorage.themeV4 || 'gray';
 var themeModule = "less!themes/" + window.theme;
 if(window.baseDir.indexOf('-min') !== -1) {
 	themeModule = "css!themes/" + window.theme;
