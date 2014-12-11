@@ -1182,3 +1182,4 @@
 {"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":10543,"time":"2014-12-11T19:35:40.786Z","msg":"Connected to collector-106.newrelic.com:443 with agent run ID 1120940298.","component":"collector_api"}
 {"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":10546,"time":"2014-12-11T19:35:40.787Z","msg":"Connected to collector-106.newrelic.com:443 with agent run ID 1120940300.","component":"collector_api"}
 {"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":10545,"time":"2014-12-11T19:35:40.788Z","msg":"Connected to collector-106.newrelic.com:443 with agent run ID 1120940301.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"mammal-charter","pid":10714,"time":"2014-12-11T22:46:28.117Z","msg":"Starting New Relic for Node.js connection process."}

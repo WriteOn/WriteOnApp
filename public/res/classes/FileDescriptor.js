@@ -133,7 +133,7 @@ define([
 				attributes.provider.providerName,
 				'"><i class="icon-provider-',
 				attributes.provider.providerId,
-				'"></i></a>'
+				'"></i><i class="icon-link-ext-alt"></i></a>'
 			].join(''));
 		}
 		else {
@@ -151,7 +151,7 @@ define([
 				attributes.provider.providerName,
 				'"><i class="icon-provider-',
 				attributes.provider.providerId,
-				'"></i></a>'
+				'"></i><i class="icon-link-ext-alt"></i></a>'
 			].join(''));
 		}
 		else {
@@ -169,7 +169,7 @@ define([
 			addSyncIcon(result, attributes);
 		});
 		if(_.size(this.syncLocations) !== 0) {
-			result.push('<i class="icon-refresh title-icon-category"></i>');
+			//result.push('<i class="icon-refresh title-icon-category"></i>');
 		}
 		_.chain(this.publishLocations).sortBy(function(attributes) {
 			return attributes.provider.providerId;
@@ -177,7 +177,7 @@ define([
 			addPublishIcon(result, attributes);
 		});
 		if(_.size(this.publishLocations) !== 0) {
-			result.push('<i class="icon-upload title-icon-category"></i>');
+			//result.push('<i class="icon-upload title-icon-category"></i>');
 		}
 		result.push(_.escape(this.title));
 		return result.join('');
