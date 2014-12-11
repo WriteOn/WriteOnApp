@@ -57,7 +57,7 @@ app.set('view engine', 'jade');
 app.use(stormpath.init(app, {
     apiKeyFile: __dirname + '/../app/auth/apiKey.properties',
     application: 'https://api.stormpath.com/v1/applications/4SgKKI7uk6OY7vbVt8uW4c',
-    secretKey: process.env.AUTH_SECRET_KEY,
+    secretKey: 'oGibdMjhQn+nKRXICQEmldp+CKydCj5Q+fLslVWm7jM', //process.env.AUTH_SECRET_KEY,
     googleAnalyticsID: 'UA-56730909-3',
     enableFacebook: true,
     enableGoogle: true,
