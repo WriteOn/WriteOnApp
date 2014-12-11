@@ -1,3 +1,4 @@
+<div class="working-indicator"></div>
 <div class="layout-wrapper-l1">
     <div class="layout-wrapper-l2">
         <div class="navbar navbar-default">
@@ -76,7 +77,6 @@
             </div>
         </div>
         <div class="layout-wrapper-l3">
-            <div class="working-indicator"></div>
             <pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>
             <div class="preview-panel">
                 <div class="layout-resizer layout-resizer-preview"></div>
@@ -129,13 +129,13 @@ Sync</a>
                         </li>
                         <li class="col-sm-6"><a href="#" data-toggle="modal" data-target=".modal-manage-sharing" class="btn btn-default action-reset-input"><i class="icon-link text-green"></i> Sharing</a>
                         </li>
-                        <li class="col-sm-6"><a href="#" class="btn btn-default action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox Sync</a>
+                        <li class="col-sm-6"><a href="#" class="btn btn-default action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
                         </li>
-                        <li class="col-sm-6"><a href="#" class="btn btn-default submenu-sync-gdrive action-sync-export-dialog-gdrive"><i class="icon-provider-gdrive"></i> Drive Sync</a>
+                        <li class="col-sm-6"><a href="#" class="btn btn-default submenu-sync-gdrive action-sync-export-dialog-gdrive"><i class="icon-provider-gdrive"></i> Drive</a>
                         </li>
-                        <li class="col-sm-6"><a href="#" class="btn btn-default submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i class="icon-provider-gdrive"></i> Drive Sync<sup class="text-danger">2</sup></a>
+                        <li class="col-sm-6"><a href="#" class="btn btn-default submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i class="icon-provider-gdrive"></i> Drive<sup>2</sup></a>
                         </li>
-                        <li class="col-sm-6"><a href="#" class="btn btn-default submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i class="icon-provider-gdrive"></i> Drive Sync<sup class="text-danger">3</sup></a>
+                        <li class="col-sm-6"><a href="#" class="btn btn-default submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i class="icon-provider-gdrive"></i> Drive<sup>3</sup></a>
                         </li>
                     </ul>
                 </div>
@@ -369,12 +369,12 @@ from Google+</a>  <a href="#" class="btn btn-default" data-dismiss="modal">Cance
                 <h2 class="modal-title">Import from URL</h2>
             </div>
             <div class="modal-body">
-                <p>Please provide a link to a Markdown formatted story.</p>
+                <p>Please provide a link to a Markdown formatted story (<code>.md</code> or <code>.markdown</code> extension).</p>
                 <div class="form-horizontal">
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="input-import-url">URL</label>
                         <div class="col-sm-8">
-                            <input type="text" id="input-import-url" placeholder="http://www.abc.com/xyz.md" class="form-control">
+                            <input type="text" id="input-import-url" placeholder="http://my-awesome.com/story.md" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -394,7 +394,7 @@ from Google+</a>  <a href="#" class="btn btn-default" data-dismiss="modal">Cance
                 <h2 class="modal-title">Import from disk</h2>
             </div>
             <div class="modal-body">
-                <p>Please select your Markdown files here:</p>
+                <p>Please select your Markdown files here (<code>.md</code> or <code>.markdown</code> extension):</p>
                 <p>
                     <input type="file" id="input-file-import-harddrive-markdown" multiple class="form-control" />
                 </p>
@@ -506,8 +506,8 @@ folder and filename. </span>
                     </button>
                     <i class="icon-attention"></i>  <b>Careful:</b>
                     This is Beta software, and you're using our public My.WriteOn instance.
-                    <b>That means anybody can open, edit and delete your stories - and vise versa.</b>
-                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red">♥</span>
+                    <b>That means anybody can open, edit and delete these stories.</b>
+                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">♥</span>
                 </p>
                 <div class="form-horizontal byid-mode">
                     <div class="form-group">
@@ -564,12 +564,13 @@ folder and filename. </span>
                 <h2 class="modal-title">Save to My.WriteOn</h2>
             </div>
             <div class="modal-body">
-                <p class="msg-default-couchdb hide alert alert-warning">
+                <p class="msg-default-couchdb alert alert-warning">
                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
                     <i class="icon-attention"></i>  <b>Careful:</b>
-                    This is beta software, and you're using our public My.WriteOn instance.
-                    <b>Anybody can open, edit and delete your stories there.</b>
+                    This is Beta software, and you're using our public My.WriteOn instance.
+                    <b>That means anybody can open, edit and delete your stories - and vise versa.</b>
+                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">♥</span>
                 </p>
                 <p>
                     This will save "<span class="file-title"></span>" to My.WriteOn <sup class="text-danger">Beta</sup> and keep it synchronized.
@@ -596,11 +597,11 @@ folder and filename. </span>
             </div>
             <div class="modal-body">
                 <p>
-                    "<span class="file-title"></span>" is synchronized with the following location(s):
+                    "<span class="file-title"></span>" is synchronized in the following location(s):
                 </p>
                 <div class="sync-list"></div>
                 <blockquote>
-                    <p><b>Note:</b> Removing a synchronized location will not delete any file.
+                    <p><b>Hey There:</b> Removing a synchronized location will not delete the local story.
                     </p>
                 </blockquote>
             </div>
@@ -824,7 +825,7 @@ story title will be used.</span>
                 </p>
                 <div class="publish-list"></div>
                 <blockquote>
-                    <p><b>Note:</b> Removing a published location here will not delete the actual post that was published.</p>
+                    <p><b>Stating the Obvious?</b> Maybe, but removing a published location will not delete the actual post out in the wild.</p>
                 </blockquote>
             </div>
         </div>

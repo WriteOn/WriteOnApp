@@ -133,7 +133,7 @@ define([
 				attributes.provider.providerName,
 				'"><i class="icon-provider-',
 				attributes.provider.providerId,
-				'"></i><i class="icon-link-ext-alt"></i></a>'
+				'"></i></a>'
 			].join(''));
 		}
 		else {
@@ -151,7 +151,7 @@ define([
 				attributes.provider.providerName,
 				'"><i class="icon-provider-',
 				attributes.provider.providerId,
-				'"></i><i class="icon-link-ext-alt"></i></a>'
+				'"></i></a>'
 			].join(''));
 		}
 		else {

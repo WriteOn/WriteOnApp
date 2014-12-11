@@ -667,7 +667,7 @@ WriteOn has set out to answer the question "*can HTML5 localStorage content be r
 The methods in which WriteOn implements uses AES CCM Encryption, via  SJCL. Here are the necessary steps to reliable client side storage encryption with WriteOn:
 
 1. Create an account at [writeon.io][69]
-2. Visit the WriteOn dashboard at [i.writeon.io][70]. 
+2. Visit the WriteOn dashboard at [my.writeon.io][70]. 
 3. Click on ***Secure My WriteOn***
 4. Choose a reliable password, 12 characters or longer
 OPTIONAL:
@@ -755,4 +755,4 @@ OPTIONAL:
   [67]: https://github.com/bitwiseshiftleft/sjcl
   [68]: https://www.quora.com/HTML5-can-localStorage-content-be-reliably-encrypted
   [69]: https://writeon.io
-  [70]: https://i.writeon.io
+  [70]: https://my.writeon.io
