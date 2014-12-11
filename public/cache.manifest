@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#Date Thu Dec 11 2014 22:55:15 GMT+0000 (UTC)
+#Date Thu Dec 11 2014 23:04:34 GMT+0000 (UTC)
 
 CACHE:
 .
@@ -59,6 +59,8 @@ res-min/themes/gray.css
 res-min/themes/neat.css
 res-min/themes/night.css
 res-min/themes/school.css
+res-min/themes/solarized-dark.css
+res-min/themes/solarized-light.css
 # end_inject_resources
 
 
