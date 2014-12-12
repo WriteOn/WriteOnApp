@@ -19,7 +19,7 @@
     "pagedown-extra": "*",
     "crel": "*",
     "waitForImages": "~1.4.2",
-    "to-markdown": "https://github.com/BeardandFedora/to-markdown.git#b111aaa456",
+    "to-markdown": "https://github.com/BeardandFedora/to-markdown.git",
     "xregexp": "d06eff50f87d81d2dd3afc1e854784c38b17bcc4",
     "yaml.js": "~0.1.4",
     "prism": "https://github.com/BeardandFedora/prism/archive/0.0.1.zip",
