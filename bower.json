@@ -36,7 +36,7 @@
   },
   "resolutions": {
     "pagedown-extra": "ea782c3d11eb78f57d00aa819527338996a70721",
-    "prism": "a12e8692b5f660a0123a06f74935f75386a93042"
+    "prism": "0.0.3"
   },
   "main": [
     "/public/res/main.js",
