@@ -16,13 +16,13 @@
     "stacktrace": "~0.6.2",
     "requirejs-text": "~2.0.10",
     "bootstrap-tour": "~0.7.1",
-    "pagedown-extra": "ea782c3d11eb78f57d00aa819527338996a70721",
+    "pagedown-extra": "https://github.com/jmcmanus/pagedown-extra.git",
     "crel": "*",
     "waitForImages": "~1.4.2",
     "to-markdown": "https://github.com/BeardandFedora/to-markdown.git",
     "xregexp": "https://github.com/BeardandFedora/xregexp/archive/0.1.1.zip",
     "yaml.js": "~0.1.4",
-    "prism": "a12e8692b5f660a0123a06f74935f75386a93042",
+    "prism": "https://github.com/LeaVerou/prism.git",
     "MutationObservers": "https://github.com/Polymer/MutationObservers/archive/0.4.2.zip",
     "rangy": "~1.2.3",
     "google-diff-match-patch-js": "~1.0.0",
@@ -33,6 +33,10 @@
     "flowchart": "https://github.com/adrai/flowchart.js/archive/v1.3.3.zip",
     "monetizejs": "~0.2.0",
     "alertify.js": "~0.3.11"
+  },
+  "resolutions": {
+    "pagedown-extra": "ea782c3d11eb78f57d00aa819527338996a70721",
+    "prism": "a12e8692b5f660a0123a06f74935f75386a93042"
   },
   "main": [
     "/public/res/main.js",
