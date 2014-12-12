@@ -41,6 +41,15 @@
             // hey beard, i know you like smooth scrolling
             $('.scrollToSlide2').click(scrollTo($('#slide2')));
         })
+        // Include the UserVoice JavaScript SDK (only needed once on a page)
+        UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/9ETh8LB2ADPn5Iwpgytg.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+        UserVoice.push(['set', {
+          accent_color: '#808283',
+          trigger_color: 'white',
+          trigger_background_color: 'rgba(46, 49, 51, 0.6)'
+        }]);
+        UserVoice.push(['addTrigger', { mode: 'satisfaction', trigger_position: 'bottom-left' }]);
+        UserVoice.push(['autoprompt', {}]);
     </script>
 </head>
 
