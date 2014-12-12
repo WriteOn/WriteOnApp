@@ -22,7 +22,7 @@
     "to-markdown": "https://github.com/BeardandFedora/to-markdown.git",
     "xregexp": "https://github.com/BeardandFedora/xregexp/archive/0.1.1.zip",
     "yaml.js": "~0.1.4",
-    "prism": "https://github.com/BeardandFedora/prism.git#a12e8692b5f660a0123a06f74935f75386a93042",
+    "prism": "https://github.com/BeardandFedora/prism.git",
     "MutationObservers": "https://github.com/Polymer/MutationObservers/archive/0.4.2.zip",
     "rangy": "~1.2.3",
     "google-diff-match-patch-js": "~1.0.0",
