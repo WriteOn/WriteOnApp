@@ -1,6 +1,6 @@
 {
   "name": "WriteOn",
-  "version": "1.5.25",
+  "version": "1.5.24",
   "description": "Write without distraction // Publish without effort.",
   "dependencies": {
     "bootstrap": "3.0.3",
@@ -16,7 +16,7 @@
     "stacktrace": "~0.6.2",
     "requirejs-text": "~2.0.10",
     "bootstrap-tour": "~0.7.1",
-    "pagedown-extra": "https://github.com/jmcmanus/pagedown-extra.git#ea782c3d11eb78f57d00aa819527338996a70721",
+    "pagedown-extra": "ea782c3d11eb78f57d00aa819527338996a70721",
     "crel": "*",
     "waitForImages": "~1.4.2",
     "to-markdown": "https://github.com/BeardandFedora/to-markdown.git",
