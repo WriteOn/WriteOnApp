@@ -6890,7 +6890,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  }, utils;
 }), define("constants", [], function() {
  var e = {};
- return e.VERSION = "1.5.24", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
+ return e.VERSION = "1.5.25", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
  e.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ", e.GOOGLE_DRIVE_APP_ID = "1017251498254", 
  e.DROPBOX_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_APP_SECRET = "1mesyckskczn3f9", 
  e.DROPBOX_RESTRICTED_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_RESTRICTED_APP_SECRET = "1mesyckskczn3f9", 
@@ -21265,14 +21265,9 @@ function() {
    p.onEditorPopover();
   }), x();
  }, p.onEventMgrCreated(p), p;
-}), self = "undefined" != typeof window ? window : "undefined" != typeof WorkerGlobalScope && self instanceof WorkerGlobalScope ? self : {};
-
-var Prism = function() {
+}), function() {
  var e = /\blang(?:uage)?-(?!\*)(\w+)\b/i, t = self.Prism = {
   util: {
-   encode: function(e) {
-    return e instanceof n ? new n(e.type, t.util.encode(e.content), e.alias) : "Array" === t.util.type(e) ? e.map(t.util.encode) : e.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\u00a0/g, " ");
-   },
    type: function(e) {
     return Object.prototype.toString.call(e).match(/\[object (\w+)\]/)[1];
    },
@@ -21305,8 +21300,8 @@ var Prism = function() {
     }
     return r[e] = a;
    },
-   DFS: function(e, n, i) {
-    for (var r in e) e.hasOwnProperty(r) && (n.call(e, r, e[r], i || r), "Object" === t.util.type(e[r]) ? t.languages.DFS(e[r], n) : "Array" === t.util.type(e[r]) && t.languages.DFS(e[r], n, r));
+   DFS: function(e, n) {
+    for (var i in e) n.call(e, i, e[i]), "Object" === t.util.type(e) && t.languages.DFS(e[i], n);
    }
   },
   highlightAll: function(e, n) {
@@ -21319,6 +21314,7 @@ var Prism = function() {
     l = i.parentNode, /pre/i.test(l.nodeName) && (l.className = l.className.replace(e, "").replace(/\s+/g, " ") + " language-" + a);
     var c = i.textContent;
     if (c) {
+     c = c.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\u00a0/g, " ");
      var u = {
       element: i,
       language: a,
@@ -21340,8 +21336,7 @@ var Prism = function() {
    }
   },
   highlight: function(e, i, r) {
-   var o = t.tokenize(e, i);
-   return n.stringify(t.util.encode(o), r);
+   return n.stringify(t.tokenize(e, i), r);
   },
   tokenize: function(e, n) {
    var i = t.Token, r = [ e ], o = n.rest;
@@ -21350,24 +21345,20 @@ var Prism = function() {
     delete n.rest;
    }
    e: for (var a in n) if (n.hasOwnProperty(a) && n[a]) {
-    var s = n[a];
-    s = "Array" === t.util.type(s) ? s : [ s ];
-    for (var l = 0; l < s.length; ++l) {
-     var c = s[l], u = c.inside, d = !!c.lookbehind, p = 0, h = c.alias;
-     c = c.pattern || c;
-     for (var f = 0; f < r.length; f++) {
-      var m = r[f];
-      if (r.length > e.length) break e;
-      if (!(m instanceof i)) {
-       c.lastIndex = 0;
-       var g = c.exec(m);
-       if (g) {
-        d && (p = g[1].length);
-        var v = g.index - 1 + p, g = g[0].slice(p), b = g.length, y = v + b, x = m.slice(0, v + 1), w = m.slice(y + 1), S = [ f, 1 ];
-        x && S.push(x);
-        var C = new i(a, u ? t.tokenize(g, u) : g, h);
-        S.push(C), w && S.push(w), Array.prototype.splice.apply(r, S);
-       }
+    var s = n[a], l = s.inside, c = !!s.lookbehind, u = 0;
+    s = s.pattern || s;
+    for (var d = 0; d < r.length; d++) {
+     var p = r[d];
+     if (r.length > e.length) break e;
+     if (!(p instanceof i)) {
+      s.lastIndex = 0;
+      var h = s.exec(p);
+      if (h) {
+       c && (u = h[1].length);
+       var f = h.index - 1 + u, h = h[0].slice(u), m = h.length, g = f + m, v = p.slice(0, f + 1), b = p.slice(g + 1), y = [ d, 1 ];
+       v && y.push(v);
+       var x = new i(a, l ? t.tokenize(h, l) : h);
+       y.push(x), b && y.push(b), Array.prototype.splice.apply(r, y);
       }
      }
     }
@@ -21385,8 +21376,8 @@ var Prism = function() {
     if (i && i.length) for (var r, o = 0; r = i[o++]; ) r(n);
    }
   }
- }, n = t.Token = function(e, t, n) {
-  this.type = e, this.content = t, this.alias = n;
+ }, n = t.Token = function(e, t) {
+  this.type = e, this.content = t;
  };
  if (n.stringify = function(e, i, r) {
   if ("string" == typeof e) return e;
@@ -21402,25 +21393,17 @@ var Prism = function() {
    language: i,
    parent: r
   };
-  if ("comment" == o.type && (o.attributes.spellcheck = "true"), e.alias) {
-   var a = "Array" === t.util.type(e.alias) ? e.alias : [ e.alias ];
-   Array.prototype.push.apply(o.classes, a);
-  }
-  t.hooks.run("wrap", o);
-  var s = "";
-  for (var l in o.attributes) s += l + '="' + (o.attributes[l] || "") + '"';
-  return "<" + o.tag + ' class="' + o.classes.join(" ") + '" ' + s + ">" + o.content + "</" + o.tag + ">";
- }, !self.document) return self.addEventListener ? (self.addEventListener("message", function(e) {
+  "comment" == o.type && (o.attributes.spellcheck = "true"), t.hooks.run("wrap", o);
+  var a = "";
+  for (var s in o.attributes) a += s + '="' + (o.attributes[s] || "") + '"';
+  return "<" + o.tag + ' class="' + o.classes.join(" ") + '" ' + a + ">" + o.content + "</" + o.tag + ">";
+ }, !self.document) return void self.addEventListener("message", function(e) {
   var n = JSON.parse(e.data), i = n.language, r = n.code;
-  self.postMessage(JSON.stringify(t.util.encode(t.tokenize(r, t.languages[i])))), 
-  self.close();
- }, !1), self.Prism) : self.Prism;
+  self.postMessage(JSON.stringify(t.tokenize(r, t.languages[i]))), self.close();
+ }, !1);
  var i = document.getElementsByTagName("script");
- return i = i[i.length - 1], i && (t.filename = i.src, document.addEventListener && !i.hasAttribute("data-manual") && document.addEventListener("DOMContentLoaded", t.highlightAll)), 
- self.Prism;
-}();
-
-"undefined" != typeof module && module.exports && (module.exports = Prism), define("prism-core", function(e) {
+ i = i[i.length - 1], i && (t.filename = i.src, document.addEventListener && !i.hasAttribute("data-manual") && document.addEventListener("DOMContentLoaded", t.highlightAll));
+}(), define("prism-core", function(e) {
  return function() {
   var t;
   return t || e.Prism;
@@ -22743,17 +22726,17 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   }
  }, e.JsMutationObserver = a, e.MutationObserver || (e.MutationObserver = a);
 }(this), define("MutationObservers", function() {}), Prism.languages.markup = {
- comment: /<!--[\w\W]*?-->/g,
- prolog: /<\?.+?\?>/,
- doctype: /<!DOCTYPE.+?>/,
- cdata: /<!\[CDATA\[[\w\W]*?]]>/i,
+ comment: /&lt;!--[\w\W]*?-->/g,
+ prolog: /&lt;\?.+?\?>/,
+ doctype: /&lt;!DOCTYPE.+?>/,
+ cdata: /&lt;!\[CDATA\[[\w\W]*?]]>/i,
  tag: {
-  pattern: /<\/?[\w:-]+\s*(?:\s+[\w:-]+(?:=(?:("|')(\\?[\w\W])*?\1|[^\s'">=]+))?\s*)*\/?>/gi,
+  pattern: /&lt;\/?[\w:-]+\s*(?:\s+[\w:-]+(?:=(?:("|')(\\?[\w\W])*?\1|[^\s'">=]+))?\s*)*\/?>/gi,
   inside: {
    tag: {
-    pattern: /^<\/?[\w:-]+/i,
+    pattern: /^&lt;\/?[\w:-]+/i,
     inside: {
-     punctuation: /^<\/?/,
+     punctuation: /^&lt;\/?/,
      namespace: /^[\w-]+?:/
     }
    },
@@ -22772,7 +22755,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    }
   }
  },
- entity: /\&#?[\da-z]{1,8};/gi
+ entity: /&amp;#?[\da-z]{1,8};/gi
 }, Prism.hooks.add("wrap", function(e) {
  "entity" === e.type && (e.attributes.title = e.content.replace(/&amp;/, "&"));
 }), define("bower-libs/prism/components/prism-markup", function() {}), Prism.languages.latex = {
