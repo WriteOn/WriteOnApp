@@ -22,7 +22,7 @@
     "to-markdown": "git@github.com:BeardandFedora/to-markdown.git#b111aaa456",
     "xregexp": "d06eff50f87d81d2dd3afc1e854784c38b17bcc4",
     "yaml.js": "~0.1.4",
-    "prism": "git@github.com:BeardandFedora/prism/archive/0.0.1.zip",
+    "prism": "https://github.com/BeardandFedora/prism/archive/0.0.1.zip",
     "MutationObservers": "https://github.com/Polymer/MutationObservers/archive/0.4.2.zip",
     "rangy": "~1.2.3",
     "google-diff-match-patch-js": "~1.0.0",
@@ -30,7 +30,7 @@
     "hammerjs": "~1.0.10",
     "raphael": "~2.1.2",
     "js-sequence-diagrams": "git@github.com:BeardandFedora/js-sequence-diagrams.git",
-    "flowchart": "git@github.com:adrai/flowchart.js/archive/v1.3.3.zip",
+    "flowchart": "https://github.com/adrai/flowchart.js/archive/v1.3.3.zip",
     "monetizejs": "~0.2.0",
     "MathJax": "~2.4.0",
     "alertify.js": "~0.3.11"
