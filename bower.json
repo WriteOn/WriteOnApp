@@ -23,7 +23,7 @@
     "xregexp": "d06eff50f87d81d2dd3afc1e854784c38b17bcc4",
     "yaml.js": "~0.1.4",
     "prism": "git@github.com:BeardandFedora/prism/archive/0.0.1.zip",
-    "MutationObservers": "git@github.com:Polymer/MutationObservers/archive/0.4.2.zip",
+    "MutationObservers": "https://github.com/Polymer/MutationObservers/archive/0.4.2.zip",
     "rangy": "~1.2.3",
     "google-diff-match-patch-js": "~1.0.0",
     "jsondiffpatch": "git@github.com:BeardandFedora/jsondiffpatch.git",
