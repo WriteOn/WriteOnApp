@@ -32,7 +32,6 @@
     "js-sequence-diagrams": "https://github.com/BeardandFedora/js-sequence-diagrams.git",
     "flowchart": "https://github.com/adrai/flowchart.js/archive/v1.3.3.zip",
     "monetizejs": "~0.2.0",
-/*    "MathJax": "~2.4.0", */
     "alertify.js": "~0.3.11"
   },
   "main": [
