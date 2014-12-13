@@ -102,7 +102,7 @@ define([
 				element: '.navbar-inner',
 				title: 'Happy Writing!',
 				content: [
-					'<p>Enjoy writing like you always wanted to. Let us know if and when we can be of service to your writing needs by heading over to the <a href="#" data-toggle="modal" data-target=".modal-about"><i class="icon-help-circled"></i> About</a> screen. Psssttt! We would love your feedback, just look for these icons: <i class="icon-megaphone text-blue"></i>, <i class="icon-star-half-alt text-purple"></i>, & <i class="icon-chat-empty text-orange"></i>.</p>',
+					'<p>Enjoy writing like you always wanted to. Let us know if and when we can be of service to your writing needs by heading over to the <a href="#" data-toggle="modal" data-target=".modal-about"><i class="icon-help-circled"></i> About</a> screen. Psssttt! We would love your feedback, just look for these icons: <i class="icon-megaphone text-blue"></i>, <i class="icon-star-half-alt text-purple"></i>, <i class="icon-chat-empty text-orange"></i>.</p>',
 					'<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://writeon.io" data-text="Write like you always wanted to." data-via="writeon" data-size="large"></a>'
 				].join(""),
 				placement: 'bottom',

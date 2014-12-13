@@ -8,8 +8,18 @@ define([
     buttonUserFeedback.settingsBlock = '<p>Adds a "WriteOn Feedback" button over the preview.</p>';
 
     buttonUserFeedback.onCreatePreviewButton = function() {
+        /* jshint ignore:start */
+        
         // Include the UserVoice JavaScript SDK (only needed once)
-        UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/9ETh8LB2ADPn5Iwpgytg.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+            UserVoice=window.UserVoice||[];
+            (function(){
+            var uv=document.createElement('script');
+            uv.type='text/javascript';
+            uv.async=true;
+            uv.src='//widget.uservoice.com/9ETh8LB2ADPn5Iwpgytg.js';
+            var s=document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(uv,s);
+        })();
 
         //
         // UserVoice Javascript SDK developer documentation:
@@ -42,12 +52,14 @@ define([
         }]);
 
         // Custom trigger:
-        UserVoice.push(['addTrigger', '.send-feedback', { mode: 'smartvote' }]);
-        UserVoice.push(['addTrigger', '.say-hello', { mode: 'contact' }]);
-        UserVoice.push(['addTrigger', '.rate-app', { mode: 'satisfaction' }]);
+        UserVoice.push(['addTrigger', '#send-feedback', { mode: 'smartvote' }]);
+        UserVoice.push(['addTrigger', '#say-hello', { mode: 'contact' }]);
+        UserVoice.push(['addTrigger', '#rate-app', { mode: 'satisfaction' }]);
 
         // Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)
         UserVoice.push(['autoprompt', {}]);
+        
+        /* jshint ignore:end */
 
         return buttonUserFeedbackHTML;
     };
