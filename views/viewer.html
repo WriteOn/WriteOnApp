@@ -10,14 +10,7 @@
         <meta name="author" content="Beard & Fedora">
         <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
         <script>
-            window.baseDir = 'res';
-            if (!/(\?|&)debug($|&)/.test(location.search)) {
-                window.baseDir += '-min';
-            }
-            window.require = {
-                baseUrl: window.baseDir,
-                deps: ['main']
-            };
+            window.baseDir="res";if(!/(\?|&)debug($|&)/.test(location.search)){window.baseDir+="-min"}window.require={baseUrl:window.baseDir,deps:["main"]}
         </script>
         <script src="res-min/require.js"></script>
     </head>

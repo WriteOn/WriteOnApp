@@ -110,12 +110,12 @@ app.get('/', function(req, res) {
 
 // Serve signup.html in /signup
 app.get('/signup', function(req, res) {
-	res.renderDebug('signup.html');
+    res.redirect('/register');
 });
 
 // Serve signin.html in /singin
 app.get('/signin', function(req, res) {
-	res.renderDebug('signin.html');
+    res.redirect('/login');
 });
 
 // Serve editor.html in /editor
@@ -154,7 +154,7 @@ app.use(function(req, res) {
 // Error 500
 app.use(function(req, res) {
 	res.status(500);
-	res.render('error_404.html');
+	res.render('error_500.html');
 });
 
 
