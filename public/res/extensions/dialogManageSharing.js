@@ -30,9 +30,15 @@ define([
 		var editorLinkListHtml = _.reduce(fileDesc.syncLocations, function(result, attributes) {
 			var params = sharing.getEditorParams(attributes);
 			if(params) {
-				var link = constants.BASE_URL + 'editor#!' + $.param(params);
+				var link = constants.BASE_URL + 'pad#!' + $.param(params);
+                var icon = 'icon-link text-blue';
+                var title = 'Collaboration location';
+                var id = 'collab_location';
 				result += _.template(dialogManageSharingLocationHTML, {
-					link: link
+					link: link,
+                    icon: icon,
+                    title: title,
+                    id: id
 				});
 			}
 			return result;
@@ -40,7 +46,28 @@ define([
 		shareEditorListElt.innerHTML = editorLinkListHtml;
 		$msgNoShareEditorElt.toggleClass('hide', editorLinkListHtml.length !== 0);
 
-		var viewerLinkListHtml = _.reduce(fileDesc.publishLocations, function(result, attributes) {
+		var viewerLinkListHtml = _.reduce(fileDesc.syncLocations, function(result, attributes) {
+			var params = sharing.getEditorParams(attributes);
+			if(params) {
+				var link = constants.BASE_URL + 'paper#!' + $.param(params);
+                var icon = 'icon-doc-text-inv text-green';
+                var title = 'Sharing location';
+                var id = 'sharing_location';
+				result += _.template(dialogManageSharingLocationHTML, {
+					link: link,
+                    icon: icon,
+                    title: title,
+                    id: id
+				});
+			}
+			return result;
+		}, '');
+		shareViewerListElt.innerHTML = viewerLinkListHtml;
+		$msgNoShareViewerElt.toggleClass('hide', viewerLinkListHtml.length !== 0);
+    /*	the below code can be used to show published sharing options, primarily Gist. 
+     *  Will need to change	viewerLinkListHtml to something else (ie - publishedLinkListHtml)
+     * 
+        var viewerLinkListHtml = _.reduce(fileDesc.publishLocations, function(result, attributes) {
 			var params = sharing.getViewerParams(attributes);
 			if(params) {
 				var link = constants.BASE_URL + 'viewer#!' + $.param(params);
@@ -52,7 +79,9 @@ define([
 		}, '');
 		shareViewerListElt.innerHTML = viewerLinkListHtml;
 		$msgNoShareViewerElt.toggleClass('hide', viewerLinkListHtml.length !== 0);
-	};
+    *
+    */
+    };
 
 	dialogManageSharing.onFileSelected = function(fileDescParameter) {
 		fileDesc = fileDescParameter;

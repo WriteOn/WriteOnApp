@@ -191,8 +191,8 @@ catch(e) {
 	throw e;
 }
 
-// Viewer mode is deduced from the body class
-window.viewerMode = /(^| )viewer($| )/.test(document.body.className);
+// Paper mode is deduced from the body class
+window.viewerMode = /(^| )paper($| )/.test(document.body.className);
 
 // Keep the theme in a global variable
 window.theme = localStorage.themeV4 || 'gray';

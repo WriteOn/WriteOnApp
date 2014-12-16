@@ -57,7 +57,7 @@ app.set('view engine', 'jade');
 app.use(stormpath.init(app, {
     apiKeyFile: __dirname + '/../app/auth/apiKey.properties',
     application: 'https://api.stormpath.com/v1/applications/4SgKKI7uk6OY7vbVt8uW4c',
-    secretKey: process.env.AUTH_SECRET_KEY,
+    secretKey: 'oGibdMjhQn+nKRXICQEmldp+CKydCj5Q+fLslVWm7jM', //process.env.AUTH_SECRET_KEY,
     googleAnalyticsID: 'UA-56730909-3',
     enableFacebook: true,
     enableGoogle: true,
@@ -76,7 +76,7 @@ app.use(stormpath.init(app, {
     //sessionDomain: 'writeon.io', // Make the session cookie work on all writeon.io subdomains.
     cache: 'memory',
     //enableHttps: true,
-    redirectUrl: '/x6ywhf',
+    redirectUrl: '/pad',
     enableAutoLogin: true,
     enableForgotPassword: true,
     enableAccountVerification: true,
@@ -108,26 +108,26 @@ app.get('/', function(req, res) {
 	res.renderDebug('landing.html');
 });
 
-// Serve signup.html in /signup
+// Redirects
 app.get('/signup', function(req, res) {
     res.redirect('/register');
 });
-
-// Serve signin.html in /singin
 app.get('/signin', function(req, res) {
     res.redirect('/login');
 });
+app.get('/x6ywhf', function(req, res) {
+    res.redirect('/pad');
+});
 
-// Serve editor.html in /editor
-// ==== fedora - let's keep this randomized until we are public
+// Serve editor.html in /pad
 // Let's also lock this down with stormpath, by directory groups
-//app.get('/x6ywhf', stormpath.groupsRequired(['Tier 1', 'Tier 2', 'Admin', 'Beta'], false), function(req, res) {
-app.get('/x6ywhf', stormpath.loginRequired, function(req, res) {
+//app.get('/pad', stormpath.groupsRequired(['Tier 1', 'Tier 2', 'Admin', 'Beta'], false), function(req, res) {
+app.get('/pad', stormpath.loginRequired, function(req, res) {
 	res.renderDebug('editor.html');
 });
 
 // Serve viewer.html in /viewer
-app.get('/viewer', stormpath.loginRequired, function(req, res) {
+app.get('/viewer', function(req, res) {
 	res.renderDebug('viewer.html');
 });
 

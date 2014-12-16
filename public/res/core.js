@@ -380,7 +380,7 @@ define([
 		monetize.getPaymentsImmediate(function(err, payments) {
 			removeAlerts();
 			if(!isSponsor(payments)) {
-				_.each(document.querySelectorAll('.modal-body'), function(modalBodyElt) {
+				_.each(document.querySelectorAll('.monetize'), function(modalBodyElt) {
 					var $elt = $('<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>Please consider <a href="#">sponsoring</a> WriteOn to keep the <code>awesome</code> coming.</div>');
 					$elt.find('a').click(performPayment);
 					modalBodyElt.insertBefore($elt[0], modalBodyElt.firstChild);

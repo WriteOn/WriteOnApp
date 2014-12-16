@@ -579,7 +579,7 @@ define([
 		previewPanel.$elt.on('show.layout.toggle', function() {
 			_.defer(function() {
 				if(!previewPanel.isOpen) {
-					window.location.href = 'viewer';
+					window.location.href = 'paper';
 				}
 			});
 		});
