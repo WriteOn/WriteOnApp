@@ -1,11 +1,13 @@
 CACHE MANIFEST
-#Date Tue Dec 16 2014 17:20:57 GMT+0000 (UTC)
+#Date Tue Dec 16 2014 18:46:08 GMT+0000 (UTC)
 
 CACHE:
 .
 #editor
-viewer
-x6ywhf
+#viewer
+#x6ywhf
+paper
+pad
 
 # start_inject_resources
 res-min/main.js

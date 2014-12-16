@@ -4,7 +4,6 @@ var app = express();
 var compression = require('compression');
 var serveStatic = require('serve-static');
 
-
 // Configure expressjs (ejs) engine, for it will be #awesome for us.
 app.set('views', __dirname + '/../views');
 app.engine('html', require('ejs').renderFile);
@@ -126,12 +125,12 @@ app.get('/viewer', function(req, res) {
 // Let's also lock this down with stormpath, by directory groups
 //app.get('/pad', stormpath.groupsRequired(['Tier 1', 'Tier 2', 'Admin', 'Beta'], false), function(req, res) {
 app.get('/pad', stormpath.loginRequired, function(req, res) {
-	res.renderDebug('editor.html');
+    res.renderDebug('editor.html');
 });
 
 // Serve viewer.html in /paper
 app.get('/paper', function(req, res) {
-	res.renderDebug('viewer.html');
+    res.renderDebug('viewer.html');
 });
 
 /* Let's use custom error pages for the most common error codes with http */
