@@ -1,6 +1,6 @@
 // load the loader (overlay) before we load the loader (AMD)
-var bodyLoadingHTML = '<div class="overlay_loader_wrapper"><div class="overlay_loader"><span id="overlay_loader_1"></span><span id="overlay_loader_2"></span><span id="overlay_loader_3"></span></div></div>';
-document.body.innerHTML = bodyLoadingHTML;
+//var bodyLoadingHTML = '<div class="overlay_loader_wrapper"><div class="overlay_loader"><span id="overlay_loader_1"></span><span id="overlay_loader_2"></span><span id="overlay_loader_3"></span></div></div>';
+//document.body.innerHTML = bodyLoadingHTML;
 
 // RequireJS configuration
 /*global requirejs */
