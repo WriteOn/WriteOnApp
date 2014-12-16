@@ -63,7 +63,7 @@ define([
 				element: '.navbar-inner',
 				title: 'Welcome to WriteOn',
 				content: [
-					'<p>Hi there. WriteOn has been successfully installed. And, since you\'re new here, let\'s take a look around first. First things first...with WriteOn, <i class="icon-pencil-squared"> <strong>Pad</strong></i> is where you write, and <i class="icon-doc-text"> <strong>Paper</strong></i> is were you review.</p>',
+					'<p>Hi there. WriteOn has been successfully installed. And, since you\'re new here, let\'s take a look around. First things first...with WriteOn, <i class="icon-pencil-squared"> <strong>Pad</strong></i> is where you write, and <i class="icon-doc-text"> <strong>Paper</strong></i> is were you review.</p>',
 					'Please tap <b>Next</b> to take a quick tour.'
 				].join(""),
 				placement: 'bottom'
@@ -82,8 +82,8 @@ define([
 				element: '.menu-panel .toggle-button',
 				title: 'Menu',
 				content: [
-					'<p>The <i class="icon-provider-writeon"></i> <b>Menu</b> panel allows you to synchronize your local stories with <br><i class="icon-provider-mywriteon"></i> My.WriteOn, <i class="icon-provider-gdrive"></i> Google Drive, <i class="icon-provider-dropbox"></i> or Dropbox. You can also publish stories directly to <i class="icon-provider-tumblr"></i> Tumblr, <i class="icon-provider-ghost"></i> Ghost, <i class="icon-provider-wordpress"></i> Wordpress, <i class="icon-provider-blogger"></i> Blogger, and <i class="icon-provider-github"></i> GitHub.</p>',
-					'<b>Tip:</b> Use the <i class="icon-provider-writeon"></i> <b>MMenu</b> pabel to access your account, settings, extensions, & utilities.'
+					'<p>The <i class="icon-menu"></i> <b>Menu</b> panel allows you to synchronize your local stories with <br><i class="icon-provider-mywriteon"></i> My.WriteOn, <i class="icon-provider-gdrive"></i> Google Drive, <i class="icon-provider-dropbox"></i> or Dropbox. You can also publish stories directly to <i class="icon-provider-tumblr"></i> Tumblr, <i class="icon-provider-ghost"></i> Ghost, <i class="icon-provider-wordpress"></i> Wordpress, <i class="icon-provider-blogger"></i> Blogger, and <i class="icon-provider-github"></i> GitHub.</p>',
+					'<b>Tip:</b> Use the <i class="icon-menu"></i> <b>Menu</b> pabel to access your account, settings, extensions, & utilities.'
 				].join(""),
 				placement: 'right',
 				reflex: true

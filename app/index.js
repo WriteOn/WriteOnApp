@@ -57,7 +57,7 @@ app.set('view engine', 'jade');
 app.use(stormpath.init(app, {
     apiKeyFile: __dirname + '/../app/auth/apiKey.properties',
     application: 'https://api.stormpath.com/v1/applications/4SgKKI7uk6OY7vbVt8uW4c',
-    secretKey: 'oGibdMjhQn+nKRXICQEmldp+CKydCj5Q+fLslVWm7jM', //process.env.AUTH_SECRET_KEY,
+    secretKey: process.env.AUTH_SECRET_KEY,
     googleAnalyticsID: 'UA-56730909-3',
     enableFacebook: true,
     enableGoogle: true,
@@ -118,6 +118,9 @@ app.get('/signin', function(req, res) {
 app.get('/x6ywhf', function(req, res) {
     res.redirect('/pad');
 });
+app.get('/viewer', function(req, res) {
+    res.redirect('/paper');
+});
 
 // Serve editor.html in /pad
 // Let's also lock this down with stormpath, by directory groups
@@ -126,8 +129,8 @@ app.get('/pad', stormpath.loginRequired, function(req, res) {
 	res.renderDebug('editor.html');
 });
 
-// Serve viewer.html in /viewer
-app.get('/viewer', function(req, res) {
+// Serve viewer.html in /paper
+app.get('/paper', function(req, res) {
 	res.renderDebug('viewer.html');
 });
 

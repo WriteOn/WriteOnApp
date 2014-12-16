@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#Date Sun Dec 14 2014 19:45:33 GMT+0000 (UTC)
+#Date Tue Dec 16 2014 17:12:08 GMT+0000 (UTC)
 
 CACHE:
 .
@@ -35,6 +35,9 @@ res-min/img/device-sync.png
 res-min/img/diagram.png
 res-min/img/favicon.ico
 res-min/img/gittip.png
+res-min/img/helliejellie-b.png
+res-min/img/helliejellie-g.png
+res-min/img/helliejellie-r.png
 res-min/img/helliejellie.png
 res-min/img/icons.png
 res-min/img/icons2x.png
@@ -52,6 +55,7 @@ res-min/img/syntax-highlighting.gif
 res-min/img/toc.gif
 res-min/img/typewriter-icon-32.ico
 res-min/img/writeon-ipad.jpg
+res-min/img/writeon-logo.png
 res-min/themes/base.css
 res-min/themes/blue.css
 res-min/themes/default.css
