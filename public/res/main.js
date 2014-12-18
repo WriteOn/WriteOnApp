@@ -79,7 +79,8 @@ requirejs.config({
 //		MathJax: 'bower-libs/MathJax/MathJax',
 		alertify: 'bower-libs/alertify.js/lib/alertify',
         oauth: 'bower-libs/oauth-js/dist/oauth',
-        couchdb: 'libs/jquery.couch'
+        couchdb: 'libs/jquery.couch',
+        contextjs: 'bower-libs/Context.js/context'
 	},
 	shim: {
 		underscore: {

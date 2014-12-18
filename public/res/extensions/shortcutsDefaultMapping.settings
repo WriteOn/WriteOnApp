@@ -12,8 +12,16 @@
     'mod+z': bindPagedownButton('undo'),
     'mod+y': bindPagedownButton('redo'),
     'mod+shift+z': bindPagedownButton('redo'),
-    'mod+m': function(evt) {
+    'mod+d': function(evt) {
         $('.button-open-discussion').click();
+        evt.preventDefault();
+    },
+    'mod+m': function(evt) {
+        $('.menu-panel .toggle-button').click();
+        evt.preventDefault();
+    },
+    'mod+s': function(evt) {
+        $('.document-panel .toggle-button').click();
         evt.preventDefault();
     },
     '= = > space': function() {
@@ -22,7 +30,7 @@
     '< = = space': function() {
         expand('<== ', '⇐ ');
     },
-    'S t a c k E d i t': function() {
-        eventMgr.onMessage("You are stunned!!! Aren't you?");
+    'W r i t e O n': function() {
+        eventMgr.onMessage("You are stunned, aren't you?");
     }
 }

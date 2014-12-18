@@ -8,7 +8,8 @@ define([
 	'crel',
 	'mousetrap',
 	'hammerjs',
-], function($, _, utils, constants, settings, eventMgr, crel, mousetrap, hammer) {
+    'contextjs'
+], function($, _, utils, constants, settings, eventMgr, crel, mousetrap, hammer, context) {
 	var layout = {};
 
 	var resizerSize = 32;
@@ -732,6 +733,37 @@ define([
 	};
 
 	eventMgr.addListener('onReady', function() {
+        
+    /* ContextJS contexutal menus */
+    context.init({preventDoubleContext: false});
+    context.settings({compress: true});
+	context.attach('body', [
+
+		{header: '<i class="icon-provider-writeon"></i> WriteOn'},
+        {divider: true},
+		{text: '<i class="icon-menu"></i> Menu', action: function(e){
+		    e.preventDefault();
+            $('.menu-panel .toggle-button').click();
+		}},
+		{text: '<i class="icon-folder-open"></i> Stories', action: function(e){
+		    e.preventDefault();
+            $('.document-panel .toggle-button').click();
+		}},
+        {divider: true},
+		{text: '<i class="icon-cog-alt"></i> Settings', action: function(e){
+		    e.preventDefault();
+            $('.action-load-settings').click();
+		}},
+		{text: '<i class="icon-help-circled"></i> About', action: function(e){
+		    e.preventDefault();
+            $('.action-load-about').click();
+		}},
+        {divider: true},
+		{text: '<i class="icon-list-alt"></i> Website', href: 'http://writeon.io', target: '_blank'},
+		{text: '<i class="icon-twitter"></i> Twitter', href: 'http://twitter.com/writeon', target: '_blank'}
+	]);
+
+
 		previewButtons.x = previewButtonsOffset.x;
 		previewButtons.y = previewButtonsOffset.y;
 		previewButtons.applyCss();
