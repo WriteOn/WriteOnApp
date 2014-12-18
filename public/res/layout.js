@@ -762,7 +762,7 @@ define([
 		}},
         {divider: true},
 		{text: '<i class="icon-list-alt"></i> Website', href: 'http://writeon.io', target: '_blank'},
-		{text: '<i class="icon-twitter"></i> Twitter', href: 'http://twitter.com/writeon', target: '_blank'}
+		{text: '<i class="icon-twitter"></i> Twitter', href: 'http://twitter.com/WriteOnApp', target: '_blank'}
 	]);
         
     /* jshint ignore:end */
