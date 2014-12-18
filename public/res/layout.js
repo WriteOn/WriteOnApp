@@ -9,7 +9,7 @@ define([
 	'mousetrap',
 	'hammerjs',
     'contextjs'
-], function($, _, utils, constants, settings, eventMgr, crel, mousetrap, hammer, context) {
+], function($, _, utils, constants, settings, eventMgr, crel, mousetrap, hammer) {
 	var layout = {};
 
 	var resizerSize = 32;
@@ -734,6 +734,8 @@ define([
 
 	eventMgr.addListener('onReady', function() {
         
+    /* jshint ignore:start */
+    
     /* ContextJS contexutal menus */
     context.init({preventDoubleContext: false});
     context.settings({compress: true});
@@ -762,6 +764,8 @@ define([
 		{text: '<i class="icon-list-alt"></i> Website', href: 'http://writeon.io', target: '_blank'},
 		{text: '<i class="icon-twitter"></i> Twitter', href: 'http://twitter.com/writeon', target: '_blank'}
 	]);
+        
+    /* jshint ignore:end */
 
 
 		previewButtons.x = previewButtonsOffset.x;
