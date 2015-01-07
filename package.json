@@ -19,7 +19,8 @@
     "serve-static": "^1.5.3",
     "nodetime": "^0.8.15",
     "newrelic": "^1.13.4",
-    "express-stormpath": "~0.5.6"
+    "express-stormpath": "~0.5.6",
+    "xtend": "~4.0.0"
   },
   "devDependencies": {
     "gulp": "^3.8.7",

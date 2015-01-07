@@ -604,7 +604,7 @@ a {
 	border-radius: 0;
 	z-index: 20;
 	.left-space, .right-space {
-		width: 70px;
+		width: 82px;
 		height: @input-height-slim;
 	}
 	.nav {
@@ -614,10 +614,15 @@ a {
 		& > li {
 			display: inline-block;
 		}
+        &.left-buttons {
+            margin: 5px 0;
+        }
+        &.first {
+            margin-left: 10px;
+        }
 		// Dropdown submenu
 		&.pull-right {
 			float: right;
-            padding-right: 10px;
 			& > li > .dropdown-menu {
 				right: 0;
 				left: auto;
@@ -714,9 +719,6 @@ a {
 	    padding: 5px;
         margin: 10px;
 	}
-    .import-stories {
-        padding-right: 16px !important;
-    }
 }
 
 

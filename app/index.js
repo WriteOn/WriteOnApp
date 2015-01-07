@@ -3,9 +3,18 @@ var stormpath = require('express-stormpath');
 var app = express();
 var compression = require('compression');
 var serveStatic = require('serve-static');
+var extend = require('xtend');
+
+
+/* It's not quite Project Metosis, but this is going to allow us to 
+ * serve meta pages (static resources) that are isolated from the core application middleware
+ * and all of its dependencies. We also serve the web static pages that are pulling
+ * in the app for loading and download in the browser [(]via serverStatic() below]
+ * 
+*/ 
+app.set('views', __dirname + '/../views');
 
 // Configure expressjs (ejs) engine, for it will be #awesome for us.
-app.set('views', __dirname + '/../views');
 app.engine('html', require('ejs').renderFile);
 
 // Force HTTPS on writeon.io for really obvious reasons
@@ -30,11 +39,9 @@ app.post('/sshPublish', require('./ssh').publish);
 app.post('/picasaImportImg', require('./picasa').importImg);
 app.get('/downloadImport', require('./download').importPublic);
 
-/* It's not quite Project Metosis, but this is going to allow us to 
- * serve meta pages (static resources) that are isolated from the core application 
- * and all of its dependencies. We also serve the web static pages that are pulling
- * in the app for loading and download in the browser.
- * 
+/* 
+ * Load Pad & Paper statically, as new middleware function to serve files from within specified directory
+ * This allows us to operate Pad & Paper as thin browser clients with no dependency on server middleware
 */ 
 app.use(serveStatic(__dirname + '/../public'));
 
@@ -56,7 +63,7 @@ app.set('view engine', 'jade');
 app.use(stormpath.init(app, {
     apiKeyFile: __dirname + '/../app/auth/apiKey.properties',
     application: 'https://api.stormpath.com/v1/applications/4SgKKI7uk6OY7vbVt8uW4c',
-    secretKey: process.env.AUTH_SECRET_KEY,
+    secretKey: '@8fBca0AL@8w725SvwHRGfy2e4l7Z6',
     googleAnalyticsID: 'UA-56730909-3',
     enableFacebook: true,
     enableGoogle: true,
@@ -125,7 +132,11 @@ app.get('/viewer', function(req, res) {
 // Let's also lock this down with stormpath, by directory groups
 //app.get('/pad', stormpath.groupsRequired(['Tier 1', 'Tier 2', 'Admin', 'Beta'], false), function(req, res) {
 app.get('/pad', stormpath.loginRequired, function(req, res) {
-    res.renderDebug('editor.html');
+    res.renderDebug('editor.html'), extend({
+    givenName: req.user.givenName,
+    surname: req.user.surname,
+    username: req.user.username
+  });
 });
 
 // Serve viewer.html in /paper
