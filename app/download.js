@@ -15,6 +15,6 @@ exports.importPublic = function(req, res) {
 		});
 	}
 	else {
-		res.send(400, 'This is unknown <a href="https://en.wikipedia.org/wiki/Lists_of_network_protocols" target="_blank">protocol</a>.');
+		res.send(400, 'This is an unknown <a href="https://en.wikipedia.org/wiki/Lists_of_network_protocols" target="_blank">protocol</a>.');
 	}
 };
