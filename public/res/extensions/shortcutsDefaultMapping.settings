@@ -30,6 +30,10 @@
     '< = = space': function() {
         expand('<== ', '⇐ ');
     },
+    'mod+shift+m': function(evt) {
+        $('.action-sync-import-dialog-mywriteon').click();
+        evt.preventDefault();
+    },
     'W r i t e O n': function() {
         eventMgr.onMessage("You are stunned, aren't you?");
     }
