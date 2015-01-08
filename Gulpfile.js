@@ -180,6 +180,7 @@ gulp.task('copy-img', ['clean-img'], function() {
 gulp.task('cache-manifest-mathjax', function() {
 	return gulp.src('./public/cache.manifest')
 		.pipe(replace(/(#Date ).*/, '$1' + Date()))
+		.pipe(replace(/(#Version ).*/, '$1' + getVersion()))
 		.pipe(inject(gulp.src([
 				'./res-min/**/*.*'
 			], {
@@ -232,6 +233,7 @@ gulp.task('cache-manifest-mathjax', function() {
 gulp.task('cache-manifest', function() {
 	return gulp.src('./public/cache.manifest')
 		.pipe(replace(/(#Date ).*/, '$1' + Date()))
+		.pipe(replace(/(#Version ).*/, '$1' + getVersion()))
 		.pipe(inject(gulp.src([
 				'./res-min/**/*.*'
 			], {

@@ -1,11 +1,9 @@
 CACHE MANIFEST
-#Date Thu Jan 08 2015 01:54:24 GMT+0000 (UTC)
+#Date Thu Jan 08 2015 15:41:07 GMT+0000 (UTC)
+#Version 1.6.2
 
 CACHE:
 .
-#editor
-#viewer
-#x6ywhf
 paper
 pad
 
@@ -66,7 +64,6 @@ res-min/themes/neat.css
 res-min/themes/night.css
 res-min/themes/school.css
 res-min/themes/solarized-dark.css
-res-min/themes/solarized-light.css
 # end_inject_resources
 
 
