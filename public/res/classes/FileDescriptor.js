@@ -119,11 +119,17 @@ define([
 		delete this.publishLocations[publishAttributes.publishIndex];
 	};
 
+    /* jshint ignore:start */
+    /*
+	 * REMOVING these automagically added Provider icons to the Story Title - 
+	 * Ufrom jshint, so we can ignore lines 180 & 192 without error on jshint build
+	 * 
+    */
 	function addIcon(result, attributes) {
 		result.push('<i class="icon-provider-' + attributes.provider.providerId + '"></i>');
 	}
 
-	function addSyncIconWithLink(result, attributes) {
+	 function addSyncIconWithLink(result, attributes) {
 		if(attributes.provider.getSyncLocationLink) {
 			var syncLocationLink = attributes.provider.getSyncLocationLink(attributes);
 			result.push([
@@ -158,30 +164,40 @@ define([
 			addIcon(result, attributes);
 		}
 	}
+    
 
 	FileDescriptor.prototype.composeTitle = function(createLinks) {
 		var result = [];
+		/* 
+		 *  REMOVING these automagically added Provider icons as above on line 126
+		 * 
+		*/
 		var addSyncIcon = createLinks ? addSyncIconWithLink : addIcon;
 		var addPublishIcon = createLinks ? addPublishIconWithLink : addIcon;
 		_.chain(this.syncLocations).sortBy(function(attributes) {
 			return attributes.provider.providerId;
 		}).each(function(attributes) {
-			addSyncIcon(result, attributes);
+			//addSyncIcon(result, attributes);
 		});
 		if(_.size(this.syncLocations) !== 0) {
-			//result.push('<i class="icon-refresh title-icon-category"></i>');
+			result.push('<i class="icon-refresh title-icon-category"></i>');
 		}
+		/* 
+		 *  REMOVING these automagically added Provider icons as above on line 126
+		 * 
+		*/
 		_.chain(this.publishLocations).sortBy(function(attributes) {
 			return attributes.provider.providerId;
 		}).each(function(attributes) {
-			addPublishIcon(result, attributes);
+			//addPublishIcon(result, attributes);
 		});
 		if(_.size(this.publishLocations) !== 0) {
-			//result.push('<i class="icon-upload title-icon-category"></i>');
+			result.push('<i class="icon-print title-icon-category"></i>');
 		}
 		result.push(_.escape(this.title));
 		return result.join('');
 	};
+    /* jshint ignore:end */
 
 	return FileDescriptor;
 });

@@ -13887,21 +13887,6 @@ function() {
    }
   });
  }
- function r(e, t) {
-  e.push('<i class="icon-provider-' + t.provider.providerId + '"></i>');
- }
- function o(e, t) {
-  if (t.provider.getSyncLocationLink) {
-   var n = t.provider.getSyncLocationLink(t);
-   e.push([ '<a href="', n, '" target="_blank" title="Open in ', t.provider.providerName, '"><i class="icon-provider-', t.provider.providerId, '"></i><i class="icon-link-ext-alt"></i></a>' ].join(""));
-  } else r(e, t);
- }
- function a(e, t) {
-  if (t.provider.getPublishLocationLink) {
-   var n = t.provider.getPublishLocationLink(t);
-   e.push([ '<a href="', n, '" target="_blank" title="Open in ', t.provider.providerName, '"><i class="icon-provider-', t.provider.providerId, '"></i><i class="icon-link-ext-alt"></i></a>' ].join(""));
-  } else r(e, t);
- }
  return i.prototype.addSyncLocation = function(e) {
   t.storeAttributes(e), t.appendIndexToArray(this.fileIndex + ".sync", e.syncIndex), 
   this.syncLocations[e.syncIndex] = e;
@@ -13913,16 +13898,14 @@ function() {
  }, i.prototype.removePublishLocation = function(e) {
   t.removeIndexFromArray(this.fileIndex + ".publish", e.publishIndex), delete this.publishLocations[e.publishIndex];
  }, i.prototype.composeTitle = function(t) {
-  var n = [], i = t ? o : r, s = t ? a : r;
+  var n = [];
   return e.chain(this.syncLocations).sortBy(function(e) {
    return e.provider.providerId;
-  }).each(function(e) {
-   i(n, e);
-  }), 0 !== e.size(this.syncLocations), e.chain(this.publishLocations).sortBy(function(e) {
+  }).each(function() {}), 0 !== e.size(this.syncLocations) && n.push('<i class="icon-refresh title-icon-category"></i>'), 
+  e.chain(this.publishLocations).sortBy(function(e) {
    return e.provider.providerId;
-  }).each(function(e) {
-   s(n, e);
-  }), 0 !== e.size(this.publishLocations), n.push(e.escape(this.title)), n.join("");
+  }).each(function() {}), 0 !== e.size(this.publishLocations) && n.push('<i class="icon-print title-icon-category"></i>'), 
+  n.push(e.escape(this.title)), n.join("");
  }, i;
 }), define("fileSystem", [ "underscore", "utils", "classes/FileDescriptor", "storage" ], function(e, t, n, i) {
  var r = {};
@@ -28536,7 +28519,7 @@ try {
   set: function() {}
  });
 } catch (e) {
- throw alert("Your browser is not supported, please upgrade to a more safe & reliable browser."), 
+ throw alert("Your browser is not supported, please upgrade to a more safe & reliable browser.)"), 
  e;
 }
 
