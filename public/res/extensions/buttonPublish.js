@@ -32,18 +32,34 @@ define([
         publisher = publisherParameter;
     };
 
-    buttonPublish.onCreateButton = function() {
+    buttonPublish.onCreatePubButton = function() {
         var button = crel('a', {
-            class: 'btn btn-success button-publish',
-            title: 'Update published story'
+            class: 'button-publish action-reset-input action-update-publication',
+            title: 'Update published story',
+            href: '#'
         }, crel('i', {
-            class: 'icon-upload'
-        }));
-        $button = $(button).click(function() {
+            class: 'icon-print'
+        }), crel('span', ' Republish Now'));
+        $button = $(button);
+        $button.click(function() {
             if(!$button.hasClass("disabled")) {
                 publisher.publish();
             }
         });
+        return button;
+    };
+
+    buttonPublish.onCreatePubMngButton = function() {
+        var button = crel('a', {
+            class: 'action-reset-input',
+            title: 'Manage publications',
+            href: '#',
+            'data-target': '.modal-manage-publish',
+            'data-toggle': 'modal'
+        }, crel('i', {
+            class: 'icon-edit'
+        }), crel('span', ' Manage'));
+        $button = $(button);
         return button;
     };
 

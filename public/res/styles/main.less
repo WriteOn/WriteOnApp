@@ -203,7 +203,7 @@ body {
         border-bottom: 1px solid transparent;
         &:hover,
         &:focus {
-            border-color: @list-group-hover-border-color;
+            border-bottom-color: @list-group-hover-border-color;
         }
     }
     > .disabled > a {
@@ -221,6 +221,11 @@ body {
 .fade {
     -webkit-transition: opacity 0.07s linear;
     transition: opacity 0.07s linear;
+    
+    -webkit-transition: opacity .1s linear,top .1s ease-out;
+-moz-transition: opacity .1s linear,top .1s ease-out;
+-o-transition: opacity .1s linear,top .1s ease-out;
+transition: opacity .1s linear,top .1s ease-out;
 }
 .modal {
 	&.fade .modal-dialog {
@@ -604,7 +609,7 @@ a {
 	border-radius: 0;
 	z-index: 20;
 	.left-space, .right-space {
-		width: 82px;
+		width: 42px;
 		height: @input-height-slim;
 	}
 	.nav {
@@ -721,6 +726,22 @@ a {
 	}
 }
 
+/* Some button overrides taking place */
+.navbar-inner > .nav > .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    border-color: transparent;
+}
+.navbar-inner > .nav > .btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+    border-radius: 4px;
+    border-color: transparent;
+}
+.navbar-inner > .nav > .btn-group > .btn:last-child:not(:first-child), .btn-group > .dropdown-toggle:not(:first-child) {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    border-color: transparent;
+}
+.navbar-inner > .nav >  .btn-group > a.btn.btn-success.button-open-discussion {border-color: transparent;}
 
 
 /*********************
@@ -734,7 +755,7 @@ a {
 	overflow: initial;
     .toggle-button {
     	color: @btn-success-color;
-        background-color: @navbar-default-bg;
+        background-color: transparent;
         height: @navbar-height;
         border-radius: 0; //4px;
 		position: absolute;
@@ -750,14 +771,18 @@ a {
         	font-size: 26px;
         }
 	}
-    & .toggle-button:hover, &.panel-open > .toggle-button {
+    & .toggle-button:hover {
         border-width: 1px;
         color: @btn-success-hover-color;
-            & i {
-                color: @btn-success-hover-color;
-            }
 	}
-	.panel-content {
+    &.panel-open > .toggle-button {
+        border-width: 1px;
+        color: @secondary-bg-lighter;
+            & i {
+                color: @secondary-bg-lighter;
+            }
+	}	
+    .panel-content {
 		overflow: auto;
 		padding-bottom: 30px;
 		height: 100%;
@@ -786,6 +811,7 @@ a {
             &:hover,
             &:focus {
                 background-color: @transparent;
+                border-color: @transparent;
             }
         }
     }
@@ -794,7 +820,7 @@ a {
             padding-right: 5px;
         }
         > li > a.btn {
-            padding: 8px 4px;
+            padding: 2px 4px;
             text-align: left;
             margin-top: 7px;
         i {
@@ -821,12 +847,12 @@ a {
         border-right: 5px solid fade(@logo-blue, @panel-button-border-fade);
         border-bottom: 4px solid fade(@logo-orange, @panel-button-border-fade);
         */
-	    right: -91px;
+	    right: -51px;
 		z-index: -1;
 		padding: 0 5px 0 50px;
 	}
     & .toggle-button:hover, &.panel-open > .toggle-button {
-        right: -91px;
+        right: -51px;
 	}
 	.panel-content {
 		background-color: @secondary-bg-light;
@@ -846,7 +872,7 @@ a {
         border-left: 5px solid fade(@logo-green, @panel-button-border-fade);
         border-bottom: 4px solid fade(@logo-orange, @panel-button-border-fade);
         */
-	    left: -108px;
+	    left: -51px;
 		padding: 0 50px 0 1px;
 		z-index: -1;
 		i.icon-folder-open {
@@ -855,11 +881,11 @@ a {
        	}
 	}
     & .toggle-button:hover, &.panel-open > .toggle-button {
-        left: -108px;
+        left: -51px;
 	}
 	.panel-content {
 		background-color: @list-group-bg;
-		padding-top: 270px;
+		padding-top: 90px;
         .viewer & {
             padding-top: 75px;
         }
@@ -1013,6 +1039,7 @@ a {
     & > .btn,
     & > .btn {
     	border-radius: 3; 
+        border-color: transparent;
     }
     &:first-child > .btn,
     &:first-child > .btn {

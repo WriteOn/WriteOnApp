@@ -28519,7 +28519,7 @@ try {
   set: function() {}
  });
 } catch (e) {
- throw alert("Your browser is not supported, please upgrade to a more safe & reliable browser.)"), 
+ throw alert("Your browser is not supported, please upgrade to a more safe & reliable browser."), 
  e;
 }
 
@@ -28530,7 +28530,12 @@ var themeModule = "less!themes/" + window.theme;
 -1 !== window.baseDir.indexOf("-min") && (themeModule = "css!themes/" + window.theme), 
 require([ "jquery", "rangy", "core", "eventMgr", "synchronizer", "publisher", "sharing", "mediaImporter", "css", "rangy-cssclassapplier", themeModule ], function(e, t, n, i) {
  window.noStart || e(function() {
-  t.init(), n.onReady(), window.applicationCache && window.applicationCache.addEventListener("updateready", function() {
+  t.init(), n.onReady(), window.addEventListener("load", function() {
+   window.applicationCache.addEventListener("updateready", function() {
+    window.applicationCache.status == window.applicationCache.UPDATEREADY && (window.applicationCache.swapCache(), 
+    i.onMessage('A new version of WriteOn is available.\nJust <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a> to upgrade.'));
+   }, !1);
+  }, !1), window.applicationCache && window.applicationCache.addEventListener("updateready", function() {
    window.applicationCache.status === window.applicationCache.UPDATEREADY && (window.applicationCache.swapCache(), 
    i.onMessage("A new version of WriteOn is available.\nJust refresh the page to upgrade."));
   }, !1);

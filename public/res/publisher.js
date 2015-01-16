@@ -270,9 +270,9 @@ define([
 	}
 
 	var initPublishButtonTmpl = [
-		'<li class="col-sm-6">',
+		'<li>',
 		'   <a href="#"',
-		'    class="btn btn-default btn-col action-init-publish-<%= provider.providerId %>">',
+		'    class="action-init-publish-<%= provider.providerId %>">',
 		'       <i class="icon-provider-<%= provider.providerId %>"></i> <%= provider.providerName %>',
 		'   </a>',
 		'</li>'
@@ -280,13 +280,14 @@ define([
 	eventMgr.addListener("onReady", function() {
 		if(window.viewerMode === false) {
 			// Add every provider in the panel menu
-			var publishMenuElt = document.querySelector('.menu-panel .publish-on-provider-list');
+			var publishMenuElt = document.querySelector('.publish-on-provider-list');
 			var publishMenuHtml = _.reduce(providerMap, function(result, provider) {
 				return result + _.template(initPublishButtonTmpl, {
 					provider: provider
 				});
 			}, '');
-			publishMenuElt.innerHTML = publishMenuHtml;
+			//publishMenuElt.innerHTML = publishMenuHtml;
+            publishMenuElt.insertAdjacentHTML('beforeend', publishMenuHtml);
 			_.each(providerMap, function(provider) {
 				// Click on open publish dialog
 				$(publishMenuElt.querySelector('.action-init-publish-' + provider.providerId)).click(function() {

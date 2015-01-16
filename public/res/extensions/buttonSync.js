@@ -55,13 +55,14 @@ define([
         synchronizer.sync() && (lastSync = utils.currentTime);
     };
 
-    buttonSync.onCreateButton = function() {
+    buttonSync.onCreateSyncButton = function() {
         var button = crel('a', {
-            class: 'btn btn-success button-synchronize',
-            title: 'Force synchronization Ctrl/Cmd+S'
+            class: 'button-synchronize action-force-synchronization',
+            title: 'Force synchronization Ctrl/Cmd+S',
+            href: '#'
         }, crel('i', {
             class: 'icon-refresh'
-        }));
+        }), crel('span', ' Sync Now'));
         $button = $(button);
         $button.click(function() {
             if(!$button.hasClass("disabled")) {
@@ -70,7 +71,19 @@ define([
         });
         return button;
     };
-
+    buttonSync.onCreateSyncMngButton = function() {
+        var button = crel('a', {
+            class: 'action-reset-input',
+            title: 'Manage synchronizations',
+            href: '#',
+            'data-target': '.modal-manage-sync',
+            'data-toggle': 'modal'
+        }, crel('i', {
+            class: 'icon-edit'
+        }), crel('span', ' Manage'));
+        $button = $(button);
+        return button;
+    };
     buttonSync.onReady = updateButtonState;
     buttonSync.onFileCreated = updateButtonState;
     buttonSync.onFileDeleted = updateButtonState;

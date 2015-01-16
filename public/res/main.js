@@ -192,7 +192,7 @@ try {
 	});
 }
 catch(e) {
-	alert('Your browser is not supported, please upgrade to a more safe & reliable browser.)');
+	alert('Your browser is not supported, please upgrade to a more safe & reliable browser.' + e.toString);
 	throw e;
 }
 
@@ -233,12 +233,13 @@ require([
 		// Here, all the modules are loaded and the DOM is ready
 		core.onReady();
 
-		// If browser has detected a new application cache.
+        // Check if a new cache / version is available on page load.
+        // If browser has detected a new application cache.
 		if(window.applicationCache) {
 			window.applicationCache.addEventListener('updateready', function() {
 				if(window.applicationCache.status === window.applicationCache.UPDATEREADY) {
 					window.applicationCache.swapCache();
-					eventMgr.onMessage('A new version of WriteOn is available.\nJust refresh the page to upgrade.');
+					eventMgr.onMessage('A new version of WriteOn is available.\nJust <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a> to upgrade.');
 				}
 			}, false);
 		}

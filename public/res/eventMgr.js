@@ -278,6 +278,36 @@ define([
 			return buttonGrpElt;
 		};
 
+        // Create a sync dropdown button from an extension listener
+		var createSyncBtn = function(listener) {
+			var buttonSyncGrpElt = crel('li', {
+				class: 'show-already-synchronized'
+			});
+			var btnSyncElt = listener();
+			if(_.isString(btnSyncElt)) {
+				buttonSyncGrpElt.innerHTML = btnSyncElt;
+			}
+			else if(_.isElement(btnSyncElt)) {
+				buttonSyncGrpElt.appendChild(btnSyncElt);
+			}
+			return buttonSyncGrpElt;
+		};
+
+        // Create a publish dropdown button from an extension listener
+		var createPubBtn = function(listener) {
+			var buttonPubGrpElt = crel('li', {
+				class: 'show-already-published'
+			});
+			var btnPubElt = listener();
+			if(_.isString(btnPubElt)) {
+				buttonPubGrpElt.innerHTML = btnPubElt;
+			}
+			else if(_.isElement(btnPubElt)) {
+				buttonPubGrpElt.appendChild(btnPubElt);
+			}
+			return buttonPubGrpElt;
+		};
+
 		if(window.viewerMode === false) {
 			// Create accordion in settings dialog
 			var accordionHtml = _.chain(extensionList).sortBy(function(extension) {
@@ -300,6 +330,38 @@ define([
 				extensionButtonsFragment.appendChild(createBtn(listener));
 			});
 			document.querySelector('.extension-buttons').appendChild(extensionButtonsFragment);
+
+            // Create sync menu and sync now buttons
+			logger.log("onCreateSyncButton");
+            logger.log("onCreateSyncMngButton");
+			var onCreateSyncButtonListenerList = getExtensionListenerList("onCreateSyncButton");
+			var onCreateSyncMngButtonListenerList = getExtensionListenerList("onCreateSyncMngButton");
+			var extensionButtonsFragment = document.createDocumentFragment();
+			_.each(onCreateSyncButtonListenerList, function(listener) {
+				extensionButtonsFragment.appendChild(createSyncBtn(listener));
+			});
+            document.querySelector('.sync-menu').insertBefore(extensionButtonsFragment, document.querySelector('.sync-divider'));
+			_.each(onCreateSyncMngButtonListenerList, function(listener) {
+				extensionButtonsFragment.appendChild(createSyncBtn(listener));
+			});
+            document.querySelector('.sync-menu').insertBefore(extensionButtonsFragment, document.querySelector('.sync-divider'));
+            
+            // Create publish menu and sync now buttons
+			logger.log("onCreatePubButton");
+            logger.log("onCreatePubMngButton");
+			var onCreateSyncButtonListenerList = getExtensionListenerList("onCreatePubButton");
+			var onCreateSyncMngButtonListenerList = getExtensionListenerList("onCreatePubMngButton");
+			var extensionButtonsFragment = document.createDocumentFragment();
+			_.each(onCreateSyncButtonListenerList, function(listener) {
+				extensionButtonsFragment.appendChild(createPubBtn(listener));
+			});
+            document.querySelector('.publish-menu').insertBefore(extensionButtonsFragment, document.querySelector('.publish-divider'));
+			_.each(onCreateSyncMngButtonListenerList, function(listener) {
+				extensionButtonsFragment.appendChild(createPubBtn(listener));
+			});
+            document.querySelector('.publish-menu').insertBefore(extensionButtonsFragment, document.querySelector('.publish-divider'));
+            
+            
 		}
 
 		// Create extension preview buttons

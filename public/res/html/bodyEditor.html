@@ -31,11 +31,49 @@
                         <a class="btn btn-success button-open-discussion" title="Comments Ctrl/Cmd+M"><i class="icon-comment-alt"></i></a>
                     </li>
                 </ul>
-                <ul class="nav pull-right right-buttons import-stories">
-                    <li class="pull-right dropdown btn-group">
-                        <a href="#" data-toggle="dropdown" title="Open & Import" class="btn"><i class="icon-plus-squared"></i></a>
+                <ul class="nav pull-right right-buttons">
+                    <li class="offline-status hide">
+                        <div class="text-danger">
+                            <a class="btn btn-danger" title="You are offline...It's a great time to write!"><i class="icon-attention-circled"></i></a>
+                        </div>
+                    </li>
+                    <li class="dropdown btn-group extension-buttons">
+                        <a href="#" data-toggle="dropdown" title="Save, share, collaborate in the Cloud" class="btn"><i class="icon-refresh"></i></a>
+                        <ul class="dropdown-menu sync-menu">
+                        <li class="divider show-already-synchronized sync-divider"></li>
+                        <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> Sync & share</a>
+                        </li><li class="divider"></li>
+                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-upload-cloud text-blue"></i> My.WriteOn</a>
+                        </li>
+                        <li><a href="#" data-toggle="modal" data-target=".modal-manage-sharing" class="action-reset-input"><i class="icon-link text-green"></i> Sharing</a>
+                        </li>
+                        <li><a href="#" class="action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
+                        </li>
+                        <li><a href="#" class="submenu-sync-gdrive action-sync-export-dialog-gdrive"><i class="icon-provider-gdrive"></i> Drive</a>
+                        </li>
+                        <li><a href="#" class="submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i class="icon-provider-gdrive"></i> Drive<sup>2</sup></a>
+                        </li>
+                        <li><a href="#" class="submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i class="icon-provider-gdrive"></i> Drive<sup>3</sup></a>
+                        </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown btn-group extension-buttons">
+                        <a href="#" data-toggle="dropdown" title="Publish to the web" class="btn"><i class="icon-share"></i></a>
+                        <ul class="dropdown-menu publish-menu publish-on-provider-list">
+                        <li class="divider show-already-published publish-divider"></li>
+                        <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> Publish</a>
+                        </li><li class="divider"></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown btn-group">
+                        <a href="#" data-toggle="dropdown" title="Open & Import" class="btn"><i class="icon-docs text-blue"></i></a>
                         <ul class="dropdown-menu">
-                            <li class="disabled text-center"><a href="#"><strong>Import Stories</strong></a>
+                            <li><a href="#" class="file" class="action-create-file"><i class="icon-file text-blue"></i> Create New Story</a>
+                            </li>
+                            <li><a href="#" class="file" data-toggle="modal" data-target=".modal-document-manager"><i class="icon-layers text-yellow"></i> Organize Stories</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> <strong>Import Stories</strong></a>
                             </li>
                             <li class="divider"></li>
                             <li><a href="#" class="file action-sync-import-dialog-mywriteon hide"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a>
@@ -48,21 +86,14 @@
                             </li>
                             <li><a href="#" class="file submenu-sync-gdriveter action-sync-import-gdriveter"><i class="icon-provider-gdrive"></i> Google Drive<sup>3</sup></a>
                             </li>
-                            <li><a data-toggle="modal" data-target=".modal-import-url" class="file 
-              action-reset-input" href="#" title="Import from URL"><i class="icon-globe text-green"></i> Import URL</a>
+                            <li><a data-toggle="modal" data-target=".modal-import-url" class="file action-reset-input" href="#" title="Import from URL"><i class="icon-globe text-green"></i> Import URL</a>
                             </li>
                             <li><a data-toggle="modal" title="Import from disk" data-target=".modal-import-harddrive-markdown" class="file action-reset-input" href="#"><i class="icon-hdd text-orange"></i> Import from disk</a>
                             </li>
+                            <li><a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input"> <i class="icon-paste"></i>Import HTML</a>
+                            </li>
                         </ul>
                     </li>
-                </ul>
-                <ul class="nav pull-right right-buttons">
-                    <li class="offline-status hide">
-                        <div class="text-danger">
-                            <a class="btn btn-danger" title="You are offline...It's a great time to write!"><i class="icon-attention-circled"></i></a>
-                        </div>
-                    </li>
-                    <li class="extension-buttons"></li>
                 </ul>
                 <ul class="nav pull-right title-container">
                     <li>
@@ -100,7 +131,7 @@
     <div id="wmd-button-bar" class="hide"></div>
     <div class="menu-panel">
         <button class="btn toggle-button" title="Menu">
-            <i class="icon-menu"></i>  <strong>Menu</strong>
+            <i class="icon-menu"></i>
         </button>
         <div class="panel-content">
             <div class="list-group">
@@ -109,54 +140,19 @@
                 </a>
             </div>
             <div class="list-group">
-                <a href="#" data-toggle="collapse" data-target=".collapse-synchronize" class="list-group-item">
+                <a href="#" data-toggle="collapse" data-target=".collapse-synchronize" class="list-group-item hide">
                     <div><i class="icon-refresh"></i> Synchronize</div>
                     <small>Save, share, collaborate in the Cloud</small>
                 </a>
                 <div class="sub-menu collapse collapse-synchronize clearfix">
-                    <ul class="nav alert alert-default show-already-synchronized">
-                        <li class="hide">
-                            <div><span class="file-title"></span> is synced.</div>
-                        </li>
-                        <li class="col-sm-6"><a href="#" class="btn btn-primary action-force-synchronization"><i class="icon-refresh"></i>
-Sync</a>
-                        </li>
-                        <li class="col-sm-6"><a href="#" data-toggle="modal" data-target=".modal-manage-sync" class="btn btn-primary action-reset-input"><i class="icon-edit"></i> Manage</a>
-                        </li>
-                    </ul>
-                    <ul class="nav">
-                        <li class="col-sm-6"><a href="#" class="btn btn-default action-sync-export-dialog-mywriteon"><i class="icon-upload-cloud text-blue"></i> My.WriteOn</a>
-                        </li>
-                        <li class="col-sm-6"><a href="#" data-toggle="modal" data-target=".modal-manage-sharing" class="btn btn-default action-reset-input"><i class="icon-link text-green"></i> Sharing</a>
-                        </li>
-                        <li class="col-sm-6"><a href="#" class="btn btn-default action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
-                        </li>
-                        <li class="col-sm-6"><a href="#" class="btn btn-default submenu-sync-gdrive action-sync-export-dialog-gdrive"><i class="icon-provider-gdrive"></i> Drive</a>
-                        </li>
-                        <li class="col-sm-6"><a href="#" class="btn btn-default submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i class="icon-provider-gdrive"></i> Drive<sup>2</sup></a>
-                        </li>
-                        <li class="col-sm-6"><a href="#" class="btn btn-default submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i class="icon-provider-gdrive"></i> Drive<sup>3</sup></a>
-                        </li>
-                    </ul>
+
                 </div>
-                <a href="#" data-toggle="collapse" data-target=".collapse-publish-on" class="list-group-item">
+                <a href="#" data-toggle="collapse" data-target=".collapse-publish-on" class="list-group-item hide">
                     <div><i class="icon-print"></i>Publish</div>
                     <small>Publish to the web</small>
                 </a>
                 <div class="sub-menu collapse collapse-publish-on clearfix">
-                    <ul class="nav alert alert-default show-already-published">
-                        <li class="hide">
-                            <div>"<span class="file-title"></span>" is already published.</div>
-                        </li>
-                        <li class="col-sm-6"><a href="#" class="btn btn-primary action-reset-input action-update-publication"><i class="icon-upload"></i>
-Update</a>
-                        </li>
-                        <li class="col-sm-6"><a href="#" data-toggle="modal" data-target=".modal-manage-publish" class="btn btn-primary action-reset-input action-reset-input"><i class="icon-edit"></i>
-Manage</a>
-                        </li>
-                    </ul>
-                    <ul class="nav publish-on-provider-list">
-                    </ul>
+
                 </div>
                 <a href="#" data-toggle="collapse" data-target=".collapse-export-on" class="list-group-item">
                     <div><i class="icon-download"></i>Download</div>
@@ -174,7 +170,7 @@ Manage</a>
                         </li>
                     </ul>
                 </div>
-                <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input list-group-item">
+                <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input list-group-item hide">
                     <div><i class="icon-paste"></i>Convert</div>
                     <small>Convert HTML to Markdown</small>
                 </a>
@@ -193,15 +189,11 @@ Manage</a>
     </div>
     <div class="document-panel">
         <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">
-            <i class="icon-folder-open"></i>  <strong>Stories</strong>
+            <i class="icon-folder-open"></i>
         </button>
         <div class="search-bar clearfix">
-            <ul class="nav">
-                <li><a href="#" class="action-create-file"><i class="icon-file text-blue"></i> New story</a>
-                </li>
-                <li><a href="#" class="action-remove-file-confirm"><i class="icon-trash text-red"></i> Delete story</a>
-                </li>
-                <li><a href="#" data-toggle="modal" data-target=".modal-document-manager"><i class="icon-layers text-black"></i> Manage stories</a>
+            <ul class="nav hide">
+                <li><a href="#" class="action-remove-file-confirm"><i class="icon-trash text-red"></i> Delete this story</a>
                 </li>
             </ul>
             <div class="input-group">
@@ -220,12 +212,12 @@ Manage</a>
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Manage stories</h2>
+                <h2 class="modal-title">Organize stories</h2>
             </div>
             <div class="modal-body">
                 <div></div>
                 <ul class="nav nav-pills document-list">
-                    <li class="pull-right dropdown"><a href="#" data-toggle="dropdown"><i class="icon-check"></i> Selection <b class="caret"></b></a>
+                    <li class="pull-right dropdown"><a href="#" data-toggle="dropdown"><i class="icon-check"></i> Actions <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#" class="action-select-all"><i class="icon-check"></i> Select all</a>
                             </li>
