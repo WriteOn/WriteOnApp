@@ -611,7 +611,18 @@ a {
 	.left-space, .right-space {
 		width: 42px;
 		height: @input-height-slim;
+        margin: 0 !important;
 	}
+    .left-space {
+        height: 48px !important;
+        & button {
+            height: 100%;
+            background: transparent !important;
+            & > i {
+                font-size: 1.8em  !important;
+            }
+        }
+    }
 	.nav {
 		float: left;
 		margin: 5px 9px;
@@ -762,7 +773,6 @@ a {
 		margin-top: 0; //6px;
         .transition(~"border-width ease-in-out .07s, left ease-in-out 0.07s, right ease-in-out 0.07s, background-color ease-in-out 0.07s");
         box-shadow: none; //.box-shadow(@panel-button-box-shadow);
-        border-bottom: 1px solid @primary-border-color;
         &:active {
             .box-shadow(~"inset 0 3px 5px rgba(0, 0, 0, 0.125), 0 0 1px rgba(0,0,0,.5)");
         }
@@ -1129,6 +1139,12 @@ a {
 	.modal-header {
 		padding-bottom: 0;
 	}
+    
+    .modal-body {
+        padding: 0 20px 0 0 !important;
+        max-height: 100%;
+        overflow-y: auto;
+    }
 
 	textarea {
 		max-width: 100%;
@@ -1142,6 +1158,10 @@ a {
 		border-bottom: 1px solid @modal-content-separator-color;
 		.box-shadow(none);
 	}
+    .tab-content {
+        height:400px;
+        overflow: auto;
+    }
 
 	.accordion-heading {
 		padding: 12px 15px;
@@ -1165,23 +1185,46 @@ a {
 	}
 
 	.tab-pane-button-container {
-		width: 260px;
 		margin: 10px auto 20px;
+        padding: 0;
 		.btn {
     		text-align: start;
     		padding-left: 15px;
     	}
 	}
 
-	.nav-tabs {
-		margin: 15px 0 0;
+	.modal-nav {
+        height: 445px;
+        padding: 0;
+        border-right: 1px solid #DDD;
+        background: #fbfaf8;
+        -webkit-border-top-right-radius: 0;
+        -webkit-border-bottom-right-radius: 0;
+        -webkit-border-bottom-left-radius: 0;
+        -webkit-border-top-left-radius: 0;
+        -moz-border-radius-topright: 0;
+        -moz-border-radius-bottomright: 0;
+        -moz-border-radius-bottomleft: 0;
+        -moz-border-radius-topleft: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        -moz-background-clip: padding-box;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+    }
+    .nav-tabs {
+		margin: 0;
 
 		& > li > a {
+            padding: 10px 0 11px 15px;
+            margin-right: 0;
+            border-radius: 0;
 			&:hover, &:focus {
 				color: darken(@secondary, 30%);
             	border-color: @btn-default-hover-border;
             	background-color: @btn-default-hover-bg;
-				border-bottom-color: @transparent;
 			}
 		}
 
@@ -1190,9 +1233,9 @@ a {
 				color: @text-color;
 				background-color: @modal-content-bg;
 				border-color: @modal-header-border-color;
-				border-bottom-color: @transparent;
+				border-radius: 0;
                 margin-bottom: -1px;
-                padding: 10px 15px 11px;
+                padding: 10px 0 11px 15px;
 			}
 		}
 	}

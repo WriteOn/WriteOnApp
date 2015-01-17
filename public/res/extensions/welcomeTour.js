@@ -79,7 +79,7 @@ define([
 				reflex: true
 			},
 			{
-				element: '.menu-panel .toggle-button',
+				element: '.settings-menu',
 				title: 'Menu',
 				content: [
 					'<p>The <i class="icon-menu"></i> <b>Menu</b> panel allows you to synchronize your local stories with <br><i class="icon-provider-mywriteon"></i> My.WriteOn, <i class="icon-provider-gdrive"></i> Google Drive, <i class="icon-provider-dropbox"></i> or Dropbox. You can also publish stories directly to <i class="icon-provider-tumblr"></i> Tumblr, <i class="icon-provider-ghost"></i> Ghost, <i class="icon-provider-wordpress"></i> Wordpress, <i class="icon-provider-blogger"></i> Blogger, and <i class="icon-provider-github"></i> GitHub.</p>',
@@ -102,7 +102,7 @@ define([
 				element: '.navbar-inner',
 				title: 'Happy Writing!',
 				content: [
-					'<p>Enjoy writing like you always wanted to. Let us know if and when we can be of service to your writing needs by heading over to the <a href="#" data-toggle="modal" data-target=".modal-about"><i class="icon-help-circled"></i> About</a> screen. Psssttt! We would love your feedback, just look for these icons: <i class="icon-megaphone text-blue"></i>, <i class="icon-star-half-alt text-purple"></i>, <i class="icon-chat-empty text-orange"></i>.</p>',
+					'<p>Enjoy writing like you always wanted to. Let us know if and when we can be of service to your writing needs by heading over to the <a href="#" data-toggle="modal" data-target=".modal-about"><i class="icon-info"></i> About</a> screen. Psssttt! We would love your feedback, just look for these icons: <i class="icon-megaphone text-blue"></i>, <i class="icon-star-half-alt text-purple"></i>, <i class="icon-chat-empty text-orange"></i>.</p>',
 					'<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://writeon.io" data-text="Write like you always wanted to." data-via="writeon" data-size="large"></a>'
 				].join(""),
 				placement: 'bottom',

@@ -55,6 +55,7 @@ define([
         UserVoice.push(['addTrigger', '#send-feedback', { mode: 'smartvote' }]);
         UserVoice.push(['addTrigger', '#say-hello', { mode: 'contact' }]);
         UserVoice.push(['addTrigger', '#get-help', { mode: 'contact' }]);
+        UserVoice.push(['addTrigger', '#button-help', { mode: 'contact' }]);
         UserVoice.push(['addTrigger', '#rate-app', { mode: 'satisfaction' }]);
 
         // Autoprompt for Satisfaction and SmartVote (only displayed under certain conditions)

@@ -600,8 +600,20 @@ define([
 
 		menuPanel.isOpen = false;
 		if(!window.viewerMode) {
-			menuPanel.createBackdropToggler(true); // or createToggler()
-			menuPanel.$elt.find('.toggle-button').click(_.bind(menuPanel.toggle, menuPanel));
+
+            menuPanel.createBackdropToggler(true); // or createToggler()
+			/* 
+			 * 
+			 * we are disabling the menuPanel in favor of dropdowns in the top navbar, for now. TO re-enable, uncomment this (v.1.6.4+) 
+             *
+             *
+             * menuPanel.$elt.find('.toggle-button').click(_.bind(menuPanel.toggle, menuPanel));
+             * 
+             *
+             * // end disabling off of menu panel
+             *  
+            */
+            
 
 			// Hide menuPanel when clicking on a non collapse element
 			menuPanel.$elt.on('click', 'a[data-toggle!=collapse]', _.bind(menuPanel.toggle, menuPanel, false));
@@ -618,22 +630,29 @@ define([
 
 			// EXPERIMENTAL GESTURES
 
-			/*
+			
 			navbar.initHammer();
-			menuPanel.initHammer();
+			//menuPanel.initHammer();
 			documentPanel.initHammer();
 			previewButtons.initHammer();
 
-			navbar.hammer.on('swiperight', _.bind(menuPanel.toggle, menuPanel, true));
+			//navbar.hammer.on('swiperight', _.bind(menuPanel.toggle, menuPanel, true));
 			navbar.hammer.on('swipeleft', _.bind(documentPanel.toggle, documentPanel, true));
 			navbar.hammer.on('swipeup', _.bind(navbar.toggle, navbar, false));
 
+			/* 
+			 * 
+			 * we are disabling the menuPanel in favor of dropdowns in the top navbar, for now. TO re-enable, uncomment this (v.1.6.4+) 
+             *
+             *
 			menuPanel.hammer.on('swiperight', _.bind(menuPanel.toggle, menuPanel, true));
 			menuPanel.hammer.on('swipeleft', _.bind(menuPanel.toggle, menuPanel, false));
+             *
+             */
 
 			documentPanel.hammer.on('swipeleft', _.bind(documentPanel.toggle, documentPanel, true));
 			documentPanel.hammer.on('swiperight', _.bind(documentPanel.toggle, documentPanel, false));
-			*/
+			
 
 			previewResizer.initHammer(true);
 			var resizerInitialSize;
@@ -743,11 +762,7 @@ define([
 
 		{header: '<i class="icon-provider-writeon"></i> WriteOn'},
         {divider: true},
-		{text: '<i class="icon-menu"></i> Menu', action: function(e){
-		    e.preventDefault();
-            $('.menu-panel .toggle-button').click();
-		}},
-		{text: '<i class="icon-folder-open"></i> Stories', action: function(e){
+		{text: '<i class="icon-folder-open"></i> My Stories', action: function(e){
 		    e.preventDefault();
             $('.document-panel .toggle-button').click();
 		}},
@@ -756,7 +771,7 @@ define([
 		    e.preventDefault();
             $('.action-load-settings').click();
 		}},
-		{text: '<i class="icon-help-circled"></i> About', action: function(e){
+		{text: '<i class="icon-info"></i> About', action: function(e){
 		    e.preventDefault();
             $('.action-load-about').click();
 		}},

@@ -3,7 +3,18 @@
     <div class="layout-wrapper-l2">
         <div class="navbar navbar-default">
             <div class="navbar-inner">
-                <div class="nav left-space"></div>
+                <div class="nav left-space">
+                <button class="btn btn-success settings-menu dropdown-toggle" data-toggle="dropdown" id="settings-menu" title="Menu">
+                    <i class="icon-menu"></i>
+                </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="settings-menu">
+                        <li><a href="paper" title="WriteOn Paper" role="menuitem"><i class="icon-doc-text"></i> Paper</a></li>
+                        <li><a href="#" title="Settings & Preferences" data-toggle="modal" data-target=".modal-settings" class="action-load-settings"><i class="icon-cog-alt"></i> Settings & Preferences</a></li>
+                        <li><a href="#" title="About WriteOn" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-info"></i> About</a></li>
+                        <li><a href="#" title="Get Help" id="button-help"><i class="icon-help-circled"></i> Help</a></li>
+                        <li><a href="/logout" title="Logout"><i class="icon-logout"></i> Logout</a></li>
+                    </ul>
+                </div>
                 <div class="nav right-space pull-right"></div>
                 <div class="buttons-dropdown dropdown">
                     <div class="nav">
@@ -63,6 +74,17 @@
                         <li class="divider show-already-published publish-divider"></li>
                         <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> Publish</a>
                         </li><li class="divider"></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown btn-group">
+                        <a href="#" data-toggle="dropdown" title="Download story for offline use" class="btn"><i class="icon-download"></i></a>
+                        <ul class="dropdown-menu">
+                        <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>
+                        </li>
+                        <li><a class="action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>
+                        </li>
+                        <li><a class="action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>
+                        </li>
                         </ul>
                     </li>
                     <li class="dropdown btn-group">
@@ -130,7 +152,7 @@
     </div>
     <div id="wmd-button-bar" class="hide"></div>
     <div class="menu-panel">
-        <button class="btn toggle-button" title="Menu">
+        <button class="btn toggle-button hide" title="Menu">
             <i class="icon-menu"></i>
         </button>
         <div class="panel-content">
@@ -856,23 +878,31 @@ story title will be used.</span>
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h2 class="modal-title">Settings</h2>
-                <ul class="nav nav-tabs">
+            </div>
+            <div class="modal-body">
+            <div class="col-md-3 modal-nav">
+                <ul class="nav nav-tabs nav-stacked">
                     <li class="active"><a class="action-load-settings" href="#tabpane-settings-basic" data-toggle="tab"><i class="icon-cog"></i> Basic</a>
                     </li>
                     <li><a class="action-load-settings" href="#tabpane-settings-advanced" data-toggle="tab"><i class="icon-tasks"></i> Advanced</a>
+                    </li>
+                    <li><a class="action-load-settings" href="#tabpane-settings-permissions" data-toggle="tab"><i class="icon-lock"></i> Permissions</a>
+                    </li>
+                    <li><a class="action-load-settings" href="#tabpane-settings-templates" data-toggle="tab"><i class="icon-list-alt"></i> Templates</a>
                     </li>
                     <li><a class="action-load-settings" href="#tabpane-settings-extensions" data-toggle="tab"><i class="icon-puzzle"></i> Extensions</a>
                     </li>
                     <li><a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab"><i class="icon-briefcase"></i> Utilities</a>
                     </li>
-                </ul>
+            </ul>
             </div>
-            <div class="modal-body">
-                <div class="tab-content clearfix">
+            
+            
+                <div class="col-md-9 tab-content clearfix" data-spy="scroll">
                     <div class="tab-pane active" id="tabpane-settings-basic">
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-4 control-label">Layout orientation</label>
+                                <label class="col-sm-5 control-label">Layout orientation</label>
                                 <div class="col-sm-7">
                                     <div class="radio">
                                         <label>
@@ -887,14 +917,14 @@ story title will be used.</span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4 control-label" for="input-settings-theme">Theme</label>
+                                <label class="col-sm-5 control-label" for="input-settings-theme">Theme</label>
                                 <div class="col-sm-7">
                                     <select id="input-settings-theme" class="form-control">
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-4"></div>
+                                <div class="col-sm-5"></div>
                                 <div class="col-sm-7">
                                     <div class="checkbox">
                                         <label>
@@ -904,8 +934,18 @@ story title will be used.</span>
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" for="input-settings-markdown-mime-type">Markdown MIME type
+                                </label>
+                                <div class="col-sm-7">
+                                    <select id="input-settings-markdown-mime-type" class="form-control">
+                                        <option value="text/plain">text/plain</option>
+                                        <option value="text/x-markdown">text/x-markdown</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="form-group hide">
-                                <div class="col-sm-4"></div>
+                                <div class="col-sm-5"></div>
                                 <div class="col-sm-7">
                                     <div class="checkbox">
                                         <label>
@@ -916,7 +956,7 @@ story title will be used.</span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4 control-label" for="input-settings-gdrive-multiaccount">Google Drive multiple accounts
+                                <label class="col-sm-5 control-label" for="input-settings-gdrive-multiaccount">Google Drive multiple accounts
                                 </label>
                                 <div class="col-sm-7">
                                     <select id="input-settings-gdrive-multiaccount" class="form-control">
@@ -924,7 +964,7 @@ story title will be used.</span>
                                         <option value="2">2 accounts</option>
                                         <option value="3">3 accounts</option>
                                     </select>
-                                    <span class="help-block"><b>Please sign in first with Google.</b> Once linked with your Google accounts, changing account is not possible unless you reset the application.</span>
+                                    <span class="help-block">Once linked with your Google accounts, changing accounts is not possible unless you <a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab">reset the application</a>.</span>
                                 </div>
                             </div>
                         </div>
@@ -932,7 +972,7 @@ story title will be used.</span>
                     <div class="tab-pane" id="tabpane-settings-advanced">
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-4 control-label">Edit mode</label>
+                                <label class="col-sm-5 control-label">Edit mode</label>
                                 <div class="col-sm-7">
                                     <div class="radio">
                                         <label>
@@ -947,7 +987,7 @@ story title will be used.</span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4 control-label">Edit Pad's font style</label>
+                                <label class="col-sm-5 control-label">Edit Pad's font style</label>
                                 <div class="col-sm-7">
                                     <div class="radio">
                                         <label>
@@ -962,25 +1002,25 @@ story title will be used.</span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4 control-label" for="input-settings-font-size">Font size ratio</label>
-                                <div class="col-sm-8 form-inline">
+                                <label class="col-sm-5 control-label" for="input-settings-font-size">Font size ratio</label>
+                                <div class="col-sm-7 form-inline">
                                     <input type="text" id="input-settings-font-size" class="form-control col-sm-2">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4 control-label" for="input-settings-max-width">Max width ratio</label>
-                                <div class="col-sm-8 form-inline">
+                                <label class="col-sm-5 control-label" for="input-settings-max-width">Max width ratio</label>
+                                <div class="col-sm-7 form-inline">
                                     <input type="text" id="input-settings-max-width" class="form-control col-sm-2">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4 control-label" for="input-settings-cursor-focus">Cursor focus ratio</label>
-                                <div class="col-sm-8 form-inline">
+                                <label class="col-sm-5 control-label" for="input-settings-cursor-focus">Cursor focus ratio</label>
+                                <div class="col-sm-7 form-inline">
                                     <input type="text" id="input-settings-cursor-focus" class="form-control col-sm-2">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4 control-label" for="input-settings-lazy-rendering">Lazy rendering <a href="#" class="tooltip-lazy-rendering">(?)</a>
+                                <label class="col-sm-5 control-label" for="input-settings-lazy-rendering">Lazy rendering <a href="#" class="tooltip-lazy-rendering">(?)</a>
                                 </label>
                                 <div class="col-sm-7">
                                     <div class="checkbox">
@@ -988,8 +1028,12 @@ story title will be used.</span>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tabpane-settings-templates">
+                        <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-4 control-label" for="textarea-settings-default-content">Default content
+                                <label class="col-sm-5 control-label" for="textarea-settings-default-content">Default content
                                     <a href="#" class="tooltip-default-content">(?)</a>
                                 </label>
                                 <div class="col-sm-7">
@@ -997,40 +1041,32 @@ story title will be used.</span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4 control-label" for="textarea-settings-putemplatetempla">Default template <a href="#" class="tooltip-template">(?)</a>
+                                <label class="col-sm-5 control-label" for="textarea-settings-putemplatetempla">Default template <a href="#" class="tooltip-template">(?)</a>
                                 </label>
                                 <div class="col-sm-7">
                                     <textarea id="textarea-settings-publish-template" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-template">PDF template <a href="#" class="tooltip-template">(?)</a>
+                                <label class="col-sm-5 control-label" for="textarea-settings-pdf-template">PDF template <a href="#" class="tooltip-template">(?)</a>
                                 </label>
                                 <div class="col-sm-7">
                                     <textarea id="textarea-settings-pdf-template" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-options">PDF options
+                                <label class="col-sm-5 control-label" for="textarea-settings-pdf-options">PDF options
                                     <a href="#" class="tooltip-pdf-options">(?)</a>
                                 </label>
                                 <div class="col-sm-7">
                                     <textarea id="textarea-settings-pdf-options" class="form-control"></textarea>
                                 </div>
-                            </div>
+                            </div>                        </div>
+                    </div>
+                    <div class="tab-pane" id="tabpane-settings-permissions">
+                        <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-4 control-label" for="input-settings-markdown-mime-type">Markdown MIME type
-                                </label>
-                                <div class="col-sm-7">
-                                    <select id="input-settings-markdown-mime-type" class="form-control">
-                                        <option value="text/plain">text/plain</option>
-                                        <option value="text/x-markdown">text/x-markdown</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-4 control-label">Permissions</label>
-                                <div class="col-sm-7">
+                                <div class="col-sm-12">
                                     <div class="checkbox">
                                         <label>
                                             <input type="checkbox" id="input-settings-gdrive-full-access" />Allow WriteOn to open any story in Google Drive
@@ -1041,8 +1077,7 @@ for this change to take effect.</span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-4"></div>
-                                <div class="col-sm-7">
+                                <div class="col-sm-12">
                                     <div class="checkbox">
                                         <label>
                                             <input type="checkbox" id="input-settings-dropbox-full-access" />Allow WriteOn to open any story in Dropbox
@@ -1052,8 +1087,7 @@ for this change to take effect.</span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-4"></div>
-                                <div class="col-sm-7">
+                                <div class="col-sm-12">
                                     <div class="checkbox">
                                         <label>
                                             <input type="checkbox" id="input-settings-github-full-access" />Allow WriteOn to access private repositories in GitHub
@@ -1062,27 +1096,25 @@ for this change to take effect.</span>
 for this change to take effect.</span>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div>                        </div>
                     </div>
                     <div class="tab-pane" id="tabpane-settings-extensions">
                         <div class="panel-group accordion-extensions"></div>
-                        <span class="help-block pull-right"><a target="_blank" href="#developer-guide.md">Create your own extension</a></span>
                     </div>
                     <div class="tab-pane" id="tabpane-settings-utils">
-                        <div class="tab-pane-button-container">
+                        <p>Some of these are quite powerful, and can result in the total loss of your data. </p>
+                        <div class="col-sm-6 tab-pane-button-container">
                             <a href="#" class="btn btn-block btn-default action-welcome-file" data-dismiss="modal"><i class="icon-help-circled"></i> Load Welcome Guide</a>
                             <a href="#" class="btn btn-block btn-default action-guide-file" data-dismiss="modal"><i class="icon-keyboard"></i> Load Syntax Guide</a>
                             <a href="#" class="btn btn-block btn-default action-welcome-tour" data-dismiss="modal"><i class="icon-comment"></i> Welcome tour</a>
+                            <a target="_blank" href="recovery.html" class="btn btn-block btn-default"><i class="icon-medkit"></i> WriteOn recovery</a>
                         </div>
-                        <div class="tab-pane-button-container">
-                            <a href="#" class="btn btn-block btn-default action-import-docs-settings"><i class="icon-cog-alt"></i> Import stories & settings</a>  <a href="#" class="btn btn-block btn-default action-export-docs-settings" data-dismiss="modal"><i class="icon-share"></i>
-Export stories & settings</a> 
+                        <div class="col-sm-6 tab-pane-button-container">
+                            <a href="#" class="btn btn-block btn-default action-import-docs-settings"><i class="icon-cog-alt"></i> Import stories & settings</a>  
+                            <a href="#" class="btn btn-block btn-default action-export-docs-settings" data-dismiss="modal"><i class="icon-share"></i> Export stories & settings</a> 
+                            <a href="#" class="btn btn-block btn-default action-default-settings" data-dismiss="modal"><i class="icon-wrench"></i> Load default settings</a>  
+                            <a href="#" class="btn btn-block btn-default" data-dismiss="modal" data-toggle="modal" data-target=".modal-app-reset"><i class="icon-fire"></i> Reset application</a>  
                             <input type="file" id="input-file-import-docs-settings" class="hide">
-                        </div>
-                        <div class="tab-pane-button-container">
-                            <a href="#" class="btn btn-block btn-default action-default-settings" data-dismiss="modal"><i class="icon-wrench"></i>
-Load default settings</a>  <a href="#" class="btn btn-block btn-default" data-dismiss="modal" data-toggle="modal" data-target=".modal-app-reset"><i class="icon-fire"></i> Reset application</a>  <a target="_blank" href="recovery.html" class="btn btn-block btn-default"><i class="icon-medkit"></i> WriteOn recovery</a>
                         </div>
                     </div>
                 </div>
