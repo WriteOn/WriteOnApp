@@ -38,7 +38,7 @@ define([
             title: 'Update published story',
             href: '#'
         }, crel('i', {
-            class: 'icon-print'
+            class: 'icon-share'
         }), crel('span', ' Republish Now'));
         $button = $(button);
         $button.click(function() {

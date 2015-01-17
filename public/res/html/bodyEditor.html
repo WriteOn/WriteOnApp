@@ -8,7 +8,7 @@
                     <i class="icon-menu"></i>
                 </button>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="settings-menu">
-                        <li><a href="paper" title="WriteOn Paper" role="menuitem"><i class="icon-doc-text"></i> Paper</a></li>
+                        <li><a href="paper" title="WriteOn Paper" role="menuitem"><i class="icon-doc-text"></i> Switch to Paper</a></li>
                         <li><a href="#" title="Settings & Preferences" data-toggle="modal" data-target=".modal-settings" class="action-load-settings"><i class="icon-cog-alt"></i> Settings & Preferences</a></li>
                         <li><a href="#" title="About WriteOn" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-info"></i> About</a></li>
                         <li><a href="#" title="Get Help" id="button-help"><i class="icon-help-circled"></i> Help</a></li>
@@ -48,7 +48,7 @@
                             <a class="btn btn-danger" title="You are offline...It's a great time to write!"><i class="icon-attention-circled"></i></a>
                         </div>
                     </li>
-                    <li class="dropdown btn-group extension-buttons">
+                    <li class="dropdown btn-group extension-buttons syncing-menu">
                         <a href="#" data-toggle="dropdown" title="Save, share, collaborate in the Cloud" class="btn"><i class="icon-refresh"></i></a>
                         <ul class="dropdown-menu sync-menu">
                         <li class="divider show-already-synchronized sync-divider"></li>
@@ -68,7 +68,7 @@
                         </li>
                         </ul>
                     </li>
-                    <li class="dropdown btn-group extension-buttons">
+                    <li class="dropdown btn-group extension-buttons publishing-menu">
                         <a href="#" data-toggle="dropdown" title="Publish to the web" class="btn"><i class="icon-share"></i></a>
                         <ul class="dropdown-menu publish-menu publish-on-provider-list">
                         <li class="divider show-already-published publish-divider"></li>
@@ -76,9 +76,11 @@
                         </li><li class="divider"></li>
                         </ul>
                     </li>
-                    <li class="dropdown btn-group">
+                    <li class="dropdown btn-group download-menu">
                         <a href="#" data-toggle="dropdown" title="Download story for offline use" class="btn"><i class="icon-download"></i></a>
                         <ul class="dropdown-menu">
+                        <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> Download</a>
+                        </li><li class="divider"></li>
                         <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>
                         </li>
                         <li><a class="action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>
@@ -87,7 +89,7 @@
                         </li>
                         </ul>
                     </li>
-                    <li class="dropdown btn-group">
+                    <li class="dropdown btn-group story-menu">
                         <a href="#" data-toggle="dropdown" title="Open & Import" class="btn"><i class="icon-docs text-blue"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="#" class="file" class="action-create-file"><i class="icon-file text-blue"></i> Create New Story</a>

@@ -45,6 +45,7 @@ define([
 				storage.welcomeTour = 'done';
 				infoTooltip('.drag-me', 'Drag me!', 'left');
 				infoTooltip('.layout-toggler-preview', 'Toggle preview', 'right');
+				infoTooltip('.layout-toggler-navbar', 'Toggle menu bar', 'right');
 			},
 			template: [
 				'<div class="popover tour">',
@@ -72,8 +73,47 @@ define([
 				element: '.document-panel .toggle-button',
 				title: 'My Stories',
 				content: [
-					'<p>The <i class="icon-folder-open"></i> <b>My Stories</b> panel allows you to open, import, & manage your stories.</p>',
+					'<p>The <i class="icon-folder-open"></i> <b>My Stories</b> panel allows you to open and search for your stories.</p>',
 					'<b>Tip:</b> Use <kbd>Ctrl+[</kbd> and <kbd>Ctrl+]</kbd> to toggle local stories.'
+				].join(""),
+				placement: 'left',
+				reflex: true
+			},
+			{
+				element: '.story-menu',
+				title: 'Story Menu',
+				content: [
+					'<p>The <i class="icon-docs text-blue"></i> <b>Story action</b> menu gives you quick access to create a new story, organize exsiting stories, and import stories.</p>'
+				].join(""),
+				placement: 'left',
+				reflex: true
+			},
+			{
+				element: '.download-menu',
+				title: 'Download Menu',
+				content: [
+					'<p>The <i class="icon-download"></i> <b>Download</b> menu is where you can download your story for offline use, in various formats. </p>',
+                    '<b>Tip:</b> You can even download your story using one of our pre-built themes, using the <i class="icon-list-alt"></i> <strong>Template</strong> option.'
+				].join(""),
+				placement: 'left',
+				reflex: true
+			},
+			{
+				element: '.publishing-menu',
+				title: 'Publish',
+				content: [
+					'<p>The <i class="icon-share"></i> <b>Publish</b> menu lets you publish your stories directly to <i class="icon-provider-tumblr"></i> Tumblr, <i class="icon-provider-ghost"></i> Ghost, <i class="icon-provider-wordpress"></i> Wordpress, <i class="icon-provider-blogger"></i> Blogger, and <i class="icon-provider-github"></i> GitHub.</p>',
+					'<b>Tip:</b> Use the <i class="icon-share"></i> <b>Republish now</b> option to republish any changes to your story.'
+				].join(""),
+				placement: 'left',
+				reflex: true
+			},
+			{
+				element: '.syncing-menu',
+				title: 'Sync Menu',
+				content: [
+					'<p>The <i class="icon-refresh"></i> <b>Sync & share</b> menu allows you to synchronize your local stories with <i class="icon-provider-mywriteon"></i> My.WriteOn, <i class="icon-provider-gdrive"></i> Google Drive, <i class="icon-provider-dropbox"></i> or Dropbox. </p>',
+					'<b>Tip:</b> Use the <i class="icon-refresh"></i> <b>Sync now</b> option to force update your cloud syncs.'
 				].join(""),
 				placement: 'left',
 				reflex: true
@@ -82,9 +122,8 @@ define([
 				element: '.settings-menu',
 				title: 'Menu',
 				content: [
-					'<p>The <i class="icon-menu"></i> <b>Menu</b> panel allows you to synchronize your local stories with <br><i class="icon-provider-mywriteon"></i> My.WriteOn, <i class="icon-provider-gdrive"></i> Google Drive, <i class="icon-provider-dropbox"></i> or Dropbox. You can also publish stories directly to <i class="icon-provider-tumblr"></i> Tumblr, <i class="icon-provider-ghost"></i> Ghost, <i class="icon-provider-wordpress"></i> Wordpress, <i class="icon-provider-blogger"></i> Blogger, and <i class="icon-provider-github"></i> GitHub.</p>',
-					'<b>Tip:</b> Use the <i class="icon-menu"></i> <b>Menu</b> pabel to access your account, settings, extensions, & utilities.'
-				].join(""),
+					'<p>Use the <i class="icon-menu"></i> <b>Main menu</b> to switch from <i class="icon-pencil-squared"> <strong>Pad</strong></i> to <i class="icon-doc-text"></i> <strong>Paper</strong>, your account, settings, extensions, utilities and help.</p>'				
+                ].join(""),
 				placement: 'right',
 				reflex: true
 			},
