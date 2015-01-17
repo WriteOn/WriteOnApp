@@ -239,7 +239,7 @@ require([
 			window.applicationCache.addEventListener('updateready', function() {
 				if(window.applicationCache.status === window.applicationCache.UPDATEREADY) {
 					window.applicationCache.swapCache();
-					eventMgr.onMessage('A new version of WriteOn is available.\nJust <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a> to upgrade.');
+					eventMgr.onMessage('A new version of WriteOn is available.\nJust reload to upgrade.');
 				}
 			}, false);
 		}
