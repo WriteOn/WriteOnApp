@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#Date Thu Jan 08 2015 16:19:08 GMT+0000 (UTC)
+#Date Sat Jan 17 2015 19:03:09 GMT+0000 (UTC)
 #Version 1.6.2
 
 CACHE:
@@ -60,6 +60,11 @@ res-min/themes/base.css
 res-min/themes/blue.css
 res-min/themes/default.css
 res-min/themes/gray.css
+res-min/themes/neat.css
+res-min/themes/night.css
+res-min/themes/school.css
+res-min/themes/solarized-dark.css
+res-min/themes/solarized-light.css
 # end_inject_resources
 
 

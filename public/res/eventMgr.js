@@ -336,30 +336,30 @@ define([
             logger.log("onCreateSyncMngButton");
 			var onCreateSyncButtonListenerList = getExtensionListenerList("onCreateSyncButton");
 			var onCreateSyncMngButtonListenerList = getExtensionListenerList("onCreateSyncMngButton");
-			var extensionButtonsFragment = document.createDocumentFragment();
+			var extensionSyncButtonsFragment = document.createDocumentFragment();
 			_.each(onCreateSyncButtonListenerList, function(listener) {
-				extensionButtonsFragment.appendChild(createSyncBtn(listener));
+				extensionSyncButtonsFragment.appendChild(createSyncBtn(listener));
 			});
-            document.querySelector('.sync-menu').insertBefore(extensionButtonsFragment, document.querySelector('.sync-divider'));
+            document.querySelector('.sync-menu').insertBefore(extensionSyncButtonsFragment, document.querySelector('.sync-divider'));
 			_.each(onCreateSyncMngButtonListenerList, function(listener) {
-				extensionButtonsFragment.appendChild(createSyncBtn(listener));
+				extensionSyncButtonsFragment.appendChild(createSyncBtn(listener));
 			});
-            document.querySelector('.sync-menu').insertBefore(extensionButtonsFragment, document.querySelector('.sync-divider'));
+            document.querySelector('.sync-menu').insertBefore(extensionSyncButtonsFragment, document.querySelector('.sync-divider'));
             
-            // Create publish menu and sync now buttons
+            // Create publish menu and publish now buttons
 			logger.log("onCreatePubButton");
             logger.log("onCreatePubMngButton");
-			var onCreateSyncButtonListenerList = getExtensionListenerList("onCreatePubButton");
-			var onCreateSyncMngButtonListenerList = getExtensionListenerList("onCreatePubMngButton");
-			var extensionButtonsFragment = document.createDocumentFragment();
-			_.each(onCreateSyncButtonListenerList, function(listener) {
-				extensionButtonsFragment.appendChild(createPubBtn(listener));
+			var onCreatePubButtonListenerList = getExtensionListenerList("onCreatePubButton");
+			var onCreatePubMngButtonListenerList = getExtensionListenerList("onCreatePubMngButton");
+			var extensionPubButtonsFragment = document.createDocumentFragment();
+			_.each(onCreatePubButtonListenerList, function(listener) {
+				extensionPubButtonsFragment.appendChild(createPubBtn(listener));
 			});
-            document.querySelector('.publish-menu').insertBefore(extensionButtonsFragment, document.querySelector('.publish-divider'));
-			_.each(onCreateSyncMngButtonListenerList, function(listener) {
-				extensionButtonsFragment.appendChild(createPubBtn(listener));
+            document.querySelector('.publish-menu').insertBefore(extensionPubButtonsFragment, document.querySelector('.publish-divider'));
+			_.each(onCreatePubMngButtonListenerList, function(listener) {
+				extensionPubButtonsFragment.appendChild(createPubBtn(listener));
 			});
-            document.querySelector('.publish-menu').insertBefore(extensionButtonsFragment, document.querySelector('.publish-divider'));
+            document.querySelector('.publish-menu').insertBefore(extensionPubButtonsFragment, document.querySelector('.publish-divider'));
             
             
 		}
