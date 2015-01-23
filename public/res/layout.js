@@ -595,7 +595,7 @@ define([
 		// Focus on editor when document panel is closed
 		documentPanel.$elt.on('hidden.layout.toggle', function() {
 			fixViewportScrolling();
-			isModalShown || editor.elt.focus();
+			// isModalShown || editor.elt.focus();
 		});
 
 		menuPanel.isOpen = false;
@@ -625,7 +625,7 @@ define([
 
 			// Focus on editor when menu panel is closed
 			menuPanel.$elt.on('hidden.layout.toggle', function() {
-				isModalShown || editor.elt.focus();
+				// isModalShown || editor.elt.focus();
 			});
 
 			// EXPERIMENTAL GESTURES
@@ -716,7 +716,7 @@ define([
 
 		$(window).resize(resizeAll).focus(function() {
 			if(!menuPanel.isOpen && !documentPanel.isOpen && !isModalShown) {
-				editor.elt.focus();
+				// editor.elt.focus();
 			}
 		});
 
@@ -758,7 +758,7 @@ define([
     /* ContextJS contexutal menus */
     context.init({preventDoubleContext: false});
     context.settings({compress: true});
-	context.attach('body', [
+	context.attach('.document-panel', [
 
 		{header: '<i class="icon-provider-writeon"></i> WriteOn'},
         {divider: true},
@@ -779,6 +779,70 @@ define([
 		{text: '<i class="icon-list-alt"></i> Website', href: 'http://writeon.io', target: '_blank'},
 		{text: '<i class="icon-twitter"></i> Twitter', href: 'http://twitter.com/WriteOnApp', target: '_blank'}
 	]);
+	context.attach('.preview-panel', [
+
+		{header: '<i class="icon-provider-writeon"></i> WriteOn'},
+        {divider: true},
+		{text: '<i class="icon-folder-open"></i> My Stories', action: function(e){
+		    e.preventDefault();
+            $('.document-panel .toggle-button').click();
+		}},
+        {divider: true},
+		{text: '<i class="icon-cog-alt"></i> Settings', action: function(e){
+		    e.preventDefault();
+            $('.action-load-settings').click();
+		}},
+		{text: '<i class="icon-info"></i> About', action: function(e){
+		    e.preventDefault();
+            $('.action-load-about').click();
+		}},
+        {divider: true},
+		{text: '<i class="icon-list-alt"></i> Website', href: 'http://writeon.io', target: '_blank'},
+		{text: '<i class="icon-twitter"></i> Twitter', href: 'http://twitter.com/WriteOnApp', target: '_blank'}
+	]);
+	context.attach('.fade', [
+
+		{header: '<i class="icon-provider-writeon"></i> WriteOn'},
+        {divider: true},
+		{text: '<i class="icon-folder-open"></i> My Stories', action: function(e){
+		    e.preventDefault();
+            $('.document-panel .toggle-button').click();
+		}},
+        {divider: true},
+		{text: '<i class="icon-cog-alt"></i> Settings', action: function(e){
+		    e.preventDefault();
+            $('.action-load-settings').click();
+		}},
+		{text: '<i class="icon-info"></i> About', action: function(e){
+		    e.preventDefault();
+            $('.action-load-about').click();
+		}},
+        {divider: true},
+		{text: '<i class="icon-list-alt"></i> Website', href: 'http://writeon.io', target: '_blank'},
+		{text: '<i class="icon-twitter"></i> Twitter', href: 'http://twitter.com/WriteOnApp', target: '_blank'}
+	]);
+	context.attach('.modal-backdrop', [
+
+		{header: '<i class="icon-provider-writeon"></i> WriteOn'},
+        {divider: true},
+		{text: '<i class="icon-folder-open"></i> My Stories', action: function(e){
+		    e.preventDefault();
+            $('.document-panel .toggle-button').click();
+		}},
+        {divider: true},
+		{text: '<i class="icon-cog-alt"></i> Settings', action: function(e){
+		    e.preventDefault();
+            $('.action-load-settings').click();
+		}},
+		{text: '<i class="icon-info"></i> About', action: function(e){
+		    e.preventDefault();
+            $('.action-load-about').click();
+		}},
+        {divider: true},
+		{text: '<i class="icon-list-alt"></i> Website', href: 'http://writeon.io', target: '_blank'},
+		{text: '<i class="icon-twitter"></i> Twitter', href: 'http://twitter.com/WriteOnApp', target: '_blank'}
+	]);
+    
         
     /* jshint ignore:end */
 
