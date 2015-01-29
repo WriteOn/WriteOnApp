@@ -1,3 +1,9 @@
+if(process.env.NODETIME_ACCOUNT_KEY) {
+  require('nodetime').profile({
+    accountKey: process.env.NODETIME_ACCOUNT_KEY,
+    appName: 'WriteOn' // optional
+  });
+}
 require('nodetime');
 require('newrelic');
 var cluster = require('cluster');

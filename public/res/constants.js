@@ -51,6 +51,7 @@ define([], function() {
      // PRODUCTION ENVIRONMENT VARIABLE CONSTANTS 
 	if(location.hostname.indexOf("writeon.io") === 0) {
 		constants.BASE_URL = constants.MAIN_URL;
+        constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3";
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = 'af6858e3fa3165986ce7';
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";

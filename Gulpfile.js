@@ -152,7 +152,10 @@ gulp.task('clean-font', function() {
 });
 
 gulp.task('copy-font', ['clean-font'], function() {
-	return gulp.src('./public/res/font/*')
+	return gulp.src([
+        './public/res/font/*', 
+        './public/res/bower-libs/bootstrap-material-design/fonts/*'
+    ])
 		// .pipe(debug())
         .pipe(gulp.dest('./public/res-min/font/'));
 });

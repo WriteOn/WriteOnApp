@@ -20,7 +20,7 @@ requirejs.config({
 		}
 	],
 	paths: {
-		jquery: 'bower-libs/jquery/jquery',
+		jquery: 'bower-libs/jquery/dist/jquery.min',
 		underscore: 'bower-libs/underscore/underscore',
 		crel: 'bower-libs/crel/crel',
 		jgrowl: 'bower-libs/jgrowl/jquery.jgrowl',
@@ -30,6 +30,8 @@ requirejs.config({
 		text: 'bower-libs/requirejs-text/text',
 //		mathjax: '../res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML', 
 		bootstrap: 'bower-libs/bootstrap/dist/js/bootstrap',
+		material_ripples: 'bower-libs/bootstrap-material-design/dist/js/ripples.min',
+		bootstrap_material: 'bower-libs/bootstrap-material-design/dist/js/bootstrap.material.min',
 		requirejs: 'bower-libs/requirejs/require',
 		'google-code-prettify': 'bower-libs/google-code-prettify/src/prettify',
 		highlightjs: 'libs/highlight/highlight.pack',
@@ -156,6 +158,18 @@ requirejs.config({
 		bootstrap: [
 			'jquery'
 		],
+		bootstrap_material: {
+			deps: [
+				'bootstrap'
+			],
+			exports: 'material'
+        },
+		ripples: {
+			deps: [
+				'bootstrap_material'
+			],
+			exports: 'ripples'
+        },
 		'jquery-waitforimages': [
 			'jquery'
 		],
@@ -192,7 +206,7 @@ try {
 	});
 }
 catch(e) {
-	alert('Your browser is not supported, please upgrade to a more safe & reliable browser.' + e.toString);
+	alert('Your browser is not supported, please upgrade to a more safe & reliable browser.');
 	throw e;
 }
 
