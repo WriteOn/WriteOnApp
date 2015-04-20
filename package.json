@@ -1,6 +1,6 @@
 {
   "name": "WriteOn",
-  "version": "1.7.5",
+  "version": "1.7.6",
   "private": true,
   "description": "Write without distraction and publish without effort.",
   "main": "res/main.js",
