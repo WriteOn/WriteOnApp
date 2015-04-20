@@ -5095,7 +5095,7 @@ function diff_match_patch() {
    var n = u[e], i = "";
    return n.bmp && !n.isBmpLast && (i = "[" + n.bmp + "]" + (n.astral ? "|" : "")), 
    n.astral && (i += n.astral), n.isBmpLast && n.bmp && (i += (n.astral ? "|" : "") + "[" + n.bmp + "]"), 
-   t ? "(?:(?!" + i + ")(?:[í €-í¯¿][í°€-í¿¿]|[\x00-ï¿¿]))" : "(?:" + i + ")";
+   t ? "(?:(?!" + i + ")(?:[\ud800-\udbff][\udc00-\udfff]|[\x00-\uffff]))" : "(?:" + i + ")";
   }
   function c(e, t) {
    var n = t ? "a!" : "a=";
@@ -5130,671 +5130,671 @@ function diff_match_patch() {
   }, e.addUnicodeData([ {
    name: "L",
    alias: "Letter",
-   bmp: "A-Za-zÂªÂµÂºÃ€-Ã–Ã˜-Ã¶Ã¸-ËË†-Ë‘Ë -Ë¤Ë¬Ë®Í°-Í´Í¶Í·Íº-Í½Î†Îˆ-ÎŠÎŒÎ-Î¡Î£-ÏµÏ·-ÒÒŠ-Ô§Ô±-Õ–Õ™Õ¡-Ö‡×-×ª×°-×²Ø -ÙŠÙ®Ù¯Ù±-Û“Û•Û¥Û¦Û®Û¯Ûº-Û¼Û¿ÜÜ’-Ü¯İ-Ş¥Ş±ßŠ-ßªß´ßµßºà €-à •à šà ¤à ¨à¡€-à¡˜à¢ à¢¢-à¢¬à¤„-à¤¹à¤½à¥à¥˜-à¥¡à¥±-à¥·à¥¹-à¥¿à¦…-à¦Œà¦à¦à¦“-à¦¨à¦ª-à¦°à¦²à¦¶-à¦¹à¦½à§à§œà§à§Ÿ-à§¡à§°à§±à¨…-à¨Šà¨à¨à¨“-à¨¨à¨ª-à¨°à¨²à¨³à¨µà¨¶à¨¸à¨¹à©™-à©œà©à©²-à©´àª…-àªàª-àª‘àª“-àª¨àªª-àª°àª²àª³àªµ-àª¹àª½à«à« à«¡à¬…-à¬Œà¬à¬à¬“-à¬¨à¬ª-à¬°à¬²à¬³à¬µ-à¬¹à¬½à­œà­à­Ÿ-à­¡à­±à®ƒà®…-à®Šà®-à®à®’-à®•à®™à®šà®œà®à®Ÿà®£à®¤à®¨-à®ªà®®-à®¹à¯à°…-à°Œà°-à°à°’-à°¨à°ª-à°³à°µ-à°¹à°½à±˜à±™à± à±¡à²…-à²Œà²-à²à²’-à²¨à²ª-à²³à²µ-à²¹à²½à³à³ à³¡à³±à³²à´…-à´Œà´-à´à´’-à´ºà´½àµàµ àµ¡àµº-àµ¿à¶…-à¶–à¶š-à¶±à¶³-à¶»à¶½à·€-à·†à¸-à¸°à¸²à¸³à¹€-à¹†àºàº‚àº„àº‡àºˆàºŠàºàº”-àº—àº™-àºŸàº¡-àº£àº¥àº§àºªàº«àº­-àº°àº²àº³àº½à»€-à»„à»†à»œ-à»Ÿà¼€à½€-à½‡à½‰-à½¬à¾ˆ-à¾Œá€€-á€ªá€¿á-á•áš-áá¡á¥á¦á®-á°áµ-á‚á‚á‚ -áƒ…áƒ‡áƒáƒ-áƒºáƒ¼-á‰ˆá‰Š-á‰á‰-á‰–á‰˜á‰š-á‰á‰ -áŠˆáŠŠ-áŠáŠ-áŠ°áŠ²-áŠµáŠ¸-áŠ¾á‹€á‹‚-á‹…á‹ˆ-á‹–á‹˜-áŒáŒ’-áŒ•áŒ˜-ášá€-áá -á´á-á™¬á™¯-á™¿áš-áššáš -á›ªáœ€-áœŒáœ-áœ‘áœ -áœ±á€-á‘á -á¬á®-á°á€-á³áŸ—áŸœá  -á¡·á¢€-á¢¨á¢ªá¢°-á£µá¤€-á¤œá¥-á¥­á¥°-á¥´á¦€-á¦«á§-á§‡á¨€-á¨–á¨ -á©”áª§á¬…-á¬³á­…-á­‹á®ƒ-á® á®®á®¯á®º-á¯¥á°€-á°£á±-á±á±š-á±½á³©-á³¬á³®-á³±á³µá³¶á´€-á¶¿á¸€-á¼•á¼˜-á¼á¼ -á½…á½ˆ-á½á½-á½—á½™á½›á½á½Ÿ-á½½á¾€-á¾´á¾¶-á¾¼á¾¾á¿‚-á¿„á¿†-á¿Œá¿-á¿“á¿–-á¿›á¿ -á¿¬á¿²-á¿´á¿¶-á¿¼â±â¿â‚-â‚œâ„‚â„‡â„Š-â„“â„•â„™-â„â„¤â„¦â„¨â„ª-â„­â„¯-â„¹â„¼-â„¿â……-â…‰â…â†ƒâ†„â°€-â°®â°°-â±â± -â³¤â³«-â³®â³²â³³â´€-â´¥â´§â´­â´°-âµ§âµ¯â¶€-â¶–â¶ -â¶¦â¶¨-â¶®â¶°-â¶¶â¶¸-â¶¾â·€-â·†â·ˆ-â·â·-â·–â·˜-â·â¸¯ã€…ã€†ã€±-ã€µã€»ã€¼ã-ã‚–ã‚-ã‚Ÿã‚¡-ãƒºãƒ¼-ãƒ¿ã„…-ã„­ã„±-ã†ã† -ã†ºã‡°-ã‡¿ã€-ä¶µä¸€-é¿Œê€€-ê’Œê“-ê“½ê”€-ê˜Œê˜-ê˜Ÿê˜ªê˜«ê™€-ê™®ê™¿-êš—êš -ê›¥êœ—-êœŸêœ¢-êˆê‹-êê-ê“ê -êªêŸ¸-ê ê ƒ-ê …ê ‡-ê Šê Œ-ê ¢ê¡€-ê¡³ê¢‚-ê¢³ê£²-ê£·ê£»ê¤Š-ê¤¥ê¤°-ê¥†ê¥ -ê¥¼ê¦„-ê¦²ê§ê¨€-ê¨¨ê©€-ê©‚ê©„-ê©‹ê© -ê©¶ê©ºêª€-êª¯êª±êªµêª¶êª¹-êª½ê«€ê«‚ê«›-ê«ê« -ê«ªê«²-ê«´ê¬-ê¬†ê¬‰-ê¬ê¬‘-ê¬–ê¬ -ê¬¦ê¬¨-ê¬®ê¯€-ê¯¢ê°€-í£í°-íŸ†íŸ‹-íŸ»ï¤€-ï©­ï©°-ï«™ï¬€-ï¬†ï¬“-ï¬—ï¬ï¬Ÿ-ï¬¨ï¬ª-ï¬¶ï¬¸-ï¬¼ï¬¾ï­€ï­ï­ƒï­„ï­†-ï®±ï¯“-ï´½ïµ-ï¶ï¶’-ï·‡ï·°-ï·»ï¹°-ï¹´ï¹¶-ï»¼ï¼¡-ï¼ºï½-ï½šï½¦-ï¾¾ï¿‚-ï¿‡ï¿Š-ï¿ï¿’-ï¿—ï¿š-ï¿œ",
-   astral: "í ‚[í°€-í°…í°ˆí°Š-í°µí°·í°¸í°¼í°¿-í±•í´€-í´•í´ -í´¹í¶€-í¶·í¶¾í¶¿í¸€í¸-í¸“í¸•-í¸—í¸™-í¸³í¹ -í¹¼í¼€-í¼µí½€-í½•í½ -í½²]|í [í°€-í²]|í €[í°€-í°‹í°-í°¦í°¨-í°ºí°¼í°½í°¿-í±í±-í±í²€-í³ºíº€-íºœíº -í»í¼€-í¼í¼°-í½€í½‚-í½‰í¾€-í¾í¾ -í¿ƒí¿ˆ-í¿]|í š[í°€-í¸¸]|í „[í°ƒ-í°·í²ƒ-í²¯í³-í³¨í´ƒ-í´¦í¶ƒ-í¶²í·-í·„]|í¡®[í°€-í°]|í¡­[í°€-í¼´í½€-í¿¿]|í ƒ[í°€-í±ˆ]|í [í°€-í°®]|í …[íº€-íºª]|í¡¾[í°€-í¸]|í ›[í¼€-í½„í½í¾“-í¾Ÿ]|í¡©[í°€-í»–í¼€-í¿¿]|í ¬[í°€í°]|[í Œí¡€-í¡¨í¡ª-í¡¬][í°€-í¿¿]|í »[í¸€-í¸ƒí¸…-í¸Ÿí¸¡í¸¢í¸¤í¸§í¸©-í¸²í¸´-í¸·í¸¹í¸»í¹‚í¹‡í¹‰í¹‹í¹-í¹í¹‘í¹’í¹”í¹—í¹™í¹›í¹í¹Ÿí¹¡í¹¢í¹¤í¹§-í¹ªí¹¬-í¹²í¹´-í¹·í¹¹-í¹¼í¹¾íº€-íº‰íº‹-íº›íº¡-íº£íº¥-íº©íº«-íº»]|í µ[í°€-í±”í±–-í²œí²í²Ÿí²¢í²¥í²¦í²©-í²¬í²®-í²¹í²»í²½-í³ƒí³…-í´…í´‡-í´Ší´-í´”í´–-í´œí´-í´¹í´»-í´¾íµ€-íµ„íµ†íµŠ-íµíµ’-íº¥íº¨-í»€í»‚-í»ší»œ-í»ºí»¼-í¼”í¼–-í¼´í¼¶-í½í½-í½®í½°-í¾ˆí¾Š-í¾¨í¾ª-í¿‚í¿„-í¿‹]|í ˆ[í°€-í½®]"
+   bmp: "A-Za-z\xaa\xb5\xba\xc0-\xd6\xd8-\xf6\xf8-\u02c1\u02c6-\u02d1\u02e0-\u02e4\u02ec\u02ee\u0370-\u0374\u0376\u0377\u037a-\u037d\u0386\u0388-\u038a\u038c\u038e-\u03a1\u03a3-\u03f5\u03f7-\u0481\u048a-\u0527\u0531-\u0556\u0559\u0561-\u0587\u05d0-\u05ea\u05f0-\u05f2\u0620-\u064a\u066e\u066f\u0671-\u06d3\u06d5\u06e5\u06e6\u06ee\u06ef\u06fa-\u06fc\u06ff\u0710\u0712-\u072f\u074d-\u07a5\u07b1\u07ca-\u07ea\u07f4\u07f5\u07fa\u0800-\u0815\u081a\u0824\u0828\u0840-\u0858\u08a0\u08a2-\u08ac\u0904-\u0939\u093d\u0950\u0958-\u0961\u0971-\u0977\u0979-\u097f\u0985-\u098c\u098f\u0990\u0993-\u09a8\u09aa-\u09b0\u09b2\u09b6-\u09b9\u09bd\u09ce\u09dc\u09dd\u09df-\u09e1\u09f0\u09f1\u0a05-\u0a0a\u0a0f\u0a10\u0a13-\u0a28\u0a2a-\u0a30\u0a32\u0a33\u0a35\u0a36\u0a38\u0a39\u0a59-\u0a5c\u0a5e\u0a72-\u0a74\u0a85-\u0a8d\u0a8f-\u0a91\u0a93-\u0aa8\u0aaa-\u0ab0\u0ab2\u0ab3\u0ab5-\u0ab9\u0abd\u0ad0\u0ae0\u0ae1\u0b05-\u0b0c\u0b0f\u0b10\u0b13-\u0b28\u0b2a-\u0b30\u0b32\u0b33\u0b35-\u0b39\u0b3d\u0b5c\u0b5d\u0b5f-\u0b61\u0b71\u0b83\u0b85-\u0b8a\u0b8e-\u0b90\u0b92-\u0b95\u0b99\u0b9a\u0b9c\u0b9e\u0b9f\u0ba3\u0ba4\u0ba8-\u0baa\u0bae-\u0bb9\u0bd0\u0c05-\u0c0c\u0c0e-\u0c10\u0c12-\u0c28\u0c2a-\u0c33\u0c35-\u0c39\u0c3d\u0c58\u0c59\u0c60\u0c61\u0c85-\u0c8c\u0c8e-\u0c90\u0c92-\u0ca8\u0caa-\u0cb3\u0cb5-\u0cb9\u0cbd\u0cde\u0ce0\u0ce1\u0cf1\u0cf2\u0d05-\u0d0c\u0d0e-\u0d10\u0d12-\u0d3a\u0d3d\u0d4e\u0d60\u0d61\u0d7a-\u0d7f\u0d85-\u0d96\u0d9a-\u0db1\u0db3-\u0dbb\u0dbd\u0dc0-\u0dc6\u0e01-\u0e30\u0e32\u0e33\u0e40-\u0e46\u0e81\u0e82\u0e84\u0e87\u0e88\u0e8a\u0e8d\u0e94-\u0e97\u0e99-\u0e9f\u0ea1-\u0ea3\u0ea5\u0ea7\u0eaa\u0eab\u0ead-\u0eb0\u0eb2\u0eb3\u0ebd\u0ec0-\u0ec4\u0ec6\u0edc-\u0edf\u0f00\u0f40-\u0f47\u0f49-\u0f6c\u0f88-\u0f8c\u1000-\u102a\u103f\u1050-\u1055\u105a-\u105d\u1061\u1065\u1066\u106e-\u1070\u1075-\u1081\u108e\u10a0-\u10c5\u10c7\u10cd\u10d0-\u10fa\u10fc-\u1248\u124a-\u124d\u1250-\u1256\u1258\u125a-\u125d\u1260-\u1288\u128a-\u128d\u1290-\u12b0\u12b2-\u12b5\u12b8-\u12be\u12c0\u12c2-\u12c5\u12c8-\u12d6\u12d8-\u1310\u1312-\u1315\u1318-\u135a\u1380-\u138f\u13a0-\u13f4\u1401-\u166c\u166f-\u167f\u1681-\u169a\u16a0-\u16ea\u1700-\u170c\u170e-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176c\u176e-\u1770\u1780-\u17b3\u17d7\u17dc\u1820-\u1877\u1880-\u18a8\u18aa\u18b0-\u18f5\u1900-\u191c\u1950-\u196d\u1970-\u1974\u1980-\u19ab\u19c1-\u19c7\u1a00-\u1a16\u1a20-\u1a54\u1aa7\u1b05-\u1b33\u1b45-\u1b4b\u1b83-\u1ba0\u1bae\u1baf\u1bba-\u1be5\u1c00-\u1c23\u1c4d-\u1c4f\u1c5a-\u1c7d\u1ce9-\u1cec\u1cee-\u1cf1\u1cf5\u1cf6\u1d00-\u1dbf\u1e00-\u1f15\u1f18-\u1f1d\u1f20-\u1f45\u1f48-\u1f4d\u1f50-\u1f57\u1f59\u1f5b\u1f5d\u1f5f-\u1f7d\u1f80-\u1fb4\u1fb6-\u1fbc\u1fbe\u1fc2-\u1fc4\u1fc6-\u1fcc\u1fd0-\u1fd3\u1fd6-\u1fdb\u1fe0-\u1fec\u1ff2-\u1ff4\u1ff6-\u1ffc\u2071\u207f\u2090-\u209c\u2102\u2107\u210a-\u2113\u2115\u2119-\u211d\u2124\u2126\u2128\u212a-\u212d\u212f-\u2139\u213c-\u213f\u2145-\u2149\u214e\u2183\u2184\u2c00-\u2c2e\u2c30-\u2c5e\u2c60-\u2ce4\u2ceb-\u2cee\u2cf2\u2cf3\u2d00-\u2d25\u2d27\u2d2d\u2d30-\u2d67\u2d6f\u2d80-\u2d96\u2da0-\u2da6\u2da8-\u2dae\u2db0-\u2db6\u2db8-\u2dbe\u2dc0-\u2dc6\u2dc8-\u2dce\u2dd0-\u2dd6\u2dd8-\u2dde\u2e2f\u3005\u3006\u3031-\u3035\u303b\u303c\u3041-\u3096\u309d-\u309f\u30a1-\u30fa\u30fc-\u30ff\u3105-\u312d\u3131-\u318e\u31a0-\u31ba\u31f0-\u31ff\u3400-\u4db5\u4e00-\u9fcc\ua000-\ua48c\ua4d0-\ua4fd\ua500-\ua60c\ua610-\ua61f\ua62a\ua62b\ua640-\ua66e\ua67f-\ua697\ua6a0-\ua6e5\ua717-\ua71f\ua722-\ua788\ua78b-\ua78e\ua790-\ua793\ua7a0-\ua7aa\ua7f8-\ua801\ua803-\ua805\ua807-\ua80a\ua80c-\ua822\ua840-\ua873\ua882-\ua8b3\ua8f2-\ua8f7\ua8fb\ua90a-\ua925\ua930-\ua946\ua960-\ua97c\ua984-\ua9b2\ua9cf\uaa00-\uaa28\uaa40-\uaa42\uaa44-\uaa4b\uaa60-\uaa76\uaa7a\uaa80-\uaaaf\uaab1\uaab5\uaab6\uaab9-\uaabd\uaac0\uaac2\uaadb-\uaadd\uaae0-\uaaea\uaaf2-\uaaf4\uab01-\uab06\uab09-\uab0e\uab11-\uab16\uab20-\uab26\uab28-\uab2e\uabc0-\uabe2\uac00-\ud7a3\ud7b0-\ud7c6\ud7cb-\ud7fb\uf900-\ufa6d\ufa70-\ufad9\ufb00-\ufb06\ufb13-\ufb17\ufb1d\ufb1f-\ufb28\ufb2a-\ufb36\ufb38-\ufb3c\ufb3e\ufb40\ufb41\ufb43\ufb44\ufb46-\ufbb1\ufbd3-\ufd3d\ufd50-\ufd8f\ufd92-\ufdc7\ufdf0-\ufdfb\ufe70-\ufe74\ufe76-\ufefc\uff21-\uff3a\uff41-\uff5a\uff66-\uffbe\uffc2-\uffc7\uffca-\uffcf\uffd2-\uffd7\uffda-\uffdc",
+   astral: "\ud802[\udc00-\udc05\udc08\udc0a-\udc35\udc37\udc38\udc3c\udc3f-\udc55\udd00-\udd15\udd20-\udd39\udd80-\uddb7\uddbe\uddbf\ude00\ude10-\ude13\ude15-\ude17\ude19-\ude33\ude60-\ude7c\udf00-\udf35\udf40-\udf55\udf60-\udf72]|\ud801[\udc00-\udc9d]|\ud800[\udc00-\udc0b\udc0d-\udc26\udc28-\udc3a\udc3c\udc3d\udc3f-\udc4d\udc50-\udc5d\udc80-\udcfa\ude80-\ude9c\udea0-\uded0\udf00-\udf1e\udf30-\udf40\udf42-\udf49\udf80-\udf9d\udfa0-\udfc3\udfc8-\udfcf]|\ud81a[\udc00-\ude38]|\ud804[\udc03-\udc37\udc83-\udcaf\udcd0-\udce8\udd03-\udd26\udd83-\uddb2\uddc1-\uddc4]|\ud86e[\udc00-\udc1d]|\ud86d[\udc00-\udf34\udf40-\udfff]|\ud803[\udc00-\udc48]|\ud80d[\udc00-\udc2e]|\ud805[\ude80-\udeaa]|\ud87e[\udc00-\ude1d]|\ud81b[\udf00-\udf44\udf50\udf93-\udf9f]|\ud869[\udc00-\uded6\udf00-\udfff]|\ud82c[\udc00\udc01]|[\ud80c\ud840-\ud868\ud86a-\ud86c][\udc00-\udfff]|\ud83b[\ude00-\ude03\ude05-\ude1f\ude21\ude22\ude24\ude27\ude29-\ude32\ude34-\ude37\ude39\ude3b\ude42\ude47\ude49\ude4b\ude4d-\ude4f\ude51\ude52\ude54\ude57\ude59\ude5b\ude5d\ude5f\ude61\ude62\ude64\ude67-\ude6a\ude6c-\ude72\ude74-\ude77\ude79-\ude7c\ude7e\ude80-\ude89\ude8b-\ude9b\udea1-\udea3\udea5-\udea9\udeab-\udebb]|\ud835[\udc00-\udc54\udc56-\udc9c\udc9e\udc9f\udca2\udca5\udca6\udca9-\udcac\udcae-\udcb9\udcbb\udcbd-\udcc3\udcc5-\udd05\udd07-\udd0a\udd0d-\udd14\udd16-\udd1c\udd1e-\udd39\udd3b-\udd3e\udd40-\udd44\udd46\udd4a-\udd50\udd52-\udea5\udea8-\udec0\udec2-\udeda\udedc-\udefa\udefc-\udf14\udf16-\udf34\udf36-\udf4e\udf50-\udf6e\udf70-\udf88\udf8a-\udfa8\udfaa-\udfc2\udfc4-\udfcb]|\ud808[\udc00-\udf6e]"
   } ]);
  }(e), function(e) {
   if (!e.addUnicodeData) throw new ReferenceError("Unicode Base must be loaded before Unicode Blocks");
   e.addUnicodeData([ {
    name: "InAegean_Numbers",
-   astral: "í €[í´€-í´¿]"
+   astral: "\ud800[\udd00-\udd3f]"
   }, {
    name: "InAlchemical_Symbols",
-   astral: "í ½[í¼€-í½¿]"
+   astral: "\ud83d[\udf00-\udf7f]"
   }, {
    name: "InAlphabetic_Presentation_Forms",
-   bmp: "ï¬€-ï­"
+   bmp: "\ufb00-\ufb4f"
   }, {
    name: "InAncient_Greek_Musical_Notation",
-   astral: "í ´[í¸€-í¹]"
+   astral: "\ud834[\ude00-\ude4f]"
   }, {
    name: "InAncient_Greek_Numbers",
-   astral: "í €[íµ€-í¶]"
+   astral: "\ud800[\udd40-\udd8f]"
   }, {
    name: "InAncient_Symbols",
-   astral: "í €[í¶-í·]"
+   astral: "\ud800[\udd90-\uddcf]"
   }, {
    name: "InArabic",
-   bmp: "Ø€-Û¿"
+   bmp: "\u0600-\u06ff"
   }, {
    name: "InArabic_Extended_A",
-   bmp: "à¢ -à£¿"
+   bmp: "\u08a0-\u08ff"
   }, {
    name: "InArabic_Mathematical_Alphabetic_Symbols",
-   astral: "í »[í¸€-í»¿]"
+   astral: "\ud83b[\ude00-\udeff]"
   }, {
    name: "InArabic_Presentation_Forms_A",
-   bmp: "ï­-ï·¿"
+   bmp: "\ufb50-\ufdff"
   }, {
    name: "InArabic_Presentation_Forms_B",
-   bmp: "ï¹°-ï»¿"
+   bmp: "\ufe70-\ufeff"
   }, {
    name: "InArabic_Supplement",
-   bmp: "İ-İ¿"
+   bmp: "\u0750-\u077f"
   }, {
    name: "InArmenian",
-   bmp: "Ô°-Ö"
+   bmp: "\u0530-\u058f"
   }, {
    name: "InArrows",
-   bmp: "â†-â‡¿"
+   bmp: "\u2190-\u21ff"
   }, {
    name: "InAvestan",
-   astral: "í ‚[í¼€-í¼¿]"
+   astral: "\ud802[\udf00-\udf3f]"
   }, {
    name: "InBalinese",
-   bmp: "á¬€-á­¿"
+   bmp: "\u1b00-\u1b7f"
   }, {
    name: "InBamum",
-   bmp: "êš -ê›¿"
+   bmp: "\ua6a0-\ua6ff"
   }, {
    name: "InBamum_Supplement",
-   astral: "í š[í°€-í¸¿]"
+   astral: "\ud81a[\udc00-\ude3f]"
   }, {
    name: "InBasic_Latin",
    bmp: "\x00-"
   }, {
    name: "InBatak",
-   bmp: "á¯€-á¯¿"
+   bmp: "\u1bc0-\u1bff"
   }, {
    name: "InBengali",
-   bmp: "à¦€-à§¿"
+   bmp: "\u0980-\u09ff"
   }, {
    name: "InBlock_Elements",
-   bmp: "â–€-â–Ÿ"
+   bmp: "\u2580-\u259f"
   }, {
    name: "InBopomofo",
-   bmp: "ã„€-ã„¯"
+   bmp: "\u3100-\u312f"
   }, {
    name: "InBopomofo_Extended",
-   bmp: "ã† -ã†¿"
+   bmp: "\u31a0-\u31bf"
   }, {
    name: "InBox_Drawing",
-   bmp: "â”€-â•¿"
+   bmp: "\u2500-\u257f"
   }, {
    name: "InBrahmi",
-   astral: "í „[í°€-í±¿]"
+   astral: "\ud804[\udc00-\udc7f]"
   }, {
    name: "InBraille_Patterns",
-   bmp: "â €-â£¿"
+   bmp: "\u2800-\u28ff"
   }, {
    name: "InBuginese",
-   bmp: "á¨€-á¨Ÿ"
+   bmp: "\u1a00-\u1a1f"
   }, {
    name: "InBuhid",
-   bmp: "á€-áŸ"
+   bmp: "\u1740-\u175f"
   }, {
    name: "InByzantine_Musical_Symbols",
-   astral: "í ´[í°€-í³¿]"
+   astral: "\ud834[\udc00-\udcff]"
   }, {
    name: "InCJK_Compatibility",
-   bmp: "ãŒ€-ã¿"
+   bmp: "\u3300-\u33ff"
   }, {
    name: "InCJK_Compatibility_Forms",
-   bmp: "ï¸°-ï¹"
+   bmp: "\ufe30-\ufe4f"
   }, {
    name: "InCJK_Compatibility_Ideographs",
-   bmp: "ï¤€-ï«¿"
+   bmp: "\uf900-\ufaff"
   }, {
    name: "InCJK_Compatibility_Ideographs_Supplement",
-   astral: "í¡¾[í°€-í¸Ÿ]"
+   astral: "\ud87e[\udc00-\ude1f]"
   }, {
    name: "InCJK_Radicals_Supplement",
-   bmp: "âº€-â»¿"
+   bmp: "\u2e80-\u2eff"
   }, {
    name: "InCJK_Strokes",
-   bmp: "ã‡€-ã‡¯"
+   bmp: "\u31c0-\u31ef"
   }, {
    name: "InCJK_Symbols_and_Punctuation",
-   bmp: "ã€€-ã€¿"
+   bmp: "\u3000-\u303f"
   }, {
    name: "InCJK_Unified_Ideographs",
-   bmp: "ä¸€-é¿¿"
+   bmp: "\u4e00-\u9fff"
   }, {
    name: "InCJK_Unified_Ideographs_Extension_A",
-   bmp: "ã€-ä¶¿"
+   bmp: "\u3400-\u4dbf"
   }, {
    name: "InCJK_Unified_Ideographs_Extension_B",
-   astral: "[í¡€-í¡¨][í°€-í¿¿]|í¡©[í°€-í»Ÿ]"
+   astral: "[\ud840-\ud868][\udc00-\udfff]|\ud869[\udc00-\udedf]"
   }, {
    name: "InCJK_Unified_Ideographs_Extension_C",
-   astral: "í¡­[í°€-í¼¿]|[í¡ª-í¡¬][í°€-í¿¿]|í¡©[í¼€-í¿¿]"
+   astral: "\ud86d[\udc00-\udf3f]|[\ud86a-\ud86c][\udc00-\udfff]|\ud869[\udf00-\udfff]"
   }, {
    name: "InCJK_Unified_Ideographs_Extension_D",
-   astral: "í¡­[í½€-í¿¿]|í¡®[í°€-í°Ÿ]"
+   astral: "\ud86d[\udf40-\udfff]|\ud86e[\udc00-\udc1f]"
   }, {
    name: "InCarian",
-   astral: "í €[íº -í»Ÿ]"
+   astral: "\ud800[\udea0-\udedf]"
   }, {
    name: "InChakma",
-   astral: "í „[í´€-íµ]"
+   astral: "\ud804[\udd00-\udd4f]"
   }, {
    name: "InCham",
-   bmp: "ê¨€-ê©Ÿ"
+   bmp: "\uaa00-\uaa5f"
   }, {
    name: "InCherokee",
-   bmp: "á -á¿"
+   bmp: "\u13a0-\u13ff"
   }, {
    name: "InCombining_Diacritical_Marks",
-   bmp: "Ì€-Í¯"
+   bmp: "\u0300-\u036f"
   }, {
    name: "InCombining_Diacritical_Marks_Supplement",
-   bmp: "á·€-á·¿"
+   bmp: "\u1dc0-\u1dff"
   }, {
    name: "InCombining_Diacritical_Marks_for_Symbols",
-   bmp: "âƒ-âƒ¿"
+   bmp: "\u20d0-\u20ff"
   }, {
    name: "InCombining_Half_Marks",
-   bmp: "ï¸ -ï¸¯"
+   bmp: "\ufe20-\ufe2f"
   }, {
    name: "InCommon_Indic_Number_Forms",
-   bmp: "ê °-ê ¿"
+   bmp: "\ua830-\ua83f"
   }, {
    name: "InControl_Pictures",
-   bmp: "â€-â¿"
+   bmp: "\u2400-\u243f"
   }, {
    name: "InCoptic",
-   bmp: "â²€-â³¿"
+   bmp: "\u2c80-\u2cff"
   }, {
    name: "InCounting_Rod_Numerals",
-   astral: "í ´[í½ -í½¿]"
+   astral: "\ud834[\udf60-\udf7f]"
   }, {
    name: "InCuneiform",
-   astral: "í ˆ[í°€-í¿¿]"
+   astral: "\ud808[\udc00-\udfff]"
   }, {
    name: "InCuneiform_Numbers_and_Punctuation",
-   astral: "í ‰[í°€-í±¿]"
+   astral: "\ud809[\udc00-\udc7f]"
   }, {
    name: "InCurrency_Symbols",
-   bmp: "â‚ -âƒ"
+   bmp: "\u20a0-\u20cf"
   }, {
    name: "InCypriot_Syllabary",
-   astral: "í ‚[í°€-í°¿]"
+   astral: "\ud802[\udc00-\udc3f]"
   }, {
    name: "InCyrillic",
-   bmp: "Ğ€-Ó¿"
+   bmp: "\u0400-\u04ff"
   }, {
    name: "InCyrillic_Extended_A",
-   bmp: "â· -â·¿"
+   bmp: "\u2de0-\u2dff"
   }, {
    name: "InCyrillic_Extended_B",
-   bmp: "ê™€-êšŸ"
+   bmp: "\ua640-\ua69f"
   }, {
    name: "InCyrillic_Supplement",
-   bmp: "Ô€-Ô¯"
+   bmp: "\u0500-\u052f"
   }, {
    name: "InDeseret",
-   astral: "í [í°€-í±]"
+   astral: "\ud801[\udc00-\udc4f]"
   }, {
    name: "InDevanagari",
-   bmp: "à¤€-à¥¿"
+   bmp: "\u0900-\u097f"
   }, {
    name: "InDevanagari_Extended",
-   bmp: "ê£ -ê£¿"
+   bmp: "\ua8e0-\ua8ff"
   }, {
    name: "InDingbats",
-   bmp: "âœ€-â¿"
+   bmp: "\u2700-\u27bf"
   }, {
    name: "InDomino_Tiles",
-   astral: "í ¼[í°°-í²Ÿ]"
+   astral: "\ud83c[\udc30-\udc9f]"
   }, {
    name: "InEgyptian_Hieroglyphs",
-   astral: "í Œ[í°€-í¿¿]|í [í°€-í°¯]"
+   astral: "\ud80c[\udc00-\udfff]|\ud80d[\udc00-\udc2f]"
   }, {
    name: "InEmoticons",
-   astral: "í ½[í¸€-í¹]"
+   astral: "\ud83d[\ude00-\ude4f]"
   }, {
    name: "InEnclosed_Alphanumeric_Supplement",
-   astral: "í ¼[í´€-í·¿]"
+   astral: "\ud83c[\udd00-\uddff]"
   }, {
    name: "InEnclosed_Alphanumerics",
-   bmp: "â‘ -â“¿"
+   bmp: "\u2460-\u24ff"
   }, {
    name: "InEnclosed_CJK_Letters_and_Months",
-   bmp: "ãˆ€-ã‹¿"
+   bmp: "\u3200-\u32ff"
   }, {
    name: "InEnclosed_Ideographic_Supplement",
-   astral: "í ¼[í¸€-í»¿]"
+   astral: "\ud83c[\ude00-\udeff]"
   }, {
    name: "InEthiopic",
-   bmp: "áˆ€-á¿"
+   bmp: "\u1200-\u137f"
   }, {
    name: "InEthiopic_Extended",
-   bmp: "â¶€-â·Ÿ"
+   bmp: "\u2d80-\u2ddf"
   }, {
    name: "InEthiopic_Extended_A",
-   bmp: "ê¬€-ê¬¯"
+   bmp: "\uab00-\uab2f"
   }, {
    name: "InEthiopic_Supplement",
-   bmp: "á€-áŸ"
+   bmp: "\u1380-\u139f"
   }, {
    name: "InGeneral_Punctuation",
-   bmp: "â€€-â¯"
+   bmp: "\u2000-\u206f"
   }, {
    name: "InGeometric_Shapes",
-   bmp: "â– -â—¿"
+   bmp: "\u25a0-\u25ff"
   }, {
    name: "InGeorgian",
-   bmp: "á‚ -áƒ¿"
+   bmp: "\u10a0-\u10ff"
   }, {
    name: "InGeorgian_Supplement",
-   bmp: "â´€-â´¯"
+   bmp: "\u2d00-\u2d2f"
   }, {
    name: "InGlagolitic",
-   bmp: "â°€-â±Ÿ"
+   bmp: "\u2c00-\u2c5f"
   }, {
    name: "InGothic",
-   astral: "í €[í¼°-í½]"
+   astral: "\ud800[\udf30-\udf4f]"
   }, {
    name: "InGreek_Extended",
-   bmp: "á¼€-á¿¿"
+   bmp: "\u1f00-\u1fff"
   }, {
    name: "InGreek_and_Coptic",
-   bmp: "Í°-Ï¿"
+   bmp: "\u0370-\u03ff"
   }, {
    name: "InGujarati",
-   bmp: "àª€-à«¿"
+   bmp: "\u0a80-\u0aff"
   }, {
    name: "InGurmukhi",
-   bmp: "à¨€-à©¿"
+   bmp: "\u0a00-\u0a7f"
   }, {
    name: "InHalfwidth_and_Fullwidth_Forms",
-   bmp: "ï¼€-ï¿¯"
+   bmp: "\uff00-\uffef"
   }, {
    name: "InHangul_Compatibility_Jamo",
-   bmp: "ã„°-ã†"
+   bmp: "\u3130-\u318f"
   }, {
    name: "InHangul_Jamo",
-   bmp: "á„€-á‡¿"
+   bmp: "\u1100-\u11ff"
   }, {
    name: "InHangul_Jamo_Extended_A",
-   bmp: "ê¥ -ê¥¿"
+   bmp: "\ua960-\ua97f"
   }, {
    name: "InHangul_Jamo_Extended_B",
-   bmp: "í°-íŸ¿"
+   bmp: "\ud7b0-\ud7ff"
   }, {
    name: "InHangul_Syllables",
-   bmp: "ê°€-í¯"
+   bmp: "\uac00-\ud7af"
   }, {
    name: "InHanunoo",
-   bmp: "áœ -áœ¿"
+   bmp: "\u1720-\u173f"
   }, {
    name: "InHebrew",
-   bmp: "Ö-×¿"
+   bmp: "\u0590-\u05ff"
   }, {
    name: "InHigh_Private_Use_Surrogates",
-   bmp: "í®€-í¯¿"
+   bmp: "\udb80-\udbff"
   }, {
    name: "InHigh_Surrogates",
-   bmp: "í €-í­¿"
+   bmp: "\ud800-\udb7f"
   }, {
    name: "InHiragana",
-   bmp: "ã€-ã‚Ÿ"
+   bmp: "\u3040-\u309f"
   }, {
    name: "InIPA_Extensions",
-   bmp: "É-Ê¯"
+   bmp: "\u0250-\u02af"
   }, {
    name: "InIdeographic_Description_Characters",
-   bmp: "â¿°-â¿¿"
+   bmp: "\u2ff0-\u2fff"
   }, {
    name: "InImperial_Aramaic",
-   astral: "í ‚[í±€-í±Ÿ]"
+   astral: "\ud802[\udc40-\udc5f]"
   }, {
    name: "InInscriptional_Pahlavi",
-   astral: "í ‚[í½ -í½¿]"
+   astral: "\ud802[\udf60-\udf7f]"
   }, {
    name: "InInscriptional_Parthian",
-   astral: "í ‚[í½€-í½Ÿ]"
+   astral: "\ud802[\udf40-\udf5f]"
   }, {
    name: "InJavanese",
-   bmp: "ê¦€-ê§Ÿ"
+   bmp: "\ua980-\ua9df"
   }, {
    name: "InKaithi",
-   astral: "í „[í²€-í³]"
+   astral: "\ud804[\udc80-\udccf]"
   }, {
    name: "InKana_Supplement",
-   astral: "í ¬[í°€-í³¿]"
+   astral: "\ud82c[\udc00-\udcff]"
   }, {
    name: "InKanbun",
-   bmp: "ã†-ã†Ÿ"
+   bmp: "\u3190-\u319f"
   }, {
    name: "InKangxi_Radicals",
-   bmp: "â¼€-â¿Ÿ"
+   bmp: "\u2f00-\u2fdf"
   }, {
    name: "InKannada",
-   bmp: "à²€-à³¿"
+   bmp: "\u0c80-\u0cff"
   }, {
    name: "InKatakana",
-   bmp: "ã‚ -ãƒ¿"
+   bmp: "\u30a0-\u30ff"
   }, {
    name: "InKatakana_Phonetic_Extensions",
-   bmp: "ã‡°-ã‡¿"
+   bmp: "\u31f0-\u31ff"
   }, {
    name: "InKayah_Li",
-   bmp: "ê¤€-ê¤¯"
+   bmp: "\ua900-\ua92f"
   }, {
    name: "InKharoshthi",
-   astral: "í ‚[í¸€-í¹Ÿ]"
+   astral: "\ud802[\ude00-\ude5f]"
   }, {
    name: "InKhmer",
-   bmp: "á€-áŸ¿"
+   bmp: "\u1780-\u17ff"
   }, {
    name: "InKhmer_Symbols",
-   bmp: "á§ -á§¿"
+   bmp: "\u19e0-\u19ff"
   }, {
    name: "InLao",
-   bmp: "àº€-à»¿"
+   bmp: "\u0e80-\u0eff"
   }, {
    name: "InLatin_Extended_Additional",
-   bmp: "á¸€-á»¿"
+   bmp: "\u1e00-\u1eff"
   }, {
    name: "InLatin_Extended_A",
-   bmp: "Ä€-Å¿"
+   bmp: "\u0100-\u017f"
   }, {
    name: "InLatin_Extended_B",
-   bmp: "Æ€-É"
+   bmp: "\u0180-\u024f"
   }, {
    name: "InLatin_Extended_C",
-   bmp: "â± -â±¿"
+   bmp: "\u2c60-\u2c7f"
   }, {
    name: "InLatin_Extended_D",
-   bmp: "êœ -êŸ¿"
+   bmp: "\ua720-\ua7ff"
   }, {
    name: "InLatin_1_Supplement",
-   bmp: "Â€-Ã¿"
+   bmp: "\x80-\xff"
   }, {
    name: "InLepcha",
-   bmp: "á°€-á±"
+   bmp: "\u1c00-\u1c4f"
   }, {
    name: "InLetterlike_Symbols",
-   bmp: "â„€-â…"
+   bmp: "\u2100-\u214f"
   }, {
    name: "InLimbu",
-   bmp: "á¤€-á¥"
+   bmp: "\u1900-\u194f"
   }, {
    name: "InLinear_B_Ideograms",
-   astral: "í €[í²€-í³¿]"
+   astral: "\ud800[\udc80-\udcff]"
   }, {
    name: "InLinear_B_Syllabary",
-   astral: "í €[í°€-í±¿]"
+   astral: "\ud800[\udc00-\udc7f]"
   }, {
    name: "InLisu",
-   bmp: "ê“-ê“¿"
+   bmp: "\ua4d0-\ua4ff"
   }, {
    name: "InLow_Surrogates",
-   bmp: "í°€-í¿¿"
+   bmp: "\udc00-\udfff"
   }, {
    name: "InLycian",
-   astral: "í €[íº€-íºŸ]"
+   astral: "\ud800[\ude80-\ude9f]"
   }, {
    name: "InLydian",
-   astral: "í ‚[í´ -í´¿]"
+   astral: "\ud802[\udd20-\udd3f]"
   }, {
    name: "InMahjong_Tiles",
-   astral: "í ¼[í°€-í°¯]"
+   astral: "\ud83c[\udc00-\udc2f]"
   }, {
    name: "InMalayalam",
-   bmp: "à´€-àµ¿"
+   bmp: "\u0d00-\u0d7f"
   }, {
    name: "InMandaic",
-   bmp: "à¡€-à¡Ÿ"
+   bmp: "\u0840-\u085f"
   }, {
    name: "InMathematical_Alphanumeric_Symbols",
-   astral: "í µ[í°€-í¿¿]"
+   astral: "\ud835[\udc00-\udfff]"
   }, {
    name: "InMathematical_Operators",
-   bmp: "âˆ€-â‹¿"
+   bmp: "\u2200-\u22ff"
   }, {
    name: "InMeetei_Mayek",
-   bmp: "ê¯€-ê¯¿"
+   bmp: "\uabc0-\uabff"
   }, {
    name: "InMeetei_Mayek_Extensions",
-   bmp: "ê« -ê«¿"
+   bmp: "\uaae0-\uaaff"
   }, {
    name: "InMeroitic_Cursive",
-   astral: "í ‚[í¶ -í·¿]"
+   astral: "\ud802[\udda0-\uddff]"
   }, {
    name: "InMeroitic_Hieroglyphs",
-   astral: "í ‚[í¶€-í¶Ÿ]"
+   astral: "\ud802[\udd80-\udd9f]"
   }, {
    name: "InMiao",
-   astral: "í ›[í¼€-í¾Ÿ]"
+   astral: "\ud81b[\udf00-\udf9f]"
   }, {
    name: "InMiscellaneous_Mathematical_Symbols_A",
-   bmp: "âŸ€-âŸ¯"
+   bmp: "\u27c0-\u27ef"
   }, {
    name: "InMiscellaneous_Mathematical_Symbols_B",
-   bmp: "â¦€-â§¿"
+   bmp: "\u2980-\u29ff"
   }, {
    name: "InMiscellaneous_Symbols",
-   bmp: "â˜€-â›¿"
+   bmp: "\u2600-\u26ff"
   }, {
    name: "InMiscellaneous_Symbols_And_Pictographs",
-   astral: "í ½[í°€-í·¿]|í ¼[í¼€-í¿¿]"
+   astral: "\ud83d[\udc00-\uddff]|\ud83c[\udf00-\udfff]"
   }, {
    name: "InMiscellaneous_Symbols_and_Arrows",
-   bmp: "â¬€-â¯¿"
+   bmp: "\u2b00-\u2bff"
   }, {
    name: "InMiscellaneous_Technical",
-   bmp: "âŒ€-â¿"
+   bmp: "\u2300-\u23ff"
   }, {
    name: "InModifier_Tone_Letters",
-   bmp: "êœ€-êœŸ"
+   bmp: "\ua700-\ua71f"
   }, {
    name: "InMongolian",
-   bmp: "á €-á¢¯"
+   bmp: "\u1800-\u18af"
   }, {
    name: "InMusical_Symbols",
-   astral: "í ´[í´€-í·¿]"
+   astral: "\ud834[\udd00-\uddff]"
   }, {
    name: "InMyanmar",
-   bmp: "á€€-á‚Ÿ"
+   bmp: "\u1000-\u109f"
   }, {
    name: "InMyanmar_Extended_A",
-   bmp: "ê© -ê©¿"
+   bmp: "\uaa60-\uaa7f"
   }, {
    name: "InNKo",
-   bmp: "ß€-ß¿"
+   bmp: "\u07c0-\u07ff"
   }, {
    name: "InNew_Tai_Lue",
-   bmp: "á¦€-á§Ÿ"
+   bmp: "\u1980-\u19df"
   }, {
    name: "InNumber_Forms",
-   bmp: "â…-â†"
+   bmp: "\u2150-\u218f"
   }, {
    name: "InOgham",
-   bmp: "áš€-ášŸ"
+   bmp: "\u1680-\u169f"
   }, {
    name: "InOl_Chiki",
-   bmp: "á±-á±¿"
+   bmp: "\u1c50-\u1c7f"
   }, {
    name: "InOld_Italic",
-   astral: "í €[í¼€-í¼¯]"
+   astral: "\ud800[\udf00-\udf2f]"
   }, {
    name: "InOld_Persian",
-   astral: "í €[í¾ -í¿Ÿ]"
+   astral: "\ud800[\udfa0-\udfdf]"
   }, {
    name: "InOld_South_Arabian",
-   astral: "í ‚[í¹ -í¹¿]"
+   astral: "\ud802[\ude60-\ude7f]"
   }, {
    name: "InOld_Turkic",
-   astral: "í ƒ[í°€-í±]"
+   astral: "\ud803[\udc00-\udc4f]"
   }, {
    name: "InOptical_Character_Recognition",
-   bmp: "â‘€-â‘Ÿ"
+   bmp: "\u2440-\u245f"
   }, {
    name: "InOriya",
-   bmp: "à¬€-à­¿"
+   bmp: "\u0b00-\u0b7f"
   }, {
    name: "InOsmanya",
-   astral: "í [í²€-í²¯]"
+   astral: "\ud801[\udc80-\udcaf]"
   }, {
    name: "InPhags_pa",
-   bmp: "ê¡€-ê¡¿"
+   bmp: "\ua840-\ua87f"
   }, {
    name: "InPhaistos_Disc",
-   astral: "í €[í·-í·¿]"
+   astral: "\ud800[\uddd0-\uddff]"
   }, {
    name: "InPhoenician",
-   astral: "í ‚[í´€-í´Ÿ]"
+   astral: "\ud802[\udd00-\udd1f]"
   }, {
    name: "InPhonetic_Extensions",
-   bmp: "á´€-áµ¿"
+   bmp: "\u1d00-\u1d7f"
   }, {
    name: "InPhonetic_Extensions_Supplement",
-   bmp: "á¶€-á¶¿"
+   bmp: "\u1d80-\u1dbf"
   }, {
    name: "InPlaying_Cards",
-   astral: "í ¼[í² -í³¿]"
+   astral: "\ud83c[\udca0-\udcff]"
   }, {
    name: "InPrivate_Use_Area",
-   bmp: "î€€-ï£¿"
+   bmp: "\ue000-\uf8ff"
   }, {
    name: "InRejang",
-   bmp: "ê¤°-ê¥Ÿ"
+   bmp: "\ua930-\ua95f"
   }, {
    name: "InRumi_Numeral_Symbols",
-   astral: "í ƒ[í¹ -í¹¿]"
+   astral: "\ud803[\ude60-\ude7f]"
   }, {
    name: "InRunic",
-   bmp: "áš -á›¿"
+   bmp: "\u16a0-\u16ff"
   }, {
    name: "InSamaritan",
-   bmp: "à €-à ¿"
+   bmp: "\u0800-\u083f"
   }, {
    name: "InSaurashtra",
-   bmp: "ê¢€-ê£Ÿ"
+   bmp: "\ua880-\ua8df"
   }, {
    name: "InSharada",
-   astral: "í „[í¶€-í·Ÿ]"
+   astral: "\ud804[\udd80-\udddf]"
   }, {
    name: "InShavian",
-   astral: "í [í±-í±¿]"
+   astral: "\ud801[\udc50-\udc7f]"
   }, {
    name: "InSinhala",
-   bmp: "à¶€-à·¿"
+   bmp: "\u0d80-\u0dff"
   }, {
    name: "InSmall_Form_Variants",
-   bmp: "ï¹-ï¹¯"
+   bmp: "\ufe50-\ufe6f"
   }, {
    name: "InSora_Sompeng",
-   astral: "í „[í³-í³¿]"
+   astral: "\ud804[\udcd0-\udcff]"
   }, {
    name: "InSpacing_Modifier_Letters",
-   bmp: "Ê°-Ë¿"
+   bmp: "\u02b0-\u02ff"
   }, {
    name: "InSpecials",
-   bmp: "ï¿°-ï¿¿"
+   bmp: "\ufff0-\uffff"
   }, {
    name: "InSundanese",
-   bmp: "á®€-á®¿"
+   bmp: "\u1b80-\u1bbf"
   }, {
    name: "InSundanese_Supplement",
-   bmp: "á³€-á³"
+   bmp: "\u1cc0-\u1ccf"
   }, {
    name: "InSuperscripts_and_Subscripts",
-   bmp: "â°-â‚Ÿ"
+   bmp: "\u2070-\u209f"
   }, {
    name: "InSupplemental_Arrows_A",
-   bmp: "âŸ°-âŸ¿"
+   bmp: "\u27f0-\u27ff"
   }, {
    name: "InSupplemental_Arrows_B",
-   bmp: "â¤€-â¥¿"
+   bmp: "\u2900-\u297f"
   }, {
    name: "InSupplemental_Mathematical_Operators",
-   bmp: "â¨€-â«¿"
+   bmp: "\u2a00-\u2aff"
   }, {
    name: "InSupplemental_Punctuation",
-   bmp: "â¸€-â¹¿"
+   bmp: "\u2e00-\u2e7f"
   }, {
    name: "InSupplementary_Private_Use_Area_A",
-   astral: "[í®€-í®¿][í°€-í¿¿]"
+   astral: "[\udb80-\udbbf][\udc00-\udfff]"
   }, {
    name: "InSupplementary_Private_Use_Area_B",
-   astral: "[í¯€-í¯¿][í°€-í¿¿]"
+   astral: "[\udbc0-\udbff][\udc00-\udfff]"
   }, {
    name: "InSyloti_Nagri",
-   bmp: "ê €-ê ¯"
+   bmp: "\ua800-\ua82f"
   }, {
    name: "InSyriac",
-   bmp: "Ü€-İ"
+   bmp: "\u0700-\u074f"
   }, {
    name: "InTagalog",
-   bmp: "áœ€-áœŸ"
+   bmp: "\u1700-\u171f"
   }, {
    name: "InTagbanwa",
-   bmp: "á -á¿"
+   bmp: "\u1760-\u177f"
   }, {
    name: "InTags",
-   astral: "í­€[í°€-í±¿]"
+   astral: "\udb40[\udc00-\udc7f]"
   }, {
    name: "InTai_Le",
-   bmp: "á¥-á¥¿"
+   bmp: "\u1950-\u197f"
   }, {
    name: "InTai_Tham",
-   bmp: "á¨ -áª¯"
+   bmp: "\u1a20-\u1aaf"
   }, {
    name: "InTai_Viet",
-   bmp: "êª€-ê«Ÿ"
+   bmp: "\uaa80-\uaadf"
   }, {
    name: "InTai_Xuan_Jing_Symbols",
-   astral: "í ´[í¼€-í½Ÿ]"
+   astral: "\ud834[\udf00-\udf5f]"
   }, {
    name: "InTakri",
-   astral: "í …[íº€-í»]"
+   astral: "\ud805[\ude80-\udecf]"
   }, {
    name: "InTamil",
-   bmp: "à®€-à¯¿"
+   bmp: "\u0b80-\u0bff"
   }, {
    name: "InTelugu",
-   bmp: "à°€-à±¿"
+   bmp: "\u0c00-\u0c7f"
   }, {
    name: "InThaana",
-   bmp: "Ş€-Ş¿"
+   bmp: "\u0780-\u07bf"
   }, {
    name: "InThai",
-   bmp: "à¸€-à¹¿"
+   bmp: "\u0e00-\u0e7f"
   }, {
    name: "InTibetan",
-   bmp: "à¼€-à¿¿"
+   bmp: "\u0f00-\u0fff"
   }, {
    name: "InTifinagh",
-   bmp: "â´°-âµ¿"
+   bmp: "\u2d30-\u2d7f"
   }, {
    name: "InTransport_And_Map_Symbols",
-   astral: "í ½[íº€-í»¿]"
+   astral: "\ud83d[\ude80-\udeff]"
   }, {
    name: "InUgaritic",
-   astral: "í €[í¾€-í¾Ÿ]"
+   astral: "\ud800[\udf80-\udf9f]"
   }, {
    name: "InUnified_Canadian_Aboriginal_Syllabics",
-   bmp: "á€-á™¿"
+   bmp: "\u1400-\u167f"
   }, {
    name: "InUnified_Canadian_Aboriginal_Syllabics_Extended",
-   bmp: "á¢°-á£¿"
+   bmp: "\u18b0-\u18ff"
   }, {
    name: "InVai",
-   bmp: "ê”€-ê˜¿"
+   bmp: "\ua500-\ua63f"
   }, {
    name: "InVariation_Selectors",
-   bmp: "ï¸€-ï¸"
+   bmp: "\ufe00-\ufe0f"
   }, {
    name: "InVariation_Selectors_Supplement",
-   astral: "í­€[í´€-í·¯]"
+   astral: "\udb40[\udd00-\uddef]"
   }, {
    name: "InVedic_Extensions",
-   bmp: "á³-á³¿"
+   bmp: "\u1cd0-\u1cff"
   }, {
    name: "InVertical_Forms",
-   bmp: "ï¸-ï¸Ÿ"
+   bmp: "\ufe10-\ufe1f"
   }, {
    name: "InYi_Radicals",
-   bmp: "ê’-ê“"
+   bmp: "\ua490-\ua4cf"
   }, {
    name: "InYi_Syllables",
-   bmp: "ê€€-ê’"
+   bmp: "\ua000-\ua48f"
   }, {
    name: "InYijing_Hexagram_Symbols",
-   bmp: "ä·€-ä·¿"
+   bmp: "\u4dc0-\u4dff"
   } ]);
  }(e), function(e) {
   if (!e.addUnicodeData) throw new ReferenceError("Unicode Base must be loaded before Unicode Categories");
@@ -5802,155 +5802,155 @@ function diff_match_patch() {
    name: "C",
    alias: "Other",
    isBmpLast: !0,
-   bmp: "\x00--ÂŸÂ­Í¸Í¹Í¿-ÎƒÎ‹ÎÎ¢Ô¨-Ô°Õ—Õ˜Õ ÖˆÖ‹-ÖÖ×ˆ-××«-×¯×µ-Ø…ØœØÛÜÜİ‹İŒŞ²-Ş¿ß»-ß¿à ®à ¯à ¿à¡œà¡à¡Ÿ-à¢Ÿà¢¡à¢­-à££à£¿à¥¸à¦€à¦„à¦à¦à¦‘à¦’à¦©à¦±à¦³-à¦µà¦ºà¦»à§…à§†à§‰à§Šà§-à§–à§˜-à§›à§à§¤à§¥à§¼-à¨€à¨„à¨‹-à¨à¨‘à¨’à¨©à¨±à¨´à¨·à¨ºà¨»à¨½à©ƒ-à©†à©‰à©Šà©-à©à©’-à©˜à©à©Ÿ-à©¥à©¶-àª€àª„àªàª’àª©àª±àª´àªºàª»à«†à«Šà«à«à«‘-à«Ÿà«¤à«¥à«²-à¬€à¬„à¬à¬à¬‘à¬’à¬©à¬±à¬´à¬ºà¬»à­…à­†à­‰à­Šà­-à­•à­˜-à­›à­à­¤à­¥à­¸-à®à®„à®‹-à®à®‘à®–-à®˜à®›à®à® -à®¢à®¥-à®§à®«-à®­à®º-à®½à¯ƒ-à¯…à¯‰à¯à¯à¯‘-à¯–à¯˜-à¯¥à¯»-à°€à°„à°à°‘à°©à°´à°º-à°¼à±…à±‰à±-à±”à±—à±š-à±Ÿà±¤à±¥à±°-à±·à²€à²à²„à²à²‘à²©à²´à²ºà²»à³…à³‰à³-à³”à³—-à³à³Ÿà³¤à³¥à³°à³³-à´à´„à´à´‘à´»à´¼àµ…àµ‰àµ-àµ–àµ˜-àµŸàµ¤àµ¥àµ¶-àµ¸à¶€à¶à¶„à¶—-à¶™à¶²à¶¼à¶¾à¶¿à·‡-à·‰à·‹-à·à·•à·—à· -à·±à·µ-à¸€à¸»-à¸¾à¹œ-àº€àºƒàº…àº†àº‰àº‹àºŒàº-àº“àº˜àº àº¤àº¦àº¨àº©àº¬àººàº¾àº¿à»…à»‡à»à»à»šà»›à» -à»¿à½ˆà½­-à½°à¾˜à¾½à¿à¿›-à¿¿áƒ†áƒˆ-áƒŒáƒáƒá‰‰á‰á‰á‰—á‰™á‰á‰ŸáŠ‰áŠáŠáŠ±áŠ¶áŠ·áŠ¿á‹á‹†á‹‡á‹—áŒ‘áŒ–áŒ—á›áœá½-á¿áš-áŸáµ-á¿áš-ášŸá›±-á›¿áœáœ•-áœŸáœ·-áœ¿á”-áŸá­á±á´-á¿áŸáŸŸáŸª-áŸ¯áŸº-áŸ¿á á š-á Ÿá¡¸-á¡¿á¢«-á¢¯á£¶-á£¿á¤-á¤Ÿá¤¬-á¤¯á¤¼-á¤¿á¥-á¥ƒá¥®á¥¯á¥µ-á¥¿á¦¬-á¦¯á§Š-á§á§›-á§á¨œá¨á©Ÿá©½á©¾áªŠ-áªáªš-áªŸáª®-á«¿á­Œ-á­á­½-á­¿á¯´-á¯»á°¸-á°ºá±Š-á±Œá²€-á²¿á³ˆ-á³á³·-á³¿á·§-á·»á¼–á¼—á¼á¼Ÿá½†á½‡á½á½á½˜á½šá½œá½á½¾á½¿á¾µá¿…á¿”á¿•á¿œá¿°á¿±á¿µá¿¿â€‹-â€â€ª-â€®â -â¯â²â³â‚â‚-â‚Ÿâ‚»-âƒâƒ±-âƒ¿â†Š-â†â´-â¿â§-â¿â‘‹-â‘Ÿâœ€â­-â­â­š-â¯¿â°¯â±Ÿâ³´-â³¸â´¦â´¨-â´¬â´®â´¯âµ¨-âµ®âµ±-âµ¾â¶—-â¶Ÿâ¶§â¶¯â¶·â¶¿â·‡â·â·—â·Ÿâ¸¼-â¹¿âºšâ»´-â»¿â¿–-â¿¯â¿¼-â¿¿ã€ã‚—ã‚˜ã„€-ã„„ã„®-ã„°ã†ã†»-ã†¿ã‡¤-ã‡¯ãˆŸã‹¿ä¶¶-ä¶¿é¿-é¿¿ê’-ê’ê“‡-ê“ê˜¬-ê˜¿êš˜-êšê›¸-ê›¿êê”-êŸê«-êŸ·ê ¬-ê ¯ê º-ê ¿ê¡¸-ê¡¿ê£…-ê£ê£š-ê£Ÿê£¼-ê£¿ê¥”-ê¥ê¥½-ê¥¿ê§ê§š-ê§ê§ -ê§¿ê¨·-ê¨¿ê©ê©ê©šê©›ê©¼-ê©¿ê«ƒ-ê«šê«·-ê¬€ê¬‡ê¬ˆê¬ê¬ê¬—-ê¬Ÿê¬§ê¬¯-ê®¿ê¯®ê¯¯ê¯º-ê¯¿í¤-í¯íŸ‡-íŸŠíŸ¼-ï£¿ï©®ï©¯ï«š-ï«¿ï¬‡-ï¬’ï¬˜-ï¬œï¬·ï¬½ï¬¿ï­‚ï­…ï¯‚-ï¯’ïµ€-ïµï¶ï¶‘ï·ˆ-ï·¯ï·¾ï·¿ï¸š-ï¸Ÿï¸§-ï¸¯ï¹“ï¹§ï¹¬-ï¹¯ï¹µï»½-ï¼€ï¾¿-ï¿ï¿ˆï¿‰ï¿ï¿‘ï¿˜ï¿™ï¿-ï¿Ÿï¿§ï¿¯-ï¿»ï¿¾ï¿¿",
-   astral: "í ˆ[í½¯-í¿¿]|í ‰[í±£-í±¯í±´-í¿¿]|í „[í±-í±‘í±°-í±¿í²½í³‚-í³í³©-í³¯í³º-í³¿í´µíµ„-íµ¿í·‰-í·í·š-í¿¿]|í ‚[í°†í°‡í°‰í°¶í°¹-í°»í°½í°¾í±–í± -í³¿í´œ-í´í´º-í´¾íµ€-íµ¿í¶¸-í¶½í·€-í·¿í¸„í¸‡-í¸‹í¸”í¸˜í¸´-í¸·í¸»-í¸¾í¹ˆ-í¹í¹™-í¹Ÿíº€-í»¿í¼¶-í¼¸í½–í½—í½³-í½·í¾€-í¿¿]|í¡­[í¼µ-í¼¿]|í ›[í°€-í»¿í½…-í½í½¿-í¾í¾ -í¿¿]|í¡®[í°-í¿¿]|í €[í°Œí°§í°»í°¾í±í±í±-í±¿í³»-í³¿í´ƒ-í´†í´´-í´¶í¶‹-í¶í¶œ-í·í·¾-í¹¿íº-íºŸí»‘-í»¿í¼Ÿí¼¤-í¼¯í½‹-í½¿í¾í¿„-í¿‡í¿–-í¿¿]|í¡©[í»—-í»¿]|í »[í°€-í·¿í¸„í¸ í¸£í¸¥í¸¦í¸¨í¸³í¸¸í¸ºí¸¼-í¹í¹ƒ-í¹†í¹ˆí¹Ší¹Œí¹í¹“í¹•í¹–í¹˜í¹ší¹œí¹í¹ í¹£í¹¥í¹¦í¹«í¹³í¹¸í¹½í¹¿íºŠíºœ-íº íº¤íºªíº¼-í»¯í»²-í¿¿]|í¡¾[í¸-í¿¿]|í­€[í°€-í³¿í·°-í¿¿]|í ƒ[í±‰-í¹Ÿí¹¿-í¿¿]|í [í°¯-í¿¿]|[í †í ‡í Ší ‹í -í ™í œ-í «í ­-í ³í ¶-í ºí ¾í ¿í¡¯-í¡½í¡¿-í¬¿í­-í¯¿][í°€-í¿¿]|í ½[í°¿í±í³¸í³½-í³¿í´¾í´¿íµ„-íµíµ¨-í·ºí¹-í¹„í¹-í¹¿í»†-í»¿í½´-í¿¿]|í ¼[í°¬-í°¯í²”-í²Ÿí²¯í²°í²¿í³€í³í³ -í³¿í´‹-í´í´¯íµ¬-íµ¯í¶›-í·¥í¸ƒ-í¸í¸»-í¸¿í¹‰-í¹í¹’-í»¿í¼¡-í¼¯í¼¶í½½-í½¿í¾”-í¾Ÿí¿…í¿‹-í¿Ÿí¿±-í¿¿]|í µ[í±•í²í² í²¡í²£í²¤í²§í²¨í²­í²ºí²¼í³„í´†í´‹í´Œí´•í´í´ºí´¿íµ…íµ‡-íµ‰íµ‘íº¦íº§í¿Œí¿]|í š[í¸¹-í¿¿]|í ´[í³¶-í³¿í´§í´¨íµ³-íµºí·-í·¿í¹†-í»¿í½—-í½Ÿí½²-í¿¿]|í [í²í²Ÿí²ª-í¿¿]|í …[í°€-í¹¿íº¸-íº¿í»Š-í¿¿]|í ¬[í°‚-í¿¿]"
+   bmp: "\x00--\x9f\xad\u0378\u0379\u037f-\u0383\u038b\u038d\u03a2\u0528-\u0530\u0557\u0558\u0560\u0588\u058b-\u058e\u0590\u05c8-\u05cf\u05eb-\u05ef\u05f5-\u0605\u061c\u061d\u06dd\u070e\u070f\u074b\u074c\u07b2-\u07bf\u07fb-\u07ff\u082e\u082f\u083f\u085c\u085d\u085f-\u089f\u08a1\u08ad-\u08e3\u08ff\u0978\u0980\u0984\u098d\u098e\u0991\u0992\u09a9\u09b1\u09b3-\u09b5\u09ba\u09bb\u09c5\u09c6\u09c9\u09ca\u09cf-\u09d6\u09d8-\u09db\u09de\u09e4\u09e5\u09fc-\u0a00\u0a04\u0a0b-\u0a0e\u0a11\u0a12\u0a29\u0a31\u0a34\u0a37\u0a3a\u0a3b\u0a3d\u0a43-\u0a46\u0a49\u0a4a\u0a4e-\u0a50\u0a52-\u0a58\u0a5d\u0a5f-\u0a65\u0a76-\u0a80\u0a84\u0a8e\u0a92\u0aa9\u0ab1\u0ab4\u0aba\u0abb\u0ac6\u0aca\u0ace\u0acf\u0ad1-\u0adf\u0ae4\u0ae5\u0af2-\u0b00\u0b04\u0b0d\u0b0e\u0b11\u0b12\u0b29\u0b31\u0b34\u0b3a\u0b3b\u0b45\u0b46\u0b49\u0b4a\u0b4e-\u0b55\u0b58-\u0b5b\u0b5e\u0b64\u0b65\u0b78-\u0b81\u0b84\u0b8b-\u0b8d\u0b91\u0b96-\u0b98\u0b9b\u0b9d\u0ba0-\u0ba2\u0ba5-\u0ba7\u0bab-\u0bad\u0bba-\u0bbd\u0bc3-\u0bc5\u0bc9\u0bce\u0bcf\u0bd1-\u0bd6\u0bd8-\u0be5\u0bfb-\u0c00\u0c04\u0c0d\u0c11\u0c29\u0c34\u0c3a-\u0c3c\u0c45\u0c49\u0c4e-\u0c54\u0c57\u0c5a-\u0c5f\u0c64\u0c65\u0c70-\u0c77\u0c80\u0c81\u0c84\u0c8d\u0c91\u0ca9\u0cb4\u0cba\u0cbb\u0cc5\u0cc9\u0cce-\u0cd4\u0cd7-\u0cdd\u0cdf\u0ce4\u0ce5\u0cf0\u0cf3-\u0d01\u0d04\u0d0d\u0d11\u0d3b\u0d3c\u0d45\u0d49\u0d4f-\u0d56\u0d58-\u0d5f\u0d64\u0d65\u0d76-\u0d78\u0d80\u0d81\u0d84\u0d97-\u0d99\u0db2\u0dbc\u0dbe\u0dbf\u0dc7-\u0dc9\u0dcb-\u0dce\u0dd5\u0dd7\u0de0-\u0df1\u0df5-\u0e00\u0e3b-\u0e3e\u0e5c-\u0e80\u0e83\u0e85\u0e86\u0e89\u0e8b\u0e8c\u0e8e-\u0e93\u0e98\u0ea0\u0ea4\u0ea6\u0ea8\u0ea9\u0eac\u0eba\u0ebe\u0ebf\u0ec5\u0ec7\u0ece\u0ecf\u0eda\u0edb\u0ee0-\u0eff\u0f48\u0f6d-\u0f70\u0f98\u0fbd\u0fcd\u0fdb-\u0fff\u10c6\u10c8-\u10cc\u10ce\u10cf\u1249\u124e\u124f\u1257\u1259\u125e\u125f\u1289\u128e\u128f\u12b1\u12b6\u12b7\u12bf\u12c1\u12c6\u12c7\u12d7\u1311\u1316\u1317\u135b\u135c\u137d-\u137f\u139a-\u139f\u13f5-\u13ff\u169d-\u169f\u16f1-\u16ff\u170d\u1715-\u171f\u1737-\u173f\u1754-\u175f\u176d\u1771\u1774-\u177f\u17de\u17df\u17ea-\u17ef\u17fa-\u17ff\u180f\u181a-\u181f\u1878-\u187f\u18ab-\u18af\u18f6-\u18ff\u191d-\u191f\u192c-\u192f\u193c-\u193f\u1941-\u1943\u196e\u196f\u1975-\u197f\u19ac-\u19af\u19ca-\u19cf\u19db-\u19dd\u1a1c\u1a1d\u1a5f\u1a7d\u1a7e\u1a8a-\u1a8f\u1a9a-\u1a9f\u1aae-\u1aff\u1b4c-\u1b4f\u1b7d-\u1b7f\u1bf4-\u1bfb\u1c38-\u1c3a\u1c4a-\u1c4c\u1c80-\u1cbf\u1cc8-\u1ccf\u1cf7-\u1cff\u1de7-\u1dfb\u1f16\u1f17\u1f1e\u1f1f\u1f46\u1f47\u1f4e\u1f4f\u1f58\u1f5a\u1f5c\u1f5e\u1f7e\u1f7f\u1fb5\u1fc5\u1fd4\u1fd5\u1fdc\u1ff0\u1ff1\u1ff5\u1fff\u200b-\u200f\u202a-\u202e\u2060-\u206f\u2072\u2073\u208f\u209d-\u209f\u20bb-\u20cf\u20f1-\u20ff\u218a-\u218f\u23f4-\u23ff\u2427-\u243f\u244b-\u245f\u2700\u2b4d-\u2b4f\u2b5a-\u2bff\u2c2f\u2c5f\u2cf4-\u2cf8\u2d26\u2d28-\u2d2c\u2d2e\u2d2f\u2d68-\u2d6e\u2d71-\u2d7e\u2d97-\u2d9f\u2da7\u2daf\u2db7\u2dbf\u2dc7\u2dcf\u2dd7\u2ddf\u2e3c-\u2e7f\u2e9a\u2ef4-\u2eff\u2fd6-\u2fef\u2ffc-\u2fff\u3040\u3097\u3098\u3100-\u3104\u312e-\u3130\u318f\u31bb-\u31bf\u31e4-\u31ef\u321f\u32ff\u4db6-\u4dbf\u9fcd-\u9fff\ua48d-\ua48f\ua4c7-\ua4cf\ua62c-\ua63f\ua698-\ua69e\ua6f8-\ua6ff\ua78f\ua794-\ua79f\ua7ab-\ua7f7\ua82c-\ua82f\ua83a-\ua83f\ua878-\ua87f\ua8c5-\ua8cd\ua8da-\ua8df\ua8fc-\ua8ff\ua954-\ua95e\ua97d-\ua97f\ua9ce\ua9da-\ua9dd\ua9e0-\ua9ff\uaa37-\uaa3f\uaa4e\uaa4f\uaa5a\uaa5b\uaa7c-\uaa7f\uaac3-\uaada\uaaf7-\uab00\uab07\uab08\uab0f\uab10\uab17-\uab1f\uab27\uab2f-\uabbf\uabee\uabef\uabfa-\uabff\ud7a4-\ud7af\ud7c7-\ud7ca\ud7fc-\uf8ff\ufa6e\ufa6f\ufada-\ufaff\ufb07-\ufb12\ufb18-\ufb1c\ufb37\ufb3d\ufb3f\ufb42\ufb45\ufbc2-\ufbd2\ufd40-\ufd4f\ufd90\ufd91\ufdc8-\ufdef\ufdfe\ufdff\ufe1a-\ufe1f\ufe27-\ufe2f\ufe53\ufe67\ufe6c-\ufe6f\ufe75\ufefd-\uff00\uffbf-\uffc1\uffc8\uffc9\uffd0\uffd1\uffd8\uffd9\uffdd-\uffdf\uffe7\uffef-\ufffb\ufffe\uffff",
+   astral: "\ud808[\udf6f-\udfff]|\ud809[\udc63-\udc6f\udc74-\udfff]|\ud804[\udc4e-\udc51\udc70-\udc7f\udcbd\udcc2-\udccf\udce9-\udcef\udcfa-\udcff\udd35\udd44-\udd7f\uddc9-\uddcf\uddda-\udfff]|\ud802[\udc06\udc07\udc09\udc36\udc39-\udc3b\udc3d\udc3e\udc56\udc60-\udcff\udd1c-\udd1e\udd3a-\udd3e\udd40-\udd7f\uddb8-\uddbd\uddc0-\uddff\ude04\ude07-\ude0b\ude14\ude18\ude34-\ude37\ude3b-\ude3e\ude48-\ude4f\ude59-\ude5f\ude80-\udeff\udf36-\udf38\udf56\udf57\udf73-\udf77\udf80-\udfff]|\ud86d[\udf35-\udf3f]|\ud81b[\udc00-\udeff\udf45-\udf4f\udf7f-\udf8e\udfa0-\udfff]|\ud86e[\udc1e-\udfff]|\ud800[\udc0c\udc27\udc3b\udc3e\udc4e\udc4f\udc5e-\udc7f\udcfb-\udcff\udd03-\udd06\udd34-\udd36\udd8b-\udd8f\udd9c-\uddcf\uddfe-\ude7f\ude9d-\ude9f\uded1-\udeff\udf1f\udf24-\udf2f\udf4b-\udf7f\udf9e\udfc4-\udfc7\udfd6-\udfff]|\ud869[\uded7-\udeff]|\ud83b[\udc00-\uddff\ude04\ude20\ude23\ude25\ude26\ude28\ude33\ude38\ude3a\ude3c-\ude41\ude43-\ude46\ude48\ude4a\ude4c\ude50\ude53\ude55\ude56\ude58\ude5a\ude5c\ude5e\ude60\ude63\ude65\ude66\ude6b\ude73\ude78\ude7d\ude7f\ude8a\ude9c-\udea0\udea4\udeaa\udebc-\udeef\udef2-\udfff]|\ud87e[\ude1e-\udfff]|\udb40[\udc00-\udcff\uddf0-\udfff]|\ud803[\udc49-\ude5f\ude7f-\udfff]|\ud80d[\udc2f-\udfff]|[\ud806\ud807\ud80a\ud80b\ud80e-\ud819\ud81c-\ud82b\ud82d-\ud833\ud836-\ud83a\ud83e\ud83f\ud86f-\ud87d\ud87f-\udb3f\udb41-\udbff][\udc00-\udfff]|\ud83d[\udc3f\udc41\udcf8\udcfd-\udcff\udd3e\udd3f\udd44-\udd4f\udd68-\uddfa\ude41-\ude44\ude50-\ude7f\udec6-\udeff\udf74-\udfff]|\ud83c[\udc2c-\udc2f\udc94-\udc9f\udcaf\udcb0\udcbf\udcc0\udcd0\udce0-\udcff\udd0b-\udd0f\udd2f\udd6c-\udd6f\udd9b-\udde5\ude03-\ude0f\ude3b-\ude3f\ude49-\ude4f\ude52-\udeff\udf21-\udf2f\udf36\udf7d-\udf7f\udf94-\udf9f\udfc5\udfcb-\udfdf\udff1-\udfff]|\ud835[\udc55\udc9d\udca0\udca1\udca3\udca4\udca7\udca8\udcad\udcba\udcbc\udcc4\udd06\udd0b\udd0c\udd15\udd1d\udd3a\udd3f\udd45\udd47-\udd49\udd51\udea6\udea7\udfcc\udfcd]|\ud81a[\ude39-\udfff]|\ud834[\udcf6-\udcff\udd27\udd28\udd73-\udd7a\uddde-\uddff\ude46-\udeff\udf57-\udf5f\udf72-\udfff]|\ud801[\udc9e\udc9f\udcaa-\udfff]|\ud805[\udc00-\ude7f\udeb8-\udebf\udeca-\udfff]|\ud82c[\udc02-\udfff]"
   }, {
    name: "Cc",
    alias: "Control",
-   bmp: "\x00--ÂŸ"
+   bmp: "\x00--\x9f"
   }, {
    name: "Cf",
    alias: "Format",
-   bmp: "Â­Ø€-Ø„ÛÜâ€‹-â€â€ª-â€®â -â¤âª-â¯ï»¿ï¿¹-ï¿»",
-   astral: "í­€[í°í° -í±¿]|í ´[íµ³-íµº]|ğ‘‚½"
+   bmp: "\xad\u0600-\u0604\u06dd\u070f\u200b-\u200f\u202a-\u202e\u2060-\u2064\u206a-\u206f\ufeff\ufff9-\ufffb",
+   astral: "\udb40[\udc01\udc20-\udc7f]|\ud834[\udd73-\udd7a]|\ud804\udcbd"
   }, {
    name: "Cn",
    alias: "Unassigned",
-   bmp: "Í¸Í¹Í¿-ÎƒÎ‹ÎÎ¢Ô¨-Ô°Õ—Õ˜Õ ÖˆÖ‹-ÖÖ×ˆ-××«-×¯×µ-×¿Ø…ØœØÜİ‹İŒŞ²-Ş¿ß»-ß¿à ®à ¯à ¿à¡œà¡à¡Ÿ-à¢Ÿà¢¡à¢­-à££à£¿à¥¸à¦€à¦„à¦à¦à¦‘à¦’à¦©à¦±à¦³-à¦µà¦ºà¦»à§…à§†à§‰à§Šà§-à§–à§˜-à§›à§à§¤à§¥à§¼-à¨€à¨„à¨‹-à¨à¨‘à¨’à¨©à¨±à¨´à¨·à¨ºà¨»à¨½à©ƒ-à©†à©‰à©Šà©-à©à©’-à©˜à©à©Ÿ-à©¥à©¶-àª€àª„àªàª’àª©àª±àª´àªºàª»à«†à«Šà«à«à«‘-à«Ÿà«¤à«¥à«²-à¬€à¬„à¬à¬à¬‘à¬’à¬©à¬±à¬´à¬ºà¬»à­…à­†à­‰à­Šà­-à­•à­˜-à­›à­à­¤à­¥à­¸-à®à®„à®‹-à®à®‘à®–-à®˜à®›à®à® -à®¢à®¥-à®§à®«-à®­à®º-à®½à¯ƒ-à¯…à¯‰à¯à¯à¯‘-à¯–à¯˜-à¯¥à¯»-à°€à°„à°à°‘à°©à°´à°º-à°¼à±…à±‰à±-à±”à±—à±š-à±Ÿà±¤à±¥à±°-à±·à²€à²à²„à²à²‘à²©à²´à²ºà²»à³…à³‰à³-à³”à³—-à³à³Ÿà³¤à³¥à³°à³³-à´à´„à´à´‘à´»à´¼àµ…àµ‰àµ-àµ–àµ˜-àµŸàµ¤àµ¥àµ¶-àµ¸à¶€à¶à¶„à¶—-à¶™à¶²à¶¼à¶¾à¶¿à·‡-à·‰à·‹-à·à·•à·—à· -à·±à·µ-à¸€à¸»-à¸¾à¹œ-àº€àºƒàº…àº†àº‰àº‹àºŒàº-àº“àº˜àº àº¤àº¦àº¨àº©àº¬àººàº¾àº¿à»…à»‡à»à»à»šà»›à» -à»¿à½ˆà½­-à½°à¾˜à¾½à¿à¿›-à¿¿áƒ†áƒˆ-áƒŒáƒáƒá‰‰á‰á‰á‰—á‰™á‰á‰ŸáŠ‰áŠáŠáŠ±áŠ¶áŠ·áŠ¿á‹á‹†á‹‡á‹—áŒ‘áŒ–áŒ—á›áœá½-á¿áš-áŸáµ-á¿áš-ášŸá›±-á›¿áœáœ•-áœŸáœ·-áœ¿á”-áŸá­á±á´-á¿áŸáŸŸáŸª-áŸ¯áŸº-áŸ¿á á š-á Ÿá¡¸-á¡¿á¢«-á¢¯á£¶-á£¿á¤-á¤Ÿá¤¬-á¤¯á¤¼-á¤¿á¥-á¥ƒá¥®á¥¯á¥µ-á¥¿á¦¬-á¦¯á§Š-á§á§›-á§á¨œá¨á©Ÿá©½á©¾áªŠ-áªáªš-áªŸáª®-á«¿á­Œ-á­á­½-á­¿á¯´-á¯»á°¸-á°ºá±Š-á±Œá²€-á²¿á³ˆ-á³á³·-á³¿á·§-á·»á¼–á¼—á¼á¼Ÿá½†á½‡á½á½á½˜á½šá½œá½á½¾á½¿á¾µá¿…á¿”á¿•á¿œá¿°á¿±á¿µá¿¿â¥-â©â²â³â‚â‚-â‚Ÿâ‚»-âƒâƒ±-âƒ¿â†Š-â†â´-â¿â§-â¿â‘‹-â‘Ÿâœ€â­-â­â­š-â¯¿â°¯â±Ÿâ³´-â³¸â´¦â´¨-â´¬â´®â´¯âµ¨-âµ®âµ±-âµ¾â¶—-â¶Ÿâ¶§â¶¯â¶·â¶¿â·‡â·â·—â·Ÿâ¸¼-â¹¿âºšâ»´-â»¿â¿–-â¿¯â¿¼-â¿¿ã€ã‚—ã‚˜ã„€-ã„„ã„®-ã„°ã†ã†»-ã†¿ã‡¤-ã‡¯ãˆŸã‹¿ä¶¶-ä¶¿é¿-é¿¿ê’-ê’ê“‡-ê“ê˜¬-ê˜¿êš˜-êšê›¸-ê›¿êê”-êŸê«-êŸ·ê ¬-ê ¯ê º-ê ¿ê¡¸-ê¡¿ê£…-ê£ê£š-ê£Ÿê£¼-ê£¿ê¥”-ê¥ê¥½-ê¥¿ê§ê§š-ê§ê§ -ê§¿ê¨·-ê¨¿ê©ê©ê©šê©›ê©¼-ê©¿ê«ƒ-ê«šê«·-ê¬€ê¬‡ê¬ˆê¬ê¬ê¬—-ê¬Ÿê¬§ê¬¯-ê®¿ê¯®ê¯¯ê¯º-ê¯¿í¤-í¯íŸ‡-íŸŠíŸ¼-íŸ¿ï©®ï©¯ï«š-ï«¿ï¬‡-ï¬’ï¬˜-ï¬œï¬·ï¬½ï¬¿ï­‚ï­…ï¯‚-ï¯’ïµ€-ïµï¶ï¶‘ï·ˆ-ï·¯ï·¾ï·¿ï¸š-ï¸Ÿï¸§-ï¸¯ï¹“ï¹§ï¹¬-ï¹¯ï¹µï»½ï»¾ï¼€ï¾¿-ï¿ï¿ˆï¿‰ï¿ï¿‘ï¿˜ï¿™ï¿-ï¿Ÿï¿§ï¿¯-ï¿¸ï¿¾ï¿¿",
-   astral: "í ˆ[í½¯-í¿¿]|í­€[í°€í°‚-í°Ÿí²€-í³¿í·°-í¿¿]|í ´[í³¶-í³¿í´§í´¨í·-í·¿í¹†-í»¿í½—-í½Ÿí½²-í¿¿]|í ‚[í°†í°‡í°‰í°¶í°¹-í°»í°½í°¾í±–í± -í³¿í´œ-í´í´º-í´¾íµ€-íµ¿í¶¸-í¶½í·€-í·¿í¸„í¸‡-í¸‹í¸”í¸˜í¸´-í¸·í¸»-í¸¾í¹ˆ-í¹í¹™-í¹Ÿíº€-í»¿í¼¶-í¼¸í½–í½—í½³-í½·í¾€-í¿¿]|í¡­[í¼µ-í¼¿]|í ›[í°€-í»¿í½…-í½í½¿-í¾í¾ -í¿¿]|í ‰[í±£-í±¯í±´-í¿¿]|í €[í°Œí°§í°»í°¾í±í±í±-í±¿í³»-í³¿í´ƒ-í´†í´´-í´¶í¶‹-í¶í¶œ-í·í·¾-í¹¿íº-íºŸí»‘-í»¿í¼Ÿí¼¤-í¼¯í½‹-í½¿í¾í¿„-í¿‡í¿–-í¿¿]|í¡©[í»—-í»¿]|í „[í±-í±‘í±°-í±¿í³‚-í³í³©-í³¯í³º-í³¿í´µíµ„-íµ¿í·‰-í·í·š-í¿¿]|í »[í°€-í·¿í¸„í¸ í¸£í¸¥í¸¦í¸¨í¸³í¸¸í¸ºí¸¼-í¹í¹ƒ-í¹†í¹ˆí¹Ší¹Œí¹í¹“í¹•í¹–í¹˜í¹ší¹œí¹í¹ í¹£í¹¥í¹¦í¹«í¹³í¹¸í¹½í¹¿íºŠíºœ-íº íº¤íºªíº¼-í»¯í»²-í¿¿]|[í®¿í¯¿][í¿¾í¿¿]|í¡¾[í¸-í¿¿]|í ƒ[í±‰-í¹Ÿí¹¿-í¿¿]|í [í°¯-í¿¿]|[í †í ‡í Ší ‹í -í ™í œ-í «í ­-í ³í ¶-í ºí ¾í ¿í¡¯-í¡½í¡¿-í¬¿í­-í­¿][í°€-í¿¿]|í ½[í°¿í±í³¸í³½-í³¿í´¾í´¿íµ„-íµíµ¨-í·ºí¹-í¹„í¹-í¹¿í»†-í»¿í½´-í¿¿]|í¡®[í°-í¿¿]|í ¼[í°¬-í°¯í²”-í²Ÿí²¯í²°í²¿í³€í³í³ -í³¿í´‹-í´í´¯íµ¬-íµ¯í¶›-í·¥í¸ƒ-í¸í¸»-í¸¿í¹‰-í¹í¹’-í»¿í¼¡-í¼¯í¼¶í½½-í½¿í¾”-í¾Ÿí¿…í¿‹-í¿Ÿí¿±-í¿¿]|í µ[í±•í²í² í²¡í²£í²¤í²§í²¨í²­í²ºí²¼í³„í´†í´‹í´Œí´•í´í´ºí´¿íµ…íµ‡-íµ‰íµ‘íº¦íº§í¿Œí¿]|í š[í¸¹-í¿¿]|í [í²í²Ÿí²ª-í¿¿]|í …[í°€-í¹¿íº¸-íº¿í»Š-í¿¿]|í ¬[í°‚-í¿¿]"
+   bmp: "\u0378\u0379\u037f-\u0383\u038b\u038d\u03a2\u0528-\u0530\u0557\u0558\u0560\u0588\u058b-\u058e\u0590\u05c8-\u05cf\u05eb-\u05ef\u05f5-\u05ff\u0605\u061c\u061d\u070e\u074b\u074c\u07b2-\u07bf\u07fb-\u07ff\u082e\u082f\u083f\u085c\u085d\u085f-\u089f\u08a1\u08ad-\u08e3\u08ff\u0978\u0980\u0984\u098d\u098e\u0991\u0992\u09a9\u09b1\u09b3-\u09b5\u09ba\u09bb\u09c5\u09c6\u09c9\u09ca\u09cf-\u09d6\u09d8-\u09db\u09de\u09e4\u09e5\u09fc-\u0a00\u0a04\u0a0b-\u0a0e\u0a11\u0a12\u0a29\u0a31\u0a34\u0a37\u0a3a\u0a3b\u0a3d\u0a43-\u0a46\u0a49\u0a4a\u0a4e-\u0a50\u0a52-\u0a58\u0a5d\u0a5f-\u0a65\u0a76-\u0a80\u0a84\u0a8e\u0a92\u0aa9\u0ab1\u0ab4\u0aba\u0abb\u0ac6\u0aca\u0ace\u0acf\u0ad1-\u0adf\u0ae4\u0ae5\u0af2-\u0b00\u0b04\u0b0d\u0b0e\u0b11\u0b12\u0b29\u0b31\u0b34\u0b3a\u0b3b\u0b45\u0b46\u0b49\u0b4a\u0b4e-\u0b55\u0b58-\u0b5b\u0b5e\u0b64\u0b65\u0b78-\u0b81\u0b84\u0b8b-\u0b8d\u0b91\u0b96-\u0b98\u0b9b\u0b9d\u0ba0-\u0ba2\u0ba5-\u0ba7\u0bab-\u0bad\u0bba-\u0bbd\u0bc3-\u0bc5\u0bc9\u0bce\u0bcf\u0bd1-\u0bd6\u0bd8-\u0be5\u0bfb-\u0c00\u0c04\u0c0d\u0c11\u0c29\u0c34\u0c3a-\u0c3c\u0c45\u0c49\u0c4e-\u0c54\u0c57\u0c5a-\u0c5f\u0c64\u0c65\u0c70-\u0c77\u0c80\u0c81\u0c84\u0c8d\u0c91\u0ca9\u0cb4\u0cba\u0cbb\u0cc5\u0cc9\u0cce-\u0cd4\u0cd7-\u0cdd\u0cdf\u0ce4\u0ce5\u0cf0\u0cf3-\u0d01\u0d04\u0d0d\u0d11\u0d3b\u0d3c\u0d45\u0d49\u0d4f-\u0d56\u0d58-\u0d5f\u0d64\u0d65\u0d76-\u0d78\u0d80\u0d81\u0d84\u0d97-\u0d99\u0db2\u0dbc\u0dbe\u0dbf\u0dc7-\u0dc9\u0dcb-\u0dce\u0dd5\u0dd7\u0de0-\u0df1\u0df5-\u0e00\u0e3b-\u0e3e\u0e5c-\u0e80\u0e83\u0e85\u0e86\u0e89\u0e8b\u0e8c\u0e8e-\u0e93\u0e98\u0ea0\u0ea4\u0ea6\u0ea8\u0ea9\u0eac\u0eba\u0ebe\u0ebf\u0ec5\u0ec7\u0ece\u0ecf\u0eda\u0edb\u0ee0-\u0eff\u0f48\u0f6d-\u0f70\u0f98\u0fbd\u0fcd\u0fdb-\u0fff\u10c6\u10c8-\u10cc\u10ce\u10cf\u1249\u124e\u124f\u1257\u1259\u125e\u125f\u1289\u128e\u128f\u12b1\u12b6\u12b7\u12bf\u12c1\u12c6\u12c7\u12d7\u1311\u1316\u1317\u135b\u135c\u137d-\u137f\u139a-\u139f\u13f5-\u13ff\u169d-\u169f\u16f1-\u16ff\u170d\u1715-\u171f\u1737-\u173f\u1754-\u175f\u176d\u1771\u1774-\u177f\u17de\u17df\u17ea-\u17ef\u17fa-\u17ff\u180f\u181a-\u181f\u1878-\u187f\u18ab-\u18af\u18f6-\u18ff\u191d-\u191f\u192c-\u192f\u193c-\u193f\u1941-\u1943\u196e\u196f\u1975-\u197f\u19ac-\u19af\u19ca-\u19cf\u19db-\u19dd\u1a1c\u1a1d\u1a5f\u1a7d\u1a7e\u1a8a-\u1a8f\u1a9a-\u1a9f\u1aae-\u1aff\u1b4c-\u1b4f\u1b7d-\u1b7f\u1bf4-\u1bfb\u1c38-\u1c3a\u1c4a-\u1c4c\u1c80-\u1cbf\u1cc8-\u1ccf\u1cf7-\u1cff\u1de7-\u1dfb\u1f16\u1f17\u1f1e\u1f1f\u1f46\u1f47\u1f4e\u1f4f\u1f58\u1f5a\u1f5c\u1f5e\u1f7e\u1f7f\u1fb5\u1fc5\u1fd4\u1fd5\u1fdc\u1ff0\u1ff1\u1ff5\u1fff\u2065-\u2069\u2072\u2073\u208f\u209d-\u209f\u20bb-\u20cf\u20f1-\u20ff\u218a-\u218f\u23f4-\u23ff\u2427-\u243f\u244b-\u245f\u2700\u2b4d-\u2b4f\u2b5a-\u2bff\u2c2f\u2c5f\u2cf4-\u2cf8\u2d26\u2d28-\u2d2c\u2d2e\u2d2f\u2d68-\u2d6e\u2d71-\u2d7e\u2d97-\u2d9f\u2da7\u2daf\u2db7\u2dbf\u2dc7\u2dcf\u2dd7\u2ddf\u2e3c-\u2e7f\u2e9a\u2ef4-\u2eff\u2fd6-\u2fef\u2ffc-\u2fff\u3040\u3097\u3098\u3100-\u3104\u312e-\u3130\u318f\u31bb-\u31bf\u31e4-\u31ef\u321f\u32ff\u4db6-\u4dbf\u9fcd-\u9fff\ua48d-\ua48f\ua4c7-\ua4cf\ua62c-\ua63f\ua698-\ua69e\ua6f8-\ua6ff\ua78f\ua794-\ua79f\ua7ab-\ua7f7\ua82c-\ua82f\ua83a-\ua83f\ua878-\ua87f\ua8c5-\ua8cd\ua8da-\ua8df\ua8fc-\ua8ff\ua954-\ua95e\ua97d-\ua97f\ua9ce\ua9da-\ua9dd\ua9e0-\ua9ff\uaa37-\uaa3f\uaa4e\uaa4f\uaa5a\uaa5b\uaa7c-\uaa7f\uaac3-\uaada\uaaf7-\uab00\uab07\uab08\uab0f\uab10\uab17-\uab1f\uab27\uab2f-\uabbf\uabee\uabef\uabfa-\uabff\ud7a4-\ud7af\ud7c7-\ud7ca\ud7fc-\ud7ff\ufa6e\ufa6f\ufada-\ufaff\ufb07-\ufb12\ufb18-\ufb1c\ufb37\ufb3d\ufb3f\ufb42\ufb45\ufbc2-\ufbd2\ufd40-\ufd4f\ufd90\ufd91\ufdc8-\ufdef\ufdfe\ufdff\ufe1a-\ufe1f\ufe27-\ufe2f\ufe53\ufe67\ufe6c-\ufe6f\ufe75\ufefd\ufefe\uff00\uffbf-\uffc1\uffc8\uffc9\uffd0\uffd1\uffd8\uffd9\uffdd-\uffdf\uffe7\uffef-\ufff8\ufffe\uffff",
+   astral: "\ud808[\udf6f-\udfff]|\udb40[\udc00\udc02-\udc1f\udc80-\udcff\uddf0-\udfff]|\ud834[\udcf6-\udcff\udd27\udd28\uddde-\uddff\ude46-\udeff\udf57-\udf5f\udf72-\udfff]|\ud802[\udc06\udc07\udc09\udc36\udc39-\udc3b\udc3d\udc3e\udc56\udc60-\udcff\udd1c-\udd1e\udd3a-\udd3e\udd40-\udd7f\uddb8-\uddbd\uddc0-\uddff\ude04\ude07-\ude0b\ude14\ude18\ude34-\ude37\ude3b-\ude3e\ude48-\ude4f\ude59-\ude5f\ude80-\udeff\udf36-\udf38\udf56\udf57\udf73-\udf77\udf80-\udfff]|\ud86d[\udf35-\udf3f]|\ud81b[\udc00-\udeff\udf45-\udf4f\udf7f-\udf8e\udfa0-\udfff]|\ud809[\udc63-\udc6f\udc74-\udfff]|\ud800[\udc0c\udc27\udc3b\udc3e\udc4e\udc4f\udc5e-\udc7f\udcfb-\udcff\udd03-\udd06\udd34-\udd36\udd8b-\udd8f\udd9c-\uddcf\uddfe-\ude7f\ude9d-\ude9f\uded1-\udeff\udf1f\udf24-\udf2f\udf4b-\udf7f\udf9e\udfc4-\udfc7\udfd6-\udfff]|\ud869[\uded7-\udeff]|\ud804[\udc4e-\udc51\udc70-\udc7f\udcc2-\udccf\udce9-\udcef\udcfa-\udcff\udd35\udd44-\udd7f\uddc9-\uddcf\uddda-\udfff]|\ud83b[\udc00-\uddff\ude04\ude20\ude23\ude25\ude26\ude28\ude33\ude38\ude3a\ude3c-\ude41\ude43-\ude46\ude48\ude4a\ude4c\ude50\ude53\ude55\ude56\ude58\ude5a\ude5c\ude5e\ude60\ude63\ude65\ude66\ude6b\ude73\ude78\ude7d\ude7f\ude8a\ude9c-\udea0\udea4\udeaa\udebc-\udeef\udef2-\udfff]|[\udbbf\udbff][\udffe\udfff]|\ud87e[\ude1e-\udfff]|\ud803[\udc49-\ude5f\ude7f-\udfff]|\ud80d[\udc2f-\udfff]|[\ud806\ud807\ud80a\ud80b\ud80e-\ud819\ud81c-\ud82b\ud82d-\ud833\ud836-\ud83a\ud83e\ud83f\ud86f-\ud87d\ud87f-\udb3f\udb41-\udb7f][\udc00-\udfff]|\ud83d[\udc3f\udc41\udcf8\udcfd-\udcff\udd3e\udd3f\udd44-\udd4f\udd68-\uddfa\ude41-\ude44\ude50-\ude7f\udec6-\udeff\udf74-\udfff]|\ud86e[\udc1e-\udfff]|\ud83c[\udc2c-\udc2f\udc94-\udc9f\udcaf\udcb0\udcbf\udcc0\udcd0\udce0-\udcff\udd0b-\udd0f\udd2f\udd6c-\udd6f\udd9b-\udde5\ude03-\ude0f\ude3b-\ude3f\ude49-\ude4f\ude52-\udeff\udf21-\udf2f\udf36\udf7d-\udf7f\udf94-\udf9f\udfc5\udfcb-\udfdf\udff1-\udfff]|\ud835[\udc55\udc9d\udca0\udca1\udca3\udca4\udca7\udca8\udcad\udcba\udcbc\udcc4\udd06\udd0b\udd0c\udd15\udd1d\udd3a\udd3f\udd45\udd47-\udd49\udd51\udea6\udea7\udfcc\udfcd]|\ud81a[\ude39-\udfff]|\ud801[\udc9e\udc9f\udcaa-\udfff]|\ud805[\udc00-\ude7f\udeb8-\udebf\udeca-\udfff]|\ud82c[\udc02-\udfff]"
   }, {
    name: "Co",
    alias: "Private_Use",
-   bmp: "î€€-ï£¿",
-   astral: "[í®€-í®¾í¯€-í¯¾][í°€-í¿¿]|[í®¿í¯¿][í°€-í¿½]"
+   bmp: "\ue000-\uf8ff",
+   astral: "[\udb80-\udbbe\udbc0-\udbfe][\udc00-\udfff]|[\udbbf\udbff][\udc00-\udffd]"
   }, {
    name: "Cs",
    alias: "Surrogate",
-   bmp: "í €-í¿¿"
+   bmp: "\ud800-\udfff"
   }, {
    name: "Ll",
    alias: "Lowercase_Letter",
-   bmp: "a-zÂµÃŸ-Ã¶Ã¸-Ã¿ÄÄƒÄ…Ä‡Ä‰Ä‹ÄÄÄ‘Ä“Ä•Ä—Ä™Ä›ÄÄŸÄ¡Ä£Ä¥Ä§Ä©Ä«Ä­Ä¯Ä±Ä³ÄµÄ·Ä¸ÄºÄ¼Ä¾Å€Å‚Å„Å†ÅˆÅ‰Å‹ÅÅÅ‘Å“Å•Å—Å™Å›ÅÅŸÅ¡Å£Å¥Å§Å©Å«Å­Å¯Å±Å³ÅµÅ·ÅºÅ¼Å¾-Æ€ÆƒÆ…ÆˆÆŒÆÆ’Æ•Æ™-Æ›ÆÆ¡Æ£Æ¥Æ¨ÆªÆ«Æ­Æ°Æ´Æ¶Æ¹ÆºÆ½-Æ¿Ç†Ç‰ÇŒÇÇÇ’Ç”Ç–Ç˜ÇšÇœÇÇŸÇ¡Ç£Ç¥Ç§Ç©Ç«Ç­Ç¯Ç°Ç³ÇµÇ¹Ç»Ç½Ç¿ÈÈƒÈ…È‡È‰È‹ÈÈÈ‘È“È•È—È™È›ÈÈŸÈ¡È£È¥È§È©È«È­È¯È±È³-È¹È¼È¿É€É‚É‡É‰É‹ÉÉ-Ê“Ê•-Ê¯Í±Í³Í·Í»-Í½ÎÎ¬-ÏÏÏ‘Ï•-Ï—Ï™Ï›ÏÏŸÏ¡Ï£Ï¥Ï§Ï©Ï«Ï­Ï¯-Ï³ÏµÏ¸Ï»Ï¼Ğ°-ÑŸÑ¡Ñ£Ñ¥Ñ§Ñ©Ñ«Ñ­Ñ¯Ñ±Ñ³ÑµÑ·Ñ¹Ñ»Ñ½Ñ¿ÒÒ‹ÒÒÒ‘Ò“Ò•Ò—Ò™Ò›ÒÒŸÒ¡Ò£Ò¥Ò§Ò©Ò«Ò­Ò¯Ò±Ò³ÒµÒ·Ò¹Ò»Ò½Ò¿Ó‚Ó„Ó†ÓˆÓŠÓŒÓÓÓ‘Ó“Ó•Ó—Ó™Ó›ÓÓŸÓ¡Ó£Ó¥Ó§Ó©Ó«Ó­Ó¯Ó±Ó³ÓµÓ·Ó¹Ó»Ó½Ó¿ÔÔƒÔ…Ô‡Ô‰Ô‹ÔÔÔ‘Ô“Ô•Ô—Ô™Ô›ÔÔŸÔ¡Ô£Ô¥Ô§Õ¡-Ö‡á´€-á´«áµ«-áµ·áµ¹-á¶šá¸á¸ƒá¸…á¸‡á¸‰á¸‹á¸á¸á¸‘á¸“á¸•á¸—á¸™á¸›á¸á¸Ÿá¸¡á¸£á¸¥á¸§á¸©á¸«á¸­á¸¯á¸±á¸³á¸µá¸·á¸¹á¸»á¸½á¸¿á¹á¹ƒá¹…á¹‡á¹‰á¹‹á¹á¹á¹‘á¹“á¹•á¹—á¹™á¹›á¹á¹Ÿá¹¡á¹£á¹¥á¹§á¹©á¹«á¹­á¹¯á¹±á¹³á¹µá¹·á¹¹á¹»á¹½á¹¿áºáºƒáº…áº‡áº‰áº‹áºáºáº‘áº“áº•-áºáºŸáº¡áº£áº¥áº§áº©áº«áº­áº¯áº±áº³áºµáº·áº¹áº»áº½áº¿á»á»ƒá»…á»‡á»‰á»‹á»á»á»‘á»“á»•á»—á»™á»›á»á»Ÿá»¡á»£á»¥á»§á»©á»«á»­á»¯á»±á»³á»µá»·á»¹á»»á»½á»¿-á¼‡á¼-á¼•á¼ -á¼§á¼°-á¼·á½€-á½…á½-á½—á½ -á½§á½°-á½½á¾€-á¾‡á¾-á¾—á¾ -á¾§á¾°-á¾´á¾¶á¾·á¾¾á¿‚-á¿„á¿†á¿‡á¿-á¿“á¿–á¿—á¿ -á¿§á¿²-á¿´á¿¶á¿·â„Šâ„â„â„“â„¯â„´â„¹â„¼â„½â…†-â…‰â…â†„â°°-â±â±¡â±¥â±¦â±¨â±ªâ±¬â±±â±³â±´â±¶-â±»â²â²ƒâ²…â²‡â²‰â²‹â²â²â²‘â²“â²•â²—â²™â²›â²â²Ÿâ²¡â²£â²¥â²§â²©â²«â²­â²¯â²±â²³â²µâ²·â²¹â²»â²½â²¿â³â³ƒâ³…â³‡â³‰â³‹â³â³â³‘â³“â³•â³—â³™â³›â³â³Ÿâ³¡â³£â³¤â³¬â³®â³³â´€-â´¥â´§â´­ê™ê™ƒê™…ê™‡ê™‰ê™‹ê™ê™ê™‘ê™“ê™•ê™—ê™™ê™›ê™ê™Ÿê™¡ê™£ê™¥ê™§ê™©ê™«ê™­êšêšƒêš…êš‡êš‰êš‹êšêšêš‘êš“êš•êš—êœ£êœ¥êœ§êœ©êœ«êœ­êœ¯-êœ±êœ³êœµêœ·êœ¹êœ»êœ½êœ¿êêƒê…ê‡ê‰ê‹êêê‘ê“ê•ê—ê™ê›êêŸê¡ê£ê¥ê§ê©ê«ê­ê¯ê±-ê¸êºê¼ê¿êêƒê…ê‡êŒêê‘ê“ê¡ê£ê¥ê§ê©êŸºï¬€-ï¬†ï¬“-ï¬—ï½-ï½š",
-   astral: "í µ[í°š-í°³í±-í±”í±–-í±§í²‚-í²›í²¶-í²¹í²»í²½-í³ƒí³…-í³í³ª-í´ƒí´-í´·íµ’-íµ«í¶†-í¶Ÿí¶º-í·“í·®-í¸‡í¸¢-í¸»í¹–-í¹¯íºŠ-íº¥í»‚-í»ší»œ-í»¡í»¼-í¼”í¼–-í¼›í¼¶-í½í½-í½•í½°-í¾ˆí¾Š-í¾í¾ª-í¿‚í¿„-í¿‰í¿‹]|í [í°¨-í±]"
+   bmp: "a-z\xb5\xdf-\xf6\xf8-\xff\u0101\u0103\u0105\u0107\u0109\u010b\u010d\u010f\u0111\u0113\u0115\u0117\u0119\u011b\u011d\u011f\u0121\u0123\u0125\u0127\u0129\u012b\u012d\u012f\u0131\u0133\u0135\u0137\u0138\u013a\u013c\u013e\u0140\u0142\u0144\u0146\u0148\u0149\u014b\u014d\u014f\u0151\u0153\u0155\u0157\u0159\u015b\u015d\u015f\u0161\u0163\u0165\u0167\u0169\u016b\u016d\u016f\u0171\u0173\u0175\u0177\u017a\u017c\u017e-\u0180\u0183\u0185\u0188\u018c\u018d\u0192\u0195\u0199-\u019b\u019e\u01a1\u01a3\u01a5\u01a8\u01aa\u01ab\u01ad\u01b0\u01b4\u01b6\u01b9\u01ba\u01bd-\u01bf\u01c6\u01c9\u01cc\u01ce\u01d0\u01d2\u01d4\u01d6\u01d8\u01da\u01dc\u01dd\u01df\u01e1\u01e3\u01e5\u01e7\u01e9\u01eb\u01ed\u01ef\u01f0\u01f3\u01f5\u01f9\u01fb\u01fd\u01ff\u0201\u0203\u0205\u0207\u0209\u020b\u020d\u020f\u0211\u0213\u0215\u0217\u0219\u021b\u021d\u021f\u0221\u0223\u0225\u0227\u0229\u022b\u022d\u022f\u0231\u0233-\u0239\u023c\u023f\u0240\u0242\u0247\u0249\u024b\u024d\u024f-\u0293\u0295-\u02af\u0371\u0373\u0377\u037b-\u037d\u0390\u03ac-\u03ce\u03d0\u03d1\u03d5-\u03d7\u03d9\u03db\u03dd\u03df\u03e1\u03e3\u03e5\u03e7\u03e9\u03eb\u03ed\u03ef-\u03f3\u03f5\u03f8\u03fb\u03fc\u0430-\u045f\u0461\u0463\u0465\u0467\u0469\u046b\u046d\u046f\u0471\u0473\u0475\u0477\u0479\u047b\u047d\u047f\u0481\u048b\u048d\u048f\u0491\u0493\u0495\u0497\u0499\u049b\u049d\u049f\u04a1\u04a3\u04a5\u04a7\u04a9\u04ab\u04ad\u04af\u04b1\u04b3\u04b5\u04b7\u04b9\u04bb\u04bd\u04bf\u04c2\u04c4\u04c6\u04c8\u04ca\u04cc\u04ce\u04cf\u04d1\u04d3\u04d5\u04d7\u04d9\u04db\u04dd\u04df\u04e1\u04e3\u04e5\u04e7\u04e9\u04eb\u04ed\u04ef\u04f1\u04f3\u04f5\u04f7\u04f9\u04fb\u04fd\u04ff\u0501\u0503\u0505\u0507\u0509\u050b\u050d\u050f\u0511\u0513\u0515\u0517\u0519\u051b\u051d\u051f\u0521\u0523\u0525\u0527\u0561-\u0587\u1d00-\u1d2b\u1d6b-\u1d77\u1d79-\u1d9a\u1e01\u1e03\u1e05\u1e07\u1e09\u1e0b\u1e0d\u1e0f\u1e11\u1e13\u1e15\u1e17\u1e19\u1e1b\u1e1d\u1e1f\u1e21\u1e23\u1e25\u1e27\u1e29\u1e2b\u1e2d\u1e2f\u1e31\u1e33\u1e35\u1e37\u1e39\u1e3b\u1e3d\u1e3f\u1e41\u1e43\u1e45\u1e47\u1e49\u1e4b\u1e4d\u1e4f\u1e51\u1e53\u1e55\u1e57\u1e59\u1e5b\u1e5d\u1e5f\u1e61\u1e63\u1e65\u1e67\u1e69\u1e6b\u1e6d\u1e6f\u1e71\u1e73\u1e75\u1e77\u1e79\u1e7b\u1e7d\u1e7f\u1e81\u1e83\u1e85\u1e87\u1e89\u1e8b\u1e8d\u1e8f\u1e91\u1e93\u1e95-\u1e9d\u1e9f\u1ea1\u1ea3\u1ea5\u1ea7\u1ea9\u1eab\u1ead\u1eaf\u1eb1\u1eb3\u1eb5\u1eb7\u1eb9\u1ebb\u1ebd\u1ebf\u1ec1\u1ec3\u1ec5\u1ec7\u1ec9\u1ecb\u1ecd\u1ecf\u1ed1\u1ed3\u1ed5\u1ed7\u1ed9\u1edb\u1edd\u1edf\u1ee1\u1ee3\u1ee5\u1ee7\u1ee9\u1eeb\u1eed\u1eef\u1ef1\u1ef3\u1ef5\u1ef7\u1ef9\u1efb\u1efd\u1eff-\u1f07\u1f10-\u1f15\u1f20-\u1f27\u1f30-\u1f37\u1f40-\u1f45\u1f50-\u1f57\u1f60-\u1f67\u1f70-\u1f7d\u1f80-\u1f87\u1f90-\u1f97\u1fa0-\u1fa7\u1fb0-\u1fb4\u1fb6\u1fb7\u1fbe\u1fc2-\u1fc4\u1fc6\u1fc7\u1fd0-\u1fd3\u1fd6\u1fd7\u1fe0-\u1fe7\u1ff2-\u1ff4\u1ff6\u1ff7\u210a\u210e\u210f\u2113\u212f\u2134\u2139\u213c\u213d\u2146-\u2149\u214e\u2184\u2c30-\u2c5e\u2c61\u2c65\u2c66\u2c68\u2c6a\u2c6c\u2c71\u2c73\u2c74\u2c76-\u2c7b\u2c81\u2c83\u2c85\u2c87\u2c89\u2c8b\u2c8d\u2c8f\u2c91\u2c93\u2c95\u2c97\u2c99\u2c9b\u2c9d\u2c9f\u2ca1\u2ca3\u2ca5\u2ca7\u2ca9\u2cab\u2cad\u2caf\u2cb1\u2cb3\u2cb5\u2cb7\u2cb9\u2cbb\u2cbd\u2cbf\u2cc1\u2cc3\u2cc5\u2cc7\u2cc9\u2ccb\u2ccd\u2ccf\u2cd1\u2cd3\u2cd5\u2cd7\u2cd9\u2cdb\u2cdd\u2cdf\u2ce1\u2ce3\u2ce4\u2cec\u2cee\u2cf3\u2d00-\u2d25\u2d27\u2d2d\ua641\ua643\ua645\ua647\ua649\ua64b\ua64d\ua64f\ua651\ua653\ua655\ua657\ua659\ua65b\ua65d\ua65f\ua661\ua663\ua665\ua667\ua669\ua66b\ua66d\ua681\ua683\ua685\ua687\ua689\ua68b\ua68d\ua68f\ua691\ua693\ua695\ua697\ua723\ua725\ua727\ua729\ua72b\ua72d\ua72f-\ua731\ua733\ua735\ua737\ua739\ua73b\ua73d\ua73f\ua741\ua743\ua745\ua747\ua749\ua74b\ua74d\ua74f\ua751\ua753\ua755\ua757\ua759\ua75b\ua75d\ua75f\ua761\ua763\ua765\ua767\ua769\ua76b\ua76d\ua76f\ua771-\ua778\ua77a\ua77c\ua77f\ua781\ua783\ua785\ua787\ua78c\ua78e\ua791\ua793\ua7a1\ua7a3\ua7a5\ua7a7\ua7a9\ua7fa\ufb00-\ufb06\ufb13-\ufb17\uff41-\uff5a",
+   astral: "\ud835[\udc1a-\udc33\udc4e-\udc54\udc56-\udc67\udc82-\udc9b\udcb6-\udcb9\udcbb\udcbd-\udcc3\udcc5-\udccf\udcea-\udd03\udd1e-\udd37\udd52-\udd6b\udd86-\udd9f\uddba-\uddd3\uddee-\ude07\ude22-\ude3b\ude56-\ude6f\ude8a-\udea5\udec2-\udeda\udedc-\udee1\udefc-\udf14\udf16-\udf1b\udf36-\udf4e\udf50-\udf55\udf70-\udf88\udf8a-\udf8f\udfaa-\udfc2\udfc4-\udfc9\udfcb]|\ud801[\udc28-\udc4f]"
   }, {
    name: "Lm",
    alias: "Modifier_Letter",
-   bmp: "Ê°-ËË†-Ë‘Ë -Ë¤Ë¬Ë®Í´ÍºÕ™Ù€Û¥Û¦ß´ßµßºà šà ¤à ¨à¥±à¹†à»†áƒ¼áŸ—á¡ƒáª§á±¸-á±½á´¬-áµªáµ¸á¶›-á¶¿â±â¿â‚-â‚œâ±¼â±½âµ¯â¸¯ã€…ã€±-ã€µã€»ã‚ã‚ãƒ¼-ãƒ¾ê€•ê“¸-ê“½ê˜Œê™¿êœ—-êœŸê°êˆêŸ¸êŸ¹ê§ê©°ê«ê«³ê«´ï½°ï¾ï¾Ÿ",
-   astral: "í ›[í¾“-í¾Ÿ]"
+   bmp: "\u02b0-\u02c1\u02c6-\u02d1\u02e0-\u02e4\u02ec\u02ee\u0374\u037a\u0559\u0640\u06e5\u06e6\u07f4\u07f5\u07fa\u081a\u0824\u0828\u0971\u0e46\u0ec6\u10fc\u17d7\u1843\u1aa7\u1c78-\u1c7d\u1d2c-\u1d6a\u1d78\u1d9b-\u1dbf\u2071\u207f\u2090-\u209c\u2c7c\u2c7d\u2d6f\u2e2f\u3005\u3031-\u3035\u303b\u309d\u309e\u30fc-\u30fe\ua015\ua4f8-\ua4fd\ua60c\ua67f\ua717-\ua71f\ua770\ua788\ua7f8\ua7f9\ua9cf\uaa70\uaadd\uaaf3\uaaf4\uff70\uff9e\uff9f",
+   astral: "\ud81b[\udf93-\udf9f]"
   }, {
    name: "Lo",
    alias: "Other_Letter",
-   bmp: "ÂªÂºÆ»Ç€-ÇƒÊ”×-×ª×°-×²Ø -Ø¿Ù-ÙŠÙ®Ù¯Ù±-Û“Û•Û®Û¯Ûº-Û¼Û¿ÜÜ’-Ü¯İ-Ş¥Ş±ßŠ-ßªà €-à •à¡€-à¡˜à¢ à¢¢-à¢¬à¤„-à¤¹à¤½à¥à¥˜-à¥¡à¥²-à¥·à¥¹-à¥¿à¦…-à¦Œà¦à¦à¦“-à¦¨à¦ª-à¦°à¦²à¦¶-à¦¹à¦½à§à§œà§à§Ÿ-à§¡à§°à§±à¨…-à¨Šà¨à¨à¨“-à¨¨à¨ª-à¨°à¨²à¨³à¨µà¨¶à¨¸à¨¹à©™-à©œà©à©²-à©´àª…-àªàª-àª‘àª“-àª¨àªª-àª°àª²àª³àªµ-àª¹àª½à«à« à«¡à¬…-à¬Œà¬à¬à¬“-à¬¨à¬ª-à¬°à¬²à¬³à¬µ-à¬¹à¬½à­œà­à­Ÿ-à­¡à­±à®ƒà®…-à®Šà®-à®à®’-à®•à®™à®šà®œà®à®Ÿà®£à®¤à®¨-à®ªà®®-à®¹à¯à°…-à°Œà°-à°à°’-à°¨à°ª-à°³à°µ-à°¹à°½à±˜à±™à± à±¡à²…-à²Œà²-à²à²’-à²¨à²ª-à²³à²µ-à²¹à²½à³à³ à³¡à³±à³²à´…-à´Œà´-à´à´’-à´ºà´½àµàµ àµ¡àµº-àµ¿à¶…-à¶–à¶š-à¶±à¶³-à¶»à¶½à·€-à·†à¸-à¸°à¸²à¸³à¹€-à¹…àºàº‚àº„àº‡àºˆàºŠàºàº”-àº—àº™-àºŸàº¡-àº£àº¥àº§àºªàº«àº­-àº°àº²àº³àº½à»€-à»„à»œ-à»Ÿà¼€à½€-à½‡à½‰-à½¬à¾ˆ-à¾Œá€€-á€ªá€¿á-á•áš-áá¡á¥á¦á®-á°áµ-á‚á‚áƒ-áƒºáƒ½-á‰ˆá‰Š-á‰á‰-á‰–á‰˜á‰š-á‰á‰ -áŠˆáŠŠ-áŠáŠ-áŠ°áŠ²-áŠµáŠ¸-áŠ¾á‹€á‹‚-á‹…á‹ˆ-á‹–á‹˜-áŒáŒ’-áŒ•áŒ˜-ášá€-áá -á´á-á™¬á™¯-á™¿áš-áššáš -á›ªáœ€-áœŒáœ-áœ‘áœ -áœ±á€-á‘á -á¬á®-á°á€-á³áŸœá  -á¡‚á¡„-á¡·á¢€-á¢¨á¢ªá¢°-á£µá¤€-á¤œá¥-á¥­á¥°-á¥´á¦€-á¦«á§-á§‡á¨€-á¨–á¨ -á©”á¬…-á¬³á­…-á­‹á®ƒ-á® á®®á®¯á®º-á¯¥á°€-á°£á±-á±á±š-á±·á³©-á³¬á³®-á³±á³µá³¶â„µ-â„¸â´°-âµ§â¶€-â¶–â¶ -â¶¦â¶¨-â¶®â¶°-â¶¶â¶¸-â¶¾â·€-â·†â·ˆ-â·â·-â·–â·˜-â·ã€†ã€¼ã-ã‚–ã‚Ÿã‚¡-ãƒºãƒ¿ã„…-ã„­ã„±-ã†ã† -ã†ºã‡°-ã‡¿ã€-ä¶µä¸€-é¿Œê€€-ê€”ê€–-ê’Œê“-ê“·ê”€-ê˜‹ê˜-ê˜Ÿê˜ªê˜«ê™®êš -ê›¥êŸ»-ê ê ƒ-ê …ê ‡-ê Šê Œ-ê ¢ê¡€-ê¡³ê¢‚-ê¢³ê£²-ê£·ê£»ê¤Š-ê¤¥ê¤°-ê¥†ê¥ -ê¥¼ê¦„-ê¦²ê¨€-ê¨¨ê©€-ê©‚ê©„-ê©‹ê© -ê©¯ê©±-ê©¶ê©ºêª€-êª¯êª±êªµêª¶êª¹-êª½ê«€ê«‚ê«›ê«œê« -ê«ªê«²ê¬-ê¬†ê¬‰-ê¬ê¬‘-ê¬–ê¬ -ê¬¦ê¬¨-ê¬®ê¯€-ê¯¢ê°€-í£í°-íŸ†íŸ‹-íŸ»ï¤€-ï©­ï©°-ï«™ï¬ï¬Ÿ-ï¬¨ï¬ª-ï¬¶ï¬¸-ï¬¼ï¬¾ï­€ï­ï­ƒï­„ï­†-ï®±ï¯“-ï´½ïµ-ï¶ï¶’-ï·‡ï·°-ï·»ï¹°-ï¹´ï¹¶-ï»¼ï½¦-ï½¯ï½±-ï¾ï¾ -ï¾¾ï¿‚-ï¿‡ï¿Š-ï¿ï¿’-ï¿—ï¿š-ï¿œ",
-   astral: "í ‚[í°€-í°…í°ˆí°Š-í°µí°·í°¸í°¼í°¿-í±•í´€-í´•í´ -í´¹í¶€-í¶·í¶¾í¶¿í¸€í¸-í¸“í¸•-í¸—í¸™-í¸³í¹ -í¹¼í¼€-í¼µí½€-í½•í½ -í½²]|í €[í°€-í°‹í°-í°¦í°¨-í°ºí°¼í°½í°¿-í±í±-í±í²€-í³ºíº€-íºœíº -í»í¼€-í¼í¼°-í½€í½‚-í½‰í¾€-í¾í¾ -í¿ƒí¿ˆ-í¿]|í š[í°€-í¸¸]|í „[í°ƒ-í°·í²ƒ-í²¯í³-í³¨í´ƒ-í´¦í¶ƒ-í¶²í·-í·„]|í¡®[í°€-í°]|í¡­[í°€-í¼´í½€-í¿¿]|í ƒ[í°€-í±ˆ]|í [í°€-í°®]|í …[íº€-íºª]|í¡¾[í°€-í¸]|í ›[í¼€-í½„í½]|í [í±-í²]|í ¬[í°€í°]|[í Œí¡€-í¡¨í¡ª-í¡¬][í°€-í¿¿]|í »[í¸€-í¸ƒí¸…-í¸Ÿí¸¡í¸¢í¸¤í¸§í¸©-í¸²í¸´-í¸·í¸¹í¸»í¹‚í¹‡í¹‰í¹‹í¹-í¹í¹‘í¹’í¹”í¹—í¹™í¹›í¹í¹Ÿí¹¡í¹¢í¹¤í¹§-í¹ªí¹¬-í¹²í¹´-í¹·í¹¹-í¹¼í¹¾íº€-íº‰íº‹-íº›íº¡-íº£íº¥-íº©íº«-íº»]|í ˆ[í°€-í½®]|í¡©[í°€-í»–í¼€-í¿¿]"
+   bmp: "\xaa\xba\u01bb\u01c0-\u01c3\u0294\u05d0-\u05ea\u05f0-\u05f2\u0620-\u063f\u0641-\u064a\u066e\u066f\u0671-\u06d3\u06d5\u06ee\u06ef\u06fa-\u06fc\u06ff\u0710\u0712-\u072f\u074d-\u07a5\u07b1\u07ca-\u07ea\u0800-\u0815\u0840-\u0858\u08a0\u08a2-\u08ac\u0904-\u0939\u093d\u0950\u0958-\u0961\u0972-\u0977\u0979-\u097f\u0985-\u098c\u098f\u0990\u0993-\u09a8\u09aa-\u09b0\u09b2\u09b6-\u09b9\u09bd\u09ce\u09dc\u09dd\u09df-\u09e1\u09f0\u09f1\u0a05-\u0a0a\u0a0f\u0a10\u0a13-\u0a28\u0a2a-\u0a30\u0a32\u0a33\u0a35\u0a36\u0a38\u0a39\u0a59-\u0a5c\u0a5e\u0a72-\u0a74\u0a85-\u0a8d\u0a8f-\u0a91\u0a93-\u0aa8\u0aaa-\u0ab0\u0ab2\u0ab3\u0ab5-\u0ab9\u0abd\u0ad0\u0ae0\u0ae1\u0b05-\u0b0c\u0b0f\u0b10\u0b13-\u0b28\u0b2a-\u0b30\u0b32\u0b33\u0b35-\u0b39\u0b3d\u0b5c\u0b5d\u0b5f-\u0b61\u0b71\u0b83\u0b85-\u0b8a\u0b8e-\u0b90\u0b92-\u0b95\u0b99\u0b9a\u0b9c\u0b9e\u0b9f\u0ba3\u0ba4\u0ba8-\u0baa\u0bae-\u0bb9\u0bd0\u0c05-\u0c0c\u0c0e-\u0c10\u0c12-\u0c28\u0c2a-\u0c33\u0c35-\u0c39\u0c3d\u0c58\u0c59\u0c60\u0c61\u0c85-\u0c8c\u0c8e-\u0c90\u0c92-\u0ca8\u0caa-\u0cb3\u0cb5-\u0cb9\u0cbd\u0cde\u0ce0\u0ce1\u0cf1\u0cf2\u0d05-\u0d0c\u0d0e-\u0d10\u0d12-\u0d3a\u0d3d\u0d4e\u0d60\u0d61\u0d7a-\u0d7f\u0d85-\u0d96\u0d9a-\u0db1\u0db3-\u0dbb\u0dbd\u0dc0-\u0dc6\u0e01-\u0e30\u0e32\u0e33\u0e40-\u0e45\u0e81\u0e82\u0e84\u0e87\u0e88\u0e8a\u0e8d\u0e94-\u0e97\u0e99-\u0e9f\u0ea1-\u0ea3\u0ea5\u0ea7\u0eaa\u0eab\u0ead-\u0eb0\u0eb2\u0eb3\u0ebd\u0ec0-\u0ec4\u0edc-\u0edf\u0f00\u0f40-\u0f47\u0f49-\u0f6c\u0f88-\u0f8c\u1000-\u102a\u103f\u1050-\u1055\u105a-\u105d\u1061\u1065\u1066\u106e-\u1070\u1075-\u1081\u108e\u10d0-\u10fa\u10fd-\u1248\u124a-\u124d\u1250-\u1256\u1258\u125a-\u125d\u1260-\u1288\u128a-\u128d\u1290-\u12b0\u12b2-\u12b5\u12b8-\u12be\u12c0\u12c2-\u12c5\u12c8-\u12d6\u12d8-\u1310\u1312-\u1315\u1318-\u135a\u1380-\u138f\u13a0-\u13f4\u1401-\u166c\u166f-\u167f\u1681-\u169a\u16a0-\u16ea\u1700-\u170c\u170e-\u1711\u1720-\u1731\u1740-\u1751\u1760-\u176c\u176e-\u1770\u1780-\u17b3\u17dc\u1820-\u1842\u1844-\u1877\u1880-\u18a8\u18aa\u18b0-\u18f5\u1900-\u191c\u1950-\u196d\u1970-\u1974\u1980-\u19ab\u19c1-\u19c7\u1a00-\u1a16\u1a20-\u1a54\u1b05-\u1b33\u1b45-\u1b4b\u1b83-\u1ba0\u1bae\u1baf\u1bba-\u1be5\u1c00-\u1c23\u1c4d-\u1c4f\u1c5a-\u1c77\u1ce9-\u1cec\u1cee-\u1cf1\u1cf5\u1cf6\u2135-\u2138\u2d30-\u2d67\u2d80-\u2d96\u2da0-\u2da6\u2da8-\u2dae\u2db0-\u2db6\u2db8-\u2dbe\u2dc0-\u2dc6\u2dc8-\u2dce\u2dd0-\u2dd6\u2dd8-\u2dde\u3006\u303c\u3041-\u3096\u309f\u30a1-\u30fa\u30ff\u3105-\u312d\u3131-\u318e\u31a0-\u31ba\u31f0-\u31ff\u3400-\u4db5\u4e00-\u9fcc\ua000-\ua014\ua016-\ua48c\ua4d0-\ua4f7\ua500-\ua60b\ua610-\ua61f\ua62a\ua62b\ua66e\ua6a0-\ua6e5\ua7fb-\ua801\ua803-\ua805\ua807-\ua80a\ua80c-\ua822\ua840-\ua873\ua882-\ua8b3\ua8f2-\ua8f7\ua8fb\ua90a-\ua925\ua930-\ua946\ua960-\ua97c\ua984-\ua9b2\uaa00-\uaa28\uaa40-\uaa42\uaa44-\uaa4b\uaa60-\uaa6f\uaa71-\uaa76\uaa7a\uaa80-\uaaaf\uaab1\uaab5\uaab6\uaab9-\uaabd\uaac0\uaac2\uaadb\uaadc\uaae0-\uaaea\uaaf2\uab01-\uab06\uab09-\uab0e\uab11-\uab16\uab20-\uab26\uab28-\uab2e\uabc0-\uabe2\uac00-\ud7a3\ud7b0-\ud7c6\ud7cb-\ud7fb\uf900-\ufa6d\ufa70-\ufad9\ufb1d\ufb1f-\ufb28\ufb2a-\ufb36\ufb38-\ufb3c\ufb3e\ufb40\ufb41\ufb43\ufb44\ufb46-\ufbb1\ufbd3-\ufd3d\ufd50-\ufd8f\ufd92-\ufdc7\ufdf0-\ufdfb\ufe70-\ufe74\ufe76-\ufefc\uff66-\uff6f\uff71-\uff9d\uffa0-\uffbe\uffc2-\uffc7\uffca-\uffcf\uffd2-\uffd7\uffda-\uffdc",
+   astral: "\ud802[\udc00-\udc05\udc08\udc0a-\udc35\udc37\udc38\udc3c\udc3f-\udc55\udd00-\udd15\udd20-\udd39\udd80-\uddb7\uddbe\uddbf\ude00\ude10-\ude13\ude15-\ude17\ude19-\ude33\ude60-\ude7c\udf00-\udf35\udf40-\udf55\udf60-\udf72]|\ud800[\udc00-\udc0b\udc0d-\udc26\udc28-\udc3a\udc3c\udc3d\udc3f-\udc4d\udc50-\udc5d\udc80-\udcfa\ude80-\ude9c\udea0-\uded0\udf00-\udf1e\udf30-\udf40\udf42-\udf49\udf80-\udf9d\udfa0-\udfc3\udfc8-\udfcf]|\ud81a[\udc00-\ude38]|\ud804[\udc03-\udc37\udc83-\udcaf\udcd0-\udce8\udd03-\udd26\udd83-\uddb2\uddc1-\uddc4]|\ud86e[\udc00-\udc1d]|\ud86d[\udc00-\udf34\udf40-\udfff]|\ud803[\udc00-\udc48]|\ud80d[\udc00-\udc2e]|\ud805[\ude80-\udeaa]|\ud87e[\udc00-\ude1d]|\ud81b[\udf00-\udf44\udf50]|\ud801[\udc50-\udc9d]|\ud82c[\udc00\udc01]|[\ud80c\ud840-\ud868\ud86a-\ud86c][\udc00-\udfff]|\ud83b[\ude00-\ude03\ude05-\ude1f\ude21\ude22\ude24\ude27\ude29-\ude32\ude34-\ude37\ude39\ude3b\ude42\ude47\ude49\ude4b\ude4d-\ude4f\ude51\ude52\ude54\ude57\ude59\ude5b\ude5d\ude5f\ude61\ude62\ude64\ude67-\ude6a\ude6c-\ude72\ude74-\ude77\ude79-\ude7c\ude7e\ude80-\ude89\ude8b-\ude9b\udea1-\udea3\udea5-\udea9\udeab-\udebb]|\ud808[\udc00-\udf6e]|\ud869[\udc00-\uded6\udf00-\udfff]"
   }, {
    name: "Lt",
    alias: "Titlecase_Letter",
-   bmp: "Ç…ÇˆÇ‹Ç²á¾ˆ-á¾á¾˜-á¾Ÿá¾¨-á¾¯á¾¼á¿Œá¿¼"
+   bmp: "\u01c5\u01c8\u01cb\u01f2\u1f88-\u1f8f\u1f98-\u1f9f\u1fa8-\u1faf\u1fbc\u1fcc\u1ffc"
   }, {
    name: "Lu",
    alias: "Uppercase_Letter",
-   bmp: "A-ZÃ€-Ã–Ã˜-ÃÄ€Ä‚Ä„Ä†ÄˆÄŠÄŒÄÄÄ’Ä”Ä–Ä˜ÄšÄœÄÄ Ä¢Ä¤Ä¦Ä¨ÄªÄ¬Ä®Ä°Ä²Ä´Ä¶Ä¹Ä»Ä½Ä¿ÅÅƒÅ…Å‡ÅŠÅŒÅÅÅ’Å”Å–Å˜ÅšÅœÅÅ Å¢Å¤Å¦Å¨ÅªÅ¬Å®Å°Å²Å´Å¶Å¸Å¹Å»Å½ÆÆ‚Æ„Æ†Æ‡Æ‰-Æ‹Æ-Æ‘Æ“Æ”Æ–-Æ˜ÆœÆÆŸÆ Æ¢Æ¤Æ¦Æ§Æ©Æ¬Æ®Æ¯Æ±-Æ³ÆµÆ·Æ¸Æ¼Ç„Ç‡ÇŠÇÇÇ‘Ç“Ç•Ç—Ç™Ç›ÇÇ Ç¢Ç¤Ç¦Ç¨ÇªÇ¬Ç®Ç±Ç´Ç¶-Ç¸ÇºÇ¼Ç¾È€È‚È„È†ÈˆÈŠÈŒÈÈÈ’È”È–È˜ÈšÈœÈÈ È¢È¤È¦È¨ÈªÈ¬È®È°È²ÈºÈ»È½È¾ÉÉƒ-É†ÉˆÉŠÉŒÉÍ°Í²Í¶Î†Îˆ-ÎŠÎŒÎÎÎ‘-Î¡Î£-Î«ÏÏ’-Ï”Ï˜ÏšÏœÏÏ Ï¢Ï¤Ï¦Ï¨ÏªÏ¬Ï®Ï´Ï·Ï¹ÏºÏ½-Ğ¯Ñ Ñ¢Ñ¤Ñ¦Ñ¨ÑªÑ¬Ñ®Ñ°Ñ²Ñ´Ñ¶Ñ¸ÑºÑ¼Ñ¾Ò€ÒŠÒŒÒÒÒ’Ò”Ò–Ò˜ÒšÒœÒÒ Ò¢Ò¤Ò¦Ò¨ÒªÒ¬Ò®Ò°Ò²Ò´Ò¶Ò¸ÒºÒ¼Ò¾Ó€ÓÓƒÓ…Ó‡Ó‰Ó‹ÓÓÓ’Ó”Ó–Ó˜ÓšÓœÓÓ Ó¢Ó¤Ó¦Ó¨ÓªÓ¬Ó®Ó°Ó²Ó´Ó¶Ó¸ÓºÓ¼Ó¾Ô€Ô‚Ô„Ô†ÔˆÔŠÔŒÔÔÔ’Ô”Ô–Ô˜ÔšÔœÔÔ Ô¢Ô¤Ô¦Ô±-Õ–á‚ -áƒ…áƒ‡áƒá¸€á¸‚á¸„á¸†á¸ˆá¸Šá¸Œá¸á¸á¸’á¸”á¸–á¸˜á¸šá¸œá¸á¸ á¸¢á¸¤á¸¦á¸¨á¸ªá¸¬á¸®á¸°á¸²á¸´á¸¶á¸¸á¸ºá¸¼á¸¾á¹€á¹‚á¹„á¹†á¹ˆá¹Šá¹Œá¹á¹á¹’á¹”á¹–á¹˜á¹šá¹œá¹á¹ á¹¢á¹¤á¹¦á¹¨á¹ªá¹¬á¹®á¹°á¹²á¹´á¹¶á¹¸á¹ºá¹¼á¹¾áº€áº‚áº„áº†áºˆáºŠáºŒáºáºáº’áº”áºáº áº¢áº¤áº¦áº¨áºªáº¬áº®áº°áº²áº´áº¶áº¸áººáº¼áº¾á»€á»‚á»„á»†á»ˆá»Šá»Œá»á»á»’á»”á»–á»˜á»šá»œá»á» á»¢á»¤á»¦á»¨á»ªá»¬á»®á»°á»²á»´á»¶á»¸á»ºá»¼á»¾á¼ˆ-á¼á¼˜-á¼á¼¨-á¼¯á¼¸-á¼¿á½ˆ-á½á½™á½›á½á½Ÿá½¨-á½¯á¾¸-á¾»á¿ˆ-á¿‹á¿˜-á¿›á¿¨-á¿¬á¿¸-á¿»â„‚â„‡â„‹-â„â„-â„’â„•â„™-â„â„¤â„¦â„¨â„ª-â„­â„°-â„³â„¾â„¿â……â†ƒâ°€-â°®â± â±¢-â±¤â±§â±©â±«â±­-â±°â±²â±µâ±¾-â²€â²‚â²„â²†â²ˆâ²Šâ²Œâ²â²â²’â²”â²–â²˜â²šâ²œâ²â² â²¢â²¤â²¦â²¨â²ªâ²¬â²®â²°â²²â²´â²¶â²¸â²ºâ²¼â²¾â³€â³‚â³„â³†â³ˆâ³Šâ³Œâ³â³â³’â³”â³–â³˜â³šâ³œâ³â³ â³¢â³«â³­â³²ê™€ê™‚ê™„ê™†ê™ˆê™Šê™Œê™ê™ê™’ê™”ê™–ê™˜ê™šê™œê™ê™ ê™¢ê™¤ê™¦ê™¨ê™ªê™¬êš€êš‚êš„êš†êšˆêšŠêšŒêšêšêš’êš”êš–êœ¢êœ¤êœ¦êœ¨êœªêœ¬êœ®êœ²êœ´êœ¶êœ¸êœºêœ¼êœ¾ê€ê‚ê„ê†êˆêŠêŒêêê’ê”ê–ê˜êšêœêê ê¢ê¤ê¦ê¨êªê¬ê®ê¹ê»ê½ê¾ê€ê‚ê„ê†ê‹êêê’ê ê¢ê¤ê¦ê¨êªï¼¡-ï¼º",
-   astral: "í µ[í°€-í°™í°´-í±í±¨-í²í²œí²í²Ÿí²¢í²¥í²¦í²©-í²¬í²®-í²µí³-í³©í´„í´…í´‡-í´Ší´-í´”í´–-í´œí´¸í´¹í´»-í´¾íµ€-íµ„íµ†íµŠ-íµíµ¬-í¶…í¶ -í¶¹í·”-í·­í¸ˆ-í¸¡í¸¼-í¹•í¹°-íº‰íº¨-í»€í»¢-í»ºí¼œ-í¼´í½–-í½®í¾-í¾¨í¿Š]|í [í°€-í°§]"
+   bmp: "A-Z\xc0-\xd6\xd8-\xde\u0100\u0102\u0104\u0106\u0108\u010a\u010c\u010e\u0110\u0112\u0114\u0116\u0118\u011a\u011c\u011e\u0120\u0122\u0124\u0126\u0128\u012a\u012c\u012e\u0130\u0132\u0134\u0136\u0139\u013b\u013d\u013f\u0141\u0143\u0145\u0147\u014a\u014c\u014e\u0150\u0152\u0154\u0156\u0158\u015a\u015c\u015e\u0160\u0162\u0164\u0166\u0168\u016a\u016c\u016e\u0170\u0172\u0174\u0176\u0178\u0179\u017b\u017d\u0181\u0182\u0184\u0186\u0187\u0189-\u018b\u018e-\u0191\u0193\u0194\u0196-\u0198\u019c\u019d\u019f\u01a0\u01a2\u01a4\u01a6\u01a7\u01a9\u01ac\u01ae\u01af\u01b1-\u01b3\u01b5\u01b7\u01b8\u01bc\u01c4\u01c7\u01ca\u01cd\u01cf\u01d1\u01d3\u01d5\u01d7\u01d9\u01db\u01de\u01e0\u01e2\u01e4\u01e6\u01e8\u01ea\u01ec\u01ee\u01f1\u01f4\u01f6-\u01f8\u01fa\u01fc\u01fe\u0200\u0202\u0204\u0206\u0208\u020a\u020c\u020e\u0210\u0212\u0214\u0216\u0218\u021a\u021c\u021e\u0220\u0222\u0224\u0226\u0228\u022a\u022c\u022e\u0230\u0232\u023a\u023b\u023d\u023e\u0241\u0243-\u0246\u0248\u024a\u024c\u024e\u0370\u0372\u0376\u0386\u0388-\u038a\u038c\u038e\u038f\u0391-\u03a1\u03a3-\u03ab\u03cf\u03d2-\u03d4\u03d8\u03da\u03dc\u03de\u03e0\u03e2\u03e4\u03e6\u03e8\u03ea\u03ec\u03ee\u03f4\u03f7\u03f9\u03fa\u03fd-\u042f\u0460\u0462\u0464\u0466\u0468\u046a\u046c\u046e\u0470\u0472\u0474\u0476\u0478\u047a\u047c\u047e\u0480\u048a\u048c\u048e\u0490\u0492\u0494\u0496\u0498\u049a\u049c\u049e\u04a0\u04a2\u04a4\u04a6\u04a8\u04aa\u04ac\u04ae\u04b0\u04b2\u04b4\u04b6\u04b8\u04ba\u04bc\u04be\u04c0\u04c1\u04c3\u04c5\u04c7\u04c9\u04cb\u04cd\u04d0\u04d2\u04d4\u04d6\u04d8\u04da\u04dc\u04de\u04e0\u04e2\u04e4\u04e6\u04e8\u04ea\u04ec\u04ee\u04f0\u04f2\u04f4\u04f6\u04f8\u04fa\u04fc\u04fe\u0500\u0502\u0504\u0506\u0508\u050a\u050c\u050e\u0510\u0512\u0514\u0516\u0518\u051a\u051c\u051e\u0520\u0522\u0524\u0526\u0531-\u0556\u10a0-\u10c5\u10c7\u10cd\u1e00\u1e02\u1e04\u1e06\u1e08\u1e0a\u1e0c\u1e0e\u1e10\u1e12\u1e14\u1e16\u1e18\u1e1a\u1e1c\u1e1e\u1e20\u1e22\u1e24\u1e26\u1e28\u1e2a\u1e2c\u1e2e\u1e30\u1e32\u1e34\u1e36\u1e38\u1e3a\u1e3c\u1e3e\u1e40\u1e42\u1e44\u1e46\u1e48\u1e4a\u1e4c\u1e4e\u1e50\u1e52\u1e54\u1e56\u1e58\u1e5a\u1e5c\u1e5e\u1e60\u1e62\u1e64\u1e66\u1e68\u1e6a\u1e6c\u1e6e\u1e70\u1e72\u1e74\u1e76\u1e78\u1e7a\u1e7c\u1e7e\u1e80\u1e82\u1e84\u1e86\u1e88\u1e8a\u1e8c\u1e8e\u1e90\u1e92\u1e94\u1e9e\u1ea0\u1ea2\u1ea4\u1ea6\u1ea8\u1eaa\u1eac\u1eae\u1eb0\u1eb2\u1eb4\u1eb6\u1eb8\u1eba\u1ebc\u1ebe\u1ec0\u1ec2\u1ec4\u1ec6\u1ec8\u1eca\u1ecc\u1ece\u1ed0\u1ed2\u1ed4\u1ed6\u1ed8\u1eda\u1edc\u1ede\u1ee0\u1ee2\u1ee4\u1ee6\u1ee8\u1eea\u1eec\u1eee\u1ef0\u1ef2\u1ef4\u1ef6\u1ef8\u1efa\u1efc\u1efe\u1f08-\u1f0f\u1f18-\u1f1d\u1f28-\u1f2f\u1f38-\u1f3f\u1f48-\u1f4d\u1f59\u1f5b\u1f5d\u1f5f\u1f68-\u1f6f\u1fb8-\u1fbb\u1fc8-\u1fcb\u1fd8-\u1fdb\u1fe8-\u1fec\u1ff8-\u1ffb\u2102\u2107\u210b-\u210d\u2110-\u2112\u2115\u2119-\u211d\u2124\u2126\u2128\u212a-\u212d\u2130-\u2133\u213e\u213f\u2145\u2183\u2c00-\u2c2e\u2c60\u2c62-\u2c64\u2c67\u2c69\u2c6b\u2c6d-\u2c70\u2c72\u2c75\u2c7e-\u2c80\u2c82\u2c84\u2c86\u2c88\u2c8a\u2c8c\u2c8e\u2c90\u2c92\u2c94\u2c96\u2c98\u2c9a\u2c9c\u2c9e\u2ca0\u2ca2\u2ca4\u2ca6\u2ca8\u2caa\u2cac\u2cae\u2cb0\u2cb2\u2cb4\u2cb6\u2cb8\u2cba\u2cbc\u2cbe\u2cc0\u2cc2\u2cc4\u2cc6\u2cc8\u2cca\u2ccc\u2cce\u2cd0\u2cd2\u2cd4\u2cd6\u2cd8\u2cda\u2cdc\u2cde\u2ce0\u2ce2\u2ceb\u2ced\u2cf2\ua640\ua642\ua644\ua646\ua648\ua64a\ua64c\ua64e\ua650\ua652\ua654\ua656\ua658\ua65a\ua65c\ua65e\ua660\ua662\ua664\ua666\ua668\ua66a\ua66c\ua680\ua682\ua684\ua686\ua688\ua68a\ua68c\ua68e\ua690\ua692\ua694\ua696\ua722\ua724\ua726\ua728\ua72a\ua72c\ua72e\ua732\ua734\ua736\ua738\ua73a\ua73c\ua73e\ua740\ua742\ua744\ua746\ua748\ua74a\ua74c\ua74e\ua750\ua752\ua754\ua756\ua758\ua75a\ua75c\ua75e\ua760\ua762\ua764\ua766\ua768\ua76a\ua76c\ua76e\ua779\ua77b\ua77d\ua77e\ua780\ua782\ua784\ua786\ua78b\ua78d\ua790\ua792\ua7a0\ua7a2\ua7a4\ua7a6\ua7a8\ua7aa\uff21-\uff3a",
+   astral: "\ud835[\udc00-\udc19\udc34-\udc4d\udc68-\udc81\udc9c\udc9e\udc9f\udca2\udca5\udca6\udca9-\udcac\udcae-\udcb5\udcd0-\udce9\udd04\udd05\udd07-\udd0a\udd0d-\udd14\udd16-\udd1c\udd38\udd39\udd3b-\udd3e\udd40-\udd44\udd46\udd4a-\udd50\udd6c-\udd85\udda0-\uddb9\uddd4-\udded\ude08-\ude21\ude3c-\ude55\ude70-\ude89\udea8-\udec0\udee2-\udefa\udf1c-\udf34\udf56-\udf6e\udf90-\udfa8\udfca]|\ud801[\udc00-\udc27]"
   }, {
    name: "M",
    alias: "Mark",
-   bmp: "Ì€-Í¯Òƒ-Ò‰Ö‘-Ö½Ö¿××‚×„×…×‡Ø-ØšÙ‹-ÙŸÙ°Û–-ÛœÛŸ-Û¤Û§Û¨Ûª-Û­Ü‘Ü°-İŠŞ¦-Ş°ß«-ß³à –-à ™à ›-à £à ¥-à §à ©-à ­à¡™-à¡›à£¤-à£¾à¤€-à¤ƒà¤º-à¤¼à¤¾-à¥à¥‘-à¥—à¥¢à¥£à¦-à¦ƒà¦¼à¦¾-à§„à§‡à§ˆà§‹-à§à§—à§¢à§£à¨-à¨ƒà¨¼à¨¾-à©‚à©‡à©ˆà©‹-à©à©‘à©°à©±à©µàª-àªƒàª¼àª¾-à«…à«‡-à«‰à«‹-à«à«¢à«£à¬-à¬ƒà¬¼à¬¾-à­„à­‡à­ˆà­‹-à­à­–à­—à­¢à­£à®‚à®¾-à¯‚à¯†-à¯ˆà¯Š-à¯à¯—à°-à°ƒà°¾-à±„à±†-à±ˆà±Š-à±à±•à±–à±¢à±£à²‚à²ƒà²¼à²¾-à³„à³†-à³ˆà³Š-à³à³•à³–à³¢à³£à´‚à´ƒà´¾-àµ„àµ†-àµˆàµŠ-àµàµ—àµ¢àµ£à¶‚à¶ƒà·Šà·-à·”à·–à·˜-à·Ÿà·²à·³à¸±à¸´-à¸ºà¹‡-à¹àº±àº´-àº¹àº»àº¼à»ˆ-à»à¼˜à¼™à¼µà¼·à¼¹à¼¾à¼¿à½±-à¾„à¾†à¾‡à¾-à¾—à¾™-à¾¼à¿†á€«-á€¾á–-á™á-á á¢-á¤á§-á­á±-á´á‚‚-á‚á‚á‚š-á‚á-áŸáœ’-áœ”áœ²-áœ´á’á“á²á³á´-áŸ“áŸá ‹-á á¢©á¤ -á¤«á¤°-á¤»á¦°-á§€á§ˆá§‰á¨—-á¨›á©•-á©á© -á©¼á©¿á¬€-á¬„á¬´-á­„á­«-á­³á®€-á®‚á®¡-á®­á¯¦-á¯³á°¤-á°·á³-á³’á³”-á³¨á³­á³²-á³´á·€-á·¦á·¼-á·¿âƒ-âƒ°â³¯-â³±âµ¿â· -â·¿ã€ª-ã€¯ã‚™ã‚šê™¯-ê™²ê™´-ê™½êšŸê›°ê›±ê ‚ê †ê ‹ê £-ê §ê¢€ê¢ê¢´-ê£„ê£ -ê£±ê¤¦-ê¤­ê¥‡-ê¥“ê¦€-ê¦ƒê¦³-ê§€ê¨©-ê¨¶ê©ƒê©Œê©ê©»êª°êª²-êª´êª·êª¸êª¾êª¿ê«ê««-ê«¯ê«µê«¶ê¯£-ê¯ªê¯¬ê¯­ï¬ï¸€-ï¸ï¸ -ï¸¦",
-   astral: "í ´[íµ¥-íµ©íµ­-íµ²íµ»-í¶‚í¶…-í¶‹í¶ª-í¶­í¹‚-í¹„]|í ‚[í¸-í¸ƒí¸…í¸†í¸Œ-í¸í¸¸-í¸ºí¸¿]|í ›[í½‘-í½¾í¾-í¾’]|í „[í°€-í°‚í°¸-í±†í²€-í²‚í²°-í²ºí´€-í´‚í´§-í´´í¶€-í¶‚í¶³-í·€]|í …[íº«-íº·]|ğ‡½|í­€[í´€-í·¯]"
+   bmp: "\u0300-\u036f\u0483-\u0489\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u0610-\u061a\u064b-\u065f\u0670\u06d6-\u06dc\u06df-\u06e4\u06e7\u06e8\u06ea-\u06ed\u0711\u0730-\u074a\u07a6-\u07b0\u07eb-\u07f3\u0816-\u0819\u081b-\u0823\u0825-\u0827\u0829-\u082d\u0859-\u085b\u08e4-\u08fe\u0900-\u0903\u093a-\u093c\u093e-\u094f\u0951-\u0957\u0962\u0963\u0981-\u0983\u09bc\u09be-\u09c4\u09c7\u09c8\u09cb-\u09cd\u09d7\u09e2\u09e3\u0a01-\u0a03\u0a3c\u0a3e-\u0a42\u0a47\u0a48\u0a4b-\u0a4d\u0a51\u0a70\u0a71\u0a75\u0a81-\u0a83\u0abc\u0abe-\u0ac5\u0ac7-\u0ac9\u0acb-\u0acd\u0ae2\u0ae3\u0b01-\u0b03\u0b3c\u0b3e-\u0b44\u0b47\u0b48\u0b4b-\u0b4d\u0b56\u0b57\u0b62\u0b63\u0b82\u0bbe-\u0bc2\u0bc6-\u0bc8\u0bca-\u0bcd\u0bd7\u0c01-\u0c03\u0c3e-\u0c44\u0c46-\u0c48\u0c4a-\u0c4d\u0c55\u0c56\u0c62\u0c63\u0c82\u0c83\u0cbc\u0cbe-\u0cc4\u0cc6-\u0cc8\u0cca-\u0ccd\u0cd5\u0cd6\u0ce2\u0ce3\u0d02\u0d03\u0d3e-\u0d44\u0d46-\u0d48\u0d4a-\u0d4d\u0d57\u0d62\u0d63\u0d82\u0d83\u0dca\u0dcf-\u0dd4\u0dd6\u0dd8-\u0ddf\u0df2\u0df3\u0e31\u0e34-\u0e3a\u0e47-\u0e4e\u0eb1\u0eb4-\u0eb9\u0ebb\u0ebc\u0ec8-\u0ecd\u0f18\u0f19\u0f35\u0f37\u0f39\u0f3e\u0f3f\u0f71-\u0f84\u0f86\u0f87\u0f8d-\u0f97\u0f99-\u0fbc\u0fc6\u102b-\u103e\u1056-\u1059\u105e-\u1060\u1062-\u1064\u1067-\u106d\u1071-\u1074\u1082-\u108d\u108f\u109a-\u109d\u135d-\u135f\u1712-\u1714\u1732-\u1734\u1752\u1753\u1772\u1773\u17b4-\u17d3\u17dd\u180b-\u180d\u18a9\u1920-\u192b\u1930-\u193b\u19b0-\u19c0\u19c8\u19c9\u1a17-\u1a1b\u1a55-\u1a5e\u1a60-\u1a7c\u1a7f\u1b00-\u1b04\u1b34-\u1b44\u1b6b-\u1b73\u1b80-\u1b82\u1ba1-\u1bad\u1be6-\u1bf3\u1c24-\u1c37\u1cd0-\u1cd2\u1cd4-\u1ce8\u1ced\u1cf2-\u1cf4\u1dc0-\u1de6\u1dfc-\u1dff\u20d0-\u20f0\u2cef-\u2cf1\u2d7f\u2de0-\u2dff\u302a-\u302f\u3099\u309a\ua66f-\ua672\ua674-\ua67d\ua69f\ua6f0\ua6f1\ua802\ua806\ua80b\ua823-\ua827\ua880\ua881\ua8b4-\ua8c4\ua8e0-\ua8f1\ua926-\ua92d\ua947-\ua953\ua980-\ua983\ua9b3-\ua9c0\uaa29-\uaa36\uaa43\uaa4c\uaa4d\uaa7b\uaab0\uaab2-\uaab4\uaab7\uaab8\uaabe\uaabf\uaac1\uaaeb-\uaaef\uaaf5\uaaf6\uabe3-\uabea\uabec\uabed\ufb1e\ufe00-\ufe0f\ufe20-\ufe26",
+   astral: "\ud834[\udd65-\udd69\udd6d-\udd72\udd7b-\udd82\udd85-\udd8b\uddaa-\uddad\ude42-\ude44]|\ud802[\ude01-\ude03\ude05\ude06\ude0c-\ude0f\ude38-\ude3a\ude3f]|\ud81b[\udf51-\udf7e\udf8f-\udf92]|\ud804[\udc00-\udc02\udc38-\udc46\udc80-\udc82\udcb0-\udcba\udd00-\udd02\udd27-\udd34\udd80-\udd82\uddb3-\uddc0]|\ud805[\udeab-\udeb7]|\ud800\uddfd|\udb40[\udd00-\uddef]"
   }, {
    name: "Mc",
    alias: "Spacing_Mark",
-   bmp: "à¤ƒà¤»à¤¾-à¥€à¥‰-à¥Œà¥à¥à¦‚à¦ƒà¦¾-à§€à§‡à§ˆà§‹à§Œà§—à¨ƒà¨¾-à©€àªƒàª¾-à«€à«‰à«‹à«Œà¬‚à¬ƒà¬¾à­€à­‡à­ˆà­‹à­Œà­—à®¾à®¿à¯à¯‚à¯†-à¯ˆà¯Š-à¯Œà¯—à°-à°ƒà±-à±„à²‚à²ƒà²¾à³€-à³„à³‡à³ˆà³Šà³‹à³•à³–à´‚à´ƒà´¾-àµ€àµ†-àµˆàµŠ-àµŒàµ—à¶‚à¶ƒà·-à·‘à·˜-à·Ÿà·²à·³à¼¾à¼¿à½¿á€«á€¬á€±á€¸á€»á€¼á–á—á¢-á¤á§-á­á‚ƒá‚„á‚‡-á‚Œá‚á‚š-á‚œá¶á¾-áŸ…áŸ‡áŸˆá¤£-á¤¦á¤©-á¤«á¤°á¤±á¤³-á¤¸á¦°-á§€á§ˆá§‰á¨™-á¨›á©•á©—á©¡á©£á©¤á©­-á©²á¬„á¬µá¬»á¬½-á­á­ƒá­„á®‚á®¡á®¦á®§á®ªá®¬á®­á¯§á¯ª-á¯¬á¯®á¯²á¯³á°¤-á°«á°´á°µá³¡á³²á³³ã€®ã€¯ê £ê ¤ê §ê¢€ê¢ê¢´-ê£ƒê¥’ê¥“ê¦ƒê¦´ê¦µê¦ºê¦»ê¦½-ê§€ê¨¯ê¨°ê¨³ê¨´ê©ê©»ê««ê«®ê«¯ê«µê¯£ê¯¤ê¯¦ê¯§ê¯©ê¯ªê¯¬",
-   astral: "í ´[íµ¥íµ¦íµ­-íµ²]|í „[í°€í°‚í²‚í²°-í²²í²·í²¸í´¬í¶‚í¶³-í¶µí¶¿í·€]|í …[íº¬íº®íº¯íº¶]|í ›[í½‘-í½¾]"
+   bmp: "\u0903\u093b\u093e-\u0940\u0949-\u094c\u094e\u094f\u0982\u0983\u09be-\u09c0\u09c7\u09c8\u09cb\u09cc\u09d7\u0a03\u0a3e-\u0a40\u0a83\u0abe-\u0ac0\u0ac9\u0acb\u0acc\u0b02\u0b03\u0b3e\u0b40\u0b47\u0b48\u0b4b\u0b4c\u0b57\u0bbe\u0bbf\u0bc1\u0bc2\u0bc6-\u0bc8\u0bca-\u0bcc\u0bd7\u0c01-\u0c03\u0c41-\u0c44\u0c82\u0c83\u0cbe\u0cc0-\u0cc4\u0cc7\u0cc8\u0cca\u0ccb\u0cd5\u0cd6\u0d02\u0d03\u0d3e-\u0d40\u0d46-\u0d48\u0d4a-\u0d4c\u0d57\u0d82\u0d83\u0dcf-\u0dd1\u0dd8-\u0ddf\u0df2\u0df3\u0f3e\u0f3f\u0f7f\u102b\u102c\u1031\u1038\u103b\u103c\u1056\u1057\u1062-\u1064\u1067-\u106d\u1083\u1084\u1087-\u108c\u108f\u109a-\u109c\u17b6\u17be-\u17c5\u17c7\u17c8\u1923-\u1926\u1929-\u192b\u1930\u1931\u1933-\u1938\u19b0-\u19c0\u19c8\u19c9\u1a19-\u1a1b\u1a55\u1a57\u1a61\u1a63\u1a64\u1a6d-\u1a72\u1b04\u1b35\u1b3b\u1b3d-\u1b41\u1b43\u1b44\u1b82\u1ba1\u1ba6\u1ba7\u1baa\u1bac\u1bad\u1be7\u1bea-\u1bec\u1bee\u1bf2\u1bf3\u1c24-\u1c2b\u1c34\u1c35\u1ce1\u1cf2\u1cf3\u302e\u302f\ua823\ua824\ua827\ua880\ua881\ua8b4-\ua8c3\ua952\ua953\ua983\ua9b4\ua9b5\ua9ba\ua9bb\ua9bd-\ua9c0\uaa2f\uaa30\uaa33\uaa34\uaa4d\uaa7b\uaaeb\uaaee\uaaef\uaaf5\uabe3\uabe4\uabe6\uabe7\uabe9\uabea\uabec",
+   astral: "\ud834[\udd65\udd66\udd6d-\udd72]|\ud804[\udc00\udc02\udc82\udcb0-\udcb2\udcb7\udcb8\udd2c\udd82\uddb3-\uddb5\uddbf\uddc0]|\ud805[\udeac\udeae\udeaf\udeb6]|\ud81b[\udf51-\udf7e]"
   }, {
    name: "Me",
    alias: "Enclosing_Mark",
-   bmp: "ÒˆÒ‰âƒ-âƒ âƒ¢-âƒ¤ê™°-ê™²"
+   bmp: "\u0488\u0489\u20dd-\u20e0\u20e2-\u20e4\ua670-\ua672"
   }, {
    name: "Mn",
    alias: "Nonspacing_Mark",
-   bmp: "Ì€-Í¯Òƒ-Ò‡Ö‘-Ö½Ö¿××‚×„×…×‡Ø-ØšÙ‹-ÙŸÙ°Û–-ÛœÛŸ-Û¤Û§Û¨Ûª-Û­Ü‘Ü°-İŠŞ¦-Ş°ß«-ß³à –-à ™à ›-à £à ¥-à §à ©-à ­à¡™-à¡›à£¤-à£¾à¤€-à¤‚à¤ºà¤¼à¥-à¥ˆà¥à¥‘-à¥—à¥¢à¥£à¦à¦¼à§-à§„à§à§¢à§£à¨à¨‚à¨¼à©à©‚à©‡à©ˆà©‹-à©à©‘à©°à©±à©µàªàª‚àª¼à«-à«…à«‡à«ˆà«à«¢à«£à¬à¬¼à¬¿à­-à­„à­à­–à­¢à­£à®‚à¯€à¯à°¾-à±€à±†-à±ˆà±Š-à±à±•à±–à±¢à±£à²¼à²¿à³†à³Œà³à³¢à³£àµ-àµ„àµàµ¢àµ£à·Šà·’-à·”à·–à¸±à¸´-à¸ºà¹‡-à¹àº±àº´-àº¹àº»àº¼à»ˆ-à»à¼˜à¼™à¼µà¼·à¼¹à½±-à½¾à¾€-à¾„à¾†à¾‡à¾-à¾—à¾™-à¾¼à¿†á€­-á€°á€²-á€·á€¹á€ºá€½á€¾á˜á™á-á á±-á´á‚‚á‚…á‚†á‚á‚á-áŸáœ’-áœ”áœ²-áœ´á’á“á²á³á´áµá·-á½áŸ†áŸ‰-áŸ“áŸá ‹-á á¢©á¤ -á¤¢á¤§á¤¨á¤²á¤¹-á¤»á¨—á¨˜á©–á©˜-á©á© á©¢á©¥-á©¬á©³-á©¼á©¿á¬€-á¬ƒá¬´á¬¶-á¬ºá¬¼á­‚á­«-á­³á®€á®á®¢-á®¥á®¨á®©á®«á¯¦á¯¨á¯©á¯­á¯¯-á¯±á°¬-á°³á°¶á°·á³-á³’á³”-á³ á³¢-á³¨á³­á³´á·€-á·¦á·¼-á·¿âƒ-âƒœâƒ¡âƒ¥-âƒ°â³¯-â³±âµ¿â· -â·¿ã€ª-ã€­ã‚™ã‚šê™¯ê™´-ê™½êšŸê›°ê›±ê ‚ê †ê ‹ê ¥ê ¦ê£„ê£ -ê£±ê¤¦-ê¤­ê¥‡-ê¥‘ê¦€-ê¦‚ê¦³ê¦¶-ê¦¹ê¦¼ê¨©-ê¨®ê¨±ê¨²ê¨µê¨¶ê©ƒê©Œêª°êª²-êª´êª·êª¸êª¾êª¿ê«ê«¬ê«­ê«¶ê¯¥ê¯¨ê¯­ï¬ï¸€-ï¸ï¸ -ï¸¦",
-   astral: "í ‚[í¸-í¸ƒí¸…í¸†í¸Œ-í¸í¸¸-í¸ºí¸¿]|í ´[íµ§-íµ©íµ»-í¶‚í¶…-í¶‹í¶ª-í¶­í¹‚-í¹„]|í ›[í¾-í¾’]|í …[íº«íº­íº°-íºµíº·]|í „[í°í°¸-í±†í²€í²í²³-í²¶í²¹í²ºí´€-í´‚í´§-í´«í´­-í´´í¶€í¶í¶¶-í¶¾]|ğ‡½|í­€[í´€-í·¯]"
+   bmp: "\u0300-\u036f\u0483-\u0487\u0591-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u0610-\u061a\u064b-\u065f\u0670\u06d6-\u06dc\u06df-\u06e4\u06e7\u06e8\u06ea-\u06ed\u0711\u0730-\u074a\u07a6-\u07b0\u07eb-\u07f3\u0816-\u0819\u081b-\u0823\u0825-\u0827\u0829-\u082d\u0859-\u085b\u08e4-\u08fe\u0900-\u0902\u093a\u093c\u0941-\u0948\u094d\u0951-\u0957\u0962\u0963\u0981\u09bc\u09c1-\u09c4\u09cd\u09e2\u09e3\u0a01\u0a02\u0a3c\u0a41\u0a42\u0a47\u0a48\u0a4b-\u0a4d\u0a51\u0a70\u0a71\u0a75\u0a81\u0a82\u0abc\u0ac1-\u0ac5\u0ac7\u0ac8\u0acd\u0ae2\u0ae3\u0b01\u0b3c\u0b3f\u0b41-\u0b44\u0b4d\u0b56\u0b62\u0b63\u0b82\u0bc0\u0bcd\u0c3e-\u0c40\u0c46-\u0c48\u0c4a-\u0c4d\u0c55\u0c56\u0c62\u0c63\u0cbc\u0cbf\u0cc6\u0ccc\u0ccd\u0ce2\u0ce3\u0d41-\u0d44\u0d4d\u0d62\u0d63\u0dca\u0dd2-\u0dd4\u0dd6\u0e31\u0e34-\u0e3a\u0e47-\u0e4e\u0eb1\u0eb4-\u0eb9\u0ebb\u0ebc\u0ec8-\u0ecd\u0f18\u0f19\u0f35\u0f37\u0f39\u0f71-\u0f7e\u0f80-\u0f84\u0f86\u0f87\u0f8d-\u0f97\u0f99-\u0fbc\u0fc6\u102d-\u1030\u1032-\u1037\u1039\u103a\u103d\u103e\u1058\u1059\u105e-\u1060\u1071-\u1074\u1082\u1085\u1086\u108d\u109d\u135d-\u135f\u1712-\u1714\u1732-\u1734\u1752\u1753\u1772\u1773\u17b4\u17b5\u17b7-\u17bd\u17c6\u17c9-\u17d3\u17dd\u180b-\u180d\u18a9\u1920-\u1922\u1927\u1928\u1932\u1939-\u193b\u1a17\u1a18\u1a56\u1a58-\u1a5e\u1a60\u1a62\u1a65-\u1a6c\u1a73-\u1a7c\u1a7f\u1b00-\u1b03\u1b34\u1b36-\u1b3a\u1b3c\u1b42\u1b6b-\u1b73\u1b80\u1b81\u1ba2-\u1ba5\u1ba8\u1ba9\u1bab\u1be6\u1be8\u1be9\u1bed\u1bef-\u1bf1\u1c2c-\u1c33\u1c36\u1c37\u1cd0-\u1cd2\u1cd4-\u1ce0\u1ce2-\u1ce8\u1ced\u1cf4\u1dc0-\u1de6\u1dfc-\u1dff\u20d0-\u20dc\u20e1\u20e5-\u20f0\u2cef-\u2cf1\u2d7f\u2de0-\u2dff\u302a-\u302d\u3099\u309a\ua66f\ua674-\ua67d\ua69f\ua6f0\ua6f1\ua802\ua806\ua80b\ua825\ua826\ua8c4\ua8e0-\ua8f1\ua926-\ua92d\ua947-\ua951\ua980-\ua982\ua9b3\ua9b6-\ua9b9\ua9bc\uaa29-\uaa2e\uaa31\uaa32\uaa35\uaa36\uaa43\uaa4c\uaab0\uaab2-\uaab4\uaab7\uaab8\uaabe\uaabf\uaac1\uaaec\uaaed\uaaf6\uabe5\uabe8\uabed\ufb1e\ufe00-\ufe0f\ufe20-\ufe26",
+   astral: "\ud802[\ude01-\ude03\ude05\ude06\ude0c-\ude0f\ude38-\ude3a\ude3f]|\ud834[\udd67-\udd69\udd7b-\udd82\udd85-\udd8b\uddaa-\uddad\ude42-\ude44]|\ud81b[\udf8f-\udf92]|\ud805[\udeab\udead\udeb0-\udeb5\udeb7]|\ud804[\udc01\udc38-\udc46\udc80\udc81\udcb3-\udcb6\udcb9\udcba\udd00-\udd02\udd27-\udd2b\udd2d-\udd34\udd80\udd81\uddb6-\uddbe]|\ud800\uddfd|\udb40[\udd00-\uddef]"
   }, {
    name: "N",
    alias: "Number",
-   bmp: "0-9Â²Â³Â¹Â¼-Â¾Ù -Ù©Û°-Û¹ß€-ß‰à¥¦-à¥¯à§¦-à§¯à§´-à§¹à©¦-à©¯à«¦-à«¯à­¦-à­¯à­²-à­·à¯¦-à¯²à±¦-à±¯à±¸-à±¾à³¦-à³¯àµ¦-àµµà¹-à¹™à»-à»™à¼ -à¼³á€-á‰á‚-á‚™á©-á¼á›®-á›°áŸ -áŸ©áŸ°-áŸ¹á -á ™á¥†-á¥á§-á§šáª€-áª‰áª-áª™á­-á­™á®°-á®¹á±€-á±‰á±-á±™â°â´-â¹â‚€-â‚‰â…-â†‚â†…-â†‰â‘ -â’›â“ª-â“¿â¶-â“â³½ã€‡ã€¡-ã€©ã€¸-ã€ºã†’-ã†•ãˆ -ãˆ©ã‰ˆ-ã‰ã‰‘-ã‰ŸãŠ€-ãŠ‰ãŠ±-ãŠ¿ê˜ -ê˜©ê›¦-ê›¯ê °-ê µê£-ê£™ê¤€-ê¤‰ê§-ê§™ê©-ê©™ê¯°-ê¯¹ï¼-ï¼™",
-   astral: "í ‚[í±˜-í±Ÿí´–-í´›í¹€-í¹‡í¹½í¹¾í½˜-í½Ÿí½¸-í½¿]|í [í² -í²©]|í ‰[í°€-í±¢]|í µ[í¿-í¿¿]|í €[í´‡-í´³íµ€-íµ¸í¶Ší¼ -í¼£í½í½Ší¿‘-í¿•]|í ´[í½ -í½±]|í ƒ[í¹ -í¹¾]|í ¼[í´€-í´Š]|í …[í»€-í»‰]|í „[í±’-í±¯í³°-í³¹í´¶-í´¿í·-í·™]"
+   bmp: "0-9\xb2\xb3\xb9\xbc-\xbe\u0660-\u0669\u06f0-\u06f9\u07c0-\u07c9\u0966-\u096f\u09e6-\u09ef\u09f4-\u09f9\u0a66-\u0a6f\u0ae6-\u0aef\u0b66-\u0b6f\u0b72-\u0b77\u0be6-\u0bf2\u0c66-\u0c6f\u0c78-\u0c7e\u0ce6-\u0cef\u0d66-\u0d75\u0e50-\u0e59\u0ed0-\u0ed9\u0f20-\u0f33\u1040-\u1049\u1090-\u1099\u1369-\u137c\u16ee-\u16f0\u17e0-\u17e9\u17f0-\u17f9\u1810-\u1819\u1946-\u194f\u19d0-\u19da\u1a80-\u1a89\u1a90-\u1a99\u1b50-\u1b59\u1bb0-\u1bb9\u1c40-\u1c49\u1c50-\u1c59\u2070\u2074-\u2079\u2080-\u2089\u2150-\u2182\u2185-\u2189\u2460-\u249b\u24ea-\u24ff\u2776-\u2793\u2cfd\u3007\u3021-\u3029\u3038-\u303a\u3192-\u3195\u3220-\u3229\u3248-\u324f\u3251-\u325f\u3280-\u3289\u32b1-\u32bf\ua620-\ua629\ua6e6-\ua6ef\ua830-\ua835\ua8d0-\ua8d9\ua900-\ua909\ua9d0-\ua9d9\uaa50-\uaa59\uabf0-\uabf9\uff10-\uff19",
+   astral: "\ud802[\udc58-\udc5f\udd16-\udd1b\ude40-\ude47\ude7d\ude7e\udf58-\udf5f\udf78-\udf7f]|\ud801[\udca0-\udca9]|\ud809[\udc00-\udc62]|\ud835[\udfce-\udfff]|\ud800[\udd07-\udd33\udd40-\udd78\udd8a\udf20-\udf23\udf41\udf4a\udfd1-\udfd5]|\ud834[\udf60-\udf71]|\ud803[\ude60-\ude7e]|\ud83c[\udd00-\udd0a]|\ud805[\udec0-\udec9]|\ud804[\udc52-\udc6f\udcf0-\udcf9\udd36-\udd3f\uddd0-\uddd9]"
   }, {
    name: "Nd",
    alias: "Decimal_Number",
-   bmp: "0-9Ù -Ù©Û°-Û¹ß€-ß‰à¥¦-à¥¯à§¦-à§¯à©¦-à©¯à«¦-à«¯à­¦-à­¯à¯¦-à¯¯à±¦-à±¯à³¦-à³¯àµ¦-àµ¯à¹-à¹™à»-à»™à¼ -à¼©á€-á‰á‚-á‚™áŸ -áŸ©á -á ™á¥†-á¥á§-á§™áª€-áª‰áª-áª™á­-á­™á®°-á®¹á±€-á±‰á±-á±™ê˜ -ê˜©ê£-ê£™ê¤€-ê¤‰ê§-ê§™ê©-ê©™ê¯°-ê¯¹ï¼-ï¼™",
-   astral: "í „[í±¦-í±¯í³°-í³¹í´¶-í´¿í·-í·™]|í …[í»€-í»‰]|í [í² -í²©]|í µ[í¿-í¿¿]"
+   bmp: "0-9\u0660-\u0669\u06f0-\u06f9\u07c0-\u07c9\u0966-\u096f\u09e6-\u09ef\u0a66-\u0a6f\u0ae6-\u0aef\u0b66-\u0b6f\u0be6-\u0bef\u0c66-\u0c6f\u0ce6-\u0cef\u0d66-\u0d6f\u0e50-\u0e59\u0ed0-\u0ed9\u0f20-\u0f29\u1040-\u1049\u1090-\u1099\u17e0-\u17e9\u1810-\u1819\u1946-\u194f\u19d0-\u19d9\u1a80-\u1a89\u1a90-\u1a99\u1b50-\u1b59\u1bb0-\u1bb9\u1c40-\u1c49\u1c50-\u1c59\ua620-\ua629\ua8d0-\ua8d9\ua900-\ua909\ua9d0-\ua9d9\uaa50-\uaa59\uabf0-\uabf9\uff10-\uff19",
+   astral: "\ud804[\udc66-\udc6f\udcf0-\udcf9\udd36-\udd3f\uddd0-\uddd9]|\ud805[\udec0-\udec9]|\ud801[\udca0-\udca9]|\ud835[\udfce-\udfff]"
   }, {
    name: "Nl",
    alias: "Letter_Number",
-   bmp: "á›®-á›°â… -â†‚â†…-â†ˆã€‡ã€¡-ã€©ã€¸-ã€ºê›¦-ê›¯",
-   astral: "í €[íµ€-íµ´í½í½Ší¿‘-í¿•]|í ‰[í°€-í±¢]"
+   bmp: "\u16ee-\u16f0\u2160-\u2182\u2185-\u2188\u3007\u3021-\u3029\u3038-\u303a\ua6e6-\ua6ef",
+   astral: "\ud800[\udd40-\udd74\udf41\udf4a\udfd1-\udfd5]|\ud809[\udc00-\udc62]"
   }, {
    name: "No",
    alias: "Other_Number",
-   bmp: "Â²Â³Â¹Â¼-Â¾à§´-à§¹à­²-à­·à¯°-à¯²à±¸-à±¾àµ°-àµµà¼ª-à¼³á©-á¼áŸ°-áŸ¹á§šâ°â´-â¹â‚€-â‚‰â…-â…Ÿâ†‰â‘ -â’›â“ª-â“¿â¶-â“â³½ã†’-ã†•ãˆ -ãˆ©ã‰ˆ-ã‰ã‰‘-ã‰ŸãŠ€-ãŠ‰ãŠ±-ãŠ¿ê °-ê µ",
-   astral: "í ‚[í±˜-í±Ÿí´–-í´›í¹€-í¹‡í¹½í¹¾í½˜-í½Ÿí½¸-í½¿]|í ´[í½ -í½±]|í ƒ[í¹ -í¹¾]|í €[í´‡-í´³íµµ-íµ¸í¶Ší¼ -í¼£]|í ¼[í´€-í´Š]|í „[í±’-í±¥]"
+   bmp: "\xb2\xb3\xb9\xbc-\xbe\u09f4-\u09f9\u0b72-\u0b77\u0bf0-\u0bf2\u0c78-\u0c7e\u0d70-\u0d75\u0f2a-\u0f33\u1369-\u137c\u17f0-\u17f9\u19da\u2070\u2074-\u2079\u2080-\u2089\u2150-\u215f\u2189\u2460-\u249b\u24ea-\u24ff\u2776-\u2793\u2cfd\u3192-\u3195\u3220-\u3229\u3248-\u324f\u3251-\u325f\u3280-\u3289\u32b1-\u32bf\ua830-\ua835",
+   astral: "\ud802[\udc58-\udc5f\udd16-\udd1b\ude40-\ude47\ude7d\ude7e\udf58-\udf5f\udf78-\udf7f]|\ud834[\udf60-\udf71]|\ud803[\ude60-\ude7e]|\ud800[\udd07-\udd33\udd75-\udd78\udd8a\udf20-\udf23]|\ud83c[\udd00-\udd0a]|\ud804[\udc52-\udc65]"
   }, {
    name: "P",
    alias: "Punctuation",
-   bmp: "!-#%-\\x2A,-/:;\\x3F@\\x5B-\\x5D_\\x7B}Â¡Â§Â«Â¶Â·Â»Â¿Í¾Î‡Õš-ÕŸÖ‰ÖŠÖ¾×€×ƒ×†×³×´Ø‰ØŠØŒØØ›ØØŸÙª-Ù­Û”Ü€-Üß·-ß¹à °-à ¾à¡à¥¤à¥¥à¥°à«°à·´à¹à¹šà¹›à¼„-à¼’à¼”à¼º-à¼½à¾…à¿-à¿”à¿™à¿šáŠ-ááƒ»á -á¨á€á™­á™®áš›ášœá›«-á›­áœµáœ¶áŸ”-áŸ–áŸ˜-áŸšá €-á Šá¥„á¥…á¨á¨Ÿáª -áª¦áª¨-áª­á­š-á­ á¯¼-á¯¿á°»-á°¿á±¾á±¿á³€-á³‡á³“â€-â€§â€°-âƒâ…-â‘â“-ââ½â¾â‚â‚âŒ©âŒªâ¨-âµâŸ…âŸ†âŸ¦-âŸ¯â¦ƒ-â¦˜â§˜-â§›â§¼â§½â³¹-â³¼â³¾â³¿âµ°â¸€-â¸®â¸°-â¸»ã€-ã€ƒã€ˆ-ã€‘ã€”-ã€Ÿã€°ã€½ã‚ ãƒ»ê“¾ê“¿ê˜-ê˜ê™³ê™¾ê›²-ê›·ê¡´-ê¡·ê£ê£ê£¸-ê£ºê¤®ê¤¯ê¥Ÿê§-ê§ê§ê§Ÿê©œ-ê©Ÿê«ê«Ÿê«°ê«±ê¯«ï´¾ï´¿ï¸-ï¸™ï¸°-ï¹’ï¹”-ï¹¡ï¹£ï¹¨ï¹ªï¹«ï¼-ï¼ƒï¼…-ï¼Šï¼Œ-ï¼ï¼šï¼›ï¼Ÿï¼ ï¼»-ï¼½ï¼¿ï½›ï½ï½Ÿ-ï½¥",
-   astral: "í ‰[í±°-í±³]|í ‚[í±—í´Ÿí´¿í¹-í¹˜í¹¿í¼¹-í¼¿]|í €[í´€-í´‚í¾Ÿí¿]|í „[í±‡-í±í²»í²¼í²¾-í³íµ€-íµƒí·…-í·ˆ]"
+   bmp: "!-#%-\\x2A,-/:;\\x3F@\\x5B-\\x5D_\\x7B}\xa1\xa7\xab\xb6\xb7\xbb\xbf\u037e\u0387\u055a-\u055f\u0589\u058a\u05be\u05c0\u05c3\u05c6\u05f3\u05f4\u0609\u060a\u060c\u060d\u061b\u061e\u061f\u066a-\u066d\u06d4\u0700-\u070d\u07f7-\u07f9\u0830-\u083e\u085e\u0964\u0965\u0970\u0af0\u0df4\u0e4f\u0e5a\u0e5b\u0f04-\u0f12\u0f14\u0f3a-\u0f3d\u0f85\u0fd0-\u0fd4\u0fd9\u0fda\u104a-\u104f\u10fb\u1360-\u1368\u1400\u166d\u166e\u169b\u169c\u16eb-\u16ed\u1735\u1736\u17d4-\u17d6\u17d8-\u17da\u1800-\u180a\u1944\u1945\u1a1e\u1a1f\u1aa0-\u1aa6\u1aa8-\u1aad\u1b5a-\u1b60\u1bfc-\u1bff\u1c3b-\u1c3f\u1c7e\u1c7f\u1cc0-\u1cc7\u1cd3\u2010-\u2027\u2030-\u2043\u2045-\u2051\u2053-\u205e\u207d\u207e\u208d\u208e\u2329\u232a\u2768-\u2775\u27c5\u27c6\u27e6-\u27ef\u2983-\u2998\u29d8-\u29db\u29fc\u29fd\u2cf9-\u2cfc\u2cfe\u2cff\u2d70\u2e00-\u2e2e\u2e30-\u2e3b\u3001-\u3003\u3008-\u3011\u3014-\u301f\u3030\u303d\u30a0\u30fb\ua4fe\ua4ff\ua60d-\ua60f\ua673\ua67e\ua6f2-\ua6f7\ua874-\ua877\ua8ce\ua8cf\ua8f8-\ua8fa\ua92e\ua92f\ua95f\ua9c1-\ua9cd\ua9de\ua9df\uaa5c-\uaa5f\uaade\uaadf\uaaf0\uaaf1\uabeb\ufd3e\ufd3f\ufe10-\ufe19\ufe30-\ufe52\ufe54-\ufe61\ufe63\ufe68\ufe6a\ufe6b\uff01-\uff03\uff05-\uff0a\uff0c-\uff0f\uff1a\uff1b\uff1f\uff20\uff3b-\uff3d\uff3f\uff5b\uff5d\uff5f-\uff65",
+   astral: "\ud809[\udc70-\udc73]|\ud802[\udc57\udd1f\udd3f\ude50-\ude58\ude7f\udf39-\udf3f]|\ud800[\udd00-\udd02\udf9f\udfd0]|\ud804[\udc47-\udc4d\udcbb\udcbc\udcbe-\udcc1\udd40-\udd43\uddc5-\uddc8]"
   }, {
    name: "Pc",
    alias: "Connector_Punctuation",
-   bmp: "_â€¿â€â”ï¸³ï¸´ï¹-ï¹ï¼¿"
+   bmp: "_\u203f\u2040\u2054\ufe33\ufe34\ufe4d-\ufe4f\uff3f"
   }, {
    name: "Pd",
    alias: "Dash_Punctuation",
-   bmp: "\\x2DÖŠÖ¾á€á †â€-â€•â¸—â¸šâ¸ºâ¸»ã€œã€°ã‚ ï¸±ï¸²ï¹˜ï¹£ï¼"
+   bmp: "\\x2D\u058a\u05be\u1400\u1806\u2010-\u2015\u2e17\u2e1a\u2e3a\u2e3b\u301c\u3030\u30a0\ufe31\ufe32\ufe58\ufe63\uff0d"
   }, {
    name: "Pe",
    alias: "Close_Punctuation",
-   bmp: "\\x29\\x5D}à¼»à¼½ášœâ†â¾â‚âŒªâ©â«â­â¯â±â³âµâŸ†âŸ§âŸ©âŸ«âŸ­âŸ¯â¦„â¦†â¦ˆâ¦Šâ¦Œâ¦â¦â¦’â¦”â¦–â¦˜â§™â§›â§½â¸£â¸¥â¸§â¸©ã€‰ã€‹ã€ã€ã€‘ã€•ã€—ã€™ã€›ã€ã€Ÿï´¿ï¸˜ï¸¶ï¸¸ï¸ºï¸¼ï¸¾ï¹€ï¹‚ï¹„ï¹ˆï¹šï¹œï¹ï¼‰ï¼½ï½ï½ ï½£"
+   bmp: "\\x29\\x5D}\u0f3b\u0f3d\u169c\u2046\u207e\u208e\u232a\u2769\u276b\u276d\u276f\u2771\u2773\u2775\u27c6\u27e7\u27e9\u27eb\u27ed\u27ef\u2984\u2986\u2988\u298a\u298c\u298e\u2990\u2992\u2994\u2996\u2998\u29d9\u29db\u29fd\u2e23\u2e25\u2e27\u2e29\u3009\u300b\u300d\u300f\u3011\u3015\u3017\u3019\u301b\u301e\u301f\ufd3f\ufe18\ufe36\ufe38\ufe3a\ufe3c\ufe3e\ufe40\ufe42\ufe44\ufe48\ufe5a\ufe5c\ufe5e\uff09\uff3d\uff5d\uff60\uff63"
   }, {
    name: "Pf",
    alias: "Final_Punctuation",
-   bmp: "Â»â€™â€â€ºâ¸ƒâ¸…â¸Šâ¸â¸â¸¡"
+   bmp: "\xbb\u2019\u201d\u203a\u2e03\u2e05\u2e0a\u2e0d\u2e1d\u2e21"
   }, {
    name: "Pi",
    alias: "Initial_Punctuation",
-   bmp: "Â«â€˜â€›â€œâ€Ÿâ€¹â¸‚â¸„â¸‰â¸Œâ¸œâ¸ "
+   bmp: "\xab\u2018\u201b\u201c\u201f\u2039\u2e02\u2e04\u2e09\u2e0c\u2e1c\u2e20"
   }, {
    name: "Po",
    alias: "Other_Punctuation",
-   bmp: "!-#%-'\\x2A,\\x2E/:;\\x3F@\\x5CÂ¡Â§Â¶Â·Â¿Í¾Î‡Õš-ÕŸÖ‰×€×ƒ×†×³×´Ø‰ØŠØŒØØ›ØØŸÙª-Ù­Û”Ü€-Üß·-ß¹à °-à ¾à¡à¥¤à¥¥à¥°à«°à·´à¹à¹šà¹›à¼„-à¼’à¼”à¾…à¿-à¿”à¿™à¿šáŠ-ááƒ»á -á¨á™­á™®á›«-á›­áœµáœ¶áŸ”-áŸ–áŸ˜-áŸšá €-á …á ‡-á Šá¥„á¥…á¨á¨Ÿáª -áª¦áª¨-áª­á­š-á­ á¯¼-á¯¿á°»-á°¿á±¾á±¿á³€-á³‡á³“â€–â€—â€ -â€§â€°-â€¸â€»-â€¾â-âƒâ‡-â‘â“â•-ââ³¹-â³¼â³¾â³¿âµ°â¸€â¸â¸†-â¸ˆâ¸‹â¸-â¸–â¸˜â¸™â¸›â¸â¸Ÿâ¸ª-â¸®â¸°-â¸¹ã€-ã€ƒã€½ãƒ»ê“¾ê“¿ê˜-ê˜ê™³ê™¾ê›²-ê›·ê¡´-ê¡·ê£ê£ê£¸-ê£ºê¤®ê¤¯ê¥Ÿê§-ê§ê§ê§Ÿê©œ-ê©Ÿê«ê«Ÿê«°ê«±ê¯«ï¸-ï¸–ï¸™ï¸°ï¹…ï¹†ï¹‰-ï¹Œï¹-ï¹’ï¹”-ï¹—ï¹Ÿ-ï¹¡ï¹¨ï¹ªï¹«ï¼-ï¼ƒï¼…-ï¼‡ï¼Šï¼Œï¼ï¼ï¼šï¼›ï¼Ÿï¼ ï¼¼ï½¡ï½¤ï½¥",
-   astral: "í ‰[í±°-í±³]|í ‚[í±—í´Ÿí´¿í¹-í¹˜í¹¿í¼¹-í¼¿]|í €[í´€-í´‚í¾Ÿí¿]|í „[í±‡-í±í²»í²¼í²¾-í³íµ€-íµƒí·…-í·ˆ]"
+   bmp: "!-#%-'\\x2A,\\x2E/:;\\x3F@\\x5C\xa1\xa7\xb6\xb7\xbf\u037e\u0387\u055a-\u055f\u0589\u05c0\u05c3\u05c6\u05f3\u05f4\u0609\u060a\u060c\u060d\u061b\u061e\u061f\u066a-\u066d\u06d4\u0700-\u070d\u07f7-\u07f9\u0830-\u083e\u085e\u0964\u0965\u0970\u0af0\u0df4\u0e4f\u0e5a\u0e5b\u0f04-\u0f12\u0f14\u0f85\u0fd0-\u0fd4\u0fd9\u0fda\u104a-\u104f\u10fb\u1360-\u1368\u166d\u166e\u16eb-\u16ed\u1735\u1736\u17d4-\u17d6\u17d8-\u17da\u1800-\u1805\u1807-\u180a\u1944\u1945\u1a1e\u1a1f\u1aa0-\u1aa6\u1aa8-\u1aad\u1b5a-\u1b60\u1bfc-\u1bff\u1c3b-\u1c3f\u1c7e\u1c7f\u1cc0-\u1cc7\u1cd3\u2016\u2017\u2020-\u2027\u2030-\u2038\u203b-\u203e\u2041-\u2043\u2047-\u2051\u2053\u2055-\u205e\u2cf9-\u2cfc\u2cfe\u2cff\u2d70\u2e00\u2e01\u2e06-\u2e08\u2e0b\u2e0e-\u2e16\u2e18\u2e19\u2e1b\u2e1e\u2e1f\u2e2a-\u2e2e\u2e30-\u2e39\u3001-\u3003\u303d\u30fb\ua4fe\ua4ff\ua60d-\ua60f\ua673\ua67e\ua6f2-\ua6f7\ua874-\ua877\ua8ce\ua8cf\ua8f8-\ua8fa\ua92e\ua92f\ua95f\ua9c1-\ua9cd\ua9de\ua9df\uaa5c-\uaa5f\uaade\uaadf\uaaf0\uaaf1\uabeb\ufe10-\ufe16\ufe19\ufe30\ufe45\ufe46\ufe49-\ufe4c\ufe50-\ufe52\ufe54-\ufe57\ufe5f-\ufe61\ufe68\ufe6a\ufe6b\uff01-\uff03\uff05-\uff07\uff0a\uff0c\uff0e\uff0f\uff1a\uff1b\uff1f\uff20\uff3c\uff61\uff64\uff65",
+   astral: "\ud809[\udc70-\udc73]|\ud802[\udc57\udd1f\udd3f\ude50-\ude58\ude7f\udf39-\udf3f]|\ud800[\udd00-\udd02\udf9f\udfd0]|\ud804[\udc47-\udc4d\udcbb\udcbc\udcbe-\udcc1\udd40-\udd43\uddc5-\uddc8]"
   }, {
    name: "Ps",
    alias: "Open_Punctuation",
-   bmp: "\\x28\\x5B\\x7Bà¼ºà¼¼áš›â€šâ€â…â½â‚âŒ©â¨âªâ¬â®â°â²â´âŸ…âŸ¦âŸ¨âŸªâŸ¬âŸ®â¦ƒâ¦…â¦‡â¦‰â¦‹â¦â¦â¦‘â¦“â¦•â¦—â§˜â§šâ§¼â¸¢â¸¤â¸¦â¸¨ã€ˆã€Šã€Œã€ã€ã€”ã€–ã€˜ã€šã€ï´¾ï¸—ï¸µï¸·ï¸¹ï¸»ï¸½ï¸¿ï¹ï¹ƒï¹‡ï¹™ï¹›ï¹ï¼ˆï¼»ï½›ï½Ÿï½¢"
+   bmp: "\\x28\\x5B\\x7B\u0f3a\u0f3c\u169b\u201a\u201e\u2045\u207d\u208d\u2329\u2768\u276a\u276c\u276e\u2770\u2772\u2774\u27c5\u27e6\u27e8\u27ea\u27ec\u27ee\u2983\u2985\u2987\u2989\u298b\u298d\u298f\u2991\u2993\u2995\u2997\u29d8\u29da\u29fc\u2e22\u2e24\u2e26\u2e28\u3008\u300a\u300c\u300e\u3010\u3014\u3016\u3018\u301a\u301d\ufd3e\ufe17\ufe35\ufe37\ufe39\ufe3b\ufe3d\ufe3f\ufe41\ufe43\ufe47\ufe59\ufe5b\ufe5d\uff08\uff3b\uff5b\uff5f\uff62"
   }, {
    name: "S",
    alias: "Symbol",
-   bmp: "\\x24\\x2B<->\\x5E`\\x7C~Â¢-Â¦Â¨Â©Â¬Â®-Â±Â´Â¸Ã—Ã·Ë‚-Ë…Ë’-ËŸË¥-Ë«Ë­Ë¯-Ë¿ÍµÎ„Î…Ï¶Ò‚ÖØ†-ØˆØ‹ØØÛÛ©Û½Û¾ß¶à§²à§³à§ºà§»à«±à­°à¯³-à¯ºà±¿àµ¹à¸¿à¼-à¼ƒà¼“à¼•-à¼—à¼š-à¼Ÿà¼´à¼¶à¼¸à¾¾-à¿…à¿‡-à¿Œà¿à¿à¿•-à¿˜á‚á‚Ÿá-á™áŸ›á¥€á§-á§¿á­¡-á­ªá­´-á­¼á¾½á¾¿-á¿á¿-á¿á¿-á¿Ÿá¿­-á¿¯á¿½á¿¾â„â’âº-â¼â‚Š-â‚Œâ‚ -â‚ºâ„€â„â„ƒ-â„†â„ˆâ„‰â„”â„–-â„˜â„-â„£â„¥â„§â„©â„®â„ºâ„»â…€-â…„â…Š-â…â…â†-âŒ¨âŒ«-â³â€-â¦â‘€-â‘Šâ’œ-â“©â”€-â›¿âœ-â§â”-âŸ„âŸ‡-âŸ¥âŸ°-â¦‚â¦™-â§—â§œ-â§»â§¾-â­Œâ­-â­™â³¥-â³ªâº€-âº™âº›-â»³â¼€-â¿•â¿°-â¿»ã€„ã€’ã€“ã€ ã€¶ã€·ã€¾ã€¿ã‚›ã‚œã†ã†‘ã†–-ã†Ÿã‡€-ã‡£ãˆ€-ãˆãˆª-ã‰‡ã‰ã‰ -ã‰¿ãŠŠ-ãŠ°ã‹€-ã‹¾ãŒ€-ã¿ä·€-ä·¿ê’-ê“†êœ€-êœ–êœ êœ¡ê‰êŠê ¨-ê «ê ¶-ê ¹ê©·-ê©¹ï¬©ï®²-ï¯ï·¼ï·½ï¹¢ï¹¤-ï¹¦ï¹©ï¼„ï¼‹ï¼œ-ï¼ï¼¾ï½€ï½œï½ï¿ -ï¿¦ï¿¨-ï¿®ï¿¼ï¿½",
-   astral: "í ½[í°€-í°¾í±€í±‚-í³·í³¹-í³¼í´€-í´½íµ€-íµƒíµ-íµ§í·»-í¹€í¹…-í¹íº€-í»…í¼€-í½³]|í µ[í»í»›í»»í¼•í¼µí½í½¯í¾‰í¾©í¿ƒ]|í ¼[í°€-í°«í°°-í²“í² -í²®í²±-í²¾í³-í³í³‘-í³Ÿí´-í´®í´°-íµ«íµ°-í¶ší·¦-í¸‚í¸-í¸ºí¹€-í¹ˆí¹í¹‘í¼€-í¼ í¼°-í¼µí¼·-í½¼í¾€-í¾“í¾ -í¿„í¿†-í¿Ší¿ -í¿°]|í ´[í°€-í³µí´€-í´¦í´©-íµ¤íµª-íµ¬í¶ƒí¶„í¶Œ-í¶©í¶®-í·í¸€-í¹í¹…í¼€-í½–]|í €[í´·-í´¿íµ¹-í¶‰í¶-í¶›í·-í·¼]|í »[í»°í»±]"
+   bmp: "\\x24\\x2B<->\\x5E`\\x7C~\xa2-\xa6\xa8\xa9\xac\xae-\xb1\xb4\xb8\xd7\xf7\u02c2-\u02c5\u02d2-\u02df\u02e5-\u02eb\u02ed\u02ef-\u02ff\u0375\u0384\u0385\u03f6\u0482\u058f\u0606-\u0608\u060b\u060e\u060f\u06de\u06e9\u06fd\u06fe\u07f6\u09f2\u09f3\u09fa\u09fb\u0af1\u0b70\u0bf3-\u0bfa\u0c7f\u0d79\u0e3f\u0f01-\u0f03\u0f13\u0f15-\u0f17\u0f1a-\u0f1f\u0f34\u0f36\u0f38\u0fbe-\u0fc5\u0fc7-\u0fcc\u0fce\u0fcf\u0fd5-\u0fd8\u109e\u109f\u1390-\u1399\u17db\u1940\u19de-\u19ff\u1b61-\u1b6a\u1b74-\u1b7c\u1fbd\u1fbf-\u1fc1\u1fcd-\u1fcf\u1fdd-\u1fdf\u1fed-\u1fef\u1ffd\u1ffe\u2044\u2052\u207a-\u207c\u208a-\u208c\u20a0-\u20ba\u2100\u2101\u2103-\u2106\u2108\u2109\u2114\u2116-\u2118\u211e-\u2123\u2125\u2127\u2129\u212e\u213a\u213b\u2140-\u2144\u214a-\u214d\u214f\u2190-\u2328\u232b-\u23f3\u2400-\u2426\u2440-\u244a\u249c-\u24e9\u2500-\u26ff\u2701-\u2767\u2794-\u27c4\u27c7-\u27e5\u27f0-\u2982\u2999-\u29d7\u29dc-\u29fb\u29fe-\u2b4c\u2b50-\u2b59\u2ce5-\u2cea\u2e80-\u2e99\u2e9b-\u2ef3\u2f00-\u2fd5\u2ff0-\u2ffb\u3004\u3012\u3013\u3020\u3036\u3037\u303e\u303f\u309b\u309c\u3190\u3191\u3196-\u319f\u31c0-\u31e3\u3200-\u321e\u322a-\u3247\u3250\u3260-\u327f\u328a-\u32b0\u32c0-\u32fe\u3300-\u33ff\u4dc0-\u4dff\ua490-\ua4c6\ua700-\ua716\ua720\ua721\ua789\ua78a\ua828-\ua82b\ua836-\ua839\uaa77-\uaa79\ufb29\ufbb2-\ufbc1\ufdfc\ufdfd\ufe62\ufe64-\ufe66\ufe69\uff04\uff0b\uff1c-\uff1e\uff3e\uff40\uff5c\uff5e\uffe0-\uffe6\uffe8-\uffee\ufffc\ufffd",
+   astral: "\ud83d[\udc00-\udc3e\udc40\udc42-\udcf7\udcf9-\udcfc\udd00-\udd3d\udd40-\udd43\udd50-\udd67\uddfb-\ude40\ude45-\ude4f\ude80-\udec5\udf00-\udf73]|\ud835[\udec1\udedb\udefb\udf15\udf35\udf4f\udf6f\udf89\udfa9\udfc3]|\ud83c[\udc00-\udc2b\udc30-\udc93\udca0-\udcae\udcb1-\udcbe\udcc1-\udccf\udcd1-\udcdf\udd10-\udd2e\udd30-\udd6b\udd70-\udd9a\udde6-\ude02\ude10-\ude3a\ude40-\ude48\ude50\ude51\udf00-\udf20\udf30-\udf35\udf37-\udf7c\udf80-\udf93\udfa0-\udfc4\udfc6-\udfca\udfe0-\udff0]|\ud834[\udc00-\udcf5\udd00-\udd26\udd29-\udd64\udd6a-\udd6c\udd83\udd84\udd8c-\udda9\uddae-\udddd\ude00-\ude41\ude45\udf00-\udf56]|\ud800[\udd37-\udd3f\udd79-\udd89\udd90-\udd9b\uddd0-\uddfc]|\ud83b[\udef0\udef1]"
   }, {
    name: "Sc",
    alias: "Currency_Symbol",
-   bmp: "\\x24Â¢-Â¥ÖØ‹à§²à§³à§»à«±à¯¹à¸¿áŸ›â‚ -â‚ºê ¸ï·¼ï¹©ï¼„ï¿ ï¿¡ï¿¥ï¿¦"
+   bmp: "\\x24\xa2-\xa5\u058f\u060b\u09f2\u09f3\u09fb\u0af1\u0bf9\u0e3f\u17db\u20a0-\u20ba\ua838\ufdfc\ufe69\uff04\uffe0\uffe1\uffe5\uffe6"
   }, {
    name: "Sk",
    alias: "Modifier_Symbol",
-   bmp: "\\x5E`Â¨Â¯Â´Â¸Ë‚-Ë…Ë’-ËŸË¥-Ë«Ë­Ë¯-Ë¿ÍµÎ„Î…á¾½á¾¿-á¿á¿-á¿á¿-á¿Ÿá¿­-á¿¯á¿½á¿¾ã‚›ã‚œêœ€-êœ–êœ êœ¡ê‰êŠï®²-ï¯ï¼¾ï½€ï¿£"
+   bmp: "\\x5E`\xa8\xaf\xb4\xb8\u02c2-\u02c5\u02d2-\u02df\u02e5-\u02eb\u02ed\u02ef-\u02ff\u0375\u0384\u0385\u1fbd\u1fbf-\u1fc1\u1fcd-\u1fcf\u1fdd-\u1fdf\u1fed-\u1fef\u1ffd\u1ffe\u309b\u309c\ua700-\ua716\ua720\ua721\ua789\ua78a\ufbb2-\ufbc1\uff3e\uff40\uffe3"
   }, {
    name: "Sm",
    alias: "Math_Symbol",
-   bmp: "\\x2B<->\\x7C~Â¬Â±Ã—Ã·Ï¶Ø†-Øˆâ„â’âº-â¼â‚Š-â‚Œâ„˜â…€-â…„â…‹â†-â†”â†šâ†›â† â†£â†¦â†®â‡â‡â‡’â‡”â‡´-â‹¿âŒˆ-âŒ‹âŒ âŒ¡â¼â›-â³âœ-â¡â–·â—â—¸-â—¿â™¯âŸ€-âŸ„âŸ‡-âŸ¥âŸ°-âŸ¿â¤€-â¦‚â¦™-â§—â§œ-â§»â§¾-â«¿â¬°-â­„â­‡-â­Œï¬©ï¹¢ï¹¤-ï¹¦ï¼‹ï¼œ-ï¼ï½œï½ï¿¢ï¿©-ï¿¬",
-   astral: "í »[í»°í»±]|í µ[í»í»›í»»í¼•í¼µí½í½¯í¾‰í¾©í¿ƒ]"
+   bmp: "\\x2B<->\\x7C~\xac\xb1\xd7\xf7\u03f6\u0606-\u0608\u2044\u2052\u207a-\u207c\u208a-\u208c\u2118\u2140-\u2144\u214b\u2190-\u2194\u219a\u219b\u21a0\u21a3\u21a6\u21ae\u21ce\u21cf\u21d2\u21d4\u21f4-\u22ff\u2308-\u230b\u2320\u2321\u237c\u239b-\u23b3\u23dc-\u23e1\u25b7\u25c1\u25f8-\u25ff\u266f\u27c0-\u27c4\u27c7-\u27e5\u27f0-\u27ff\u2900-\u2982\u2999-\u29d7\u29dc-\u29fb\u29fe-\u2aff\u2b30-\u2b44\u2b47-\u2b4c\ufb29\ufe62\ufe64-\ufe66\uff0b\uff1c-\uff1e\uff5c\uff5e\uffe2\uffe9-\uffec",
+   astral: "\ud83b[\udef0\udef1]|\ud835[\udec1\udedb\udefb\udf15\udf35\udf4f\udf6f\udf89\udfa9\udfc3]"
   }, {
    name: "So",
    alias: "Other_Symbol",
-   bmp: "Â¦Â©Â®Â°Ò‚ØØÛÛ©Û½Û¾ß¶à§ºà­°à¯³-à¯¸à¯ºà±¿àµ¹à¼-à¼ƒà¼“à¼•-à¼—à¼š-à¼Ÿà¼´à¼¶à¼¸à¾¾-à¿…à¿‡-à¿Œà¿à¿à¿•-à¿˜á‚á‚Ÿá-á™á¥€á§-á§¿á­¡-á­ªá­´-á­¼â„€â„â„ƒ-â„†â„ˆâ„‰â„”â„–â„—â„-â„£â„¥â„§â„©â„®â„ºâ„»â…Šâ…Œâ…â…â†•-â†™â†œ-â†Ÿâ†¡â†¢â†¤â†¥â†§-â†­â†¯-â‡â‡â‡‘â‡“â‡•-â‡³âŒ€-âŒ‡âŒŒ-âŒŸâŒ¢-âŒ¨âŒ«-â»â½-âšâ´-â›â¢-â³â€-â¦â‘€-â‘Šâ’œ-â“©â”€-â–¶â–¸-â—€â—‚-â—·â˜€-â™®â™°-â›¿âœ-â§â”-â¿â €-â£¿â¬€-â¬¯â­…â­†â­-â­™â³¥-â³ªâº€-âº™âº›-â»³â¼€-â¿•â¿°-â¿»ã€„ã€’ã€“ã€ ã€¶ã€·ã€¾ã€¿ã†ã†‘ã†–-ã†Ÿã‡€-ã‡£ãˆ€-ãˆãˆª-ã‰‡ã‰ã‰ -ã‰¿ãŠŠ-ãŠ°ã‹€-ã‹¾ãŒ€-ã¿ä·€-ä·¿ê’-ê“†ê ¨-ê «ê ¶ê ·ê ¹ê©·-ê©¹ï·½ï¿¤ï¿¨ï¿­ï¿®ï¿¼ï¿½",
-   astral: "í ½[í°€-í°¾í±€í±‚-í³·í³¹-í³¼í´€-í´½íµ€-íµƒíµ-íµ§í·»-í¹€í¹…-í¹íº€-í»…í¼€-í½³]|í ´[í°€-í³µí´€-í´¦í´©-íµ¤íµª-íµ¬í¶ƒí¶„í¶Œ-í¶©í¶®-í·í¸€-í¹í¹…í¼€-í½–]|í ¼[í°€-í°«í°°-í²“í² -í²®í²±-í²¾í³-í³í³‘-í³Ÿí´-í´®í´°-íµ«íµ°-í¶ší·¦-í¸‚í¸-í¸ºí¹€-í¹ˆí¹í¹‘í¼€-í¼ í¼°-í¼µí¼·-í½¼í¾€-í¾“í¾ -í¿„í¿†-í¿Ší¿ -í¿°]|í €[í´·-í´¿íµ¹-í¶‰í¶-í¶›í·-í·¼]"
+   bmp: "\xa6\xa9\xae\xb0\u0482\u060e\u060f\u06de\u06e9\u06fd\u06fe\u07f6\u09fa\u0b70\u0bf3-\u0bf8\u0bfa\u0c7f\u0d79\u0f01-\u0f03\u0f13\u0f15-\u0f17\u0f1a-\u0f1f\u0f34\u0f36\u0f38\u0fbe-\u0fc5\u0fc7-\u0fcc\u0fce\u0fcf\u0fd5-\u0fd8\u109e\u109f\u1390-\u1399\u1940\u19de-\u19ff\u1b61-\u1b6a\u1b74-\u1b7c\u2100\u2101\u2103-\u2106\u2108\u2109\u2114\u2116\u2117\u211e-\u2123\u2125\u2127\u2129\u212e\u213a\u213b\u214a\u214c\u214d\u214f\u2195-\u2199\u219c-\u219f\u21a1\u21a2\u21a4\u21a5\u21a7-\u21ad\u21af-\u21cd\u21d0\u21d1\u21d3\u21d5-\u21f3\u2300-\u2307\u230c-\u231f\u2322-\u2328\u232b-\u237b\u237d-\u239a\u23b4-\u23db\u23e2-\u23f3\u2400-\u2426\u2440-\u244a\u249c-\u24e9\u2500-\u25b6\u25b8-\u25c0\u25c2-\u25f7\u2600-\u266e\u2670-\u26ff\u2701-\u2767\u2794-\u27bf\u2800-\u28ff\u2b00-\u2b2f\u2b45\u2b46\u2b50-\u2b59\u2ce5-\u2cea\u2e80-\u2e99\u2e9b-\u2ef3\u2f00-\u2fd5\u2ff0-\u2ffb\u3004\u3012\u3013\u3020\u3036\u3037\u303e\u303f\u3190\u3191\u3196-\u319f\u31c0-\u31e3\u3200-\u321e\u322a-\u3247\u3250\u3260-\u327f\u328a-\u32b0\u32c0-\u32fe\u3300-\u33ff\u4dc0-\u4dff\ua490-\ua4c6\ua828-\ua82b\ua836\ua837\ua839\uaa77-\uaa79\ufdfd\uffe4\uffe8\uffed\uffee\ufffc\ufffd",
+   astral: "\ud83d[\udc00-\udc3e\udc40\udc42-\udcf7\udcf9-\udcfc\udd00-\udd3d\udd40-\udd43\udd50-\udd67\uddfb-\ude40\ude45-\ude4f\ude80-\udec5\udf00-\udf73]|\ud834[\udc00-\udcf5\udd00-\udd26\udd29-\udd64\udd6a-\udd6c\udd83\udd84\udd8c-\udda9\uddae-\udddd\ude00-\ude41\ude45\udf00-\udf56]|\ud83c[\udc00-\udc2b\udc30-\udc93\udca0-\udcae\udcb1-\udcbe\udcc1-\udccf\udcd1-\udcdf\udd10-\udd2e\udd30-\udd6b\udd70-\udd9a\udde6-\ude02\ude10-\ude3a\ude40-\ude48\ude50\ude51\udf00-\udf20\udf30-\udf35\udf37-\udf7c\udf80-\udf93\udfa0-\udfc4\udfc6-\udfca\udfe0-\udff0]|\ud800[\udd37-\udd3f\udd79-\udd89\udd90-\udd9b\uddd0-\uddfc]"
   }, {
    name: "Z",
    alias: "Separator",
-   bmp: " Â áš€á â€€-â€Š\u2028\u2029â€¯âŸã€€"
+   bmp: " \xa0\u1680\u180e\u2000-\u200a\u2028\u2029\u202f\u205f\u3000"
   }, {
    name: "Zl",
    alias: "Line_Separator",
@@ -5962,7 +5962,7 @@ function diff_match_patch() {
   }, {
    name: "Zs",
    alias: "Space_Separator",
-   bmp: " Â áš€á â€€-â€Šâ€¯âŸã€€"
+   bmp: " \xa0\u1680\u180e\u2000-\u200a\u202f\u205f\u3000"
   } ]);
  }(e), function(e) {
   if (!e.addUnicodeData) throw new ReferenceError("Unicode Base must be loaded before Unicode Properties");
@@ -5971,352 +5971,352 @@ function diff_match_patch() {
    bmp: "\x00-"
   }, {
    name: "Alphabetic",
-   bmp: "A-Za-zÂªÂµÂºÃ€-Ã–Ã˜-Ã¶Ã¸-ËË†-Ë‘Ë -Ë¤Ë¬Ë®Í…Í°-Í´Í¶Í·Íº-Í½Î†Îˆ-ÎŠÎŒÎ-Î¡Î£-ÏµÏ·-ÒÒŠ-Ô§Ô±-Õ–Õ™Õ¡-Ö‡Ö°-Ö½Ö¿××‚×„×…×‡×-×ª×°-×²Ø-ØšØ -Ù—Ù™-ÙŸÙ®-Û“Û•-ÛœÛ¡-Û¨Û­-Û¯Ûº-Û¼Û¿Ü-Ü¿İ-Ş±ßŠ-ßªß´ßµßºà €-à —à š-à ¬à¡€-à¡˜à¢ à¢¢-à¢¬à£¤-à£©à£°-à£¾à¤€-à¤»à¤½-à¥Œà¥-à¥à¥•-à¥£à¥±-à¥·à¥¹-à¥¿à¦-à¦ƒà¦…-à¦Œà¦à¦à¦“-à¦¨à¦ª-à¦°à¦²à¦¶-à¦¹à¦½-à§„à§‡à§ˆà§‹à§Œà§à§—à§œà§à§Ÿ-à§£à§°à§±à¨-à¨ƒà¨…-à¨Šà¨à¨à¨“-à¨¨à¨ª-à¨°à¨²à¨³à¨µà¨¶à¨¸à¨¹à¨¾-à©‚à©‡à©ˆà©‹à©Œà©‘à©™-à©œà©à©°-à©µàª-àªƒàª…-àªàª-àª‘àª“-àª¨àªª-àª°àª²àª³àªµ-àª¹àª½-à«…à«‡-à«‰à«‹à«Œà«à« -à«£à¬-à¬ƒà¬…-à¬Œà¬à¬à¬“-à¬¨à¬ª-à¬°à¬²à¬³à¬µ-à¬¹à¬½-à­„à­‡à­ˆà­‹à­Œà­–à­—à­œà­à­Ÿ-à­£à­±à®‚à®ƒà®…-à®Šà®-à®à®’-à®•à®™à®šà®œà®à®Ÿà®£à®¤à®¨-à®ªà®®-à®¹à®¾-à¯‚à¯†-à¯ˆà¯Š-à¯Œà¯à¯—à°-à°ƒà°…-à°Œà°-à°à°’-à°¨à°ª-à°³à°µ-à°¹à°½-à±„à±†-à±ˆà±Š-à±Œà±•à±–à±˜à±™à± -à±£à²‚à²ƒà²…-à²Œà²-à²à²’-à²¨à²ª-à²³à²µ-à²¹à²½-à³„à³†-à³ˆà³Š-à³Œà³•à³–à³à³ -à³£à³±à³²à´‚à´ƒà´…-à´Œà´-à´à´’-à´ºà´½-àµ„àµ†-àµˆàµŠ-àµŒàµàµ—àµ -àµ£àµº-àµ¿à¶‚à¶ƒà¶…-à¶–à¶š-à¶±à¶³-à¶»à¶½à·€-à·†à·-à·”à·–à·˜-à·Ÿà·²à·³à¸-à¸ºà¹€-à¹†à¹àºàº‚àº„àº‡àºˆàºŠàºàº”-àº—àº™-àºŸàº¡-àº£àº¥àº§àºªàº«àº­-àº¹àº»-àº½à»€-à»„à»†à»à»œ-à»Ÿà¼€à½€-à½‡à½‰-à½¬à½±-à¾à¾ˆ-à¾—à¾™-à¾¼á€€-á€¶á€¸á€»-á€¿á-á¢á¥-á¨á®-á‚†á‚á‚œá‚á‚ -áƒ…áƒ‡áƒáƒ-áƒºáƒ¼-á‰ˆá‰Š-á‰á‰-á‰–á‰˜á‰š-á‰á‰ -áŠˆáŠŠ-áŠáŠ-áŠ°áŠ²-áŠµáŠ¸-áŠ¾á‹€á‹‚-á‹…á‹ˆ-á‹–á‹˜-áŒáŒ’-áŒ•áŒ˜-ášáŸá€-áá -á´á-á™¬á™¯-á™¿áš-áššáš -á›ªá›®-á›°áœ€-áœŒáœ-áœ“áœ -áœ³á€-á“á -á¬á®-á°á²á³á€-á³á¶-áŸˆáŸ—áŸœá  -á¡·á¢€-á¢ªá¢°-á£µá¤€-á¤œá¤ -á¤«á¤°-á¤¸á¥-á¥­á¥°-á¥´á¦€-á¦«á¦°-á§‰á¨€-á¨›á¨ -á©á©¡-á©´áª§á¬€-á¬³á¬µ-á­ƒá­…-á­‹á®€-á®©á®¬-á®¯á®º-á¯¥á¯§-á¯±á°€-á°µá±-á±á±š-á±½á³©-á³¬á³®-á³³á³µá³¶á´€-á¶¿á¸€-á¼•á¼˜-á¼á¼ -á½…á½ˆ-á½á½-á½—á½™á½›á½á½Ÿ-á½½á¾€-á¾´á¾¶-á¾¼á¾¾á¿‚-á¿„á¿†-á¿Œá¿-á¿“á¿–-á¿›á¿ -á¿¬á¿²-á¿´á¿¶-á¿¼â±â¿â‚-â‚œâ„‚â„‡â„Š-â„“â„•â„™-â„â„¤â„¦â„¨â„ª-â„­â„¯-â„¹â„¼-â„¿â……-â…‰â…â… -â†ˆâ’¶-â“©â°€-â°®â°°-â±â± -â³¤â³«-â³®â³²â³³â´€-â´¥â´§â´­â´°-âµ§âµ¯â¶€-â¶–â¶ -â¶¦â¶¨-â¶®â¶°-â¶¶â¶¸-â¶¾â·€-â·†â·ˆ-â·â·-â·–â·˜-â·â· -â·¿â¸¯ã€…-ã€‡ã€¡-ã€©ã€±-ã€µã€¸-ã€¼ã-ã‚–ã‚-ã‚Ÿã‚¡-ãƒºãƒ¼-ãƒ¿ã„…-ã„­ã„±-ã†ã† -ã†ºã‡°-ã‡¿ã€-ä¶µä¸€-é¿Œê€€-ê’Œê“-ê“½ê”€-ê˜Œê˜-ê˜Ÿê˜ªê˜«ê™€-ê™®ê™´-ê™»ê™¿-êš—êšŸ-ê›¯êœ—-êœŸêœ¢-êˆê‹-êê-ê“ê -êªêŸ¸-ê ê ƒ-ê …ê ‡-ê Šê Œ-ê §ê¡€-ê¡³ê¢€-ê£ƒê£²-ê£·ê£»ê¤Š-ê¤ªê¤°-ê¥’ê¥ -ê¥¼ê¦€-ê¦²ê¦´-ê¦¿ê§ê¨€-ê¨¶ê©€-ê©ê© -ê©¶ê©ºêª€-êª¾ê«€ê«‚ê«›-ê«ê« -ê«¯ê«²-ê«µê¬-ê¬†ê¬‰-ê¬ê¬‘-ê¬–ê¬ -ê¬¦ê¬¨-ê¬®ê¯€-ê¯ªê°€-í£í°-íŸ†íŸ‹-íŸ»ï¤€-ï©­ï©°-ï«™ï¬€-ï¬†ï¬“-ï¬—ï¬-ï¬¨ï¬ª-ï¬¶ï¬¸-ï¬¼ï¬¾ï­€ï­ï­ƒï­„ï­†-ï®±ï¯“-ï´½ïµ-ï¶ï¶’-ï·‡ï·°-ï·»ï¹°-ï¹´ï¹¶-ï»¼ï¼¡-ï¼ºï½-ï½šï½¦-ï¾¾ï¿‚-ï¿‡ï¿Š-ï¿ï¿’-ï¿—ï¿š-ï¿œ",
-   astral: "í ƒ[í°€-í±ˆ]|í [í°€-í²]|í ‰[í°€-í±¢]|í š[í°€-í¸¸]|í „[í°€-í±…í²‚-í²¸í³-í³¨í´€-í´²í¶€-í¶¿í·-í·„]|[í Œí¡€-í¡¨í¡ª-í¡¬][í°€-í¿¿]|í¡®[í°€-í°]|í¡­[í°€-í¼´í½€-í¿¿]|í [í°€-í°®]|í¡¾[í°€-í¸]|í ‚[í°€-í°…í°ˆí°Š-í°µí°·í°¸í°¼í°¿-í±•í´€-í´•í´ -í´¹í¶€-í¶·í¶¾í¶¿í¸€-í¸ƒí¸…í¸†í¸Œ-í¸“í¸•-í¸—í¸™-í¸³í¹ -í¹¼í¼€-í¼µí½€-í½•í½ -í½²]|í €[í°€-í°‹í°-í°¦í°¨-í°ºí°¼í°½í°¿-í±í±-í±í²€-í³ºíµ€-íµ´íº€-íºœíº -í»í¼€-í¼í¼°-í½Ší¾€-í¾í¾ -í¿ƒí¿ˆ-í¿í¿‘-í¿•]|í ›[í¼€-í½„í½-í½¾í¾“-í¾Ÿ]|í µ[í°€-í±”í±–-í²œí²í²Ÿí²¢í²¥í²¦í²©-í²¬í²®-í²¹í²»í²½-í³ƒí³…-í´…í´‡-í´Ší´-í´”í´–-í´œí´-í´¹í´»-í´¾íµ€-íµ„íµ†íµŠ-íµíµ’-íº¥íº¨-í»€í»‚-í»ší»œ-í»ºí»¼-í¼”í¼–-í¼´í¼¶-í½í½-í½®í½°-í¾ˆí¾Š-í¾¨í¾ª-í¿‚í¿„-í¿‹]|í »[í¸€-í¸ƒí¸…-í¸Ÿí¸¡í¸¢í¸¤í¸§í¸©-í¸²í¸´-í¸·í¸¹í¸»í¹‚í¹‡í¹‰í¹‹í¹-í¹í¹‘í¹’í¹”í¹—í¹™í¹›í¹í¹Ÿí¹¡í¹¢í¹¤í¹§-í¹ªí¹¬-í¹²í¹´-í¹·í¹¹-í¹¼í¹¾íº€-íº‰íº‹-íº›íº¡-íº£íº¥-íº©íº«-íº»]|í¡©[í°€-í»–í¼€-í¿¿]|í ¬[í°€í°]|í ˆ[í°€-í½®]|í …[íº€-íºµ]"
+   bmp: "A-Za-z\xaa\xb5\xba\xc0-\xd6\xd8-\xf6\xf8-\u02c1\u02c6-\u02d1\u02e0-\u02e4\u02ec\u02ee\u0345\u0370-\u0374\u0376\u0377\u037a-\u037d\u0386\u0388-\u038a\u038c\u038e-\u03a1\u03a3-\u03f5\u03f7-\u0481\u048a-\u0527\u0531-\u0556\u0559\u0561-\u0587\u05b0-\u05bd\u05bf\u05c1\u05c2\u05c4\u05c5\u05c7\u05d0-\u05ea\u05f0-\u05f2\u0610-\u061a\u0620-\u0657\u0659-\u065f\u066e-\u06d3\u06d5-\u06dc\u06e1-\u06e8\u06ed-\u06ef\u06fa-\u06fc\u06ff\u0710-\u073f\u074d-\u07b1\u07ca-\u07ea\u07f4\u07f5\u07fa\u0800-\u0817\u081a-\u082c\u0840-\u0858\u08a0\u08a2-\u08ac\u08e4-\u08e9\u08f0-\u08fe\u0900-\u093b\u093d-\u094c\u094e-\u0950\u0955-\u0963\u0971-\u0977\u0979-\u097f\u0981-\u0983\u0985-\u098c\u098f\u0990\u0993-\u09a8\u09aa-\u09b0\u09b2\u09b6-\u09b9\u09bd-\u09c4\u09c7\u09c8\u09cb\u09cc\u09ce\u09d7\u09dc\u09dd\u09df-\u09e3\u09f0\u09f1\u0a01-\u0a03\u0a05-\u0a0a\u0a0f\u0a10\u0a13-\u0a28\u0a2a-\u0a30\u0a32\u0a33\u0a35\u0a36\u0a38\u0a39\u0a3e-\u0a42\u0a47\u0a48\u0a4b\u0a4c\u0a51\u0a59-\u0a5c\u0a5e\u0a70-\u0a75\u0a81-\u0a83\u0a85-\u0a8d\u0a8f-\u0a91\u0a93-\u0aa8\u0aaa-\u0ab0\u0ab2\u0ab3\u0ab5-\u0ab9\u0abd-\u0ac5\u0ac7-\u0ac9\u0acb\u0acc\u0ad0\u0ae0-\u0ae3\u0b01-\u0b03\u0b05-\u0b0c\u0b0f\u0b10\u0b13-\u0b28\u0b2a-\u0b30\u0b32\u0b33\u0b35-\u0b39\u0b3d-\u0b44\u0b47\u0b48\u0b4b\u0b4c\u0b56\u0b57\u0b5c\u0b5d\u0b5f-\u0b63\u0b71\u0b82\u0b83\u0b85-\u0b8a\u0b8e-\u0b90\u0b92-\u0b95\u0b99\u0b9a\u0b9c\u0b9e\u0b9f\u0ba3\u0ba4\u0ba8-\u0baa\u0bae-\u0bb9\u0bbe-\u0bc2\u0bc6-\u0bc8\u0bca-\u0bcc\u0bd0\u0bd7\u0c01-\u0c03\u0c05-\u0c0c\u0c0e-\u0c10\u0c12-\u0c28\u0c2a-\u0c33\u0c35-\u0c39\u0c3d-\u0c44\u0c46-\u0c48\u0c4a-\u0c4c\u0c55\u0c56\u0c58\u0c59\u0c60-\u0c63\u0c82\u0c83\u0c85-\u0c8c\u0c8e-\u0c90\u0c92-\u0ca8\u0caa-\u0cb3\u0cb5-\u0cb9\u0cbd-\u0cc4\u0cc6-\u0cc8\u0cca-\u0ccc\u0cd5\u0cd6\u0cde\u0ce0-\u0ce3\u0cf1\u0cf2\u0d02\u0d03\u0d05-\u0d0c\u0d0e-\u0d10\u0d12-\u0d3a\u0d3d-\u0d44\u0d46-\u0d48\u0d4a-\u0d4c\u0d4e\u0d57\u0d60-\u0d63\u0d7a-\u0d7f\u0d82\u0d83\u0d85-\u0d96\u0d9a-\u0db1\u0db3-\u0dbb\u0dbd\u0dc0-\u0dc6\u0dcf-\u0dd4\u0dd6\u0dd8-\u0ddf\u0df2\u0df3\u0e01-\u0e3a\u0e40-\u0e46\u0e4d\u0e81\u0e82\u0e84\u0e87\u0e88\u0e8a\u0e8d\u0e94-\u0e97\u0e99-\u0e9f\u0ea1-\u0ea3\u0ea5\u0ea7\u0eaa\u0eab\u0ead-\u0eb9\u0ebb-\u0ebd\u0ec0-\u0ec4\u0ec6\u0ecd\u0edc-\u0edf\u0f00\u0f40-\u0f47\u0f49-\u0f6c\u0f71-\u0f81\u0f88-\u0f97\u0f99-\u0fbc\u1000-\u1036\u1038\u103b-\u103f\u1050-\u1062\u1065-\u1068\u106e-\u1086\u108e\u109c\u109d\u10a0-\u10c5\u10c7\u10cd\u10d0-\u10fa\u10fc-\u1248\u124a-\u124d\u1250-\u1256\u1258\u125a-\u125d\u1260-\u1288\u128a-\u128d\u1290-\u12b0\u12b2-\u12b5\u12b8-\u12be\u12c0\u12c2-\u12c5\u12c8-\u12d6\u12d8-\u1310\u1312-\u1315\u1318-\u135a\u135f\u1380-\u138f\u13a0-\u13f4\u1401-\u166c\u166f-\u167f\u1681-\u169a\u16a0-\u16ea\u16ee-\u16f0\u1700-\u170c\u170e-\u1713\u1720-\u1733\u1740-\u1753\u1760-\u176c\u176e-\u1770\u1772\u1773\u1780-\u17b3\u17b6-\u17c8\u17d7\u17dc\u1820-\u1877\u1880-\u18aa\u18b0-\u18f5\u1900-\u191c\u1920-\u192b\u1930-\u1938\u1950-\u196d\u1970-\u1974\u1980-\u19ab\u19b0-\u19c9\u1a00-\u1a1b\u1a20-\u1a5e\u1a61-\u1a74\u1aa7\u1b00-\u1b33\u1b35-\u1b43\u1b45-\u1b4b\u1b80-\u1ba9\u1bac-\u1baf\u1bba-\u1be5\u1be7-\u1bf1\u1c00-\u1c35\u1c4d-\u1c4f\u1c5a-\u1c7d\u1ce9-\u1cec\u1cee-\u1cf3\u1cf5\u1cf6\u1d00-\u1dbf\u1e00-\u1f15\u1f18-\u1f1d\u1f20-\u1f45\u1f48-\u1f4d\u1f50-\u1f57\u1f59\u1f5b\u1f5d\u1f5f-\u1f7d\u1f80-\u1fb4\u1fb6-\u1fbc\u1fbe\u1fc2-\u1fc4\u1fc6-\u1fcc\u1fd0-\u1fd3\u1fd6-\u1fdb\u1fe0-\u1fec\u1ff2-\u1ff4\u1ff6-\u1ffc\u2071\u207f\u2090-\u209c\u2102\u2107\u210a-\u2113\u2115\u2119-\u211d\u2124\u2126\u2128\u212a-\u212d\u212f-\u2139\u213c-\u213f\u2145-\u2149\u214e\u2160-\u2188\u24b6-\u24e9\u2c00-\u2c2e\u2c30-\u2c5e\u2c60-\u2ce4\u2ceb-\u2cee\u2cf2\u2cf3\u2d00-\u2d25\u2d27\u2d2d\u2d30-\u2d67\u2d6f\u2d80-\u2d96\u2da0-\u2da6\u2da8-\u2dae\u2db0-\u2db6\u2db8-\u2dbe\u2dc0-\u2dc6\u2dc8-\u2dce\u2dd0-\u2dd6\u2dd8-\u2dde\u2de0-\u2dff\u2e2f\u3005-\u3007\u3021-\u3029\u3031-\u3035\u3038-\u303c\u3041-\u3096\u309d-\u309f\u30a1-\u30fa\u30fc-\u30ff\u3105-\u312d\u3131-\u318e\u31a0-\u31ba\u31f0-\u31ff\u3400-\u4db5\u4e00-\u9fcc\ua000-\ua48c\ua4d0-\ua4fd\ua500-\ua60c\ua610-\ua61f\ua62a\ua62b\ua640-\ua66e\ua674-\ua67b\ua67f-\ua697\ua69f-\ua6ef\ua717-\ua71f\ua722-\ua788\ua78b-\ua78e\ua790-\ua793\ua7a0-\ua7aa\ua7f8-\ua801\ua803-\ua805\ua807-\ua80a\ua80c-\ua827\ua840-\ua873\ua880-\ua8c3\ua8f2-\ua8f7\ua8fb\ua90a-\ua92a\ua930-\ua952\ua960-\ua97c\ua980-\ua9b2\ua9b4-\ua9bf\ua9cf\uaa00-\uaa36\uaa40-\uaa4d\uaa60-\uaa76\uaa7a\uaa80-\uaabe\uaac0\uaac2\uaadb-\uaadd\uaae0-\uaaef\uaaf2-\uaaf5\uab01-\uab06\uab09-\uab0e\uab11-\uab16\uab20-\uab26\uab28-\uab2e\uabc0-\uabea\uac00-\ud7a3\ud7b0-\ud7c6\ud7cb-\ud7fb\uf900-\ufa6d\ufa70-\ufad9\ufb00-\ufb06\ufb13-\ufb17\ufb1d-\ufb28\ufb2a-\ufb36\ufb38-\ufb3c\ufb3e\ufb40\ufb41\ufb43\ufb44\ufb46-\ufbb1\ufbd3-\ufd3d\ufd50-\ufd8f\ufd92-\ufdc7\ufdf0-\ufdfb\ufe70-\ufe74\ufe76-\ufefc\uff21-\uff3a\uff41-\uff5a\uff66-\uffbe\uffc2-\uffc7\uffca-\uffcf\uffd2-\uffd7\uffda-\uffdc",
+   astral: "\ud803[\udc00-\udc48]|\ud801[\udc00-\udc9d]|\ud809[\udc00-\udc62]|\ud81a[\udc00-\ude38]|\ud804[\udc00-\udc45\udc82-\udcb8\udcd0-\udce8\udd00-\udd32\udd80-\uddbf\uddc1-\uddc4]|[\ud80c\ud840-\ud868\ud86a-\ud86c][\udc00-\udfff]|\ud86e[\udc00-\udc1d]|\ud86d[\udc00-\udf34\udf40-\udfff]|\ud80d[\udc00-\udc2e]|\ud87e[\udc00-\ude1d]|\ud802[\udc00-\udc05\udc08\udc0a-\udc35\udc37\udc38\udc3c\udc3f-\udc55\udd00-\udd15\udd20-\udd39\udd80-\uddb7\uddbe\uddbf\ude00-\ude03\ude05\ude06\ude0c-\ude13\ude15-\ude17\ude19-\ude33\ude60-\ude7c\udf00-\udf35\udf40-\udf55\udf60-\udf72]|\ud800[\udc00-\udc0b\udc0d-\udc26\udc28-\udc3a\udc3c\udc3d\udc3f-\udc4d\udc50-\udc5d\udc80-\udcfa\udd40-\udd74\ude80-\ude9c\udea0-\uded0\udf00-\udf1e\udf30-\udf4a\udf80-\udf9d\udfa0-\udfc3\udfc8-\udfcf\udfd1-\udfd5]|\ud81b[\udf00-\udf44\udf50-\udf7e\udf93-\udf9f]|\ud835[\udc00-\udc54\udc56-\udc9c\udc9e\udc9f\udca2\udca5\udca6\udca9-\udcac\udcae-\udcb9\udcbb\udcbd-\udcc3\udcc5-\udd05\udd07-\udd0a\udd0d-\udd14\udd16-\udd1c\udd1e-\udd39\udd3b-\udd3e\udd40-\udd44\udd46\udd4a-\udd50\udd52-\udea5\udea8-\udec0\udec2-\udeda\udedc-\udefa\udefc-\udf14\udf16-\udf34\udf36-\udf4e\udf50-\udf6e\udf70-\udf88\udf8a-\udfa8\udfaa-\udfc2\udfc4-\udfcb]|\ud83b[\ude00-\ude03\ude05-\ude1f\ude21\ude22\ude24\ude27\ude29-\ude32\ude34-\ude37\ude39\ude3b\ude42\ude47\ude49\ude4b\ude4d-\ude4f\ude51\ude52\ude54\ude57\ude59\ude5b\ude5d\ude5f\ude61\ude62\ude64\ude67-\ude6a\ude6c-\ude72\ude74-\ude77\ude79-\ude7c\ude7e\ude80-\ude89\ude8b-\ude9b\udea1-\udea3\udea5-\udea9\udeab-\udebb]|\ud869[\udc00-\uded6\udf00-\udfff]|\ud82c[\udc00\udc01]|\ud808[\udc00-\udf6e]|\ud805[\ude80-\udeb5]"
   }, {
    name: "Any",
    isBmpLast: !0,
-   bmp: "\x00-ï¿¿",
-   astral: "[í €-í¯¿][í°€-í¿¿]"
+   bmp: "\x00-\uffff",
+   astral: "[\ud800-\udbff][\udc00-\udfff]"
   }, {
    name: "Assigned",
    inverseOf: "Cn"
   }, {
    name: "Default_Ignorable_Code_Point",
-   bmp: "Â­Íá…Ÿá… á´áµá ‹-á â€‹-â€â€ª-â€®â -â¯ã…¤ï¸€-ï¸ï»¿ï¾ ï¿°-ï¿¸",
-   astral: "[í­€-í­ƒ][í°€-í¿¿]|í ´[íµ³-íµº]"
+   bmp: "\xad\u034f\u115f\u1160\u17b4\u17b5\u180b-\u180d\u200b-\u200f\u202a-\u202e\u2060-\u206f\u3164\ufe00-\ufe0f\ufeff\uffa0\ufff0-\ufff8",
+   astral: "[\udb40-\udb43][\udc00-\udfff]|\ud834[\udd73-\udd7a]"
   }, {
    name: "Lowercase",
-   bmp: "a-zÂªÂµÂºÃŸ-Ã¶Ã¸-Ã¿ÄÄƒÄ…Ä‡Ä‰Ä‹ÄÄÄ‘Ä“Ä•Ä—Ä™Ä›ÄÄŸÄ¡Ä£Ä¥Ä§Ä©Ä«Ä­Ä¯Ä±Ä³ÄµÄ·Ä¸ÄºÄ¼Ä¾Å€Å‚Å„Å†ÅˆÅ‰Å‹ÅÅÅ‘Å“Å•Å—Å™Å›ÅÅŸÅ¡Å£Å¥Å§Å©Å«Å­Å¯Å±Å³ÅµÅ·ÅºÅ¼Å¾-Æ€ÆƒÆ…ÆˆÆŒÆÆ’Æ•Æ™-Æ›ÆÆ¡Æ£Æ¥Æ¨ÆªÆ«Æ­Æ°Æ´Æ¶Æ¹ÆºÆ½-Æ¿Ç†Ç‰ÇŒÇÇÇ’Ç”Ç–Ç˜ÇšÇœÇÇŸÇ¡Ç£Ç¥Ç§Ç©Ç«Ç­Ç¯Ç°Ç³ÇµÇ¹Ç»Ç½Ç¿ÈÈƒÈ…È‡È‰È‹ÈÈÈ‘È“È•È—È™È›ÈÈŸÈ¡È£È¥È§È©È«È­È¯È±È³-È¹È¼È¿É€É‚É‡É‰É‹ÉÉ-Ê“Ê•-Ê¸Ë€ËË -Ë¤Í…Í±Í³Í·Íº-Í½ÎÎ¬-ÏÏÏ‘Ï•-Ï—Ï™Ï›ÏÏŸÏ¡Ï£Ï¥Ï§Ï©Ï«Ï­Ï¯-Ï³ÏµÏ¸Ï»Ï¼Ğ°-ÑŸÑ¡Ñ£Ñ¥Ñ§Ñ©Ñ«Ñ­Ñ¯Ñ±Ñ³ÑµÑ·Ñ¹Ñ»Ñ½Ñ¿ÒÒ‹ÒÒÒ‘Ò“Ò•Ò—Ò™Ò›ÒÒŸÒ¡Ò£Ò¥Ò§Ò©Ò«Ò­Ò¯Ò±Ò³ÒµÒ·Ò¹Ò»Ò½Ò¿Ó‚Ó„Ó†ÓˆÓŠÓŒÓÓÓ‘Ó“Ó•Ó—Ó™Ó›ÓÓŸÓ¡Ó£Ó¥Ó§Ó©Ó«Ó­Ó¯Ó±Ó³ÓµÓ·Ó¹Ó»Ó½Ó¿ÔÔƒÔ…Ô‡Ô‰Ô‹ÔÔÔ‘Ô“Ô•Ô—Ô™Ô›ÔÔŸÔ¡Ô£Ô¥Ô§Õ¡-Ö‡á´€-á¶¿á¸á¸ƒá¸…á¸‡á¸‰á¸‹á¸á¸á¸‘á¸“á¸•á¸—á¸™á¸›á¸á¸Ÿá¸¡á¸£á¸¥á¸§á¸©á¸«á¸­á¸¯á¸±á¸³á¸µá¸·á¸¹á¸»á¸½á¸¿á¹á¹ƒá¹…á¹‡á¹‰á¹‹á¹á¹á¹‘á¹“á¹•á¹—á¹™á¹›á¹á¹Ÿá¹¡á¹£á¹¥á¹§á¹©á¹«á¹­á¹¯á¹±á¹³á¹µá¹·á¹¹á¹»á¹½á¹¿áºáºƒáº…áº‡áº‰áº‹áºáºáº‘áº“áº•-áºáºŸáº¡áº£áº¥áº§áº©áº«áº­áº¯áº±áº³áºµáº·áº¹áº»áº½áº¿á»á»ƒá»…á»‡á»‰á»‹á»á»á»‘á»“á»•á»—á»™á»›á»á»Ÿá»¡á»£á»¥á»§á»©á»«á»­á»¯á»±á»³á»µá»·á»¹á»»á»½á»¿-á¼‡á¼-á¼•á¼ -á¼§á¼°-á¼·á½€-á½…á½-á½—á½ -á½§á½°-á½½á¾€-á¾‡á¾-á¾—á¾ -á¾§á¾°-á¾´á¾¶á¾·á¾¾á¿‚-á¿„á¿†á¿‡á¿-á¿“á¿–á¿—á¿ -á¿§á¿²-á¿´á¿¶á¿·â±â¿â‚-â‚œâ„Šâ„â„â„“â„¯â„´â„¹â„¼â„½â…†-â…‰â…â…°-â…¿â†„â“-â“©â°°-â±â±¡â±¥â±¦â±¨â±ªâ±¬â±±â±³â±´â±¶-â±½â²â²ƒâ²…â²‡â²‰â²‹â²â²â²‘â²“â²•â²—â²™â²›â²â²Ÿâ²¡â²£â²¥â²§â²©â²«â²­â²¯â²±â²³â²µâ²·â²¹â²»â²½â²¿â³â³ƒâ³…â³‡â³‰â³‹â³â³â³‘â³“â³•â³—â³™â³›â³â³Ÿâ³¡â³£â³¤â³¬â³®â³³â´€-â´¥â´§â´­ê™ê™ƒê™…ê™‡ê™‰ê™‹ê™ê™ê™‘ê™“ê™•ê™—ê™™ê™›ê™ê™Ÿê™¡ê™£ê™¥ê™§ê™©ê™«ê™­êšêšƒêš…êš‡êš‰êš‹êšêšêš‘êš“êš•êš—êœ£êœ¥êœ§êœ©êœ«êœ­êœ¯-êœ±êœ³êœµêœ·êœ¹êœ»êœ½êœ¿êêƒê…ê‡ê‰ê‹êêê‘ê“ê•ê—ê™ê›êêŸê¡ê£ê¥ê§ê©ê«ê­ê¯-ê¸êºê¼ê¿êêƒê…ê‡êŒêê‘ê“ê¡ê£ê¥ê§ê©êŸ¸-êŸºï¬€-ï¬†ï¬“-ï¬—ï½-ï½š",
-   astral: "í µ[í°š-í°³í±-í±”í±–-í±§í²‚-í²›í²¶-í²¹í²»í²½-í³ƒí³…-í³í³ª-í´ƒí´-í´·íµ’-íµ«í¶†-í¶Ÿí¶º-í·“í·®-í¸‡í¸¢-í¸»í¹–-í¹¯íºŠ-íº¥í»‚-í»ší»œ-í»¡í»¼-í¼”í¼–-í¼›í¼¶-í½í½-í½•í½°-í¾ˆí¾Š-í¾í¾ª-í¿‚í¿„-í¿‰í¿‹]|í [í°¨-í±]"
+   bmp: "a-z\xaa\xb5\xba\xdf-\xf6\xf8-\xff\u0101\u0103\u0105\u0107\u0109\u010b\u010d\u010f\u0111\u0113\u0115\u0117\u0119\u011b\u011d\u011f\u0121\u0123\u0125\u0127\u0129\u012b\u012d\u012f\u0131\u0133\u0135\u0137\u0138\u013a\u013c\u013e\u0140\u0142\u0144\u0146\u0148\u0149\u014b\u014d\u014f\u0151\u0153\u0155\u0157\u0159\u015b\u015d\u015f\u0161\u0163\u0165\u0167\u0169\u016b\u016d\u016f\u0171\u0173\u0175\u0177\u017a\u017c\u017e-\u0180\u0183\u0185\u0188\u018c\u018d\u0192\u0195\u0199-\u019b\u019e\u01a1\u01a3\u01a5\u01a8\u01aa\u01ab\u01ad\u01b0\u01b4\u01b6\u01b9\u01ba\u01bd-\u01bf\u01c6\u01c9\u01cc\u01ce\u01d0\u01d2\u01d4\u01d6\u01d8\u01da\u01dc\u01dd\u01df\u01e1\u01e3\u01e5\u01e7\u01e9\u01eb\u01ed\u01ef\u01f0\u01f3\u01f5\u01f9\u01fb\u01fd\u01ff\u0201\u0203\u0205\u0207\u0209\u020b\u020d\u020f\u0211\u0213\u0215\u0217\u0219\u021b\u021d\u021f\u0221\u0223\u0225\u0227\u0229\u022b\u022d\u022f\u0231\u0233-\u0239\u023c\u023f\u0240\u0242\u0247\u0249\u024b\u024d\u024f-\u0293\u0295-\u02b8\u02c0\u02c1\u02e0-\u02e4\u0345\u0371\u0373\u0377\u037a-\u037d\u0390\u03ac-\u03ce\u03d0\u03d1\u03d5-\u03d7\u03d9\u03db\u03dd\u03df\u03e1\u03e3\u03e5\u03e7\u03e9\u03eb\u03ed\u03ef-\u03f3\u03f5\u03f8\u03fb\u03fc\u0430-\u045f\u0461\u0463\u0465\u0467\u0469\u046b\u046d\u046f\u0471\u0473\u0475\u0477\u0479\u047b\u047d\u047f\u0481\u048b\u048d\u048f\u0491\u0493\u0495\u0497\u0499\u049b\u049d\u049f\u04a1\u04a3\u04a5\u04a7\u04a9\u04ab\u04ad\u04af\u04b1\u04b3\u04b5\u04b7\u04b9\u04bb\u04bd\u04bf\u04c2\u04c4\u04c6\u04c8\u04ca\u04cc\u04ce\u04cf\u04d1\u04d3\u04d5\u04d7\u04d9\u04db\u04dd\u04df\u04e1\u04e3\u04e5\u04e7\u04e9\u04eb\u04ed\u04ef\u04f1\u04f3\u04f5\u04f7\u04f9\u04fb\u04fd\u04ff\u0501\u0503\u0505\u0507\u0509\u050b\u050d\u050f\u0511\u0513\u0515\u0517\u0519\u051b\u051d\u051f\u0521\u0523\u0525\u0527\u0561-\u0587\u1d00-\u1dbf\u1e01\u1e03\u1e05\u1e07\u1e09\u1e0b\u1e0d\u1e0f\u1e11\u1e13\u1e15\u1e17\u1e19\u1e1b\u1e1d\u1e1f\u1e21\u1e23\u1e25\u1e27\u1e29\u1e2b\u1e2d\u1e2f\u1e31\u1e33\u1e35\u1e37\u1e39\u1e3b\u1e3d\u1e3f\u1e41\u1e43\u1e45\u1e47\u1e49\u1e4b\u1e4d\u1e4f\u1e51\u1e53\u1e55\u1e57\u1e59\u1e5b\u1e5d\u1e5f\u1e61\u1e63\u1e65\u1e67\u1e69\u1e6b\u1e6d\u1e6f\u1e71\u1e73\u1e75\u1e77\u1e79\u1e7b\u1e7d\u1e7f\u1e81\u1e83\u1e85\u1e87\u1e89\u1e8b\u1e8d\u1e8f\u1e91\u1e93\u1e95-\u1e9d\u1e9f\u1ea1\u1ea3\u1ea5\u1ea7\u1ea9\u1eab\u1ead\u1eaf\u1eb1\u1eb3\u1eb5\u1eb7\u1eb9\u1ebb\u1ebd\u1ebf\u1ec1\u1ec3\u1ec5\u1ec7\u1ec9\u1ecb\u1ecd\u1ecf\u1ed1\u1ed3\u1ed5\u1ed7\u1ed9\u1edb\u1edd\u1edf\u1ee1\u1ee3\u1ee5\u1ee7\u1ee9\u1eeb\u1eed\u1eef\u1ef1\u1ef3\u1ef5\u1ef7\u1ef9\u1efb\u1efd\u1eff-\u1f07\u1f10-\u1f15\u1f20-\u1f27\u1f30-\u1f37\u1f40-\u1f45\u1f50-\u1f57\u1f60-\u1f67\u1f70-\u1f7d\u1f80-\u1f87\u1f90-\u1f97\u1fa0-\u1fa7\u1fb0-\u1fb4\u1fb6\u1fb7\u1fbe\u1fc2-\u1fc4\u1fc6\u1fc7\u1fd0-\u1fd3\u1fd6\u1fd7\u1fe0-\u1fe7\u1ff2-\u1ff4\u1ff6\u1ff7\u2071\u207f\u2090-\u209c\u210a\u210e\u210f\u2113\u212f\u2134\u2139\u213c\u213d\u2146-\u2149\u214e\u2170-\u217f\u2184\u24d0-\u24e9\u2c30-\u2c5e\u2c61\u2c65\u2c66\u2c68\u2c6a\u2c6c\u2c71\u2c73\u2c74\u2c76-\u2c7d\u2c81\u2c83\u2c85\u2c87\u2c89\u2c8b\u2c8d\u2c8f\u2c91\u2c93\u2c95\u2c97\u2c99\u2c9b\u2c9d\u2c9f\u2ca1\u2ca3\u2ca5\u2ca7\u2ca9\u2cab\u2cad\u2caf\u2cb1\u2cb3\u2cb5\u2cb7\u2cb9\u2cbb\u2cbd\u2cbf\u2cc1\u2cc3\u2cc5\u2cc7\u2cc9\u2ccb\u2ccd\u2ccf\u2cd1\u2cd3\u2cd5\u2cd7\u2cd9\u2cdb\u2cdd\u2cdf\u2ce1\u2ce3\u2ce4\u2cec\u2cee\u2cf3\u2d00-\u2d25\u2d27\u2d2d\ua641\ua643\ua645\ua647\ua649\ua64b\ua64d\ua64f\ua651\ua653\ua655\ua657\ua659\ua65b\ua65d\ua65f\ua661\ua663\ua665\ua667\ua669\ua66b\ua66d\ua681\ua683\ua685\ua687\ua689\ua68b\ua68d\ua68f\ua691\ua693\ua695\ua697\ua723\ua725\ua727\ua729\ua72b\ua72d\ua72f-\ua731\ua733\ua735\ua737\ua739\ua73b\ua73d\ua73f\ua741\ua743\ua745\ua747\ua749\ua74b\ua74d\ua74f\ua751\ua753\ua755\ua757\ua759\ua75b\ua75d\ua75f\ua761\ua763\ua765\ua767\ua769\ua76b\ua76d\ua76f-\ua778\ua77a\ua77c\ua77f\ua781\ua783\ua785\ua787\ua78c\ua78e\ua791\ua793\ua7a1\ua7a3\ua7a5\ua7a7\ua7a9\ua7f8-\ua7fa\ufb00-\ufb06\ufb13-\ufb17\uff41-\uff5a",
+   astral: "\ud835[\udc1a-\udc33\udc4e-\udc54\udc56-\udc67\udc82-\udc9b\udcb6-\udcb9\udcbb\udcbd-\udcc3\udcc5-\udccf\udcea-\udd03\udd1e-\udd37\udd52-\udd6b\udd86-\udd9f\uddba-\uddd3\uddee-\ude07\ude22-\ude3b\ude56-\ude6f\ude8a-\udea5\udec2-\udeda\udedc-\udee1\udefc-\udf14\udf16-\udf1b\udf36-\udf4e\udf50-\udf55\udf70-\udf88\udf8a-\udf8f\udfaa-\udfc2\udfc4-\udfc9\udfcb]|\ud801[\udc28-\udc4f]"
   }, {
    name: "Noncharacter_Code_Point",
-   bmp: "ï·-ï·¯ï¿¾ï¿¿",
-   astral: "[í¬¿í­¿í®¿í¯¿í ¿í¡¿í¢¿í«¿í¥¿í¦¿í§¿í¨¿í£¿íª¿í©¿í¤¿][í¿¾í¿¿]"
+   bmp: "\ufdd0-\ufdef\ufffe\uffff",
+   astral: "[\udb3f\udb7f\udbbf\udbff\ud83f\ud87f\ud8bf\udaff\ud97f\ud9bf\ud9ff\uda3f\ud8ff\udabf\uda7f\ud93f][\udffe\udfff]"
   }, {
    name: "Uppercase",
-   bmp: "A-ZÃ€-Ã–Ã˜-ÃÄ€Ä‚Ä„Ä†ÄˆÄŠÄŒÄÄÄ’Ä”Ä–Ä˜ÄšÄœÄÄ Ä¢Ä¤Ä¦Ä¨ÄªÄ¬Ä®Ä°Ä²Ä´Ä¶Ä¹Ä»Ä½Ä¿ÅÅƒÅ…Å‡ÅŠÅŒÅÅÅ’Å”Å–Å˜ÅšÅœÅÅ Å¢Å¤Å¦Å¨ÅªÅ¬Å®Å°Å²Å´Å¶Å¸Å¹Å»Å½ÆÆ‚Æ„Æ†Æ‡Æ‰-Æ‹Æ-Æ‘Æ“Æ”Æ–-Æ˜ÆœÆÆŸÆ Æ¢Æ¤Æ¦Æ§Æ©Æ¬Æ®Æ¯Æ±-Æ³ÆµÆ·Æ¸Æ¼Ç„Ç‡ÇŠÇÇÇ‘Ç“Ç•Ç—Ç™Ç›ÇÇ Ç¢Ç¤Ç¦Ç¨ÇªÇ¬Ç®Ç±Ç´Ç¶-Ç¸ÇºÇ¼Ç¾È€È‚È„È†ÈˆÈŠÈŒÈÈÈ’È”È–È˜ÈšÈœÈÈ È¢È¤È¦È¨ÈªÈ¬È®È°È²ÈºÈ»È½È¾ÉÉƒ-É†ÉˆÉŠÉŒÉÍ°Í²Í¶Î†Îˆ-ÎŠÎŒÎÎÎ‘-Î¡Î£-Î«ÏÏ’-Ï”Ï˜ÏšÏœÏÏ Ï¢Ï¤Ï¦Ï¨ÏªÏ¬Ï®Ï´Ï·Ï¹ÏºÏ½-Ğ¯Ñ Ñ¢Ñ¤Ñ¦Ñ¨ÑªÑ¬Ñ®Ñ°Ñ²Ñ´Ñ¶Ñ¸ÑºÑ¼Ñ¾Ò€ÒŠÒŒÒÒÒ’Ò”Ò–Ò˜ÒšÒœÒÒ Ò¢Ò¤Ò¦Ò¨ÒªÒ¬Ò®Ò°Ò²Ò´Ò¶Ò¸ÒºÒ¼Ò¾Ó€ÓÓƒÓ…Ó‡Ó‰Ó‹ÓÓÓ’Ó”Ó–Ó˜ÓšÓœÓÓ Ó¢Ó¤Ó¦Ó¨ÓªÓ¬Ó®Ó°Ó²Ó´Ó¶Ó¸ÓºÓ¼Ó¾Ô€Ô‚Ô„Ô†ÔˆÔŠÔŒÔÔÔ’Ô”Ô–Ô˜ÔšÔœÔÔ Ô¢Ô¤Ô¦Ô±-Õ–á‚ -áƒ…áƒ‡áƒá¸€á¸‚á¸„á¸†á¸ˆá¸Šá¸Œá¸á¸á¸’á¸”á¸–á¸˜á¸šá¸œá¸á¸ á¸¢á¸¤á¸¦á¸¨á¸ªá¸¬á¸®á¸°á¸²á¸´á¸¶á¸¸á¸ºá¸¼á¸¾á¹€á¹‚á¹„á¹†á¹ˆá¹Šá¹Œá¹á¹á¹’á¹”á¹–á¹˜á¹šá¹œá¹á¹ á¹¢á¹¤á¹¦á¹¨á¹ªá¹¬á¹®á¹°á¹²á¹´á¹¶á¹¸á¹ºá¹¼á¹¾áº€áº‚áº„áº†áºˆáºŠáºŒáºáºáº’áº”áºáº áº¢áº¤áº¦áº¨áºªáº¬áº®áº°áº²áº´áº¶áº¸áººáº¼áº¾á»€á»‚á»„á»†á»ˆá»Šá»Œá»á»á»’á»”á»–á»˜á»šá»œá»á» á»¢á»¤á»¦á»¨á»ªá»¬á»®á»°á»²á»´á»¶á»¸á»ºá»¼á»¾á¼ˆ-á¼á¼˜-á¼á¼¨-á¼¯á¼¸-á¼¿á½ˆ-á½á½™á½›á½á½Ÿá½¨-á½¯á¾¸-á¾»á¿ˆ-á¿‹á¿˜-á¿›á¿¨-á¿¬á¿¸-á¿»â„‚â„‡â„‹-â„â„-â„’â„•â„™-â„â„¤â„¦â„¨â„ª-â„­â„°-â„³â„¾â„¿â……â… -â…¯â†ƒâ’¶-â“â°€-â°®â± â±¢-â±¤â±§â±©â±«â±­-â±°â±²â±µâ±¾-â²€â²‚â²„â²†â²ˆâ²Šâ²Œâ²â²â²’â²”â²–â²˜â²šâ²œâ²â² â²¢â²¤â²¦â²¨â²ªâ²¬â²®â²°â²²â²´â²¶â²¸â²ºâ²¼â²¾â³€â³‚â³„â³†â³ˆâ³Šâ³Œâ³â³â³’â³”â³–â³˜â³šâ³œâ³â³ â³¢â³«â³­â³²ê™€ê™‚ê™„ê™†ê™ˆê™Šê™Œê™ê™ê™’ê™”ê™–ê™˜ê™šê™œê™ê™ ê™¢ê™¤ê™¦ê™¨ê™ªê™¬êš€êš‚êš„êš†êšˆêšŠêšŒêšêšêš’êš”êš–êœ¢êœ¤êœ¦êœ¨êœªêœ¬êœ®êœ²êœ´êœ¶êœ¸êœºêœ¼êœ¾ê€ê‚ê„ê†êˆêŠêŒêêê’ê”ê–ê˜êšêœêê ê¢ê¤ê¦ê¨êªê¬ê®ê¹ê»ê½ê¾ê€ê‚ê„ê†ê‹êêê’ê ê¢ê¤ê¦ê¨êªï¼¡-ï¼º",
-   astral: "í µ[í°€-í°™í°´-í±í±¨-í²í²œí²í²Ÿí²¢í²¥í²¦í²©-í²¬í²®-í²µí³-í³©í´„í´…í´‡-í´Ší´-í´”í´–-í´œí´¸í´¹í´»-í´¾íµ€-íµ„íµ†íµŠ-íµíµ¬-í¶…í¶ -í¶¹í·”-í·­í¸ˆ-í¸¡í¸¼-í¹•í¹°-íº‰íº¨-í»€í»¢-í»ºí¼œ-í¼´í½–-í½®í¾-í¾¨í¿Š]|í [í°€-í°§]"
+   bmp: "A-Z\xc0-\xd6\xd8-\xde\u0100\u0102\u0104\u0106\u0108\u010a\u010c\u010e\u0110\u0112\u0114\u0116\u0118\u011a\u011c\u011e\u0120\u0122\u0124\u0126\u0128\u012a\u012c\u012e\u0130\u0132\u0134\u0136\u0139\u013b\u013d\u013f\u0141\u0143\u0145\u0147\u014a\u014c\u014e\u0150\u0152\u0154\u0156\u0158\u015a\u015c\u015e\u0160\u0162\u0164\u0166\u0168\u016a\u016c\u016e\u0170\u0172\u0174\u0176\u0178\u0179\u017b\u017d\u0181\u0182\u0184\u0186\u0187\u0189-\u018b\u018e-\u0191\u0193\u0194\u0196-\u0198\u019c\u019d\u019f\u01a0\u01a2\u01a4\u01a6\u01a7\u01a9\u01ac\u01ae\u01af\u01b1-\u01b3\u01b5\u01b7\u01b8\u01bc\u01c4\u01c7\u01ca\u01cd\u01cf\u01d1\u01d3\u01d5\u01d7\u01d9\u01db\u01de\u01e0\u01e2\u01e4\u01e6\u01e8\u01ea\u01ec\u01ee\u01f1\u01f4\u01f6-\u01f8\u01fa\u01fc\u01fe\u0200\u0202\u0204\u0206\u0208\u020a\u020c\u020e\u0210\u0212\u0214\u0216\u0218\u021a\u021c\u021e\u0220\u0222\u0224\u0226\u0228\u022a\u022c\u022e\u0230\u0232\u023a\u023b\u023d\u023e\u0241\u0243-\u0246\u0248\u024a\u024c\u024e\u0370\u0372\u0376\u0386\u0388-\u038a\u038c\u038e\u038f\u0391-\u03a1\u03a3-\u03ab\u03cf\u03d2-\u03d4\u03d8\u03da\u03dc\u03de\u03e0\u03e2\u03e4\u03e6\u03e8\u03ea\u03ec\u03ee\u03f4\u03f7\u03f9\u03fa\u03fd-\u042f\u0460\u0462\u0464\u0466\u0468\u046a\u046c\u046e\u0470\u0472\u0474\u0476\u0478\u047a\u047c\u047e\u0480\u048a\u048c\u048e\u0490\u0492\u0494\u0496\u0498\u049a\u049c\u049e\u04a0\u04a2\u04a4\u04a6\u04a8\u04aa\u04ac\u04ae\u04b0\u04b2\u04b4\u04b6\u04b8\u04ba\u04bc\u04be\u04c0\u04c1\u04c3\u04c5\u04c7\u04c9\u04cb\u04cd\u04d0\u04d2\u04d4\u04d6\u04d8\u04da\u04dc\u04de\u04e0\u04e2\u04e4\u04e6\u04e8\u04ea\u04ec\u04ee\u04f0\u04f2\u04f4\u04f6\u04f8\u04fa\u04fc\u04fe\u0500\u0502\u0504\u0506\u0508\u050a\u050c\u050e\u0510\u0512\u0514\u0516\u0518\u051a\u051c\u051e\u0520\u0522\u0524\u0526\u0531-\u0556\u10a0-\u10c5\u10c7\u10cd\u1e00\u1e02\u1e04\u1e06\u1e08\u1e0a\u1e0c\u1e0e\u1e10\u1e12\u1e14\u1e16\u1e18\u1e1a\u1e1c\u1e1e\u1e20\u1e22\u1e24\u1e26\u1e28\u1e2a\u1e2c\u1e2e\u1e30\u1e32\u1e34\u1e36\u1e38\u1e3a\u1e3c\u1e3e\u1e40\u1e42\u1e44\u1e46\u1e48\u1e4a\u1e4c\u1e4e\u1e50\u1e52\u1e54\u1e56\u1e58\u1e5a\u1e5c\u1e5e\u1e60\u1e62\u1e64\u1e66\u1e68\u1e6a\u1e6c\u1e6e\u1e70\u1e72\u1e74\u1e76\u1e78\u1e7a\u1e7c\u1e7e\u1e80\u1e82\u1e84\u1e86\u1e88\u1e8a\u1e8c\u1e8e\u1e90\u1e92\u1e94\u1e9e\u1ea0\u1ea2\u1ea4\u1ea6\u1ea8\u1eaa\u1eac\u1eae\u1eb0\u1eb2\u1eb4\u1eb6\u1eb8\u1eba\u1ebc\u1ebe\u1ec0\u1ec2\u1ec4\u1ec6\u1ec8\u1eca\u1ecc\u1ece\u1ed0\u1ed2\u1ed4\u1ed6\u1ed8\u1eda\u1edc\u1ede\u1ee0\u1ee2\u1ee4\u1ee6\u1ee8\u1eea\u1eec\u1eee\u1ef0\u1ef2\u1ef4\u1ef6\u1ef8\u1efa\u1efc\u1efe\u1f08-\u1f0f\u1f18-\u1f1d\u1f28-\u1f2f\u1f38-\u1f3f\u1f48-\u1f4d\u1f59\u1f5b\u1f5d\u1f5f\u1f68-\u1f6f\u1fb8-\u1fbb\u1fc8-\u1fcb\u1fd8-\u1fdb\u1fe8-\u1fec\u1ff8-\u1ffb\u2102\u2107\u210b-\u210d\u2110-\u2112\u2115\u2119-\u211d\u2124\u2126\u2128\u212a-\u212d\u2130-\u2133\u213e\u213f\u2145\u2160-\u216f\u2183\u24b6-\u24cf\u2c00-\u2c2e\u2c60\u2c62-\u2c64\u2c67\u2c69\u2c6b\u2c6d-\u2c70\u2c72\u2c75\u2c7e-\u2c80\u2c82\u2c84\u2c86\u2c88\u2c8a\u2c8c\u2c8e\u2c90\u2c92\u2c94\u2c96\u2c98\u2c9a\u2c9c\u2c9e\u2ca0\u2ca2\u2ca4\u2ca6\u2ca8\u2caa\u2cac\u2cae\u2cb0\u2cb2\u2cb4\u2cb6\u2cb8\u2cba\u2cbc\u2cbe\u2cc0\u2cc2\u2cc4\u2cc6\u2cc8\u2cca\u2ccc\u2cce\u2cd0\u2cd2\u2cd4\u2cd6\u2cd8\u2cda\u2cdc\u2cde\u2ce0\u2ce2\u2ceb\u2ced\u2cf2\ua640\ua642\ua644\ua646\ua648\ua64a\ua64c\ua64e\ua650\ua652\ua654\ua656\ua658\ua65a\ua65c\ua65e\ua660\ua662\ua664\ua666\ua668\ua66a\ua66c\ua680\ua682\ua684\ua686\ua688\ua68a\ua68c\ua68e\ua690\ua692\ua694\ua696\ua722\ua724\ua726\ua728\ua72a\ua72c\ua72e\ua732\ua734\ua736\ua738\ua73a\ua73c\ua73e\ua740\ua742\ua744\ua746\ua748\ua74a\ua74c\ua74e\ua750\ua752\ua754\ua756\ua758\ua75a\ua75c\ua75e\ua760\ua762\ua764\ua766\ua768\ua76a\ua76c\ua76e\ua779\ua77b\ua77d\ua77e\ua780\ua782\ua784\ua786\ua78b\ua78d\ua790\ua792\ua7a0\ua7a2\ua7a4\ua7a6\ua7a8\ua7aa\uff21-\uff3a",
+   astral: "\ud835[\udc00-\udc19\udc34-\udc4d\udc68-\udc81\udc9c\udc9e\udc9f\udca2\udca5\udca6\udca9-\udcac\udcae-\udcb5\udcd0-\udce9\udd04\udd05\udd07-\udd0a\udd0d-\udd14\udd16-\udd1c\udd38\udd39\udd3b-\udd3e\udd40-\udd44\udd46\udd4a-\udd50\udd6c-\udd85\udda0-\uddb9\uddd4-\udded\ude08-\ude21\ude3c-\ude55\ude70-\ude89\udea8-\udec0\udee2-\udefa\udf1c-\udf34\udf56-\udf6e\udf90-\udfa8\udfca]|\ud801[\udc00-\udc27]"
   }, {
    name: "White_Space",
-   bmp: "	-\r Â…Â áš€á â€€-â€Š\u2028\u2029â€¯âŸã€€"
+   bmp: "	-\r \x85\xa0\u1680\u180e\u2000-\u200a\u2028\u2029\u202f\u205f\u3000"
   } ]);
  }(e), function(e) {
   if (!e.addUnicodeData) throw new ReferenceError("Unicode Base must be loaded before Unicode Scripts");
   e.addUnicodeData([ {
    name: "Arabic",
-   bmp: "Ø€-Ø„Ø†-Ø‹Ø-ØšØØ -Ø¿Ù-ÙŠÙ–-ÙŸÙª-Ù¯Ù±-ÛœÛ-Û¿İ-İ¿à¢ à¢¢-à¢¬à£¤-à£¾ï­-ï¯ï¯“-ï´½ïµ-ï¶ï¶’-ï·‡ï·°-ï·¼ï¹°-ï¹´ï¹¶-ï»¼",
-   astral: "í ƒ[í¹ -í¹¾]|í »[í¸€-í¸ƒí¸…-í¸Ÿí¸¡í¸¢í¸¤í¸§í¸©-í¸²í¸´-í¸·í¸¹í¸»í¹‚í¹‡í¹‰í¹‹í¹-í¹í¹‘í¹’í¹”í¹—í¹™í¹›í¹í¹Ÿí¹¡í¹¢í¹¤í¹§-í¹ªí¹¬-í¹²í¹´-í¹·í¹¹-í¹¼í¹¾íº€-íº‰íº‹-íº›íº¡-íº£íº¥-íº©íº«-íº»í»°í»±]"
+   bmp: "\u0600-\u0604\u0606-\u060b\u060d-\u061a\u061e\u0620-\u063f\u0641-\u064a\u0656-\u065f\u066a-\u066f\u0671-\u06dc\u06de-\u06ff\u0750-\u077f\u08a0\u08a2-\u08ac\u08e4-\u08fe\ufb50-\ufbc1\ufbd3-\ufd3d\ufd50-\ufd8f\ufd92-\ufdc7\ufdf0-\ufdfc\ufe70-\ufe74\ufe76-\ufefc",
+   astral: "\ud803[\ude60-\ude7e]|\ud83b[\ude00-\ude03\ude05-\ude1f\ude21\ude22\ude24\ude27\ude29-\ude32\ude34-\ude37\ude39\ude3b\ude42\ude47\ude49\ude4b\ude4d-\ude4f\ude51\ude52\ude54\ude57\ude59\ude5b\ude5d\ude5f\ude61\ude62\ude64\ude67-\ude6a\ude6c-\ude72\ude74-\ude77\ude79-\ude7c\ude7e\ude80-\ude89\ude8b-\ude9b\udea1-\udea3\udea5-\udea9\udeab-\udebb\udef0\udef1]"
   }, {
    name: "Armenian",
-   bmp: "Ô±-Õ–Õ™-ÕŸÕ¡-Ö‡ÖŠÖï¬“-ï¬—"
+   bmp: "\u0531-\u0556\u0559-\u055f\u0561-\u0587\u058a\u058f\ufb13-\ufb17"
   }, {
    name: "Avestan",
-   astral: "í ‚[í¼€-í¼µí¼¹-í¼¿]"
+   astral: "\ud802[\udf00-\udf35\udf39-\udf3f]"
   }, {
    name: "Balinese",
-   bmp: "á¬€-á­‹á­-á­¼"
+   bmp: "\u1b00-\u1b4b\u1b50-\u1b7c"
   }, {
    name: "Bamum",
-   bmp: "êš -ê›·",
-   astral: "í š[í°€-í¸¸]"
+   bmp: "\ua6a0-\ua6f7",
+   astral: "\ud81a[\udc00-\ude38]"
   }, {
    name: "Batak",
-   bmp: "á¯€-á¯³á¯¼-á¯¿"
+   bmp: "\u1bc0-\u1bf3\u1bfc-\u1bff"
   }, {
    name: "Bengali",
-   bmp: "à¦-à¦ƒà¦…-à¦Œà¦à¦à¦“-à¦¨à¦ª-à¦°à¦²à¦¶-à¦¹à¦¼-à§„à§‡à§ˆà§‹-à§à§—à§œà§à§Ÿ-à§£à§¦-à§»"
+   bmp: "\u0981-\u0983\u0985-\u098c\u098f\u0990\u0993-\u09a8\u09aa-\u09b0\u09b2\u09b6-\u09b9\u09bc-\u09c4\u09c7\u09c8\u09cb-\u09ce\u09d7\u09dc\u09dd\u09df-\u09e3\u09e6-\u09fb"
   }, {
    name: "Bopomofo",
-   bmp: "ËªË«ã„…-ã„­ã† -ã†º"
+   bmp: "\u02ea\u02eb\u3105-\u312d\u31a0-\u31ba"
   }, {
    name: "Brahmi",
-   astral: "í „[í°€-í±í±’-í±¯]"
+   astral: "\ud804[\udc00-\udc4d\udc52-\udc6f]"
   }, {
    name: "Braille",
-   bmp: "â €-â£¿"
+   bmp: "\u2800-\u28ff"
   }, {
    name: "Buginese",
-   bmp: "á¨€-á¨›á¨á¨Ÿ"
+   bmp: "\u1a00-\u1a1b\u1a1e\u1a1f"
   }, {
    name: "Buhid",
-   bmp: "á€-á“"
+   bmp: "\u1740-\u1753"
   }, {
    name: "Canadian_Aboriginal",
-   bmp: "á€-á™¿á¢°-á£µ"
+   bmp: "\u1400-\u167f\u18b0-\u18f5"
   }, {
    name: "Carian",
-   astral: "í €[íº -í»]"
+   astral: "\ud800[\udea0-\uded0]"
   }, {
    name: "Chakma",
-   astral: "í „[í´€-í´´í´¶-íµƒ]"
+   astral: "\ud804[\udd00-\udd34\udd36-\udd43]"
   }, {
    name: "Cham",
-   bmp: "ê¨€-ê¨¶ê©€-ê©ê©-ê©™ê©œ-ê©Ÿ"
+   bmp: "\uaa00-\uaa36\uaa40-\uaa4d\uaa50-\uaa59\uaa5c-\uaa5f"
   }, {
    name: "Cherokee",
-   bmp: "á -á´"
+   bmp: "\u13a0-\u13f4"
   }, {
    name: "Common",
-   bmp: "\x00-@\\x5B-`\\x7B-Â©Â«-Â¹Â»-Â¿Ã—Ã·Ê¹-ËŸË¥-Ë©Ë¬-Ë¿Í´Í¾Î…Î‡Ö‰ØŒØ›ØŸÙ€Ù -Ù©Ûà¥¤à¥¥à¸¿à¿•-à¿˜áƒ»á›«-á›­áœµáœ¶á ‚á ƒá …á³“á³¡á³©-á³¬á³®-á³³á³µá³¶â€€-â€‹â€-â¤âª-â°â´-â¾â‚€-â‚â‚ -â‚ºâ„€-â„¥â„§-â„©â„¬-â„±â„³-â…â…-â…Ÿâ†‰â†-â³â€-â¦â‘€-â‘Šâ‘ -â›¿âœ-âŸ¿â¤€-â­Œâ­-â­™â¸€-â¸»â¿°-â¿»ã€€-ã€„ã€†ã€ˆ-ã€ ã€°-ã€·ã€¼-ã€¿ã‚›ã‚œã‚ ãƒ»ãƒ¼ã†-ã†Ÿã‡€-ã‡£ãˆ -ã‰Ÿã‰¿-ã‹ã˜-ã¿ä·€-ä·¿êœ€-êœ¡êˆ-êŠê °-ê ¹ï´¾ï´¿ï·½ï¸-ï¸™ï¸°-ï¹’ï¹”-ï¹¦ï¹¨-ï¹«ï»¿ï¼-ï¼ ï¼»-ï½€ï½›-ï½¥ï½°ï¾ï¾Ÿï¿ -ï¿¦ï¿¨-ï¿®ï¿¹-ï¿½",
-   astral: "í €[í´€-í´‚í´‡-í´³í´·-í´¿í¶-í¶›í·-í·¼]|í ¼[í°€-í°«í°°-í²“í² -í²®í²±-í²¾í³-í³í³‘-í³Ÿí´€-í´Ší´-í´®í´°-íµ«íµ°-í¶ší·¦-í·¿í¸í¸‚í¸-í¸ºí¹€-í¹ˆí¹í¹‘í¼€-í¼ í¼°-í¼µí¼·-í½¼í¾€-í¾“í¾ -í¿„í¿†-í¿Ší¿ -í¿°]|í­€[í°í° -í±¿]|í µ[í°€-í±”í±–-í²œí²í²Ÿí²¢í²¥í²¦í²©-í²¬í²®-í²¹í²»í²½-í³ƒí³…-í´…í´‡-í´Ší´-í´”í´–-í´œí´-í´¹í´»-í´¾íµ€-íµ„íµ†íµŠ-íµíµ’-íº¥íº¨-í¿‹í¿-í¿¿]|í ´[í°€-í³µí´€-í´¦í´©-íµ¦íµª-íµºí¶ƒí¶„í¶Œ-í¶©í¶®-í·í¼€-í½–í½ -í½±]|í ½[í°€-í°¾í±€í±‚-í³·í³¹-í³¼í´€-í´½íµ€-íµƒíµ-íµ§í·»-í¹€í¹…-í¹íº€-í»…í¼€-í½³]"
+   bmp: "\x00-@\\x5B-`\\x7B-\xa9\xab-\xb9\xbb-\xbf\xd7\xf7\u02b9-\u02df\u02e5-\u02e9\u02ec-\u02ff\u0374\u037e\u0385\u0387\u0589\u060c\u061b\u061f\u0640\u0660-\u0669\u06dd\u0964\u0965\u0e3f\u0fd5-\u0fd8\u10fb\u16eb-\u16ed\u1735\u1736\u1802\u1803\u1805\u1cd3\u1ce1\u1ce9-\u1cec\u1cee-\u1cf3\u1cf5\u1cf6\u2000-\u200b\u200e-\u2064\u206a-\u2070\u2074-\u207e\u2080-\u208e\u20a0-\u20ba\u2100-\u2125\u2127-\u2129\u212c-\u2131\u2133-\u214d\u214f-\u215f\u2189\u2190-\u23f3\u2400-\u2426\u2440-\u244a\u2460-\u26ff\u2701-\u27ff\u2900-\u2b4c\u2b50-\u2b59\u2e00-\u2e3b\u2ff0-\u2ffb\u3000-\u3004\u3006\u3008-\u3020\u3030-\u3037\u303c-\u303f\u309b\u309c\u30a0\u30fb\u30fc\u3190-\u319f\u31c0-\u31e3\u3220-\u325f\u327f-\u32cf\u3358-\u33ff\u4dc0-\u4dff\ua700-\ua721\ua788-\ua78a\ua830-\ua839\ufd3e\ufd3f\ufdfd\ufe10-\ufe19\ufe30-\ufe52\ufe54-\ufe66\ufe68-\ufe6b\ufeff\uff01-\uff20\uff3b-\uff40\uff5b-\uff65\uff70\uff9e\uff9f\uffe0-\uffe6\uffe8-\uffee\ufff9-\ufffd",
+   astral: "\ud800[\udd00-\udd02\udd07-\udd33\udd37-\udd3f\udd90-\udd9b\uddd0-\uddfc]|\ud83c[\udc00-\udc2b\udc30-\udc93\udca0-\udcae\udcb1-\udcbe\udcc1-\udccf\udcd1-\udcdf\udd00-\udd0a\udd10-\udd2e\udd30-\udd6b\udd70-\udd9a\udde6-\uddff\ude01\ude02\ude10-\ude3a\ude40-\ude48\ude50\ude51\udf00-\udf20\udf30-\udf35\udf37-\udf7c\udf80-\udf93\udfa0-\udfc4\udfc6-\udfca\udfe0-\udff0]|\udb40[\udc01\udc20-\udc7f]|\ud835[\udc00-\udc54\udc56-\udc9c\udc9e\udc9f\udca2\udca5\udca6\udca9-\udcac\udcae-\udcb9\udcbb\udcbd-\udcc3\udcc5-\udd05\udd07-\udd0a\udd0d-\udd14\udd16-\udd1c\udd1e-\udd39\udd3b-\udd3e\udd40-\udd44\udd46\udd4a-\udd50\udd52-\udea5\udea8-\udfcb\udfce-\udfff]|\ud834[\udc00-\udcf5\udd00-\udd26\udd29-\udd66\udd6a-\udd7a\udd83\udd84\udd8c-\udda9\uddae-\udddd\udf00-\udf56\udf60-\udf71]|\ud83d[\udc00-\udc3e\udc40\udc42-\udcf7\udcf9-\udcfc\udd00-\udd3d\udd40-\udd43\udd50-\udd67\uddfb-\ude40\ude45-\ude4f\ude80-\udec5\udf00-\udf73]"
   }, {
    name: "Coptic",
-   bmp: "Ï¢-Ï¯â²€-â³³â³¹-â³¿"
+   bmp: "\u03e2-\u03ef\u2c80-\u2cf3\u2cf9-\u2cff"
   }, {
    name: "Cuneiform",
-   astral: "í ‰[í°€-í±¢í±°-í±³]|í ˆ[í°€-í½®]"
+   astral: "\ud809[\udc00-\udc62\udc70-\udc73]|\ud808[\udc00-\udf6e]"
   }, {
    name: "Cypriot",
-   astral: "í ‚[í°€-í°…í°ˆí°Š-í°µí°·í°¸í°¼í°¿]"
+   astral: "\ud802[\udc00-\udc05\udc08\udc0a-\udc35\udc37\udc38\udc3c\udc3f]"
   }, {
    name: "Cyrillic",
-   bmp: "Ğ€-Ò„Ò‡-Ô§á´«áµ¸â· -â·¿ê™€-êš—êšŸ"
+   bmp: "\u0400-\u0484\u0487-\u0527\u1d2b\u1d78\u2de0-\u2dff\ua640-\ua697\ua69f"
   }, {
    name: "Deseret",
-   astral: "í [í°€-í±]"
+   astral: "\ud801[\udc00-\udc4f]"
   }, {
    name: "Devanagari",
-   bmp: "à¤€-à¥à¥“-à¥£à¥¦-à¥·à¥¹-à¥¿ê£ -ê£»"
+   bmp: "\u0900-\u0950\u0953-\u0963\u0966-\u0977\u0979-\u097f\ua8e0-\ua8fb"
   }, {
    name: "Egyptian_Hieroglyphs",
-   astral: "í Œ[í°€-í¿¿]|í [í°€-í°®]"
+   astral: "\ud80c[\udc00-\udfff]|\ud80d[\udc00-\udc2e]"
   }, {
    name: "Ethiopic",
-   bmp: "áˆ€-á‰ˆá‰Š-á‰á‰-á‰–á‰˜á‰š-á‰á‰ -áŠˆáŠŠ-áŠáŠ-áŠ°áŠ²-áŠµáŠ¸-áŠ¾á‹€á‹‚-á‹…á‹ˆ-á‹–á‹˜-áŒáŒ’-áŒ•áŒ˜-ášá-á¼á€-á™â¶€-â¶–â¶ -â¶¦â¶¨-â¶®â¶°-â¶¶â¶¸-â¶¾â·€-â·†â·ˆ-â·â·-â·–â·˜-â·ê¬-ê¬†ê¬‰-ê¬ê¬‘-ê¬–ê¬ -ê¬¦ê¬¨-ê¬®"
+   bmp: "\u1200-\u1248\u124a-\u124d\u1250-\u1256\u1258\u125a-\u125d\u1260-\u1288\u128a-\u128d\u1290-\u12b0\u12b2-\u12b5\u12b8-\u12be\u12c0\u12c2-\u12c5\u12c8-\u12d6\u12d8-\u1310\u1312-\u1315\u1318-\u135a\u135d-\u137c\u1380-\u1399\u2d80-\u2d96\u2da0-\u2da6\u2da8-\u2dae\u2db0-\u2db6\u2db8-\u2dbe\u2dc0-\u2dc6\u2dc8-\u2dce\u2dd0-\u2dd6\u2dd8-\u2dde\uab01-\uab06\uab09-\uab0e\uab11-\uab16\uab20-\uab26\uab28-\uab2e"
   }, {
    name: "Georgian",
-   bmp: "á‚ -áƒ…áƒ‡áƒáƒ-áƒºáƒ¼-áƒ¿â´€-â´¥â´§â´­"
+   bmp: "\u10a0-\u10c5\u10c7\u10cd\u10d0-\u10fa\u10fc-\u10ff\u2d00-\u2d25\u2d27\u2d2d"
   }, {
    name: "Glagolitic",
-   bmp: "â°€-â°®â°°-â±"
+   bmp: "\u2c00-\u2c2e\u2c30-\u2c5e"
   }, {
    name: "Gothic",
-   astral: "í €[í¼°-í½Š]"
+   astral: "\ud800[\udf30-\udf4a]"
   }, {
    name: "Greek",
-   bmp: "Í°-Í³Íµ-Í·Íº-Í½Î„Î†Îˆ-ÎŠÎŒÎ-Î¡Î£-Ï¡Ï°-Ï¿á´¦-á´ªáµ-áµ¡áµ¦-áµªá¶¿á¼€-á¼•á¼˜-á¼á¼ -á½…á½ˆ-á½á½-á½—á½™á½›á½á½Ÿ-á½½á¾€-á¾´á¾¶-á¿„á¿†-á¿“á¿–-á¿›á¿-á¿¯á¿²-á¿´á¿¶-á¿¾â„¦",
-   astral: "í ´[í¸€-í¹…]|í €[íµ€-í¶Š]"
+   bmp: "\u0370-\u0373\u0375-\u0377\u037a-\u037d\u0384\u0386\u0388-\u038a\u038c\u038e-\u03a1\u03a3-\u03e1\u03f0-\u03ff\u1d26-\u1d2a\u1d5d-\u1d61\u1d66-\u1d6a\u1dbf\u1f00-\u1f15\u1f18-\u1f1d\u1f20-\u1f45\u1f48-\u1f4d\u1f50-\u1f57\u1f59\u1f5b\u1f5d\u1f5f-\u1f7d\u1f80-\u1fb4\u1fb6-\u1fc4\u1fc6-\u1fd3\u1fd6-\u1fdb\u1fdd-\u1fef\u1ff2-\u1ff4\u1ff6-\u1ffe\u2126",
+   astral: "\ud834[\ude00-\ude45]|\ud800[\udd40-\udd8a]"
   }, {
    name: "Gujarati",
-   bmp: "àª-àªƒàª…-àªàª-àª‘àª“-àª¨àªª-àª°àª²àª³àªµ-àª¹àª¼-à«…à«‡-à«‰à«‹-à«à«à« -à«£à«¦-à«±"
+   bmp: "\u0a81-\u0a83\u0a85-\u0a8d\u0a8f-\u0a91\u0a93-\u0aa8\u0aaa-\u0ab0\u0ab2\u0ab3\u0ab5-\u0ab9\u0abc-\u0ac5\u0ac7-\u0ac9\u0acb-\u0acd\u0ad0\u0ae0-\u0ae3\u0ae6-\u0af1"
   }, {
    name: "Gurmukhi",
-   bmp: "à¨-à¨ƒà¨…-à¨Šà¨à¨à¨“-à¨¨à¨ª-à¨°à¨²à¨³à¨µà¨¶à¨¸à¨¹à¨¼à¨¾-à©‚à©‡à©ˆà©‹-à©à©‘à©™-à©œà©à©¦-à©µ"
+   bmp: "\u0a01-\u0a03\u0a05-\u0a0a\u0a0f\u0a10\u0a13-\u0a28\u0a2a-\u0a30\u0a32\u0a33\u0a35\u0a36\u0a38\u0a39\u0a3c\u0a3e-\u0a42\u0a47\u0a48\u0a4b-\u0a4d\u0a51\u0a59-\u0a5c\u0a5e\u0a66-\u0a75"
   }, {
    name: "Han",
-   bmp: "âº€-âº™âº›-â»³â¼€-â¿•ã€…ã€‡ã€¡-ã€©ã€¸-ã€»ã€-ä¶µä¸€-é¿Œï¤€-ï©­ï©°-ï«™",
-   astral: "[í¡€-í¡¨í¡ª-í¡¬][í°€-í¿¿]|í¡­[í°€-í¼´í½€-í¿¿]|í¡®[í°€-í°]|í¡©[í°€-í»–í¼€-í¿¿]|í¡¾[í°€-í¸]"
+   bmp: "\u2e80-\u2e99\u2e9b-\u2ef3\u2f00-\u2fd5\u3005\u3007\u3021-\u3029\u3038-\u303b\u3400-\u4db5\u4e00-\u9fcc\uf900-\ufa6d\ufa70-\ufad9",
+   astral: "[\ud840-\ud868\ud86a-\ud86c][\udc00-\udfff]|\ud86d[\udc00-\udf34\udf40-\udfff]|\ud86e[\udc00-\udc1d]|\ud869[\udc00-\uded6\udf00-\udfff]|\ud87e[\udc00-\ude1d]"
   }, {
    name: "Hangul",
-   bmp: "á„€-á‡¿ã€®ã€¯ã„±-ã†ãˆ€-ãˆã‰ -ã‰¾ê¥ -ê¥¼ê°€-í£í°-íŸ†íŸ‹-íŸ»ï¾ -ï¾¾ï¿‚-ï¿‡ï¿Š-ï¿ï¿’-ï¿—ï¿š-ï¿œ"
+   bmp: "\u1100-\u11ff\u302e\u302f\u3131-\u318e\u3200-\u321e\u3260-\u327e\ua960-\ua97c\uac00-\ud7a3\ud7b0-\ud7c6\ud7cb-\ud7fb\uffa0-\uffbe\uffc2-\uffc7\uffca-\uffcf\uffd2-\uffd7\uffda-\uffdc"
   }, {
    name: "Hanunoo",
-   bmp: "áœ -áœ´"
+   bmp: "\u1720-\u1734"
   }, {
    name: "Hebrew",
-   bmp: "Ö‘-×‡×-×ª×°-×´ï¬-ï¬¶ï¬¸-ï¬¼ï¬¾ï­€ï­ï­ƒï­„ï­†-ï­"
+   bmp: "\u0591-\u05c7\u05d0-\u05ea\u05f0-\u05f4\ufb1d-\ufb36\ufb38-\ufb3c\ufb3e\ufb40\ufb41\ufb43\ufb44\ufb46-\ufb4f"
   }, {
    name: "Hiragana",
-   bmp: "ã-ã‚–ã‚-ã‚Ÿ",
-   astral: "ğ›€|ğŸˆ€"
+   bmp: "\u3041-\u3096\u309d-\u309f",
+   astral: "\ud82c\udc01|\ud83c\ude00"
   }, {
    name: "Imperial_Aramaic",
-   astral: "í ‚[í±€-í±•í±—-í±Ÿ]"
+   astral: "\ud802[\udc40-\udc55\udc57-\udc5f]"
   }, {
    name: "Inherited",
-   bmp: "Ì€-Í¯Ò…Ò†Ù‹-Ù•Ù°à¥‘à¥’á³-á³’á³”-á³ á³¢-á³¨á³­á³´á·€-á·¦á·¼-á·¿â€Œâ€âƒ-âƒ°ã€ª-ã€­ã‚™ã‚šï¸€-ï¸ï¸ -ï¸¦",
-   astral: "í ´[íµ§-íµ©íµ»-í¶‚í¶…-í¶‹í¶ª-í¶­]|ğ‡½|í­€[í´€-í·¯]"
+   bmp: "\u0300-\u036f\u0485\u0486\u064b-\u0655\u0670\u0951\u0952\u1cd0-\u1cd2\u1cd4-\u1ce0\u1ce2-\u1ce8\u1ced\u1cf4\u1dc0-\u1de6\u1dfc-\u1dff\u200c\u200d\u20d0-\u20f0\u302a-\u302d\u3099\u309a\ufe00-\ufe0f\ufe20-\ufe26",
+   astral: "\ud834[\udd67-\udd69\udd7b-\udd82\udd85-\udd8b\uddaa-\uddad]|\ud800\uddfd|\udb40[\udd00-\uddef]"
   }, {
    name: "Inscriptional_Pahlavi",
-   astral: "í ‚[í½ -í½²í½¸-í½¿]"
+   astral: "\ud802[\udf60-\udf72\udf78-\udf7f]"
   }, {
    name: "Inscriptional_Parthian",
-   astral: "í ‚[í½€-í½•í½˜-í½Ÿ]"
+   astral: "\ud802[\udf40-\udf55\udf58-\udf5f]"
   }, {
    name: "Javanese",
-   bmp: "ê¦€-ê§ê§-ê§™ê§ê§Ÿ"
+   bmp: "\ua980-\ua9cd\ua9cf-\ua9d9\ua9de\ua9df"
   }, {
    name: "Kaithi",
-   astral: "í „[í²€-í³]"
+   astral: "\ud804[\udc80-\udcc1]"
   }, {
    name: "Kannada",
-   bmp: "à²‚à²ƒà²…-à²Œà²-à²à²’-à²¨à²ª-à²³à²µ-à²¹à²¼-à³„à³†-à³ˆà³Š-à³à³•à³–à³à³ -à³£à³¦-à³¯à³±à³²"
+   bmp: "\u0c82\u0c83\u0c85-\u0c8c\u0c8e-\u0c90\u0c92-\u0ca8\u0caa-\u0cb3\u0cb5-\u0cb9\u0cbc-\u0cc4\u0cc6-\u0cc8\u0cca-\u0ccd\u0cd5\u0cd6\u0cde\u0ce0-\u0ce3\u0ce6-\u0cef\u0cf1\u0cf2"
   }, {
    name: "Katakana",
-   bmp: "ã‚¡-ãƒºãƒ½-ãƒ¿ã‡°-ã‡¿ã‹-ã‹¾ãŒ€-ã—ï½¦-ï½¯ï½±-ï¾",
-   astral: "ğ›€€"
+   bmp: "\u30a1-\u30fa\u30fd-\u30ff\u31f0-\u31ff\u32d0-\u32fe\u3300-\u3357\uff66-\uff6f\uff71-\uff9d",
+   astral: "\ud82c\udc00"
   }, {
    name: "Kayah_Li",
-   bmp: "ê¤€-ê¤¯"
+   bmp: "\ua900-\ua92f"
   }, {
    name: "Kharoshthi",
-   astral: "í ‚[í¸€-í¸ƒí¸…í¸†í¸Œ-í¸“í¸•-í¸—í¸™-í¸³í¸¸-í¸ºí¸¿-í¹‡í¹-í¹˜]"
+   astral: "\ud802[\ude00-\ude03\ude05\ude06\ude0c-\ude13\ude15-\ude17\ude19-\ude33\ude38-\ude3a\ude3f-\ude47\ude50-\ude58]"
   }, {
    name: "Khmer",
-   bmp: "á€-áŸáŸ -áŸ©áŸ°-áŸ¹á§ -á§¿"
+   bmp: "\u1780-\u17dd\u17e0-\u17e9\u17f0-\u17f9\u19e0-\u19ff"
   }, {
    name: "Lao",
-   bmp: "àºàº‚àº„àº‡àºˆàºŠàºàº”-àº—àº™-àºŸàº¡-àº£àº¥àº§àºªàº«àº­-àº¹àº»-àº½à»€-à»„à»†à»ˆ-à»à»-à»™à»œ-à»Ÿ"
+   bmp: "\u0e81\u0e82\u0e84\u0e87\u0e88\u0e8a\u0e8d\u0e94-\u0e97\u0e99-\u0e9f\u0ea1-\u0ea3\u0ea5\u0ea7\u0eaa\u0eab\u0ead-\u0eb9\u0ebb-\u0ebd\u0ec0-\u0ec4\u0ec6\u0ec8-\u0ecd\u0ed0-\u0ed9\u0edc-\u0edf"
   }, {
    name: "Latin",
-   bmp: "A-Za-zÂªÂºÃ€-Ã–Ã˜-Ã¶Ã¸-Ê¸Ë -Ë¤á´€-á´¥á´¬-áµœáµ¢-áµ¥áµ«-áµ·áµ¹-á¶¾á¸€-á»¿â±â¿â‚-â‚œâ„ªâ„«â„²â…â… -â†ˆâ± -â±¿êœ¢-ê‡ê‹-êê-ê“ê -êªêŸ¸-êŸ¿ï¬€-ï¬†ï¼¡-ï¼ºï½-ï½š"
+   bmp: "A-Za-z\xaa\xba\xc0-\xd6\xd8-\xf6\xf8-\u02b8\u02e0-\u02e4\u1d00-\u1d25\u1d2c-\u1d5c\u1d62-\u1d65\u1d6b-\u1d77\u1d79-\u1dbe\u1e00-\u1eff\u2071\u207f\u2090-\u209c\u212a\u212b\u2132\u214e\u2160-\u2188\u2c60-\u2c7f\ua722-\ua787\ua78b-\ua78e\ua790-\ua793\ua7a0-\ua7aa\ua7f8-\ua7ff\ufb00-\ufb06\uff21-\uff3a\uff41-\uff5a"
   }, {
    name: "Lepcha",
-   bmp: "á°€-á°·á°»-á±‰á±-á±"
+   bmp: "\u1c00-\u1c37\u1c3b-\u1c49\u1c4d-\u1c4f"
   }, {
    name: "Limbu",
-   bmp: "á¤€-á¤œá¤ -á¤«á¤°-á¤»á¥€á¥„-á¥"
+   bmp: "\u1900-\u191c\u1920-\u192b\u1930-\u193b\u1940\u1944-\u194f"
   }, {
    name: "Linear_B",
-   astral: "í €[í°€-í°‹í°-í°¦í°¨-í°ºí°¼í°½í°¿-í±í±-í±í²€-í³º]"
+   astral: "\ud800[\udc00-\udc0b\udc0d-\udc26\udc28-\udc3a\udc3c\udc3d\udc3f-\udc4d\udc50-\udc5d\udc80-\udcfa]"
   }, {
    name: "Lisu",
-   bmp: "ê“-ê“¿"
+   bmp: "\ua4d0-\ua4ff"
   }, {
    name: "Lycian",
-   astral: "í €[íº€-íºœ]"
+   astral: "\ud800[\ude80-\ude9c]"
   }, {
    name: "Lydian",
-   astral: "í ‚[í´ -í´¹í´¿]"
+   astral: "\ud802[\udd20-\udd39\udd3f]"
   }, {
    name: "Malayalam",
-   bmp: "à´‚à´ƒà´…-à´Œà´-à´à´’-à´ºà´½-àµ„àµ†-àµˆàµŠ-àµàµ—àµ -àµ£àµ¦-àµµàµ¹-àµ¿"
+   bmp: "\u0d02\u0d03\u0d05-\u0d0c\u0d0e-\u0d10\u0d12-\u0d3a\u0d3d-\u0d44\u0d46-\u0d48\u0d4a-\u0d4e\u0d57\u0d60-\u0d63\u0d66-\u0d75\u0d79-\u0d7f"
   }, {
    name: "Mandaic",
-   bmp: "à¡€-à¡›à¡"
+   bmp: "\u0840-\u085b\u085e"
   }, {
    name: "Meetei_Mayek",
-   bmp: "ê« -ê«¶ê¯€-ê¯­ê¯°-ê¯¹"
+   bmp: "\uaae0-\uaaf6\uabc0-\uabed\uabf0-\uabf9"
   }, {
    name: "Meroitic_Cursive",
-   astral: "í ‚[í¶ -í¶·í¶¾í¶¿]"
+   astral: "\ud802[\udda0-\uddb7\uddbe\uddbf]"
   }, {
    name: "Meroitic_Hieroglyphs",
-   astral: "í ‚[í¶€-í¶Ÿ]"
+   astral: "\ud802[\udd80-\udd9f]"
   }, {
    name: "Miao",
-   astral: "í ›[í¼€-í½„í½-í½¾í¾-í¾Ÿ]"
+   astral: "\ud81b[\udf00-\udf44\udf50-\udf7e\udf8f-\udf9f]"
   }, {
    name: "Mongolian",
-   bmp: "á €á á „á †-á á -á ™á  -á¡·á¢€-á¢ª"
+   bmp: "\u1800\u1801\u1804\u1806-\u180e\u1810-\u1819\u1820-\u1877\u1880-\u18aa"
   }, {
    name: "Myanmar",
-   bmp: "á€€-á‚Ÿê© -ê©»"
+   bmp: "\u1000-\u109f\uaa60-\uaa7b"
   }, {
    name: "New_Tai_Lue",
-   bmp: "á¦€-á¦«á¦°-á§‰á§-á§šá§á§Ÿ"
+   bmp: "\u1980-\u19ab\u19b0-\u19c9\u19d0-\u19da\u19de\u19df"
   }, {
    name: "Nko",
-   bmp: "ß€-ßº"
+   bmp: "\u07c0-\u07fa"
   }, {
    name: "Ogham",
-   bmp: "áš€-ášœ"
+   bmp: "\u1680-\u169c"
   }, {
    name: "Ol_Chiki",
-   bmp: "á±-á±¿"
+   bmp: "\u1c50-\u1c7f"
   }, {
    name: "Old_Italic",
-   astral: "í €[í¼€-í¼í¼ -í¼£]"
+   astral: "\ud800[\udf00-\udf1e\udf20-\udf23]"
   }, {
    name: "Old_Persian",
-   astral: "í €[í¾ -í¿ƒí¿ˆ-í¿•]"
+   astral: "\ud800[\udfa0-\udfc3\udfc8-\udfd5]"
   }, {
    name: "Old_South_Arabian",
-   astral: "í ‚[í¹ -í¹¿]"
+   astral: "\ud802[\ude60-\ude7f]"
   }, {
    name: "Old_Turkic",
-   astral: "í ƒ[í°€-í±ˆ]"
+   astral: "\ud803[\udc00-\udc48]"
   }, {
    name: "Oriya",
-   bmp: "à¬-à¬ƒà¬…-à¬Œà¬à¬à¬“-à¬¨à¬ª-à¬°à¬²à¬³à¬µ-à¬¹à¬¼-à­„à­‡à­ˆà­‹-à­à­–à­—à­œà­à­Ÿ-à­£à­¦-à­·"
+   bmp: "\u0b01-\u0b03\u0b05-\u0b0c\u0b0f\u0b10\u0b13-\u0b28\u0b2a-\u0b30\u0b32\u0b33\u0b35-\u0b39\u0b3c-\u0b44\u0b47\u0b48\u0b4b-\u0b4d\u0b56\u0b57\u0b5c\u0b5d\u0b5f-\u0b63\u0b66-\u0b77"
   }, {
    name: "Osmanya",
-   astral: "í [í²€-í²í² -í²©]"
+   astral: "\ud801[\udc80-\udc9d\udca0-\udca9]"
   }, {
    name: "Phags_Pa",
-   bmp: "ê¡€-ê¡·"
+   bmp: "\ua840-\ua877"
   }, {
    name: "Phoenician",
-   astral: "í ‚[í´€-í´›í´Ÿ]"
+   astral: "\ud802[\udd00-\udd1b\udd1f]"
   }, {
    name: "Rejang",
-   bmp: "ê¤°-ê¥“ê¥Ÿ"
+   bmp: "\ua930-\ua953\ua95f"
   }, {
    name: "Runic",
-   bmp: "áš -á›ªá›®-á›°"
+   bmp: "\u16a0-\u16ea\u16ee-\u16f0"
   }, {
    name: "Samaritan",
-   bmp: "à €-à ­à °-à ¾"
+   bmp: "\u0800-\u082d\u0830-\u083e"
   }, {
    name: "Saurashtra",
-   bmp: "ê¢€-ê£„ê£-ê£™"
+   bmp: "\ua880-\ua8c4\ua8ce-\ua8d9"
   }, {
    name: "Sharada",
-   astral: "í „[í¶€-í·ˆí·-í·™]"
+   astral: "\ud804[\udd80-\uddc8\uddd0-\uddd9]"
   }, {
    name: "Shavian",
-   astral: "í [í±-í±¿]"
+   astral: "\ud801[\udc50-\udc7f]"
   }, {
    name: "Sinhala",
-   bmp: "à¶‚à¶ƒà¶…-à¶–à¶š-à¶±à¶³-à¶»à¶½à·€-à·†à·Šà·-à·”à·–à·˜-à·Ÿà·²-à·´"
+   bmp: "\u0d82\u0d83\u0d85-\u0d96\u0d9a-\u0db1\u0db3-\u0dbb\u0dbd\u0dc0-\u0dc6\u0dca\u0dcf-\u0dd4\u0dd6\u0dd8-\u0ddf\u0df2-\u0df4"
   }, {
    name: "Sora_Sompeng",
-   astral: "í „[í³-í³¨í³°-í³¹]"
+   astral: "\ud804[\udcd0-\udce8\udcf0-\udcf9]"
   }, {
    name: "Sundanese",
-   bmp: "á®€-á®¿á³€-á³‡"
+   bmp: "\u1b80-\u1bbf\u1cc0-\u1cc7"
   }, {
    name: "Syloti_Nagri",
-   bmp: "ê €-ê «"
+   bmp: "\ua800-\ua82b"
   }, {
    name: "Syriac",
-   bmp: "Ü€-ÜÜ-İŠİ-İ"
+   bmp: "\u0700-\u070d\u070f-\u074a\u074d-\u074f"
   }, {
    name: "Tagalog",
-   bmp: "áœ€-áœŒáœ-áœ”"
+   bmp: "\u1700-\u170c\u170e-\u1714"
   }, {
    name: "Tagbanwa",
-   bmp: "á -á¬á®-á°á²á³"
+   bmp: "\u1760-\u176c\u176e-\u1770\u1772\u1773"
   }, {
    name: "Tai_Le",
-   bmp: "á¥-á¥­á¥°-á¥´"
+   bmp: "\u1950-\u196d\u1970-\u1974"
   }, {
    name: "Tai_Tham",
-   bmp: "á¨ -á©á© -á©¼á©¿-áª‰áª-áª™áª -áª­"
+   bmp: "\u1a20-\u1a5e\u1a60-\u1a7c\u1a7f-\u1a89\u1a90-\u1a99\u1aa0-\u1aad"
   }, {
    name: "Tai_Viet",
-   bmp: "êª€-ê«‚ê«›-ê«Ÿ"
+   bmp: "\uaa80-\uaac2\uaadb-\uaadf"
   }, {
    name: "Takri",
-   astral: "í …[íº€-íº·í»€-í»‰]"
+   astral: "\ud805[\ude80-\udeb7\udec0-\udec9]"
   }, {
    name: "Tamil",
-   bmp: "à®‚à®ƒà®…-à®Šà®-à®à®’-à®•à®™à®šà®œà®à®Ÿà®£à®¤à®¨-à®ªà®®-à®¹à®¾-à¯‚à¯†-à¯ˆà¯Š-à¯à¯à¯—à¯¦-à¯º"
+   bmp: "\u0b82\u0b83\u0b85-\u0b8a\u0b8e-\u0b90\u0b92-\u0b95\u0b99\u0b9a\u0b9c\u0b9e\u0b9f\u0ba3\u0ba4\u0ba8-\u0baa\u0bae-\u0bb9\u0bbe-\u0bc2\u0bc6-\u0bc8\u0bca-\u0bcd\u0bd0\u0bd7\u0be6-\u0bfa"
   }, {
    name: "Telugu",
-   bmp: "à°-à°ƒà°…-à°Œà°-à°à°’-à°¨à°ª-à°³à°µ-à°¹à°½-à±„à±†-à±ˆà±Š-à±à±•à±–à±˜à±™à± -à±£à±¦-à±¯à±¸-à±¿"
+   bmp: "\u0c01-\u0c03\u0c05-\u0c0c\u0c0e-\u0c10\u0c12-\u0c28\u0c2a-\u0c33\u0c35-\u0c39\u0c3d-\u0c44\u0c46-\u0c48\u0c4a-\u0c4d\u0c55\u0c56\u0c58\u0c59\u0c60-\u0c63\u0c66-\u0c6f\u0c78-\u0c7f"
   }, {
    name: "Thaana",
-   bmp: "Ş€-Ş±"
+   bmp: "\u0780-\u07b1"
   }, {
    name: "Thai",
-   bmp: "à¸-à¸ºà¹€-à¹›"
+   bmp: "\u0e01-\u0e3a\u0e40-\u0e5b"
   }, {
    name: "Tibetan",
-   bmp: "à¼€-à½‡à½‰-à½¬à½±-à¾—à¾™-à¾¼à¾¾-à¿Œà¿-à¿”à¿™à¿š"
+   bmp: "\u0f00-\u0f47\u0f49-\u0f6c\u0f71-\u0f97\u0f99-\u0fbc\u0fbe-\u0fcc\u0fce-\u0fd4\u0fd9\u0fda"
   }, {
    name: "Tifinagh",
-   bmp: "â´°-âµ§âµ¯âµ°âµ¿"
+   bmp: "\u2d30-\u2d67\u2d6f\u2d70\u2d7f"
   }, {
    name: "Ugaritic",
-   astral: "í €[í¾€-í¾í¾Ÿ]"
+   astral: "\ud800[\udf80-\udf9d\udf9f]"
   }, {
    name: "Vai",
-   bmp: "ê”€-ê˜«"
+   bmp: "\ua500-\ua62b"
   }, {
    name: "Yi",
-   bmp: "ê€€-ê’Œê’-ê“†"
+   bmp: "\ua000-\ua48c\ua490-\ua4c6"
   } ]);
  }(e), e;
 }), function(e, t) {
@@ -6802,7 +6802,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
   '"': "&quot;",
   "'": "&#39;",
   "/": "&#x2F;",
-  "Â ": " "
+  "\xa0": " "
  };
  utils.escape = function(e) {
   return String(e).replace(/[&<"'\/\u00a0]/g, function(e) {
@@ -6931,7 +6931,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  }, utils;
 }), define("constants", [], function() {
  var e = {};
- return e.VERSION = "1.7.4", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
+ return e.VERSION = "1.7.5", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
  e.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ", e.GOOGLE_DRIVE_APP_ID = "1017251498254", 
  e.DROPBOX_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_APP_SECRET = "1mesyckskczn3f9", 
  e.DROPBOX_RESTRICTED_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_RESTRICTED_APP_SECRET = "1mesyckskczn3f9", 
@@ -6950,7 +6950,8 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.GHOST_PROXY_URL = "https://writeon-ghost-proxy.herokuapp.com/", 
  e.WORDPRESS_CLIENT_ID = "37431", e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", 
- 0 === location.hostname.indexOf("writeon.io") ? (e.BASE_URL = e.MAIN_URL, e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
+ 0 === location.hostname.indexOf("writeon.io") ? (e.BASE_URL = e.MAIN_URL, e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
+ e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr.herokuapp.com/", e.COUCHDB_SERVER = "https://cloud1.writeon.io") : 0 === location.hostname.indexOf("beta.writeon.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
  e.BASE_URL = "https://beta.writeon.io/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
@@ -6983,11 +6984,10 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "37431", 
  e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_DB = "documents", 
  e.COUCHDB_SERVER = "https://cloud3.writeon.io"), e.THEME_LIST = {
-  neat: "Neat",
+  gray: "Default",
+  neat: "Minimal",
   blue: "Blue",
-  gray: "Gray",
   night: "Night",
-  school: "School",
   "solarized-light": "Solarized"
  }, e;
 }), define("settings", [ "underscore", "constants", "storage" ], function(e, t, n) {
@@ -7008,7 +7008,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
   dropboxFullAccess: !0,
   githubFullAccess: !0,
   template: [ "<!DOCTYPE html>", "<html>", "<head>", '<meta charset="utf-8">', '<meta name="viewport" content="width=device-width, initial-scale=1.0">', "<title><%= documentTitle %></title>", '<link rel="stylesheet" href="' + t.MAIN_URL + 'res-min/themes/blue.css" />', "</head>", '<body><div class="container"><%= documentHTML %></div></body>', "</html>" ].join("\n"),
-  pdfTemplate: [ "<!DOCTYPE html>", "<html>", "<head>", '<meta charset="utf-8">', "<title><%= documentTitle %></title>", '<link rel="stylesheet" href="http://i.writeon.io/res-min/themes/blue.css" />', "</head>", "<body><%= documentHTML %></body>", "</html>" ].join("\n"),
+  pdfTemplate: [ "<!DOCTYPE html>", "<html>", "<head>", '<meta charset="utf-8">', "<title><%= documentTitle %></title>", '<link rel="stylesheet" href="http://i.writeon.io/res-min/themes/gray.css" />', "</head>", "<body><%= documentHTML %></body>", "</html>" ].join("\n"),
   pdfOptions: [ "{", '    "marginTop": 25,', '    "marginRight": 25,', '    "marginBottom": 25,', '    "marginLeft": 25,', '    "pageSize": "A4"', "}" ].join("\n"),
   couchdb: t.COUCHDB_DB,
   couchdbserver: t.COUCHDB_SERVER,
@@ -7324,7 +7324,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  t.get = function(e, t, i) {
   try {
    var r = n.readFileSync(e, "utf8");
-   0 === r.indexOf("ï»¿") && (r = r.substring(1)), t(r);
+   0 === r.indexOf("\ufeff") && (r = r.substring(1)), t(r);
   } catch (o) {
    i && i(o);
   }
@@ -8042,7 +8042,8 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
   escapeWithSingleQuotes: function(e) {
    return "'" + e.replace(/'/g, "''") + "'";
   }
- }, YamlEscaper.REGEX_CHARACTER_TO_ESCAPE = "[\\x00-\\x1f]|Ã‚Â…|Ã‚Â |Ã¢Â€Â¨|Ã¢Â€Â©", YamlEscaper.escapees = [ "\\\\", '\\"', '"', "\x00", "", "", "", "", "", "", "", "\b", "	", "\n", "", "\f", "\r", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "Ã‚Â…", "Ã‚Â ", "Ã¢Â€Â¨", "Ã¢Â€Â©" ], 
+ }, YamlEscaper.REGEX_CHARACTER_TO_ESCAPE = "[\\x00-\\x1f]|\xc2\x85|\xc2\xa0|\xe2\x80\xa8|\xe2\x80\xa9", 
+ YamlEscaper.escapees = [ "\\\\", '\\"', '"', "\x00", "", "", "", "", "", "", "", "\b", "	", "\n", "", "\f", "\r", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "\xc2\x85", "\xc2\xa0", "\xe2\x80\xa8", "\xe2\x80\xa9" ], 
  YamlEscaper.escaped = [ '\\"', "\\\\", '\\"', "\\0", "\\x01", "\\x02", "\\x03", "\\x04", "\\x05", "\\x06", "\\a", "\\b", "\\t", "\\n", "\\v", "\\f", "\\r", "\\x0e", "\\x0f", "\\x10", "\\x11", "\\x12", "\\x13", "\\x14", "\\x15", "\\x16", "\\x17", "\\x18", "\\x19", "\\x1a", "\\e", "\\x1c", "\\x1d", "\\x1e", "\\x1f", "\\N", "\\_", "\\L", "\\P" ];
  var a = function() {};
  a.prototype = {
@@ -8100,10 +8101,10 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
     return "\\";
 
    case "N":
-    return "\x00Â…";
+    return "\x00\x85";
 
    case "_":
-    return "\x00Â ";
+    return "\x00\xa0";
 
    case "L":
     return " (";
@@ -8412,7 +8413,7 @@ var prettyPrintOne, prettyPrint;
   c && n.push([ M, c ]);
   var u = ("" + e.keywords).replace(/^ | $/g, "");
   u.length && n.push([ N, new RegExp("^(?:" + u.replace(/[\s,]+/g, "|") + ")\\b"), null ]), 
-  t.push([ P, /^\s+/, null, " \r\n	Â " ]);
+  t.push([ P, /^\s+/, null, " \r\n	\xa0" ]);
   var d = "^.[^\\s\\w.$@'\"`/\\\\]*";
   return e.regexLiterals && (d += "(?!s*/)"), n.push([ A, /^@[a-z_$][a-z_$@0-9]*/i, null ], [ M, /^(?:[@_]?[A-Z]+[a-z][A-Za-z_$@0-9]*|\w+_t\b)/, null ], [ P, /^[a-z_$][a-z_$@0-9]*/i, null ], [ A, new RegExp("^(?:0x[a-f0-9]+|(?:\\d(?:_\\d+)*\\d*(?:\\.\\d*)?|\\.\\d\\+)(?:e[+\\-]?\\d+)?)[a-z]*", "i"), null, "0123456789" ], [ P, /^\\[\s\S]?/, null ], [ R, new RegExp(d), null ]), 
   r(t, n);
@@ -8456,7 +8457,7 @@ var prettyPrintOne, prettyPrint;
   var d = s.createElement("ol");
   d.className = "linenums";
   for (var p = Math.max(0, t - 1 | 0) || 0, u = 0, h = c.length; h > u; ++u) l = c[u], 
-  l.className = "L" + (u + p) % 10, l.firstChild || l.appendChild(s.createTextNode("Â ")), 
+  l.className = "L" + (u + p) % 10, l.firstChild || l.appendChild(s.createTextNode("\xa0")), 
   d.appendChild(l);
   e.appendChild(d);
  }
@@ -10197,7 +10198,7 @@ hljs.registerLanguage("bash", function(e) {
 }), hljs.registerLanguage("php", function(e) {
  var t = {
   cN: "variable",
-  b: "\\$+[a-zA-Z_-Ã¿][a-zA-Z0-9_-Ã¿]*"
+  b: "\\$+[a-zA-Z_-\xff][a-zA-Z0-9_-\xff]*"
  }, n = {
   cN: "preprocessor",
   b: /<\?(php)?|\?>/
@@ -10368,7 +10369,7 @@ hljs.registerLanguage("bash", function(e) {
   } ]
  };
 }), hljs.registerLanguage("1c", function(e) {
- var t = "[a-zA-ZĞ°-ÑĞ-Ğ¯][a-zA-Z0-9_Ğ°-ÑĞ-Ğ¯]*", n = "Ğ²Ğ¾Ğ·Ğ²Ñ€Ğ°Ñ‚ Ğ´Ğ°Ñ‚Ğ° Ğ´Ğ»Ñ ĞµÑĞ»Ğ¸ Ğ¸ Ğ¸Ğ»Ğ¸ Ğ¸Ğ½Ğ°Ñ‡Ğµ Ğ¸Ğ½Ğ°Ñ‡ĞµĞµÑĞ»Ğ¸ Ğ¸ÑĞºĞ»ÑÑ‡ĞµĞ½Ğ¸Ğµ ĞºĞ¾Ğ½ĞµÑ†ĞµÑĞ»Ğ¸ ĞºĞ¾Ğ½ĞµÑ†Ğ¿Ğ¾Ğ¿Ñ‹Ñ‚ĞºĞ¸ ĞºĞ¾Ğ½ĞµÑ†Ğ¿Ñ€Ğ¾Ñ†ĞµĞ´ÑƒÑ€Ñ‹ ĞºĞ¾Ğ½ĞµÑ†Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ğ¸ ĞºĞ¾Ğ½ĞµÑ†Ñ†Ğ¸ĞºĞ»Ğ° ĞºĞ¾Ğ½ÑÑ‚Ğ°Ğ½Ñ‚Ğ° Ğ½Ğµ Ğ¿ĞµÑ€ĞµĞ¹Ñ‚Ğ¸ Ğ¿ĞµÑ€ĞµĞ¼ Ğ¿ĞµÑ€ĞµÑ‡Ğ¸ÑĞ»ĞµĞ½Ğ¸Ğµ Ğ¿Ğ¾ Ğ¿Ğ¾ĞºĞ° Ğ¿Ğ¾Ğ¿Ñ‹Ñ‚ĞºĞ° Ğ¿Ñ€ĞµÑ€Ğ²Ğ°Ñ‚ÑŒ Ğ¿Ñ€Ğ¾Ğ´Ğ¾Ğ»Ğ¶Ğ¸Ñ‚ÑŒ Ğ¿Ñ€Ğ¾Ñ†ĞµĞ´ÑƒÑ€Ğ° ÑÑ‚Ñ€Ğ¾ĞºĞ° Ñ‚Ğ¾Ğ³Ğ´Ğ° Ñ„Ñ Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ñ Ñ†Ğ¸ĞºĞ» Ñ‡Ğ¸ÑĞ»Ğ¾ ÑĞºÑĞ¿Ğ¾Ñ€Ñ‚", i = "ansitooem oemtoansi Ğ²Ğ²ĞµÑÑ‚Ğ¸Ğ²Ğ¸Ğ´ÑÑƒĞ±ĞºĞ¾Ğ½Ñ‚Ğ¾ Ğ²Ğ²ĞµÑÑ‚Ğ¸Ğ´Ğ°Ñ‚Ñƒ Ğ²Ğ²ĞµÑÑ‚Ğ¸Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ Ğ²Ğ²ĞµÑÑ‚Ğ¸Ğ¿ĞµÑ€ĞµÑ‡Ğ¸ÑĞ»ĞµĞ½Ğ¸Ğµ Ğ²Ğ²ĞµÑÑ‚Ğ¸Ğ¿ĞµÑ€Ğ¸Ğ¾Ğ´ Ğ²Ğ²ĞµÑÑ‚Ğ¸Ğ¿Ğ»Ğ°Ğ½ÑÑ‡ĞµÑ‚Ğ¾Ğ² Ğ²Ğ²ĞµÑÑ‚Ğ¸ÑÑ‚Ñ€Ğ¾ĞºÑƒ Ğ²Ğ²ĞµÑÑ‚Ğ¸Ñ‡Ğ¸ÑĞ»Ğ¾ Ğ²Ğ¾Ğ¿Ñ€Ğ¾Ñ Ğ²Ğ¾ÑÑÑ‚Ğ°Ğ½Ğ¾Ğ²Ğ¸Ñ‚ÑŒĞ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ Ğ²Ñ€ĞµĞ³ Ğ²Ñ‹Ğ±Ñ€Ğ°Ğ½Ğ½Ñ‹Ğ¹Ğ¿Ğ»Ğ°Ğ½ÑÑ‡ĞµÑ‚Ğ¾Ğ² Ğ²Ñ‹Ğ·Ğ²Ğ°Ñ‚ÑŒĞ¸ÑĞºĞ»ÑÑ‡ĞµĞ½Ğ¸Ğµ Ğ´Ğ°Ñ‚Ğ°Ğ³Ğ¾Ğ´ Ğ´Ğ°Ñ‚Ğ°Ğ¼ĞµÑÑÑ† Ğ´Ğ°Ñ‚Ğ°Ñ‡Ğ¸ÑĞ»Ğ¾ Ğ´Ğ¾Ğ±Ğ°Ğ²Ğ¸Ñ‚ÑŒĞ¼ĞµÑÑÑ† Ğ·Ğ°Ğ²ĞµÑ€ÑˆĞ¸Ñ‚ÑŒÑ€Ğ°Ğ±Ğ¾Ñ‚ÑƒÑĞ¸ÑÑ‚ĞµĞ¼Ñ‹ Ğ·Ğ°Ğ³Ğ¾Ğ»Ğ¾Ğ²Ğ¾ĞºÑĞ¸ÑÑ‚ĞµĞ¼Ñ‹ Ğ·Ğ°Ğ¿Ğ¸ÑÑŒĞ¶ÑƒÑ€Ğ½Ğ°Ğ»Ğ°Ñ€ĞµĞ³Ğ¸ÑÑ‚Ñ€Ğ°Ñ†Ğ¸Ğ¸ Ğ·Ğ°Ğ¿ÑƒÑÑ‚Ğ¸Ñ‚ÑŒĞ¿Ñ€Ğ¸Ğ»Ğ¾Ğ¶ĞµĞ½Ğ¸Ğµ Ğ·Ğ°Ñ„Ğ¸ĞºÑĞ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒÑ‚Ñ€Ğ°Ğ½Ğ·Ğ°ĞºÑ†Ğ¸Ñ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸ĞµĞ²ÑÑ‚Ñ€Ğ¾ĞºÑƒ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸ĞµĞ²ÑÑ‚Ñ€Ğ¾ĞºÑƒĞ²Ğ½ÑƒÑ‚Ñ€ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸ĞµĞ²Ñ„Ğ°Ğ¹Ğ» Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸ĞµĞ¸Ğ·ÑÑ‚Ñ€Ğ¾ĞºĞ¸ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸ĞµĞ¸Ğ·ÑÑ‚Ñ€Ğ¾ĞºĞ¸Ğ²Ğ½ÑƒÑ‚Ñ€ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸ĞµĞ¸Ğ·Ñ„Ğ°Ğ¹Ğ»Ğ° Ğ¸Ğ¼ÑĞºĞ¾Ğ¼Ğ¿ÑŒÑÑ‚ĞµÑ€Ğ° Ğ¸Ğ¼ÑĞ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ñ ĞºĞ°Ñ‚Ğ°Ğ»Ğ¾Ğ³Ğ²Ñ€ĞµĞ¼ĞµĞ½Ğ½Ñ‹Ñ…Ñ„Ğ°Ğ¹Ğ»Ğ¾Ğ² ĞºĞ°Ñ‚Ğ°Ğ»Ğ¾Ğ³Ğ¸Ğ± ĞºĞ°Ñ‚Ğ°Ğ»Ğ¾Ğ³Ğ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ñ ĞºĞ°Ñ‚Ğ°Ğ»Ğ¾Ğ³Ğ¿Ñ€Ğ¾Ğ³Ñ€Ğ°Ğ¼Ğ¼Ñ‹ ĞºĞ¾Ğ´ÑĞ¸Ğ¼Ğ² ĞºĞ¾Ğ¼Ğ°Ğ½Ğ´Ğ°ÑĞ¸ÑÑ‚ĞµĞ¼Ñ‹ ĞºĞ¾Ğ½Ğ³Ğ¾Ğ´Ğ° ĞºĞ¾Ğ½ĞµÑ†Ğ¿ĞµÑ€Ğ¸Ğ¾Ğ´Ğ°Ğ±Ğ¸ ĞºĞ¾Ğ½ĞµÑ†Ñ€Ğ°ÑÑÑ‡Ğ¸Ñ‚Ğ°Ğ½Ğ½Ğ¾Ğ³Ğ¾Ğ¿ĞµÑ€Ğ¸Ğ¾Ğ´Ğ°Ğ±Ğ¸ ĞºĞ¾Ğ½ĞµÑ†ÑÑ‚Ğ°Ğ½Ğ´Ğ°Ñ€Ñ‚Ğ½Ğ¾Ğ³Ğ¾Ğ¸Ğ½Ñ‚ĞµÑ€Ğ²Ğ°Ğ»Ğ° ĞºĞ¾Ğ½ĞºĞ²Ğ°Ñ€Ñ‚Ğ°Ğ»Ğ° ĞºĞ¾Ğ½Ğ¼ĞµÑÑÑ†Ğ° ĞºĞ¾Ğ½Ğ½ĞµĞ´ĞµĞ»Ğ¸ Ğ»ĞµĞ² Ğ»Ğ¾Ğ³ Ğ»Ğ¾Ğ³10 Ğ¼Ğ°ĞºÑ Ğ¼Ğ°ĞºÑĞ¸Ğ¼Ğ°Ğ»ÑŒĞ½Ğ¾ĞµĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾ÑÑƒĞ±ĞºĞ¾Ğ½Ñ‚Ğ¾ Ğ¼Ğ¸Ğ½ Ğ¼Ğ¾Ğ½Ğ¾Ğ¿Ğ¾Ğ»ÑŒĞ½Ñ‹Ğ¹Ñ€ĞµĞ¶Ğ¸Ğ¼ Ğ½Ğ°Ğ·Ğ²Ğ°Ğ½Ğ¸ĞµĞ¸Ğ½Ñ‚ĞµÑ€Ñ„ĞµĞ¹ÑĞ° Ğ½Ğ°Ğ·Ğ²Ğ°Ğ½Ğ¸ĞµĞ½Ğ°Ğ±Ğ¾Ñ€Ğ°Ğ¿Ñ€Ğ°Ğ² Ğ½Ğ°Ğ·Ğ½Ğ°Ñ‡Ğ¸Ñ‚ÑŒĞ²Ğ¸Ğ´ Ğ½Ğ°Ğ·Ğ½Ğ°Ñ‡Ğ¸Ñ‚ÑŒÑÑ‡ĞµÑ‚ Ğ½Ğ°Ğ¹Ñ‚Ğ¸ Ğ½Ğ°Ğ¹Ñ‚Ğ¸Ğ¿Ğ¾Ğ¼ĞµÑ‡ĞµĞ½Ğ½Ñ‹ĞµĞ½Ğ°ÑƒĞ´Ğ°Ğ»ĞµĞ½Ğ¸Ğµ Ğ½Ğ°Ğ¹Ñ‚Ğ¸ÑÑÑ‹Ğ»ĞºĞ¸ Ğ½Ğ°Ñ‡Ğ°Ğ»Ğ¾Ğ¿ĞµÑ€Ğ¸Ğ¾Ğ´Ğ°Ğ±Ğ¸ Ğ½Ğ°Ñ‡Ğ°Ğ»Ğ¾ÑÑ‚Ğ°Ğ½Ğ´Ğ°Ñ€Ñ‚Ğ½Ğ¾Ğ³Ğ¾Ğ¸Ğ½Ñ‚ĞµÑ€Ğ²Ğ°Ğ»Ğ° Ğ½Ğ°Ñ‡Ğ°Ñ‚ÑŒÑ‚Ñ€Ğ°Ğ½Ğ·Ğ°ĞºÑ†Ğ¸Ñ Ğ½Ğ°Ñ‡Ğ³Ğ¾Ğ´Ğ° Ğ½Ğ°Ñ‡ĞºĞ²Ğ°Ñ€Ñ‚Ğ°Ğ»Ğ° Ğ½Ğ°Ñ‡Ğ¼ĞµÑÑÑ†Ğ° Ğ½Ğ°Ñ‡Ğ½ĞµĞ´ĞµĞ»Ğ¸ Ğ½Ğ¾Ğ¼ĞµÑ€Ğ´Ğ½ÑĞ³Ğ¾Ğ´Ğ° Ğ½Ğ¾Ğ¼ĞµÑ€Ğ´Ğ½ÑĞ½ĞµĞ´ĞµĞ»Ğ¸ Ğ½Ğ¾Ğ¼ĞµÑ€Ğ½ĞµĞ´ĞµĞ»Ğ¸Ğ³Ğ¾Ğ´Ğ° Ğ½Ñ€ĞµĞ³ Ğ¾Ğ±Ñ€Ğ°Ğ±Ğ¾Ñ‚ĞºĞ°Ğ¾Ğ¶Ğ¸Ğ´Ğ°Ğ½Ğ¸Ñ Ğ¾ĞºÑ€ Ğ¾Ğ¿Ğ¸ÑĞ°Ğ½Ğ¸ĞµĞ¾ÑˆĞ¸Ğ±ĞºĞ¸ Ğ¾ÑĞ½Ğ¾Ğ²Ğ½Ğ¾Ğ¹Ğ¶ÑƒÑ€Ğ½Ğ°Ğ»Ñ€Ğ°ÑÑ‡ĞµÑ‚Ğ¾Ğ² Ğ¾ÑĞ½Ğ¾Ğ²Ğ½Ğ¾Ğ¹Ğ¿Ğ»Ğ°Ğ½ÑÑ‡ĞµÑ‚Ğ¾Ğ² Ğ¾ÑĞ½Ğ¾Ğ²Ğ½Ğ¾Ğ¹ÑĞ·Ñ‹Ğº Ğ¾Ñ‚ĞºÑ€Ñ‹Ñ‚ÑŒÑ„Ğ¾Ñ€Ğ¼Ñƒ Ğ¾Ñ‚ĞºÑ€Ñ‹Ñ‚ÑŒÑ„Ğ¾Ñ€Ğ¼ÑƒĞ¼Ğ¾Ğ´Ğ°Ğ»ÑŒĞ½Ğ¾ Ğ¾Ñ‚Ğ¼ĞµĞ½Ğ¸Ñ‚ÑŒÑ‚Ñ€Ğ°Ğ½Ğ·Ğ°ĞºÑ†Ğ¸Ñ Ğ¾Ñ‡Ğ¸ÑÑ‚Ğ¸Ñ‚ÑŒĞ¾ĞºĞ½Ğ¾ÑĞ¾Ğ¾Ğ±Ñ‰ĞµĞ½Ğ¸Ğ¹ Ğ¿ĞµÑ€Ğ¸Ğ¾Ğ´ÑÑ‚Ñ€ Ğ¿Ğ¾Ğ»Ğ½Ğ¾ĞµĞ¸Ğ¼ÑĞ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ĞµĞ»Ñ Ğ¿Ğ¾Ğ»ÑƒÑ‡Ğ¸Ñ‚ÑŒĞ²Ñ€ĞµĞ¼ÑÑ‚Ğ° Ğ¿Ğ¾Ğ»ÑƒÑ‡Ğ¸Ñ‚ÑŒĞ´Ğ°Ñ‚ÑƒÑ‚Ğ° Ğ¿Ğ¾Ğ»ÑƒÑ‡Ğ¸Ñ‚ÑŒĞ´Ğ¾ĞºÑƒĞ¼ĞµĞ½Ñ‚Ñ‚Ğ° Ğ¿Ğ¾Ğ»ÑƒÑ‡Ğ¸Ñ‚ÑŒĞ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸ÑĞ¾Ñ‚Ğ±Ğ¾Ñ€Ğ° Ğ¿Ğ¾Ğ»ÑƒÑ‡Ğ¸Ñ‚ÑŒĞ¿Ğ¾Ğ·Ğ¸Ñ†Ğ¸ÑÑ‚Ğ° Ğ¿Ğ¾Ğ»ÑƒÑ‡Ğ¸Ñ‚ÑŒĞ¿ÑƒÑÑ‚Ğ¾ĞµĞ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ Ğ¿Ğ¾Ğ»ÑƒÑ‡Ğ¸Ñ‚ÑŒÑ‚Ğ° Ğ¿Ñ€Ğ°Ğ² Ğ¿Ñ€Ğ°Ğ²Ğ¾Ğ´Ğ¾ÑÑ‚ÑƒĞ¿Ğ° Ğ¿Ñ€ĞµĞ´ÑƒĞ¿Ñ€ĞµĞ¶Ğ´ĞµĞ½Ğ¸Ğµ Ğ¿Ñ€ĞµÑ„Ğ¸ĞºÑĞ°Ğ²Ñ‚Ğ¾Ğ½ÑƒĞ¼ĞµÑ€Ğ°Ñ†Ğ¸Ğ¸ Ğ¿ÑƒÑÑ‚Ğ°ÑÑÑ‚Ñ€Ğ¾ĞºĞ° Ğ¿ÑƒÑÑ‚Ğ¾ĞµĞ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ Ñ€Ğ°Ğ±Ğ¾Ñ‡Ğ°ÑĞ´Ğ°Ñ‚Ñ‚ÑŒĞ¿ÑƒÑÑ‚Ğ¾ĞµĞ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ Ñ€Ğ°Ğ±Ğ¾Ñ‡Ğ°ÑĞ´Ğ°Ñ‚Ğ° Ñ€Ğ°Ğ·Ğ´ĞµĞ»Ğ¸Ñ‚ĞµĞ»ÑŒÑÑ‚Ñ€Ğ°Ğ½Ğ¸Ñ† Ñ€Ğ°Ğ·Ğ´ĞµĞ»Ğ¸Ñ‚ĞµĞ»ÑŒÑÑ‚Ñ€Ğ¾Ğº Ñ€Ğ°Ğ·Ğ¼ Ñ€Ğ°Ğ·Ğ¾Ğ±Ñ€Ğ°Ñ‚ÑŒĞ¿Ğ¾Ğ·Ğ¸Ñ†Ğ¸ÑĞ´Ğ¾ĞºÑƒĞ¼ĞµĞ½Ñ‚Ğ° Ñ€Ğ°ÑÑÑ‡Ğ¸Ñ‚Ğ°Ñ‚ÑŒÑ€ĞµĞ³Ğ¸ÑÑ‚Ñ€Ñ‹Ğ½Ğ° Ñ€Ğ°ÑÑÑ‡Ğ¸Ñ‚Ğ°Ñ‚ÑŒÑ€ĞµĞ³Ğ¸ÑÑ‚Ñ€Ñ‹Ğ¿Ğ¾ ÑĞ¸Ğ³Ğ½Ğ°Ğ» ÑĞ¸Ğ¼Ğ² ÑĞ¸Ğ¼Ğ²Ğ¾Ğ»Ñ‚Ğ°Ğ±ÑƒĞ»ÑÑ†Ğ¸Ğ¸ ÑĞ¾Ğ·Ğ´Ğ°Ñ‚ÑŒĞ¾Ğ±ÑŠĞµĞºÑ‚ ÑĞ¾ĞºÑ€Ğ» ÑĞ¾ĞºÑ€Ğ»Ğ¿ ÑĞ¾ĞºÑ€Ğ¿ ÑĞ¾Ğ¾Ğ±Ñ‰Ğ¸Ñ‚ÑŒ ÑĞ¾ÑÑ‚Ğ¾ÑĞ½Ğ¸Ğµ ÑĞ¾Ñ…Ñ€Ğ°Ğ½Ğ¸Ñ‚ÑŒĞ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ ÑÑ€ĞµĞ´ ÑÑ‚Ğ°Ñ‚ÑƒÑĞ²Ğ¾Ğ·Ğ²Ñ€Ğ°Ñ‚Ğ° ÑÑ‚Ñ€Ğ´Ğ»Ğ¸Ğ½Ğ° ÑÑ‚Ñ€Ğ·Ğ°Ğ¼ĞµĞ½Ğ¸Ñ‚ÑŒ ÑÑ‚Ñ€ĞºĞ¾Ğ»Ğ¸Ñ‡ĞµÑÑ‚Ğ²Ğ¾ÑÑ‚Ñ€Ğ¾Ğº ÑÑ‚Ñ€Ğ¿Ğ¾Ğ»ÑƒÑ‡Ğ¸Ñ‚ÑŒÑÑ‚Ñ€Ğ¾ĞºÑƒ  ÑÑ‚Ñ€Ñ‡Ğ¸ÑĞ»Ğ¾Ğ²Ñ…Ğ¾Ğ¶Ğ´ĞµĞ½Ğ¸Ğ¹ ÑÑ„Ğ¾Ñ€Ğ¼Ğ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒĞ¿Ğ¾Ğ·Ğ¸Ñ†Ğ¸ÑĞ´Ğ¾ĞºÑƒĞ¼ĞµĞ½Ñ‚Ğ° ÑÑ‡ĞµÑ‚Ğ¿Ğ¾ĞºĞ¾Ğ´Ñƒ Ñ‚ĞµĞºÑƒÑ‰Ğ°ÑĞ´Ğ°Ñ‚Ğ° Ñ‚ĞµĞºÑƒÑ‰ĞµĞµĞ²Ñ€ĞµĞ¼Ñ Ñ‚Ğ¸Ğ¿Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ñ Ñ‚Ğ¸Ğ¿Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸ÑÑÑ‚Ñ€ ÑƒĞ´Ğ°Ğ»Ğ¸Ñ‚ÑŒĞ¾Ğ±ÑŠĞµĞºÑ‚Ñ‹ ÑƒÑÑ‚Ğ°Ğ½Ğ¾Ğ²Ğ¸Ñ‚ÑŒÑ‚Ğ°Ğ½Ğ° ÑƒÑÑ‚Ğ°Ğ½Ğ¾Ğ²Ğ¸Ñ‚ÑŒÑ‚Ğ°Ğ¿Ğ¾ Ñ„Ğ¸ĞºÑÑˆĞ°Ğ±Ğ»Ğ¾Ğ½ Ñ„Ğ¾Ñ€Ğ¼Ğ°Ñ‚ Ñ†ĞµĞ» ÑˆĞ°Ğ±Ğ»Ğ¾Ğ½", r = {
+ var t = "[a-zA-Z\u0430-\u044f\u0410-\u042f][a-zA-Z0-9_\u0430-\u044f\u0410-\u042f]*", n = "\u0432\u043e\u0437\u0432\u0440\u0430\u0442 \u0434\u0430\u0442\u0430 \u0434\u043b\u044f \u0435\u0441\u043b\u0438 \u0438 \u0438\u043b\u0438 \u0438\u043d\u0430\u0447\u0435 \u0438\u043d\u0430\u0447\u0435\u0435\u0441\u043b\u0438 \u0438\u0441\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0435 \u043a\u043e\u043d\u0435\u0446\u0435\u0441\u043b\u0438 \u043a\u043e\u043d\u0435\u0446\u043f\u043e\u043f\u044b\u0442\u043a\u0438 \u043a\u043e\u043d\u0435\u0446\u043f\u0440\u043e\u0446\u0435\u0434\u0443\u0440\u044b \u043a\u043e\u043d\u0435\u0446\u0444\u0443\u043d\u043a\u0446\u0438\u0438 \u043a\u043e\u043d\u0435\u0446\u0446\u0438\u043a\u043b\u0430 \u043a\u043e\u043d\u0441\u0442\u0430\u043d\u0442\u0430 \u043d\u0435 \u043f\u0435\u0440\u0435\u0439\u0442\u0438 \u043f\u0435\u0440\u0435\u043c \u043f\u0435\u0440\u0435\u0447\u0438\u0441\u043b\u0435\u043d\u0438\u0435 \u043f\u043e \u043f\u043e\u043a\u0430 \u043f\u043e\u043f\u044b\u0442\u043a\u0430 \u043f\u0440\u0435\u0440\u0432\u0430\u0442\u044c \u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0438\u0442\u044c \u043f\u0440\u043e\u0446\u0435\u0434\u0443\u0440\u0430 \u0441\u0442\u0440\u043e\u043a\u0430 \u0442\u043e\u0433\u0434\u0430 \u0444\u0441 \u0444\u0443\u043d\u043a\u0446\u0438\u044f \u0446\u0438\u043a\u043b \u0447\u0438\u0441\u043b\u043e \u044d\u043a\u0441\u043f\u043e\u0440\u0442", i = "ansitooem oemtoansi \u0432\u0432\u0435\u0441\u0442\u0438\u0432\u0438\u0434\u0441\u0443\u0431\u043a\u043e\u043d\u0442\u043e \u0432\u0432\u0435\u0441\u0442\u0438\u0434\u0430\u0442\u0443 \u0432\u0432\u0435\u0441\u0442\u0438\u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0432\u0432\u0435\u0441\u0442\u0438\u043f\u0435\u0440\u0435\u0447\u0438\u0441\u043b\u0435\u043d\u0438\u0435 \u0432\u0432\u0435\u0441\u0442\u0438\u043f\u0435\u0440\u0438\u043e\u0434 \u0432\u0432\u0435\u0441\u0442\u0438\u043f\u043b\u0430\u043d\u0441\u0447\u0435\u0442\u043e\u0432 \u0432\u0432\u0435\u0441\u0442\u0438\u0441\u0442\u0440\u043e\u043a\u0443 \u0432\u0432\u0435\u0441\u0442\u0438\u0447\u0438\u0441\u043b\u043e \u0432\u043e\u043f\u0440\u043e\u0441 \u0432\u043e\u0441\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c\u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0432\u0440\u0435\u0433 \u0432\u044b\u0431\u0440\u0430\u043d\u043d\u044b\u0439\u043f\u043b\u0430\u043d\u0441\u0447\u0435\u0442\u043e\u0432 \u0432\u044b\u0437\u0432\u0430\u0442\u044c\u0438\u0441\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0435 \u0434\u0430\u0442\u0430\u0433\u043e\u0434 \u0434\u0430\u0442\u0430\u043c\u0435\u0441\u044f\u0446 \u0434\u0430\u0442\u0430\u0447\u0438\u0441\u043b\u043e \u0434\u043e\u0431\u0430\u0432\u0438\u0442\u044c\u043c\u0435\u0441\u044f\u0446 \u0437\u0430\u0432\u0435\u0440\u0448\u0438\u0442\u044c\u0440\u0430\u0431\u043e\u0442\u0443\u0441\u0438\u0441\u0442\u0435\u043c\u044b \u0437\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a\u0441\u0438\u0441\u0442\u0435\u043c\u044b \u0437\u0430\u043f\u0438\u0441\u044c\u0436\u0443\u0440\u043d\u0430\u043b\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u0438 \u0437\u0430\u043f\u0443\u0441\u0442\u0438\u0442\u044c\u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u0437\u0430\u0444\u0438\u043a\u0441\u0438\u0440\u043e\u0432\u0430\u0442\u044c\u0442\u0440\u0430\u043d\u0437\u0430\u043a\u0446\u0438\u044e \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u0432\u0441\u0442\u0440\u043e\u043a\u0443 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u0432\u0441\u0442\u0440\u043e\u043a\u0443\u0432\u043d\u0443\u0442\u0440 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u0432\u0444\u0430\u0439\u043b \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u0438\u0437\u0441\u0442\u0440\u043e\u043a\u0438 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u0438\u0437\u0441\u0442\u0440\u043e\u043a\u0438\u0432\u043d\u0443\u0442\u0440 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435\u0438\u0437\u0444\u0430\u0439\u043b\u0430 \u0438\u043c\u044f\u043a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440\u0430 \u0438\u043c\u044f\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043a\u0430\u0442\u0430\u043b\u043e\u0433\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u044b\u0445\u0444\u0430\u0439\u043b\u043e\u0432 \u043a\u0430\u0442\u0430\u043b\u043e\u0433\u0438\u0431 \u043a\u0430\u0442\u0430\u043b\u043e\u0433\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043a\u0430\u0442\u0430\u043b\u043e\u0433\u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b \u043a\u043e\u0434\u0441\u0438\u043c\u0432 \u043a\u043e\u043c\u0430\u043d\u0434\u0430\u0441\u0438\u0441\u0442\u0435\u043c\u044b \u043a\u043e\u043d\u0433\u043e\u0434\u0430 \u043a\u043e\u043d\u0435\u0446\u043f\u0435\u0440\u0438\u043e\u0434\u0430\u0431\u0438 \u043a\u043e\u043d\u0435\u0446\u0440\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u043d\u043d\u043e\u0433\u043e\u043f\u0435\u0440\u0438\u043e\u0434\u0430\u0431\u0438 \u043a\u043e\u043d\u0435\u0446\u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043d\u043e\u0433\u043e\u0438\u043d\u0442\u0435\u0440\u0432\u0430\u043b\u0430 \u043a\u043e\u043d\u043a\u0432\u0430\u0440\u0442\u0430\u043b\u0430 \u043a\u043e\u043d\u043c\u0435\u0441\u044f\u0446\u0430 \u043a\u043e\u043d\u043d\u0435\u0434\u0435\u043b\u0438 \u043b\u0435\u0432 \u043b\u043e\u0433 \u043b\u043e\u043310 \u043c\u0430\u043a\u0441 \u043c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u043e\u0435\u043a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e\u0441\u0443\u0431\u043a\u043e\u043d\u0442\u043e \u043c\u0438\u043d \u043c\u043e\u043d\u043e\u043f\u043e\u043b\u044c\u043d\u044b\u0439\u0440\u0435\u0436\u0438\u043c \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435\u0438\u043d\u0442\u0435\u0440\u0444\u0435\u0439\u0441\u0430 \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435\u043d\u0430\u0431\u043e\u0440\u0430\u043f\u0440\u0430\u0432 \u043d\u0430\u0437\u043d\u0430\u0447\u0438\u0442\u044c\u0432\u0438\u0434 \u043d\u0430\u0437\u043d\u0430\u0447\u0438\u0442\u044c\u0441\u0447\u0435\u0442 \u043d\u0430\u0439\u0442\u0438 \u043d\u0430\u0439\u0442\u0438\u043f\u043e\u043c\u0435\u0447\u0435\u043d\u043d\u044b\u0435\u043d\u0430\u0443\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u043d\u0430\u0439\u0442\u0438\u0441\u0441\u044b\u043b\u043a\u0438 \u043d\u0430\u0447\u0430\u043b\u043e\u043f\u0435\u0440\u0438\u043e\u0434\u0430\u0431\u0438 \u043d\u0430\u0447\u0430\u043b\u043e\u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043d\u043e\u0433\u043e\u0438\u043d\u0442\u0435\u0440\u0432\u0430\u043b\u0430 \u043d\u0430\u0447\u0430\u0442\u044c\u0442\u0440\u0430\u043d\u0437\u0430\u043a\u0446\u0438\u044e \u043d\u0430\u0447\u0433\u043e\u0434\u0430 \u043d\u0430\u0447\u043a\u0432\u0430\u0440\u0442\u0430\u043b\u0430 \u043d\u0430\u0447\u043c\u0435\u0441\u044f\u0446\u0430 \u043d\u0430\u0447\u043d\u0435\u0434\u0435\u043b\u0438 \u043d\u043e\u043c\u0435\u0440\u0434\u043d\u044f\u0433\u043e\u0434\u0430 \u043d\u043e\u043c\u0435\u0440\u0434\u043d\u044f\u043d\u0435\u0434\u0435\u043b\u0438 \u043d\u043e\u043c\u0435\u0440\u043d\u0435\u0434\u0435\u043b\u0438\u0433\u043e\u0434\u0430 \u043d\u0440\u0435\u0433 \u043e\u0431\u0440\u0430\u0431\u043e\u0442\u043a\u0430\u043e\u0436\u0438\u0434\u0430\u043d\u0438\u044f \u043e\u043a\u0440 \u043e\u043f\u0438\u0441\u0430\u043d\u0438\u0435\u043e\u0448\u0438\u0431\u043a\u0438 \u043e\u0441\u043d\u043e\u0432\u043d\u043e\u0439\u0436\u0443\u0440\u043d\u0430\u043b\u0440\u0430\u0441\u0447\u0435\u0442\u043e\u0432 \u043e\u0441\u043d\u043e\u0432\u043d\u043e\u0439\u043f\u043b\u0430\u043d\u0441\u0447\u0435\u0442\u043e\u0432 \u043e\u0441\u043d\u043e\u0432\u043d\u043e\u0439\u044f\u0437\u044b\u043a \u043e\u0442\u043a\u0440\u044b\u0442\u044c\u0444\u043e\u0440\u043c\u0443 \u043e\u0442\u043a\u0440\u044b\u0442\u044c\u0444\u043e\u0440\u043c\u0443\u043c\u043e\u0434\u0430\u043b\u044c\u043d\u043e \u043e\u0442\u043c\u0435\u043d\u0438\u0442\u044c\u0442\u0440\u0430\u043d\u0437\u0430\u043a\u0446\u0438\u044e \u043e\u0447\u0438\u0441\u0442\u0438\u0442\u044c\u043e\u043a\u043d\u043e\u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0439 \u043f\u0435\u0440\u0438\u043e\u0434\u0441\u0442\u0440 \u043f\u043e\u043b\u043d\u043e\u0435\u0438\u043c\u044f\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c\u0432\u0440\u0435\u043c\u044f\u0442\u0430 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c\u0434\u0430\u0442\u0443\u0442\u0430 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c\u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0442\u0430 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c\u0437\u043d\u0430\u0447\u0435\u043d\u0438\u044f\u043e\u0442\u0431\u043e\u0440\u0430 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c\u043f\u043e\u0437\u0438\u0446\u0438\u044e\u0442\u0430 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c\u043f\u0443\u0441\u0442\u043e\u0435\u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c\u0442\u0430 \u043f\u0440\u0430\u0432 \u043f\u0440\u0430\u0432\u043e\u0434\u043e\u0441\u0442\u0443\u043f\u0430 \u043f\u0440\u0435\u0434\u0443\u043f\u0440\u0435\u0436\u0434\u0435\u043d\u0438\u0435 \u043f\u0440\u0435\u0444\u0438\u043a\u0441\u0430\u0432\u0442\u043e\u043d\u0443\u043c\u0435\u0440\u0430\u0446\u0438\u0438 \u043f\u0443\u0441\u0442\u0430\u044f\u0441\u0442\u0440\u043e\u043a\u0430 \u043f\u0443\u0441\u0442\u043e\u0435\u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0440\u0430\u0431\u043e\u0447\u0430\u044f\u0434\u0430\u0442\u0442\u044c\u043f\u0443\u0441\u0442\u043e\u0435\u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0440\u0430\u0431\u043e\u0447\u0430\u044f\u0434\u0430\u0442\u0430 \u0440\u0430\u0437\u0434\u0435\u043b\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0440\u0430\u043d\u0438\u0446 \u0440\u0430\u0437\u0434\u0435\u043b\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0440\u043e\u043a \u0440\u0430\u0437\u043c \u0440\u0430\u0437\u043e\u0431\u0440\u0430\u0442\u044c\u043f\u043e\u0437\u0438\u0446\u0438\u044e\u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u0440\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044c\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u044b\u043d\u0430 \u0440\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0442\u044c\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u044b\u043f\u043e \u0441\u0438\u0433\u043d\u0430\u043b \u0441\u0438\u043c\u0432 \u0441\u0438\u043c\u0432\u043e\u043b\u0442\u0430\u0431\u0443\u043b\u044f\u0446\u0438\u0438 \u0441\u043e\u0437\u0434\u0430\u0442\u044c\u043e\u0431\u044a\u0435\u043a\u0442 \u0441\u043e\u043a\u0440\u043b \u0441\u043e\u043a\u0440\u043b\u043f \u0441\u043e\u043a\u0440\u043f \u0441\u043e\u043e\u0431\u0449\u0438\u0442\u044c \u0441\u043e\u0441\u0442\u043e\u044f\u043d\u0438\u0435 \u0441\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c\u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0441\u0440\u0435\u0434 \u0441\u0442\u0430\u0442\u0443\u0441\u0432\u043e\u0437\u0432\u0440\u0430\u0442\u0430 \u0441\u0442\u0440\u0434\u043b\u0438\u043d\u0430 \u0441\u0442\u0440\u0437\u0430\u043c\u0435\u043d\u0438\u0442\u044c \u0441\u0442\u0440\u043a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e\u0441\u0442\u0440\u043e\u043a \u0441\u0442\u0440\u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c\u0441\u0442\u0440\u043e\u043a\u0443  \u0441\u0442\u0440\u0447\u0438\u0441\u043b\u043e\u0432\u0445\u043e\u0436\u0434\u0435\u043d\u0438\u0439 \u0441\u0444\u043e\u0440\u043c\u0438\u0440\u043e\u0432\u0430\u0442\u044c\u043f\u043e\u0437\u0438\u0446\u0438\u044e\u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u0441\u0447\u0435\u0442\u043f\u043e\u043a\u043e\u0434\u0443 \u0442\u0435\u043a\u0443\u0449\u0430\u044f\u0434\u0430\u0442\u0430 \u0442\u0435\u043a\u0443\u0449\u0435\u0435\u0432\u0440\u0435\u043c\u044f \u0442\u0438\u043f\u0437\u043d\u0430\u0447\u0435\u043d\u0438\u044f \u0442\u0438\u043f\u0437\u043d\u0430\u0447\u0435\u043d\u0438\u044f\u0441\u0442\u0440 \u0443\u0434\u0430\u043b\u0438\u0442\u044c\u043e\u0431\u044a\u0435\u043a\u0442\u044b \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c\u0442\u0430\u043d\u0430 \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c\u0442\u0430\u043f\u043e \u0444\u0438\u043a\u0441\u0448\u0430\u0431\u043b\u043e\u043d \u0444\u043e\u0440\u043c\u0430\u0442 \u0446\u0435\u043b \u0448\u0430\u0431\u043b\u043e\u043d", r = {
   cN: "dquote",
   b: '""'
  }, o = {
@@ -10391,10 +10392,10 @@ hljs.registerLanguage("bash", function(e) {
   },
   c: [ e.CLCM, e.NM, o, a, {
    cN: "function",
-   b: "(Ğ¿Ñ€Ğ¾Ñ†ĞµĞ´ÑƒÑ€Ğ°|Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ñ)",
+   b: "(\u043f\u0440\u043e\u0446\u0435\u0434\u0443\u0440\u0430|\u0444\u0443\u043d\u043a\u0446\u0438\u044f)",
    e: "$",
    l: t,
-   k: "Ğ¿Ñ€Ğ¾Ñ†ĞµĞ´ÑƒÑ€Ğ° Ñ„ÑƒĞ½ĞºÑ†Ğ¸Ñ",
+   k: "\u043f\u0440\u043e\u0446\u0435\u0434\u0443\u0440\u0430 \u0444\u0443\u043d\u043a\u0446\u0438\u044f",
    c: [ e.inherit(e.TM, {
     b: t
    }), {
@@ -10405,14 +10406,14 @@ hljs.registerLanguage("bash", function(e) {
      b: "\\(",
      e: "\\)",
      l: t,
-     k: "Ğ·Ğ½Ğ°Ñ‡",
+     k: "\u0437\u043d\u0430\u0447",
      c: [ o, a ]
     }, {
      cN: "export",
-     b: "ÑĞºÑĞ¿Ğ¾Ñ€Ñ‚",
+     b: "\u044d\u043a\u0441\u043f\u043e\u0440\u0442",
      eW: !0,
      l: t,
-     k: "ÑĞºÑĞ¿Ğ¾Ñ€Ñ‚",
+     k: "\u044d\u043a\u0441\u043f\u043e\u0440\u0442",
      c: [ e.CLCM ]
     } ]
    }, e.CLCM ]
@@ -10539,10 +10540,10 @@ hljs.registerLanguage("bash", function(e) {
 }), hljs.registerLanguage("tex", function() {
  var e = {
   cN: "command",
-  b: "\\\\[a-zA-ZĞ°-ÑĞ-Ñ]+[\\*]?"
+  b: "\\\\[a-zA-Z\u0430-\u044f\u0410-\u044f]+[\\*]?"
  }, t = {
   cN: "command",
-  b: "\\\\[^a-zA-ZĞ°-ÑĞ-Ñ0-9]"
+  b: "\\\\[^a-zA-Z\u0430-\u044f\u0410-\u044f0-9]"
  }, n = {
   cN: "special",
   b: "[{}\\[\\]\\&#~]",
@@ -10550,7 +10551,7 @@ hljs.registerLanguage("bash", function(e) {
  };
  return {
   c: [ {
-   b: "\\\\[a-zA-ZĞ°-ÑĞ-Ñ]+[\\*]? *= *-?\\d*\\.?\\d+(pt|pc|mm|cm|in|dd|cc|ex|em)?",
+   b: "\\\\[a-zA-Z\u0430-\u044f\u0410-\u044f]+[\\*]? *= *-?\\d*\\.?\\d+(pt|pc|mm|cm|in|dd|cc|ex|em)?",
    rB: !0,
    c: [ e, t, {
     cN: "number",
@@ -13253,7 +13254,7 @@ function() {
  var p = 0;
  return s.onFileOpen = o, s.onContentChanged = o, s;
 }), define("text!html/buttonMarkdownSyntax.html", [], function() {
- return '<button class="btn btn-success dropdown-toggle button-markdown-syntax" title="Syntax Help" data-toggle="dropdown">\n	<i class="icon-help-circled"></i>\n</button>\n<div class="dropdown-menu pull-right">\n	<h3>WriteOn Syntax Help</h3>\n    <hr>\n	<div class="markdown-syntax">\n        <button class="btn btn-default btn-block action-guide-file" title="Load the Syntax Guide">\n            <i class="icon-keyboard"></i> Load the Syntax Guide</button>\n<h4>Insert Table of Contents</h4>\n\n<pre><code>[toc]</code></pre>\n\n<h4>Phrase Emphasis</h4>\n\n<pre><code>*italic*   **bold**\n_italic_   __bold__\n</code></pre>\n\n        \n<h4>Links</h4>\n\n<p>Inline:</p>\n\n<pre><code>An [example](http://url.com/ "Title")\n</code></pre>\n\n<p>Reference-style labels (titles are optional):</p>\n\n<pre><code>An [example][id]. Then, anywhere else, just define the link like so:\n\n  [id]: http://example.com/  "Title"\n</code></pre>\n\n<h4>Images</h4>\n\n<p>Inline (titles are optional):</p>\n\n<pre><code>![alt text](/path/img.jpg "Title")\n</code></pre>\n\n<p>Reference-style:</p>\n\n<pre><code>![alt text][id]\n\n[id]: /url/to/img.jpg "Title"\n</code></pre>\n\n<h4>Headers</h4>\n\n<p>Setext-style:</p>\n\n<pre><code>Header 1\n========\n\nHeader 2\n--------\n</code></pre>\n\n<p>Atx-style (closing #\'s are optional):</p>\n\n<pre><code># Header 1 #\n\n## Header 2 ##\n\n###### Header 6\n</code></pre>\n\n<h4>Lists</h4>\n\n<p>Ordered, without paragraphs:</p>\n\n<pre><code>1.  Foo\n2.  Bar\n</code></pre>\n\n<p>Unordered, with paragraphs:</p>\n\n<pre><code>*   A list item.\n\n    With multiple paragraphs.\n\n*   Bar\n</code></pre>\n\n<p>You can nest them:</p>\n\n<pre><code>*   Abacus\n    * answer\n*   Bubbles\n    1.  bunk\n    2.  bupkis\n        * BELITTLER\n    3. burper\n*   Cunning\n</code></pre>\n\n<h4>Blockquotes</h4>\n\n<pre><code>&gt; Email-style angle brackets\n&gt; are used for blockquotes.\n\n&gt; &gt; And, they can be nested.\n\n&gt; #### Headers in blockquotes\n&gt;\n&gt; * You can even quote a list.\n</code></pre>\n\n<h4>Code Spans</h4>\n\n<pre><code>`&lt;code&gt;` spans are delimited\nby backticks.\n\nYou can include literal backticks like `` `this` ``.\n</code></pre>\n\n<h4>Preformatted Code Blocks</h4>\n\n<p>Indent every line of a code block by at least 4 spaces or 1 tab.</p>\n\n<pre><code>This is a normal paragraph.\n\n    This is a preformatted\n    code block.\n</code></pre>\n\n<h4>Horizontal Rules</h4>\n\n<p>Three or more dashes or asterisks:</p>\n\n<pre><code>---\n\n* * *\n\n- - - -\n</code></pre>\n\n<h4>Manual Line Breaks</h4>\n\n<p>End a line with two or more spaces:</p>\n\n<pre><code>Roses are red,\nViolets are blue.\n</code></pre>\n\n<blockquote>Based on the <a target="_blank" href="https://github.com/fletcher/MultiMarkdown/blob/master/Documentation/Markdown%20Syntax.md">Markdown syntax guide</a>, by Fletcher T. Penney.</blockquote>\n    </div>\n    <hr>\n</div>\n';
+ return '<button class="btn btn-default dropdown-toggle button-markdown-syntax" title="Syntax Help" data-toggle="dropdown">\n	<i class="icon-help-circled"></i>\n</button>\n<div class="dropdown-menu pull-right">\n	<h3>WriteOn Syntax Help</h3>\n    <hr>\n	<div class="markdown-syntax">\n        <button class="btn btn-default btn-block action-guide-file" title="Load the Syntax Guide">\n            <i class="icon-keyboard"></i> Load the Syntax Guide</button>\n<h4>Insert Table of Contents</h4>\n\n<pre><code>[toc]</code></pre>\n\n<h4>Phrase Emphasis</h4>\n\n<pre><code>*italic*   **bold**\n_italic_   __bold__\n</code></pre>\n\n        \n<h4>Links</h4>\n\n<p>Inline:</p>\n\n<pre><code>An [example](http://url.com/ "Title")\n</code></pre>\n\n<p>Reference-style labels (titles are optional):</p>\n\n<pre><code>An [example][id]. Then, anywhere else, just define the link like so:\n\n  [id]: http://example.com/  "Title"\n</code></pre>\n\n<h4>Images</h4>\n\n<p>Inline (titles are optional):</p>\n\n<pre><code>![alt text](/path/img.jpg "Title")\n</code></pre>\n\n<p>Reference-style:</p>\n\n<pre><code>![alt text][id]\n\n[id]: /url/to/img.jpg "Title"\n</code></pre>\n\n<h4>Headers</h4>\n\n<p>Setext-style:</p>\n\n<pre><code>Header 1\n========\n\nHeader 2\n--------\n</code></pre>\n\n<p>Atx-style (closing #\'s are optional):</p>\n\n<pre><code># Header 1 #\n\n## Header 2 ##\n\n###### Header 6\n</code></pre>\n\n<h4>Lists</h4>\n\n<p>Ordered, without paragraphs:</p>\n\n<pre><code>1.  Foo\n2.  Bar\n</code></pre>\n\n<p>Unordered, with paragraphs:</p>\n\n<pre><code>*   A list item.\n\n    With multiple paragraphs.\n\n*   Bar\n</code></pre>\n\n<p>You can nest them:</p>\n\n<pre><code>*   Abacus\n    * answer\n*   Bubbles\n    1.  bunk\n    2.  bupkis\n        * BELITTLER\n    3. burper\n*   Cunning\n</code></pre>\n\n<h4>Blockquotes</h4>\n\n<pre><code>&gt; Email-style angle brackets\n&gt; are used for blockquotes.\n\n&gt; &gt; And, they can be nested.\n\n&gt; #### Headers in blockquotes\n&gt;\n&gt; * You can even quote a list.\n</code></pre>\n\n<h4>Code Spans</h4>\n\n<pre><code>`&lt;code&gt;` spans are delimited\nby backticks.\n\nYou can include literal backticks like `` `this` ``.\n</code></pre>\n\n<h4>Preformatted Code Blocks</h4>\n\n<p>Indent every line of a code block by at least 4 spaces or 1 tab.</p>\n\n<pre><code>This is a normal paragraph.\n\n    This is a preformatted\n    code block.\n</code></pre>\n\n<h4>Horizontal Rules</h4>\n\n<p>Three or more dashes or asterisks:</p>\n\n<pre><code>---\n\n* * *\n\n- - - -\n</code></pre>\n\n<h4>Manual Line Breaks</h4>\n\n<p>End a line with two or more spaces:</p>\n\n<pre><code>Roses are red,\nViolets are blue.\n</code></pre>\n\n<blockquote>Based on the <a target="_blank" href="https://github.com/fletcher/MultiMarkdown/blob/master/Documentation/Markdown%20Syntax.md">Markdown syntax guide</a>, by Fletcher T. Penney.</blockquote>\n    </div>\n    <hr>\n</div>\n';
 }), define("extensions/buttonMarkdownSyntax", [ "jquery", "classes/Extension", "text!html/buttonMarkdownSyntax.html" ], function(e, t, n) {
  var i = new t("buttonMarkdownSyntax", 'Button "WriteOn syntax', !0, !0);
  return i.settingsBlock = '<p>Adds a "WriteOn syntax" button over the preview.</p>', 
@@ -13510,7 +13511,7 @@ function() {
   return c;
  });
 }(), define("text!html/dialogAbout.html", [], function() {
- return '<div class="modal-dialog">\n    <div class="modal-content">\n        <div class="modal-header">\n            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n            <img height="64" data-writeon-src="logo.svg" />\n        </div>\n        <div class="modal-body">\n            <div class="text-center">\n                <!--\n                a href="https://twitter.com/share" class="twitter-share-button" data-url="https://writeon.io" data-text="The world\'s finest writing app." \n                data-via="writeon" data-size="large"></a-->\n            </div>\n            <dl>\n                <dt>About WriteOn:</dt>\n                <dd>\n                    <a href="#" id="rate-app"><i class="icon-star-half-alt text-purple"></i> Got Satisfaction?</a>\n                    <br />\n                    <a href="#" id="send-feedback"><i class="icon-megaphone text-orange"></i> Send Us Ideas</a>\n                    <br />\n                    <a href="#" id="get-help"><i class="icon-chat-empty text-blue"></i> Send A Message</a>\n                    <br />\n                    <a target="_blank" href="https://writeon.uservoice.com"><i class="icon-help-circled"></i> Helpdesk</a>\n                    <br />\n                    <a target="_blank" href="http://blog.writeon.io"><i class="icon-pencil"></i> Team Blog</a>\n                    <br />\n                    <a target="_blank" href="https://twitter.com/WriteOnApp/"><i class="icon-twitter"></i> Follow us on Twitter</a>\n                    <br />\n                    <a target="_blank" href="http://eepurl.com/9kD3X"><i class="icon-code"></i> Developer Program</a>\n                    <br />\n                    <a target="_blank" href="https://writeon.io/#/privacy/"><i class="icon-eye-off"></i> Privacy Policy</a>\n                    <br />\n				</dd>\n			</dl>\n            <p>Made With <span class="text-danger">â™¥</span> By <a target="_blank" href="http://writeon.io">WriteOn</a> </p>\n			<p>\n				WriteOn <%= version %>\n			</p>\n		</div>\n	</div>\n</div>\n';
+ return '<div class="modal-dialog">\n    <div class="modal-content">\n        <div class="modal-header">\n            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n            <img height="64" data-writeon-src="logo.svg" />\n        </div>\n        <div class="modal-body">\n            <div class="text-center">\n                <!--\n                a href="https://twitter.com/share" class="twitter-share-button" data-url="https://writeon.io" data-text="The world\'s finest writing app." \n                data-via="writeon" data-size="large"></a-->\n            </div>\n            <dl>\n                <dt>About WriteOn:</dt>\n                <dd>\n                    <a href="#" id="rate-app"><i class="icon-star-half-alt text-purple"></i> Got Satisfaction?</a>\n                    <br />\n                    <a href="#" id="send-feedback"><i class="icon-megaphone text-orange"></i> Send Us Ideas</a>\n                    <br />\n                    <a href="#" id="get-help"><i class="icon-chat-empty text-blue"></i> Send A Message</a>\n                    <br />\n                    <a target="_blank" href="https://writeon.uservoice.com"><i class="icon-help-circled"></i> Helpdesk</a>\n                    <br />\n                    <a target="_blank" href="http://blog.writeon.io"><i class="icon-pencil"></i> Team Blog</a>\n                    <br />\n                    <a target="_blank" href="https://twitter.com/WriteOnApp/"><i class="icon-twitter"></i> Follow us on Twitter</a>\n                    <br />\n                    <a target="_blank" href="http://eepurl.com/9kD3X"><i class="icon-code"></i> Developer Program</a>\n                    <br />\n                    <a target="_blank" href="https://writeon.io/#/privacy/"><i class="icon-eye-off"></i> Privacy Policy</a>\n                    <br />\n				</dd>\n			</dl>\n            <p>Made With <span class="text-danger">\u2665</span> By <a target="_blank" href="http://beardandfedora.com">Beard & Fedora</a> </p>\n			<p>\n				WriteOn <%= version %>\n			</p>\n		</div>\n	</div>\n</div>\n';
 }), define("extensions/dialogAbout", [ "jquery", "underscore", "constants", "utils", "classes/Extension", "monetizejs", "text!html/dialogAbout.html" ], function(e, t, n, i, r, o, a) {
  var s, l = new r("dialogAbout", 'Dialog "About"');
  l.onEventMgrCreated = function(e) {
@@ -14625,7 +14626,7 @@ function() {
  }
  function o(e, t, n) {
   function i() {
-   var o = Array.prototype.slice.call(arguments, 0), a = o.join("â€"), s = i.cache = i.cache || {}, l = i.count = i.count || [];
+   var o = Array.prototype.slice.call(arguments, 0), a = o.join("\u2400"), s = i.cache = i.cache || {}, l = i.count = i.count || [];
    return s[T](a) ? (r(l, a), n ? n(s[a]) : s[a]) : (l.length >= 1e3 && delete s[l.shift()], 
    l.push(a), s[a] = e[D](t, o), n ? n(s[a]) : s[a]);
   }
@@ -14761,7 +14762,7 @@ function() {
   this.b = 0, this.c = 0, this.d = 1, this.e = 0, this.f = 0);
  }
  function m() {
-  return this.x + A + this.y + A + this.width + " Ã— " + this.height;
+  return this.x + A + this.y + A + this.width + " \xd7 " + this.height;
  }
  function g(e, t, n, i, r, o) {
   function a(e) {
@@ -15097,7 +15098,7 @@ function() {
    });
   } else {
    var l = k.doc.createElement("i");
-   l.title = "RaphaÃ«l Colour Picker", l.style.display = "none", k.doc.body.appendChild(l), 
+   l.title = "Rapha\xebl Colour Picker", l.style.display = "none", k.doc.body.appendChild(l), 
    xt = o(function(e) {
     return l.style.color = e, k.doc.defaultView.getComputedStyle(l, M).getPropertyValue("color");
    });
@@ -15207,11 +15208,11 @@ function() {
   r = Z(l[2]), "%" == l[2].slice(-1) && (r *= 2.55), "rgba" == c[1].toLowerCase().slice(0, 4) && (o = Z(l[3])), 
   l[3] && "%" == l[3].slice(-1) && (o /= 100)), c[5] ? (l = c[5][P](rt), t = Z(l[0]), 
   "%" == l[0].slice(-1) && (t *= 2.55), i = Z(l[1]), "%" == l[1].slice(-1) && (i *= 2.55), 
-  r = Z(l[2]), "%" == l[2].slice(-1) && (r *= 2.55), ("deg" == l[0].slice(-3) || "Â°" == l[0].slice(-1)) && (t /= 360), 
+  r = Z(l[2]), "%" == l[2].slice(-1) && (r *= 2.55), ("deg" == l[0].slice(-3) || "\xb0" == l[0].slice(-1)) && (t /= 360), 
   "hsba" == c[1].toLowerCase().slice(0, 4) && (o = Z(l[3])), l[3] && "%" == l[3].slice(-1) && (o /= 100), 
   n.hsb2rgb(t, i, r, o)) : c[6] ? (l = c[6][P](rt), t = Z(l[0]), "%" == l[0].slice(-1) && (t *= 2.55), 
   i = Z(l[1]), "%" == l[1].slice(-1) && (i *= 2.55), r = Z(l[2]), "%" == l[2].slice(-1) && (r *= 2.55), 
-  ("deg" == l[0].slice(-3) || "Â°" == l[0].slice(-1)) && (t /= 360), "hsla" == c[1].toLowerCase().slice(0, 4) && (o = Z(l[3])), 
+  ("deg" == l[0].slice(-3) || "\xb0" == l[0].slice(-1)) && (t /= 360), "hsla" == c[1].toLowerCase().slice(0, 4) && (o = Z(l[3])), 
   l[3] && "%" == l[3].slice(-1) && (o /= 100), n.hsl2rgb(t, i, r, o)) : (c = {
    r: t,
    g: i,
@@ -15339,7 +15340,7 @@ function() {
   return n.isPointInsideBBox(r, t, i) && h(e, [ [ "M", t, i ], [ "H", r.x2 + 10 ] ], 1) % 2 == 1;
  }, n._removedFactory = function(e) {
   return function() {
-   t("raphael.log", null, "RaphaÃ«l: you are calling to method â€œ" + e + "â€ of removed object", e);
+   t("raphael.log", null, "Rapha\xebl: you are calling to method \u201c" + e + "\u201d of removed object", e);
   };
  };
  var Et = n.pathBBox = function(e) {
@@ -16241,7 +16242,7 @@ function() {
   for (var n = 0; n < cn.length; n++) cn[n].el.id != this.id || e && cn[n].anim != e || t("raphael.anim.stop." + this.id, this, cn[n].anim) !== !1 && cn.splice(n--, 1);
   return this;
  }, t.on("raphael.remove", y), t.on("raphael.clear", y), Jt.toString = function() {
-  return "RaphaÃ«lâ€™s object";
+  return "Rapha\xebl\u2019s object";
  };
  var hn = function(e) {
   if (this.items = [], this.length = 0, this.type = "set", e) for (var t = 0, n = e.length; n > t; t++) !e[t] || e[t].constructor != Jt.constructor && e[t].constructor != hn || (this[this.items.length] = this.items[this.items.length] = e[t], 
@@ -16315,7 +16316,7 @@ function() {
   for (var t = 0, n = this.items.length; n > t; t++) e.push(this.items[t].clone());
   return e;
  }, fn.toString = function() {
-  return "RaphaÃ«lâ€˜s set";
+  return "Rapha\xebl\u2018s set";
  }, fn.glow = function(e) {
   var t = this.paper.set();
   return this.forEach(function(n) {
@@ -16437,7 +16438,7 @@ function() {
     oval: "M2.5,0A2.5,2.5,0,0,1,2.5,5 2.5,2.5,0,0,1,2.5,0z"
    }, m = {};
    n.toString = function() {
-    return "Your browser supports SVG.\nYou are running RaphaÃ«l " + this.version;
+    return "Your browser supports SVG.\nYou are running Rapha\xebl " + this.version;
    };
    var g = function(i, r) {
     if (r) {
@@ -17077,7 +17078,7 @@ function() {
    }, n.prototype.clear = function() {
     n.eve("raphael.clear", this);
     for (var e = this.canvas; e.firstChild; ) e.removeChild(e.firstChild);
-    this.bottom = this.top = null, (this.desc = g("desc")).appendChild(n._g.doc.createTextNode("Created with RaphaÃ«l " + n.version)), 
+    this.bottom = this.top = null, (this.desc = g("desc")).appendChild(n._g.doc.createTextNode("Created with Rapha\xebl " + n.version)), 
     e.appendChild(this.desc), e.appendChild(this.defs = g("defs"));
    }, n.prototype.remove = function() {
     u("raphael.remove", this), this.canvas.parentNode && this.canvas.parentNode.removeChild(this.canvas);
@@ -17154,7 +17155,7 @@ function() {
     }
    };
    n.toString = function() {
-    return "Your browser doesnâ€™t support SVG. Falling down to VML.\nYou are running RaphaÃ«l " + this.version;
+    return "Your browser doesn\u2019t support SVG. Falling down to VML.\nYou are running Rapha\xebl " + this.version;
    };
    var k = function(e, n, i) {
     for (var r = t(n).toLowerCase().split("-"), o = i ? "end" : "start", a = r.length, s = "classic", l = "medium", c = "medium"; a--; ) switch (r[a]) {
@@ -19154,7 +19155,7 @@ function() {
   });
  }, c;
 }), define("text!html/buttonToc.html", [], function() {
- return '<button class="btn btn-success dropdown-toggle" title="Table of contents" data-toggle="dropdown">\n    <i class="icon-list"></i>\n</button>\n<div class="dropdown-menu pull-right">\n    <h3>Table of contents</h3>\n    <hr>\n    <div class="table-of-contents">\n    </div>\n    <hr>\n</div>\n';
+ return '<button class="btn btn-default dropdown-toggle" title="Table of contents" data-toggle="dropdown">\n    <i class="icon-list"></i>\n</button>\n<div class="dropdown-menu pull-right">\n    <h3>Table of contents</h3>\n    <hr>\n    <div class="table-of-contents">\n    </div>\n    <hr>\n</div>\n';
 }), define("text!html/tocSettingsBlock.html", [], function() {
  return '<p>Generates a table of contents when a [TOC] marker is found.</p>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-4 control-label" for="input-toc-marker">Marker\n			RegExp</label>\n		<div class="col-sm-7">\n		\n			<input type="text" id="input-toc-marker" class="col-sm-4 form-control">\n		</div>\n	</div>\n	<div class="form-group">\n		<label class="col-sm-4 control-label" for="input-toc-maxdepth">Max depth</label>\n		<div class="col-sm-7 form-inline">\n			<input type="text" id="input-toc-maxdepth"\n				class="col-sm-5 form-control" placeholder="6">\n		</div>\n	</div>\n	<div class="form-group">\n        <label class="col-sm-4 control-label" for="input-toc-button">Button over preview</label>\n        <div class="col-sm-7">\n        <div class="checkbox">\n            <input type="checkbox" id="input-toc-button">\n            </div>\n        </div>\n    </div>\n	\n</div>';
 }), define("extensions/toc", [ "jquery", "underscore", "utils", "classes/Extension", "text!html/buttonToc.html", "text!html/tocSettingsBlock.html" ], function(e, t, n, i, r, o) {
@@ -19460,7 +19461,7 @@ function() {
   e(".action-update-publication").click(s.publish);
  }, l.onPublishRemoved = p, l.onNewPublishSuccess = p, l;
 }), define("text!html/buttonStat.html", [], function() {
- return '<button class="btn btn-success dropdown-toggle stat-button" title="Story statistics" data-toggle="dropdown">\n	<i class="icon-chart-bar"></i>\n	<span class="value"></span>\n</button>\n<div class="dropdown-menu pull-right stat-button-dropdown">\n	<h3>Statistics</h3>\n    <hr>\n	<div class="stat">\n		<div>\n			<%= name1 %>: <span class="value1"></span>\n		</div>\n		<div>\n			<%= name2 %>: <span class="value2"></span>\n		</div>\n		<div>\n			<%= name3 %>: <span class="value3"></span>\n		</div>\n	</div>\n</div>\n';
+ return '<button class="btn btn-default dropdown-toggle stat-button" title="Story statistics" data-toggle="dropdown">\n	<i class="icon-chart-bar"></i>\n	<span class="value"></span>\n</button>\n<div class="dropdown-menu pull-right stat-button-dropdown">\n	<h3>Statistics</h3>\n    <hr>\n	<div class="stat">\n		<div>\n			<%= name1 %>: <span class="value1"></span>\n		</div>\n		<div>\n			<%= name2 %>: <span class="value2"></span>\n		</div>\n		<div>\n			<%= name3 %>: <span class="value3"></span>\n		</div>\n	</div>\n</div>\n';
 }), define("text!html/buttonStatSettingsBlock.html", [], function() {
  return '<p>Adds a "Story statistics" button over the preview.</p>\n<div class="form-horizontal">\n	<div class="form-group form-inline">\n		<label class="label-text" for="input-stat-name1">Title</label> <input\n			id="input-stat-name1" type="text" class="form-control col-sm-3"> <label\n			class="label-text" for="input-stat-value1">RegExp</label> <input\n			id="input-stat-value1" type="text" class="form-control col-sm-4">\n	</div>\n	<div class="form-group form-inline">\n		<label class="label-text" for="input-stat-name2">Title</label> <input\n			id="input-stat-name2" type="text" class="form-control col-sm-3"> <label\n			class="label-text" for="input-stat-value2">RegExp</label> <input\n			id="input-stat-value2" type="text" class="form-control col-sm-4">\n	</div>\n	<div class="form-group form-inline">\n		<label class="label-text" for="input-stat-name3">Title</label> <input\n			id="input-stat-name3" type="text" class="form-control col-sm-3"> <label\n			class="label-text" for="input-stat-value3">RegExp</label> <input\n			id="input-stat-value3" type="text" class="form-control col-sm-4">\n	</div>\n</div>\n';
 }), define("extensions/buttonStat", [ "jquery", "underscore", "utils", "classes/Extension", "text!html/buttonStat.html", "text!html/buttonStatSettingsBlock.html" ], function(e, t, n, i, r, o) {
@@ -19506,7 +19507,7 @@ function() {
   p.textContent = (r.match(m) || []).length, s.onExtensionButtonResize();
  }, a;
 }), define("text!html/buttonHtmlCode.html", [], function() {
- return '<button class="btn btn-success dropdown-toggle action-html-code" title="HTML code" data-toggle="dropdown">\n	<i class="icon-code"></i>\n</button>\n<div class="dropdown-menu pull-right">\n	<h3>HTML Output</h3>\n    <p><code>Copy</code> and <code>Paste</code></p>\n	<textarea id="input-html-code" class="form-control"></textarea>\n</div>\n';
+ return '<button class="btn btn-default dropdown-toggle action-html-code" title="HTML code" data-toggle="dropdown">\n	<i class="icon-code"></i>\n</button>\n<div class="dropdown-menu pull-right">\n	<h3>HTML Output</h3>\n    <p><code>Copy</code> and <code>Paste</code></p>\n	<textarea id="input-html-code" class="form-control"></textarea>\n</div>\n';
 }), define("text!html/buttonHtmlCodeSettingsBlock.html", [], function() {
  return '<p>Adds a "HTML code" button over the preview.</p>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-4 control-label" for="textarea-html-code-template">Template\n			<a href="#" class="tooltip-template">(?)</a>\n		</label>\n		<div class="col-sm-7">\n			<textarea id="textarea-html-code-template" class="form-control"></textarea>\n		</div>\n	</div>\n</div>';
 }), define("extensions/buttonHtmlCode", [ "jquery", "underscore", "utils", "classes/Extension", "text!html/buttonHtmlCode.html", "text!html/buttonHtmlCodeSettingsBlock.html" ], function(e, t, n, i, r, o) {
@@ -19558,7 +19559,7 @@ function() {
   });
  }, a;
 }), define("text!html/buttonViewer.html", [], function() {
- return '<a href="paper" class="btn btn-success dropdown-toggle" title="Open on Paper">\n	<i class="icon-doc-text"></i>\n</a>\n';
+ return '<a href="paper" class="btn btn-default dropdown-toggle" title="Open on Paper">\n	<i class="icon-doc-text"></i>\n</a>\n';
 }), define("extensions/buttonViewer", [ "jquery", "classes/Extension", "text!html/buttonViewer.html" ], function(e, t, n) {
  var i = new t("buttonViewer", 'Button "Paper"', !0, !0);
  return i.settingsBlock = '<p>Adds a <i class="icon-doc-text"> <strong>Paper</strong></i> button over the preview.</p>', 
@@ -20612,11 +20613,11 @@ function() {
   });
  }, a;
 }), define("text!extensions/shortcutsDefaultMapping.settings", [], function() {
- return "{\n    'mod+b': bindPagedownButton('bold'),\n    'mod+i': bindPagedownButton('italic'),\n    'mod+l': bindPagedownButton('link'),\n    'mod+q': bindPagedownButton('quote'),\n    'mod+k': bindPagedownButton('code'),\n    'mod+g': bindPagedownButton('image'),\n    'mod+o': bindPagedownButton('olist'),\n    'mod+u': bindPagedownButton('ulist'),\n    'mod+h': bindPagedownButton('heading'),\n    'mod+r': bindPagedownButton('hr'),\n    'mod+z': bindPagedownButton('undo'),\n    'mod+y': bindPagedownButton('redo'),\n    'mod+shift+z': bindPagedownButton('redo'),\n    'mod+d': function(evt) {\n        $('.button-open-discussion').click();\n        evt.preventDefault();\n    },\n    'mod+m': function(evt) {\n        $('.menu-panel .toggle-button').click();\n        evt.preventDefault();\n    },\n    'mod+s': function(evt) {\n        $('.document-panel .toggle-button').click();\n        evt.preventDefault();\n    },\n    '= = > space': function() {\n        expand('==> ', 'â‡’ ');\n    },\n    '< = = space': function() {\n        expand('<== ', 'â‡ ');\n    },\n    'mod+shift+m': function(evt) {\n        $('.action-sync-import-dialog-mywriteon').click();\n        evt.preventDefault();\n    },\n    'W r i t e O n': function() {\n        eventMgr.onMessage(\"You are stunned, aren't you?\");\n    }\n}\n";
+ return "{\n    'mod+b': bindPagedownButton('bold'),\n    'mod+i': bindPagedownButton('italic'),\n    'mod+l': bindPagedownButton('link'),\n    'mod+q': bindPagedownButton('quote'),\n    'mod+k': bindPagedownButton('code'),\n    'mod+g': bindPagedownButton('image'),\n    'mod+o': bindPagedownButton('olist'),\n    'mod+u': bindPagedownButton('ulist'),\n    'mod+h': bindPagedownButton('heading'),\n    'mod+r': bindPagedownButton('hr'),\n    'mod+z': bindPagedownButton('undo'),\n    'mod+y': bindPagedownButton('redo'),\n    'mod+shift+z': bindPagedownButton('redo'),\n    'mod+d': function(evt) {\n        $('.button-open-discussion').click();\n        evt.preventDefault();\n    },\n    'mod+m': function(evt) {\n        $('.menu-panel .toggle-button').click();\n        evt.preventDefault();\n    },\n    'mod+s': function(evt) {\n        $('.document-panel .toggle-button').click();\n        evt.preventDefault();\n    },\n    '= = > space': function() {\n        expand('==> ', '\u21d2 ');\n    },\n    '< = = space': function() {\n        expand('<== ', '\u21d0 ');\n    },\n    'mod+shift+m': function(evt) {\n        $('.action-sync-import-dialog-mywriteon').click();\n        evt.preventDefault();\n    },\n    'W r i t e O n': function() {\n        eventMgr.onMessage(\"You are stunned, aren't you?\");\n    }\n}\n";
 }), define("text!html/shortcutsSettingsBlock.html", [], function() {
  return '<p>Maps keyboard shortcuts to JavaScript functions.</p>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-3 control-label" for="textarea-shortcuts-mapping">Mapping\n			<a href="#" class="tooltip-shortcuts-extension">(?)</a>\n		</label>\n		<div class="col-sm-8">\n			<textarea id="textarea-shortcuts-mapping" class="form-control"></textarea>\n		</div>\n	</div>\n</div>\n';
 }), define("text!html/tooltipSettingsShortcutsExtension.html", [], function() {
- return 'You can create expanding macros like this:\n<br />\n<br />\n\'- - > space\': function() {\n<br />\n	expand(\'--> \', \'â†’ \');\n<br />\n}\n<br />\n<br />\n<a target="_blank"\n	href="http://craig.is/killing/mice">More\n	info</a>\n<br />\n<br />\n<b class="text-danger"><i class="icon-attention"></i> Careful! This is subject to malicious code. Don\'t copy/paste untrusted content.</b>\n';
+ return 'You can create expanding macros like this:\n<br />\n<br />\n\'- - > space\': function() {\n<br />\n	expand(\'--> \', \'\u2192 \');\n<br />\n}\n<br />\n<br />\n<a target="_blank"\n	href="http://craig.is/killing/mice">More\n	info</a>\n<br />\n<br />\n<b class="text-danger"><i class="icon-attention"></i> Careful! This is subject to malicious code. Don\'t copy/paste untrusted content.</b>\n';
 }), define("extensions/shortcuts", [ "jquery", "underscore", "utils", "mousetrap", "classes/Extension", "text!extensions/shortcutsDefaultMapping.settings", "text!html/shortcutsSettingsBlock.html", "text!html/tooltipSettingsShortcutsExtension.html" ], function($, _, utils, mousetrap, Extension, shortcutsDefaultMapping, shortcutsSettingsBlockHTML, tooltipSettingsShortcutsExtensionHTML) {
  function bindPagedownButton(e) {
   return function(t) {
@@ -20741,7 +20742,7 @@ function() {
    reply: !0
   })), r.join("");
  }
- var h, f = new a("comments", "Comments", !1, !0), m = [ "<div class=\"comment-block<%= reply ? ' reply' : '' %>\">", '    <div class="comment-author"><i class="icon-comment"></i> <%= author %></div>', '    <div class="comment-content"><%= content %></div>', "</div>" ].join(""), g = [ '<span class="clearfix">', '    <a href="#" class="action-remove-discussion pull-right">', '        <i class="icon-trash text-red"></i>', "    </a>", "    â€œ<%- title %>â€", "</span>" ].join("");
+ var h, f = new a("comments", "Comments", !1, !0), m = [ "<div class=\"comment-block<%= reply ? ' reply' : '' %>\">", '    <div class="comment-author"><i class="icon-comment"></i> <%= author %></div>', '    <div class="comment-content"><%= content %></div>', "</div>" ].join(""), g = [ '<span class="clearfix">', '    <a href="#" class="action-remove-discussion pull-right">', '        <i class="icon-trash text-red"></i>', "    </a>", "    \u201c<%- title %>\u201d", "</span>" ].join("");
  f.onEventMgrCreated = function(e) {
   h = e;
  };
@@ -20925,7 +20926,7 @@ function() {
   }), D = I.find("i");
  }, f;
 }), define("text!html/findReplace.html", [], function() {
- return '<button type="button" class="close button-find-replace-dismiss">Ã—</button>\n<div class="form-inline">\n    <div class="form-group">\n        <label for="input-find-replace-search-for">Search for</label>\n        <input class="form-control" id="input-find-replace-search-for" placeholder="Search for">\n    </div>\n    <div class="form-group">\n        <label for="input-find-replace-replace-with">Replace with</label>\n        <input class="form-control" id="input-find-replace-replace-with" placeholder="Replace with">\n    </div>\n</div>\n<div class="pull-right">\n    <div class="help-block text-right">\n        <span class="found-counter">0</span> found\n    </div>\n    <div>\n        <button type="button" class="btn btn-primary search-button">Search</button>\n        <button type="button" class="btn btn-default replace-button">Replace</button>\n        <button type="button" class="btn btn-default replace-all-button">All</button>\n    </div>\n</div>\n<div class="pull-left">\n    <div class="checkbox">\n        <label>\n            <input type="checkbox" class="checkbox-case-sensitive"> Case sensitive\n        </label>\n    </div>\n    <div class="checkbox">\n        <label>\n            <input type="checkbox" class="checkbox-regexp"> Regular expression\n        </label>\n    </div>\n</div>\n';
+ return '<button type="button" class="close button-find-replace-dismiss">\xd7</button>\n<div class="form-inline">\n    <div class="form-group">\n        <label for="input-find-replace-search-for">Search for</label>\n        <input class="form-control" id="input-find-replace-search-for" placeholder="Search for">\n    </div>\n    <div class="form-group">\n        <label for="input-find-replace-replace-with">Replace with</label>\n        <input class="form-control" id="input-find-replace-replace-with" placeholder="Replace with">\n    </div>\n</div>\n<div class="pull-right">\n    <div class="help-block text-right">\n        <span class="found-counter">0</span> found\n    </div>\n    <div>\n        <button type="button" class="btn btn-primary search-button">Search</button>\n        <button type="button" class="btn btn-default replace-button">Replace</button>\n        <button type="button" class="btn btn-default replace-all-button">All</button>\n    </div>\n</div>\n<div class="pull-left">\n    <div class="checkbox">\n        <label>\n            <input type="checkbox" class="checkbox-case-sensitive"> Case sensitive\n        </label>\n    </div>\n    <div class="checkbox">\n        <label>\n            <input type="checkbox" class="checkbox-regexp"> Regular expression\n        </label>\n    </div>\n</div>\n';
 }), define("text!html/findReplaceSettingsBlock.html", [], function() {
  return '<p>Helps find and replace text in the current story.</p>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-5 control-label"\n			for="input-find-replace-shortcut">Shortcut <a href="http://craig.is/killing/mice#keys" target="_blank">(?)</a></label>\n		<div class="col-sm-6">\n			<input type="text" id="input-find-replace-shortcut"\n				class="form-control">\n		</div>\n	</div>\n</div>';
 }), define("extensions/findReplace", [ "jquery", "underscore", "crel", "utils", "classes/Extension", "mousetrap", "rangy", "text!html/findReplace.html", "text!html/findReplaceSettingsBlock.html" ], function(e, t, n, i, r, o, a, s, l) {
@@ -21165,7 +21166,7 @@ function() {
  var P = document.createElement("pre"), O = /^(\s*)([\s\S]*?)(\s*)$/;
  return p;
 }), define("text!html/supportWriteonSettingsBlock.html", [], function() {
- return '<p>Help support WriteOn by adding this commit message at the end of each post. Thanks for spreading the love ğŸ˜»</p>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-5 control-label"\n			for="input-settings-publish-commit-msg">Message </label>\n		<div class="col-sm-6">\n			<input type="text" id="input-settings-publish-commit-msg" class="form-control">\n		</div>\n	</div>\n</div>';
+ return '<p>Help support WriteOn by adding this commit message at the end of each post. Thanks for spreading the love \ud83d\ude3b</p>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-5 control-label"\n			for="input-settings-publish-commit-msg">Message </label>\n		<div class="col-sm-6">\n			<input type="text" id="input-settings-publish-commit-msg" class="form-control">\n		</div>\n	</div>\n</div>';
 }), define("extensions/supportWriteon", [ "jquery", "underscore", "classes/Extension", "text!html/supportWriteonSettingsBlock.html" ], function(e, t, n, i) {
  var r = new n("supportWriteOn", "Support WriteOn", !1, !0);
  return r.settingsBlock = i, r;
@@ -21187,7 +21188,7 @@ function() {
   t.couchdb = i.getInputTextValue("#input-settings-mywriteon");
  }, s;
 }), define("text!html/buttonUserFeedback.html", [], function() {
- return '<a href="#" id="say-hello" class="btn btn-success dropdown-toggle" title="WriteOn feedback or help">\n	<i class="icon-chat-empty text-blue"></i>\n</a>\n';
+ return '<a href="#" id="say-hello" class="btn btn-default dropdown-toggle" title="WriteOn feedback or help">\n	<i class="icon-chat-empty text-blue"></i>\n</a>\n';
 }), define("extensions/userFeedback", [ "jquery", "classes/Extension", "text!html/buttonUserFeedback.html" ], function(e, t, n) {
  var i = new t("buttonUserFeedback", 'Button "Feedback', !1, !0);
  return i.settingsBlock = '<p>Adds a "Feedback" button over the preview.</p>', i.onCreatePreviewButton = function() {
@@ -23008,14 +23009,14 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
     pattern: /\([^\)]+\)/,
     inside: {
      "md md-paren-start": /^\(/,
-     "md md-title": /(['â€˜][^'â€™]*['â€™]|["â€œ][^"â€]*["â€])(?=\)$)/,
+     "md md-title": /(['\u2018][^'\u2019]*['\u2019]|["\u201c][^"\u201d]*["\u201d])(?=\)$)/,
      "md md-src": /[^\('" \t]+(?=[\)'" \t])/,
      "md md-paren-end": /\)$/
     }
    }
   }
  }, a.link = {
-  pattern: /\[(?:(\\.)|[^\[\]])*\]\([^\(\)\s]+(\(\S*?\))??[^\(\)\s]*?(\s(['â€˜][^'â€™]*['â€™]|["â€œ][^"â€]*["â€]))?\)/gm,
+  pattern: /\[(?:(\\.)|[^\[\]])*\]\([^\(\)\s]+(\(\S*?\))??[^\(\)\s]*?(\s(['\u2018][^'\u2019]*['\u2019]|["\u201c][^"\u201d]*["\u201d]))?\)/gm,
   inside: {
    "md md-bracket-start": {
     pattern: /(^|[^\\])\[/,
@@ -23127,7 +23128,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   strong: a.strong,
   em: a.em,
   strike: a.strike,
-  conflict: /â§¸â§¸/g,
+  conflict: /\u29f8\u29f8/g,
   comment: Prism.languages.markup.comment,
   tag: Prism.languages.markup.tag,
   entity: Prism.languages.markup.entity
@@ -23139,14 +23140,14 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   fn: a.fn,
   link: a.link,
   linkref: a.linkref,
-  conflict: /â§¸â§¸/g
+  conflict: /\u29f8\u29f8/g
  }, a.strong.inside.rest = l, a.em.inside.rest = l, a.strike.inside.rest = l;
  var u = {
   code: a.code,
   strong: a.strong,
   em: a.em,
   strike: a.strike,
-  conflict: /â§¸â§¸/g,
+  conflict: /\u29f8\u29f8/g,
   comment: Prism.languages.markup.comment,
   tag: Prism.languages.markup.tag,
   entity: Prism.languages.markup.entity
@@ -23648,7 +23649,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   var e = {
    "&": "&amp;",
    "<": "&lt;",
-   "Â ": " "
+   "\xa0": " "
   };
   return function(t) {
    return t.replace(/[&<\u00a0]/g, function(t) {
@@ -24650,7 +24651,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   }, 0));
  }), o.onLayoutCreated(M), M;
 }), define("text!html/bodyEditor.html", [], function() {
- return '<div class="working-indicator"></div>\n<div class="layout-wrapper-l1">\n    <div class="layout-wrapper-l2">\n        <div class="navbar navbar-default">\n            <div class="navbar-inner">\n                <div class="nav left-space">\n                <button class="btn btn-success settings-menu dropdown-toggle" data-toggle="dropdown" id="settings-menu" title="Menu">\n                    <i class="icon-menu"></i>\n                </button>\n                    <ul class="dropdown-menu" role="menu" aria-labelledby="settings-menu">\n                        <li><a href="paper" title="WriteOn Paper" role="menuitem"><i class="icon-doc-text"></i> Switch to Paper</a></li>\n                        <li><a href="#" title="Settings & Preferences" data-toggle="modal" data-target=".modal-settings" class="action-load-settings"><i class="icon-cog-alt"></i> Settings & Preferences</a></li>\n                        <li><a href="#" title="About WriteOn" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-info"></i> About</a></li>\n                        <li><a href="#" title="Get Help" id="button-help"><i class="icon-help-circled"></i> Help</a></li>\n                        <li><a href="/logout" title="Logout"><i class="icon-logout"></i> Logout</a></li>\n                    </ul>\n                </div>\n                <div class="nav right-space pull-right"></div>\n                <div class="buttons-dropdown dropdown">\n                    <div class="nav">\n                        <button class="btn btn-success" data-toggle="dropdown" title="Show buttons">\n                            <i class="icon-th-large"></i>\n                        </button>\n                        <div class="dropdown-menu">\n                        </div>\n                    </div>\n                </div>\n                <ul class="nav left-buttons first">\n                    <li class="wmd-button-group1 btn-group"></li>\n                </ul>\n                <ul class="nav left-buttons">\n                    <li class="wmd-button-group2 btn-group"></li>\n                </ul>\n                <ul class="nav left-buttons">\n                    <li class="wmd-button-group3 btn-group"></li>\n                </ul>\n                <ul class="nav left-buttons">\n                    <li class="wmd-button-group5 btn-group"></li>\n                </ul>\n                <ul class="nav left-buttons">\n                    <li class="wmd-button-group4 btn-group">\n                        <a class="btn btn-success button-open-discussion" title="Comments Ctrl/Cmd+M"><i class="icon-comment-alt"></i></a>\n                    </li>\n                </ul>\n                <ul class="nav pull-right right-buttons">\n                    <li class="offline-status hide">\n                        <div class="text-danger">\n                            <a class="btn btn-danger" title="You are offline...It\'s a great time to write!"><i class="icon-attention-circled"></i></a>\n                        </div>\n                    </li>\n                    <li class="dropdown btn-group extension-buttons syncing-menu">\n                        <a href="#" data-toggle="dropdown" title="Save, share, collaborate in the Cloud" class="btn"><i class="icon-refresh"></i></a>\n                        <ul class="dropdown-menu sync-menu">\n                        <li class="divider show-already-synchronized sync-divider"></li>\n                        <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> Sync & share</a>\n                        </li><li class="divider"></li>\n                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-upload-cloud text-blue"></i> My.WriteOn</a>\n                        </li>\n                        <li><a href="#" data-toggle="modal" data-target=".modal-manage-sharing" class="action-reset-input"><i class="icon-link text-green"></i> Sharing</a>\n                        </li>\n                        <li><a href="#" class="action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdrive action-sync-export-dialog-gdrive"><i class="icon-provider-gdrive"></i> Drive</a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i class="icon-provider-gdrive"></i> Drive<sup>2</sup></a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i class="icon-provider-gdrive"></i> Drive<sup>3</sup></a>\n                        </li>\n                        </ul>\n                    </li>\n                    <li class="dropdown btn-group extension-buttons publishing-menu">\n                        <a href="#" data-toggle="dropdown" title="Publish to the web" class="btn"><i class="icon-share"></i></a>\n                        <ul class="dropdown-menu publish-menu publish-on-provider-list">\n                        <li class="divider show-already-published publish-divider"></li>\n                        <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> Publish</a>\n                        </li><li class="divider"></li>\n                        </ul>\n                    </li>\n                    <li class="dropdown btn-group download-menu">\n                        <a href="#" data-toggle="dropdown" title="Download story for offline use" class="btn"><i class="icon-download"></i></a>\n                        <ul class="dropdown-menu">\n                        <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> Download</a>\n                        </li><li class="divider"></li>\n                        <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>\n                        </li>\n                        <li><a class="action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>\n                        </li>\n                        <li><a class="action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>\n                        </li>\n                        </ul>\n                    </li>\n                    <li class="dropdown btn-group story-menu">\n                        <a href="#" data-toggle="dropdown" title="Open & Import" class="btn"><i class="icon-docs text-blue"></i></a>\n                        <ul class="dropdown-menu">\n                            <li><a href="#" class="action-create-file"><i class="icon-file text-blue"></i> Create New Story</a>\n                            </li>\n                            <li><a href="#" class="file" data-toggle="modal" data-target=".modal-document-manager"><i class="icon-layers text-yellow"></i> Organize Stories</a>\n                            </li>\n                            <li class="divider"></li>\n                            <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> <strong>Import Stories</strong></a>\n                            </li>\n                            <li class="divider"></li>\n                            <li><a href="#" class="file action-sync-import-dialog-mywriteon hide"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a>\n                            </li>\n                            <li><a href="#" class="file action-sync-import-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>\n                            </li>\n                            <li><a href="#" class="file submenu-sync-gdrive action-sync-import-gdrive"><i class="icon-provider-gdrive"></i> Google Drive</a>\n                            </li>\n                            <li><a href="#" class="file submenu-sync-gdrivesec action-sync-import-gdrivesec"><i class="icon-provider-gdrive"></i> Google Drive<sup>2</sup></a>\n                            </li>\n                            <li><a href="#" class="file submenu-sync-gdriveter action-sync-import-gdriveter"><i class="icon-provider-gdrive"></i> Google Drive<sup>3</sup></a>\n                            </li>\n                            <li><a data-toggle="modal" data-target=".modal-import-url" class="file action-reset-input" href="#" title="Import from URL"><i class="icon-globe text-green"></i> Import URL</a>\n                            </li>\n                            <li><a data-toggle="modal" title="Import from disk" data-target=".modal-import-harddrive-markdown" class="file action-reset-input" href="#"><i class="icon-hdd text-orange"></i> Import from disk</a>\n                            </li>\n                            <li><a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input"> <i class="icon-paste"></i>Import HTML</a>\n                            </li>\n                        </ul>\n                    </li>\n                </ul>\n                <ul class="nav pull-right title-container">\n                    <li>\n                        <a class="btn btn-success file-title-navbar" href="#" title="Rename story"></a>\n                    </li>\n                    <li>\n                        <div class="input-file-title-container">\n                            <input type="text" class="col-sm-4 form-control hide input-file-title" placeholder="Story title" />\n                        </div>\n                    </li>\n                </ul>\n            </div>\n        </div>\n        <div class="layout-wrapper-l3">\n            <pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>\n            <div class="preview-panel">\n                <div class="layout-resizer layout-resizer-preview"></div>\n                <div class="layout-toggler layout-toggler-navbar btn btn-info" title="Toggle navigation bar"><i class="icon-resize-full"></i>\n                </div>\n                <div class="layout-toggler layout-toggler-preview btn btn-info" title="Toggle preview"><i class="icon-none"></i>\n                </div>\n                <div class="preview-container">\n                    <div id="preview-contents">\n                        <div id="wmd-preview" class="preview-content"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="extension-preview-buttons">\n            <div class="btn-group drag-me" title="Drag me!">\n                <i class="icon-ellipsis-vert"></i>\n            </div>\n        </div>\n    </div>\n    <div id="wmd-button-bar" class="hide"></div>\n    <div class="menu-panel">\n        <button class="btn toggle-button hide" title="Menu">\n            <i class="icon-menu"></i>\n        </button>\n        <div class="panel-content">\n            <div class="list-group">\n                <a href="paper" title="WriteOn Paper" class="list-group-item">\n                    <i class="icon-doc-text"></i> WriteOn Paper\n                </a>\n            </div>\n            <div class="list-group">\n                <a href="#" data-toggle="collapse" data-target=".collapse-synchronize" class="list-group-item hide">\n                    <div><i class="icon-refresh"></i> Synchronize</div>\n                    <small>Save, share, collaborate in the Cloud</small>\n                </a>\n                <div class="sub-menu collapse collapse-synchronize clearfix">\n\n                </div>\n                <a href="#" data-toggle="collapse" data-target=".collapse-publish-on" class="list-group-item hide">\n                    <div><i class="icon-print"></i>Publish</div>\n                    <small>Publish to the web</small>\n                </a>\n                <div class="sub-menu collapse collapse-publish-on clearfix">\n\n                </div>\n                <a href="#" data-toggle="collapse" data-target=".collapse-export-on" class="list-group-item">\n                    <div><i class="icon-download"></i>Download</div>\n                    <small>Download stories for offline use</small>\n                </a>\n                <div class="sub-menu collapse collapse-export-on clearfix">\n                    <ul class="nav">\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-pdf" href="#" title="Download PDF file"><i class="icon-file"></i> PDF </a>\n                        </li>\n                    </ul>\n                </div>\n                <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input list-group-item hide">\n                    <div><i class="icon-paste"></i>Convert</div>\n                    <small>Convert HTML to Markdown</small>\n                </a>\n                <a href="#" data-toggle="modal" data-target=".modal-settings" class="action-load-settings list-group-item">\n                    <div><i class="icon-cog-alt"></i>Settings</div>\n                    <small>Settings, extenions & utilities</small>\n                </a>\n            </div>\n            <ul class="nav">\n                <li><a href="#" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-help-circled"></i> About</a>\n                </li>\n                <li><a href="/logout"><i class="icon-logout"></i> Logout</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n    <div class="document-panel">\n        <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">\n            <i class="icon-folder-open"></i>\n        </button>\n        <div class="search-bar clearfix">\n            <ul class="nav hide">\n                <li><a href="#" class="action-remove-file-confirm"><i class="icon-trash text-red"></i> Delete this story</a>\n                </li>\n            </ul>\n            <div class="input-group">\n                <span class="input-group-addon"><i class="icon-search"></i></span>\n                <input type="text" class="form-control" placeholder="Find story" />\n            </div>\n        </div>\n        <div class="panel-content">\n            <div class="list-group document-list"></div>\n            <div class="list-group document-list-filtered hide"></div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-document-manager">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Organize stories</h2>\n            </div>\n            <div class="modal-body">\n                <div></div>\n                <ul class="nav nav-pills document-list">\n                    <li class="pull-right dropdown"><a href="#" data-toggle="dropdown"><i class="icon-check"></i> Actions <b class="caret"></b></a>\n                        <ul class="dropdown-menu">\n                            <li><a href="#" class="action-select-all"><i class="icon-check"></i> Select all</a>\n                            </li>\n                            <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>\n                            </li>\n                            <li class="divider"></li>\n                            <li><a href="#" class="action-move-items"><i class="icon-forward"></i> Move to folder</a>\n                            </li>\n                            <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>\n                            </li>\n                        </ul>\n                    </li>\n                    <li class="pull-right">\n                        <a href="#" class="action-create-folder"> <i class="icon-folder"></i>\n                            Create folder\n                        </a>\n                    </li>\n                    <li class="disabled"><a><i class="icon-file"></i> <span class="document-count"></span></a>\n                    </li>\n                    <li class="disabled"><a><i class="icon-folder"></i> <span class="folder-count"></span></a>\n                    </li>\n                </ul>\n                <div class="list-group document-list"></div>\n                <p class="confirm-delete hide">The following stories will be deleted locally:</p>\n                <p class="choose-folder hide">Please choose a destination folder:\n                </p>\n                <div class="list-group selected-document-list hide"></div>\n                <div class="list-group select-folder-list hide"></div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default confirm-delete choose-folder action-cancel hide">Cancel</a>\n                <a href="#" class="btn btn-danger confirm-delete action-delete-items-confirm hide">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-insert-link">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Hyperlink</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide the link URL and an optional title:</p>\n                <div class="input-group">\n                    <span class="input-group-addon"><i class="icon-globe"></i></span>\n                    <input id="input-insert-link" type="text" class="col-sm-5 form-control" placeholder=\'http://example.com/ "optional title"\' />\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-insert-link" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-insert-image">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Image</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide the image URL and an optional title:</p>\n                <div class="input-group">\n                    <span class="input-group-addon"><i class="icon-picture"></i></span>\n                    <input id="input-insert-image" type="text" class="col-sm-5 form-control" placeholder=\'http://example.com/image.jpg "optional title"\' />\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default pull-left action-import-image-gplus" data-dismiss="modal"><i class="icon-provider-gplus"></i> Import\nfrom Google+</a>  <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>  <a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-image">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Google+ image import</h2>\n            </div>\n            <div class="modal-body">\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <div class="col-sm-7">\n                            <img>\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label" for="input-import-image-title">Title (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-import-image-title" placeholder="Image title" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label" for="input-import-image-size">Size limit (optional)</label>\n                        <div class="col-sm-7 form-inline">\n                            <input type="text" id="input-import-image-size" placeholder="0" class="col-sm-3 form-control">px\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-import-image" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-remove-file-confirm">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Delete</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    Are you sure you want to delete "<span class="file-title"></span>"?\n                </p>\n                <blockquote>\n                    <p><b>Note:</b> It won\'t delete the file on synchronized locations.</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-danger action-remove-file" data-dismiss="modal">Delete</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-url">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Import from URL</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide a link to a Markdown formatted story (<code>.md</code> or <code>.markdown</code> extension).</p>\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <label class="col-sm-3 control-label" for="input-import-url">URL</label>\n                        <div class="col-sm-8">\n                            <input type="text" id="input-import-url" placeholder="http://my-awesome.com/story.md" class="form-control">\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-import-url">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-harddrive-markdown">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Import from disk</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please select your Markdown files here (<code>.md</code> or <code>.markdown</code> extension):</p>\n                <p>\n                    <input type="file" id="input-file-import-harddrive-markdown" multiple class="form-control" />\n                </p>\n                <p>Or drag and drop your Markdown files here:</p>\n                <p id="dropzone-import-harddrive-markdown" class="drop-zone">Drop files here</p>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-harddrive-html">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Convert HTML to Markdown</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please select your HTML files here:</p>\n                <p>\n                    <input type="file" id="input-file-import-harddrive-html" multiple class="form-control" />\n                </p>\n                <p>Or drag and drop your HTML files here:</p>\n                <p id="dropzone-import-harddrive-html" class="drop-zone">Drop files here</p>\n                <p>Or insert your HTML code here:</p>\n                <textarea id="input-convert-html" class="form-control prettyprint linenums lang-html"></textarea>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>  <a href="#" class="btn btn-primary action-convert-html" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-upload-gdrive">\n</div>\n<div class="modal fade modal-upload-gdrivesec">\n</div>\n<div class="modal fade modal-upload-gdriveter">\n</div>\n<div class="modal fade modal-autosync-gdrive">\n</div>\n<div class="modal fade modal-autosync-gdrivesec">\n</div>\n<div class="modal fade modal-autosync-gdriveter">\n</div>\n<div class="modal fade modal-upload-dropbox">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Save to Dropbox</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    This will save "<span class="file-title"></span>" to your <i class="icon-provider-dropbox"></i>\n                    <code>Dropbox</code>\n                    account and keep it synchronized.\n                </p>\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <label class="col-sm-3 control-label" for="input-sync-export-dropbox-path">File path</label>\n                        <div class="col-sm-8">\n                            <input type="text" id="input-sync-export-dropbox-path" placeholder="/path/to/My Story.md" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                </div>\n                <blockquote>\n                    <b>Note:</b>\n                    <ul>\n                        <li>Dropbox file path does not depend on story title.</li>\n                        <li>The title of your story will not be synchronized.</li>\n                        <li>Destination folder must exist.</li>\n                        <li>Any existing file at this location will be overwritten.</li>\n                    </ul>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-dropbox">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-download-mywriteon">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Open on My.WriteOn</h2>\n                <div class="form-horizontal list-mode">\n                    <br>\n                    <div class="form-group form-inline">\n                        <label for="input-sync-import-mywriteon-tag" class="col-sm-3 control-label">Filter by tag</label>\n                        <select id="input-sync-import-mywriteon-tag" class="col-sm-4 form-control">\n                        </select>\n                        <span class="col-sm-5">\n<a class="btn btn-link action-add-tag"><i class="icon-tag"></i> Add\n</a>\n<a class="btn btn-link action-remove-tag"><i class="icon-tag"></i> Remove\n</a>\n</span>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-body">\n                <p class="msg-default-mywriteon alert alert-warning">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <i class="icon-attention"></i>  <b>Careful:</b>\n                    This is Beta software, and you\'re using our public My.WriteOn instance.\n                    <b>That means anybody can open, edit and delete these stories.</b>\n                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">â™¥</span>\n                </p>\n                <div class="form-horizontal byid-mode">\n                    <div class="form-group">\n                        <label for="input-sync-import-mywriteon-documentid" class="col-sm-3 control-label">Story ID\n                        </label>\n                        <div class="col-sm-9">\n                            <input id="input-sync-import-mywriteon-documentid" class="form-control" placeholder="DocumentID">\n                            <span class="help-block">Multiple IDs can be provided (space separated)</span>\n                        </div>\n                    </div>\n                </div>\n                <ul class="list-mode nav nav-pills">\n                    <li class="pull-right dropdown"><a href="#" data-toggle="dropdown"><i class="icon-check"></i> Selection\n<b class="caret"></b></a>\n                        <ul class="dropdown-menu">\n                            <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>\n                            </li>\n                            <li class="divider"></li>\n                            <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>\n                            </li>\n                        </ul>\n                    </li>\n                </ul>\n                <p class="list-mode">\n                </p>\n                <div class="list-group document-list list-mode"></div>\n                <div class="list-mode text-center">\n                    <div class="please-wait"><b>Please wait...</b>\n                    </div>\n                    <div class="no-document"><b>No story.</b>\n                    </div>\n                    <button class="more-documents btn btn-link"><i class="icon-angle-double-down"></i> More stories</button>\n                </div>\n                <p class="delete-mode hide">The following stories will be removed from WriteOn:</p>\n                <div class="delete-mode list-group selected-document-list hide"></div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default pull-left list-mode action-byid-mode"><i class="icon-folder-open-empty"></i> Open by ID...</a>\n                <a href="#" class="btn btn-default delete-mode action-cancel hide">Cancel</a>\n                <a href="#" class="btn btn-primary delete-mode action-delete-items-confirm hide">Delete</a>\n                <a href="#" class="btn btn-default byid-mode action-cancel">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon byid-mode">Open</a>\n                <a href="#" class="btn btn-default list-mode" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon list-mode">Open</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-upload-mywriteon">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Save to My.WriteOn</h2>\n            </div>\n            <div class="modal-body">\n                <p class="msg-default-mywriteon alert alert-warning hide">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <i class="icon-attention"></i>  <b>Careful:</b>\n                    This is Beta software, and you\'re using our public My.WriteOn instance.\n                    <b>That means anybody can open, edit and delete your stories - and vise versa.</b>\n                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">â™¥</span>\n                </p>\n                <p>\n                    This will save "<span class="file-title"></span>" to My.WriteOn <sup class="text-danger">Beta</sup> and keep it synchronized.\n                </p>\n                <blockquote>\n                    <p><b>Tip:</b> You can use a\n                        <a href="http://jekyllrb.com/docs/frontmatter/" target="_blank">YAML front matter</a> to specify tags for your story.</p>\n                    <p>Alternatively, you can place comma separated tags in square brackets at the beginning of the story title.</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-mywriteon">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-sync">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Synchronization</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    "<span class="file-title"></span>" is synchronized in the following location(s):\n                </p>\n                <div class="sync-list"></div>\n                <blockquote>\n                    <p><b>Hey There:</b> Removing a synchronized location will not delete the local story.\n                    </p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-publish">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">\nPublish on <span class="publish-provider-name"></span>\n</h2>\n            </div>\n            <div class="modal-body">\n                <div class="form-horizontal">\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-host">Host</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ssh-host" placeholder="hostname.or.ip" class="form-control"> <span class="help-block"> Host must be accessible publicly,\nunless you\'re hosting your own WriteOn instance.\n</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-port">Port (optional)\n                        </label>\n                        <div class="col-sm-2">\n                            <input type="text" id="input-publish-ssh-port" placeholder="22" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-username">Username</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ssh-username" placeholder="username" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-password">Password</label>\n                        <div class="col-sm-7">\n                            <input type="password" id="input-publish-ssh-password" placeholder="password" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-github-repo">Repository</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-github-repo" placeholder="Repository name or URL" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-github-branch">Branch</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-github-branch" placeholder="branch-name" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-file-path">File path</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-file-path" placeholder="path/to/file.md" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-filename">Filename</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-filename" placeholder="filename" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-gist-id">Existing ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gist-id" placeholder="GistID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-gist-public">Public</label>\n                        <div class="col-sm-7">\n                            <div class="checkbox">\n                                <input type="checkbox" id="input-publish-gist-public" checked="checked" />\n                            </div>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ghost">\n                        <label class="col-sm-4 control-label" for="input-publish-ghost-url">Ghost URL</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ghost-url" placeholder="http://example.ghost.org/" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-blogger modal-publish-bloggerpage">\n                        <label class="col-sm-4 control-label" for="input-publish-blogger-url">Blog URL</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-blogger-url" placeholder="http://example.blogger.com/" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-tumblr">\n                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">Blog hostname</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-tumblr-hostname" placeholder="example.tumblr.com" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-wordpress">\n                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">WordPress site</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-wordpress-site" placeholder="example.wordpress.com" class="form-control">\n                            <span class="help-block"> <a target="_blank" href="http://jetpack.me/">Jetpack plugin</a> is required for\nself-hosted sites.\n</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">\n                        <label class="col-sm-4 control-label" for="input-publish-postid">Update existing post ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-postid" placeholder="PostID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-bloggerpage">\n                        <label class="col-sm-4 control-label" for="input-publish-pageid">Update existing page ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-pageid" placeholder="PageID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-dropbox">\n                        <label class="col-sm-4 control-label" for="input-publish-dropbox-path">File path</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-dropbox-path" placeholder="/path/to/My Story.html" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gdrive">\n                        <label class="col-sm-4 control-label" for="input-publish-gdrive-fileid">File ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gdrive-fileid" placeholder="FileID" class="form-control"> <span class="help-block">If no file ID is supplied, a new file\nwill be created in your Google Drive root folder. You can move\nthe file afterwards within Google Drive.</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gdrive">\n                        <label class="col-sm-4 control-label" for="input-publish-gdrive-filename">Force filename (optional)\n                        </label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gdrive-filename" placeholder="Filename" class="form-control"> <span class="help-block">If no file name is supplied, the\nstory title will be used.</span>\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label">Format</label>\n                        <div class="col-sm-7">\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="markdown">Markdown\n                                </label>\n                            </div>\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="html">HTML\n                                </label>\n                            </div>\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="template">Template\n                                </label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="collapse publish-custom-template-collapse">\n                        <div class="form-group">\n                            <div class="col-sm-4"></div>\n                            <div class="col-sm-7">\n                                <div class="checkbox">\n                                    <label>\n                                        <input type="checkbox" id="checkbox-publish-custom-template">Custom template\n                                    </label> <a href="#" class="tooltip-template">(?)</a>\n                                </div>\n                            </div>\n                        </div>\n                        <div class="form-group">\n                            <div class="col-sm-4"></div>\n                            <div class="col-sm-7">\n                                <textarea class="form-control" id="textarea-publish-custom-template"></textarea>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <blockquote class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">\n                    <p><b>Tip:</b> You can use a\n                        <a href="http://jekyllrb.com/docs/frontmatter/" target="_blank">YAML front matter</a> to specify the title and the tags/labels of your publication.</p>\n                    <p><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.</p>\n                </blockquote>\n                <blockquote class="front-matter-info modal-publish-bloggerpage">\n                    <p><b>Tip:</b> You can use a\n                        <a href="http://jekyllrb.com/docs/frontmatter/" target="_blank">YAML front matter</a> to specify the title of your page.</p>\n                    <p><b>Interpreted variables:</b>  <code>title</code>.</p>\n                </blockquote>\n                <blockquote class="url-info modal-publish-bloggerpage">\n                    <p><b>About URL:</b> For newly created page , Blogger API will append a generated number to the url like <code>about-me-1234.html</code>, if you deeply care about your URL naming, you should first create the page on Blogger and then update them with WriteOn specifying the pageId when publishing.\n                    </p>\n                    <p><b>About page visibility:</b> Blogger API does not respect published status for pages.When publishing the page to Blogger, the page will be <strong>live</strong> but not added to the page listing. You should arrange the page listing from Blogger dashboard.\n                    </p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-process-publish">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-publish">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Publication</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    "<span class="file-title"></span>" is published on the following location(s):\n                </p>\n                <div class="publish-list"></div>\n                <blockquote>\n                    <p><b>Stating the Obvious?</b> Maybe, but removing a published location will not delete the actual post out in the wild.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-sharing">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Sharing</h2>\n            </div>\n            <div class="modal-body">\n                <p>To <strong>collaborate</strong> on "<span class="file-title"></span>" with other WriteOn users, share this link(s):</p>\n                <p class="msg-no-share-editor alert alert-info" role="alert"><b>No sharing link yet.</b> To collaborate on this story, just\n                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn</a>\n                </p>\n                <div class="share-editor-list"></div>\n                <hr>\n                <p> To <strong>share</strong> a public, read-only version of "<span class="file-title"></span>" using the following link(s):</p>\n                <p class="msg-no-share-viewer alert alert-info" role="alert"><b>No sharing link yet!</b> To share a read-only version of this story, just \n                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn.</a></p>\n                <div class="share-viewer-list"></div>\n                <blockquote>\n                    <p><b>Did You Know?</b> You can open any <code>.md</code> or <code>.markdown</code> URL using the <i>WriteOn Paper</i> like so: \n                        <a href="paper#!url=https://raw.githubusercontent.com/github/markup/master/README.md" title="Sharing example">\n                            <code>/paper#!url=[your-url-here]</code></a>.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-settings">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Settings</h2>\n            </div>\n            <div class="modal-body">\n            <div class="col-md-3 modal-nav">\n                <ul class="nav nav-tabs nav-stacked">\n                    <li class="active"><a class="action-load-settings" href="#tabpane-settings-basic" data-toggle="tab"><i class="icon-cog"></i> Basic</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-advanced" data-toggle="tab"><i class="icon-tasks"></i> Advanced</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-permissions" data-toggle="tab"><i class="icon-lock"></i> Permissions</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-templates" data-toggle="tab"><i class="icon-list-alt"></i> Templates</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-extensions" data-toggle="tab"><i class="icon-puzzle"></i> Extensions</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab"><i class="icon-briefcase"></i> Utilities</a>\n                    </li>\n            </ul>\n            </div>\n            \n            \n                <div class="col-md-9 tab-content clearfix" data-spy="scroll">\n                    <div class="tab-pane active" id="tabpane-settings-basic">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Layout orientation</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-layout-orientation" value="horizontal">Horizontal\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-layout-orientation" value="vertical">Vertical\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-theme">Theme</label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-theme" class="form-control">\n                                    </select>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-5"></div>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-markdown-extra" />\n                                            <b>Markdown Extra/GitHub Flavored Markdown</b> syntax\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-markdown-mime-type">Markdown MIME type\n                                </label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-markdown-mime-type" class="form-control">\n                                        <option value="text/plain">text/plain</option>\n                                        <option value="text/x-markdown">text/x-markdown</option>\n                                    </select>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <div class="col-sm-5"></div>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-mathjax" />\n                                            <b>LaTeX mathematical expressions</b> using <code>$</code> and <code>$$</code> delimiters\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-gdrive-multiaccount">Google Drive multiple accounts\n                                </label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-gdrive-multiaccount" class="form-control">\n                                        <option value="1">1 account</option>\n                                        <option value="2">2 accounts</option>\n                                        <option value="3">3 accounts</option>\n                                    </select>\n                                    <span class="help-block">Once linked with your Google accounts, changing accounts is not possible unless you <a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab">reset the application</a>.</span>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-advanced">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Edit mode</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-edit-mode" value="ltr">Left-To-Right\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-edit-mode" value="rtl">Right-To-Left\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Edit Pad\'s font style</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-editor-font-class" value="font-rich">Rich\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-editor-font-class" value="font-monospaced">Monospaced\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-font-size">Font size ratio</label>\n                                <div class="col-sm-7 form-inline">\n                                    <input type="text" id="input-settings-font-size" class="form-control col-sm-2">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-max-width">Max width ratio</label>\n                                <div class="col-sm-7 form-inline">\n                                    <input type="text" id="input-settings-max-width" class="form-control col-sm-2">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-cursor-focus">Cursor focus ratio</label>\n                                <div class="col-sm-7 form-inline">\n                                    <input type="text" id="input-settings-cursor-focus" class="form-control col-sm-2">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-lazy-rendering">Lazy rendering <a href="#" class="tooltip-lazy-rendering">(?)</a>\n                                </label>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <input type="checkbox" id="input-settings-lazy-rendering" />\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-templates">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="textarea-settings-default-content">Default content\n                                    <a href="#" class="tooltip-default-content">(?)</a>\n                                </label>\n                                <div class="col-sm-7">\n                                    <textarea id="textarea-settings-default-content" class="form-control"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="textarea-settings-putemplatetempla">Default template <a href="#" class="tooltip-template">(?)</a>\n                                </label>\n                                <div class="col-sm-7">\n                                    <textarea id="textarea-settings-publish-template" class="form-control"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="textarea-settings-pdf-template">PDF template <a href="#" class="tooltip-template">(?)</a>\n                                </label>\n                                <div class="col-sm-7">\n                                    <textarea id="textarea-settings-pdf-template" class="form-control"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="textarea-settings-pdf-options">PDF options\n                                    <a href="#" class="tooltip-pdf-options">(?)</a>\n                                </label>\n                                <div class="col-sm-7">\n                                    <textarea id="textarea-settings-pdf-options" class="form-control"></textarea>\n                                </div>\n                            </div>                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-permissions">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-gdrive-full-access" />Allow WriteOn to open any story in Google Drive\n                                        </label> <span class="help-block">Existing authorization has to be revoked in\n<a href="https://www.google.com/settings/dashboard" target="_blank">Google Dashboard</a>\nfor this change to take effect.</span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-dropbox-full-access" />Allow WriteOn to open any story in Dropbox\n                                        </label> <span class="help-block">If unchecked, access will be restricted to folder\n<b>/Applications/WriteOn</b> for existing stories.</span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-github-full-access" />Allow WriteOn to access private repositories in GitHub\n                                        </label> <span class="help-block">Existing authorization has to be revoked in\n<a href="https://github.com/settings/applications" target="_blank">GitHub settings</a>\nfor this change to take effect.</span>\n                                    </div>\n                                </div>\n                            </div>                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-extensions">\n                        <div class="panel-group accordion-extensions"></div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-utils">\n                        <p>Some of these are quite powerful, and can result in the total loss of your data. </p>\n                        <div class="col-sm-6 tab-pane-button-container">\n                            <a href="#" class="btn btn-block btn-default action-welcome-file" data-dismiss="modal"><i class="icon-help-circled"></i> Load Welcome Guide</a>\n                            <a href="#" class="btn btn-block btn-default action-guide-file" data-dismiss="modal"><i class="icon-keyboard"></i> Load Syntax Guide</a>\n                            <a href="#" class="btn btn-block btn-default action-welcome-tour" data-dismiss="modal"><i class="icon-comment"></i> Welcome tour</a>\n                            <a target="_blank" href="recovery.html" class="btn btn-block btn-default"><i class="icon-medkit"></i> WriteOn recovery</a>\n                        </div>\n                        <div class="col-sm-6 tab-pane-button-container">\n                            <a href="#" class="btn btn-block btn-default action-import-docs-settings"><i class="icon-cog-alt"></i> Import stories & settings</a>  \n                            <a href="#" class="btn btn-block btn-default action-export-docs-settings" data-dismiss="modal"><i class="icon-share"></i> Export stories & settings</a> \n                            <a href="#" class="btn btn-block btn-default action-default-settings" data-dismiss="modal"><i class="icon-wrench"></i> Load default settings</a>  \n                            <a href="#" class="btn btn-block btn-default" data-dismiss="modal" data-toggle="modal" data-target=".modal-app-reset"><i class="icon-fire"></i> Reset application</a>  \n                            <input type="file" id="input-file-import-docs-settings" class="hide">\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-apply-settings" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-non-unique">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Ooops...</h2>\n            </div>\n            <div class="modal-body">\n                <p>WriteOn has stopped because another instance was running in the same browser or the local cache was disrupted.</p>\n                <blockquote>\n                    <p>If you want to reopen WriteOn, click on "Reload".\n                    </p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-redirect-confirm">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Redirection</h2>\n            </div>\n            <div class="modal-body">\n                <p class="redirect-msg"></p>\n                <blockquote>\n                    <p>Please click <b>OK</b> to proceed.</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a class="btn btn-primary action-redirect-confirm" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-app-reset">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Reset application</h2>\n            </div>\n            <div class="modal-body">\n                <p>This will delete all your local stories.</p>\n                <blockquote><b>Are you sure?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-app-reset" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-docs-settings">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Import stories and settings</h2>\n            </div>\n            <div class="modal-body">\n                <p>This will delete all existing local stories.</p>\n                <blockquote><b>Are you sure?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-import-docs-settings-confirm" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-add-google-drive-account">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Add Google Drive account</h2>\n            </div>\n            <div class="modal-body">\n                <p>To perform this request, you need to configure another Google Drive account in WriteOn.</p>\n                <blockquote><b>Do you want to proceed?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default action-remove-google-drive-state" data-dismiss="modal">No</a>\n                <a href="#" class="btn btn-primary action-add-google-drive-account" data-dismiss="modal">Yes</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-sponsor-only">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Sponsors only</h2>\n            </div>\n            <div class="modal-body">\n                <p>This feature is restricted to sponsors. Note that sponsoring WriteOn would cost you only $3/month.</p>\n                <p>To see how a PDF looks <a target="_blank" href="/Welcome%story.pdf">click here</a>.</p>\n                <blockquote>\n                    <p><b>Tip:</b> PDFs are fully customizable via Settings>Advanced>PDF template/options.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div id="dropboxjs" data-app-key="r3vgaee214zfvc7"></div>\n';
+ return '<div class="working-indicator"></div>\n<div class="layout-wrapper-l1">\n    <div class="layout-wrapper-l2">\n        <div class="navbar navbar-default">\n            <div class="navbar-inner">\n                <div class="nav left-space">\n                <button class="btn btn-default settings-menu dropdown-toggle" data-toggle="dropdown" id="settings-menu" title="Menu">\n                    <i class="icon-menu"></i>\n                </button>\n                    <ul class="dropdown-menu" role="menu" aria-labelledby="settings-menu">\n                        <li><a href="paper" title="WriteOn Paper" role="menuitem"><i class="icon-doc-text"></i> Switch to Paper</a></li>\n                        <li><a href="#" title="Settings & Preferences" data-toggle="modal" data-target=".modal-settings" class="action-load-settings"><i class="icon-cog-alt"></i> Settings & Preferences</a></li>\n                        <li><a href="#" title="About WriteOn" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-info"></i> About</a></li>\n                        <li><a href="#" title="Get Help" id="button-help"><i class="icon-help-circled"></i> Help</a></li>\n                        <li><a href="/logout" title="Logout"><i class="icon-logout"></i> Logout</a></li>\n                    </ul>\n                </div>\n                <div class="nav right-space pull-right"></div>\n                <div class="buttons-dropdown dropdown">\n                    <div class="nav">\n                        <button class="btn btn-default" data-toggle="dropdown" title="Show buttons">\n                            <i class="icon-th-large"></i>\n                        </button>\n                        <div class="dropdown-menu">\n                        </div>\n                    </div>\n                </div>\n                <ul class="nav left-buttons first">\n                    <li class="wmd-button-group1 btn-group"></li>\n                </ul>\n                <ul class="nav left-buttons">\n                    <li class="wmd-button-group2 btn-group"></li>\n                </ul>\n                <ul class="nav left-buttons">\n                    <li class="wmd-button-group3 btn-group"></li>\n                </ul>\n                <ul class="nav left-buttons">\n                    <li class="wmd-button-group5 btn-group"></li>\n                </ul>\n                <ul class="nav left-buttons">\n                    <li class="wmd-button-group4 btn-group">\n                        <a class="btn btn-default button-open-discussion" title="Comments Ctrl/Cmd+M"><i class="icon-comment-alt"></i></a>\n                    </li>\n                </ul>\n                <ul class="nav pull-right right-buttons">\n                    <li class="offline-status hide">\n                        <div class="text-danger">\n                            <a class="btn btn-danger" title="You are offline...It\'s a great time to write!"><i class="icon-attention-circled"></i></a>\n                        </div>\n                    </li>\n                    <li class="dropdown btn-group extension-buttons syncing-menu">\n                        <a href="#" data-toggle="dropdown" title="Save, share, collaborate in the Cloud" class="btn" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-refresh"></i></a>\n                        <ul class="dropdown-menu sync-menu">\n                        <li class="divider show-already-synchronized sync-divider"></li>\n                        <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> Sync & share</a>\n                        </li><li class="divider"></li>\n                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-upload-cloud text-blue"></i> My.WriteOn</a>\n                        </li>\n                        <li><a href="#" data-toggle="modal" data-target=".modal-manage-sharing" class="action-reset-input"><i class="icon-link text-green"></i> Sharing</a>\n                        </li>\n                        <li><a href="#" class="action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdrive action-sync-export-dialog-gdrive"><i class="icon-provider-gdrive"></i> Drive</a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i class="icon-provider-gdrive"></i> Drive<sup>2</sup></a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i class="icon-provider-gdrive"></i> Drive<sup>3</sup></a>\n                        </li>\n                        </ul>\n                    </li>\n                    <li class="dropdown btn-group extension-buttons publishing-menu">\n                        <a href="#" data-toggle="dropdown" title="Publish to the web" class="btn" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-share"></i></a>\n                        <ul class="dropdown-menu publish-menu publish-on-provider-list">\n                        <li class="divider show-already-published publish-divider"></li>\n                        <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> Publish</a>\n                        </li><li class="divider"></li>\n                        </ul>\n                    </li>\n                    <li class="dropdown btn-group download-menu">\n                        <a href="#" data-toggle="dropdown" title="Download story for offline use" class="btn" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-download"></i></a>\n                        <ul class="dropdown-menu">\n                        <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> Download</a>\n                        </li><li class="divider"></li>\n                        <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>\n                        </li>\n                        <li><a class="action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>\n                        </li>\n                        <li><a class="action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>\n                        </li>\n                        </ul>\n                    </li>\n                    <li class="dropdown btn-group story-menu">\n                        <a href="#" data-toggle="dropdown" title="Open & Import" class="btn" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-docs text-blue"></i></a>\n                        <ul class="dropdown-menu">\n                            <li><a href="#" class="action-create-file"><i class="icon-file text-blue"></i> Create New Story</a>\n                            </li>\n                            <li><a href="#" class="file" data-toggle="modal" data-target=".modal-document-manager"><i class="icon-layers text-yellow"></i> Organize Stories</a>\n                            </li>\n                            <li class="divider"></li>\n                            <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> <strong>Import Stories</strong></a>\n                            </li>\n                            <li class="divider"></li>\n                            <li><a href="#" class="file action-sync-import-dialog-mywriteon hide"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a>\n                            </li>\n                            <li><a href="#" class="file action-sync-import-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>\n                            </li>\n                            <li><a href="#" class="file submenu-sync-gdrive action-sync-import-gdrive"><i class="icon-provider-gdrive"></i> Google Drive</a>\n                            </li>\n                            <li><a href="#" class="file submenu-sync-gdrivesec action-sync-import-gdrivesec"><i class="icon-provider-gdrive"></i> Google Drive<sup>2</sup></a>\n                            </li>\n                            <li><a href="#" class="file submenu-sync-gdriveter action-sync-import-gdriveter"><i class="icon-provider-gdrive"></i> Google Drive<sup>3</sup></a>\n                            </li>\n                            <li><a data-toggle="modal" data-target=".modal-import-url" class="file action-reset-input" href="#" title="Import from URL"><i class="icon-globe text-green"></i> Import URL</a>\n                            </li>\n                            <li><a data-toggle="modal" title="Import from disk" data-target=".modal-import-harddrive-markdown" class="file action-reset-input" href="#"><i class="icon-hdd text-orange"></i> Import from disk</a>\n                            </li>\n                            <li><a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input"> <i class="icon-paste"></i>Import HTML</a>\n                            </li>\n                        </ul>\n                    </li>\n                </ul>\n                <ul class="nav pull-right title-container">\n                    <li>\n                        <a class="btn btn-default file-title-navbar" href="#" title="Rename story"></a>\n                    </li>\n                    <li>\n                        <div class="input-file-title-container">\n                            <input type="text" class="col-sm-4 form-control hide input-file-title" placeholder="Story title" />\n                        </div>\n                    </li>\n                </ul>\n            </div>\n        </div>\n        <div class="layout-wrapper-l3">\n            <pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>\n            <div class="preview-panel">\n                <div class="layout-resizer layout-resizer-preview"></div>\n                <div class="layout-toggler layout-toggler-navbar btn btn-default" title="Toggle navigation bar"><i class="icon-resize-full"></i>\n                </div>\n                <div class="layout-toggler layout-toggler-preview btn btn-default open" title="Toggle preview"><i class="icon-none"></i>\n                </div>\n                <div class="preview-container">\n                    <div id="preview-contents">\n                        <div id="wmd-preview" class="preview-content"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="extension-preview-buttons">\n            <div class="btn-group drag-me" title="Drag me!">\n                <i class="icon-ellipsis-vert"></i>\n            </div>\n        </div>\n    </div>\n    <div id="wmd-button-bar" class="hide"></div>\n    <div class="menu-panel">\n        <button class="btn toggle-button hide" title="Menu">\n            <i class="icon-menu"></i>\n        </button>\n        <div class="panel-content">\n            <div class="list-group">\n                <a href="paper" title="WriteOn Paper" class="list-group-item">\n                    <i class="icon-doc-text"></i> WriteOn Paper\n                </a>\n            </div>\n            <div class="list-group">\n                <a href="#" data-toggle="collapse" data-target=".collapse-synchronize" class="list-group-item hide">\n                    <div><i class="icon-refresh"></i> Synchronize</div>\n                    <small>Save, share, collaborate in the Cloud</small>\n                </a>\n                <div class="sub-menu collapse collapse-synchronize clearfix">\n\n                </div>\n                <a href="#" data-toggle="collapse" data-target=".collapse-publish-on" class="list-group-item hide">\n                    <div><i class="icon-print"></i>Publish</div>\n                    <small>Publish to the web</small>\n                </a>\n                <div class="sub-menu collapse collapse-publish-on clearfix">\n\n                </div>\n                <a href="#" data-toggle="collapse" data-target=".collapse-export-on" class="list-group-item">\n                    <div><i class="icon-download"></i>Download</div>\n                    <small>Download stories for offline use</small>\n                </a>\n                <div class="sub-menu collapse collapse-export-on clearfix">\n                    <ul class="nav">\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-pdf" href="#" title="Download PDF file"><i class="icon-file"></i> PDF </a>\n                        </li>\n                    </ul>\n                </div>\n                <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input list-group-item hide">\n                    <div><i class="icon-paste"></i>Convert</div>\n                    <small>Convert HTML to Markdown</small>\n                </a>\n                <a href="#" data-toggle="modal" data-target=".modal-settings" class="action-load-settings list-group-item">\n                    <div><i class="icon-cog-alt"></i>Settings</div>\n                    <small>Settings, extenions & utilities</small>\n                </a>\n            </div>\n            <ul class="nav">\n                <li><a href="#" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-help-circled"></i> About</a>\n                </li>\n                <li><a href="/logout"><i class="icon-logout"></i> Logout</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n    <div class="document-panel">\n        <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">\n            <i class="icon-folder-open"></i>\n        </button>\n        <div class="search-bar clearfix">\n            <ul class="nav hide">\n                <li><a href="#" class="action-remove-file-confirm"><i class="icon-trash text-red"></i> Delete this story</a>\n                </li>\n            </ul>\n            <div class="input-group">\n                <span class="input-group-addon"><i class="icon-search"></i></span>\n                <input type="text" class="form-control" placeholder="Find story" />\n            </div>\n        </div>\n        <div class="panel-content">\n            <div class="list-group document-list"></div>\n            <div class="list-group document-list-filtered hide"></div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-document-manager">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Organize stories</h2>\n            </div>\n            <div class="modal-body">\n                <div></div>\n                <ul class="nav nav-pills document-list">\n                    <li class="pull-right dropdown"><a href="#" data-toggle="dropdown"><i class="icon-check"></i> Actions <b class="caret"></b></a>\n                        <ul class="dropdown-menu">\n                            <li><a href="#" class="action-select-all"><i class="icon-check"></i> Select all</a>\n                            </li>\n                            <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>\n                            </li>\n                            <li class="divider"></li>\n                            <li><a href="#" class="action-move-items"><i class="icon-forward"></i> Move to folder</a>\n                            </li>\n                            <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>\n                            </li>\n                        </ul>\n                    </li>\n                    <li class="pull-right">\n                        <a href="#" class="action-create-folder"> <i class="icon-folder"></i>\n                            Create folder\n                        </a>\n                    </li>\n                    <li class="disabled"><a><i class="icon-file"></i> <span class="document-count"></span></a>\n                    </li>\n                    <li class="disabled"><a><i class="icon-folder"></i> <span class="folder-count"></span></a>\n                    </li>\n                </ul>\n                <div class="list-group document-list"></div>\n                <p class="confirm-delete hide">The following stories will be deleted locally:</p>\n                <p class="choose-folder hide">Please choose a destination folder:\n                </p>\n                <div class="list-group selected-document-list hide"></div>\n                <div class="list-group select-folder-list hide"></div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default confirm-delete choose-folder action-cancel hide">Cancel</a>\n                <a href="#" class="btn btn-danger confirm-delete action-delete-items-confirm hide">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-insert-link">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Hyperlink</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide the link URL and an optional title:</p>\n                <div class="input-group">\n                    <span class="input-group-addon"><i class="icon-globe"></i></span>\n                    <input id="input-insert-link" type="text" class="col-sm-5 form-control" placeholder=\'http://example.com/ "optional title"\' />\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-insert-link" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-insert-image">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Image</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide the image URL and an optional title:</p>\n                <div class="input-group">\n                    <span class="input-group-addon"><i class="icon-picture"></i></span>\n                    <input id="input-insert-image" type="text" class="col-sm-5 form-control" placeholder=\'http://example.com/image.jpg "optional title"\' />\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default pull-left action-import-image-gplus" data-dismiss="modal"><i class="icon-provider-gplus"></i> Import\nfrom Google+</a>  <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>  <a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-image">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Google+ image import</h2>\n            </div>\n            <div class="modal-body">\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <div class="col-sm-7">\n                            <img>\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label" for="input-import-image-title">Title (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-import-image-title" placeholder="Image title" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label" for="input-import-image-size">Size limit (optional)</label>\n                        <div class="col-sm-7 form-inline">\n                            <input type="text" id="input-import-image-size" placeholder="0" class="col-sm-3 form-control">px\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-import-image" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-remove-file-confirm">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Delete</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    Are you sure you want to delete "<span class="file-title"></span>"?\n                </p>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>Note:</b> It won\'t delete the file on synchronized locations.</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-danger action-remove-file" data-dismiss="modal">Delete</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-url">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Import from URL</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide a link to a Markdown formatted story (<code>.md</code> or <code>.markdown</code> extension).</p>\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <label class="col-sm-3 control-label" for="input-import-url">URL</label>\n                        <div class="col-sm-8">\n                            <input type="text" id="input-import-url" placeholder="http://my-awesome.com/story.md" class="form-control">\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-import-url">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-harddrive-markdown">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Import from disk</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please select your Markdown files here (<code>.md</code> or <code>.markdown</code> extension):</p>\n                <p>\n                    <input type="file" id="input-file-import-harddrive-markdown" multiple class="form-control" />\n                </p>\n                <p>Or drag and drop your Markdown files here:</p>\n                <p id="dropzone-import-harddrive-markdown" class="drop-zone">Drop files here</p>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-harddrive-html">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Convert HTML to Markdown</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please select your HTML files here:</p>\n                <p>\n                    <input type="file" id="input-file-import-harddrive-html" multiple class="form-control" />\n                </p>\n                <p>Or drag and drop your HTML files here:</p>\n                <p id="dropzone-import-harddrive-html" class="drop-zone">Drop files here</p>\n                <p>Or insert your HTML code here:</p>\n                <textarea id="input-convert-html" class="form-control prettyprint linenums lang-html"></textarea>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>  <a href="#" class="btn btn-primary action-convert-html" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-upload-gdrive">\n</div>\n<div class="modal fade modal-upload-gdrivesec">\n</div>\n<div class="modal fade modal-upload-gdriveter">\n</div>\n<div class="modal fade modal-autosync-gdrive">\n</div>\n<div class="modal fade modal-autosync-gdrivesec">\n</div>\n<div class="modal fade modal-autosync-gdriveter">\n</div>\n<div class="modal fade modal-upload-dropbox">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Save to Dropbox</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    This will save "<span class="file-title"></span>" to your <i class="icon-provider-dropbox"></i>\n                    <code>Dropbox</code>\n                    account and keep it synchronized.\n                </p>\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <label class="col-sm-3 control-label" for="input-sync-export-dropbox-path">File path</label>\n                        <div class="col-sm-8">\n                            <input type="text" id="input-sync-export-dropbox-path" placeholder="/path/to/My Story.md" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                </div>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <b>Note:</b>\n                    <ul>\n                        <li>Dropbox file path does not depend on story title.</li>\n                        <li>The title of your story will not be synchronized.</li>\n                        <li>Destination folder must exist.</li>\n                        <li>Any existing file at this location will be overwritten.</li>\n                    </ul>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-dropbox">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-download-mywriteon">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Open on My.WriteOn</h2>\n                <div class="form-horizontal list-mode">\n                    <br>\n                    <div class="form-group form-inline">\n                        <label for="input-sync-import-mywriteon-tag" class="col-sm-3 control-label">Filter by tag</label>\n                        <select id="input-sync-import-mywriteon-tag" class="col-sm-4 form-control">\n                        </select>\n                        <span class="col-sm-5">\n<a class="btn btn-link action-add-tag"><i class="icon-tag"></i> Add\n</a>\n<a class="btn btn-link action-remove-tag"><i class="icon-tag"></i> Remove\n</a>\n</span>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-body">\n                <p class="msg-default-mywriteon alert alert-warning">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <i class="icon-attention"></i>  <b>Careful:</b>\n                    This is Beta software, and you\'re using our public My.WriteOn instance.\n                    <b>That means anybody can open, edit and delete these stories.</b>\n                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">\u2665</span>\n                </p>\n                <div class="form-horizontal byid-mode">\n                    <div class="form-group">\n                        <label for="input-sync-import-mywriteon-documentid" class="col-sm-3 control-label">Story ID\n                        </label>\n                        <div class="col-sm-9">\n                            <input id="input-sync-import-mywriteon-documentid" class="form-control" placeholder="DocumentID">\n                            <span class="help-block">Multiple IDs can be provided (space separated)</span>\n                        </div>\n                    </div>\n                </div>\n                <ul class="list-mode nav nav-pills">\n                    <li class="pull-right dropdown"><a href="#" data-toggle="dropdown"><i class="icon-check"></i> Selection\n<b class="caret"></b></a>\n                        <ul class="dropdown-menu">\n                            <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>\n                            </li>\n                            <li class="divider"></li>\n                            <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>\n                            </li>\n                        </ul>\n                    </li>\n                </ul>\n                <p class="list-mode">\n                </p>\n                <div class="list-group document-list list-mode"></div>\n                <div class="list-mode text-center">\n                    <div class="please-wait"><b>Please wait...</b>\n                    </div>\n                    <div class="no-document"><b>No story.</b>\n                    </div>\n                    <button class="more-documents btn btn-link"><i class="icon-angle-double-down"></i> More stories</button>\n                </div>\n                <p class="delete-mode hide">The following stories will be removed from WriteOn:</p>\n                <div class="delete-mode list-group selected-document-list hide"></div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default pull-left list-mode action-byid-mode"><i class="icon-folder-open-empty"></i> Open by ID...</a>\n                <a href="#" class="btn btn-default delete-mode action-cancel hide">Cancel</a>\n                <a href="#" class="btn btn-primary delete-mode action-delete-items-confirm hide">Delete</a>\n                <a href="#" class="btn btn-default byid-mode action-cancel">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon byid-mode">Open</a>\n                <a href="#" class="btn btn-default list-mode" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon list-mode">Open</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-upload-mywriteon">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Save to My.WriteOn</h2>\n            </div>\n            <div class="modal-body">\n                <p class="msg-default-mywriteon alert alert-warning hide">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <i class="icon-attention"></i>  <b>Careful:</b>\n                    This is Beta software, and you\'re using our public My.WriteOn instance.\n                    <b>That means anybody can open, edit and delete your stories - and vise versa.</b>\n                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">\u2665</span>\n                </p>\n                <p>\n                    This will save "<span class="file-title"></span>" to My.WriteOn <sup class="text-danger">Beta</sup> and keep it synchronized.\n                </p>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>Tip:</b> You can use a\n                        <a href="http://jekyllrb.com/docs/frontmatter/" target="_blank">YAML front matter</a> to specify tags for your story.</p>\n                    <p>Alternatively, you can place comma separated tags in square brackets at the beginning of the story title.</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-mywriteon">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-sync">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Synchronization</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    "<span class="file-title"></span>" is synchronized in the following location(s):\n                </p>\n                <div class="sync-list"></div>\n                <blockquote>\n                    <p><b>Hey There:</b> Removing a synchronized location will not delete the local story.\n                    </p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-publish">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">\nPublish on <span class="publish-provider-name"></span>\n</h2>\n            </div>\n            <div class="modal-body">\n                <div class="form-horizontal">\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-host">Host</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ssh-host" placeholder="hostname.or.ip" class="form-control"> <span class="help-block"> Host must be accessible publicly,\nunless you\'re hosting your own WriteOn instance.\n</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-port">Port (optional)\n                        </label>\n                        <div class="col-sm-2">\n                            <input type="text" id="input-publish-ssh-port" placeholder="22" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-username">Username</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ssh-username" placeholder="username" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-password">Password</label>\n                        <div class="col-sm-7">\n                            <input type="password" id="input-publish-ssh-password" placeholder="password" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-github-repo">Repository</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-github-repo" placeholder="Repository name or URL" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-github-branch">Branch</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-github-branch" placeholder="branch-name" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-file-path">File path</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-file-path" placeholder="path/to/file.md" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-filename">Filename</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-filename" placeholder="filename" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-gist-id">Existing ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gist-id" placeholder="GistID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-gist-public">Public</label>\n                        <div class="col-sm-7">\n                            <div class="checkbox">\n                                <input type="checkbox" id="input-publish-gist-public" checked="checked" />\n                            </div>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ghost">\n                        <label class="col-sm-4 control-label" for="input-publish-ghost-url">Ghost URL</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ghost-url" placeholder="http://example.ghost.org/" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-blogger modal-publish-bloggerpage">\n                        <label class="col-sm-4 control-label" for="input-publish-blogger-url">Blog URL</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-blogger-url" placeholder="http://example.blogger.com/" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-tumblr">\n                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">Blog hostname</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-tumblr-hostname" placeholder="example.tumblr.com" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-wordpress">\n                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">WordPress site</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-wordpress-site" placeholder="example.wordpress.com" class="form-control">\n                            <span class="help-block"> <a target="_blank" href="http://jetpack.me/">Jetpack plugin</a> is required for\nself-hosted sites.\n</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">\n                        <label class="col-sm-4 control-label" for="input-publish-postid">Update existing post ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-postid" placeholder="PostID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-bloggerpage">\n                        <label class="col-sm-4 control-label" for="input-publish-pageid">Update existing page ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-pageid" placeholder="PageID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-dropbox">\n                        <label class="col-sm-4 control-label" for="input-publish-dropbox-path">File path</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-dropbox-path" placeholder="/path/to/My Story.html" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gdrive">\n                        <label class="col-sm-4 control-label" for="input-publish-gdrive-fileid">File ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gdrive-fileid" placeholder="FileID" class="form-control"> <span class="help-block">If no file ID is supplied, a new file\nwill be created in your Google Drive root folder. You can move\nthe file afterwards within Google Drive.</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gdrive">\n                        <label class="col-sm-4 control-label" for="input-publish-gdrive-filename">Force filename (optional)\n                        </label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gdrive-filename" placeholder="Filename" class="form-control"> <span class="help-block">If no file name is supplied, the\nstory title will be used.</span>\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label">Format</label>\n                        <div class="col-sm-7">\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="markdown">Markdown\n                                </label>\n                            </div>\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="html">HTML\n                                </label>\n                            </div>\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="template">Template\n                                </label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="collapse publish-custom-template-collapse">\n                        <div class="form-group">\n                            <div class="col-sm-4"></div>\n                            <div class="col-sm-7">\n                                <div class="checkbox">\n                                    <label>\n                                        <input type="checkbox" id="checkbox-publish-custom-template">Custom template\n                                    </label> <a href="#" class="tooltip-template">(?)</a>\n                                </div>\n                            </div>\n                        </div>\n                        <div class="form-group">\n                            <div class="col-sm-4"></div>\n                            <div class="col-sm-7">\n                                <textarea class="form-control" id="textarea-publish-custom-template"></textarea>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <blockquote class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress alert alert-info">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n					<p><b>Tip:</b> You can use a\n                        <a href="http://jekyllrb.com/docs/frontmatter/" target="_blank">YAML front matter</a> to specify the title and the tags/labels of your publication.</p>\n                    <p><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.</p>\n                </blockquote>\n                <blockquote class="front-matter-info modal-publish-bloggerpage alert alert-info">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n					<p><b>Tip:</b> You can use a\n                        <a href="http://jekyllrb.com/docs/frontmatter/" target="_blank">YAML front matter</a> to specify the title of your page.</p>\n                    <p><b>Interpreted variables:</b>  <code>title</code>.</p>\n                </blockquote>\n                <blockquote class="url-info modal-publish-bloggerpage alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>About URL:</b> For newly created page , Blogger API will append a generated number to the url like <code>about-me-1234.html</code>, if you deeply care about your URL naming, you should first create the page on Blogger and then update them with WriteOn specifying the pageId when publishing.\n                    </p>\n                    <p><b>About page visibility:</b> Blogger API does not respect published status for pages.When publishing the page to Blogger, the page will be <strong>live</strong> but not added to the page listing. You should arrange the page listing from Blogger dashboard.\n                    </p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-process-publish">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-publish">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Publication</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    "<span class="file-title"></span>" is published on the following location(s):\n                </p>\n                <div class="publish-list"></div>\n                <blockquote>\n                    <p><b>Stating the Obvious?</b> Maybe, but removing a published location will not delete the actual post out in the wild.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-sharing">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Sharing</h2>\n            </div>\n            <div class="modal-body">\n                <p>To <strong>collaborate</strong> on "<span class="file-title"></span>" with other WriteOn users, share this link(s):</p>\n                <p class="msg-no-share-editor alert alert-info" role="alert"><b>No sharing link yet.</b> To collaborate on this story, just\n                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn</a>\n                </p>\n                <div class="share-editor-list"></div>\n                <hr>\n                <p> To <strong>share</strong> a public, read-only version of "<span class="file-title"></span>" using the following link(s):</p>\n                <p class="msg-no-share-viewer alert alert-info" role="alert"><b>No sharing link yet!</b> To share a read-only version of this story, just \n                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn.</a></p>\n                <div class="share-viewer-list"></div>\n                <blockquote>\n                    <p><b>Did You Know?</b> You can open any <code>.md</code> or <code>.markdown</code> URL using the <i>WriteOn Paper</i> like so: \n                        <a href="paper#!url=https://raw.githubusercontent.com/github/markup/master/README.md" title="Sharing example">\n                            <code>/paper#!url=[your-url-here]</code></a>.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-settings">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Settings</h2>\n            </div>\n            <div class="modal-body">\n            <div class="col-md-3 modal-nav">\n                <ul class="nav nav-tabs nav-stacked">\n                    <li class="active"><a class="action-load-settings" href="#tabpane-settings-basic" data-toggle="tab"><i class="icon-cog"></i> Basic</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-advanced" data-toggle="tab"><i class="icon-tasks"></i> Advanced</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-permissions" data-toggle="tab"><i class="icon-lock"></i> Permissions</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-templates" data-toggle="tab"><i class="icon-list-alt"></i> Templates</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-extensions" data-toggle="tab"><i class="icon-puzzle"></i> Extensions</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab"><i class="icon-briefcase"></i> Utilities</a>\n                    </li>\n            </ul>\n            </div>\n            \n            \n                <div class="col-md-9 tab-content clearfix" data-spy="scroll">\n                    <div class="tab-pane active" id="tabpane-settings-basic">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Layout orientation</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-layout-orientation" value="horizontal">Horizontal\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-layout-orientation" value="vertical">Vertical\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-theme">Theme</label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-theme" class="form-control">\n                                    </select>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-5"></div>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-markdown-extra" />\n                                            <b>Markdown Extra/GitHub Flavored Markdown</b> syntax\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-markdown-mime-type">Markdown MIME type\n                                </label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-markdown-mime-type" class="form-control">\n                                        <option value="text/plain">text/plain</option>\n                                        <option value="text/x-markdown">text/x-markdown</option>\n                                    </select>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <div class="col-sm-5"></div>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-mathjax" />\n                                            <b>LaTeX mathematical expressions</b> using <code>$</code> and <code>$$</code> delimiters\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-gdrive-multiaccount">Google Drive multiple accounts\n                                </label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-gdrive-multiaccount" class="form-control">\n                                        <option value="1">1 account</option>\n                                        <option value="2">2 accounts</option>\n                                        <option value="3">3 accounts</option>\n                                    </select>\n                                    <span class="help-block">Once linked with your Google accounts, changing accounts is not possible unless you <a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab">reset the application</a>.</span>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-advanced">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Edit mode</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-edit-mode" value="ltr">Left-To-Right\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-edit-mode" value="rtl">Right-To-Left\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Edit Pad\'s font style</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-editor-font-class" value="font-rich">Rich\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-editor-font-class" value="font-monospaced">Monospaced\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-font-size">Font size ratio</label>\n                                <div class="col-sm-7 form-inline">\n                                    <input type="text" id="input-settings-font-size" class="form-control col-sm-2">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-max-width">Max width ratio</label>\n                                <div class="col-sm-7 form-inline">\n                                    <input type="text" id="input-settings-max-width" class="form-control col-sm-2">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-cursor-focus">Cursor focus ratio</label>\n                                <div class="col-sm-7 form-inline">\n                                    <input type="text" id="input-settings-cursor-focus" class="form-control col-sm-2">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-lazy-rendering">Lazy rendering <a href="#" class="tooltip-lazy-rendering">(?)</a>\n                                </label>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <input type="checkbox" id="input-settings-lazy-rendering" />\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-templates">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="textarea-settings-default-content">Default content\n                                    <a href="#" class="tooltip-default-content">(?)</a>\n                                </label>\n                                <div class="col-sm-7">\n                                    <textarea id="textarea-settings-default-content" class="form-control"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="textarea-settings-putemplatetempla">Default template <a href="#" class="tooltip-template">(?)</a>\n                                </label>\n                                <div class="col-sm-7">\n                                    <textarea id="textarea-settings-publish-template" class="form-control"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <label class="col-sm-5 control-label" for="textarea-settings-pdf-template">PDF template <a href="#" class="tooltip-template">(?)</a>\n                                </label>\n                                <div class="col-sm-7">\n                                    <textarea id="textarea-settings-pdf-template" class="form-control"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <label class="col-sm-5 control-label" for="textarea-settings-pdf-options">PDF options\n                                    <a href="#" class="tooltip-pdf-options">(?)</a>\n                                </label>\n                                <div class="col-sm-7">\n                                    <textarea id="textarea-settings-pdf-options" class="form-control"></textarea>\n                                </div>\n                            </div>                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-permissions">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-gdrive-full-access" />Allow WriteOn to open any story in Google Drive\n                                        </label> <span class="help-block">Existing authorization has to be revoked in\n<a href="https://www.google.com/settings/dashboard" target="_blank">Google Dashboard</a>\nfor this change to take effect.</span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-dropbox-full-access" />Allow WriteOn to open any story in Dropbox\n                                        </label> <span class="help-block">If unchecked, access will be restricted to folder\n<b>/Applications/WriteOn</b> for existing stories.</span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-github-full-access" />Allow WriteOn to access private repositories in GitHub\n                                        </label> <span class="help-block">Existing authorization has to be revoked in\n<a href="https://github.com/settings/applications" target="_blank">GitHub settings</a>\nfor this change to take effect.</span>\n                                    </div>\n                                </div>\n                            </div>                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-extensions">\n                        <div class="panel-group accordion-extensions"></div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-utils">\n                        <p>Some of these are quite powerful, and can result in the total loss of your data. </p>\n                        <div class="col-sm-6 tab-pane-button-container">\n                            <a href="#" class="btn btn-block btn-default action-welcome-file" data-dismiss="modal"><i class="icon-help-circled"></i> Load Welcome Guide</a>\n                            <a href="#" class="btn btn-block btn-default action-guide-file" data-dismiss="modal"><i class="icon-keyboard"></i> Load Syntax Guide</a>\n                            <a href="#" class="btn btn-block btn-default action-welcome-tour" data-dismiss="modal"><i class="icon-comment"></i> Welcome tour</a>\n                            <a target="_blank" href="recovery.html" class="btn btn-block btn-default"><i class="icon-medkit"></i> WriteOn recovery</a>\n                        </div>\n                        <div class="col-sm-6 tab-pane-button-container">\n                            <a href="#" class="btn btn-block btn-default action-import-docs-settings"><i class="icon-cog-alt"></i> Import stories & settings</a>  \n                            <a href="#" class="btn btn-block btn-default action-export-docs-settings" data-dismiss="modal"><i class="icon-share"></i> Export stories & settings</a> \n                            <a href="#" class="btn btn-block btn-default action-default-settings" data-dismiss="modal"><i class="icon-wrench"></i> Load default settings</a>  \n                            <a href="#" class="btn btn-block btn-default" data-dismiss="modal" data-toggle="modal" data-target=".modal-app-reset"><i class="icon-fire"></i> Reset application</a>  \n                            <input type="file" id="input-file-import-docs-settings" class="hide">\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-apply-settings" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-non-unique">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Ooops...</h2>\n            </div>\n            <div class="modal-body">\n                <p>WriteOn has stopped because another instance was running in the same browser or the local cache was disrupted.</p>\n                <blockquote>\n                    <p>If you want to reopen WriteOn, click on "Reload".\n                    </p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-redirect-confirm">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Redirection</h2>\n            </div>\n            <div class="modal-body">\n                <p class="redirect-msg"></p>\n                <blockquote>\n                    <p>Please click <b>OK</b> to proceed.</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a class="btn btn-primary action-redirect-confirm" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-app-reset">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Reset application</h2>\n            </div>\n            <div class="modal-body">\n                <p>This will delete all your local stories.</p>\n                <blockquote><b>Are you sure?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-app-reset" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-docs-settings">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Import stories and settings</h2>\n            </div>\n            <div class="modal-body">\n                <p>This will delete all existing local stories.</p>\n                <blockquote><b>Are you sure?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-import-docs-settings-confirm" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-add-google-drive-account">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Add Google Drive account</h2>\n            </div>\n            <div class="modal-body">\n                <p>To perform this request, you need to configure another Google Drive account in WriteOn.</p>\n                <blockquote><b>Do you want to proceed?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default action-remove-google-drive-state" data-dismiss="modal">No</a>\n                <a href="#" class="btn btn-primary action-add-google-drive-account" data-dismiss="modal">Yes</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-sponsor-only">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Sponsors only</h2>\n            </div>\n            <div class="modal-body">\n                <p>This feature is restricted to sponsors. Note that sponsoring WriteOn would cost you only $3/month.</p>\n                <p>To see how a PDF looks <a target="_blank" href="/Welcome%story.pdf">click here</a>.</p>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>Tip:</b> PDFs are fully customizable via Settings>Advanced>PDF template/options.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div id="dropboxjs" data-app-key="r3vgaee214zfvc7"></div>\n';
 }), define("text!html/bodyViewer.html", [], function() {
  return '<div class="layout-wrapper-l1">\n    <div class="layout-wrapper-l2">\n        <div class="navbar navbar-default">\n            <div class="navbar-inner">\n                <div class="nav left-space"></div>\n                <div class="nav right-space pull-right"></div>\n                <div class="buttons-dropdown dropdown">\n                    <div class="nav">\n                        <button class="btn btn-success" data-toggle="dropdown" title="Show buttons">\n                            <i class="icon-th-large"></i>\n                        </button>\n                        <div class="dropdown-menu">\n                        </div>\n                    </div>\n                </div>\n                <ul class="nav pull-right">\n                    <li class="btn-group">\n                        <button class="btn btn-success action-edit-document hide" title="Edit This Story">\n                            <i class="icon-pencil"></i>\n                        </button>\n                    </li>\n                    <li class="btn-group">\n                        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown" title="Download This Story">\n                            <i class="icon-download"></i>\n                        </button>\n                        <ul class="dropdown-menu">\n                            <li><a class="action-download-md" href="#"><i class="icon-book"></i> Download as Markdown</a>\n                            </li>\n                            <li><a class="action-download-html" href="#"><i class="icon-shield"></i> Download as HTML</a>\n                            </li>\n                            <li><a class="action-download-template" href="#"><i class="icon-list-alt"></i> Download using template</a>\n                            </li>\n                        </ul>\n                    </li>\n                </ul>\n                <ul class="nav pull-right title-container">\n                    <li><span class="btn btn-success file-title-navbar"></span>\n                    </li>\n                </ul>\n            </div>\n        </div>\n        <div class="layout-wrapper-l3">\n            <div class="working-indicator"></div>\n            <pre id="wmd-input" class="form-control"><div class="editor-content"></div><div class="editor-margin"></div></pre>\n            <div class="preview-panel">\n                <div class="preview-container">\n                    <div id="preview-contents">\n                        <div id="wmd-preview" class="preview-content"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="extension-preview-buttons">\n            <div class="btn-group drag-me" title="Drag me!">\n                <i class="icon-ellipsis-vert"></i>\n            </div>\n        </div>\n    </div>\n    <div id="wmd-button-bar" class="hide"></div>\n    <div class="menu-panel">\n        <button class="btn toggle-button action-open-writeon" title="Switch to Pad">\n            <i class="icon-pencil-squared"></i>  <strong>Switch to Pad</strong>\n        </button>\n    </div>\n    <div class="document-panel">\n        <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">\n            <i class="icon-folder-open"></i>\n        </button>\n        <div class="search-bar clearfix">\n            <div class="input-group">\n                <span class="input-group-addon"><i class="icon-search"></i></span>\n                <input type="text" class="form-control" placeholder="Find story" />\n            </div>\n        </div>\n        <div class="panel-content">\n            <div class="list-group document-list"></div>\n            <div class="list-group document-list-filtered hide"></div>\n        </div>\n    </div>\n</div>\n<div id="wmd-button-bar" class="hide"></div>\n<div class="modal modal-non-unique">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h3 class="modal-title">Ooops...</h3>\n            </div>\n            <div class="modal-body">\n                <p>WriteOn has stopped because another instance was running in the same browser.</p>\n                <blockquote>\n                    <p>If you want to reopen WriteOn, click on "Reload".</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a>\n            </div>\n        </div>\n    </div>\n</div>\n';
 }), define("text!html/tooltipSettingsTemplate.html", [], function() {
@@ -25214,26 +25215,26 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
  };
 }(), define("pagedown", function() {}), define("core", [ "jquery", "underscore", "crel", "editor", "layout", "constants", "utils", "storage", "settings", "eventMgr", "monetizejs", "text!html/bodyEditor.html", "text!html/bodyViewer.html", "text!html/tooltipSettingsTemplate.html", "text!html/tooltipSettingsPdfOptions.html", "storage", "pagedown" ], function(e, t, n, i, r, o, a, s, l, c, u, d, p, h, f) {
  function m() {
-  I = !0, D = !0;
+  T = !0, k = !0;
   var e = a.currentTime;
-  e > L + 1e3 && (L = e, c.onUserActive());
+  e > I + 1e3 && (I = e, c.onUserActive());
  }
  function g() {
-  return a.currentTime - L > o.USER_IDLE_THRESHOLD && (D = !1), D && N;
+  return a.currentTime - I > o.USER_IDLE_THRESHOLD && (k = !1), k && E;
  }
  function v() {
-  if (I !== !1 && N !== !1) {
-   void 0 === k && (k = a.id(), s.frontWindowId = k);
+  if (T !== !1 && E !== !1) {
+   void 0 === S && (S = a.id(), s.frontWindowId = S);
    var t = s.frontWindowId;
-   t != k && (N = !1, void 0 !== T && clearInterval(T), e(".modal").modal("hide"), 
+   t != S && (E = !1, void 0 !== C && clearInterval(C), e(".modal").modal("hide"), 
    e(".modal-non-unique").modal("show"), window.close());
   }
  }
  function b() {
-  M === !0 && (M = !1, c.onOfflineChanged(!1));
+  D === !0 && (D = !1, c.onOfflineChanged(!1));
  }
  function y() {
-  M === !0 && navigator.onLine === !0 && A + o.CHECK_ONLINE_PERIOD < a.currentTime && (A = a.currentTime, 
+  D === !0 && navigator.onLine === !0 && N + o.CHECK_ONLINE_PERIOD < a.currentTime && (N = a.currentTime, 
   e.ajax({
    url: "//www.google.com/jsapi",
    timeout: o.AJAX_TIMEOUT,
@@ -25243,8 +25244,8 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   }));
  }
  function x() {
-  a.setInputRadio("radio-layout-orientation", l.layoutOrientation), a.setInputValue(R, window.theme), 
-  R.change(), a.setInputChecked("#input-settings-lazy-rendering", l.lazyRendering), 
+  a.setInputRadio("radio-layout-orientation", l.layoutOrientation), a.setInputValue(L, window.theme), 
+  L.change(), a.setInputChecked("#input-settings-lazy-rendering", l.lazyRendering), 
   a.setInputRadio("radio-settings-editor-font-class", l.editorFontClass), a.setInputValue("#input-settings-font-size", l.fontSizeRatio), 
   a.setInputValue("#input-settings-max-width", l.maxWidthRatio), a.setInputValue("#input-settings-cursor-focus", l.cursorFocusRatio), 
   a.setInputValue("#textarea-settings-default-content", l.defaultContent), a.setInputRadio("radio-settings-edit-mode", l.editMode), 
@@ -25257,7 +25258,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
  function w(t) {
   var n = {};
   n.layoutOrientation = a.getInputRadio("radio-layout-orientation");
-  var i = a.getInputValue(R);
+  var i = a.getInputValue(L);
   n.lazyRendering = a.getInputChecked("#input-settings-lazy-rendering"), n.editorFontClass = a.getInputRadio("radio-settings-editor-font-class"), 
   n.fontSizeRatio = a.getInputFloatValue("#input-settings-font-size", t, .1, 10), 
   n.maxWidthRatio = a.getInputFloatValue("#input-settings-max-width", t, .1, 10), 
@@ -25273,46 +25274,31 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   c.onSaveSettings(n.extensionSettings, t), t.isPropagationStopped() || (l.dropboxFullAccess !== n.dropboxFullAccess && s.removeItem("dropbox.lastChangeId"), 
   e.extend(l, n), s.settings = JSON.stringify(l), s.themeV4 = i);
  }
- function C(e) {
-  var t = e && e.app == F && (e.chargeOption && "writer" == e.chargeOption.alias || e.subscriptionOption && "monthly" == e.subscriptionOption.alias);
-  return c.isSponsor = t, t;
- }
- function S() {
-  j.remove(), j = e();
- }
- function _() {
-  B.getPayments({
-   pricingOptions: [ "monthly", "writer" ]
-  }, function(e, t) {
-   C(t) && (c.onMessage("Thank you for sponsoring WriteOn! You are soo awesome :)"), 
-   S());
-  });
- }
- var T, k, E = {}, I = !1, D = !1, N = !0, L = 0, M = !1, A = a.currentTime;
- E.setOffline = function() {
-  A = a.currentTime, M === !1 && (M = !0, c.onOfflineChanged(!0));
+ var C, S, _ = {}, T = !1, k = !1, E = !0, I = 0, D = !1, N = a.currentTime;
+ _.setOffline = function() {
+  N = a.currentTime, D === !1 && (D = !0, c.onOfflineChanged(!0));
  };
- var R, P, O;
- E.initEditor = function(t) {
-  if (void 0 !== O && c.onFileClosed(O), O = t, void 0 !== P) return i.undoMgr.init(), 
-  P.uiManager.setUndoRedoButtonStates();
+ var L, M, A;
+ return _.initEditor = function(t) {
+  if (void 0 !== A && c.onFileClosed(A), A = t, void 0 !== M) return i.undoMgr.init(), 
+  M.uiManager.setUndoRedoButtonStates();
   var n = new Markdown.Converter(), r = {
    _DoItalicsAndBold: function(e) {
     return e = e.replace(/(\*\*|__)(?=\S)(.+?[*_]*)(?=\S)\1/g, "<strong>$2</strong>"), 
     e = e.replace(/(\*|_)(?=\S)(.+?)(?=\S)\1/g, "<em>$2</em>");
    }
   };
-  n.setOptions(r), P = new Markdown.Editor(n, void 0, {
+  n.setOptions(r), M = new Markdown.Editor(n, void 0, {
    undoManager: i.undoMgr
-  }), P.hooks.set("insertLinkDialog", function(t) {
-   return E.insertLinkCallback = t, a.resetModalInputs(), e(".modal-insert-link").modal(), 
+  }), M.hooks.set("insertLinkDialog", function(t) {
+   return _.insertLinkCallback = t, a.resetModalInputs(), e(".modal-insert-link").modal(), 
    !0;
-  }), P.hooks.set("insertImageDialog", function(t) {
-   return E.insertLinkCallback = t, E.catchModal ? !0 : (a.resetModalInputs(), e(".modal-insert-image").modal(), 
+  }), M.hooks.set("insertImageDialog", function(t) {
+   return _.insertLinkCallback = t, _.catchModal ? !0 : (a.resetModalInputs(), e(".modal-insert-image").modal(), 
    !0);
-  }), c.onPagedownConfigure(P), P.hooks.chain("onPreviewRefresh", c.onAsyncPreview), 
-  P.run(), i.undoMgr.init(), e(".wmd-button-row li").addClass("btn btn-success").css("left", 0).find("span").hide();
-  var o = e(".wmd-button-group1");
+  }), c.onPagedownConfigure(M), M.hooks.chain("onPreviewRefresh", c.onAsyncPreview), 
+  M.run(), i.undoMgr.init(), e(".wmd-button-row li").addClass("btn btn-default").css("left", 0).find("span").hide();
+  var o = e(".wmd-button-group1 hidden hide");
   e("#wmd-bold-button").append(e('<i class="icon-bold">')).appendTo(o), e("#wmd-italic-button").append(e('<i class="icon-italic">')).appendTo(o), 
   o = e(".wmd-button-group2"), e("#wmd-link-button").append(e('<i class="icon-globe">')).appendTo(o), 
   e("#wmd-quote-button").append(e('<i class="icon-indent-right">')).appendTo(o), e("#wmd-code-button").append(e('<i class="icon-code">')).appendTo(o), 
@@ -25321,25 +25307,14 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   e("#wmd-ulist-button").append(e('<i class="icon-list-bullet">')).appendTo(o), e("#wmd-heading-button").append(e('<i class="icon-text-height">')).appendTo(o), 
   e("#wmd-hr-button").append(e('<i class="icon-ellipsis">')).appendTo(o), o = e(".wmd-button-group5"), 
   e("#wmd-undo-button").append(e('<i class="icon-reply">')).appendTo(o), e("#wmd-redo-button").append(e('<i class="icon-forward">')).appendTo(o);
- }, E.onReady = function() {
+ }, _.onReady = function() {
   document.body.className += " " + l.editMode, document.body.innerHTML = window.viewerMode === !0 ? p : d, 
-  a.init(), e(window).on("offline", E.setOffline), e(window).on("online", b), navigator.onLine === !1 && E.setOffline(), 
-  e(document).mousemove(m).keypress(m), r.init(), i.init(), T = window.setInterval(function() {
+  a.init(), e(window).on("offline", _.setOffline), e(window).on("online", b), navigator.onLine === !1 && _.setOffline(), 
+  e(document).mousemove(m).keypress(m), r.init(), i.init(), C = window.setInterval(function() {
    a.updateCurrentTime(), v(), (g() === !0 || window.viewerMode === !0) && (c.onPeriodicRun(), 
    y());
   }, 1e3), c.onReady();
- };
- var F = "5d7PNYmOeEl4ANys", B = new u({
-  applicationID: F
- }), j = e(), $ = t.debounce(function() {
-  M || B.getPaymentsImmediate(function(n, i) {
-   S(), C(i) || t.each(document.querySelectorAll(".monetize"), function(t) {
-    var n = e('<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>Please consider <a href="#">sponsoring</a> WriteOn to keep the <code>awesome</code> coming.</div>');
-    n.find("a").click(_), t.insertBefore(n[0], t.firstChild), j = j.add(n);
-   });
-  });
- }, 3e3);
- return c.addListener("onOfflineChanged", $), c.addListener("onReady", function() {
+ }, c.addListener("onOfflineChanged"), c.addListener("onReady", function() {
   function n(e) {
    if (e = e || "gray", r != e) {
     var t = "less!themes/" + e;
@@ -25358,12 +25333,12 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    13 != t.which || e(t.target).is("textarea") || e(this).find(".modal-footer a:last").click();
   }), e(".action-insert-link").click(function(t) {
    var n = a.getInputTextValue(e("#input-insert-link"), t);
-   void 0 !== n && (E.insertLinkCallback(n), E.insertLinkCallback = void 0);
+   void 0 !== n && (_.insertLinkCallback(n), _.insertLinkCallback = void 0);
   }), e(".action-insert-image").click(function(t) {
    var n = a.getInputTextValue(e("#input-insert-image"), t);
-   void 0 !== n && (E.insertLinkCallback(n), E.insertLinkCallback = void 0);
+   void 0 !== n && (_.insertLinkCallback(n), _.insertLinkCallback = void 0);
   }), e(".modal-insert-link, .modal-insert-image").on("hidden.bs.modal", function() {
-   void 0 !== E.insertLinkCallback && (E.insertLinkCallback(null), E.insertLinkCallback = void 0);
+   void 0 !== _.insertLinkCallback && (_.insertLinkCallback(null), _.insertLinkCallback = void 0);
   }), e(".action-load-settings").click(function() {
    x();
   }), e(".action-apply-settings").click(function(e) {
@@ -25373,7 +25348,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    window.location.reload());
   });
   var r = window.theme;
-  R = e("#input-settings-theme"), R.on("change", function() {
+  L = e("#input-settings-theme"), L.on("change", function() {
    n(this.value);
   }), e(".action-import-docs-settings").click(function() {
    e("#input-file-import-docs-settings").click();
@@ -25429,12 +25404,11 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    }, "");
    document.getElementById("input-settings-theme").innerHTML = d;
   }
-  $();
- }), E;
+ }), _;
 }), define("text!WELCOME.md", [], function() {
  return 'Welcome to WriteOn!\n===================\n\n\nHey! I\'m your first story in **WriteOn**[^writeon]. Don\'t delete me, I\'m very helpful! I can be recovered anyway in the **Utils** tab of the <i class="icon-cog"></i> **Settings** dialog.\n\n----------\n\n\nStories\n-------------\n\nWriteOn stores your stories in your browser, which means all your stories are automatically saved locally and are accessible **offline!**\n\n> **Note:**\n\n> - WriteOn is accessible offline after the application has been loaded for the first time.\n> - Your local stories are not shared between different browsers or computers.\n> - Clearing your browser\'s data may **delete all your local stories!** Make sure your stories are synchronized with **Google Drive** or **Dropbox** (check out the [<i class="icon-refresh"></i> Synchronization](#synchronization) section).\n\n#### <i class="icon-file"></i> Create a story\n\nThe story panel is accessible using the <i class="icon-folder-open"></i> button in the navigation bar. You can create a new story by clicking <i class="icon-file"></i> **New story** in the story panel.\n\n#### <i class="icon-folder-open"></i> Switch to another story\n\nAll your local stories are listed in the story panel. You can switch from one to another by clicking a story in the list or you can toggle stories using <kbd>Ctrl+[</kbd> and <kbd>Ctrl+]</kbd>.\n\n#### <i class="icon-pencil"></i> Rename a story\n\nYou can rename the current story by clicking the story title in the navigation bar.\n\n#### <i class="icon-trash"></i> Delete a story\n\nYou can delete the current story by clicking <i class="icon-trash"></i> **Delete story** in the story panel.\n\n#### <i class="icon-hdd"></i> Export a story\n\nYou can save the current story to a file by clicking <i class="icon-hdd"></i> **Export to disk** from the <i class="icon-provider-writeon"></i> menu panel.\n\n> **Tip:** Check out the [<i class="icon-upload"></i> Publish a story](#publish-a-document) section for a description of the different output formats.\n\n\n----------\n\n\nSynchronization\n-------------------\n\nWriteOn can be combined with <i class="icon-provider-gdrive"></i> **Google Drive** and <i class="icon-provider-dropbox"></i> **Dropbox** to have your stories saved in the *Cloud*. The synchronization mechanism takes care of uploading your modifications or downloading the latest version of your stories.\n\n> **Note:**\n\n> - Full access to **Google Drive** or **Dropbox** is required to be able to import any story in WriteOn. Permission restrictions can be configured in the settings.\n> - Imported stories are downloaded in your browser and are not transmitted to a server.\n> - If you experience problems saving your stories on Google Drive, check and optionally disable browser extensions, such as Disconnect.\n\n#### <i class="icon-refresh"></i> Open a story\n\nYou can open a story from <i class="icon-provider-gdrive"></i> **Google Drive** or the <i class="icon-provider-dropbox"></i> **Dropbox** by opening the <i class="icon-refresh"></i> **Synchronize** sub-menu and by clicking **Open from...**. Once opened, any modification in your story will be automatically synchronized with the file in your **Google Drive** / **Dropbox** account.\n\n#### <i class="icon-refresh"></i> Save a story\n\nYou can save any story by opening the <i class="icon-refresh"></i> **Synchronize** sub-menu and by clicking **Save on...**. Even if your story is already synchronized with **Google Drive** or **Dropbox**, you can export it to a another location. WriteOn can synchronize one story with multiple locations and accounts.\n\n#### <i class="icon-refresh"></i> Synchronize a story\n\nOnce your story is linked to a <i class="icon-provider-gdrive"></i> **Google Drive** or a <i class="icon-provider-dropbox"></i> **Dropbox** file, WriteOn will periodically (every 3 minutes) synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be detected.\n\nIf you just have modified your story and you want to force the synchronization, click the <i class="icon-refresh"></i> button in the navigation bar.\n\n> **Note:** The <i class="icon-refresh"></i> button is disabled when you have no story to synchronize.\n\n#### <i class="icon-refresh"></i> Manage story synchronization\n\nSince one story can be synchronized with multiple locations, you can list and manage synchronized locations by clicking <i class="icon-refresh"></i> **Manage synchronization** in the <i class="icon-refresh"></i> **Synchronize** sub-menu. This will let you remove synchronization locations that are associated to your story.\n\n> **Note:** If you delete the file from **Google Drive** or from **Dropbox**, the story will no longer be synchronized with that location.\n\n----------\n\n\nPublication\n-------------\n\nOnce you are happy with your story, you can publish it on different websites directly from WriteOn. As for now, WriteOn can publish on **Blogger**, **Dropbox**, **Gist**, **GitHub**, **Google Drive**, **Tumblr**, **WordPress** and on any SSH server.\n\n#### <i class="icon-upload"></i> Publish a story\n\nYou can publish your story by opening the <i class="icon-upload"></i> **Publish** sub-menu and by choosing a website. In the dialog box, you can choose the publication format:\n\n- Markdown, to publish the Markdown text on a website that can interpret it (**GitHub** for instance),\n- HTML, to publish the story converted into HTML (on a blog for example),\n- Template, to have a full control of the output.\n\n> **Note:** The default template is a simple webpage wrapping your story in HTML format. You can customize it in the **Advanced** tab of the <i class="icon-cog"></i> **Settings** dialog.\n\n#### <i class="icon-upload"></i> Update a publication\n\nAfter publishing, WriteOn will keep your story linked to that publication which makes it easy for you to update it. Once you have modified your story and you want to update your publication, click on the <i class="icon-upload"></i> button in the navigation bar.\n\n> **Note:** The <i class="icon-upload"></i> button is disabled when your story has not been published yet.\n\n#### <i class="icon-upload"></i> Manage story publication\n\nSince one story can be published on multiple locations, you can list and manage publish locations by clicking <i class="icon-upload"></i> **Manage publication** in the <i class="icon-provider-writeon"></i> menu panel. This will let you remove publication \n\n\n----------\n\n\nlocations that are associated to your story.\n\n> **Note:** If the file has been removed from the website or the blog, the story will no longer be published on that location.\n\n----------\n\n\nMarkdown Extra\n--------------------\n\nWriteOn supports **Markdown Extra**, which extends **Markdown** syntax with some nice features.\n\n> **Tip:** You can disable any **Markdown Extra** feature in the **Extensions** tab of the <i class="icon-cog"></i> **Settings** dialog.\n\n> **Note:** You can find more information about **Markdown** syntax [here][2] and **Markdown Extra** extension [here][3].\n\n\n### Tables\n\n**Markdown Extra** has a special syntax for tables:\n\nItem     | Value\n-------- | ---\nComputer | $1600\nPhone    | $12\nPipe     | $1\n\nYou can specify column alignment with one or two colons:\n\n| Item     | Value | Qty   |\n| :------- | ----: | :---: |\n| Computer | $1600 |  5    |\n| Phone    | $12   |  12   |\n| Pipe     | $1    |  234  |\n\n\n### Definition Lists\n\n**Markdown Extra** has a special syntax for definition lists too:\n\nTerm 1\nTerm 2\n:   Definition A\n:   Definition B\n\nTerm 3\n\n:   Definition C\n\n:   Definition D\n\n	> part of definition D\n\n\n### Fenced code blocks\n\nGitHub\'s fenced code blocks are also supported with **Highlight.js** syntax highlighting:\n\n```\n// Foo\nvar bar = 0;\n```\n\n> **Tip:** To use **Prettify** instead of **Highlight.js**, just configure the **Markdown Extra** extension in the <i class="icon-cog"></i> **Settings** dialog.\n\n> **Note:** You can find more information:\n\n> - about **Prettify** syntax highlighting [here][5],\n> - about **Highlight.js** syntax highlighting [here][6].\n\n\n### Footnotes\n\nYou can create footnotes like this[^footnote].\n\n  [^footnote]: Here is the *text* of the **footnote**.\n\n\n### SmartyPants\n\nSmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:\n\n|                  | ASCII                        | HTML              |\n ----------------- | ---------------------------- | ------------------\n| Single backticks | `\'Isn\'t this fun?\'`            | \'Isn\'t this fun?\' |\n| Quotes           | `"Isn\'t this fun?"`            | "Isn\'t this fun?" |\n| Dashes           | `-- is en-dash, --- is em-dash` | -- is en-dash, --- is em-dash |\n\n\n### Table of contents\n\nYou can insert a table of contents using the marker `[TOC]`:\n\n[TOC]\n\n\n### UML diagrams\n\nYou can render sequence diagrams like this:\n\n```sequence\nBeard->Fedora: Hello Beard, how are you?\nNote right of Beard: Beard thinks\nBeard-->Fedora: I am good thanks!\n```\n\nAnd flow charts like this:\n\n```flow\nst=>start: Start\ne=>end\nop=>operation: My Operation\ncond=>condition: Yes or No?\n\nst->op->cond\ncond(yes)->e\ncond(no)->op\n```\n\n> **Note:** You can find more information:\n\n> - about **Sequence diagrams** syntax [here][7],\n> - about **Flow charts** syntax [here][8].\n\n\n  [^writeon]: [WriteOn](https://writeon.io/) let\'s you write without distraction, and publish without effort. WriteOn is an in-browser story editor which is fast, easy and unique. The refined text editor of WriteOn helps you focus on your writing, while visualizing the shape of it in real time.\n\n\n  [1]: http://math.stackexchange.com/\n  [2]: http://daringfireball.net/projects/markdown/syntax "Markdown"\n  [3]: https://github.com/jmcmanus/pagedown-extra "Pagedown Extra"\n  [5]: https://code.google.com/p/google-code-prettify/\n  [6]: http://highlightjs.org/\n  [7]: http://bramp.github.io/js-sequence-diagrams/\n  [8]: http://adrai.github.io/flowchart.js/\n';
 }), define("text!GUIDE.md", [], function() {
- return 'WriteOn Language Guide\n===================\n\n\n\n## Summary\n\n[TOC]\n\n---\n\n## Introduction\n\nWriteOn uses a unique text formatting syntax based on Markdown, and is inspired by the typewriter. It is extremely simple, memorizable and visually lightweight on artifacts so as not to hinder writing -- characteristics that go hand in hand with the essence of **WriteOn**.\n\nIn the next sections you\'ll be guided through some of the features that will make **WriteOn** your new favorite writing machine. \n\n---\n\n## Syntax Reference\n\nIf you\'re unfamiliar with language syntax, please spare a couple of minutes going through this [Wikipedia Markup Language Guide][link-syntax]. \n\n[link-syntax]: https://en.wikipedia.org/wiki/Markup_language "Wikipedia Markup Language Guide"\n\n--- \n\n## Editing WriteOn documents \n\nThis section is dedicated to introduce you to the differences between editing plain/rich text documents and WriteOn documents.\n\n### Creating new documents\n\nTo create a WriteOn document, head to the File menu and select "New story" or simply press the shortcut Ã¢â€¡Â§Ã¢Å’ËœN.\n\n> **NOTE**  \n> You can convert a plain text document to a WriteOn document by going to the "Format" menu and pressing Ã¢Å’Â¥ to reveal WriteOn conversion option or pressing the combination Ã¢Å’Â¥Ã¢â€¡Â§Ã¢Å’ËœT.\n>.\n\n### Opening documents\n\nWriteOn documents are opened like any other document, but **WriteOn** will only recognize and activate Markdown features if the file is bearing a well-known extension.\n\nThe recognized extensions are `.md`, `.markdown`, `.mdown` and `.markdn`.\n\nIf the document does not have one of these well-known extensions, you can always enable WriteOn features by converting the file (Ã¢Å’Â¥Ã¢â€¡Â§Ã¢Å’ËœT).\n\n> **NOTE**  \n> WriteOn uses Markdown standards and syntax, and while Markdown does not have an official extension, we recommend the usage of `.md`, as it\'s the most widely adopted one.\n\n### Handy shortcuts\n\nEven though WriteOn\'s formatting syntax is light, there are a couple of commonly used style artifacts that force your hands out of their natural stance when typing -- **bold** and *italic*.\n\n**WriteOn** preserves the hotkeys widely used for these effects. If you\'re about to write a word in bold or italic, just type Ã¢Å’ËœB or Ã¢Å’ËœI and it will place the corresponding formatting elements in place and advance the cursor. You can also select a word and apply the style or, conversely, select a word wrapped by these styles and **WriteOn** will remove them for you.\n\n### Images\n\nIf you drag images into the text, they will automatically be replaced by a WriteOn reference to the file.\n\nDue to **WriteOn**\'s MultiMarkdown support you can even add custom attributes to your images, altering the way they\'re displayed. Please refer to [Custom attributes][section-mmd-attributes] section on the WriteOn highlights chapter for more details.\n\n> **NOTE**  \n> Keep in mind that when dragging images to the text, **WriteOn** will introduce a reference to that file\'s location on your disk (noticeable by the `file:` prefix).\n> When publishing online, make sure you update this reference, otherwise you\'ll run into broken links.\n\n---\n\n## Preview mode \n\nWriteOn is often used as tool to generate stories for a more commonly used publishing format like HTML. The fact that it\'s an extremely simple, plain text based formatting syntax pretty much turns WriteOn into a super-hero publishing editor.\n\n**WriteOn** expands the concept of a text editor by giving you the option to preview your text. At the distance of a shortcut, you can get a feel of how your writings will look like.\n\n![WriteOn in preview mode][img-preview]\n\n[img-preview]: img/preview.png "WriteOn in preview mode" class="shadow"\n\nThe preview mode will render the text using your current style settings. To dismiss this mode and go back to editing, just hit the Escape key.\n\n---\n\n## Exporting documents\n\nIn the vast majority of times, you will be using WriteOn for its *raison d\'ÃƒÂªtre* -- as a source format to generate HTML. **WriteOn** let\'s you export the HTML output in two ways:\n\n![Exporting options][img-export]\n\n[img-export]: img/export.png "Export options"\n\n* Copy the HTML output directly to your clipboard -- so you can conveniently paste it into your favorite HTML editor[^fn-export];\n* Export to a file.\n\n[^fn-export]: When copying to clipboard, **WriteOn** will only place the equivalent of the `body` tag contents. On the other hand, when exporting to a file, a complete HTML file will be generated.\n\nWe know how much you love **WriteOn**\'s aesthetics so we even added a little bonus to the option of exporting to a file.\n\n![Exporting with WriteOn\'s current theme][img-export_theme]\n\n[img-export_theme]: img/export_theme.png "Exporting with WriteOn\'s current theme"\n\nIncluding **WriteOn**\'s theme in the exported file will give you an exact copy of what you see in the preview mode. With this option enabled, font type, size and text width will be preserved when the output file is generated.\n\n---\n\n## WriteOn highlights\n\nAs useful as WriteOn is on its own, WriteOn helps to extend your syntax library with many additional features. This section will briefly introduce you to the most interesting of them.\n\n> **NOTE**  \n> For a comprehensive reference, please refer to Fletcher T. Penney\'s [MultiMarkdown user guide][link-mmd_userguide].\n\n[link-mmd_userguide]: https://github.com/fletcher/MultiMarkdown/blob/master/Documentation/MultiMarkdown%20User%27s%20Guide.md "Fletcher T. Penney\'s MultiMarkdown user guide"\n\n\n### Cross-references \n\nCross-references will become your new best friend when writing long documents. They will highly improve the navigability of the generated documents by giving the reader links to jump across sections with a single click.\n\n#### Example \n\n    Clicking [here][section-preview] will lead you to the **WriteOn** website.\n\n#### Result \n\nClicking [here][section-preview] will lead you do the **WriteOn** website.\n\n[section-preview]: http://writeon.io\n\n### Footnotes\n\nFootnotes are a simple, yet effective way of conveying non-crucial information to the reader.\n\nRather than parenthesizing a side note or place it between em-dashes -- as unimportant as it is, the reader will go through it, just like you did now -- you can defer its reading and expand on your thoughts there.\n\n#### Example\n\n    Clicking this number[^fn-sample_footnote] will lead you to a footnote.\n    \n    [^fn-sample_footnote]: Handy! Now click the return link to go back.\n\n#### Result [section-mmd-footnotes-result]\n\nClicking this number[^fn-sample_footnote] will lead you to a footnote.\n\n[^fn-sample_footnote]: Handy! Now click the return link to go back.\n\n\n### Custom attributes\n\nWriteOn introduces an unobtrusive way of adding custom attributes to images and links, allowing you to change they way they are displayed.\n\n> **NOTE**  \n> This is not available for inline links or images.\n\n#### Example \n\n    The original image is 128x128 and contains no shadow.\n    ![Original icon][img-icon_original]\n    \n    It will be displayed as 96x96 with a subtle shadow.\n    ![Styled icon][img-icon_styled]\n    \n    [img-icon_original]: img/icon128.png "B"\n    [img-icon_styled]: img/icon128.png "B" width="96px" height="96px"\n    class="shadow"\n\n#### Result\n\nThe original image is 128x128 and contains no shadow.\n\n![Original icon][img-icon_original]\n\nIt will be displayed as 96x96 with a subtle shadow.\n\n![Styled icon][img-icon_styled]\n\n[img-icon_original]: img/icon128.png "A"\n[img-icon_styled]: img/icon128.png "B" width="96px" height="96px"\nclass="shadow"\n\n\n### Meta information\n\nWith WriteOn, you can also embed metadata on your documents.\n\nMetadata must be placed at the top of the document -- there can be no white-spaces before -- and it ends with the first empty line. Each entry is composed of key and values, separated by a colon (`:`).\n\nThere are plenty of keys supported, some of the most common being `Title`, `Author`, `Date`, `Copyright`, `Keywords` and `Email`. Be sure to check [Fletcher\'s guide][link-mmd_userguide] for a full reference.\n\n> **TIP**  \n> When adding metadata information to your documents, make sure you always leave two spaces at the end of each metadata line. This will ensure that exporting to plain Markdown will result in a properly formatted piece of text -- as opposed to a single run-on paragraph.\n\n#### Example [section-mmd-meta]\n\n    Title:	Document title  \n    Author:	John Doe  \n    		Jane Doe  \n    Date:	January 1st, 2012  \n\n\n### Tables [section-mmd-tables]\n\nTables are perfect to display structured data in rows and columns. WriteOn supports the generation of tables by using a couple of simple rules alongside the use of the pipe character -- `|`.\n\n#### Example [section-mmd-tables-example]\n\n    | First Header  | Second Header | Third Header         |\n    | :------------ | :-----------: | -------------------: |\n    | First row     | Data          | Very long data entry |\n    | Second row    | **Cell**      | *Cell*               |\n    | Third row     | Cell that spans across two columns  ||\n    [Table caption, works as a reference][section-mmd-tables-table1] \n\n#### Result [section-mmd-tables-result]\n\n| First Header  | Second Header | Third Header         |\n| :------------ | :-----------: | -------------------: |\n| First row     | Data          | Very long data entry |\n| Second row    | **Cell**      | *Cell*               |\n| Third row     | Cell that spans across two columns  ||\n[Table caption, works as a reference][section-mmd-tables-table1] \n\n#### Structure [section-mmd-tables-structure]\n\nIf you are familiar with HTML tables, you\'ll instantly recognize the structure of the table syntax. All tables must begin with one or more **rows** of **headers**, and each **row** may have one or more **columns**.\n\nThese are the most important rules you\'ll be dealing with:\n\n* There must be at least one `|` per line;\n* After the header rows, there must be a line containing only `|`, `-`, `:`, `.`, or spaces;\n* Cell content must be on one line only;\n* Columns are separated by `|`.\n\n#### Alignment [section-mmd-tables-alignment]\n\nTo align the data cells on the table, you need to introduce a special row right after the headers, that will determine how the following rows -- the data rows -- will be aligned.\n\n    | Header One | Header Two | Header Three | Header Four |\n    | ---------- | :--------- | :----------: | ----------: |\n    | Default    | Left       | Center       | Right       |\n\n| Header One | Header Two | Header Three | Header Four |\n| ---------- | :--------- | :----------: | ----------: |\n| Default    | Left       | Center       | Right       |\n\nThe placing of the colon (`:`) is optional and determines the alignment of columns in the data rows. This line is mandatory and must be placed between the headers and the data rows.\n\nAlso, the usage of the `|` at the beginning or end of the rows is optional -- as long as at least one `|` is present in each row.\n\n#### Column spanning [section-mmd-tables-colspanning]\n\nTo make a cell span across multiple columns, instead of using a single pipe (`|`) character to delimit that cell, use the number of pipes corresponding to the columns you wish to span.\n\n    | Column 1 | Column 2 | Column 3 | Column 4 |\n    | -------- | :------: | -------- | -------- |\n    | No span  | Span across three columns    |||\n\n| Column 1 | Column 2 | Column 3 | Column 4 |\n| -------- | :------: | -------- | -------- |\n| No span  | Span across three columns    |||\n\n> **NOTE**  \n> This is only an introduction to WriteOn\'s tables. For the full reference, please refer to the "Tables" section on the [MultiMarkdown user guide][link-mmd_userguide].\n\n---\n\n[link-source]: guide.md "User guide MultiMarkdown source"\n\nIf you have any doubts don\'t hesitate to contact us via email at **team@writeon.io** or via Twitter at [@writeon][link-twitter_writeon] or [@beardandfedora][link-twitter_beardandfedora].\n\n[link-twitter_writeon]: http://twitter.com/WriteOn "WriteOn on Twitter"\n[link-twitter_beardandfedora]: http://twitter.com/BeardandFedora "Beard & Fedora on Twitter"\n\nEnjoy,  \nThe WriteOn team.\n\n\n\n> Written with [WriteOn](https://writeon.io/).';
+ return 'WriteOn Language Guide\n===================\n\n\n\n## Summary\n\n[TOC]\n\n---\n\n## Introduction\n\nWriteOn uses a unique text formatting syntax based on Markdown, and is inspired by the typewriter. It is extremely simple, memorizable and visually lightweight on artifacts so as not to hinder writing -- characteristics that go hand in hand with the essence of **WriteOn**.\n\nIn the next sections you\'ll be guided through some of the features that will make **WriteOn** your new favorite writing machine. \n\n---\n\n## Syntax Reference\n\nIf you\'re unfamiliar with language syntax, please spare a couple of minutes going through this [Wikipedia Markup Language Guide][link-syntax]. \n\n[link-syntax]: https://en.wikipedia.org/wiki/Markup_language "Wikipedia Markup Language Guide"\n\n--- \n\n## Editing WriteOn documents \n\nThis section is dedicated to introduce you to the differences between editing plain/rich text documents and WriteOn documents.\n\n### Creating new documents\n\nTo create a WriteOn document, head to the File menu and select "New story" or simply press the shortcut \xe2\u2021\xa7\xe2\u0152\u02dcN.\n\n> **NOTE**  \n> You can convert a plain text document to a WriteOn document by going to the "Format" menu and pressing \xe2\u0152\xa5 to reveal WriteOn conversion option or pressing the combination \xe2\u0152\xa5\xe2\u2021\xa7\xe2\u0152\u02dcT.\n>.\n\n### Opening documents\n\nWriteOn documents are opened like any other document, but **WriteOn** will only recognize and activate Markdown features if the file is bearing a well-known extension.\n\nThe recognized extensions are `.md`, `.markdown`, `.mdown` and `.markdn`.\n\nIf the document does not have one of these well-known extensions, you can always enable WriteOn features by converting the file (\xe2\u0152\xa5\xe2\u2021\xa7\xe2\u0152\u02dcT).\n\n> **NOTE**  \n> WriteOn uses Markdown standards and syntax, and while Markdown does not have an official extension, we recommend the usage of `.md`, as it\'s the most widely adopted one.\n\n### Handy shortcuts\n\nEven though WriteOn\'s formatting syntax is light, there are a couple of commonly used style artifacts that force your hands out of their natural stance when typing -- **bold** and *italic*.\n\n**WriteOn** preserves the hotkeys widely used for these effects. If you\'re about to write a word in bold or italic, just type \xe2\u0152\u02dcB or \xe2\u0152\u02dcI and it will place the corresponding formatting elements in place and advance the cursor. You can also select a word and apply the style or, conversely, select a word wrapped by these styles and **WriteOn** will remove them for you.\n\n### Images\n\nIf you drag images into the text, they will automatically be replaced by a WriteOn reference to the file.\n\nDue to **WriteOn**\'s MultiMarkdown support you can even add custom attributes to your images, altering the way they\'re displayed. Please refer to [Custom attributes][section-mmd-attributes] section on the WriteOn highlights chapter for more details.\n\n> **NOTE**  \n> Keep in mind that when dragging images to the text, **WriteOn** will introduce a reference to that file\'s location on your disk (noticeable by the `file:` prefix).\n> When publishing online, make sure you update this reference, otherwise you\'ll run into broken links.\n\n---\n\n## Preview mode \n\nWriteOn is often used as tool to generate stories for a more commonly used publishing format like HTML. The fact that it\'s an extremely simple, plain text based formatting syntax pretty much turns WriteOn into a super-hero publishing editor.\n\n**WriteOn** expands the concept of a text editor by giving you the option to preview your text. At the distance of a shortcut, you can get a feel of how your writings will look like.\n\n![WriteOn in preview mode][img-preview]\n\n[img-preview]: img/preview.png "WriteOn in preview mode" class="shadow"\n\nThe preview mode will render the text using your current style settings. To dismiss this mode and go back to editing, just hit the Escape key.\n\n---\n\n## Exporting documents\n\nIn the vast majority of times, you will be using WriteOn for its *raison d\'\xc3\xaatre* -- as a source format to generate HTML. **WriteOn** let\'s you export the HTML output in two ways:\n\n![Exporting options][img-export]\n\n[img-export]: img/export.png "Export options"\n\n* Copy the HTML output directly to your clipboard -- so you can conveniently paste it into your favorite HTML editor[^fn-export];\n* Export to a file.\n\n[^fn-export]: When copying to clipboard, **WriteOn** will only place the equivalent of the `body` tag contents. On the other hand, when exporting to a file, a complete HTML file will be generated.\n\nWe know how much you love **WriteOn**\'s aesthetics so we even added a little bonus to the option of exporting to a file.\n\n![Exporting with WriteOn\'s current theme][img-export_theme]\n\n[img-export_theme]: img/export_theme.png "Exporting with WriteOn\'s current theme"\n\nIncluding **WriteOn**\'s theme in the exported file will give you an exact copy of what you see in the preview mode. With this option enabled, font type, size and text width will be preserved when the output file is generated.\n\n---\n\n## WriteOn highlights\n\nAs useful as WriteOn is on its own, WriteOn helps to extend your syntax library with many additional features. This section will briefly introduce you to the most interesting of them.\n\n> **NOTE**  \n> For a comprehensive reference, please refer to Fletcher T. Penney\'s [MultiMarkdown user guide][link-mmd_userguide].\n\n[link-mmd_userguide]: https://github.com/fletcher/MultiMarkdown/blob/master/Documentation/MultiMarkdown%20User%27s%20Guide.md "Fletcher T. Penney\'s MultiMarkdown user guide"\n\n\n### Cross-references \n\nCross-references will become your new best friend when writing long documents. They will highly improve the navigability of the generated documents by giving the reader links to jump across sections with a single click.\n\n#### Example \n\n    Clicking [here][section-preview] will lead you to the **WriteOn** website.\n\n#### Result \n\nClicking [here][section-preview] will lead you do the **WriteOn** website.\n\n[section-preview]: http://writeon.io\n\n### Footnotes\n\nFootnotes are a simple, yet effective way of conveying non-crucial information to the reader.\n\nRather than parenthesizing a side note or place it between em-dashes -- as unimportant as it is, the reader will go through it, just like you did now -- you can defer its reading and expand on your thoughts there.\n\n#### Example\n\n    Clicking this number[^fn-sample_footnote] will lead you to a footnote.\n    \n    [^fn-sample_footnote]: Handy! Now click the return link to go back.\n\n#### Result [section-mmd-footnotes-result]\n\nClicking this number[^fn-sample_footnote] will lead you to a footnote.\n\n[^fn-sample_footnote]: Handy! Now click the return link to go back.\n\n\n### Custom attributes\n\nWriteOn introduces an unobtrusive way of adding custom attributes to images and links, allowing you to change they way they are displayed.\n\n> **NOTE**  \n> This is not available for inline links or images.\n\n#### Example \n\n    The original image is 128x128 and contains no shadow.\n    ![Original icon][img-icon_original]\n    \n    It will be displayed as 96x96 with a subtle shadow.\n    ![Styled icon][img-icon_styled]\n    \n    [img-icon_original]: img/icon128.png "B"\n    [img-icon_styled]: img/icon128.png "B" width="96px" height="96px"\n    class="shadow"\n\n#### Result\n\nThe original image is 128x128 and contains no shadow.\n\n![Original icon][img-icon_original]\n\nIt will be displayed as 96x96 with a subtle shadow.\n\n![Styled icon][img-icon_styled]\n\n[img-icon_original]: img/icon128.png "A"\n[img-icon_styled]: img/icon128.png "B" width="96px" height="96px"\nclass="shadow"\n\n\n### Meta information\n\nWith WriteOn, you can also embed metadata on your documents.\n\nMetadata must be placed at the top of the document -- there can be no white-spaces before -- and it ends with the first empty line. Each entry is composed of key and values, separated by a colon (`:`).\n\nThere are plenty of keys supported, some of the most common being `Title`, `Author`, `Date`, `Copyright`, `Keywords` and `Email`. Be sure to check [Fletcher\'s guide][link-mmd_userguide] for a full reference.\n\n> **TIP**  \n> When adding metadata information to your documents, make sure you always leave two spaces at the end of each metadata line. This will ensure that exporting to plain Markdown will result in a properly formatted piece of text -- as opposed to a single run-on paragraph.\n\n#### Example [section-mmd-meta]\n\n    Title:	Document title  \n    Author:	John Doe  \n    		Jane Doe  \n    Date:	January 1st, 2012  \n\n\n### Tables [section-mmd-tables]\n\nTables are perfect to display structured data in rows and columns. WriteOn supports the generation of tables by using a couple of simple rules alongside the use of the pipe character -- `|`.\n\n#### Example [section-mmd-tables-example]\n\n    | First Header  | Second Header | Third Header         |\n    | :------------ | :-----------: | -------------------: |\n    | First row     | Data          | Very long data entry |\n    | Second row    | **Cell**      | *Cell*               |\n    | Third row     | Cell that spans across two columns  ||\n    [Table caption, works as a reference][section-mmd-tables-table1] \n\n#### Result [section-mmd-tables-result]\n\n| First Header  | Second Header | Third Header         |\n| :------------ | :-----------: | -------------------: |\n| First row     | Data          | Very long data entry |\n| Second row    | **Cell**      | *Cell*               |\n| Third row     | Cell that spans across two columns  ||\n[Table caption, works as a reference][section-mmd-tables-table1] \n\n#### Structure [section-mmd-tables-structure]\n\nIf you are familiar with HTML tables, you\'ll instantly recognize the structure of the table syntax. All tables must begin with one or more **rows** of **headers**, and each **row** may have one or more **columns**.\n\nThese are the most important rules you\'ll be dealing with:\n\n* There must be at least one `|` per line;\n* After the header rows, there must be a line containing only `|`, `-`, `:`, `.`, or spaces;\n* Cell content must be on one line only;\n* Columns are separated by `|`.\n\n#### Alignment [section-mmd-tables-alignment]\n\nTo align the data cells on the table, you need to introduce a special row right after the headers, that will determine how the following rows -- the data rows -- will be aligned.\n\n    | Header One | Header Two | Header Three | Header Four |\n    | ---------- | :--------- | :----------: | ----------: |\n    | Default    | Left       | Center       | Right       |\n\n| Header One | Header Two | Header Three | Header Four |\n| ---------- | :--------- | :----------: | ----------: |\n| Default    | Left       | Center       | Right       |\n\nThe placing of the colon (`:`) is optional and determines the alignment of columns in the data rows. This line is mandatory and must be placed between the headers and the data rows.\n\nAlso, the usage of the `|` at the beginning or end of the rows is optional -- as long as at least one `|` is present in each row.\n\n#### Column spanning [section-mmd-tables-colspanning]\n\nTo make a cell span across multiple columns, instead of using a single pipe (`|`) character to delimit that cell, use the number of pipes corresponding to the columns you wish to span.\n\n    | Column 1 | Column 2 | Column 3 | Column 4 |\n    | -------- | :------: | -------- | -------- |\n    | No span  | Span across three columns    |||\n\n| Column 1 | Column 2 | Column 3 | Column 4 |\n| -------- | :------: | -------- | -------- |\n| No span  | Span across three columns    |||\n\n> **NOTE**  \n> This is only an introduction to WriteOn\'s tables. For the full reference, please refer to the "Tables" section on the [MultiMarkdown user guide][link-mmd_userguide].\n\n---\n\n[link-source]: guide.md "User guide MultiMarkdown source"\n\nIf you have any doubts don\'t hesitate to contact us via email at **team@writeon.io** or via Twitter at [@writeon][link-twitter_writeon] or [@beardandfedora][link-twitter_beardandfedora].\n\n[link-twitter_writeon]: http://twitter.com/WriteOn "WriteOn on Twitter"\n[link-twitter_beardandfedora]: http://twitter.com/BeardandFedora "Beard & Fedora on Twitter"\n\nEnjoy,  \nThe WriteOn team.\n\n\n\n> Written with [WriteOn](https://writeon.io/).';
 }), define("fileMgr", [ "jquery", "underscore", "constants", "core", "utils", "storage", "settings", "eventMgr", "fileSystem", "classes/FileDescriptor", "text!WELCOME.md", "text!GUIDE.md" ], function(e, t, n, i, r, o, a, s, l, c, u, d) {
  var p = {};
  return p.currentFile = void 0, p.selectFile = function(r) {
@@ -25564,8 +25538,9 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
  return l.prototype.syncMerge = function(n, a, s, l, p, h) {
   function f(e) {
    function t() {
-    (i[1] || r[1]) && (i[1] && r[1] ? (i[1] = "â§¸â§¸" + i[1] + "â§¸â§¸", r[1] += "â§¸â§¸", n.push(i), 
-    n.push(r)) : n.push([ 0, i[1] + r[1] ]), i = [ -1, "" ], r = [ 1, "" ]);
+    (i[1] || r[1]) && (i[1] && r[1] ? (i[1] = "\u29f8\u29f8" + i[1] + "\u29f8\u29f8", 
+    r[1] += "\u29f8\u29f8", n.push(i), n.push(r)) : n.push([ 0, i[1] + r[1] ]), i = [ -1, "" ], 
+    r = [ 1, "" ]);
    }
    var n = [], i = [ -1, "" ], r = [ 1, "" ], o = 20;
    return e.forEach(function(a, s) {
@@ -27121,7 +27096,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   void 0 !== window.delayedFunction && window.delayedFunction();
  }, b;
 }), define("text!html/dialogExportGdrive.html", [], function() {
- return '<div class="modal-dialog">\n	<div class="modal-content">\n\n		<div class="modal-header">\n			<button type="button" class="close" data-dismiss="modal"\n				aria-hidden="true">&times;</button>\n			<h2 class="modal-title">Save on <%= providerName %></h2>\n		</div>\n		<div class="modal-body">\n			<p>\n				This will save "<span class="file-title"></span>" to your <i\n					class="icon-provider-<%= providerId %>"></i>\n				<b>Google Drive</b>\n				account and keep it synchronized.\n			</p>\n			<div class="collapse form-horizontal sync-export-<%= providerId %>-options-collapse">\n				<div class="form-group">\n					<label class="col-lg-3 control-label"\n						for="input-sync-export-<%= providerId %>-parentid">Folder ID\n						(optional)</label>\n					<div class="col-lg-8">\n                        <input type="text" id="input-sync-export-<%= providerId %>-parentid"\n                            placeholder="FolderID" class="form-control">\n                        <div class="text-right">\n                            <a class="btn btn-link btn-sm action-export-<%= providerId %>-choose-folder"\n                               title="Choose folder" data-dismiss="modal"><i\n                                    class="icon-folder-open"></i> Open folder</a>\n                        </div>\n						<span class="help-block"> If no folder ID is supplied, the\n							file will be created in your root folder. </span>\n					</div>\n				</div>\n				<div class="form-group">\n					<label class="col-lg-3 control-label"\n						for="input-sync-export-<%= providerId %>-fileid">Existing file ID\n						(optional)</label>\n					<div class="col-lg-8">\n						<input type="text" id="input-sync-export-<%= providerId %>-fileid"\n							placeholder="FileID" class="form-control"> <span\n							class="help-block"> This will overwrite the existing file\n							on the server. </span>\n					</div>\n				</div>\n			</div>\n			<p class="align-right">\n				<a href="#" data-toggle="collapse" data-target=".sync-export-<%= providerId %>-options-collapse" class="collapsed">\n					Options <i class="icon-up-dir"></i>\n				</a>\n			</p>\n			<blockquote>\n				<p><b>Tip:</b> You can move or rename the file afterwards within Google\n						Drive.</p>\n			</blockquote>\n		</div>\n		<div class="modal-footer">\n			<a href="#" class="btn btn-warning pull-left action-autosync-dialog-<%= providerId %>" data-dismiss="modal"><i\n				class="icon-provider-gdrive"></i> Setup AutoSync</a>\n			<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n			<a href="#" data-dismiss="modal"\n				class="btn btn-primary action-sync-export-<%= providerId %>">OK</a>\n		</div>\n	</div>\n</div>\n';
+ return '<div class="modal-dialog">\n	<div class="modal-content">\n\n		<div class="modal-header">\n			<button type="button" class="close" data-dismiss="modal"\n				aria-hidden="true">&times;</button>\n			<h2 class="modal-title">Save on <%= providerName %></h2>\n		</div>\n		<div class="modal-body">\n			<p>\n				This will save "<span class="file-title"></span>" to your <i\n					class="icon-provider-<%= providerId %>"></i>\n				<b>Google Drive</b>\n				account and keep it synchronized.\n			</p>\n			<div class="collapse form-horizontal sync-export-<%= providerId %>-options-collapse">\n				<div class="form-group">\n					<label class="col-lg-3 control-label"\n						for="input-sync-export-<%= providerId %>-parentid">Folder ID\n						(optional)</label>\n					<div class="col-lg-8">\n                        <input type="text" id="input-sync-export-<%= providerId %>-parentid"\n                            placeholder="FolderID" class="form-control">\n                        <div class="text-right">\n                            <a class="btn btn-link btn-sm action-export-<%= providerId %>-choose-folder"\n                               title="Choose folder" data-dismiss="modal"><i\n                                    class="icon-folder-open"></i> Open folder</a>\n                        </div>\n						<span class="help-block"> If no folder ID is supplied, the\n							file will be created in your root folder. </span>\n					</div>\n				</div>\n				<div class="form-group">\n					<label class="col-lg-3 control-label"\n						for="input-sync-export-<%= providerId %>-fileid">Existing file ID\n						(optional)</label>\n					<div class="col-lg-8">\n						<input type="text" id="input-sync-export-<%= providerId %>-fileid"\n							placeholder="FileID" class="form-control"> <span\n							class="help-block"> This will overwrite the existing file\n							on the server. </span>\n					</div>\n				</div>\n			</div>\n			<p class="align-right">\n				<a href="#" data-toggle="collapse" data-target=".sync-export-<%= providerId %>-options-collapse" class="collapsed">\n					Options <i class="icon-up-dir"></i>\n				</a>\n			</p>\n			<blockquote class="alert alert-info">\n				<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n				<p><b>Tip:</b> You can move or rename the file afterwards within Google\n						Drive.</p>\n			</blockquote>\n		</div>\n		<div class="modal-footer">\n			<a href="#" class="btn btn-warning pull-left action-autosync-dialog-<%= providerId %>" data-dismiss="modal"><i\n				class="icon-provider-gdrive"></i> Setup AutoSync</a>\n			<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n			<a href="#" data-dismiss="modal"\n				class="btn btn-primary action-sync-export-<%= providerId %>">OK</a>\n		</div>\n	</div>\n</div>\n';
 }), define("text!html/dialogAutoSyncGdrive.html", [], function() {
  return '<div class="modal-dialog">\n	<div class="modal-content">\n\n		<div class="modal-header">\n			<button type="button" class="close" data-dismiss="modal"\n				aria-hidden="true">&times;</button>\n			<h2 class="modal-title">AutoSync to <%= providerName %></h2>\n		</div>\n		<div class="modal-body">\n			<p>\n				<b>AutoSync</b> feature automatically saves all stories to your <i\n					class="icon-provider-<%= providerId %>"></i>\n				<b>Google Drive</b>\n				account and keep them synchronized.\n			</p>\n			<div class="form-horizontal">\n    			<div class="form-group">\n    				<div class="col-lg-3 control-label"></div>\n    				<div class="col-lg-8">\n						<div class="radio">\n							<label> <input type="radio"\n								name="radio-autosync-<%= providerId %>-mode" value="off">\n								Disabled\n							</label>\n						</div>\n						<div class="radio">\n							<label> <input type="radio"\n								name="radio-autosync-<%= providerId %>-mode" value="new">\n								New stories (not current)\n							</label>\n						</div>\n						<div class="radio">\n							<label> <input type="radio"\n								name="radio-autosync-<%= providerId %>-mode" value="all">\n								Every story not yet synchronized\n							</label>\n						</div>\n    				</div>\n    			</div>\n			    <br/>\n    			<div class="form-group">\n    				<label class="col-lg-3 control-label"\n    					for="input-autosync-<%= providerId %>-parentid">Folder ID\n    					(optional)</label>\n    				<div class="col-lg-8">\n    					<div class="input-group">\n    						<input type="text" id="input-autosync-<%= providerId %>-parentid"\n    							placeholder="FolderID" class="form-control">\n    						<div class="input-group-btn">\n    							<a class="btn btn-link action-autosync-<%= providerId %>-choose-folder"\n    								title="Choose folder" data-dismiss="modal"><i\n    								class="icon-folder-open"></i></a>\n    						</div>\n    					</div>\n    					<span class="help-block"> If no folder ID is supplied,\n    						files will be created in your root folder. </span>\n    				</div>\n    			</div>\n    		</div>\n			<blockquote>\n				<p><b>Note:</b> Removing a local story will not delete the linked file on Google\n						Drive.</p>\n			</blockquote>\n		</div>\n		<div class="modal-footer">\n			<a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n			<a href="#" data-dismiss="modal"\n				class="btn btn-primary action-autosync-<%= providerId %>">OK</a>\n		</div>\n	</div>\n</div>\n';
 }), define("providers/gdriveProviderBuilder", [ "jquery", "underscore", "constants", "utils", "storage", "logger", "classes/Provider", "settings", "eventMgr", "fileMgr", "editor", "helpers/googleHelper", "text!html/dialogExportGdrive.html", "text!html/dialogAutoSyncGdrive.html" ], function(e, t, n, i, r, o, a, s, l, c, u, d, p, h) {
@@ -28660,7 +28635,8 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   alertify: "bower-libs/alertify.js/lib/alertify",
   oauth: "bower-libs/oauth-js/dist/oauth",
   couchdb: "libs/jquery.couch",
-  contextjs: "bower-libs/Context.js/context"
+  contextjs: "bower-libs/Context.js/context",
+  "dropdown-hover": "bower-libs/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"
  },
  shim: {
   underscore: {

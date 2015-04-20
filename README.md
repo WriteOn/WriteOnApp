@@ -18,7 +18,7 @@ WriteOn is for story makers and writers who are looking for a clean, consistent 
 >   ~ The first journalist to use WriterOn.
 
 
-### **Main showcase:** https://mammal-charter.codio.io:9500.
+### **Main showcase:** https://beta.writeon.io
 
 
 > **Note:**
@@ -63,9 +63,9 @@ WriteOn is for story makers and writers who are looking for a clean, consistent 
 [404 image rights](http://www.misskatecuttables.com/products/50-store/jellyfish.php)
 
   [1]: https://developer.mozilla.org/en-US/docs/Web/Guide/DOM/Storage#localStorage
-  [2]: https://github.com/BeardandFedora/WriteOn/blob/master/public/res/WELCOME.md#welcome-to-writeon---welcome "Welcome document"
-  [3]: https://github.com/BeardandFedora/WriteOn/blob/master/doc/developer-guide.md#developer-guide "Developer guide"
-  [4]: https://github.com/BeardandFedora/WriteOn/blob/master/doc/theming.md#writeon-theming-guide "Theming guide"
+  [2]: https://github.com/BeardandFedora/WriteOnApp/blob/master/public/res/WELCOME.md#welcome-to-writeon---welcome "Welcome document"
+  [3]: https://github.com/BeardandFedora/WriteOnApp/blob/master/doc/developer-guide.md#developer-guide "Developer guide"
+  [4]: https://github.com/BeardandFedora/WriteOnApp/blob/master/doc/theming.md#writeon-theming-guide "Theming guide"
   [5]: https://writeon.io/ "WriteOn"
   [6]: https://twitter.com/BeardandFedora
   

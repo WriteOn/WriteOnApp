@@ -280,6 +280,9 @@ transition: opacity .1s linear,top .1s ease-out;
 .modal-footer {
 	margin-top: 0;
     padding: 9px 20px 10px;
+	.btn + .btn {
+  		margin-bottom: 10x;
+	}
 }
 
 .modal-iframe {
@@ -603,7 +606,6 @@ a {
 	.layout-panel();
 	width: 100%;
 	padding: 0;
-	border: 0;
 	border-top: 1px solid @primary-border-color;
 	border-bottom: 1px solid @primary-border-color;
 	border-radius: 0;
@@ -618,6 +620,10 @@ a {
         & button {
             height: 100%;
             background: transparent !important;
+			&:hover {
+				border: none;
+				color: @btn-primary-hover-bg;
+			}
             & > i {
                 font-size: 1.8em  !important;
             }
@@ -634,7 +640,7 @@ a {
             margin: 5px 0;
         }
         &.first {
-            margin-left: 10px;
+            margin-left: 23px;
         }
 		// Dropdown submenu
 		&.pull-right {
@@ -738,6 +744,9 @@ a {
 }
 
 /* Some button overrides taking place */
+.navbar-inner > .nav > .btn-group > .btn:first-child {
+	border-color: transparent;
+}
 .navbar-inner > .nav > .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
     border-bottom-right-radius: 4px;
     border-top-right-radius: 4px;
@@ -1146,10 +1155,17 @@ a {
         overflow-y: auto;
     }
 
+	#tabpane-settings-templates {
+		textarea {
+			min-height: 200px;
+		} 
+	}
+	
 	textarea {
 		max-width: 100%;
 		min-height: 100px;
 	}
+
 
 	.panel {
 		border: 0;
@@ -1726,7 +1742,7 @@ a {
 	.layout-panel();
 	overflow: hidden;
 	.box-shadow(inset 1px 0 fade(@secondary, 6%));
-	background-color: @secondary-bg-light;
+	background-color: @tertiary-bg;
 	z-index: 10;
 	/* the range here for desktop/mobile simulation is between 85ms and 110ms */
     .layout-animate & {

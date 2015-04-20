@@ -75,6 +75,9 @@ Getting started
     gulp cache-manifest # cleans and builds the cache manifest
     gulp clean # cleans out all of the above clean tasks
     gulp default # basic build of the project
+    gulp beep # apply a patch (see https://github.com/webjay/node-bump)
+    gulp boop # apply a minor version
+    gulp boop # apply a major version 
     gulp bump-patch # apply a patch (see https://github.com/webjay/node-bump)
     gulp bump-minor # apply a minor version
     gulp bump-major # apply a major version 

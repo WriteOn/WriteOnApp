@@ -111,7 +111,7 @@ app.use(stormpath.init(app, {
 */ 
 // Serve landing.html in /
 app.get('/', function(req, res) {
-	res.renderDebug('landing.html');
+	res.redirect('/login');
 });
 
 // Redirects

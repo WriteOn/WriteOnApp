@@ -4,7 +4,7 @@
         <div class="navbar navbar-default">
             <div class="navbar-inner">
                 <div class="nav left-space">
-                <button class="btn btn-success settings-menu dropdown-toggle" data-toggle="dropdown" id="settings-menu" title="Menu">
+                <button class="btn btn-default settings-menu dropdown-toggle" data-toggle="dropdown" id="settings-menu" title="Menu">
                     <i class="icon-menu"></i>
                 </button>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="settings-menu">
@@ -18,7 +18,7 @@
                 <div class="nav right-space pull-right"></div>
                 <div class="buttons-dropdown dropdown">
                     <div class="nav">
-                        <button class="btn btn-success" data-toggle="dropdown" title="Show buttons">
+                        <button class="btn btn-default" data-toggle="dropdown" title="Show buttons">
                             <i class="icon-th-large"></i>
                         </button>
                         <div class="dropdown-menu">
@@ -39,7 +39,7 @@
                 </ul>
                 <ul class="nav left-buttons">
                     <li class="wmd-button-group4 btn-group">
-                        <a class="btn btn-success button-open-discussion" title="Comments Ctrl/Cmd+M"><i class="icon-comment-alt"></i></a>
+                        <a class="btn btn-default button-open-discussion" title="Comments Ctrl/Cmd+M"><i class="icon-comment-alt"></i></a>
                     </li>
                 </ul>
                 <ul class="nav pull-right right-buttons">
@@ -49,7 +49,7 @@
                         </div>
                     </li>
                     <li class="dropdown btn-group extension-buttons syncing-menu">
-                        <a href="#" data-toggle="dropdown" title="Save, share, collaborate in the Cloud" class="btn"><i class="icon-refresh"></i></a>
+                        <a href="#" data-toggle="dropdown" title="Save, share, collaborate in the Cloud" class="btn" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-refresh"></i></a>
                         <ul class="dropdown-menu sync-menu">
                         <li class="divider show-already-synchronized sync-divider"></li>
                         <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> Sync & share</a>
@@ -69,7 +69,7 @@
                         </ul>
                     </li>
                     <li class="dropdown btn-group extension-buttons publishing-menu">
-                        <a href="#" data-toggle="dropdown" title="Publish to the web" class="btn"><i class="icon-share"></i></a>
+                        <a href="#" data-toggle="dropdown" title="Publish to the web" class="btn" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-share"></i></a>
                         <ul class="dropdown-menu publish-menu publish-on-provider-list">
                         <li class="divider show-already-published publish-divider"></li>
                         <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> Publish</a>
@@ -77,7 +77,7 @@
                         </ul>
                     </li>
                     <li class="dropdown btn-group download-menu">
-                        <a href="#" data-toggle="dropdown" title="Download story for offline use" class="btn"><i class="icon-download"></i></a>
+                        <a href="#" data-toggle="dropdown" title="Download story for offline use" class="btn" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-download"></i></a>
                         <ul class="dropdown-menu">
                         <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> Download</a>
                         </li><li class="divider"></li>
@@ -90,7 +90,7 @@
                         </ul>
                     </li>
                     <li class="dropdown btn-group story-menu">
-                        <a href="#" data-toggle="dropdown" title="Open & Import" class="btn"><i class="icon-docs text-blue"></i></a>
+                        <a href="#" data-toggle="dropdown" title="Open & Import" class="btn" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-docs text-blue"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="#" class="action-create-file"><i class="icon-file text-blue"></i> Create New Story</a>
                             </li>
@@ -121,7 +121,7 @@
                 </ul>
                 <ul class="nav pull-right title-container">
                     <li>
-                        <a class="btn btn-success file-title-navbar" href="#" title="Rename story"></a>
+                        <a class="btn btn-default file-title-navbar" href="#" title="Rename story"></a>
                     </li>
                     <li>
                         <div class="input-file-title-container">
@@ -135,9 +135,9 @@
             <pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>
             <div class="preview-panel">
                 <div class="layout-resizer layout-resizer-preview"></div>
-                <div class="layout-toggler layout-toggler-navbar btn btn-info" title="Toggle navigation bar"><i class="icon-resize-full"></i>
+                <div class="layout-toggler layout-toggler-navbar btn btn-default" title="Toggle navigation bar"><i class="icon-resize-full"></i>
                 </div>
-                <div class="layout-toggler layout-toggler-preview btn btn-info" title="Toggle preview"><i class="icon-none"></i>
+                <div class="layout-toggler layout-toggler-preview btn btn-default open" title="Toggle preview"><i class="icon-none"></i>
                 </div>
                 <div class="preview-container">
                     <div id="preview-contents">
@@ -366,7 +366,9 @@ from Google+</a>  <a href="#" class="btn btn-default" data-dismiss="modal">Cance
                 <p>
                     Are you sure you want to delete "<span class="file-title"></span>"?
                 </p>
-                <blockquote>
+                <blockquote class="alert alert-info">
+					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
                     <p><b>Note:</b> It won't delete the file on synchronized locations.</p>
                 </blockquote>
             </div>
@@ -478,7 +480,9 @@ folder and filename. </span>
                         </div>
                     </div>
                 </div>
-                <blockquote>
+                <blockquote class="alert alert-info">
+					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
                     <b>Note:</b>
                     <ul>
                         <li>Dropbox file path does not depend on story title.</li>
@@ -591,7 +595,9 @@ folder and filename. </span>
                 <p>
                     This will save "<span class="file-title"></span>" to My.WriteOn <sup class="text-danger">Beta</sup> and keep it synchronized.
                 </p>
-                <blockquote>
+                <blockquote class="alert alert-info">
+					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
                     <p><b>Tip:</b> You can use a
                         <a href="http://jekyllrb.com/docs/frontmatter/" target="_blank">YAML front matter</a> to specify tags for your story.</p>
                     <p>Alternatively, you can place comma separated tags in square brackets at the beginning of the story title.</p>
@@ -804,17 +810,23 @@ story title will be used.</span>
                         </div>
                     </div>
                 </div>
-                <blockquote class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">
-                    <p><b>Tip:</b> You can use a
+                <blockquote class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+					<p><b>Tip:</b> You can use a
                         <a href="http://jekyllrb.com/docs/frontmatter/" target="_blank">YAML front matter</a> to specify the title and the tags/labels of your publication.</p>
                     <p><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.</p>
                 </blockquote>
-                <blockquote class="front-matter-info modal-publish-bloggerpage">
-                    <p><b>Tip:</b> You can use a
+                <blockquote class="front-matter-info modal-publish-bloggerpage alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+					<p><b>Tip:</b> You can use a
                         <a href="http://jekyllrb.com/docs/frontmatter/" target="_blank">YAML front matter</a> to specify the title of your page.</p>
                     <p><b>Interpreted variables:</b>  <code>title</code>.</p>
                 </blockquote>
-                <blockquote class="url-info modal-publish-bloggerpage">
+                <blockquote class="url-info modal-publish-bloggerpage alert alert-info">
+					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
                     <p><b>About URL:</b> For newly created page , Blogger API will append a generated number to the url like <code>about-me-1234.html</code>, if you deeply care about your URL naming, you should first create the page on Blogger and then update them with WriteOn specifying the pageId when publishing.
                     </p>
                     <p><b>About page visibility:</b> Blogger API does not respect published status for pages.When publishing the page to Blogger, the page will be <strong>live</strong> but not added to the page listing. You should arrange the page listing from Blogger dashboard.
@@ -1049,14 +1061,14 @@ story title will be used.</span>
                                     <textarea id="textarea-settings-publish-template" class="form-control"></textarea>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group hide">
                                 <label class="col-sm-5 control-label" for="textarea-settings-pdf-template">PDF template <a href="#" class="tooltip-template">(?)</a>
                                 </label>
                                 <div class="col-sm-7">
                                     <textarea id="textarea-settings-pdf-template" class="form-control"></textarea>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group hide">
                                 <label class="col-sm-5 control-label" for="textarea-settings-pdf-options">PDF options
                                     <a href="#" class="tooltip-pdf-options">(?)</a>
                                 </label>
@@ -1229,7 +1241,9 @@ for this change to take effect.</span>
             <div class="modal-body">
                 <p>This feature is restricted to sponsors. Note that sponsoring WriteOn would cost you only $3/month.</p>
                 <p>To see how a PDF looks <a target="_blank" href="/Welcome%story.pdf">click here</a>.</p>
-                <blockquote>
+                <blockquote class="alert alert-info">
+					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
                     <p><b>Tip:</b> PDFs are fully customizable via Settings>Advanced>PDF template/options.</p>
                 </blockquote>
             </div>

@@ -575,6 +575,7 @@ define([
 		previewPanel.createBackdropToggler(); // or createToggler()
 		previewPanel.halfSize = true;
 		previewToggler.$elt.click(_.bind(previewPanel.toggle, previewPanel));
+		// now close the viewer for default writing mode
 
 		// Open WriteOn Viewer if failing to open the preview
 		previewPanel.$elt.on('show.layout.toggle', function() {

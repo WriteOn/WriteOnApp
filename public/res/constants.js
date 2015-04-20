@@ -3,7 +3,7 @@
 
 define([], function() {
 	var constants = {};
-	constants.VERSION = "1.7.4";
+	constants.VERSION = "1.7.5";
 	constants.MAIN_URL = "https://writeon.io/";
 	constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3";
 	constants.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ";
@@ -138,11 +138,11 @@ define([], function() {
     }
 
 	constants.THEME_LIST = {
-		"neat": "Neat",
+		"gray": "Default",
+		"neat": "Minimal",
 		"blue": "Blue",
-		"gray": "Gray",
 		"night": "Night",
-		"school": "School",
+//		"school": "School",
 		"solarized-light": "Solarized",
 //		"solarized-dark": "Solarized Dark"
 	};

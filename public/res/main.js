@@ -82,7 +82,8 @@ requirejs.config({
 		alertify: 'bower-libs/alertify.js/lib/alertify',
         oauth: 'bower-libs/oauth-js/dist/oauth',
         couchdb: 'libs/jquery.couch',
-        contextjs: 'bower-libs/Context.js/context'
+        contextjs: 'bower-libs/Context.js/context',
+        'dropdown-hover': 'bower-libs/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js'
 	},
 	shim: {
 		underscore: {

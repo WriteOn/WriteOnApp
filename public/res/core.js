@@ -269,10 +269,10 @@ define([
 		editor.undoMgr.init();
 
 		// Hide default buttons
-		$(".wmd-button-row li").addClass("btn btn-success").css("left", 0).find("span").hide();
+		$(".wmd-button-row li").addClass("btn btn-default").css("left", 0).find("span").hide();
 
 		// Add customized buttons
-		var $btnGroupElt = $('.wmd-button-group1');
+		var $btnGroupElt = $('.wmd-button-group1 hidden hide');
 		$("#wmd-bold-button").append($('<i class="icon-bold">')).appendTo($btnGroupElt);
 		$("#wmd-italic-button").append($('<i class="icon-italic">')).appendTo($btnGroupElt);
 		$btnGroupElt = $('.wmd-button-group2');
@@ -340,6 +340,7 @@ define([
     // MonetizeJS settings - http://api.monetizejs.com
     // Stripe settings - http://stripe.com
     // 
+    /*
     var appId = '5d7PNYmOeEl4ANys';
 	var monetize = new MonetizeJS({
 		applicationID: appId
@@ -373,7 +374,7 @@ define([
 		});
 	}
 
-	var checkPayment = _.debounce(function() {
+	 var checkPayment = _.debounce(function() {
 		if(isOffline) {
 			return;
 		}
@@ -390,11 +391,19 @@ define([
 		});
 	}, 3000);
 
+	***
+	*** //END Monetization
+	*/
+	
+	
+	// Check online or offline status
 	eventMgr.addListener('onOfflineChanged');
-        /* ******************
-         * ***** Monetization
-         * ******************
-        */
+	
+    /* ******************
+     * ***** To check Monetization when 
+     * ***** online status changes, use below
+     * ******************
+    */
     // eventMgr.addListener('onOfflineChanged', checkPayment);
     
     

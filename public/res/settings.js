@@ -39,7 +39,7 @@ define([
 			'<head>',
 			'<meta charset="utf-8">',
 			'<title><%= documentTitle %></title>',
-			'<link rel="stylesheet" href="http://i.writeon.io/res-min/themes/blue.css" />',
+			'<link rel="stylesheet" href="http://i.writeon.io/res-min/themes/gray.css" />',
 /*			'<script type="text/x-mathjax-config">',
 			'MathJax.Hub.Config({ messageStyle: "none" });',
 			'</script>',

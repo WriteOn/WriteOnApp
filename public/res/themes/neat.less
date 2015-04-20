@@ -1,7 +1,7 @@
 @import "../styles/main.less";
 
 @primary: #808080;
-@navbar-default-bg: #4a4a4a;
+@navbar-default-bg: #fff;
 @link-color: #4FA1DB;
 @link-color-gradient: #34495E;
 
@@ -15,6 +15,14 @@
 
 
 
+//Navbar
+.navbar-default {
+	background-image: linear-gradient(to bottom,#fff 0,rgba(255,255,255,.9)100%);
+  	background-repeat: repeat;
+  	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#E6FFFFFF', GradientType=0);
+  	box-shadow: none;
+  	border-color: transparent;
+}
 
 // Navbar buttons
 @btn-success-color: #ddd;
@@ -33,7 +41,7 @@
 }
 .dropdown {
     .btn {
-        color: @btn-success-color;
+        color: @link-color;
  		&:hover,
 		&:focus,
 		&:active {
