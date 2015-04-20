@@ -390,8 +390,14 @@ define([
 		});
 	}, 3000);
 
-	eventMgr.addListener('onOfflineChanged', checkPayment);
-
+	eventMgr.addListener('onOfflineChanged');
+        /* ******************
+         * ***** Monetization
+         * ******************
+        */
+    // eventMgr.addListener('onOfflineChanged', checkPayment);
+    
+    
 	// Other initializations that are not priority
 	eventMgr.addListener("onReady", function() {
         
@@ -590,7 +596,12 @@ define([
 		}
 
 		//$('.modal-header').append('<a class="dialog-header-message" href="https://github.com/beardandfedora/WriteOn/issues" target="_blank">Give your feedback <i class="icon-megaphone"></i></a>');
-		checkPayment();
+		
+        /* ******************
+         * ***** Monetization
+         * ******************
+        */
+        //checkPayment();
 	});
 
 	return core;

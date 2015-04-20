@@ -23,6 +23,7 @@ var bump = require('gulp-bump');
 var childProcess = require('child_process');
 var runSequence = require('run-sequence');
 var fs = require('fs');
+var connect = require('gulp-connect');
 
 
 /** __________________________________________
@@ -338,3 +339,27 @@ function releaseTask(importance) {
 gulp.task('beep', releaseTask('patch'));     // beep
 gulp.task('boop', releaseTask('minor'));     // boop
 gulp.task('bop', releaseTask('major'));     // bop
+
+
+
+
+/*
+ * Live Reload
+*/
+
+gulp.task('connect', function() {
+  connect.server({
+    root: 'app',
+	port: 3001,
+    livereload: true
+  });
+});
+ 
+gulp.task('html', function () {
+  gulp.src('./views/*.html')
+    .pipe(connect.reload());
+});
+ 
+gulp.task('watch', function () {
+  gulp.watch(['./views/*.html'], ['html']);
+});
