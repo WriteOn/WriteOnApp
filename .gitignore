@@ -4,7 +4,7 @@
 node_modules
 Thumbs.db
 .DS_Store
-stackedit.iml
+*.iml
 public/res/bower-libs
 **NOTE:**
 **Note:**

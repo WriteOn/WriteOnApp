@@ -5,10 +5,8 @@
 
 > **Note:**
 > 
-> - In order to work with WriteOn, our database has to be accessible through HTTPS. We use the hosting service [Couchappy](https://www.couchappy.com/), but you can also [configure your own instance to use SSL](http://docs.couchdb.org/en/latest/config/http.html#ssl).
-> 
-> - WriteOn doesn't deal with user access rights, but we still set permissions for our database and configure WriteOn to connect to it using URL like this: `https://username:password@instance.couchappy.com/documents`.
-> 
+> - In order to work with WriteOn, our database has to be accessible through HTTPS. We use the hosting service [Couchappy](https://www.couchappy.com/).
+> > 
 > - We have to be sure to remember to trigger database compaction, or to keep the full history of our documents.
 
 

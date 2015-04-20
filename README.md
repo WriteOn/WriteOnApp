@@ -1,6 +1,6 @@
 WriteOn
 =========
-Welcome to WriteOn. WriteOn let's you write without distraction, and publish without effort. 
+Welcome to WriteOn. We're on a mission to create the world's finest writing experience. 
 WriteOn is for story makers and writers who are looking for a clean, consistent and secure writing experience that helps you write and publish your stories, articles, documents and files across the web. 
 
 > "This is what I want to write ABAA on."

@@ -1,6 +1,6 @@
 {
   "name": "WriteOn",
-  "description": "Write without distraction, publish without effort.",
+  "description": "On a mission to create the world's finest writing experience.",
   "version": "1.0.10",
   "manifest_version": 2,
   "container" : "GOOGLE_DRIVE",

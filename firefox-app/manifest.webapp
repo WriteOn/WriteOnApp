@@ -1,6 +1,6 @@
 {
 	"name": "WriteOn",
-	"description": "Write without distraction, publish without effort.",
+	"description": "On a mission to create the world's finest writing experience.",
 	"launch_path": "/editor",
 	"icons": {
 		"128": "data:image/png;base64,blahblahblah",
@@ -8,7 +8,7 @@
 	},
 	"developer": {
 		"name": "Beard & Fedora",
-		"url": "https://twitter.com/beardandfedora"
+		"url": "http://beardandfedora.com"
 	},
 	"appcache_path": "/cache.manifest",
 	"default_locale": "en"
