@@ -23,32 +23,32 @@ define([
     };
 
     var folderEltTmpl = [
-        '<a href="#" class="list-group-item folder clearfix" data-folder-index="<%= folderDesc.folderIndex %>" data-toggle="collapse" data-target=".modal-document-manager .file-list.<%= id %>">',
-        '<label class="checkbox" title="Select"><input type="checkbox"></label>',
-        '<button class="btn btn-default button-delete" title="Delete"><i class="icon-trash text-red"></i></button>',
-        '<button class="btn btn-default button-rename" title="Rename"><i class="icon-pencil"></i></button>',
-        '<div class="pull-right file-count"><%= _.size(folderDesc.fileList) %></div>',
+        '<a href="#" class="panel-group-item folder clearfix" data-folder-index="<%= folderDesc.folderIndex %>" data-toggle="collapse" data-target=".modal-document-manager .file-list.<%= id %>">',
+        '<label class="pull-right checkbox" title="Select"><input type="checkbox"></label>',
+        '<button class="pull-right btn btn-default button-delete" title="Delete"><i class="icon-trash text-red"></i></button>',
+        '<button class="pull-right btn btn-default button-rename" title="Rename"><i class="icon-pencil"></i></button>',
+        '<div class="pull-right file-count label label-primary"><%= _.size(folderDesc.fileList) %></div>',
         '<div class="name"><i class="icon-folder"></i> ',
         '<%= folderDesc.name %></div>',
         '<input type="text" class="input-rename form-control hide"></a>',
-        '<div class="file-list collapse <%= id %> clearfix"><%= fileListHtml %></div>'
+        '<div class="panel panel-primary file-list collapse <%= id %> clearfix"><%= fileListHtml %></div>'
     ].join('');
     var documentEltTmpl = [
-        '<li class="list-group-item file clearfix" data-file-index="<%= fileDesc.fileIndex %>">',
-        '<label class="checkbox" title="Select"><input type="checkbox"></label>',
-        '<button class="btn btn-default button-delete" title="Delete"><i class="icon-trash text-red"></i></button>',
-        '<button class="btn btn-default button-rename" title="Rename"><i class="icon-pencil"></i></button>',
+        '<li class="panel-group-item file clearfix" data-file-index="<%= fileDesc.fileIndex %>">',
+        '<label class="pull-right checkbox" title="Select"><input type="checkbox"></label>',
+        '<button class="pull-right btn btn-default button-delete" title="Delete"><i class="icon-trash text-red"></i></button>',
+        '<button class="pull-right btn btn-default button-rename" title="Rename"><i class="icon-pencil"></i></button>',
         '<div class="name"><%= fileDesc.composeTitle() %></div>',
         '<input type="text" class="input-rename form-control hide"></li>'
     ].join('');
     var selectFolderEltTmpl = [
-        '<a href="#" class="list-group-item folder clearfix" data-folder-index="<%= folderDesc.folderIndex %>">',
-        '<div class="pull-right file-count"><%= _.size(folderDesc.fileList) %></div>',
+        '<a href="#" class="panel-group-item folder clearfix" data-folder-index="<%= folderDesc.folderIndex %>">',
+        '<div class="pull-right file-count label label-primary"><%= _.size(folderDesc.fileList) %></div>',
         '<div class="name"><i class="icon-forward"></i> ',
         '<%= folderDesc.name %></div></a>'
     ].join('');
     var selectedDocumentEltTmpl = [
-        '<li class="list-group-item file clearfix">',
+        '<li class="panel-group-item file clearfix">',
         '<div class="name"><%= fileDesc.composeTitle() %></div></li>'
     ].join('');
 
@@ -141,9 +141,9 @@ define([
 
         // Root folder
         var documentListHtml = [
-            '<a href="#" class="list-group-item folder root-folder clearfix" data-toggle="collapse" data-target=".modal-document-manager .file-list.root-folder">',
-            '<label class="checkbox" title="Select"><input type="checkbox"></label>',
-            '<div class="pull-right file-count">',
+            '<a href="#" class="panel-group-item folder root-folder clearfix" data-toggle="collapse" data-target=".modal-document-manager .file-list.root-folder">',
+            '<label class="pull-right checkbox" title="Select"><input type="checkbox"></label>',
+            '<div class="pull-right file-count label label-primary">',
             _.size(orphanDocumentList),
             '</div>',
             '<div class="name"><i class="icon-folder"></i> ',
@@ -159,7 +159,7 @@ define([
             });
         }, '').value();
         orphanListHtml = orphanListHtml && '<ul class="nav">' + orphanListHtml + '</ul>';
-        documentListHtml += '<div class="file-list collapse root-folder clearfix">' + orphanListHtml + '</div>';
+        documentListHtml += '<div class="panel file-list collapse root-folder clearfix">' + orphanListHtml + '</div>';
 
         // Build directories
         _.chain(folderList).sortBy(function(folderDesc) {
@@ -201,11 +201,11 @@ define([
 
     documentManager.onReady = function() {
         modalElt = document.querySelector('.modal-document-manager');
-        documentListElt = modalElt.querySelector('.list-group.document-list');
+        documentListElt = modalElt.querySelector('.panel-group.document-list');
         $documentCountElt = $(modalElt.querySelectorAll('.document-count'));
         $folderCountElt = $(modalElt.querySelectorAll('.folder-count'));
-        selectedDocumentListElt = modalElt.querySelector('.list-group.selected-document-list');
-        var selectFolderListElt = modalElt.querySelector('.list-group.select-folder-list');
+        selectedDocumentListElt = modalElt.querySelector('.panel-group.selected-document-list');
+        var selectFolderListElt = modalElt.querySelector('.panel-group.select-folder-list');
 
         // Only refresh manager if visible (costly)
         $(modalElt).on('show.bs.modal', function() {
@@ -279,14 +279,16 @@ define([
 
             doSelect();
 
-            // Build the destination folder list
+            // Build the destination folder list - this should be redone in Node or Angular
             var selectFolderListHtml = [
-                '<a href="#" class="list-group-item folder clearfix">',
-                '<div class="pull-right file-count">',
+                '<div class="panel panel-default"><div class="panel-heading" role="tab" id="headingOne"><h4 class="panel-title">',
+				'<a class="folder clearfix" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">',
+                '<div class="pull-right file-count label label-primary">',
                 _.size(orphanDocumentList),
                 '</div>',
                 '<div class="name"><i class="icon-forward"></i> ',
-                'My Default Folder</div></a>'
+                'My Story Folder</div></a>',
+				'</h4></div>'
             ].join('');
             selectFolderListHtml += _.chain(folderList).sortBy(function(folderDesc) {
                 return folderDesc.name.toLowerCase();

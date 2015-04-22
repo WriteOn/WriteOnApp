@@ -823,27 +823,6 @@ define([
 		{text: '<i class="icon-list-alt"></i> Website', href: 'http://writeon.io', target: '_blank'},
 		{text: '<i class="icon-twitter"></i> Twitter', href: 'http://twitter.com/WriteOnApp', target: '_blank'}
 	]);
-	context.attach('.modal-backdrop', [
-
-		{header: '<i class="icon-provider-writeon"></i> WriteOn'},
-        {divider: true},
-		{text: '<i class="icon-folder-open"></i> My Stories', action: function(e){
-		    e.preventDefault();
-            $('.document-panel .toggle-button').click();
-		}},
-        {divider: true},
-		{text: '<i class="icon-cog-alt"></i> Settings', action: function(e){
-		    e.preventDefault();
-            $('.action-load-settings').click();
-		}},
-		{text: '<i class="icon-info"></i> About', action: function(e){
-		    e.preventDefault();
-            $('.action-load-about').click();
-		}},
-        {divider: true},
-		{text: '<i class="icon-list-alt"></i> Website', href: 'http://writeon.io', target: '_blank'},
-		{text: '<i class="icon-twitter"></i> Twitter', href: 'http://twitter.com/WriteOnApp', target: '_blank'}
-	]);
     
         
     /* jshint ignore:end */

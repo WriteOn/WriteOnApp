@@ -570,7 +570,7 @@ define([
 		utils.createTooltip(".tooltip-lazy-rendering", 'Disable preview rendering while typing in order to offload CPU. Refresh preview after 500 ms of inactivity.');
 		utils.createTooltip(".tooltip-default-content", [
 			'Thanks for supporting WriteOn by adding a backlink in your stories!<br/><br/>',
-			'<b class="text-danger">NOTE: Backlinks in ______ are not welcome.</b>'
+			'<p class="alert alert-warning">NOTE: Backlinks in ______ are not welcome.</p>'
 		].join(''));
 		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML);
 		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML);

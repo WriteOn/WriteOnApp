@@ -84,7 +84,7 @@
 @jgrowl-bg-color: fade(@modal-backdrop-bg, 90%);
 
 /* Layout Sizes */
-@title-max-width: 300px;
+@title-max-width: 270px;
 @menu-panel-width: 335px;
 @document-panel-width: 320px;
 @jgrowl-width: 280px;
@@ -222,27 +222,27 @@ body {
     -webkit-transition: opacity 0.07s linear;
     transition: opacity 0.07s linear;
     
-    -webkit-transition: opacity .1s linear,top .1s ease-out;
--moz-transition: opacity .1s linear,top .1s ease-out;
--o-transition: opacity .1s linear,top .1s ease-out;
-transition: opacity .1s linear,top .1s ease-out;
+    -webkit-transition: opacity .1s linear,top .07s ease-out;
+-moz-transition: opacity .07s linear,top .1s ease-out;
+-o-transition: opacity .07s linear,top .1s ease-out;
+transition: opacity .07s linear,top .1s ease-out;
 }
 .modal {
 	&.fade .modal-dialog {
 		.translate(0, 0);
         width: 730px;
         margin: 30px auto;
-        -webkit-transition: -webkit-transform 0.1s ease-out;
-        -moz-transition: -moz-transform 0.1s ease-out;
-        -o-transition: -o-transform 0.1s ease-out;
-        transition: transform 0.1s ease-out;
+        -webkit-transition: -webkit-transform 0.07s ease-out;
+        -moz-transition: -moz-transform 0.07s ease-out;
+        -o-transition: -o-transform 0.07s ease-out;
+        transition: transform 0.07s ease-out;
 	}
     .modal-header {
         padding: 5px 15px;
         /* enlarged close button */
         .close {
-            font-size: 2.15em;
-            padding-top: 2px;
+            font-size: 3em;
+			margin-top: 6px;
         }
         .modal-title {
             font-size: 1.5em;
@@ -324,7 +324,11 @@ a {
     }
 }
 
-.list-group-item {
+.panel-group {
+	margin-top: 40px; 
+	margin-bottom: 0;
+}
+.list-group-item, .panel-group-item {
 	padding: 10px 15px;
 	border-left-width: 0;
 	border-right-width: 0;
@@ -339,13 +343,22 @@ a {
     }
 	.checkbox {
 		float: right;
-		margin: 0;
 		padding: 0;
 		cursor: pointer;
+		margin-top: 20px;
+		margin-bottom: 0;
 		input {
 			cursor: pointer;
 			margin: 0 16px;
 			height: @input-height-slim;
+		}
+	}
+	.btn {
+		border: none;
+		box-shadow: none;
+		-webkit-box-shadow: none;
+		&:first {
+			margin-right: 15px;
 		}
 	}
 }
@@ -629,6 +642,9 @@ a {
 		/* height: @input-height-slim; */
 		& > li {
 			display: inline-block;
+			> a {
+				line-height: inherit;
+			}
 		}
         &.left-buttons {
             margin: 5px 0;
@@ -658,6 +674,7 @@ a {
 		height: @input-height-slim;
 		padding: 3px 8px;
 		box-shadow: none;
+		border:none;
 	}
 	.btn-group > .btn {
 		&.disabled,
@@ -674,6 +691,8 @@ a {
 	}
 	.navbar-form {
 		margin: 0;
+		padding: 0;
+		display: inline-flex;
 	}
 
 	.button-open-discussion {
@@ -689,12 +708,13 @@ a {
 		max-width: @title-max-width !important;
         display: inline-block;
 		vertical-align: middle;
-		padding: 0 15px;
-		font-size: 1.5em;
-        line-height: 1.45em;
+		margin-top: 3px;
+		padding: 6px 10px;
+		font-size: 1.1em;
 		font-weight: 200;
 		overflow: hidden;
 		white-space: nowrap;
+		border: none;
 		a {
 			i {
 				.transition(~"all ease-in-out .15s");
@@ -721,10 +741,9 @@ a {
 	.input-file-title-container {
 		display: inline-block;
         vertical-align: middle;
+		padding: 0;
         .input-file-title {
     		width: @title-max-width !important;
-            font-size: 18px;
-            height: @input-height-slim;
         }
 	}
 
@@ -748,6 +767,7 @@ a {
 	}
 }
 
+.navbar-inner > .navbar-header {max-width: 60px;display: inline-table;}
 /* Some button overrides taking place */
 /*
 .navbar-inner > .nav > .btn-group > .btn:first-child {
@@ -1002,8 +1022,9 @@ a {
 	margin-bottom: 0;
 
 	.input-rename {
-		width: 220px;
-		height: @input-height-slim;
+		width: 50%;
+		display: inline-block;
+		margin-top: 5px;
 	}
 }
 
@@ -1038,7 +1059,8 @@ a {
 		background-color: @transparent;
 	}
 	.name, .date, .file-count {
-		padding: 9px 20px 9px 15px;
+		margin: 16px 20px 9px 15px;
+		display: inline-block;
 	}
 	.name i {
 		&.icon-file, &.icon-folder {
@@ -1459,6 +1481,8 @@ a {
 	margin: 0;
 	width: @resizer-size;
 	height: @resizer-size;
+	border: 0;
+  box-shadow: none;
 	i {
 		font-size: 22px;
 	}
