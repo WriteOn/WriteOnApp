@@ -14,7 +14,7 @@ define([
 
 	var resizerSize = 32;
 	var togglerSize = 60;
-	var navbarHeight = 50;
+	var navbarHeight = 60;
 	var editorMinSize = {
 		width: 250,
 		height: 140
@@ -190,7 +190,7 @@ define([
     
 /* 
  * 
- * ORIGINAL CODE WITH BACKDROP 
+ * DEFAULT CODE WITH BACKDROP 
  * 
  */
     DomObject.prototype.createBackdropToggler = function(backdrop) {
@@ -282,9 +282,9 @@ define([
 	var navbarBtnGroups = [];
 	var navbarBtnGroupsWidth = [
 		80,
+		40,
+		0,
 		80,
-		160,
-		160,
 		80,
 		40
 	].map(function(width) {
@@ -532,7 +532,7 @@ define([
 		navbarInnerElt = navbar.elt.querySelector('.navbar-inner');
 		navbarDropdownElt = navbar.elt.querySelector('.buttons-dropdown .dropdown-menu');
 		$navbarDropdownBtnElt = navbar.$elt.find('.buttons-dropdown');
-		navbarTitleContainerElt = navbar.elt.querySelector('.title-container');
+		navbarTitleContainerElt = navbar.elt.querySelector('.main-navbar-collapse');
 		$navbarTitleElt = navbar.$elt.find('.file-title-navbar, .input-file-title');
 
 		// Fix a weird viewport behavior using pageup/pagedown in Webkit
@@ -577,7 +577,8 @@ define([
 		previewToggler.$elt.click(_.bind(previewPanel.toggle, previewPanel));
 		// now close the viewer for default writing mode
 
-		// Open WriteOn Viewer if failing to open the preview
+
+		// Open WriteOn Paper if failing to open the preview
 		previewPanel.$elt.on('show.layout.toggle', function() {
 			_.defer(function() {
 				if(!previewPanel.isOpen) {

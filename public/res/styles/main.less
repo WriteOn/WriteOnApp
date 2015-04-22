@@ -249,9 +249,6 @@ transition: opacity .1s linear,top .1s ease-out;
         }
     }
     .modal-content {
-        box-shadow: none;
-        -webkit-box-shadow: none;
-        border-radius: 3px;
     }
     .modal-body {
         /*max-height: 100%; */
@@ -269,11 +266,9 @@ transition: opacity .1s linear,top .1s ease-out;
 }
     
 .modal-content {
-	background-color: @secondary-bg-light;
 }
 
 .modal-body {
-	background-color: @secondary-bg-light;
 	padding-bottom: 30px;
 }
 
@@ -390,7 +385,6 @@ a {
 	padding: 8px 11px;
 	.transition(~"background-color ease-in-out .07s, color ease-in-out .07s, border-color ease-in-out .07s");
     font-size: 18px;
-    border-radius: 3px;
 }
 
 @btn-default-color: @secondary-color-darker;
@@ -631,7 +625,7 @@ a {
     }
 	.nav {
 		float: left;
-		margin: 5px 9px;
+		margin: 0px 9px;
 		/* height: @input-height-slim; */
 		& > li {
 			display: inline-block;
@@ -657,9 +651,13 @@ a {
 			}
 		}
 	}
+	.navbar-pad {
+		margin-top: 11px !important;
+	}
 	.btn {
 		height: @input-height-slim;
 		padding: 3px 8px;
+		box-shadow: none;
 	}
 	.btn-group > .btn {
 		&.disabled,
@@ -669,6 +667,13 @@ a {
 				color: fade(@btn-success-color, 30%);
 			}
 		}
+		&:hover {
+			-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  			box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+		};
+	}
+	.navbar-form {
+		margin: 0;
 	}
 
 	.button-open-discussion {
@@ -681,7 +686,7 @@ a {
 	}
 
 	.file-title-navbar {
-		max-width: 300px;
+		max-width: @title-max-width !important;
         display: inline-block;
 		vertical-align: middle;
 		padding: 0 15px;
@@ -717,7 +722,7 @@ a {
 		display: inline-block;
         vertical-align: middle;
         .input-file-title {
-    		width: @title-max-width;
+    		width: @title-max-width !important;
             font-size: 18px;
             height: @input-height-slim;
         }
@@ -731,7 +736,7 @@ a {
 
 	.buttons-dropdown {
 	    > .nav {
-    	    margin-left: 0;
+    	    margin-left: 18px;
     	    margin-right: 0;
 	    }
 	}
@@ -744,6 +749,7 @@ a {
 }
 
 /* Some button overrides taking place */
+/*
 .navbar-inner > .nav > .btn-group > .btn:first-child {
 	border-color: transparent;
 }
@@ -762,7 +768,7 @@ a {
     border-color: transparent;
 }
 .navbar-inner > .nav >  .btn-group > a.btn.btn-success.button-open-discussion {border-color: transparent;}
-
+*/
 
 /*********************
  * Menu/Document panels
@@ -1059,6 +1065,11 @@ a {
     & > .btn {
     	border-radius: 3; 
         border-color: transparent;
+		box-shadow: none;
+		&:hover {
+			-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  			box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+		};
     }
     &:first-child > .btn,
     &:first-child > .btn {
