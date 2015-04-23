@@ -11,13 +11,14 @@ define([
 	"settings",
 	"eventMgr",
 	"monetizejs",
+	"Slider",
 	"text!html/bodyEditor.html",
 	"text!html/bodyViewer.html",
 	"text!html/tooltipSettingsTemplate.html",
 	"text!html/tooltipSettingsPdfOptions.html",
 	"storage",
 	'pagedown'
-], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, MonetizeJS, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsPdfOptionsTooltipHTML) {
+], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, MonetizeJS, Slider, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsPdfOptionsTooltipHTML) {
 
 	var core = {};
 
@@ -118,11 +119,31 @@ define([
 		// Editor font class
 		utils.setInputRadio("radio-settings-editor-font-class", settings.editorFontClass);
 		// Font size ratio
-		utils.setInputValue("#input-settings-font-size", settings.fontSizeRatio);
+		//utils.setInputValue("#input-settings-font-size", settings.fontSizeRatio);
+		var fontSlider = new Slider("#input-settings-font-size", {
+			step: .10,
+			min: .10,
+			max: 10,
+			value: settings.fontSizeRatio
+		});
 		// Max width ratio
-		utils.setInputValue("#input-settings-max-width", settings.maxWidthRatio);
+		//utils.setInputValue("#input-settings-max-width", settings.maxWidthRatio);
+		var maxWidthSlider = new Slider("#input-settings-max-width", {
+			precision: 1,
+			step: .1,
+			min: 0.1,
+			max: 1,
+			value: settings.maxWidthRatio
+		});
 		// Cursor locking ratio
-		utils.setInputValue("#input-settings-cursor-focus", settings.cursorFocusRatio);
+		//utils.setInputValue("#input-settings-cursor-focus", settings.cursorFocusRatio);
+		var cursorFocusSlider = new Slider("#input-settings-cursor-focus", {
+			precision: 1,
+			step: .1,
+			min: 0.1,
+			max: 1,
+			value: settings.cursorFocusRatio
+		});
 		// Default content
 		utils.setInputValue("#textarea-settings-default-content", settings.defaultContent);
 		// Edit mode
@@ -569,8 +590,7 @@ define([
 
 		utils.createTooltip(".tooltip-lazy-rendering", 'Disable preview rendering while typing in order to offload CPU. Refresh preview after 500 ms of inactivity.');
 		utils.createTooltip(".tooltip-default-content", [
-			'Thanks for supporting WriteOn by adding a backlink in your stories!<br/><br/>',
-			'<p class="alert alert-warning">NOTE: Backlinks in ______ are not welcome.</p>'
+			'Thanks for supporting WriteOn by adding a backlink in your stories! But if not, thanks for using WriteOn.',
 		].join(''));
 		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML);
 		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML);

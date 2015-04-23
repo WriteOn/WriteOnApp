@@ -37,7 +37,7 @@
         </div>
         <div class="navbar-collapse main-navbar-collapse" id="main-navbar-collapse">
             <ul class="nav navbar-nav navbar-pad left-buttons">
-                <li class="wmd-button-group1 btn-group hidden-xs hidden-sm"></li>
+                <li class="wmd-button-group1 btn-group hidden"></li>
                 <li class="wmd-button-group2 btn-group hidden-xs"></li>
                 <li class="wmd-button-group3 btn-group hidden"></li>
                 <li class="wmd-button-group4 btn-group hidden-xs hidden-sm">
@@ -603,9 +603,13 @@ folder and filename. </span>
                 <blockquote class="alert alert-info">
 					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
-                    <p><b>Tip:</b> You can use a
-                        <a href="http://jekyllrb.com/docs/frontmatter/" target="_blank">YAML front matter</a> to specify tags for your story.</p>
-                    <p>Alternatively, you can place comma separated tags in square brackets at the beginning of the story title.</p>
+                    <p><b>Tip:</b> You can use a YAML front matter to specify tags for your story:</p>
+                    <code class="panel">
+					---<br />
+					tags: tag1, tag2, tag3<br />
+					published: true<br />
+					---
+					</code>
                 </blockquote>
             </div>
             <div class="modal-footer">
@@ -818,16 +822,30 @@ story title will be used.</span>
                 <blockquote class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress alert alert-info">
                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
-					<p><b>Tip:</b> You can use a
-                        <a href="http://jekyllrb.com/docs/frontmatter/" target="_blank">YAML front matter</a> to specify the title and the tags/labels of your publication.</p>
-                    <p><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.</p>
+					<p><b>Tip:</b> You can use a YAML front matter to specify the title and the tags/labels of your published story.</p>
+                    <p class="panel"><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.
+						<br /> <code>
+						---<br />
+						title: My Published Title
+						tags: tag1, tag2, tag3<br />
+						published: true<br />
+						date: YYYY-MM-DD HH:MM:SS +/-TTTT<br />
+						---</code>
+					</p>
                 </blockquote>
                 <blockquote class="front-matter-info modal-publish-bloggerpage alert alert-info">
                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
-					<p><b>Tip:</b> You can use a
-                        <a href="http://jekyllrb.com/docs/frontmatter/" target="_blank">YAML front matter</a> to specify the title of your page.</p>
-                    <p><b>Interpreted variables:</b>  <code>title</code>.</p>
+					<p><b>Tip:</b> You can use a YAML front matter to specify the title and the tags/labels of your published story.</p>
+                    <p class="panel"><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.
+						<br /> <code>
+						---<br />
+						title: My Published Title
+						tags: tag1, tag2, tag3<br />
+						published: true<br />
+						date: YYYY-MM-DD HH:MM:SS +/-TTTT<br />
+						---</code>
+					</p>
                 </blockquote>
                 <blockquote class="url-info modal-publish-bloggerpage alert alert-info">
 					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
@@ -983,7 +1001,7 @@ story title will be used.</span>
                                         <option value="2">2 accounts</option>
                                         <option value="3">3 accounts</option>
                                     </select>
-                                    <span class="help-block">Once linked with your Google accounts, changing accounts is not possible unless you <a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab">reset the application</a>.</span>
+                                    <span class="help-block">Once linked, you'll have to <a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab">Reset WriteOn</a> to change Google accounts.</span>
                                 </div>
                             </div>
                         </div>
@@ -1022,20 +1040,20 @@ story title will be used.</span>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5 control-label" for="input-settings-font-size">Font size ratio</label>
-                                <div class="col-sm-7 form-inline">
-                                    <input type="text" id="input-settings-font-size" class="form-control col-sm-2">
+                                <div class="col-sm-7 form-inline slider-inline">
+                                    <input type="text" id="input-settings-font-size" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5 control-label" for="input-settings-max-width">Max width ratio</label>
-                                <div class="col-sm-7 form-inline">
-                                    <input type="text" id="input-settings-max-width" class="form-control col-sm-2">
+                                <div class="col-sm-7 form-inline slider-inline">
+                                    <input type="text" id="input-settings-max-width" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-5 control-label" for="input-settings-cursor-focus">Cursor focus ratio</label>
-                                <div class="col-sm-7 form-inline">
-                                    <input type="text" id="input-settings-cursor-focus" class="form-control col-sm-2">
+                                <div class="col-sm-7 form-inline slider-inline">
+                                    <input type="text" id="input-settings-cursor-focus" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -1052,32 +1070,32 @@ story title will be used.</span>
                     <div class="tab-pane" id="tabpane-settings-templates">
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" for="textarea-settings-default-content">Default content
+                                <label class="col-sm-4 control-label" for="textarea-settings-default-content">Backlink
                                     <a href="#" class="tooltip-default-content">(?)</a>
                                 </label>
-                                <div class="col-sm-7">
-                                    <textarea id="textarea-settings-default-content" class="form-control"></textarea>
+                                <div class="col-sm-8">
+                                    <textarea id="textarea-settings-default-content" class="form-control smaller"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" for="textarea-settings-putemplatetempla">Default template <a href="#" class="tooltip-template">(?)</a>
+                                <label class="col-sm-4 control-label" for="textarea-settings-putemplatetempla">Default Template <a href="#" class="tooltip-template">(?)</a>
                                 </label>
-                                <div class="col-sm-7">
+                                <div class="col-sm-8">
                                     <textarea id="textarea-settings-publish-template" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="form-group hide">
-                                <label class="col-sm-5 control-label" for="textarea-settings-pdf-template">PDF template <a href="#" class="tooltip-template">(?)</a>
+                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-template">PDF Template <a href="#" class="tooltip-template">(?)</a>
                                 </label>
-                                <div class="col-sm-7">
+                                <div class="col-sm-8">
                                     <textarea id="textarea-settings-pdf-template" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="form-group hide">
-                                <label class="col-sm-5 control-label" for="textarea-settings-pdf-options">PDF options
+                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-options">PDF options
                                     <a href="#" class="tooltip-pdf-options">(?)</a>
                                 </label>
-                                <div class="col-sm-7">
+                                <div class="col-sm-8">
                                     <textarea id="textarea-settings-pdf-options" class="form-control"></textarea>
                                 </div>
                             </div>                        </div>
@@ -1122,17 +1140,17 @@ for this change to take effect.</span>
                     </div>
                     <div class="tab-pane" id="tabpane-settings-utils">
                         <p>Some of these are quite powerful, and can result in the total loss of your data. </p>
-                        <div class="col-sm-6 tab-pane-button-container">
+                        <div class="col-sm-5 tab-pane-button-container">
                             <a href="#" class="btn btn-block btn-default action-welcome-file" data-dismiss="modal"><i class="icon-help-circled"></i> Load Welcome Guide</a>
                             <a href="#" class="btn btn-block btn-default action-guide-file" data-dismiss="modal"><i class="icon-keyboard"></i> Load Syntax Guide</a>
                             <a href="#" class="btn btn-block btn-default action-welcome-tour" data-dismiss="modal"><i class="icon-comment"></i> Welcome tour</a>
-                            <a target="_blank" href="recovery.html" class="btn btn-block btn-default"><i class="icon-medkit"></i> WriteOn recovery</a>
+                            <a target="_blank" href="recovery.html" class="btn btn-block btn-danger"><i class="icon-medkit"></i> WriteOn recovery</a>
                         </div>
-                        <div class="col-sm-6 tab-pane-button-container">
+                        <div class="col-sm-offset-1 col-sm-6 tab-pane-button-container">
                             <a href="#" class="btn btn-block btn-default action-import-docs-settings"><i class="icon-cog-alt"></i> Import stories & settings</a>  
                             <a href="#" class="btn btn-block btn-default action-export-docs-settings" data-dismiss="modal"><i class="icon-share"></i> Export stories & settings</a> 
                             <a href="#" class="btn btn-block btn-default action-default-settings" data-dismiss="modal"><i class="icon-wrench"></i> Load default settings</a>  
-                            <a href="#" class="btn btn-block btn-default" data-dismiss="modal" data-toggle="modal" data-target=".modal-app-reset"><i class="icon-fire"></i> Reset application</a>  
+                            <a href="#" class="btn btn-block btn-danger" data-dismiss="modal" data-toggle="modal" data-target=".modal-app-reset"><i class="icon-fire"></i> Reset application</a>  
                             <input type="file" id="input-file-import-docs-settings" class="hide">
                         </div>
                     </div>

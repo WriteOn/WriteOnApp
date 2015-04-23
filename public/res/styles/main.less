@@ -29,6 +29,8 @@
 @import "alertify.less";
 @import "../bower-libs/bootstrap-tour/src/less/bootstrap-tour.less";
 @import (less) "jquery.jgrowl.css";
+@import (less) "../bower-libs/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css";
+
 
 /* Colors */
 @logo-yellow: #ECB50C;
@@ -230,7 +232,7 @@ transition: opacity .07s linear,top .1s ease-out;
 .modal {
 	&.fade .modal-dialog {
 		.translate(0, 0);
-        width: 730px;
+        width: 65%;
         margin: 30px auto;
         -webkit-transition: -webkit-transform 0.07s ease-out;
         -moz-transition: -moz-transform 0.07s ease-out;
@@ -507,10 +509,22 @@ a {
 /********************
  * Input
  ********************/
+textarea, textarea.form-control, input.form-control, input[type=text], input[type=password], input[type=email], input[type=number], [type=text].form-control, [type=password].form-control, [type=email].form-control, [type=tel].form-control, [contenteditable].form-control {
+	padding: 10px;
+}
 
 @form-control-inset-shadow: inset 0 1px 1px rgba(0,0,0,.025);
 .form-control {
     .box-shadow(~"@{form-control-inset-shadow}");
+}
+/* Slider Hack for when plugin loads two sliders instead of one */
+.slider-inline {
+	&.slider {
+		&:first-child {
+			display:none; 
+		}
+	}
+	& > .slider:first-child {display:none;}
 }
 
 .form-inline {
@@ -554,6 +568,14 @@ a {
 	.box-shadow(~"@{form-control-inset-shadow}");
 	a& {
 	    color: @link-color;
+	}
+	&:first-child {
+		border: 0;
+		border-radius: 0;
+		background: #fff;
+		-webkit-appearance: none;
+		-webkit-box-shadow: inset 0 -1px 0 #ddd;
+		box-shadow: inset 0 -1px 0 #ddd;
 	}
 }
 
@@ -1187,17 +1209,25 @@ a {
         max-height: 100%;
         overflow-y: auto;
     }
-
+	textarea {
+		min-height: inherit;
+		max-width: 100%;
+	}
 	#tabpane-settings-templates {
 		textarea {
-			min-height: 200px;
+			min-height: 100px;
+			&.sm {
+				min-height: 120px;
+			}
+			&.md {
+				min-height: 190px;
+			}
+			&.lg {
+				min-height: 250px;
+			}
 		} 
 	}
 	
-	textarea {
-		max-width: 100%;
-		min-height: 100px;
-	}
 
 
 	.panel {
@@ -1234,7 +1264,6 @@ a {
 	}
 
 	.tab-pane-button-container {
-		margin: 10px auto 20px;
         padding: 0;
 		.btn {
     		text-align: start;

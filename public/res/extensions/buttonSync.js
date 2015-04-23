@@ -58,7 +58,7 @@ define([
     buttonSync.onCreateSyncButton = function() {
         var button = crel('a', {
             class: 'button-synchronize action-force-synchronization',
-            title: 'Force synchronization Ctrl/Cmd+S',
+            title: 'Force Sync Ctrl/Cmd+S',
             href: '#'
         }, crel('i', {
             class: 'icon-refresh'
@@ -74,7 +74,7 @@ define([
     buttonSync.onCreateSyncMngButton = function() {
         var button = crel('a', {
             class: 'action-reset-input',
-            title: 'Manage synchronizations',
+            title: 'Manage Syncs',
             href: '#',
             'data-target': '.modal-manage-sync',
             'data-toggle': 'modal'

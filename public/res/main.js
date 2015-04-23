@@ -47,7 +47,7 @@ requirejs.config({
 		stacktrace: 'bower-libs/stacktrace/stacktrace',
 		'requirejs-text': 'bower-libs/requirejs-text/text',
 		'bootstrap-tour': 'bower-libs/bootstrap-tour/build/js/bootstrap-tour',
-		'slider': 'bower-libs/seiyria-bootstrap-slider/dist/bootstrap-slider.min',
+		'Slider': 'bower-libs/seiyria-bootstrap-slider/dist/bootstrap-slider.min',
 		css_browser_selector: 'bower-libs/css_browser_selector/css_browser_selector',
 		'pagedown-extra': 'bower-libs/pagedown-extra/node-pagedown-extra',
 		pagedownExtra: 'bower-libs/pagedown-extra/Markdown.Extra',
@@ -242,7 +242,15 @@ require([
 	}
 
 	$(function() {
-		        
+
+		// Check if a new cache / version is available on page load.
+		window.applicationCache.addEventListener('updateready', function() {
+				if(window.applicationCache.status === window.applicationCache.UPDATEREADY) {
+					window.applicationCache.swapCache();
+					eventMgr.onMessage('A new version of WriteOn is available.\nJust reload this tab when you are ready to upgrade.');
+				}
+		}, false);
+		
         rangy.init();
 
 		// Here, all the modules are loaded and the DOM is ready
@@ -254,7 +262,7 @@ require([
 			window.applicationCache.addEventListener('updateready', function() {
 				if(window.applicationCache.status === window.applicationCache.UPDATEREADY) {
 					window.applicationCache.swapCache();
-					eventMgr.onMessage('A new version of WriteOn is available.\nJust reload to upgrade.');
+					eventMgr.onMessage('A new version of WriteOn is available.\nJust reload this tab when you are ready to upgrade.');
 				}
 			}, false);
 		}
