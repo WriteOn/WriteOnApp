@@ -115,17 +115,17 @@ function diff_match_patch() {
  function w(e, t, n) {
   var i, r, o, a, s = e.style;
   return n = n || qt(e), n && (a = n.getPropertyValue(t) || n[t]), n && ("" !== a || Z.contains(e.ownerDocument, e) || (a = Z.style(e, t)), 
-  Gt.test(a) && Ut.test(t) && (i = s.width, r = s.minWidth, o = s.maxWidth, s.minWidth = s.maxWidth = s.width = a, 
+  Ht.test(a) && Ut.test(t) && (i = s.width, r = s.minWidth, o = s.maxWidth, s.minWidth = s.maxWidth = s.width = a, 
   a = n.width, s.width = i, s.minWidth = r, s.maxWidth = o)), void 0 !== a ? a + "" : a;
  }
- function S(e, t) {
+ function C(e, t) {
   return {
    get: function() {
     return e() ? void delete this.get : (this.get = t).apply(this, arguments);
    }
   };
  }
- function C(e, t) {
+ function S(e, t) {
   if (t in e) return t;
   for (var n = t[0].toUpperCase() + t.slice(1), i = t, r = Yt.length; r--; ) if (t = Yt[r] + n, 
   t in e) return t;
@@ -136,22 +136,22 @@ function diff_match_patch() {
   return i ? Math.max(0, i[1] - (n || 0)) + (i[2] || "px") : t;
  }
  function T(e, t, n, i, r) {
-  for (var o = n === (i ? "border" : "content") ? 4 : "width" === t ? 1 : 0, a = 0; 4 > o; o += 2) "margin" === n && (a += Z.css(e, n + St[o], !0, r)), 
-  i ? ("content" === n && (a -= Z.css(e, "padding" + St[o], !0, r)), "margin" !== n && (a -= Z.css(e, "border" + St[o] + "Width", !0, r))) : (a += Z.css(e, "padding" + St[o], !0, r), 
-  "padding" !== n && (a += Z.css(e, "border" + St[o] + "Width", !0, r)));
+  for (var o = n === (i ? "border" : "content") ? 4 : "width" === t ? 1 : 0, a = 0; 4 > o; o += 2) "margin" === n && (a += Z.css(e, n + Ct[o], !0, r)), 
+  i ? ("content" === n && (a -= Z.css(e, "padding" + Ct[o], !0, r)), "margin" !== n && (a -= Z.css(e, "border" + Ct[o] + "Width", !0, r))) : (a += Z.css(e, "padding" + Ct[o], !0, r), 
+  "padding" !== n && (a += Z.css(e, "border" + Ct[o] + "Width", !0, r)));
   return a;
  }
  function k(e, t, n) {
   var i = !0, r = "width" === t ? e.offsetWidth : e.offsetHeight, o = qt(e), a = "border-box" === Z.css(e, "boxSizing", !1, o);
   if (0 >= r || null == r) {
-   if (r = w(e, t, o), (0 > r || null == r) && (r = e.style[t]), Gt.test(r)) return r;
+   if (r = w(e, t, o), (0 > r || null == r) && (r = e.style[t]), Ht.test(r)) return r;
    i = a && (Q.boxSizingReliable() || r === e.style[t]), r = parseFloat(r) || 0;
   }
   return r + T(e, t, n || (a ? "border" : "content"), i, o) + "px";
  }
  function E(e, t) {
   for (var n, i, r, o = [], a = 0, s = e.length; s > a; a++) i = e[a], i.style && (o[a] = vt.get(i, "olddisplay"), 
-  n = i.style.display, t ? (o[a] || "none" !== n || (i.style.display = ""), "" === i.style.display && Ct(i) && (o[a] = vt.access(i, "olddisplay", x(i.nodeName)))) : (r = Ct(i), 
+  n = i.style.display, t ? (o[a] || "none" !== n || (i.style.display = ""), "" === i.style.display && St(i) && (o[a] = vt.access(i, "olddisplay", x(i.nodeName)))) : (r = St(i), 
   "none" === n && r || vt.set(i, "olddisplay", r ? n : Z.css(i, "display"))));
   for (a = 0; s > a; a++) i = e[a], i.style && (t && "none" !== i.style.display && "" !== i.style.display || (i.style.display = t ? o[a] || "" : "none"));
   return e;
@@ -168,14 +168,14 @@ function diff_match_patch() {
   var n, i = 0, r = {
    height: e
   };
-  for (t = t ? 1 : 0; 4 > i; i += 2 - t) n = St[i], r["margin" + n] = r["padding" + n] = e;
+  for (t = t ? 1 : 0; 4 > i; i += 2 - t) n = Ct[i], r["margin" + n] = r["padding" + n] = e;
   return t && (r.opacity = r.width = e), r;
  }
  function L(e, t, n) {
   for (var i, r = (nn[t] || []).concat(nn["*"]), o = 0, a = r.length; a > o; o++) if (i = r[o].call(n, t, e)) return i;
  }
  function M(e, t, n) {
-  var i, r, o, a, s, l, c, u, d = this, p = {}, h = e.style, f = e.nodeType && Ct(e), m = vt.get(e, "fxshow");
+  var i, r, o, a, s, l, c, u, d = this, p = {}, h = e.style, f = e.nodeType && St(e), m = vt.get(e, "fxshow");
   n.queue || (s = Z._queueHooks(e, "fx"), null == s.unqueued && (s.unqueued = 0, l = s.empty.fire, 
   s.empty.fire = function() {
    s.unqueued || l();
@@ -330,7 +330,7 @@ function diff_match_patch() {
  function U(e) {
   return Z.isWindow(e) ? e : 9 === e.nodeType && e.defaultView;
  }
- var G = [], q = G.slice, H = G.concat, z = G.push, W = G.indexOf, V = {}, X = V.toString, Y = V.hasOwnProperty, Q = {}, K = e.document, J = "2.1.3", Z = function(e, t) {
+ var H = [], q = H.slice, G = H.concat, z = H.push, W = H.indexOf, V = {}, X = V.toString, Y = V.hasOwnProperty, Q = {}, K = e.document, J = "2.1.3", Z = function(e, t) {
   return new Z.fn.init(e, t);
  }, et = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, tt = /^-ms-/, nt = /-([\da-z])/gi, it = function(e, t) {
   return t.toUpperCase();
@@ -375,8 +375,8 @@ function diff_match_patch() {
    return this.prevObject || this.constructor(null);
   },
   push: z,
-  sort: G.sort,
-  splice: G.splice
+  sort: H.sort,
+  splice: H.splice
  }, Z.extend = Z.fn.extend = function() {
   var e, t, n, i, r, o, a = arguments[0] || {}, s = 1, l = arguments.length, c = !1;
   for ("boolean" == typeof a && (c = a, a = arguments[s] || {}, s++), "object" == typeof a || Z.isFunction(a) || (a = {}), 
@@ -455,7 +455,7 @@ function diff_match_patch() {
    var r, o = 0, a = e.length, s = n(e), l = [];
    if (s) for (;a > o; o++) r = t(e[o], o, i), null != r && l.push(r); else for (o in e) r = t(e[o], o, i), 
    null != r && l.push(r);
-   return H.apply([], l);
+   return G.apply([], l);
   },
   guid: 1,
   proxy: function(e, t) {
@@ -504,7 +504,7 @@ function diff_match_patch() {
   }
   function n() {
    function e(n, i) {
-    return t.push(n + " ") > S.cacheLength && delete e[t.shift()], e[n + " "] = i;
+    return t.push(n + " ") > C.cacheLength && delete e[t.shift()], e[n + " "] = i;
    }
    var t = [];
    return e;
@@ -523,7 +523,7 @@ function diff_match_patch() {
    }
   }
   function o(e, t) {
-   for (var n = e.split("|"), i = e.length; i--; ) S.attrHandle[n[i]] = t;
+   for (var n = e.split("|"), i = e.length; i--; ) C.attrHandle[n[i]] = t;
   }
   function a(e, t) {
    var n = t && e, i = n && 1 === e.nodeType && 1 === t.nodeType && (~t.sourceIndex || V) - (~e.sourceIndex || V);
@@ -559,7 +559,7 @@ function diff_match_patch() {
    return i;
   }
   function h(e, t, n) {
-   var i = t.dir, r = n && "parentNode" === i, o = G++;
+   var i = t.dir, r = n && "parentNode" === i, o = H++;
    return t.first ? function(t, n, o) {
     for (;t = t[i]; ) if (1 === t.nodeType || r) return e(t, n, o);
    } : function(t, n, a) {
@@ -603,16 +603,16 @@ function diff_match_patch() {
    });
   }
   function b(e) {
-   for (var t, n, i, r = e.length, o = S.relative[e[0].type], a = o || S.relative[" "], s = o ? 1 : 0, l = h(function(e) {
+   for (var t, n, i, r = e.length, o = C.relative[e[0].type], a = o || C.relative[" "], s = o ? 1 : 0, l = h(function(e) {
     return e === t;
    }, a, !0), c = h(function(e) {
     return et(t, e) > -1;
    }, a, !0), u = [ function(e, n, i) {
     var r = !o && (i || n !== I) || ((t = n).nodeType ? l(e, n, i) : c(e, n, i));
     return t = null, r;
-   } ]; r > s; s++) if (n = S.relative[e[s].type]) u = [ h(f(u), n) ]; else {
-    if (n = S.filter[e[s].type].apply(null, e[s].matches), n[j]) {
-     for (i = ++s; r > i && !S.relative[e[i].type]; i++) ;
+   } ]; r > s; s++) if (n = C.relative[e[s].type]) u = [ h(f(u), n) ]; else {
+    if (n = C.filter[e[s].type].apply(null, e[s].matches), n[j]) {
+     for (i = ++s; r > i && !C.relative[e[i].type]; i++) ;
      return v(s > 1 && f(u), s > 1 && p(e.slice(0, s - 1).concat({
       value: " " === e[s - 2].type ? "*" : ""
      })).replace(lt, "$1"), n, i > s && b(e.slice(s, i)), r > i && b(e = e.slice(i)), r > i && p(e));
@@ -623,7 +623,7 @@ function diff_match_patch() {
   }
   function y(e, n) {
    var r = n.length > 0, o = e.length > 0, a = function(i, a, s, l, c) {
-    var u, d, p, h = 0, f = "0", m = i && [], v = [], b = I, y = i || o && S.find.TAG("*", c), x = U += null == b ? 1 : Math.random() || .1, w = y.length;
+    var u, d, p, h = 0, f = "0", m = i && [], v = [], b = I, y = i || o && C.find.TAG("*", c), x = U += null == b ? 1 : Math.random() || .1, w = y.length;
     for (c && (I = a !== M && a); f !== w && null != (u = y[f]); f++) {
      if (o && u) {
       for (d = 0; p = e[d++]; ) if (p(u, a, s)) {
@@ -646,7 +646,7 @@ function diff_match_patch() {
    };
    return r ? i(a) : a;
   }
-  var x, w, S, C, _, T, k, E, I, D, N, L, M, A, R, P, O, F, B, j = "sizzle" + 1 * new Date(), $ = e.document, U = 0, G = 0, q = n(), H = n(), z = n(), W = function(e, t) {
+  var x, w, C, S, _, T, k, E, I, D, N, L, M, A, R, P, O, F, B, j = "sizzle" + 1 * new Date(), $ = e.document, U = 0, H = 0, q = n(), G = n(), z = n(), W = function(e, t) {
    return e === t && (N = !0), 0;
   }, V = 1 << 31, X = {}.hasOwnProperty, Y = [], Q = Y.pop, K = Y.push, J = Y.push, Z = Y.slice, et = function(e, t) {
    for (var n = 0, i = e.length; i > n; n++) if (e[n] === t) return n;
@@ -660,10 +660,10 @@ function diff_match_patch() {
    CHILD: new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" + nt + "*(even|odd|(([+-]|)(\\d*)n|)" + nt + "*(?:([+-]|)" + nt + "*(\\d+)|))" + nt + "*\\)|)", "i"),
    bool: new RegExp("^(?:" + tt + ")$", "i"),
    needsContext: new RegExp("^" + nt + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" + nt + "*((?:-\\d)?\\d*)" + nt + "*\\)|)(?=[^-]|$)", "i")
-  }, mt = /^(?:input|select|textarea|button)$/i, gt = /^h\d$/i, vt = /^[^{]+\{\s*\[native \w/, bt = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/, yt = /[+~]/, xt = /'|\\/g, wt = new RegExp("\\\\([\\da-f]{1,6}" + nt + "?|(" + nt + ")|.)", "ig"), St = function(e, t, n) {
+  }, mt = /^(?:input|select|textarea|button)$/i, gt = /^h\d$/i, vt = /^[^{]+\{\s*\[native \w/, bt = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/, yt = /[+~]/, xt = /'|\\/g, wt = new RegExp("\\\\([\\da-f]{1,6}" + nt + "?|(" + nt + ")|.)", "ig"), Ct = function(e, t, n) {
    var i = "0x" + t - 65536;
    return i !== i || n ? t : 0 > i ? String.fromCharCode(i + 65536) : String.fromCharCode(i >> 10 | 55296, 1023 & i | 56320);
-  }, Ct = function() {
+  }, St = function() {
    L();
   };
   try {
@@ -684,30 +684,30 @@ function diff_match_patch() {
   }, L = t.setDocument = function(e) {
    var t, n, i = e ? e.ownerDocument || e : $;
    return i !== M && 9 === i.nodeType && i.documentElement ? (M = i, A = i.documentElement, 
-   n = i.defaultView, n && n !== n.top && (n.addEventListener ? n.addEventListener("unload", Ct, !1) : n.attachEvent && n.attachEvent("onunload", Ct)), 
+   n = i.defaultView, n && n !== n.top && (n.addEventListener ? n.addEventListener("unload", St, !1) : n.attachEvent && n.attachEvent("onunload", St)), 
    R = !_(i), w.attributes = r(function(e) {
     return e.className = "i", !e.getAttribute("className");
    }), w.getElementsByTagName = r(function(e) {
     return e.appendChild(i.createComment("")), !e.getElementsByTagName("*").length;
    }), w.getElementsByClassName = vt.test(i.getElementsByClassName), w.getById = r(function(e) {
     return A.appendChild(e).id = j, !i.getElementsByName || !i.getElementsByName(j).length;
-   }), w.getById ? (S.find.ID = function(e, t) {
+   }), w.getById ? (C.find.ID = function(e, t) {
     if ("undefined" != typeof t.getElementById && R) {
      var n = t.getElementById(e);
      return n && n.parentNode ? [ n ] : [];
     }
-   }, S.filter.ID = function(e) {
-    var t = e.replace(wt, St);
+   }, C.filter.ID = function(e) {
+    var t = e.replace(wt, Ct);
     return function(e) {
      return e.getAttribute("id") === t;
     };
-   }) : (delete S.find.ID, S.filter.ID = function(e) {
-    var t = e.replace(wt, St);
+   }) : (delete C.find.ID, C.filter.ID = function(e) {
+    var t = e.replace(wt, Ct);
     return function(e) {
      var n = "undefined" != typeof e.getAttributeNode && e.getAttributeNode("id");
      return n && n.value === t;
     };
-   }), S.find.TAG = w.getElementsByTagName ? function(e, t) {
+   }), C.find.TAG = w.getElementsByTagName ? function(e, t) {
     return "undefined" != typeof t.getElementsByTagName ? t.getElementsByTagName(e) : w.qsa ? t.querySelectorAll(e) : void 0;
    } : function(e, t) {
     var n, i = [], r = 0, o = t.getElementsByTagName(e);
@@ -716,7 +716,7 @@ function diff_match_patch() {
      return i;
     }
     return o;
-   }, S.find.CLASS = w.getElementsByClassName && function(e, t) {
+   }, C.find.CLASS = w.getElementsByClassName && function(e, t) {
     return R ? t.getElementsByClassName(e) : void 0;
    }, O = [], P = [], (w.qsa = vt.test(i.querySelectorAll)) && (r(function(e) {
     A.appendChild(e).innerHTML = "<a id='" + j + "'></a><select id='" + j + "-\f]' msallowcapture=''><option selected=''></option></select>", 
@@ -765,7 +765,7 @@ function diff_match_patch() {
    return (e.ownerDocument || e) !== M && L(e), B(e, t);
   }, t.attr = function(e, t) {
    (e.ownerDocument || e) !== M && L(e);
-   var n = S.attrHandle[t.toLowerCase()], i = n && X.call(S.attrHandle, t.toLowerCase()) ? n(e, t, !R) : void 0;
+   var n = C.attrHandle[t.toLowerCase()], i = n && X.call(C.attrHandle, t.toLowerCase()) ? n(e, t, !R) : void 0;
    return void 0 !== i ? i : w.attributes || !R ? e.getAttribute(t) : (i = e.getAttributeNode(t)) && i.specified ? i.value : null;
   }, t.error = function(e) {
    throw new Error("Syntax error, unrecognized expression: " + e);
@@ -776,16 +776,16 @@ function diff_match_patch() {
     for (;i--; ) e.splice(n[i], 1);
    }
    return D = null, e;
-  }, C = t.getText = function(e) {
+  }, S = t.getText = function(e) {
    var t, n = "", i = 0, r = e.nodeType;
    if (r) {
     if (1 === r || 9 === r || 11 === r) {
      if ("string" == typeof e.textContent) return e.textContent;
-     for (e = e.firstChild; e; e = e.nextSibling) n += C(e);
+     for (e = e.firstChild; e; e = e.nextSibling) n += S(e);
     } else if (3 === r || 4 === r) return e.nodeValue;
-   } else for (;t = e[i++]; ) n += C(t);
+   } else for (;t = e[i++]; ) n += S(t);
    return n;
-  }, S = t.selectors = {
+  }, C = t.selectors = {
    cacheLength: 50,
    createPseudo: i,
    match: ft,
@@ -809,7 +809,7 @@ function diff_match_patch() {
    },
    preFilter: {
     ATTR: function(e) {
-     return e[1] = e[1].replace(wt, St), e[3] = (e[3] || e[4] || e[5] || "").replace(wt, St), 
+     return e[1] = e[1].replace(wt, Ct), e[3] = (e[3] || e[4] || e[5] || "").replace(wt, Ct), 
      "~=" === e[2] && (e[3] = " " + e[3] + " "), e.slice(0, 4);
     },
     CHILD: function(e) {
@@ -825,7 +825,7 @@ function diff_match_patch() {
    },
    filter: {
     TAG: function(e) {
-     var t = e.replace(wt, St).toLowerCase();
+     var t = e.replace(wt, Ct).toLowerCase();
      return "*" === e ? function() {
       return !0;
      } : function(e) {
@@ -871,8 +871,8 @@ function diff_match_patch() {
      };
     },
     PSEUDO: function(e, n) {
-     var r, o = S.pseudos[e] || S.setFilters[e.toLowerCase()] || t.error("unsupported pseudo: " + e);
-     return o[j] ? o(n) : o.length > 1 ? (r = [ e, e, "", n ], S.setFilters.hasOwnProperty(e.toLowerCase()) ? i(function(e, t) {
+     var r, o = C.pseudos[e] || C.setFilters[e.toLowerCase()] || t.error("unsupported pseudo: " + e);
+     return o[j] ? o(n) : o.length > 1 ? (r = [ e, e, "", n ], C.setFilters.hasOwnProperty(e.toLowerCase()) ? i(function(e, t) {
       for (var i, r = o(e, n), a = r.length; a--; ) i = et(e, r[a]), e[i] = !(t[i] = r[a]);
      }) : function(e) {
       return o(e, 0, r);
@@ -894,12 +894,12 @@ function diff_match_patch() {
      };
     }),
     contains: i(function(e) {
-     return e = e.replace(wt, St), function(t) {
-      return (t.textContent || t.innerText || C(t)).indexOf(e) > -1;
+     return e = e.replace(wt, Ct), function(t) {
+      return (t.textContent || t.innerText || S(t)).indexOf(e) > -1;
      };
     }),
     lang: i(function(e) {
-     return ht.test(e || "") || t.error("unsupported lang: " + e), e = e.replace(wt, St).toLowerCase(), 
+     return ht.test(e || "") || t.error("unsupported lang: " + e), e = e.replace(wt, Ct).toLowerCase(), 
      function(t) {
       var n;
       do if (n = R ? t.lang : t.getAttribute("xml:lang") || t.getAttribute("lang")) return n = n.toLowerCase(), 
@@ -935,7 +935,7 @@ function diff_match_patch() {
      return !0;
     },
     parent: function(e) {
-     return !S.pseudos.empty(e);
+     return !C.pseudos.empty(e);
     },
     header: function(e) {
      return gt.test(e.nodeName);
@@ -977,28 +977,28 @@ function diff_match_patch() {
      return e;
     })
    }
-  }, S.pseudos.nth = S.pseudos.eq;
+  }, C.pseudos.nth = C.pseudos.eq;
   for (x in {
    radio: !0,
    checkbox: !0,
    file: !0,
    password: !0,
    image: !0
-  }) S.pseudos[x] = s(x);
+  }) C.pseudos[x] = s(x);
   for (x in {
    submit: !0,
    reset: !0
-  }) S.pseudos[x] = l(x);
-  return d.prototype = S.filters = S.pseudos, S.setFilters = new d(), T = t.tokenize = function(e, n) {
-   var i, r, o, a, s, l, c, u = H[e + " "];
+  }) C.pseudos[x] = l(x);
+  return d.prototype = C.filters = C.pseudos, C.setFilters = new d(), T = t.tokenize = function(e, n) {
+   var i, r, o, a, s, l, c, u = G[e + " "];
    if (u) return n ? 0 : u.slice(0);
-   for (s = e, l = [], c = S.preFilter; s; ) {
+   for (s = e, l = [], c = C.preFilter; s; ) {
     (!i || (r = ct.exec(s))) && (r && (s = s.slice(r[0].length) || s), l.push(o = [])), 
     i = !1, (r = ut.exec(s)) && (i = r.shift(), o.push({
      value: i,
      type: r[0].replace(lt, " ")
     }), s = s.slice(i.length));
-    for (a in S.filter) !(r = ft[a].exec(s)) || c[a] && !(r = c[a](r)) || (i = r.shift(), 
+    for (a in C.filter) !(r = ft[a].exec(s)) || c[a] && !(r = c[a](r)) || (i = r.shift(), 
     o.push({
      value: i,
      type: a,
@@ -1006,7 +1006,7 @@ function diff_match_patch() {
     }), s = s.slice(i.length));
     if (!i) break;
    }
-   return n ? s.length : s ? t.error(e) : H(e, l).slice(0);
+   return n ? s.length : s ? t.error(e) : G(e, l).slice(0);
   }, k = t.compile = function(e, t) {
    var n, i = [], r = [], o = z[e + " "];
    if (!o) {
@@ -1017,11 +1017,11 @@ function diff_match_patch() {
   }, E = t.select = function(e, t, n, i) {
    var r, o, a, s, l, c = "function" == typeof e && e, d = !i && T(e = c.selector || e);
    if (n = n || [], 1 === d.length) {
-    if (o = d[0] = d[0].slice(0), o.length > 2 && "ID" === (a = o[0]).type && w.getById && 9 === t.nodeType && R && S.relative[o[1].type]) {
-     if (t = (S.find.ID(a.matches[0].replace(wt, St), t) || [])[0], !t) return n;
+    if (o = d[0] = d[0].slice(0), o.length > 2 && "ID" === (a = o[0]).type && w.getById && 9 === t.nodeType && R && C.relative[o[1].type]) {
+     if (t = (C.find.ID(a.matches[0].replace(wt, Ct), t) || [])[0], !t) return n;
      c && (t = t.parentNode), e = e.slice(o.shift().value.length);
     }
-    for (r = ft.needsContext.test(e) ? 0 : o.length; r-- && (a = o[r], !S.relative[s = a.type]); ) if ((l = S.find[s]) && (i = l(a.matches[0].replace(wt, St), yt.test(o[0].type) && u(t.parentNode) || t))) {
+    for (r = ft.needsContext.test(e) ? 0 : o.length; r-- && (a = o[r], !C.relative[s = a.type]); ) if ((l = C.find[s]) && (i = l(a.matches[0].replace(wt, Ct), yt.test(o[0].type) && u(t.parentNode) || t))) {
      if (o.splice(r, 1), e = i.length && p(o), !e) return J.apply(n, i), n;
      break;
     }
@@ -1448,7 +1448,7 @@ function diff_match_patch() {
    return s(), r.promise(t);
   }
  });
- var wt = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source, St = [ "Top", "Right", "Bottom", "Left" ], Ct = function(e, t) {
+ var wt = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source, Ct = [ "Top", "Right", "Bottom", "Left" ], St = function(e, t) {
   return e = t || e, "none" === Z.css(e, "display") || !Z.contains(e.ownerDocument, e);
  }, _t = /^(?:checkbox|radio)$/i;
  !function() {
@@ -1819,7 +1819,7 @@ function diff_match_patch() {
    return this.remove(e, !0);
   },
   domManip: function(e, t) {
-   e = H.apply([], e);
+   e = G.apply([], e);
    var n, i, r, o, a, s, l = 0, c = this.length, u = this, d = c - 1, p = e[0], m = Z.isFunction(p);
    if (m || c > 1 && "string" == typeof p && !Q.checkClone && Rt.test(p)) return this.each(function(n) {
     var i = u.eq(n);
@@ -1847,7 +1847,7 @@ function diff_match_patch() {
    return this.pushStack(i);
   };
  });
- var jt, $t = {}, Ut = /^margin/, Gt = new RegExp("^(" + wt + ")(?!px)[a-z%]+$", "i"), qt = function(t) {
+ var jt, $t = {}, Ut = /^margin/, Ht = new RegExp("^(" + wt + ")(?!px)[a-z%]+$", "i"), qt = function(t) {
   return t.ownerDocument.defaultView.opener ? t.ownerDocument.defaultView.getComputedStyle(t, null) : e.getComputedStyle(t, null);
  };
  !function() {
@@ -1882,7 +1882,7 @@ function diff_match_patch() {
   for (o in t) e.style[o] = a[o];
   return r;
  };
- var Ht = /^(none|table(?!-c[ea]).+)/, zt = new RegExp("^(" + wt + ")(.*)$", "i"), Wt = new RegExp("^([+-])=(" + wt + ")", "i"), Vt = {
+ var Gt = /^(none|table(?!-c[ea]).+)/, zt = new RegExp("^(" + wt + ")(.*)$", "i"), Wt = new RegExp("^([+-])=(" + wt + ")", "i"), Vt = {
   position: "absolute",
   visibility: "hidden",
   display: "block"
@@ -1921,7 +1921,7 @@ function diff_match_patch() {
   style: function(e, t, n, i) {
    if (e && 3 !== e.nodeType && 8 !== e.nodeType && e.style) {
     var r, o, a, s = Z.camelCase(t), l = e.style;
-    return t = Z.cssProps[s] || (Z.cssProps[s] = C(l, s)), a = Z.cssHooks[t] || Z.cssHooks[s], 
+    return t = Z.cssProps[s] || (Z.cssProps[s] = S(l, s)), a = Z.cssHooks[t] || Z.cssHooks[s], 
     void 0 === n ? a && "get" in a && void 0 !== (r = a.get(e, !1, i)) ? r : l[t] : (o = typeof n, 
     "string" === o && (r = Wt.exec(n)) && (n = (r[1] + 1) * r[2] + parseFloat(Z.css(e, t)), 
     o = "number"), void (null != n && n === n && ("number" !== o || Z.cssNumber[s] || (n += "px"), 
@@ -1931,14 +1931,14 @@ function diff_match_patch() {
   },
   css: function(e, t, n, i) {
    var r, o, a, s = Z.camelCase(t);
-   return t = Z.cssProps[s] || (Z.cssProps[s] = C(e.style, s)), a = Z.cssHooks[t] || Z.cssHooks[s], 
+   return t = Z.cssProps[s] || (Z.cssProps[s] = S(e.style, s)), a = Z.cssHooks[t] || Z.cssHooks[s], 
    a && "get" in a && (r = a.get(e, !0, n)), void 0 === r && (r = w(e, t, i)), "normal" === r && t in Xt && (r = Xt[t]), 
    "" === n || n ? (o = parseFloat(r), n === !0 || Z.isNumeric(o) ? o || 0 : r) : r;
   }
  }), Z.each([ "height", "width" ], function(e, t) {
   Z.cssHooks[t] = {
    get: function(e, n, i) {
-    return n ? Ht.test(Z.css(e, "display")) && 0 === e.offsetWidth ? Z.swap(e, Vt, function() {
+    return n ? Gt.test(Z.css(e, "display")) && 0 === e.offsetWidth ? Z.swap(e, Vt, function() {
      return k(e, t, i);
     }) : k(e, t, i) : void 0;
    },
@@ -1947,7 +1947,7 @@ function diff_match_patch() {
     return _(e, n, i ? T(e, t, i, "border-box" === Z.css(e, "boxSizing", !1, r), r) : 0);
    }
   };
- }), Z.cssHooks.marginRight = S(Q.reliableMarginRight, function(e, t) {
+ }), Z.cssHooks.marginRight = C(Q.reliableMarginRight, function(e, t) {
   return t ? Z.swap(e, {
    display: "inline-block"
   }, w, [ e, "marginRight" ]) : void 0;
@@ -1958,7 +1958,7 @@ function diff_match_patch() {
  }, function(e, t) {
   Z.cssHooks[e + t] = {
    expand: function(n) {
-    for (var i = 0, r = {}, o = "string" == typeof n ? n.split(" ") : [ n ]; 4 > i; i++) r[e + St[i] + t] = o[i] || o[i - 2] || o[0];
+    for (var i = 0, r = {}, o = "string" == typeof n ? n.split(" ") : [ n ]; 4 > i; i++) r[e + Ct[i] + t] = o[i] || o[i - 2] || o[0];
     return r;
    }
   }, Ut.test(e) || (Z.cssHooks[e + t].set = _);
@@ -1981,7 +1981,7 @@ function diff_match_patch() {
   },
   toggle: function(e) {
    return "boolean" == typeof e ? e ? this.show() : this.hide() : this.each(function() {
-    Ct(this) ? Z(this).show() : Z(this).hide();
+    St(this) ? Z(this).show() : Z(this).hide();
    });
   }
  }), Z.Tween = I, I.prototype = {
@@ -2054,7 +2054,7 @@ function diff_match_patch() {
   }, i;
  }, Z.fn.extend({
   fadeTo: function(e, t, n, i) {
-   return this.filter(Ct).css("opacity", 0).show().end().animate({
+   return this.filter(St).css("opacity", 0).show().end().animate({
     opacity: t
    }, e, n, i);
   },
@@ -2335,15 +2335,15 @@ function diff_match_patch() {
   return (!t || t.getElementsByTagName("parsererror").length) && Z.error("Invalid XML: " + e), 
   t;
  };
- var pn = /#.*$/, hn = /([?&])_=[^&]*/, fn = /^(.*?):[ \t]*([^\r\n]*)$/gm, mn = /^(?:about|app|app-storage|.+-extension|file|res|widget):$/, gn = /^(?:GET|HEAD)$/, vn = /^\/\//, bn = /^([\w.+-]+:)(?:\/\/(?:[^\/?#]*@|)([^\/?#:]*)(?::(\d+)|)|)/, yn = {}, xn = {}, wn = "*/".concat("*"), Sn = e.location.href, Cn = bn.exec(Sn.toLowerCase()) || [];
+ var pn = /#.*$/, hn = /([?&])_=[^&]*/, fn = /^(.*?):[ \t]*([^\r\n]*)$/gm, mn = /^(?:about|app|app-storage|.+-extension|file|res|widget):$/, gn = /^(?:GET|HEAD)$/, vn = /^\/\//, bn = /^([\w.+-]+:)(?:\/\/(?:[^\/?#]*@|)([^\/?#:]*)(?::(\d+)|)|)/, yn = {}, xn = {}, wn = "*/".concat("*"), Cn = e.location.href, Sn = bn.exec(Cn.toLowerCase()) || [];
  Z.extend({
   active: 0,
   lastModified: {},
   etag: {},
   ajaxSettings: {
-   url: Sn,
+   url: Cn,
    type: "GET",
-   isLocal: mn.test(Cn[1]),
+   isLocal: mn.test(Sn[1]),
    global: !0,
    processData: !0,
    async: !0,
@@ -2383,15 +2383,15 @@ function diff_match_patch() {
   ajaxTransport: P(xn),
   ajax: function(e, t) {
    function n(e, t, n, a) {
-    var l, u, v, b, x, S = t;
+    var l, u, v, b, x, C = t;
     2 !== y && (y = 2, s && clearTimeout(s), i = void 0, o = a || "", w.readyState = e > 0 ? 4 : 0, 
     l = e >= 200 && 300 > e || 304 === e, n && (b = B(d, w, n)), b = j(d, b, w, l), 
     l ? (d.ifModified && (x = w.getResponseHeader("Last-Modified"), x && (Z.lastModified[r] = x), 
-    x = w.getResponseHeader("etag"), x && (Z.etag[r] = x)), 204 === e || "HEAD" === d.type ? S = "nocontent" : 304 === e ? S = "notmodified" : (S = b.state, 
-    u = b.data, v = b.error, l = !v)) : (v = S, (e || !S) && (S = "error", 0 > e && (e = 0))), 
-    w.status = e, w.statusText = (t || S) + "", l ? f.resolveWith(p, [ u, S, w ]) : f.rejectWith(p, [ w, S, v ]), 
+    x = w.getResponseHeader("etag"), x && (Z.etag[r] = x)), 204 === e || "HEAD" === d.type ? C = "nocontent" : 304 === e ? C = "notmodified" : (C = b.state, 
+    u = b.data, v = b.error, l = !v)) : (v = C, (e || !C) && (C = "error", 0 > e && (e = 0))), 
+    w.status = e, w.statusText = (t || C) + "", l ? f.resolveWith(p, [ u, C, w ]) : f.rejectWith(p, [ w, C, v ]), 
     w.statusCode(g), g = void 0, c && h.trigger(l ? "ajaxSuccess" : "ajaxError", [ w, d, l ? u : v ]), 
-    m.fireWith(p, [ w, S ]), c && (h.trigger("ajaxComplete", [ w, d ]), --Z.active || Z.event.trigger("ajaxStop")));
+    m.fireWith(p, [ w, C ]), c && (h.trigger("ajaxComplete", [ w, d ]), --Z.active || Z.event.trigger("ajaxStop")));
    }
    "object" == typeof e && (t = e, e = void 0), t = t || {};
    var i, r, o, a, s, l, c, u, d = Z.ajaxSetup({}, t), p = d.context || d, h = d.context && (p.nodeType || p.jquery) ? Z(p) : Z.event, f = Z.Deferred(), m = Z.Callbacks("once memory"), g = d.statusCode || {}, v = {}, b = {}, y = 0, x = "canceled", w = {
@@ -2424,9 +2424,9 @@ function diff_match_patch() {
      return i && i.abort(t), n(0, t), this;
     }
    };
-   if (f.promise(w).complete = m.add, w.success = w.done, w.error = w.fail, d.url = ((e || d.url || Sn) + "").replace(pn, "").replace(vn, Cn[1] + "//"), 
+   if (f.promise(w).complete = m.add, w.success = w.done, w.error = w.fail, d.url = ((e || d.url || Cn) + "").replace(pn, "").replace(vn, Sn[1] + "//"), 
    d.type = t.method || t.type || d.method || d.type, d.dataTypes = Z.trim(d.dataType || "*").toLowerCase().match(ht) || [ "" ], 
-   null == d.crossDomain && (l = bn.exec(d.url.toLowerCase()), d.crossDomain = !(!l || l[1] === Cn[1] && l[2] === Cn[2] && (l[3] || ("http:" === l[1] ? "80" : "443")) === (Cn[3] || ("http:" === Cn[1] ? "80" : "443")))), 
+   null == d.crossDomain && (l = bn.exec(d.url.toLowerCase()), d.crossDomain = !(!l || l[1] === Sn[1] && l[2] === Sn[2] && (l[3] || ("http:" === l[1] ? "80" : "443")) === (Sn[3] || ("http:" === Sn[1] ? "80" : "443")))), 
    d.data && d.processData && "string" != typeof d.data && (d.data = Z.param(d.data, d.traditional)), 
    O(yn, d, t, w), 2 === y) return w;
    c = Z.event && d.global, c && 0 === Z.active++ && Z.event.trigger("ajaxStart"), 
@@ -2449,9 +2449,9 @@ function diff_match_patch() {
     }, d.timeout));
     try {
      y = 1, i.send(v, n);
-    } catch (S) {
-     if (!(2 > y)) throw S;
-     n(-1, S);
+    } catch (C) {
+     if (!(2 > y)) throw C;
+     n(-1, C);
     }
    } else n(-1, "No Transport");
    return w;
@@ -2725,8 +2725,8 @@ function diff_match_patch() {
    }, t, r, arguments.length, null);
   };
  }), Z.each([ "top", "left" ], function(e, t) {
-  Z.cssHooks[t] = S(Q.pixelPosition, function(e, n) {
-   return n ? (n = w(e, t), Gt.test(n) ? Z(e).position()[t] + "px" : n) : void 0;
+  Z.cssHooks[t] = C(Q.pixelPosition, function(e, n) {
+   return n ? (n = w(e, t), Ht.test(n) ? Z(e).position()[t] + "px" : n) : void 0;
   });
  }), Z.each({
   Height: "height",
@@ -2794,7 +2794,7 @@ function diff_match_patch() {
     implementsDomRange: i,
     implementsTextRange: a
    };
-   for (var l = S.concat(w), c = 0, u = l.length; u > c; ++c) try {
+   for (var l = C.concat(w), c = 0, u = l.length; u > c; ++c) try {
     l[c](x);
    } catch (d) {
     t(window, "console") && e(window.console, "log") && window.console.log("Init listener threw an exception. Continuing.", d);
@@ -2803,7 +2803,7 @@ function diff_match_patch() {
  }
  function l(e) {
   e = e || window, s();
-  for (var t = 0, n = C.length; n > t; ++t) C[t](e);
+  for (var t = 0, n = S.length; n > t; ++t) S[t](e);
  }
  function c(e) {
   this.name = e, this.initialized = !1, this.supported = !1;
@@ -2831,13 +2831,13 @@ function diff_match_patch() {
  x.fail = o, x.warn = a, {}.hasOwnProperty ? x.util.extend = function(e, t) {
   for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n]);
  } : o("hasOwnProperty not supported");
- var w = [], S = [];
+ var w = [], C = [];
  x.init = s, x.addInitListener = function(e) {
   x.initialized ? e(x) : w.push(e);
  };
- var C = [];
+ var S = [];
  x.addCreateMissingNativeApiListener = function(e) {
-  C.push(e);
+  S.push(e);
  }, x.createMissingNativeApi = l, c.prototype.fail = function(e) {
   throw this.initialized = !0, this.supported = !1, new Error("Module '" + this.name + "' failed to load: " + e);
  }, c.prototype.warn = function(e) {
@@ -2846,7 +2846,7 @@ function diff_match_patch() {
   return new Error("Error in Rangy " + this.name + " module: " + e);
  }, x.createModule = function(e, t) {
   var n = new c(e);
-  x.modules[e] = n, S.push(function(e) {
+  x.modules[e] = n, C.push(function(e) {
    t(e, n), n.initialized = !0, n.supported = !0;
   });
  }, x.requireModules = function(e) {
@@ -2969,10 +2969,10 @@ function diff_match_patch() {
  function w(e) {
   this.root = e, this._next = e;
  }
- function S(e) {
+ function C(e) {
   return new w(e);
  }
- function C(e, t) {
+ function S(e, t) {
   this.node = e, this.offset = t;
  }
  function _(e) {
@@ -3006,7 +3006,7 @@ function diff_match_patch() {
   detach: function() {
    this._current = this._next = this.root = null;
   }
- }, C.prototype = {
+ }, S.prototype = {
   equals: function(e) {
    return this.node === e.node & this.offset == e.offset;
   },
@@ -3044,8 +3044,8 @@ function diff_match_patch() {
   comparePoints: b,
   inspectNode: x,
   fragmentFromNodeChildren: y,
-  createIterator: S,
-  DomPosition: C
+  createIterator: C,
+  DomPosition: S
  }, e.DOMException = _;
 }), rangy.createModule("DomRange", function(e) {
  function t(e, t) {
@@ -3153,10 +3153,10 @@ function diff_match_patch() {
  function w(e, t) {
   if (W(e, !0) !== W(t, !0)) throw new j("WRONG_DOCUMENT_ERR");
  }
- function S(e) {
+ function C(e) {
   if (V(e, !0)) throw new j("NO_MODIFICATION_ALLOWED_ERR");
  }
- function C(e, t) {
+ function S(e, t) {
   if (!e) throw new j(t);
  }
  function _(e) {
@@ -3184,7 +3184,7 @@ function diff_match_patch() {
    E(this);
    var n, i, r = this.startContainer, a = this.startOffset, s = this.commonAncestorContainer, c = new h(this, !0);
    r !== s && (n = F.getClosestAncestorIn(r, s, !0), i = o(n), r = i.node, a = i.offset), 
-   l(c, S), c.reset();
+   l(c, C), c.reset();
    var u = e(c);
    return c.detach(), t(this, r, a, r, a), u;
   };
@@ -3235,7 +3235,7 @@ function diff_match_patch() {
    extractContents: L(u, i),
    deleteContents: L(c, i),
    canSurroundContents: function() {
-    E(this), S(this.startContainer), S(this.endContainer);
+    E(this), C(this.startContainer), C(this.endContainer);
     var e = new h(this, !0), n = e._first && t(e._first, this) || e._last && t(e._last, this);
     return e.detach(), !n;
    },
@@ -3367,7 +3367,7 @@ function diff_match_patch() {
    this._current = this._next = this.nodes = null;
   }
  };
- var $ = [ 1, 3, 4, 5, 7, 8, 10 ], U = [ 2, 9, 11 ], G = [ 5, 6, 10, 12 ], q = [ 1, 3, 4, 5, 7, 8, 10, 11 ], H = [ 1, 3, 4, 5, 7, 8 ], z = F.getRootContainer, W = g([ 9, 11 ]), V = g(G), X = g([ 6, 10, 12 ]), Y = document.createElement("style"), Q = !1;
+ var $ = [ 1, 3, 4, 5, 7, 8, 10 ], U = [ 2, 9, 11 ], H = [ 5, 6, 10, 12 ], q = [ 1, 3, 4, 5, 7, 8, 10, 11 ], G = [ 1, 3, 4, 5, 7, 8 ], z = F.getRootContainer, W = g([ 9, 11 ]), V = g(H), X = g([ 6, 10, 12 ]), Y = document.createElement("style"), Q = !1;
  try {
   Y.innerHTML = "<b>x</b>", Q = 3 == Y.firstChild.nodeType;
  } catch (K) {}
@@ -3395,7 +3395,7 @@ function diff_match_patch() {
    o = t[s + "Offset"], F.comparePoints(n, i, r, o);
   },
   insertNode: function(e) {
-   if (E(this), y(e, q), S(this.startContainer), F.isAncestorOf(e, this.startContainer, !0)) throw new j("HIERARCHY_REQUEST_ERR");
+   if (E(this), y(e, q), C(this.startContainer), F.isAncestorOf(e, this.startContainer, !0)) throw new j("HIERARCHY_REQUEST_ERR");
    var t = a(e, this.startContainer, this.startOffset);
    this.setStartBefore(t);
   },
@@ -3410,12 +3410,12 @@ function diff_match_patch() {
    return e = s(i), i.detach(), e;
   },
   canSurroundContents: function() {
-   E(this), S(this.startContainer), S(this.endContainer);
+   E(this), C(this.startContainer), C(this.endContainer);
    var e = new h(this, !0), n = e._first && t(e._first, this) || e._last && t(e._last, this);
    return e.detach(), !n;
   },
   surroundContents: function(e) {
-   if (y(e, H), !this.canSurroundContents()) throw new f("BAD_BOUNDARYPOINTS_ERR");
+   if (y(e, G), !this.canSurroundContents()) throw new f("BAD_BOUNDARYPOINTS_ERR");
    var t = this.extractContents();
    if (e.hasChildNodes()) for (;e.lastChild; ) e.removeChild(e.lastChild);
    a(e, this.startContainer, this.startOffset), e.appendChild(t), this.selectNode(e);
@@ -3442,7 +3442,7 @@ function diff_match_patch() {
    return 0 > i ? r > 0 ? at : rt : r > 0 ? ot : st;
   },
   comparePoint: function(e, t) {
-   return E(this), C(e, "HIERARCHY_REQUEST_ERR"), w(e, this.startContainer), F.comparePoints(e, t, this.startContainer, this.startOffset) < 0 ? -1 : F.comparePoints(e, t, this.endContainer, this.endOffset) > 0 ? 1 : 0;
+   return E(this), S(e, "HIERARCHY_REQUEST_ERR"), w(e, this.startContainer), F.comparePoints(e, t, this.startContainer, this.startOffset) < 0 ? -1 : F.comparePoints(e, t, this.endContainer, this.endOffset) > 0 ? 1 : 0;
   },
   createContextualFragment: J,
   toHtml: function() {
@@ -3451,14 +3451,14 @@ function diff_match_patch() {
    return e.appendChild(this.cloneContents()), e.innerHTML;
   },
   intersectsNode: function(e, t) {
-   if (E(this), C(e, "NOT_FOUND_ERR"), F.getDocument(e) !== n(this)) return !1;
+   if (E(this), S(e, "NOT_FOUND_ERR"), F.getDocument(e) !== n(this)) return !1;
    var i = e.parentNode, r = F.getNodeIndex(e);
-   C(i, "NOT_FOUND_ERR");
+   S(i, "NOT_FOUND_ERR");
    var o = F.comparePoints(i, r, this.endContainer, this.endOffset), a = F.comparePoints(i, r + 1, this.startContainer, this.startOffset);
    return t ? 0 >= o && a >= 0 : 0 > o && a > 0;
   },
   isPointInRange: function(e, t) {
-   return E(this), C(e, "HIERARCHY_REQUEST_ERR"), w(e, this.startContainer), F.comparePoints(e, t, this.startContainer, this.startOffset) >= 0 && F.comparePoints(e, t, this.endContainer, this.endOffset) <= 0;
+   return E(this), S(e, "HIERARCHY_REQUEST_ERR"), w(e, this.startContainer), F.comparePoints(e, t, this.startContainer, this.startOffset) >= 0 && F.comparePoints(e, t, this.endContainer, this.endOffset) <= 0;
   },
   intersectsRange: function(e, t) {
    if (E(this), n(e) != n(this)) throw new j("WRONG_DOCUMENT_ERR");
@@ -3733,16 +3733,16 @@ function diff_match_patch() {
  }
  function s(t) {
   var n;
-  return t instanceof _ ? (n = t._selectionNativeRange, n || (n = e.createNativeRange(S.getDocument(t.startContainer)), 
+  return t instanceof _ ? (n = t._selectionNativeRange, n || (n = e.createNativeRange(C.getDocument(t.startContainer)), 
   n.setEnd(t.endContainer, t.endOffset), n.setStart(t.startContainer, t.startOffset), 
   t._selectionNativeRange = n, t.attachListener("detach", function() {
    this._selectionNativeRange = null;
-  }))) : t instanceof T ? n = t.nativeRange : e.features.implementsDomRange && t instanceof S.getWindow(t.startContainer).Range && (n = t), 
+  }))) : t instanceof T ? n = t.nativeRange : e.features.implementsDomRange && t instanceof C.getWindow(t.startContainer).Range && (n = t), 
   n;
  }
  function l(e) {
   if (!e.length || 1 != e[0].nodeType) return !1;
-  for (var t = 1, n = e.length; n > t; ++t) if (!S.isAncestorOf(e[0], e[t])) return !1;
+  for (var t = 1, n = e.length; n > t; ++t) if (!C.isAncestorOf(e[0], e[t])) return !1;
   return !0;
  }
  function c(e) {
@@ -3762,14 +3762,14 @@ function diff_match_patch() {
    var n = t.docSelection.createRange();
    if (u(n)) d(t, n); else {
     t.rangeCount = n.length;
-    for (var i, o = S.getDocument(n.item(0)), s = 0; s < t.rangeCount; ++s) i = e.createRange(o), 
+    for (var i, o = C.getDocument(n.item(0)), s = 0; s < t.rangeCount; ++s) i = e.createRange(o), 
     i.selectNode(n.item(s)), t._ranges.push(i);
     t.isCollapsed = 1 == t.rangeCount && t._ranges[0].collapsed, r(t, t._ranges[t.rangeCount - 1], !1);
    }
   }
  }
  function h(e, t) {
-  for (var n = e.docSelection.createRange(), i = c(t), r = S.getDocument(n.item(0)), o = S.getBody(r).createControlRange(), a = 0, s = n.length; s > a; ++a) o.add(n.item(a));
+  for (var n = e.docSelection.createRange(), i = c(t), r = C.getDocument(n.item(0)), o = C.getBody(r).createControlRange(), a = 0, s = n.length; s > a; ++a) o.add(n.item(a));
   try {
    o.add(i);
   } catch (l) {
@@ -3782,7 +3782,7 @@ function diff_match_patch() {
   this.refresh();
  }
  function m(e, t) {
-  for (var n, i = S.getDocument(t[0].startContainer), r = S.getBody(i).createControlRange(), o = 0; rangeCount > o; ++o) {
+  for (var n, i = C.getDocument(t[0].startContainer), r = C.getBody(i).createControlRange(), o = 0; rangeCount > o; ++o) {
    n = c(t[o]);
    try {
     r.add(n);
@@ -3793,7 +3793,7 @@ function diff_match_patch() {
   r.select(), p(e);
  }
  function g(e, t) {
-  if (e.anchorNode && S.getDocument(e.anchorNode) !== S.getDocument(t)) throw new k("WRONG_DOCUMENT_ERR");
+  if (e.anchorNode && C.getDocument(e.anchorNode) !== C.getDocument(t)) throw new k("WRONG_DOCUMENT_ERR");
  }
  function v(e) {
   var t = [], n = new E(e.anchorNode, e.anchorOffset), i = new E(e.focusNode, e.focusOffset), r = "function" == typeof e.getName ? e.getName() : "Selection";
@@ -3801,47 +3801,47 @@ function diff_match_patch() {
   return "[" + r + "(Ranges: " + t.join(", ") + ")(anchor: " + n.inspect() + ", focus: " + i.inspect() + "]";
  }
  e.requireModules([ "DomUtil", "DomRange", "WrappedRange" ]), e.config.checkSelectionRanges = !0;
- var b, y, x = "boolean", w = "_rangySelection", S = e.dom, C = e.util, _ = e.DomRange, T = e.WrappedRange, k = e.DOMException, E = S.DomPosition, I = "Control", D = e.util.isHostMethod(window, "getSelection"), N = e.util.isHostObject(document, "selection"), L = N && (!D || e.config.preferTextRange);
+ var b, y, x = "boolean", w = "_rangySelection", C = e.dom, S = e.util, _ = e.DomRange, T = e.WrappedRange, k = e.DOMException, E = C.DomPosition, I = "Control", D = e.util.isHostMethod(window, "getSelection"), N = e.util.isHostObject(document, "selection"), L = N && (!D || e.config.preferTextRange);
  L ? (b = i, e.isSelectionValid = function(e) {
   var t = (e || window).document, n = t.selection;
-  return "None" != n.type || S.getDocument(n.createRange().parentElement()) == t;
+  return "None" != n.type || C.getDocument(n.createRange().parentElement()) == t;
  }) : D ? (b = n, e.isSelectionValid = function() {
   return !0;
  }) : t.fail("Neither document.selection or window.getSelection() detected."), e.getNativeSelection = b;
- var M = b(), A = e.createNativeRange(document), R = S.getBody(document), P = C.areHostObjects(M, [ "anchorNode", "focusNode" ] && C.areHostProperties(M, [ "anchorOffset", "focusOffset" ]));
+ var M = b(), A = e.createNativeRange(document), R = C.getBody(document), P = S.areHostObjects(M, [ "anchorNode", "focusNode" ] && S.areHostProperties(M, [ "anchorOffset", "focusOffset" ]));
  e.features.selectionHasAnchorAndFocus = P;
- var O = C.isHostMethod(M, "extend");
+ var O = S.isHostMethod(M, "extend");
  e.features.selectionHasExtend = O;
  var F = "number" == typeof M.rangeCount;
  e.features.selectionHasRangeCount = F;
  var B = !1, j = !0;
- C.areHostMethods(M, [ "addRange", "getRangeAt", "removeAllRanges" ]) && "number" == typeof M.rangeCount && e.features.implementsDomRange && !function() {
+ S.areHostMethods(M, [ "addRange", "getRangeAt", "removeAllRanges" ]) && "number" == typeof M.rangeCount && e.features.implementsDomRange && !function() {
   var e = document.createElement("iframe");
   e.frameBorder = 0, e.style.position = "absolute", e.style.left = "-10000px", R.appendChild(e);
-  var t = S.getIframeDocument(e);
+  var t = C.getIframeDocument(e);
   t.open(), t.write("<html><head></head><body>12</body></html>"), t.close();
-  var n = S.getIframeWindow(e).getSelection(), i = t.documentElement, r = i.lastChild, o = r.firstChild, a = t.createRange();
+  var n = C.getIframeWindow(e).getSelection(), i = t.documentElement, r = i.lastChild, o = r.firstChild, a = t.createRange();
   a.setStart(o, 1), a.collapse(!0), n.addRange(a), j = 1 == n.rangeCount, n.removeAllRanges();
   var s = a.cloneRange();
   a.setStart(o, 0), s.setEnd(o, 2), n.addRange(a), n.addRange(s), B = 2 == n.rangeCount, 
   a.detach(), s.detach(), R.removeChild(e);
  }(), e.features.selectionSupportsMultipleRanges = B, e.features.collapsedNonEditableSelectionsSupported = j;
  var $, U = !1;
- R && C.isHostMethod(R, "createControlRange") && ($ = R.createControlRange(), C.areHostProperties($, [ "item", "add" ]) && (U = !0)), 
+ R && S.isHostMethod(R, "createControlRange") && ($ = R.createControlRange(), S.areHostProperties($, [ "item", "add" ]) && (U = !0)), 
  e.features.implementsControlRange = U, y = P ? function(e) {
   return e.anchorNode === e.focusNode && e.anchorOffset === e.focusOffset;
  } : function(e) {
   return e.rangeCount ? e.getRangeAt(e.rangeCount - 1).collapsed : !1;
  };
- var G;
- C.isHostMethod(M, "getRangeAt") ? G = function(e, t) {
+ var H;
+ S.isHostMethod(M, "getRangeAt") ? H = function(e, t) {
   try {
    return e.getRangeAt(t);
   } catch (n) {
    return null;
   }
- } : P && (G = function(t) {
-  var n = S.getDocument(t.anchorNode), i = e.createRange(n);
+ } : P && (H = function(t) {
+  var n = C.getDocument(t.anchorNode), i = e.createRange(n);
   return i.setStart(t.anchorNode, t.anchorOffset), i.setEnd(t.focusNode, t.focusOffset), 
   i.collapsed !== this.isCollapsed && (i.setStart(t.focusNode, t.focusOffset), i.setEnd(t.anchorNode, t.anchorOffset)), 
   i;
@@ -3851,32 +3851,32 @@ function diff_match_patch() {
   return t ? (t.nativeSelection = n, t.docSelection = r, t.refresh(e)) : (t = new f(n, r, e), 
   e[w] = t), t;
  }, e.getIframeSelection = function(t) {
-  return e.getSelection(S.getIframeWindow(t));
+  return e.getSelection(C.getIframeWindow(t));
  };
  var q = f.prototype;
- if (!L && P && C.areHostMethods(M, [ "removeAllRanges", "addRange" ])) {
+ if (!L && P && S.areHostMethods(M, [ "removeAllRanges", "addRange" ])) {
   q.removeAllRanges = function() {
    this.nativeSelection.removeAllRanges(), a(this);
   };
-  var H = function(t, n) {
+  var G = function(t, n) {
    var i = _.getRangeDocument(n), r = e.createRange(i);
    r.collapseToPoint(n.endContainer, n.endOffset), t.nativeSelection.addRange(s(r)), 
    t.nativeSelection.extend(n.startContainer, n.startOffset), t.refresh();
   };
   q.addRange = F ? function(t, n) {
-   if (U && N && this.docSelection.type == I) h(this, t); else if (n && O) H(this, t); else {
+   if (U && N && this.docSelection.type == I) h(this, t); else if (n && O) G(this, t); else {
     var i;
     if (B ? i = this.rangeCount : (this.removeAllRanges(), i = 0), this.nativeSelection.addRange(s(t)), 
     this.rangeCount = this.nativeSelection.rangeCount, this.rangeCount == i + 1) {
      if (e.config.checkSelectionRanges) {
-      var o = G(this.nativeSelection, this.rangeCount - 1);
+      var o = H(this.nativeSelection, this.rangeCount - 1);
       o && !_.rangesEqual(o, t) && (t = new T(o));
      }
      this._ranges[this.rangeCount - 1] = t, r(this, t, V(this.nativeSelection)), this.isCollapsed = y(this);
     } else this.refresh();
    }
   } : function(e, t) {
-   t && O ? H(this, e) : (this.nativeSelection.addRange(s(e)), this.refresh());
+   t && O ? G(this, e) : (this.nativeSelection.addRange(s(e)), this.refresh());
   }, q.setRanges = function(e) {
    if (U && e.length > 1) m(this, e); else {
     this.removeAllRanges();
@@ -3884,15 +3884,15 @@ function diff_match_patch() {
    }
   };
  } else {
-  if (!(C.isHostMethod(M, "empty") && C.isHostMethod(A, "select") && U && L)) return t.fail("No means of selecting a Range or TextRange was found"), 
+  if (!(S.isHostMethod(M, "empty") && S.isHostMethod(A, "select") && U && L)) return t.fail("No means of selecting a Range or TextRange was found"), 
   !1;
   q.removeAllRanges = function() {
    try {
     if (this.docSelection.empty(), "None" != this.docSelection.type) {
      var e;
-     if (this.anchorNode) e = S.getDocument(this.anchorNode); else if (this.docSelection.type == I) {
+     if (this.anchorNode) e = C.getDocument(this.anchorNode); else if (this.docSelection.type == I) {
       var t = this.docSelection.createRange();
-      t.length && (e = S.getDocument(t.item(0)).body.createTextRange());
+      t.length && (e = C.getDocument(t.item(0)).body.createTextRange());
      }
      if (e) {
       var n = e.body.createTextRange();
@@ -3917,9 +3917,9 @@ function diff_match_patch() {
  var z;
  if (L) z = function(t) {
   var n;
-  e.isSelectionValid(t.win) ? n = t.docSelection.createRange() : (n = S.getBody(t.win.document).createTextRange(), 
+  e.isSelectionValid(t.win) ? n = t.docSelection.createRange() : (n = C.getBody(t.win.document).createTextRange(), 
   n.collapse(!0)), t.docSelection.type == I ? p(t) : u(n) ? d(t, n) : a(t);
- }; else if (C.isHostMethod(M, "getRangeAt") && "number" == typeof M.rangeCount) z = function(t) {
+ }; else if (S.isHostMethod(M, "getRangeAt") && "number" == typeof M.rangeCount) z = function(t) {
   if (U && N && t.docSelection.type == I) p(t); else if (t._ranges.length = t.rangeCount = t.nativeSelection.rangeCount, 
   t.rangeCount) {
    for (var n = 0, i = t.rangeCount; i > n; ++n) t._ranges[n] = new e.WrappedRange(t.nativeSelection.getRangeAt(n));
@@ -3930,7 +3930,7 @@ function diff_match_patch() {
   !1;
   z = function(e) {
    var t, n = e.nativeSelection;
-   n.anchorNode ? (t = G(n, 0), e._ranges = [ t ], e.rangeCount = 1, o(e), e.isCollapsed = y(e)) : a(e);
+   n.anchorNode ? (t = H(n, 0), e._ranges = [ t ], e.rangeCount = 1, o(e), e.isCollapsed = y(e)) : a(e);
   };
  }
  q.refresh = function(e) {
@@ -3950,7 +3950,7 @@ function diff_match_patch() {
  };
  q.removeRange = U ? function(e) {
   if (this.docSelection.type == I) {
-   for (var t, n = this.docSelection.createRange(), i = c(e), r = S.getDocument(n.item(0)), o = S.getBody(r).createControlRange(), a = !1, s = 0, l = n.length; l > s; ++s) t = n.item(s), 
+   for (var t, n = this.docSelection.createRange(), i = c(e), r = C.getDocument(n.item(0)), o = C.getBody(r).createControlRange(), a = !1, s = 0, l = n.length; l > s; ++s) t = n.item(s), 
    t !== i || a ? o.add(n.item(s)) : a = !0;
    o.select(), p(this);
   } else W(this, e);
@@ -3960,7 +3960,7 @@ function diff_match_patch() {
  var V;
  !L && P && e.features.implementsDomRange ? (V = function(e) {
   var t = !1;
-  return e.anchorNode && (t = 1 == S.comparePoints(e.anchorNode, e.anchorOffset, e.focusNode, e.focusOffset)), 
+  return e.anchorNode && (t = 1 == C.comparePoints(e.anchorNode, e.anchorOffset, e.focusNode, e.focusOffset)), 
   t;
  }, q.isBackwards = function() {
   return V(this);
@@ -3971,7 +3971,7 @@ function diff_match_patch() {
   return e.join("");
  }, q.collapse = function(t, n) {
   g(this, t);
-  var i = e.createRange(S.getDocument(t));
+  var i = e.createRange(C.getDocument(t));
   i.collapseToPoint(t, n), this.removeAllRanges(), this.addRange(i), this.isCollapsed = !0;
  }, q.collapseToStart = function() {
   if (!this.rangeCount) throw new k("INVALID_STATE_ERR");
@@ -3983,7 +3983,7 @@ function diff_match_patch() {
   this.collapse(e.endContainer, e.endOffset);
  }, q.selectAllChildren = function(t) {
   g(this, t);
-  var n = e.createRange(S.getDocument(t));
+  var n = e.createRange(C.getDocument(t));
   n.selectNodeContents(t), this.removeAllRanges(), this.addRange(n);
  }, q.deleteFromDocument = function() {
   if (U && N && this.docSelection.type == I) {
@@ -4027,95 +4027,95 @@ function diff_match_patch() {
   return t || e.rangy;
  };
 }(this)), function() {
- var e = this, t = e._, n = {}, i = Array.prototype, r = Object.prototype, o = Function.prototype, a = i.push, s = i.slice, l = i.concat, c = r.toString, u = r.hasOwnProperty, d = i.forEach, p = i.map, h = i.reduce, f = i.reduceRight, m = i.filter, g = i.every, v = i.some, b = i.indexOf, y = i.lastIndexOf, x = Array.isArray, w = Object.keys, S = o.bind, C = function(e) {
-  return e instanceof C ? e : this instanceof C ? void (this._wrapped = e) : new C(e);
+ var e = this, t = e._, n = {}, i = Array.prototype, r = Object.prototype, o = Function.prototype, a = i.push, s = i.slice, l = i.concat, c = r.toString, u = r.hasOwnProperty, d = i.forEach, p = i.map, h = i.reduce, f = i.reduceRight, m = i.filter, g = i.every, v = i.some, b = i.indexOf, y = i.lastIndexOf, x = Array.isArray, w = Object.keys, C = o.bind, S = function(e) {
+  return e instanceof S ? e : this instanceof S ? void (this._wrapped = e) : new S(e);
  };
- "undefined" != typeof exports ? ("undefined" != typeof module && module.exports && (exports = module.exports = C), 
- exports._ = C) : e._ = C, C.VERSION = "1.5.1";
- var _ = C.each = C.forEach = function(e, t, i) {
+ "undefined" != typeof exports ? ("undefined" != typeof module && module.exports && (exports = module.exports = S), 
+ exports._ = S) : e._ = S, S.VERSION = "1.5.1";
+ var _ = S.each = S.forEach = function(e, t, i) {
   if (null != e) if (d && e.forEach === d) e.forEach(t, i); else if (e.length === +e.length) {
    for (var r = 0, o = e.length; o > r; r++) if (t.call(i, e[r], r, e) === n) return;
-  } else for (var a in e) if (C.has(e, a) && t.call(i, e[a], a, e) === n) return;
+  } else for (var a in e) if (S.has(e, a) && t.call(i, e[a], a, e) === n) return;
  };
- C.map = C.collect = function(e, t, n) {
+ S.map = S.collect = function(e, t, n) {
   var i = [];
   return null == e ? i : p && e.map === p ? e.map(t, n) : (_(e, function(e, r, o) {
    i.push(t.call(n, e, r, o));
   }), i);
  };
  var T = "Reduce of empty array with no initial value";
- C.reduce = C.foldl = C.inject = function(e, t, n, i) {
+ S.reduce = S.foldl = S.inject = function(e, t, n, i) {
   var r = arguments.length > 2;
-  if (null == e && (e = []), h && e.reduce === h) return i && (t = C.bind(t, i)), 
+  if (null == e && (e = []), h && e.reduce === h) return i && (t = S.bind(t, i)), 
   r ? e.reduce(t, n) : e.reduce(t);
   if (_(e, function(e, o, a) {
    r ? n = t.call(i, n, e, o, a) : (n = e, r = !0);
   }), !r) throw new TypeError(T);
   return n;
- }, C.reduceRight = C.foldr = function(e, t, n, i) {
+ }, S.reduceRight = S.foldr = function(e, t, n, i) {
   var r = arguments.length > 2;
-  if (null == e && (e = []), f && e.reduceRight === f) return i && (t = C.bind(t, i)), 
+  if (null == e && (e = []), f && e.reduceRight === f) return i && (t = S.bind(t, i)), 
   r ? e.reduceRight(t, n) : e.reduceRight(t);
   var o = e.length;
   if (o !== +o) {
-   var a = C.keys(e);
+   var a = S.keys(e);
    o = a.length;
   }
   if (_(e, function(s, l, c) {
    l = a ? a[--o] : --o, r ? n = t.call(i, n, e[l], l, c) : (n = e[l], r = !0);
   }), !r) throw new TypeError(T);
   return n;
- }, C.find = C.detect = function(e, t, n) {
+ }, S.find = S.detect = function(e, t, n) {
   var i;
   return k(e, function(e, r, o) {
    return t.call(n, e, r, o) ? (i = e, !0) : void 0;
   }), i;
- }, C.filter = C.select = function(e, t, n) {
+ }, S.filter = S.select = function(e, t, n) {
   var i = [];
   return null == e ? i : m && e.filter === m ? e.filter(t, n) : (_(e, function(e, r, o) {
    t.call(n, e, r, o) && i.push(e);
   }), i);
- }, C.reject = function(e, t, n) {
-  return C.filter(e, function(e, i, r) {
+ }, S.reject = function(e, t, n) {
+  return S.filter(e, function(e, i, r) {
    return !t.call(n, e, i, r);
   }, n);
- }, C.every = C.all = function(e, t, i) {
-  t || (t = C.identity);
+ }, S.every = S.all = function(e, t, i) {
+  t || (t = S.identity);
   var r = !0;
   return null == e ? r : g && e.every === g ? e.every(t, i) : (_(e, function(e, o, a) {
    return (r = r && t.call(i, e, o, a)) ? void 0 : n;
   }), !!r);
  };
- var k = C.some = C.any = function(e, t, i) {
-  t || (t = C.identity);
+ var k = S.some = S.any = function(e, t, i) {
+  t || (t = S.identity);
   var r = !1;
   return null == e ? r : v && e.some === v ? e.some(t, i) : (_(e, function(e, o, a) {
    return r || (r = t.call(i, e, o, a)) ? n : void 0;
   }), !!r);
  };
- C.contains = C.include = function(e, t) {
+ S.contains = S.include = function(e, t) {
   return null == e ? !1 : b && e.indexOf === b ? -1 != e.indexOf(t) : k(e, function(e) {
    return e === t;
   });
- }, C.invoke = function(e, t) {
-  var n = s.call(arguments, 2), i = C.isFunction(t);
-  return C.map(e, function(e) {
+ }, S.invoke = function(e, t) {
+  var n = s.call(arguments, 2), i = S.isFunction(t);
+  return S.map(e, function(e) {
    return (i ? t : e[t]).apply(e, n);
   });
- }, C.pluck = function(e, t) {
-  return C.map(e, function(e) {
+ }, S.pluck = function(e, t) {
+  return S.map(e, function(e) {
    return e[t];
   });
- }, C.where = function(e, t, n) {
-  return C.isEmpty(t) ? n ? void 0 : [] : C[n ? "find" : "filter"](e, function(e) {
+ }, S.where = function(e, t, n) {
+  return S.isEmpty(t) ? n ? void 0 : [] : S[n ? "find" : "filter"](e, function(e) {
    for (var n in t) if (t[n] !== e[n]) return !1;
    return !0;
   });
- }, C.findWhere = function(e, t) {
-  return C.where(e, t, !0);
- }, C.max = function(e, t, n) {
-  if (!t && C.isArray(e) && e[0] === +e[0] && e.length < 65535) return Math.max.apply(Math, e);
-  if (!t && C.isEmpty(e)) return -1/0;
+ }, S.findWhere = function(e, t) {
+  return S.where(e, t, !0);
+ }, S.max = function(e, t, n) {
+  if (!t && S.isArray(e) && e[0] === +e[0] && e.length < 65535) return Math.max.apply(Math, e);
+  if (!t && S.isEmpty(e)) return -1/0;
   var i = {
    computed: -1/0,
    value: -1/0
@@ -4127,9 +4127,9 @@ function diff_match_patch() {
     computed: a
    });
   }), i.value;
- }, C.min = function(e, t, n) {
-  if (!t && C.isArray(e) && e[0] === +e[0] && e.length < 65535) return Math.min.apply(Math, e);
-  if (!t && C.isEmpty(e)) return 1/0;
+ }, S.min = function(e, t, n) {
+  if (!t && S.isArray(e) && e[0] === +e[0] && e.length < 65535) return Math.min.apply(Math, e);
+  if (!t && S.isEmpty(e)) return 1/0;
   var i = {
    computed: 1/0,
    value: 1/0
@@ -4141,20 +4141,20 @@ function diff_match_patch() {
     computed: a
    });
   }), i.value;
- }, C.shuffle = function(e) {
+ }, S.shuffle = function(e) {
   var t, n = 0, i = [];
   return _(e, function(e) {
-   t = C.random(n++), i[n - 1] = i[t], i[t] = e;
+   t = S.random(n++), i[n - 1] = i[t], i[t] = e;
   }), i;
  };
  var E = function(e) {
-  return C.isFunction(e) ? e : function(t) {
+  return S.isFunction(e) ? e : function(t) {
    return t[e];
   };
  };
- C.sortBy = function(e, t, n) {
+ S.sortBy = function(e, t, n) {
   var i = E(t);
-  return C.pluck(C.map(e, function(e, t, r) {
+  return S.pluck(S.map(e, function(e, t, r) {
    return {
     value: e,
     index: t,
@@ -4170,105 +4170,105 @@ function diff_match_patch() {
   }), "value");
  };
  var I = function(e, t, n, i) {
-  var r = {}, o = E(null == t ? C.identity : t);
+  var r = {}, o = E(null == t ? S.identity : t);
   return _(e, function(t, a) {
    var s = o.call(n, t, a, e);
    i(r, s, t);
   }), r;
  };
- C.groupBy = function(e, t, n) {
+ S.groupBy = function(e, t, n) {
   return I(e, t, n, function(e, t, n) {
-   (C.has(e, t) ? e[t] : e[t] = []).push(n);
+   (S.has(e, t) ? e[t] : e[t] = []).push(n);
   });
- }, C.countBy = function(e, t, n) {
+ }, S.countBy = function(e, t, n) {
   return I(e, t, n, function(e, t) {
-   C.has(e, t) || (e[t] = 0), e[t]++;
+   S.has(e, t) || (e[t] = 0), e[t]++;
   });
- }, C.sortedIndex = function(e, t, n, i) {
-  n = null == n ? C.identity : E(n);
+ }, S.sortedIndex = function(e, t, n, i) {
+  n = null == n ? S.identity : E(n);
   for (var r = n.call(i, t), o = 0, a = e.length; a > o; ) {
    var s = o + a >>> 1;
    n.call(i, e[s]) < r ? o = s + 1 : a = s;
   }
   return o;
- }, C.toArray = function(e) {
-  return e ? C.isArray(e) ? s.call(e) : e.length === +e.length ? C.map(e, C.identity) : C.values(e) : [];
- }, C.size = function(e) {
-  return null == e ? 0 : e.length === +e.length ? e.length : C.keys(e).length;
- }, C.first = C.head = C.take = function(e, t, n) {
+ }, S.toArray = function(e) {
+  return e ? S.isArray(e) ? s.call(e) : e.length === +e.length ? S.map(e, S.identity) : S.values(e) : [];
+ }, S.size = function(e) {
+  return null == e ? 0 : e.length === +e.length ? e.length : S.keys(e).length;
+ }, S.first = S.head = S.take = function(e, t, n) {
   return null == e ? void 0 : null == t || n ? e[0] : s.call(e, 0, t);
- }, C.initial = function(e, t, n) {
+ }, S.initial = function(e, t, n) {
   return s.call(e, 0, e.length - (null == t || n ? 1 : t));
- }, C.last = function(e, t, n) {
+ }, S.last = function(e, t, n) {
   return null == e ? void 0 : null == t || n ? e[e.length - 1] : s.call(e, Math.max(e.length - t, 0));
- }, C.rest = C.tail = C.drop = function(e, t, n) {
+ }, S.rest = S.tail = S.drop = function(e, t, n) {
   return s.call(e, null == t || n ? 1 : t);
- }, C.compact = function(e) {
-  return C.filter(e, C.identity);
+ }, S.compact = function(e) {
+  return S.filter(e, S.identity);
  };
  var D = function(e, t, n) {
-  return t && C.every(e, C.isArray) ? l.apply(n, e) : (_(e, function(e) {
-   C.isArray(e) || C.isArguments(e) ? t ? a.apply(n, e) : D(e, t, n) : n.push(e);
+  return t && S.every(e, S.isArray) ? l.apply(n, e) : (_(e, function(e) {
+   S.isArray(e) || S.isArguments(e) ? t ? a.apply(n, e) : D(e, t, n) : n.push(e);
   }), n);
  };
- C.flatten = function(e, t) {
+ S.flatten = function(e, t) {
   return D(e, t, []);
- }, C.without = function(e) {
-  return C.difference(e, s.call(arguments, 1));
- }, C.uniq = C.unique = function(e, t, n, i) {
-  C.isFunction(t) && (i = n, n = t, t = !1);
-  var r = n ? C.map(e, n, i) : e, o = [], a = [];
+ }, S.without = function(e) {
+  return S.difference(e, s.call(arguments, 1));
+ }, S.uniq = S.unique = function(e, t, n, i) {
+  S.isFunction(t) && (i = n, n = t, t = !1);
+  var r = n ? S.map(e, n, i) : e, o = [], a = [];
   return _(r, function(n, i) {
-   (t ? i && a[a.length - 1] === n : C.contains(a, n)) || (a.push(n), o.push(e[i]));
+   (t ? i && a[a.length - 1] === n : S.contains(a, n)) || (a.push(n), o.push(e[i]));
   }), o;
- }, C.union = function() {
-  return C.uniq(C.flatten(arguments, !0));
- }, C.intersection = function(e) {
+ }, S.union = function() {
+  return S.uniq(S.flatten(arguments, !0));
+ }, S.intersection = function(e) {
   var t = s.call(arguments, 1);
-  return C.filter(C.uniq(e), function(e) {
-   return C.every(t, function(t) {
-    return C.indexOf(t, e) >= 0;
+  return S.filter(S.uniq(e), function(e) {
+   return S.every(t, function(t) {
+    return S.indexOf(t, e) >= 0;
    });
   });
- }, C.difference = function(e) {
+ }, S.difference = function(e) {
   var t = l.apply(i, s.call(arguments, 1));
-  return C.filter(e, function(e) {
-   return !C.contains(t, e);
+  return S.filter(e, function(e) {
+   return !S.contains(t, e);
   });
- }, C.zip = function() {
-  for (var e = C.max(C.pluck(arguments, "length").concat(0)), t = new Array(e), n = 0; e > n; n++) t[n] = C.pluck(arguments, "" + n);
+ }, S.zip = function() {
+  for (var e = S.max(S.pluck(arguments, "length").concat(0)), t = new Array(e), n = 0; e > n; n++) t[n] = S.pluck(arguments, "" + n);
   return t;
- }, C.object = function(e, t) {
+ }, S.object = function(e, t) {
   if (null == e) return {};
   for (var n = {}, i = 0, r = e.length; r > i; i++) t ? n[e[i]] = t[i] : n[e[i][0]] = e[i][1];
   return n;
- }, C.indexOf = function(e, t, n) {
+ }, S.indexOf = function(e, t, n) {
   if (null == e) return -1;
   var i = 0, r = e.length;
   if (n) {
-   if ("number" != typeof n) return i = C.sortedIndex(e, t), e[i] === t ? i : -1;
+   if ("number" != typeof n) return i = S.sortedIndex(e, t), e[i] === t ? i : -1;
    i = 0 > n ? Math.max(0, r + n) : n;
   }
   if (b && e.indexOf === b) return e.indexOf(t, n);
   for (;r > i; i++) if (e[i] === t) return i;
   return -1;
- }, C.lastIndexOf = function(e, t, n) {
+ }, S.lastIndexOf = function(e, t, n) {
   if (null == e) return -1;
   var i = null != n;
   if (y && e.lastIndexOf === y) return i ? e.lastIndexOf(t, n) : e.lastIndexOf(t);
   for (var r = i ? n : e.length; r--; ) if (e[r] === t) return r;
   return -1;
- }, C.range = function(e, t, n) {
+ }, S.range = function(e, t, n) {
   arguments.length <= 1 && (t = e || 0, e = 0), n = arguments[2] || 1;
   for (var i = Math.max(Math.ceil((t - e) / n), 0), r = 0, o = new Array(i); i > r; ) o[r++] = e, 
   e += n;
   return o;
  };
  var N = function() {};
- C.bind = function(e, t) {
+ S.bind = function(e, t) {
   var n, i;
-  if (S && e.bind === S) return S.apply(e, s.call(arguments, 1));
-  if (!C.isFunction(e)) throw new TypeError();
+  if (C && e.bind === C) return C.apply(e, s.call(arguments, 1));
+  if (!S.isFunction(e)) throw new TypeError();
   return n = s.call(arguments, 2), i = function() {
    if (!(this instanceof i)) return e.apply(t, n.concat(s.call(arguments)));
    N.prototype = e.prototype;
@@ -4277,31 +4277,31 @@ function diff_match_patch() {
    var o = e.apply(r, n.concat(s.call(arguments)));
    return Object(o) === o ? o : r;
   };
- }, C.partial = function(e) {
+ }, S.partial = function(e) {
   var t = s.call(arguments, 1);
   return function() {
    return e.apply(this, t.concat(s.call(arguments)));
   };
- }, C.bindAll = function(e) {
+ }, S.bindAll = function(e) {
   var t = s.call(arguments, 1);
   if (0 === t.length) throw new Error("bindAll must be passed function names");
   return _(t, function(t) {
-   e[t] = C.bind(e[t], e);
+   e[t] = S.bind(e[t], e);
   }), e;
- }, C.memoize = function(e, t) {
+ }, S.memoize = function(e, t) {
   var n = {};
-  return t || (t = C.identity), function() {
+  return t || (t = S.identity), function() {
    var i = t.apply(this, arguments);
-   return C.has(n, i) ? n[i] : n[i] = e.apply(this, arguments);
+   return S.has(n, i) ? n[i] : n[i] = e.apply(this, arguments);
   };
- }, C.delay = function(e, t) {
+ }, S.delay = function(e, t) {
   var n = s.call(arguments, 2);
   return setTimeout(function() {
    return e.apply(null, n);
   }, t);
- }, C.defer = function(e) {
-  return C.delay.apply(C, [ e, 1 ].concat(s.call(arguments, 1)));
- }, C.throttle = function(e, t, n) {
+ }, S.defer = function(e) {
+  return S.delay.apply(S, [ e, 1 ].concat(s.call(arguments, 1)));
+ }, S.throttle = function(e, t, n) {
   var i, r, o, a = null, s = 0;
   n || (n = {});
   var l = function() {
@@ -4314,7 +4314,7 @@ function diff_match_patch() {
    return i = this, r = arguments, 0 >= u ? (clearTimeout(a), a = null, s = c, o = e.apply(i, r)) : a || n.trailing === !1 || (a = setTimeout(l, u)), 
    o;
   };
- }, C.debounce = function(e, t, n) {
+ }, S.debounce = function(e, t, n) {
   var i, r = null;
   return function() {
    var o = this, a = arguments, s = function() {
@@ -4322,73 +4322,73 @@ function diff_match_patch() {
    }, l = n && !r;
    return clearTimeout(r), r = setTimeout(s, t), l && (i = e.apply(o, a)), i;
   };
- }, C.once = function(e) {
+ }, S.once = function(e) {
   var t, n = !1;
   return function() {
    return n ? t : (n = !0, t = e.apply(this, arguments), e = null, t);
   };
- }, C.wrap = function(e, t) {
+ }, S.wrap = function(e, t) {
   return function() {
    var n = [ e ];
    return a.apply(n, arguments), t.apply(this, n);
   };
- }, C.compose = function() {
+ }, S.compose = function() {
   var e = arguments;
   return function() {
    for (var t = arguments, n = e.length - 1; n >= 0; n--) t = [ e[n].apply(this, t) ];
    return t[0];
   };
- }, C.after = function(e, t) {
+ }, S.after = function(e, t) {
   return function() {
    return --e < 1 ? t.apply(this, arguments) : void 0;
   };
- }, C.keys = w || function(e) {
+ }, S.keys = w || function(e) {
   if (e !== Object(e)) throw new TypeError("Invalid object");
   var t = [];
-  for (var n in e) C.has(e, n) && t.push(n);
+  for (var n in e) S.has(e, n) && t.push(n);
   return t;
- }, C.values = function(e) {
+ }, S.values = function(e) {
   var t = [];
-  for (var n in e) C.has(e, n) && t.push(e[n]);
+  for (var n in e) S.has(e, n) && t.push(e[n]);
   return t;
- }, C.pairs = function(e) {
+ }, S.pairs = function(e) {
   var t = [];
-  for (var n in e) C.has(e, n) && t.push([ n, e[n] ]);
+  for (var n in e) S.has(e, n) && t.push([ n, e[n] ]);
   return t;
- }, C.invert = function(e) {
+ }, S.invert = function(e) {
   var t = {};
-  for (var n in e) C.has(e, n) && (t[e[n]] = n);
+  for (var n in e) S.has(e, n) && (t[e[n]] = n);
   return t;
- }, C.functions = C.methods = function(e) {
+ }, S.functions = S.methods = function(e) {
   var t = [];
-  for (var n in e) C.isFunction(e[n]) && t.push(n);
+  for (var n in e) S.isFunction(e[n]) && t.push(n);
   return t.sort();
- }, C.extend = function(e) {
+ }, S.extend = function(e) {
   return _(s.call(arguments, 1), function(t) {
    if (t) for (var n in t) e[n] = t[n];
   }), e;
- }, C.pick = function(e) {
+ }, S.pick = function(e) {
   var t = {}, n = l.apply(i, s.call(arguments, 1));
   return _(n, function(n) {
    n in e && (t[n] = e[n]);
   }), t;
- }, C.omit = function(e) {
+ }, S.omit = function(e) {
   var t = {}, n = l.apply(i, s.call(arguments, 1));
-  for (var r in e) C.contains(n, r) || (t[r] = e[r]);
+  for (var r in e) S.contains(n, r) || (t[r] = e[r]);
   return t;
- }, C.defaults = function(e) {
+ }, S.defaults = function(e) {
   return _(s.call(arguments, 1), function(t) {
    if (t) for (var n in t) void 0 === e[n] && (e[n] = t[n]);
   }), e;
- }, C.clone = function(e) {
-  return C.isObject(e) ? C.isArray(e) ? e.slice() : C.extend({}, e) : e;
- }, C.tap = function(e, t) {
+ }, S.clone = function(e) {
+  return S.isObject(e) ? S.isArray(e) ? e.slice() : S.extend({}, e) : e;
+ }, S.tap = function(e, t) {
   return t(e), e;
  };
  var L = function(e, t, n, i) {
   if (e === t) return 0 !== e || 1 / e == 1 / t;
   if (null == e || null == t) return e === t;
-  e instanceof C && (e = e._wrapped), t instanceof C && (t = t._wrapped);
+  e instanceof S && (e = e._wrapped), t instanceof S && (t = t._wrapped);
   var r = c.call(e);
   if (r != c.call(t)) return !1;
   switch (r) {
@@ -4408,61 +4408,61 @@ function diff_match_patch() {
   if ("object" != typeof e || "object" != typeof t) return !1;
   for (var o = n.length; o--; ) if (n[o] == e) return i[o] == t;
   var a = e.constructor, s = t.constructor;
-  if (a !== s && !(C.isFunction(a) && a instanceof a && C.isFunction(s) && s instanceof s)) return !1;
+  if (a !== s && !(S.isFunction(a) && a instanceof a && S.isFunction(s) && s instanceof s)) return !1;
   n.push(e), i.push(t);
   var l = 0, u = !0;
   if ("[object Array]" == r) {
    if (l = e.length, u = l == t.length) for (;l-- && (u = L(e[l], t[l], n, i)); ) ;
   } else {
-   for (var d in e) if (C.has(e, d) && (l++, !(u = C.has(t, d) && L(e[d], t[d], n, i)))) break;
+   for (var d in e) if (S.has(e, d) && (l++, !(u = S.has(t, d) && L(e[d], t[d], n, i)))) break;
    if (u) {
-    for (d in t) if (C.has(t, d) && !l--) break;
+    for (d in t) if (S.has(t, d) && !l--) break;
     u = !l;
    }
   }
   return n.pop(), i.pop(), u;
  };
- C.isEqual = function(e, t) {
+ S.isEqual = function(e, t) {
   return L(e, t, [], []);
- }, C.isEmpty = function(e) {
+ }, S.isEmpty = function(e) {
   if (null == e) return !0;
-  if (C.isArray(e) || C.isString(e)) return 0 === e.length;
-  for (var t in e) if (C.has(e, t)) return !1;
+  if (S.isArray(e) || S.isString(e)) return 0 === e.length;
+  for (var t in e) if (S.has(e, t)) return !1;
   return !0;
- }, C.isElement = function(e) {
+ }, S.isElement = function(e) {
   return !(!e || 1 !== e.nodeType);
- }, C.isArray = x || function(e) {
+ }, S.isArray = x || function(e) {
   return "[object Array]" == c.call(e);
- }, C.isObject = function(e) {
+ }, S.isObject = function(e) {
   return e === Object(e);
  }, _([ "Arguments", "Function", "String", "Number", "Date", "RegExp" ], function(e) {
-  C["is" + e] = function(t) {
+  S["is" + e] = function(t) {
    return c.call(t) == "[object " + e + "]";
   };
- }), C.isArguments(arguments) || (C.isArguments = function(e) {
-  return !(!e || !C.has(e, "callee"));
- }), "function" != typeof /./ && (C.isFunction = function(e) {
+ }), S.isArguments(arguments) || (S.isArguments = function(e) {
+  return !(!e || !S.has(e, "callee"));
+ }), "function" != typeof /./ && (S.isFunction = function(e) {
   return "function" == typeof e;
- }), C.isFinite = function(e) {
+ }), S.isFinite = function(e) {
   return isFinite(e) && !isNaN(parseFloat(e));
- }, C.isNaN = function(e) {
-  return C.isNumber(e) && e != +e;
- }, C.isBoolean = function(e) {
+ }, S.isNaN = function(e) {
+  return S.isNumber(e) && e != +e;
+ }, S.isBoolean = function(e) {
   return e === !0 || e === !1 || "[object Boolean]" == c.call(e);
- }, C.isNull = function(e) {
+ }, S.isNull = function(e) {
   return null === e;
- }, C.isUndefined = function(e) {
+ }, S.isUndefined = function(e) {
   return void 0 === e;
- }, C.has = function(e, t) {
+ }, S.has = function(e, t) {
   return u.call(e, t);
- }, C.noConflict = function() {
+ }, S.noConflict = function() {
   return e._ = t, this;
- }, C.identity = function(e) {
+ }, S.identity = function(e) {
   return e;
- }, C.times = function(e, t, n) {
+ }, S.times = function(e, t, n) {
   for (var i = Array(Math.max(0, e)), r = 0; e > r; r++) i[r] = t.call(n, r);
   return i;
- }, C.random = function(e, t) {
+ }, S.random = function(e, t) {
   return null == t && (t = e, e = 0), e + Math.floor(Math.random() * (t - e + 1));
  };
  var M = {
@@ -4475,35 +4475,35 @@ function diff_match_patch() {
    "/": "&#x2F;"
   }
  };
- M.unescape = C.invert(M.escape);
+ M.unescape = S.invert(M.escape);
  var A = {
-  escape: new RegExp("[" + C.keys(M.escape).join("") + "]", "g"),
-  unescape: new RegExp("(" + C.keys(M.unescape).join("|") + ")", "g")
+  escape: new RegExp("[" + S.keys(M.escape).join("") + "]", "g"),
+  unescape: new RegExp("(" + S.keys(M.unescape).join("|") + ")", "g")
  };
- C.each([ "escape", "unescape" ], function(e) {
-  C[e] = function(t) {
+ S.each([ "escape", "unescape" ], function(e) {
+  S[e] = function(t) {
    return null == t ? "" : ("" + t).replace(A[e], function(t) {
     return M[e][t];
    });
   };
- }), C.result = function(e, t) {
+ }), S.result = function(e, t) {
   if (null == e) return void 0;
   var n = e[t];
-  return C.isFunction(n) ? n.call(e) : n;
- }, C.mixin = function(e) {
-  _(C.functions(e), function(t) {
-   var n = C[t] = e[t];
-   C.prototype[t] = function() {
+  return S.isFunction(n) ? n.call(e) : n;
+ }, S.mixin = function(e) {
+  _(S.functions(e), function(t) {
+   var n = S[t] = e[t];
+   S.prototype[t] = function() {
     var e = [ this._wrapped ];
-    return a.apply(e, arguments), B.call(this, n.apply(C, e));
+    return a.apply(e, arguments), B.call(this, n.apply(S, e));
    };
   });
  };
  var R = 0;
- C.uniqueId = function(e) {
+ S.uniqueId = function(e) {
   var t = ++R + "";
   return e ? e + t : t;
- }, C.templateSettings = {
+ }, S.templateSettings = {
   evaluate: /<%([\s\S]+?)%>/g,
   interpolate: /<%=([\s\S]+?)%>/g,
   escape: /<%-([\s\S]+?)%>/g
@@ -4517,9 +4517,9 @@ function diff_match_patch() {
   "\u2028": "u2028",
   "\u2029": "u2029"
  }, F = /\\|'|\r|\n|\t|\u2028|\u2029/g;
- C.template = function(e, t, n) {
+ S.template = function(e, t, n) {
   var i;
-  n = C.defaults({}, n, C.templateSettings);
+  n = S.defaults({}, n, S.templateSettings);
   var r = new RegExp([ (n.escape || P).source, (n.interpolate || P).source, (n.evaluate || P).source ].join("|") + "|$", "g"), o = 0, a = "__p+='";
   e.replace(r, function(t, n, i, r, s) {
    return a += e.slice(o, s).replace(F, function(e) {
@@ -4532,30 +4532,30 @@ function diff_match_patch() {
   } catch (s) {
    throw s.source = a, s;
   }
-  if (t) return i(t, C);
+  if (t) return i(t, S);
   var l = function(e) {
-   return i.call(this, e, C);
+   return i.call(this, e, S);
   };
   return l.source = "function(" + (n.variable || "obj") + "){\n" + a + "}", l;
- }, C.chain = function(e) {
-  return C(e).chain();
+ }, S.chain = function(e) {
+  return S(e).chain();
  };
  var B = function(e) {
-  return this._chain ? C(e).chain() : e;
+  return this._chain ? S(e).chain() : e;
  };
- C.mixin(C), _([ "pop", "push", "reverse", "shift", "sort", "splice", "unshift" ], function(e) {
+ S.mixin(S), _([ "pop", "push", "reverse", "shift", "sort", "splice", "unshift" ], function(e) {
   var t = i[e];
-  C.prototype[e] = function() {
+  S.prototype[e] = function() {
    var n = this._wrapped;
    return t.apply(n, arguments), "shift" != e && "splice" != e || 0 !== n.length || delete n[0], 
    B.call(this, n);
   };
  }), _([ "concat", "join", "slice" ], function(e) {
   var t = i[e];
-  C.prototype[e] = function() {
+  S.prototype[e] = function() {
    return B.call(this, t.apply(this._wrapped, arguments));
   };
- }), C.extend(C.prototype, {
+ }), S.extend(S.prototype, {
   chain: function() {
    return this._chain = !0, this;
   },
@@ -4778,7 +4778,7 @@ function diff_match_patch() {
    match: String.prototype.match,
    replace: String.prototype.replace,
    split: String.prototype.split
-  }, w = {}, S = {}, C = {}, _ = [], T = "default", k = "class", E = {
+  }, w = {}, C = {}, S = {}, _ = [], T = "default", k = "class", E = {
    "default": /\\(?:0(?:[0-3][0-7]{0,2}|[4-7][0-7]?)?|[1-9]\d*|x[\dA-Fa-f]{2}|u[\dA-Fa-f]{4}|c[A-Za-z]|[\s\S])|\(\?[:=!]|[?*+]\?|{\d+(?:,\d*)?}\??|[\s\S]/,
    "class": /\\(?:[0-3][0-7]{0,2}|[4-7][0-7]?|x[\dA-Fa-f]{2}|u[\dA-Fa-f]{4}|c[A-Za-z]|[\s\S])|[\s\S]/
   }, I = /\$(?:{([\w$]+)}|(\d\d?|[\s\S]))/g, D = x.exec.call(/()??/, "")[1] === e, N = RegExp.prototype.sticky !== e, L = {
@@ -4799,19 +4799,19 @@ function diff_match_patch() {
     });
    }
    if (n = n === e ? "" : String(n), r = r === e ? "" : String(r), s = n + "***" + r, 
-   !C[s]) {
+   !S[s]) {
     for (o = c(n, r), n = o.pattern, r = o.flags; h < n.length; ) {
      do o = p(n, r, h, u, l), o && o.reparse && (n = n.slice(0, h) + o.output + n.slice(h + o.matchLength)); while (o && o.reparse);
      o ? (d += o.output, h += o.matchLength || 1) : (a = g.exec(n, E[u], h, "sticky")[0], 
      d += a, h += a.length, "[" === a && u === T ? u = k : "]" === a && u === k && (u = T));
     }
-    C[s] = {
+    S[s] = {
      pattern: x.replace.call(d, /\(\?:\)(?=\(\?:\))|^\(\?:\)|\(\?:\)$/g, ""),
      flags: x.replace.call(r, /[^gimy]+/g, ""),
      captures: l.hasNamedCapture ? l.captureNames : null
     };
    }
-   return s = C[s], t(new RegExp(s.pattern, s.flags), s.captures, !0);
+   return s = S[s], t(new RegExp(s.pattern, s.flags), s.captures, !0);
   }, g.prototype = new RegExp(), g.version = "3.0.0-pre", g.addToken = function(e, t, n) {
    n = n || {};
    var r, o = n.optionalFlags;
@@ -4827,9 +4827,9 @@ function diff_match_patch() {
    }), g.cache.flush("patterns");
   }, g.cache = function(e, t) {
    var n = e + "***" + (t || "");
-   return S[n] || (S[n] = g(e, t));
+   return C[n] || (C[n] = g(e, t));
   }, g.cache.flush = function(e) {
-   "patterns" === e ? C = {} : S = {};
+   "patterns" === e ? S = {} : C = {};
   }, g.escape = function(e) {
    return x.replace.call(m(e), /[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
   }, g.exec = function(e, t, n, o) {
@@ -6532,7 +6532,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
     return function() {
      return g.readyState !== g.DONE ? e.apply(this, arguments) : void 0;
     };
-   }, S = {
+   }, C = {
     create: !0,
     exclusive: !1
    };
@@ -6540,9 +6540,9 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
    i.href = d, i.download = l, o(i), g.readyState = g.DONE, y(), void p(d)) : (e.chrome && v && v !== c && (m = t.slice || t.webkitSlice, 
    t = m.call(t, 0, t.size, c), b = !0), a && "download" !== l && (l += ".download"), 
    (v === c || a) && (f = e), s ? (u += t.size, void s(e.TEMPORARY, u, w(function(e) {
-    e.root.getDirectory("saved", S, w(function(e) {
+    e.root.getDirectory("saved", C, w(function(e) {
      var n = function() {
-      e.getFile(l, S, w(function(e) {
+      e.getFile(l, C, w(function(e) {
        e.createWriter(w(function(n) {
         n.onwriteend = function(t) {
          f.location.href = e.toURL(), g.readyState = g.DONE, h(g, "writeend", t), p(e);
@@ -6931,7 +6931,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  }, utils;
 }), define("constants", [], function() {
  var e = {};
- return e.VERSION = "1.7.8", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
+ return e.VERSION = "1.7.10", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
  e.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ", e.GOOGLE_DRIVE_APP_ID = "1017251498254", 
  e.DROPBOX_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_APP_SECRET = "1mesyckskczn3f9", 
  e.DROPBOX_RESTRICTED_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_RESTRICTED_APP_SECRET = "1mesyckskczn3f9", 
@@ -7083,14 +7083,14 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
   return "shift" == e || "ctrl" == e || "alt" == e || "meta" == e;
  }
  function f() {
-  clearTimeout(C), C = setTimeout(o, 1e3);
+  clearTimeout(S), S = setTimeout(o, 1e3);
  }
  function m() {
-  if (!S) {
-   S = {};
-   for (var e in _) e > 95 && 112 > e || _.hasOwnProperty(e) && (S[_[e]] = e);
+  if (!C) {
+   C = {};
+   for (var e in _) e > 95 && 112 > e || _.hasOwnProperty(e) && (C[_[e]] = e);
   }
-  return S;
+  return C;
  }
  function g(e, t, n) {
   return n || (n = m()[e] ? "keydown" : "keypress"), "keypress" == n && t.length && (n = "keydown"), 
@@ -7142,7 +7142,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  function w(e, t, n) {
   for (var i = 0; i < e.length; ++i) x(e[i], t, n);
  }
- for (var S, C, _ = {
+ for (var C, S, _ = {
   8: "backspace",
   9: "tab",
   13: "enter",
@@ -7840,9 +7840,9 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
      p = new o(d), p.refs = this.refs, n[f] = p.parse(this.getNextEmbedBlock()), this.refs = p.refs);
     }
     if (a) if (n instanceof Array) this.refs[a] = n[n.length - 1]; else {
-     var S = null;
-     for (var C in n) n.hasOwnProperty(C) && (S = C);
-     this.refs[a] = n[C];
+     var C = null;
+     for (var S in n) n.hasOwnProperty(S) && (C = S);
+     this.refs[a] = n[S];
     }
    }
    return this.isEmpty(n) ? null : n;
@@ -8384,13 +8384,13 @@ var prettyPrintOne, prettyPrint;
      g = b.length >= 5 && "lang-" === b.substring(0, 5), !g || y && "string" == typeof y[1] || (g = !1, 
      b = B), g || (h[v] = b);
     }
-    var S = d;
+    var C = d;
     if (d += v.length, g) {
-     var C = y[1], _ = v.indexOf(C), T = _ + C.length;
-     y[2] && (T = v.length - y[2].length, _ = T - C.length);
+     var S = y[1], _ = v.indexOf(S), T = _ + S.length;
+     y[2] && (T = v.length - y[2].length, _ = T - S.length);
      var k = b.substring(5);
-     n(l + S, v.substring(0, _), s, u), n(l + S + _, C, c(k, C), u), n(l + S + T, v.substring(T), s, u);
-    } else u.push(l + S, b);
+     n(l + C, v.substring(0, _), s, u), n(l + C + _, S, c(k, S), u), n(l + C + T, v.substring(T), s, u);
+    } else u.push(l + C, b);
    }
    e.decorations = u;
   };
@@ -8407,7 +8407,7 @@ var prettyPrintOne, prettyPrint;
   var o = e.regexLiterals;
   if (o) {
    var a = o > 1 ? "" : "\n\r", s = a ? "." : "[\\S\\s]", l = "/(?=[^/*" + a + "])(?:[^/\\x5B\\x5C" + a + "]|\\x5C" + s + "|\\x5B(?:[^\\x5C\\x5D" + a + "]|\\x5C" + s + ")*(?:\\x5D|$))+/";
-   n.push([ "lang-regex", RegExp("^" + G + "(" + l + ")") ]);
+   n.push([ "lang-regex", RegExp("^" + H + "(" + l + ")") ]);
   }
   var c = e.types;
   c && n.push([ M, c ]);
@@ -8477,14 +8477,14 @@ var prettyPrintOne, prettyPrint;
   b && (v = b.style.display, b.style.display = "none");
   try {
    for (;s > l; ) {
-    var y, x = (a[l], a[l + 2] || r), w = c[d + 2] || r, g = Math.min(x, w), S = a[l + 1];
-    if (1 !== S.nodeType && (y = i.substring(o, g))) {
-     t && (y = y.replace(n, "\r")), S.nodeValue = y;
-     var C = S.ownerDocument, _ = C.createElement("span");
+    var y, x = (a[l], a[l + 2] || r), w = c[d + 2] || r, g = Math.min(x, w), C = a[l + 1];
+    if (1 !== C.nodeType && (y = i.substring(o, g))) {
+     t && (y = y.replace(n, "\r")), C.nodeValue = y;
+     var S = C.ownerDocument, _ = S.createElement("span");
      _.className = c[d + 1];
-     var T = S.parentNode;
-     T.replaceChild(_, S), _.appendChild(S), x > o && (a[l + 1] = S = C.createTextNode(i.substring(g, x)), 
-     T.insertBefore(S, _.nextSibling));
+     var T = C.parentNode;
+     T.replaceChild(_, C), _.appendChild(C), x > o && (a[l + 1] = C = S.createTextNode(i.substring(g, x)), 
+     T.insertBefore(C, _.nextSibling));
     }
     o = g, o >= x && (l += 2), o >= w && (d += 2);
    }
@@ -8542,7 +8542,7 @@ var prettyPrintOne, prettyPrint;
     if ((o !== _ || y.test(f)) && !x.test(f)) {
      for (var T = !1, k = n.parentNode; k; k = k.parentNode) {
       var E = k.tagName;
-      if (C.test(E) && k.className && y.test(k.className)) {
+      if (S.test(E) && k.className && y.test(k.className)) {
        T = !0;
        break;
       }
@@ -8553,7 +8553,7 @@ var prettyPrintOne, prettyPrint;
       if (!I) {
        I = f.match(b);
        var D;
-       !I && (D = i(n)) && S.test(D.tagName) && (I = D.className.match(b)), I && (I = I[1]);
+       !I && (D = i(n)) && C.test(D.tagName) && (I = D.className.match(b)), I && (I = I[1]);
       }
       var N;
       if (w.test(n.tagName)) N = 1; else {
@@ -8581,17 +8581,17 @@ var prettyPrintOne, prettyPrint;
     return +new Date();
    }
   });
-  var g, v = 0, b = /\blang(?:uage)?-([\w.]+)(?!\S)/, y = /\bprettyprint\b/, x = /\bprettyprinted\b/, w = /pre|xmp/i, S = /^code$/i, C = /^(?:pre|code|xmp)$/i, _ = {};
+  var g, v = 0, b = /\blang(?:uage)?-([\w.]+)(?!\S)/, y = /\bprettyprint\b/, x = /\bprettyprinted\b/, w = /pre|xmp/i, C = /^code$/i, S = /^(?:pre|code|xmp)$/i, _ = {};
   r();
  }
- var h = window, f = [ "break,continue,do,else,for,if,return,while" ], m = [ f, "auto,case,char,const,default,double,enum,extern,float,goto,inline,int,long,register,short,signed,sizeof,static,struct,switch,typedef,union,unsigned,void,volatile" ], g = [ m, "catch,class,delete,false,import,new,operator,private,protected,public,this,throw,true,try,typeof" ], v = [ g, "alignof,align_union,asm,axiom,bool,concept,concept_map,const_cast,constexpr,decltype,delegate,dynamic_cast,explicit,export,friend,generic,late_check,mutable,namespace,nullptr,property,reinterpret_cast,static_assert,static_cast,template,typeid,typename,using,virtual,where" ], b = [ g, "abstract,assert,boolean,byte,extends,final,finally,implements,import,instanceof,interface,null,native,package,strictfp,super,synchronized,throws,transient" ], y = [ b, "as,base,by,checked,decimal,delegate,descending,dynamic,event,fixed,foreach,from,group,implicit,in,internal,into,is,let,lock,object,out,override,orderby,params,partial,readonly,ref,sbyte,sealed,stackalloc,string,select,uint,ulong,unchecked,unsafe,ushort,var,virtual,where" ], x = "all,and,by,catch,class,else,extends,false,finally,for,if,in,is,isnt,loop,new,no,not,null,of,off,on,or,return,super,then,throw,true,try,unless,until,when,while,yes", w = [ g, "debugger,eval,export,function,get,null,set,undefined,var,with,Infinity,NaN" ], S = "caller,delete,die,do,dump,elsif,eval,exit,foreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo,require,sub,undef,unless,until,use,wantarray,while,BEGIN,END", C = [ f, "and,as,assert,class,def,del,elif,except,exec,finally,from,global,import,in,is,lambda,nonlocal,not,or,pass,print,raise,try,with,yield,False,True,None" ], _ = [ f, "alias,and,begin,case,class,def,defined,elsif,end,ensure,false,in,module,next,nil,not,or,redo,rescue,retry,self,super,then,true,undef,unless,until,when,yield,BEGIN,END" ], T = [ f, "as,assert,const,copy,drop,enum,extern,fail,false,fn,impl,let,log,loop,match,mod,move,mut,priv,pub,pure,ref,self,static,struct,true,trait,type,unsafe,use" ], k = [ f, "case,done,elif,esac,eval,fi,function,in,local,set,then,until" ], E = [ v, y, w, S, C, _, k ], I = /^(DIR|FILE|vector|(de|priority_)?queue|list|stack|(const_)?iterator|(multi)?(set|map)|bitset|u?(int|float)\d*)\b/, D = "str", N = "kwd", L = "com", M = "typ", A = "lit", R = "pun", P = "pln", O = "tag", F = "dec", B = "src", j = "atn", $ = "atv", U = "nocode", G = "(?:^^\\.?|[+-]|[!=]=?=?|\\#|%=?|&&?=?|\\(|\\*=?|[+\\-]=|->|\\/=?|::?|<<?=?|>>?>?=?|,|;|\\?|@|\\[|~|{|\\^\\^?=?|\\|\\|?=?|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\\s*", q = /\S/, H = o({
+ var h = window, f = [ "break,continue,do,else,for,if,return,while" ], m = [ f, "auto,case,char,const,default,double,enum,extern,float,goto,inline,int,long,register,short,signed,sizeof,static,struct,switch,typedef,union,unsigned,void,volatile" ], g = [ m, "catch,class,delete,false,import,new,operator,private,protected,public,this,throw,true,try,typeof" ], v = [ g, "alignof,align_union,asm,axiom,bool,concept,concept_map,const_cast,constexpr,decltype,delegate,dynamic_cast,explicit,export,friend,generic,late_check,mutable,namespace,nullptr,property,reinterpret_cast,static_assert,static_cast,template,typeid,typename,using,virtual,where" ], b = [ g, "abstract,assert,boolean,byte,extends,final,finally,implements,import,instanceof,interface,null,native,package,strictfp,super,synchronized,throws,transient" ], y = [ b, "as,base,by,checked,decimal,delegate,descending,dynamic,event,fixed,foreach,from,group,implicit,in,internal,into,is,let,lock,object,out,override,orderby,params,partial,readonly,ref,sbyte,sealed,stackalloc,string,select,uint,ulong,unchecked,unsafe,ushort,var,virtual,where" ], x = "all,and,by,catch,class,else,extends,false,finally,for,if,in,is,isnt,loop,new,no,not,null,of,off,on,or,return,super,then,throw,true,try,unless,until,when,while,yes", w = [ g, "debugger,eval,export,function,get,null,set,undefined,var,with,Infinity,NaN" ], C = "caller,delete,die,do,dump,elsif,eval,exit,foreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo,require,sub,undef,unless,until,use,wantarray,while,BEGIN,END", S = [ f, "and,as,assert,class,def,del,elif,except,exec,finally,from,global,import,in,is,lambda,nonlocal,not,or,pass,print,raise,try,with,yield,False,True,None" ], _ = [ f, "alias,and,begin,case,class,def,defined,elsif,end,ensure,false,in,module,next,nil,not,or,redo,rescue,retry,self,super,then,true,undef,unless,until,when,yield,BEGIN,END" ], T = [ f, "as,assert,const,copy,drop,enum,extern,fail,false,fn,impl,let,log,loop,match,mod,move,mut,priv,pub,pure,ref,self,static,struct,true,trait,type,unsafe,use" ], k = [ f, "case,done,elif,esac,eval,fi,function,in,local,set,then,until" ], E = [ v, y, w, C, S, _, k ], I = /^(DIR|FILE|vector|(de|priority_)?queue|list|stack|(const_)?iterator|(multi)?(set|map)|bitset|u?(int|float)\d*)\b/, D = "str", N = "kwd", L = "com", M = "typ", A = "lit", R = "pun", P = "pln", O = "tag", F = "dec", B = "src", j = "atn", $ = "atv", U = "nocode", H = "(?:^^\\.?|[+-]|[!=]=?=?|\\#|%=?|&&?=?|\\(|\\*=?|[+\\-]=|->|\\/=?|::?|<<?=?|>>?>?=?|,|;|\\?|@|\\[|~|{|\\^\\^?=?|\\|\\|?=?|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\\s*", q = /\S/, G = o({
   keywords: E,
   hashComments: !0,
   cStyleComments: !0,
   multiLineStrings: !0,
   regexLiterals: !0
  }), z = {};
- l(H, [ "default-code" ]), l(r([], [ [ P, /^[^<?]+/ ], [ F, /^<!\w[^>]*(?:>|$)/ ], [ L, /^<\!--[\s\S]*?(?:-\->|$)/ ], [ "lang-", /^<\?([\s\S]+?)(?:\?>|$)/ ], [ "lang-", /^<%([\s\S]+?)(?:%>|$)/ ], [ R, /^(?:<[%?]|[%?]>)/ ], [ "lang-", /^<xmp\b[^>]*>([\s\S]+?)<\/xmp\b[^>]*>/i ], [ "lang-js", /^<script\b[^>]*>([\s\S]*?)(<\/script\b[^>]*>)/i ], [ "lang-css", /^<style\b[^>]*>([\s\S]*?)(<\/style\b[^>]*>)/i ], [ "lang-in.tag", /^(<\/?[a-z][^<>]*>)/i ] ]), [ "default-markup", "htm", "html", "mxml", "xhtml", "xml", "xsl" ]), 
+ l(G, [ "default-code" ]), l(r([], [ [ P, /^[^<?]+/ ], [ F, /^<!\w[^>]*(?:>|$)/ ], [ L, /^<\!--[\s\S]*?(?:-\->|$)/ ], [ "lang-", /^<\?([\s\S]+?)(?:\?>|$)/ ], [ "lang-", /^<%([\s\S]+?)(?:%>|$)/ ], [ R, /^(?:<[%?]|[%?]>)/ ], [ "lang-", /^<xmp\b[^>]*>([\s\S]+?)<\/xmp\b[^>]*>/i ], [ "lang-js", /^<script\b[^>]*>([\s\S]*?)(<\/script\b[^>]*>)/i ], [ "lang-css", /^<style\b[^>]*>([\s\S]*?)(<\/style\b[^>]*>)/i ], [ "lang-in.tag", /^(<\/?[a-z][^<>]*>)/i ] ]), [ "default-markup", "htm", "html", "mxml", "xhtml", "xml", "xsl" ]), 
  l(r([ [ P, /^[\s]+/, null, " 	\r\n" ], [ $, /^(?:\"[^\"]*\"?|\'[^\']*\'?)/, null, "\"'" ] ], [ [ O, /^^<\/?[a-z](?:[\w.:-]*\w)?|\/?>$/i ], [ j, /^(?!style[\s=]|on)[a-z](?:[\w:-]*\w)?/i ], [ "lang-uq.val", /^=\s*([^>\'\"\s]*(?:[^>\'\"\s\/]|\/(?=\s)))/ ], [ R, /^[=<>\/]+/ ], [ "lang-js", /^on\w+\s*=\s*\"([^\"]+)\"/i ], [ "lang-js", /^on\w+\s*=\s*\'([^\']+)\'/i ], [ "lang-js", /^on\w+\s*=\s*([^\"\'>\s]+)/i ], [ "lang-css", /^style\s*=\s*\"([^\"]+)\"/i ], [ "lang-css", /^style\s*=\s*\'([^\']+)\'/i ], [ "lang-css", /^style\s*=\s*([^\"\'>\s]+)/i ] ]), [ "in.tag" ]), 
  l(r([], [ [ $, /^[\s\S]+/ ] ]), [ "uq.val" ]), l(o({
   keywords: v,
@@ -8614,12 +8614,12 @@ var prettyPrintOne, prettyPrint;
   hashComments: !0,
   multiLineStrings: !0
  }), [ "bash", "bsh", "csh", "sh" ]), l(o({
-  keywords: C,
+  keywords: S,
   hashComments: !0,
   multiLineStrings: !0,
   tripleQuotedStrings: !0
  }), [ "cv", "py", "python" ]), l(o({
-  keywords: S,
+  keywords: C,
   hashComments: !0,
   multiLineStrings: !0,
   regexLiterals: 2
@@ -8796,7 +8796,7 @@ var hljs = new function() {
    return !r && n(t.iR, e);
   }
   function p(e, t) {
-   var n = S.cI ? t[0].toLowerCase() : t[0];
+   var n = C.cI ? t[0].toLowerCase() : t[0];
    return e.k.hasOwnProperty(n) && e.k[n];
   }
   function h(e, t, n, i) {
@@ -8805,64 +8805,64 @@ var hljs = new function() {
   }
   function f() {
    var t = e(k);
-   if (!C.k) return t;
+   if (!S.k) return t;
    var n = "", i = 0;
-   C.lR.lastIndex = 0;
-   for (var r = C.lR.exec(t); r; ) {
+   S.lR.lastIndex = 0;
+   for (var r = S.lR.exec(t); r; ) {
     n += t.substr(i, r.index - i);
-    var o = p(C, r);
-    o ? (E += o[1], n += h(o[0], r[0])) : n += r[0], i = C.lR.lastIndex, r = C.lR.exec(t);
+    var o = p(S, r);
+    o ? (E += o[1], n += h(o[0], r[0])) : n += r[0], i = S.lR.lastIndex, r = S.lR.exec(t);
    }
    return n + t.substr(i);
   }
   function m() {
-   if (C.sL && !y[C.sL]) return e(k);
-   var t = C.sL ? c(C.sL, k, !0, C.continuation.top) : u(k);
-   return C.r > 0 && (E += t.r), "continuous" == C.subLanguageMode && (C.continuation.top = t.top), 
+   if (S.sL && !y[S.sL]) return e(k);
+   var t = S.sL ? c(S.sL, k, !0, S.continuation.top) : u(k);
+   return S.r > 0 && (E += t.r), "continuous" == S.subLanguageMode && (S.continuation.top = t.top), 
    h(t.language, t.value, !1, !0);
   }
   function g() {
-   return void 0 !== C.sL ? m() : f();
+   return void 0 !== S.sL ? m() : f();
   }
   function x(t, n) {
    var i = t.cN ? h(t.cN, "", !0) : "";
-   t.rB ? (_ += i, k = "") : t.eB ? (_ += e(n) + i, k = "") : (_ += i, k = n), C = Object.create(t, {
+   t.rB ? (_ += i, k = "") : t.eB ? (_ += e(n) + i, k = "") : (_ += i, k = n), S = Object.create(t, {
     parent: {
-     value: C
+     value: S
     }
    });
   }
   function w(t, n) {
    if (k += t, void 0 === n) return _ += g(), 0;
-   var i = a(n, C);
+   var i = a(n, S);
    if (i) return _ += g(), x(i, n), i.rB ? 0 : n.length;
-   var r = s(C, n);
+   var r = s(S, n);
    if (r) {
-    var o = C;
+    var o = S;
     o.rE || o.eE || (k += n), _ += g();
-    do C.cN && (_ += "</span>"), E += C.r, C = C.parent; while (C != r.parent);
+    do S.cN && (_ += "</span>"), E += S.r, S = S.parent; while (S != r.parent);
     return o.eE && (_ += e(n)), k = "", r.starts && x(r.starts, ""), o.rE ? 0 : n.length;
    }
-   if (d(n, C)) throw new Error('Illegal lexeme "' + n + '" for mode "' + (C.cN || "<unnamed>") + '"');
+   if (d(n, S)) throw new Error('Illegal lexeme "' + n + '" for mode "' + (S.cN || "<unnamed>") + '"');
    return k += n, n.length || 1;
   }
-  var S = v(t);
-  if (!S) throw new Error('Unknown language: "' + t + '"');
-  l(S);
-  for (var C = o || S, _ = "", T = C; T != S; T = T.parent) T.cN && (_ = h(T.cN, _, !0));
+  var C = v(t);
+  if (!C) throw new Error('Unknown language: "' + t + '"');
+  l(C);
+  for (var S = o || C, _ = "", T = S; T != C; T = T.parent) T.cN && (_ = h(T.cN, _, !0));
   var k = "", E = 0;
   try {
    for (var I, D, N = 0; ;) {
-    if (C.t.lastIndex = N, I = C.t.exec(i), !I) break;
+    if (S.t.lastIndex = N, I = S.t.exec(i), !I) break;
     D = w(i.substr(N, I.index - N), I[0]), N = I.index + D;
    }
    w(i.substr(N));
-   for (var T = C; T.parent; T = T.parent) T.cN && (_ += "</span>");
+   for (var T = S; T.parent; T = T.parent) T.cN && (_ += "</span>");
    return {
     r: E,
     value: _,
     language: t,
-    top: C
+    top: S
    };
   } catch (L) {
    if (-1 != L.message.indexOf("Illegal")) return {
@@ -10856,12 +10856,12 @@ hljs.registerLanguage("bash", function(e) {
   cN: "string",
   b: 'q"\\{',
   e: '\\}"'
- }, S = {
+ }, C = {
   cN: "shebang",
   b: "^#!",
   e: "$",
   r: 5
- }, C = {
+ }, S = {
   cN: "preprocessor",
   b: "#(line)",
   e: "$",
@@ -10879,7 +10879,7 @@ hljs.registerLanguage("bash", function(e) {
  return {
   l: e.UIR,
   k: t,
-  c: [ e.CLCM, e.CBLCLM, T, x, v, b, y, w, f, h, m, S, C, _ ]
+  c: [ e.CLCM, e.CBLCLM, T, x, v, b, y, w, f, h, m, C, S, _ ]
  };
 }), hljs.registerLanguage("vbnet", function(e) {
  return {
@@ -12541,7 +12541,7 @@ function() {
  }, Markdown.Converter = function() {
   function e(e) {
    return e = e.replace(/^[ ]{0,3}\[(.+)\]:[ \t]*\n?[ \t]*<?(\S+?)>?(?=\s|$)[ \t]*\n?[ \t]*((\n*)["(](.+?)[")][ \t]*)?(?:\n+)/gm, function(e, t, n, i, r, o) {
-    return t = t.toLowerCase(), P.set(t, C(n)), r ? i : (o && O.set(t, o.replace(/"/g, "&quot;")), 
+    return t = t.toLowerCase(), P.set(t, S(n)), r ? i : (o && O.set(t, o.replace(/"/g, "&quot;")), 
     "");
    });
   }
@@ -12560,11 +12560,11 @@ function() {
    var i = "<hr />\n";
    return e = e.replace(/^[ ]{0,2}([ ]?\*[ ]?){3,}[ \t]*$/gm, i), e = e.replace(/^[ ]{0,2}([ ]?-[ ]?){3,}[ \t]*$/gm, i), 
    e = e.replace(/^[ ]{0,2}([ ]?_[ ]?){3,}[ \t]*$/gm, i), e = f(e), e = g(e), e = w(e), 
-   e = R.postBlockGamut(e, j), e = t(e), e = S(e, n);
+   e = R.postBlockGamut(e, j), e = t(e), e = C(e, n);
   }
   function a(e) {
    return e = R.preSpanGamut(e), e = b(e), e = s(e), e = _(e), e = u(e), e = l(e), 
-   e = k(e), e = e.replace(/~P/g, "://"), e = C(e), e = A._DoItalicsAndBold ? A._DoItalicsAndBold(e) : x(e), 
+   e = k(e), e = e.replace(/~P/g, "://"), e = S(e), e = A._DoItalicsAndBold ? A._DoItalicsAndBold(e) : x(e), 
    e = e.replace(/  +\n/g, " <br>\n"), e = R.postSpanGamut(e);
   }
   function s(e) {
@@ -12673,7 +12673,7 @@ function() {
     }), v("<blockquote>\n" + n + "\n</blockquote>");
    });
   }
-  function S(e, t) {
+  function C(e, t) {
    e = e.replace(/^\n+/g, ""), e = e.replace(/\n+$/g, "");
    for (var n = e.split(/\n{2,}/g), i = [], r = /~K(\d+)K/, o = n.length, s = 0; o > s; s++) {
     var l = n[s];
@@ -12688,7 +12688,7 @@ function() {
    }
    return i.join("\n\n");
   }
-  function C(e) {
+  function S(e) {
    return e = e.replace(/&(?!#?[xX]?(?:[0-9a-fA-F]+|\w+);)/g, "&amp;"), e = e.replace(/<(?![a-z\/?!]|~D)/gi, "&lt;");
   }
   function _(e) {
@@ -12707,7 +12707,7 @@ function() {
    }
    if (s) {
     var c = i.charAt(i.length - 1);
-    H.test(c) || (s = c + s, i = i.substr(0, i.length - 1));
+    G.test(c) || (s = c + s, i = i.substr(0, i.length - 1));
    }
    return "<" + n + i + ">" + s;
   }
@@ -12773,7 +12773,7 @@ function() {
   }, $ = {
    ol: "\\d+[.]",
    ul: "[*+-]"
-  }, U = "[-A-Z0-9+&@#/%?=~_|[\\]()!:,.;]", G = "[-A-Z0-9+&@#/%=~_|[\\])]", q = new RegExp('(="|<)?\\b(https?|ftp)(://' + U + "*" + G + ")(?=$|\\W)", "gi"), H = new RegExp(G, "i"), z = /(?:["'*()[\]:]|~D)/g;
+  }, U = "[-A-Z0-9+&@#/%?=~_|[\\]()!:,.;]", H = "[-A-Z0-9+&@#/%=~_|[\\])]", q = new RegExp('(="|<)?\\b(https?|ftp)(://' + U + "*" + H + ")(?=$|\\W)", "gi"), G = new RegExp(H, "i"), z = /(?:["'*()[\]:]|~D)/g;
  };
 }(), define("libs/Markdown.Converter", function() {}), function() {
  function e(e) {
@@ -13379,7 +13379,7 @@ function() {
     p && p({
      error: _
     });
-   }, S);
+   }, C);
   });
  }
  function i(e, t) {
@@ -13438,7 +13438,7 @@ function() {
     f && f({
      error: _
     });
-   }, S);
+   }, C);
   });
  }
  function s(e) {
@@ -13493,9 +13493,9 @@ function() {
   }, !1), function(e) {
    n ? e() : t.push(e);
   };
- }(), y = "https://monetizejs.com", x = 1e3, w = 700, S = 3e4, C = 3e5, _ = "Request timeout", T = "Please check your JS console";
+ }(), y = "https://monetizejs.com", x = 1e3, w = 700, C = 3e4, S = 3e5, _ = "Request timeout", T = "Please check your JS console";
  window.addEventListener("message", function(e) {
-  e.origin == y && (m = e.data, m.expiresIn && (m.refreshDate = Date.now() + m.expiresIn - C), 
+  e.origin == y && (m = e.data, m.expiresIn && (m.refreshDate = Date.now() + m.expiresIn - S), 
   m.popup ? h && h(m) : (clearTimeout(g), p && p(m)));
  }), window._monetizeJsonpCallback = function E(e) {
   return window._monetizeJsonpCallback !== E ? f && f({
@@ -14181,11 +14181,11 @@ function() {
  h.onEventMgrCreated = function(e) {
   f = e;
  };
- var m, g, v, b, y, x, w, S, C, _ = [ '<a href="#" class="panel-group-item folder clearfix" data-folder-index="<%= folderDesc.folderIndex %>" data-toggle="collapse" data-target=".modal-document-manager .file-list.<%= id %>">', '<label class="pull-right checkbox" title="Select"><input type="checkbox"></label>', '<button class="pull-right btn btn-default button-delete" title="Delete"><i class="icon-trash text-red"></i></button>', '<button class="pull-right btn btn-default button-rename" title="Rename"><i class="icon-pencil"></i></button>', '<div class="pull-right file-count label label-primary"><%= _.size(folderDesc.fileList) %></div>', '<div class="name"><i class="icon-folder"></i> ', "<%= folderDesc.name %></div>", '<input type="text" class="input-rename form-control hide"></a>', '<div class="panel panel-primary file-list collapse <%= id %> clearfix"><%= fileListHtml %></div>' ].join(""), T = [ '<li class="panel-group-item file clearfix" data-file-index="<%= fileDesc.fileIndex %>">', '<label class="pull-right checkbox" title="Select"><input type="checkbox"></label>', '<button class="pull-right btn btn-default button-delete" title="Delete"><i class="icon-trash text-red"></i></button>', '<button class="pull-right btn btn-default button-rename" title="Rename"><i class="icon-pencil"></i></button>', '<div class="name"><%= fileDesc.composeTitle() %></div>', '<input type="text" class="input-rename form-control hide"></li>' ].join(""), k = [ '<a href="#" class="panel-group-item folder clearfix" data-folder-index="<%= folderDesc.folderIndex %>">', '<div class="pull-right file-count label label-primary"><%= _.size(folderDesc.fileList) %></div>', '<div class="name"><i class="icon-forward"></i> ', "<%= folderDesc.name %></div></a>" ].join(""), E = [ '<li class="panel-group-item file clearfix">', '<div class="name"><%= fileDesc.composeTitle() %></div></li>' ].join(""), I = [], D = [], N = t.debounce(function() {
+ var m, g, v, b, y, x, w, C, S, _ = [ '<a href="#" class="panel-group-item folder clearfix" data-folder-index="<%= folderDesc.folderIndex %>" data-toggle="collapse" data-target=".modal-document-manager .file-list.<%= id %>">', '<label class="pull-right checkbox" title="Select"><input type="checkbox"></label>', '<button class="pull-right btn btn-default button-delete" title="Delete"><i class="icon-trash text-red"></i></button>', '<button class="pull-right btn btn-default button-rename" title="Rename"><i class="icon-pencil"></i></button>', '<div class="pull-right file-count label label-primary"><%= _.size(folderDesc.fileList) %></div>', '<div class="name"><i class="icon-folder"></i> ', "<%= folderDesc.name %></div>", '<input type="text" class="input-rename form-control hide"></a>', '<div class="panel panel-primary file-list collapse <%= id %> clearfix"><%= fileListHtml %></div>' ].join(""), T = [ '<li class="panel-group-item file clearfix" data-file-index="<%= fileDesc.fileIndex %>">', '<label class="pull-right checkbox" title="Select"><input type="checkbox"></label>', '<button class="pull-right btn btn-default button-delete" title="Delete"><i class="icon-trash text-red"></i></button>', '<button class="pull-right btn btn-default button-rename" title="Rename"><i class="icon-pencil"></i></button>', '<div class="name"><%= fileDesc.composeTitle() %></div>', '<input type="text" class="input-rename form-control hide"></li>' ].join(""), k = [ '<a href="#" class="panel-group-item folder clearfix" data-folder-index="<%= folderDesc.folderIndex %>">', '<div class="pull-right file-count label label-primary"><%= _.size(folderDesc.fileList) %></div>', '<div class="name"><i class="icon-forward"></i> ', "<%= folderDesc.name %></div></a>" ].join(""), E = [ '<li class="panel-group-item file clearfix">', '<div class="name"><%= fileDesc.composeTitle() %></div></li>' ].join(""), I = [], D = [], N = t.debounce(function() {
   c(), y.toggleClass("disabled", 0 === t.size(s) || 0 === t.size(I)), x.toggleClass("disabled", 0 === t.size(D) && 0 === t.size(I));
  }, 50), L = t.debounce(function() {
   if (m !== !1) {
-   N(), S.text(t.size(l)), C.text(t.size(s) + 1), w = t.filter(l, function(e) {
+   N(), C.text(t.size(l)), S.text(t.size(s) + 1), w = t.filter(l, function(e) {
     return void 0 === e.folder;
    });
    var e = [ '<a href="#" class="panel-group-item folder root-folder clearfix" data-toggle="collapse" data-target=".modal-document-manager .file-list.root-folder">', '<label class="pull-right checkbox" title="Select"><input type="checkbox"></label>', '<div class="pull-right file-count label label-primary">', t.size(w), "</div>", '<div class="name"><i class="icon-folder"></i> ', "My Default Folder</div></a>" ].join(""), n = t.chain(w).sortBy(function(e) {
@@ -14220,7 +14220,7 @@ function() {
   e(v.querySelectorAll(".input-rename")).addClass("hide"));
  }, h.onReady = function() {
   g = document.querySelector(".modal-document-manager"), v = g.querySelector(".panel-group.document-list"), 
-  S = e(g.querySelectorAll(".document-count")), C = e(g.querySelectorAll(".folder-count")), 
+  C = e(g.querySelectorAll(".document-count")), S = e(g.querySelectorAll(".folder-count")), 
   b = g.querySelector(".panel-group.selected-document-list");
   var o = g.querySelector(".panel-group.select-folder-list");
   e(g).on("show.bs.modal", function() {
@@ -14684,7 +14684,7 @@ function() {
  function u(e, t, n, i, r, o, a, s, l) {
   if (!(0 > l || c(e, t, n, i, r, o, a, s) < l)) {
    var u, d = 1, p = d / 2, h = d - p, f = .01;
-   for (u = c(e, t, n, i, r, o, a, s, h); G(u - l) > f; ) p /= 2, h += (l > u ? 1 : -1) * p, 
+   for (u = c(e, t, n, i, r, o, a, s, h); H(u - l) > f; ) p /= 2, h += (l > u ? 1 : -1) * p, 
    u = c(e, t, n, i, r, o, a, s, h);
    return h;
   }
@@ -14718,11 +14718,11 @@ function() {
    t: g / u
   });
   for (g = 0; l > g; g++) for (var b = 0; u > b; b++) {
-   var y = p[g], x = p[g + 1], w = h[b], S = h[b + 1], C = G(x.x - y.x) < .001 ? "y" : "x", _ = G(S.x - w.x) < .001 ? "y" : "x", T = d(y.x, y.y, x.x, x.y, w.x, w.y, S.x, S.y);
+   var y = p[g], x = p[g + 1], w = h[b], C = h[b + 1], S = H(x.x - y.x) < .001 ? "y" : "x", _ = H(C.x - w.x) < .001 ? "y" : "x", T = d(y.x, y.y, x.x, x.y, w.x, w.y, C.x, C.y);
    if (T) {
     if (f[T.x.toFixed(4)] == T.y.toFixed(4)) continue;
     f[T.x.toFixed(4)] = T.y.toFixed(4);
-    var k = y.t + G((T[C] - y[C]) / (x[C] - y[C])) * (x.t - y.t), E = w.t + G((T[_] - w[_]) / (S[_] - w[_])) * (S.t - w.t);
+    var k = y.t + H((T[S] - y[S]) / (x[S] - y[S])) * (x.t - y.t), E = w.t + H((T[_] - w[_]) / (C[_] - w[_])) * (C.t - w.t);
     k >= 0 && 1.001 >= k && E >= 0 && 1.001 >= E && (i ? m++ : m.push({
      x: T.x,
      y: T.y,
@@ -14745,11 +14745,11 @@ function() {
      if ("M" == w[0]) a = u = w[1], s = d = w[2]; else {
       "C" == w[0] ? (f = [ a, s ].concat(w.slice(1)), a = f[6], s = f[7]) : (f = [ a, s, a, s, u, d, u, d ], 
       a = u, s = d);
-      var S = p(h, f, i);
-      if (i) m += S; else {
-       for (var C = 0, _ = S.length; _ > C; C++) S[C].segment1 = g, S[C].segment2 = y, 
-       S[C].bez1 = h, S[C].bez2 = f;
-       m = m.concat(S);
+      var C = p(h, f, i);
+      if (i) m += C; else {
+       for (var S = 0, _ = C.length; _ > S; S++) C[S].segment1 = g, C[S].segment2 = y, 
+       C[S].bez1 = h, C[S].bez2 = f;
+       m = m.concat(C);
       }
      }
     }
@@ -14775,14 +14775,14 @@ function() {
   function l(e, t) {
    var n, i, r, o, s, l;
    for (r = e, l = 0; 8 > l; l++) {
-    if (o = a(r) - e, G(o) < t) return r;
-    if (s = (3 * d * r + 2 * u) * r + c, G(s) < 1e-6) break;
+    if (o = a(r) - e, H(o) < t) return r;
+    if (s = (3 * d * r + 2 * u) * r + c, H(s) < 1e-6) break;
     r -= o / s;
    }
    if (n = 0, i = 1, r = e, n > r) return n;
    if (r > i) return i;
    for (;i > n; ) {
-    if (o = a(r), G(o - e) < t) return r;
+    if (o = a(r), H(o - e) < t) return r;
     e > o ? n = r : i = r, r = (i - n) / 2 + n;
    }
    return r;
@@ -14801,14 +14801,14 @@ function() {
  function b(e, i, r, o, a, s) {
   r = Z(r);
   var l, c, u, d, p, h, m = e.ms, v = {}, b = {}, y = {};
-  if (o) for (w = 0, C = cn.length; C > w; w++) {
+  if (o) for (w = 0, S = cn.length; S > w; w++) {
    var x = cn[w];
    if (x.el.id == i.id && x.anim == e) {
     x.percent != r ? (cn.splice(w, 1), u = 1) : c = x, i.attr(x.totalOrigin);
     break;
    }
   } else o = +b;
-  for (var w = 0, C = e.percents.length; C > w; w++) {
+  for (var w = 0, S = e.percents.length; S > w; w++) {
    if (e.percents[w] == r || e.percents[w] > o * e.top) {
     r = e.percents[w], p = e.percents[w - 1] || 0, m = m / e.top * (r - p), d = e.percents[w + 1], 
     l = e.anim[r];
@@ -14836,7 +14836,7 @@ function() {
 
     case "path":
      var E = Ot(v[_], b[_]), I = E[1];
-     for (v[_] = E[0], y[_] = [], w = 0, C = v[_].length; C > w; w++) {
+     for (v[_] = E[0], y[_] = [], w = 0, S = v[_].length; S > w; w++) {
       y[_][w] = [ 0 ];
       for (var D = 1, L = v[_][w].length; L > D; D++) y[_][w][D] = (I[w][D] - v[_][w][D]) / m;
      }
@@ -14844,7 +14844,7 @@ function() {
 
     case "transform":
      var M = i._, A = Ut(M[_], b[_]);
-     if (A) for (v[_] = A.from, b[_] = A.to, y[_] = [], y[_].real = !0, w = 0, C = v[_].length; C > w; w++) for (y[_][w] = [ v[_][w][0] ], 
+     if (A) for (v[_] = A.from, b[_] = A.to, y[_] = [], y[_].real = !0, w = 0, S = v[_].length; S > w; w++) for (y[_][w] = [ v[_][w][0] ], 
      D = 1, L = v[_][w].length; L > D; D++) y[_][w][D] = (b[_][w][D] - v[_][w][D]) / m; else {
       var O = i.matrix || new f(), F = {
        _: {
@@ -14859,7 +14859,7 @@ function() {
      break;
 
     case "csv":
-     var B = R(l[_])[P](S), j = R(v[_])[P](S);
+     var B = R(l[_])[P](C), j = R(v[_])[P](C);
      if ("clip-rect" == _) for (v[_] = j, y[_] = [], w = j.length; w--; ) y[_][w] = (B[w] - v[_][w]) / m;
      b[_] = B;
      break;
@@ -14869,9 +14869,9 @@ function() {
     }
     var $ = l.easing, U = n.easing_formulas[$];
     if (!U) if (U = R($).match(K), U && 5 == U.length) {
-     var G = U;
+     var H = U;
      U = function(e) {
-      return g(e, +G[1], +G[2], +G[3], +G[4], m);
+      return g(e, +H[1], +H[2], +H[3], +H[4], m);
      };
     } else U = ht;
     if (h = l.start || e.start || +new Date(), x = {
@@ -14904,7 +14904,7 @@ function() {
   for (var t = 0; t < cn.length; t++) cn[t].el.paper == e && cn.splice(t--, 1);
  }
  n.version = "2.1.0", n.eve = t;
- var x, w, S = /[, ]+/, C = {
+ var x, w, C = /[, ]+/, S = {
   circle: 1,
   rect: 1,
   path: 1,
@@ -14923,7 +14923,7 @@ function() {
   mousedown: "touchstart",
   mousemove: "touchmove",
   mouseup: "touchend"
- }, B = R.prototype.toLowerCase, j = Math, $ = j.max, U = j.min, G = j.abs, q = j.pow, H = j.PI, z = "number", W = "string", V = "array", X = Object.prototype.toString, Y = (n._ISURL = /^url\(['"]?([^\)]+?)['"]?\)$/i, 
+ }, B = R.prototype.toLowerCase, j = Math, $ = j.max, U = j.min, H = j.abs, q = j.pow, G = j.PI, z = "number", W = "string", V = "array", X = Object.prototype.toString, Y = (n._ISURL = /^url\(['"]?([^\)]+?)['"]?\)$/i, 
  /^\s*((#[a-f\d]{6})|(#[a-f\d]{3})|rgba?\(\s*([\d\.]+%?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+%?(?:\s*,\s*[\d\.]+%?)?)\s*\)|hsba?\(\s*([\d\.]+(?:deg|\xb0|%)?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+(?:%?\s*,\s*[\d\.]+)?)%?\s*\)|hsla?\(\s*([\d\.]+(?:deg|\xb0|%)?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+(?:%?\s*,\s*[\d\.]+)?)%?\s*\))\s*$/i), Q = {
   NaN: 1,
   Infinity: 1,
@@ -15048,16 +15048,16 @@ function() {
  }, n.angle = function(e, t, i, r, o, a) {
   if (null == o) {
    var s = e - i, l = t - r;
-   return s || l ? (180 + 180 * j.atan2(-l, -s) / H + 360) % 360 : 0;
+   return s || l ? (180 + 180 * j.atan2(-l, -s) / G + 360) % 360 : 0;
   }
   return n.angle(e, t, o, a) - n.angle(i, r, o, a);
  }, n.rad = function(e) {
-  return e % 360 * H / 180;
+  return e % 360 * G / 180;
  }, n.deg = function(e) {
-  return 180 * e / H % 360;
+  return 180 * e / G % 360;
  }, n.snapTo = function(e, t, i) {
   if (i = n.is(i, "finite") ? i : 10, n.is(e, V)) {
-   for (var r = e.length; r--; ) if (G(e[r] - t) <= i) return e[r];
+   for (var r = e.length; r--; ) if (H(e[r] - t) <= i) return e[r];
   } else {
    e = +e;
    var o = t % e;
@@ -15106,9 +15106,9 @@ function() {
   return xt(e);
  }, wt = function() {
   return "hsb(" + [ this.h, this.s, this.b ] + ")";
- }, St = function() {
-  return "hsl(" + [ this.h, this.s, this.l ] + ")";
  }, Ct = function() {
+  return "hsl(" + [ this.h, this.s, this.l ] + ")";
+ }, St = function() {
   return this.hex;
  }, _t = function(e, t, i) {
   if (null == t && n.is(e, "object") && "r" in e && "g" in e && "b" in e && (i = e.b, 
@@ -15124,7 +15124,7 @@ function() {
    g: t,
    b: i,
    hex: n.rgb(e, t, i),
-   toString: Ct
+   toString: St
   };
   return n.is(r, "finite") && (o.opacity = r), o;
  };
@@ -15136,19 +15136,19 @@ function() {
   n.is(e, "object") && "r" in e && "g" in e && "b" in e ? (t = n.rgb2hsl(e), e.h = t.h, 
   e.s = t.s, e.l = t.l, t = n.rgb2hsb(e), e.v = t.b) : (e = {
    hex: "none"
-  }, e.r = e.g = e.b = e.h = e.s = e.v = e.l = -1)), e.toString = Ct, e;
+  }, e.r = e.g = e.b = e.h = e.s = e.v = e.l = -1)), e.toString = St, e;
  }, n.hsb2rgb = function(e, t, n, i) {
   this.is(e, "object") && "h" in e && "s" in e && "b" in e && (n = e.b, t = e.s, e = e.h, 
   i = e.o), e *= 360;
   var r, o, a, s, l;
-  return e = e % 360 / 60, l = n * t, s = l * (1 - G(e % 2 - 1)), r = o = a = n - l, 
+  return e = e % 360 / 60, l = n * t, s = l * (1 - H(e % 2 - 1)), r = o = a = n - l, 
   e = ~~e, r += [ l, s, 0, 0, s, l ][e], o += [ s, l, l, s, 0, 0 ][e], a += [ 0, 0, s, l, l, s ][e], 
   Tt(r, o, a, i);
  }, n.hsl2rgb = function(e, t, n, i) {
   this.is(e, "object") && "h" in e && "s" in e && "l" in e && (n = e.l, t = e.s, e = e.h), 
   (e > 1 || t > 1 || n > 1) && (e /= 360, t /= 100, n /= 100), e *= 360;
   var r, o, a, s, l;
-  return e = e % 360 / 60, l = 2 * t * (.5 > n ? n : 1 - n), s = l * (1 - G(e % 2 - 1)), 
+  return e = e % 360 / 60, l = 2 * t * (.5 > n ? n : 1 - n), s = l * (1 - H(e % 2 - 1)), 
   r = o = a = n - l / 2, e = ~~e, r += [ l, s, 0, 0, s, l ][e], o += [ s, l, l, s, 0, 0 ][e], 
   a += [ 0, 0, s, l, l, s ][e], Tt(r, o, a, i);
  }, n.rgb2hsb = function(e, t, n) {
@@ -15170,7 +15170,7 @@ function() {
    h: i,
    s: r,
    l: o,
-   toString: St
+   toString: Ct
   };
  }, n._path2string = function() {
   return this.join(",").replace(at, "$1");
@@ -15293,7 +15293,7 @@ function() {
   }), t[e];
  };
  n.findDotsAtSegment = function(e, t, n, i, r, o, a, s, l) {
-  var c = 1 - l, u = q(c, 3), d = q(c, 2), p = l * l, h = p * l, f = u * e + 3 * d * l * n + 3 * c * l * l * r + h * a, m = u * t + 3 * d * l * i + 3 * c * l * l * o + h * s, g = e + 2 * l * (n - e) + p * (r - 2 * n + e), v = t + 2 * l * (i - t) + p * (o - 2 * i + t), b = n + 2 * l * (r - n) + p * (a - 2 * r + n), y = i + 2 * l * (o - i) + p * (s - 2 * o + i), x = c * e + l * n, w = c * t + l * i, S = c * r + l * a, C = c * o + l * s, _ = 90 - 180 * j.atan2(g - b, v - y) / H;
+  var c = 1 - l, u = q(c, 3), d = q(c, 2), p = l * l, h = p * l, f = u * e + 3 * d * l * n + 3 * c * l * l * r + h * a, m = u * t + 3 * d * l * i + 3 * c * l * l * o + h * s, g = e + 2 * l * (n - e) + p * (r - 2 * n + e), v = t + 2 * l * (i - t) + p * (o - 2 * i + t), b = n + 2 * l * (r - n) + p * (a - 2 * r + n), y = i + 2 * l * (o - i) + p * (s - 2 * o + i), x = c * e + l * n, w = c * t + l * i, C = c * r + l * a, S = c * o + l * s, _ = 90 - 180 * j.atan2(g - b, v - y) / G;
   return (g > b || y > v) && (_ += 180), {
    x: f,
    y: m,
@@ -15310,8 +15310,8 @@ function() {
     y: w
    },
    end: {
-    x: S,
-    y: C
+    x: C,
+    y: S
    },
    alpha: _
   };
@@ -15482,25 +15482,25 @@ function() {
   var a = 1 / 3, s = 2 / 3;
   return [ a * e + s * n, a * t + s * i, a * r + s * n, a * o + s * i, r, o ];
  }, At = function(e, t, n, i, r, a, s, l, c, u) {
-  var d, p = 120 * H / 180, h = H / 180 * (+r || 0), f = [], m = o(function(e, t, n) {
+  var d, p = 120 * G / 180, h = G / 180 * (+r || 0), f = [], m = o(function(e, t, n) {
    var i = e * j.cos(n) - t * j.sin(n), r = e * j.sin(n) + t * j.cos(n);
    return {
     x: i,
     y: r
    };
   });
-  if (u) _ = u[0], T = u[1], S = u[2], C = u[3]; else {
+  if (u) _ = u[0], T = u[1], C = u[2], S = u[3]; else {
    d = m(e, t, -h), e = d.x, t = d.y, d = m(l, c, -h), l = d.x, c = d.y;
-   var g = (j.cos(H / 180 * r), j.sin(H / 180 * r), (e - l) / 2), v = (t - c) / 2, b = g * g / (n * n) + v * v / (i * i);
+   var g = (j.cos(G / 180 * r), j.sin(G / 180 * r), (e - l) / 2), v = (t - c) / 2, b = g * g / (n * n) + v * v / (i * i);
    b > 1 && (b = j.sqrt(b), n = b * n, i = b * i);
-   var y = n * n, x = i * i, w = (a == s ? -1 : 1) * j.sqrt(G((y * x - y * v * v - x * g * g) / (y * v * v + x * g * g))), S = w * n * v / i + (e + l) / 2, C = w * -i * g / n + (t + c) / 2, _ = j.asin(((t - C) / i).toFixed(9)), T = j.asin(((c - C) / i).toFixed(9));
-   _ = S > e ? H - _ : _, T = S > l ? H - T : T, 0 > _ && (_ = 2 * H + _), 0 > T && (T = 2 * H + T), 
-   s && _ > T && (_ -= 2 * H), !s && T > _ && (T -= 2 * H);
+   var y = n * n, x = i * i, w = (a == s ? -1 : 1) * j.sqrt(H((y * x - y * v * v - x * g * g) / (y * v * v + x * g * g))), C = w * n * v / i + (e + l) / 2, S = w * -i * g / n + (t + c) / 2, _ = j.asin(((t - S) / i).toFixed(9)), T = j.asin(((c - S) / i).toFixed(9));
+   _ = C > e ? G - _ : _, T = C > l ? G - T : T, 0 > _ && (_ = 2 * G + _), 0 > T && (T = 2 * G + T), 
+   s && _ > T && (_ -= 2 * G), !s && T > _ && (T -= 2 * G);
   }
   var k = T - _;
-  if (G(k) > p) {
+  if (H(k) > p) {
    var E = T, I = l, D = c;
-   T = _ + p * (s && T > _ ? 1 : -1), l = S + n * j.cos(T), c = C + i * j.sin(T), f = At(l, c, n, i, r, 0, s, I, D, [ T, E, S, C ]);
+   T = _ + p * (s && T > _ ? 1 : -1), l = C + n * j.cos(T), c = S + i * j.sin(T), f = At(l, c, n, i, r, 0, s, I, D, [ T, E, C, S ]);
   }
   k = T - _;
   var L = j.cos(_), M = j.sin(_), A = j.cos(T), R = j.sin(T), O = j.tan(k / 4), F = 4 / 3 * n * O, B = 4 / 3 * i * O, $ = [ e, t ], U = [ e + F * M, t - B * L ], q = [ l + F * R, c - B * A ], z = [ l, c ];
@@ -15516,11 +15516,11 @@ function() {
   };
  }, Pt = o(function(e, t, n, i, r, o, a, s) {
   var l, c = r - 2 * n + e - (a - 2 * r + n), u = 2 * (n - e) - 2 * (r - n), d = e - n, p = (-u + j.sqrt(u * u - 4 * c * d)) / 2 / c, h = (-u - j.sqrt(u * u - 4 * c * d)) / 2 / c, f = [ t, s ], m = [ e, a ];
-  return G(p) > "1e12" && (p = .5), G(h) > "1e12" && (h = .5), p > 0 && 1 > p && (l = Rt(e, t, n, i, r, o, a, s, p), 
+  return H(p) > "1e12" && (p = .5), H(h) > "1e12" && (h = .5), p > 0 && 1 > p && (l = Rt(e, t, n, i, r, o, a, s, p), 
   m.push(l.x), f.push(l.y)), h > 0 && 1 > h && (l = Rt(e, t, n, i, r, o, a, s, h), 
   m.push(l.x), f.push(l.y)), c = o - 2 * i + t - (s - 2 * o + i), u = 2 * (i - t) - 2 * (o - i), 
   d = t - i, p = (-u + j.sqrt(u * u - 4 * c * d)) / 2 / c, h = (-u - j.sqrt(u * u - 4 * c * d)) / 2 / c, 
-  G(p) > "1e12" && (p = .5), G(h) > "1e12" && (h = .5), p > 0 && 1 > p && (l = Rt(e, t, n, i, r, o, a, s, p), 
+  H(p) > "1e12" && (p = .5), H(h) > "1e12" && (h = .5), p > 0 && 1 > p && (l = Rt(e, t, n, i, r, o, a, s, p), 
   m.push(l.x), f.push(l.y)), h > 0 && 1 > h && (l = Rt(e, t, n, i, r, o, a, s, h), 
   m.push(l.x), f.push(l.y)), {
    min: {
@@ -15662,13 +15662,13 @@ function() {
   t = R(t).replace(/\.{3}|\u2026/g, e._.transform || M);
   var i = n.parseTransformString(t), r = 0, o = 0, a = 0, s = 1, l = 1, c = e._, u = new f();
   if (c.transform = i || [], i) for (var d = 0, p = i.length; p > d; d++) {
-   var h, m, g, v, b, y = i[d], x = y.length, w = R(y[0]).toLowerCase(), S = y[0] != w, C = S ? u.invert() : 0;
-   "t" == w && 3 == x ? S ? (h = C.x(0, 0), m = C.y(0, 0), g = C.x(y[1], y[2]), v = C.y(y[1], y[2]), 
+   var h, m, g, v, b, y = i[d], x = y.length, w = R(y[0]).toLowerCase(), C = y[0] != w, S = C ? u.invert() : 0;
+   "t" == w && 3 == x ? C ? (h = S.x(0, 0), m = S.y(0, 0), g = S.x(y[1], y[2]), v = S.y(y[1], y[2]), 
    u.translate(g - h, v - m)) : u.translate(y[1], y[2]) : "r" == w ? 2 == x ? (b = b || e.getBBox(1), 
-   u.rotate(y[1], b.x + b.width / 2, b.y + b.height / 2), r += y[1]) : 4 == x && (S ? (g = C.x(y[2], y[3]), 
-   v = C.y(y[2], y[3]), u.rotate(y[1], g, v)) : u.rotate(y[1], y[2], y[3]), r += y[1]) : "s" == w ? 2 == x || 3 == x ? (b = b || e.getBBox(1), 
-   u.scale(y[1], y[x - 1], b.x + b.width / 2, b.y + b.height / 2), s *= y[1], l *= y[x - 1]) : 5 == x && (S ? (g = C.x(y[3], y[4]), 
-   v = C.y(y[3], y[4]), u.scale(y[1], y[2], g, v)) : u.scale(y[1], y[2], y[3], y[4]), 
+   u.rotate(y[1], b.x + b.width / 2, b.y + b.height / 2), r += y[1]) : 4 == x && (C ? (g = S.x(y[2], y[3]), 
+   v = S.y(y[2], y[3]), u.rotate(y[1], g, v)) : u.rotate(y[1], y[2], y[3]), r += y[1]) : "s" == w ? 2 == x || 3 == x ? (b = b || e.getBBox(1), 
+   u.scale(y[1], y[x - 1], b.x + b.width / 2, b.y + b.height / 2), s *= y[1], l *= y[x - 1]) : 5 == x && (C ? (g = S.x(y[3], y[4]), 
+   v = S.y(y[3], y[4]), u.scale(y[1], y[2], g, v)) : u.scale(y[1], y[2], y[3], y[4]), 
    s *= y[1], l *= y[2]) : "m" == w && 7 == x && u.add(y[1], y[2], y[3], y[4], y[5], y[6]), 
    c.dirtyT = 1, e.matrix = u;
   }
@@ -15781,8 +15781,8 @@ function() {
    t.rotate = +t.rotate.toFixed(4), (t.dx || t.dy ? "t" + [ t.dx, t.dy ] : M) + (1 != t.scalex || 1 != t.scaley ? "s" + [ t.scalex, t.scaley, 0, 0 ] : M) + (t.rotate ? "r" + [ t.rotate, 0, 0 ] : M)) : "m" + [ this.get(0), this.get(1), this.get(2), this.get(3), this.get(4), this.get(5) ];
   };
  }(f.prototype);
- var Gt = navigator.userAgent.match(/Version\/(.*?)\s/) || navigator.userAgent.match(/Chrome\/(\d+)/);
- w.safari = "Apple Computer, Inc." == navigator.vendor && (Gt && Gt[1] < 4 || "iP" == navigator.platform.slice(0, 2)) || "Google Inc." == navigator.vendor && Gt && Gt[1] < 8 ? function() {
+ var Ht = navigator.userAgent.match(/Version\/(.*?)\s/) || navigator.userAgent.match(/Chrome\/(\d+)/);
+ w.safari = "Apple Computer, Inc." == navigator.vendor && (Ht && Ht[1] < 4 || "iP" == navigator.platform.slice(0, 2)) || "Google Inc." == navigator.vendor && Ht && Ht[1] < 8 ? function() {
   var e = this.rect(-99, -99, this.width + 99, this.height + 99).attr({
    stroke: "none"
   });
@@ -15792,7 +15792,7 @@ function() {
  } : pt;
  for (var qt = function() {
   this.returnValue = !1;
- }, Ht = function() {
+ }, Gt = function() {
   return this.originalEvent.preventDefault();
  }, zt = function() {
   this.cancelBubble = !0;
@@ -15813,7 +15813,7 @@ function() {
    if (e.addEventListener(t, r, !1), L && F[t]) {
     var o = function(t) {
      for (var r = Vt(t), o = t, a = 0, s = t.targetTouches && t.targetTouches.length; s > a; a++) if (t.targetTouches[a].target == e) {
-      t = t.targetTouches[a], t.originalEvent = o, t.preventDefault = Ht, t.stopPropagation = Wt;
+      t = t.targetTouches[a], t.originalEvent = o, t.preventDefault = Gt, t.stopPropagation = Wt;
       break;
      }
      return n.call(i, t, r.x, r.y);
@@ -16087,7 +16087,7 @@ function() {
    return q(e, .48);
   },
   "<>": function(e) {
-   var t = .48 - e / 1.04, n = j.sqrt(.1734 + t * t), i = n - t, r = q(G(i), 1 / 3) * (0 > i ? -1 : 1), o = -n - t, a = q(G(o), 1 / 3) * (0 > o ? -1 : 1), s = r + a + .5;
+   var t = .48 - e / 1.04, n = j.sqrt(.1734 + t * t), i = n - t, r = q(H(i), 1 / 3) * (0 > i ? -1 : 1), o = -n - t, a = q(H(o), 1 / 3) * (0 > o ? -1 : 1), s = r + a + .5;
    return 3 * (1 - s) * s * s + s * s * s;
   },
   backIn: function(e) {
@@ -16100,7 +16100,7 @@ function() {
    return e * e * ((t + 1) * e + t) + 1;
   },
   elastic: function(e) {
-   return e == !!e ? e : q(2, -10 * e) * j.sin(2 * (e - .075) * H / .3) + 1;
+   return e == !!e ? e : q(2, -10 * e) * j.sin(2 * (e - .075) * G / .3) + 1;
   },
   bounce: function(e) {
    var t, n = 7.5625, i = 2.75;
@@ -16136,7 +16136,7 @@ function() {
        o = [];
        for (var y = 0, x = u[v].length; x > y; y++) {
         o[y] = [ u[v][y][0] ];
-        for (var w = 1, S = u[v][y].length; S > w; w++) o[y][w] = +u[v][y][w] + g * l * d[v][y][w];
+        for (var w = 1, C = u[v][y].length; C > w; w++) o[y][w] = +u[v][y][w] + g * l * d[v][y][w];
         o[y] = o[y].join(A);
        }
        o = o.join(A);
@@ -16144,11 +16144,11 @@ function() {
 
       case "transform":
        if (d[v].real) for (o = [], y = 0, x = u[v].length; x > y; y++) for (o[y] = [ u[v][y][0] ], 
-       w = 1, S = u[v][y].length; S > w; w++) o[y][w] = u[v][y][w] + g * l * d[v][y][w]; else {
-        var C = function(e) {
+       w = 1, C = u[v][y].length; C > w; w++) o[y][w] = u[v][y][w] + g * l * d[v][y][w]; else {
+        var S = function(e) {
          return +u[v][e] + g * l * d[v][e];
         };
-        o = [ [ "m", C(0), C(1), C(2), C(3), C(4), C(5) ] ];
+        o = [ [ "m", S(0), S(1), S(2), S(3), S(4), S(5) ] ];
        }
        break;
 
@@ -16384,12 +16384,12 @@ function() {
   var c, u = R(i)[P](M), d = 0, p = 0, h = M;
   if (n.is(r, "string") && (r = this.getFont(r)), r) {
    c = (o || 16) / r.face["units-per-em"];
-   for (var f = r.face.bbox[P](S), m = +f[0], g = f[3] - f[1], v = 0, b = +f[1] + ("baseline" == a ? g + +r.face.descent : g / 2), y = 0, x = u.length; x > y; y++) {
-    if ("\n" == u[y]) d = 0, C = 0, p = 0, v += g * l; else {
-     var w = p && r.glyphs[u[y - 1]] || {}, C = r.glyphs[u[y]];
+   for (var f = r.face.bbox[P](C), m = +f[0], g = f[3] - f[1], v = 0, b = +f[1] + ("baseline" == a ? g + +r.face.descent : g / 2), y = 0, x = u.length; x > y; y++) {
+    if ("\n" == u[y]) d = 0, S = 0, p = 0, v += g * l; else {
+     var w = p && r.glyphs[u[y - 1]] || {}, S = r.glyphs[u[y]];
      d += p ? (w.w || r.w) + (w.k && w.k[u[y]] || 0) + r.w * s : 0, p = 1;
     }
-    C && C.d && (h += n.transformPath(C.d, [ "t", d * c, v * c, "s", c, c, m, b, "t", (e - m) / c, (t - b) / c ]));
+    S && S.d && (h += n.transformPath(S.d, [ "t", d * c, v * c, "s", c, c, m, b, "t", (e - m) / c, (t - b) / c ]));
    }
   }
   return this.path(h).attr({
@@ -16398,7 +16398,7 @@ function() {
   });
  }, w.add = function(e) {
   if (n.is(e, "array")) for (var t, i = this.set(), r = 0, o = e.length; o > r; r++) t = e[r] || {}, 
-  C[T](t.type) && i.push(this[t.type]().attr(t));
+  S[T](t.type) && i.push(this[t.type]().attr(t));
   return i;
  }, n.format = function(e, t) {
   var i = n.is(t, V) ? [ 0 ][N](t) : arguments;
@@ -16463,8 +16463,8 @@ function() {
       x[2] *= w, x[3] *= w, x[2] < 0 && (x[0] = -x[2], x[2] = 0), x[3] < 0 && (x[1] = -x[3], 
       x[3] = 0);
      }
-     var S = n._parseDots(r);
-     if (!S) return null;
+     var C = n._parseDots(r);
+     if (!C) return null;
      if (u = u.replace(/[\(\)\s,\xb0#]/g, "_"), e.gradient && u != e.gradient.id && (m.defs.removeChild(e.gradient), 
      delete e.gradient), !e.gradient) {
       b = g(c + "Gradient", {
@@ -16479,9 +16479,9 @@ function() {
        y2: x[3],
        gradientTransform: e.matrix.invert()
       }), m.defs.appendChild(b);
-      for (var C = 0, _ = S.length; _ > C; C++) b.appendChild(g("stop", {
-       offset: S[C].offset ? S[C].offset : C ? "100%" : "0%",
-       "stop-color": S[C].color || "#fff"
+      for (var S = 0, _ = C.length; _ > S; S++) b.appendChild(g("stop", {
+       offset: C[S].offset ? C[S].offset : S ? "100%" : "0%",
+       "stop-color": C[S].color || "#fff"
       }));
      }
     }
@@ -16497,14 +16497,14 @@ function() {
     });
    }, y = function(i, r, o) {
     if ("path" == i.type) {
-     for (var a, s, l, c, u, p = t(r).toLowerCase().split("-"), h = i.paper, v = o ? "end" : "start", b = i.node, y = i.attrs, x = y["stroke-width"], w = p.length, S = "classic", C = 3, _ = 3, T = 5; w--; ) switch (p[w]) {
+     for (var a, s, l, c, u, p = t(r).toLowerCase().split("-"), h = i.paper, v = o ? "end" : "start", b = i.node, y = i.attrs, x = y["stroke-width"], w = p.length, C = "classic", S = 3, _ = 3, T = 5; w--; ) switch (p[w]) {
      case "block":
      case "classic":
      case "oval":
      case "diamond":
      case "open":
      case "none":
-      S = p[w];
+      C = p[w];
       break;
 
      case "wide":
@@ -16516,44 +16516,44 @@ function() {
       break;
 
      case "long":
-      C = 5;
+      S = 5;
       break;
 
      case "short":
-      C = 2;
+      S = 2;
      }
-     if ("open" == S ? (C += 2, _ += 2, T += 2, l = 1, c = o ? 4 : 1, u = {
+     if ("open" == C ? (S += 2, _ += 2, T += 2, l = 1, c = o ? 4 : 1, u = {
       fill: "none",
       stroke: y.stroke
-     }) : (c = l = C / 2, u = {
+     }) : (c = l = S / 2, u = {
       fill: y.stroke,
       stroke: "none"
      }), i._.arrows ? o ? (i._.arrows.endPath && m[i._.arrows.endPath]--, i._.arrows.endMarker && m[i._.arrows.endMarker]--) : (i._.arrows.startPath && m[i._.arrows.startPath]--, 
-     i._.arrows.startMarker && m[i._.arrows.startMarker]--) : i._.arrows = {}, "none" != S) {
-      var k = "raphael-marker-" + S, E = "raphael-marker-" + v + S + C + _;
+     i._.arrows.startMarker && m[i._.arrows.startMarker]--) : i._.arrows = {}, "none" != C) {
+      var k = "raphael-marker-" + C, E = "raphael-marker-" + v + C + S + _;
       n._g.doc.getElementById(k) ? m[k]++ : (h.defs.appendChild(g(g("path"), {
        "stroke-linecap": "round",
-       d: f[S],
+       d: f[C],
        id: k
       })), m[k] = 1);
       var I, D = n._g.doc.getElementById(E);
       D ? (m[E]++, I = D.getElementsByTagName("use")[0]) : (D = g(g("marker"), {
        id: E,
        markerHeight: _,
-       markerWidth: C,
+       markerWidth: S,
        orient: "auto",
        refX: c,
        refY: _ / 2
       }), I = g(g("use"), {
        "xlink:href": "#" + k,
-       transform: (o ? "rotate(180 " + C / 2 + " " + _ / 2 + ") " : d) + "scale(" + C / T + "," + _ / T + ")",
-       "stroke-width": (1 / ((C / T + _ / T) / 2)).toFixed(4)
+       transform: (o ? "rotate(180 " + S / 2 + " " + _ / 2 + ") " : d) + "scale(" + S / T + "," + _ / T + ")",
+       "stroke-width": (1 / ((S / T + _ / T) / 2)).toFixed(4)
       }), D.appendChild(I), h.defs.appendChild(D), m[E] = 1), g(I, u);
-      var N = l * ("diamond" != S && "oval" != S);
+      var N = l * ("diamond" != C && "oval" != C);
       o ? (a = i._.arrows.startdx * x || 0, s = n.getTotalLength(y.path) - N * x) : (a = N * x, 
       s = n.getTotalLength(y.path) - (i._.arrows.enddx * x || 0)), u = {}, u["marker-" + v] = "url(#" + E + ")", 
       (s || a) && (u.d = n.getSubpath(y.path, a, s)), g(b, u), i._.arrows[v + "Path"] = k, 
-      i._.arrows[v + "Marker"] = E, i._.arrows[v + "dx"] = N, i._.arrows[v + "Type"] = S, 
+      i._.arrows[v + "Marker"] = E, i._.arrows[v + "dx"] = N, i._.arrows[v + "Type"] = C, 
       i._.arrows[v + "String"] = r;
      } else o ? (a = i._.arrows.startdx * x || 0, s = n.getTotalLength(y.path) - a) : (a = 0, 
      s = n.getTotalLength(y.path) - (i._.arrows.enddx * x || 0)), i._.arrows[v + "Path"] && g(b, {
@@ -16589,7 +16589,7 @@ function() {
       "stroke-dasharray": a.join(",")
      });
     }
-   }, S = function(i, o) {
+   }, C = function(i, o) {
     var l = i.node, u = i.attrs, p = l.style.visibility;
     l.style.visibility = "hidden";
     for (var f in o) if (o[e](f)) {
@@ -16602,17 +16602,17 @@ function() {
 
      case "href":
      case "title":
-      var x = g("title"), S = n._g.doc.createTextNode(m);
-      x.appendChild(S), l.appendChild(x);
+      var x = g("title"), C = n._g.doc.createTextNode(m);
+      x.appendChild(C), l.appendChild(x);
       break;
 
      case "target":
-      var C = l.parentNode;
-      if ("a" != C.tagName.toLowerCase()) {
+      var S = l.parentNode;
+      if ("a" != S.tagName.toLowerCase()) {
        var x = g("a");
-       C.insertBefore(x, l), x.appendChild(l), C = x;
+       S.insertBefore(x, l), x.appendChild(l), S = x;
       }
-      "target" == f ? C.setAttributeNS(h, "show", "blank" == m ? "new" : m) : C.setAttributeNS(h, f, m);
+      "target" == f ? S.setAttributeNS(h, "show", "blank" == m ? "new" : m) : S.setAttributeNS(h, f, m);
       break;
 
      case "cursor":
@@ -16801,18 +16801,18 @@ function() {
      }
     }
     _(i, o), l.style.visibility = p;
-   }, C = 1.2, _ = function(i, o) {
+   }, S = 1.2, _ = function(i, o) {
     if ("text" == i.type && (o[e]("text") || o[e]("font") || o[e]("font-size") || o[e]("x") || o[e]("y"))) {
      var a = i.attrs, s = i.node, l = s.firstChild ? r(n._g.doc.defaultView.getComputedStyle(s.firstChild, d).getPropertyValue("font-size"), 10) : 10;
      if (o[e]("text")) {
       for (a.text = o.text; s.firstChild; ) s.removeChild(s.firstChild);
       for (var c, u = t(o.text).split("\n"), p = [], h = 0, f = u.length; f > h; h++) c = g("tspan"), 
       h && g(c, {
-       dy: l * C,
+       dy: l * S,
        x: a.x
       }), c.appendChild(n._g.doc.createTextNode(u[h])), s.appendChild(c), p[h] = c;
      } else for (p = s.getElementsByTagName("tspan"), h = 0, f = p.length; f > h; h++) h ? g(p[h], {
-      dy: l * C,
+      dy: l * S,
       x: a.x
      }) : g(p[0], {
       dy: 0
@@ -16844,7 +16844,7 @@ function() {
     var n = g("path");
     t.canvas && t.canvas.appendChild(n);
     var i = new T(n, t);
-    return i.type = "path", S(i, {
+    return i.type = "path", C(i, {
      fill: "none",
      stroke: "#000",
      path: e
@@ -16933,7 +16933,7 @@ function() {
      this.attrs[h] = p[h];
      for (var m in f) f[e](m) && (p[m] = f[m]);
     }
-    return S(this, p), this;
+    return C(this, p), this;
    }, k.toFront = function() {
     if (this.removed) return this;
     "a" == this.node.parentNode.tagName.toLowerCase() ? this.node.parentNode.parentNode.appendChild(this.node.parentNode) : this.node.parentNode.appendChild(this.node);
@@ -17035,7 +17035,7 @@ function() {
      font: n._availableAttrs.font,
      stroke: "none",
      fill: "#000"
-    }, a.type = "text", S(a, a.attrs), a;
+    }, a.type = "text", C(a, a.attrs), a;
    }, n._engine.setSize = function(e, t) {
     return this.width = e || this.width, this.height = t || this.height, this.canvas.setAttribute("width", this.width), 
     this.canvas.setAttribute("height", this.height), this._viewBox && this.setViewBox.apply(this, this._viewBox), 
@@ -17109,10 +17109,10 @@ function() {
     path: 1,
     rect: 1,
     image: 1
-   }, S = {
+   }, C = {
     circle: 1,
     ellipse: 1
-   }, C = function(e) {
+   }, S = function(e) {
     var i = /[ahqstv]/gi, r = n._pathToAbsolute;
     if (t(e).match(i) && (r = n._path2curve), i = /[clmz]/g, r == n._pathToAbsolute && !t(e).match(i)) {
      var a = t(e).replace(g, function(e, t, n) {
@@ -17181,11 +17181,11 @@ function() {
     u[o + "arrow"] = s, u[o + "arrowlength"] = l, u[o + "arrowwidth"] = c;
    }, E = function(r, l) {
     r.attrs = r.attrs || {};
-    var d = r.node, p = r.attrs, m = d.style, g = w[r.type] && (l.x != p.x || l.y != p.y || l.width != p.width || l.height != p.height || l.cx != p.cx || l.cy != p.cy || l.rx != p.rx || l.ry != p.ry || l.r != p.r), v = S[r.type] && (p.cx != l.cx || p.cy != l.cy || p.r != l.r || p.rx != l.rx || p.ry != l.ry), b = r;
+    var d = r.node, p = r.attrs, m = d.style, g = w[r.type] && (l.x != p.x || l.y != p.y || l.width != p.width || l.height != p.height || l.cx != p.cx || l.cy != p.cy || l.rx != p.rx || l.ry != p.ry || l.r != p.r), v = C[r.type] && (p.cx != l.cx || p.cy != l.cy || p.r != l.r || p.rx != l.rx || p.ry != l.ry), b = r;
     for (var y in l) l[e](y) && (p[y] = l[y]);
     if (g && (p.path = n._getPath[r.type](r), r._.dirty = 1), l.href && (d.href = l.href), 
     l.title && (d.title = l.title), l.target && (d.target = l.target), l.cursor && (m.cursor = l.cursor), 
-    "blur" in l && r.blur(l.blur), (l.path && "path" == r.type || g) && (d.path = C(~t(p.path).toLowerCase().indexOf("r") ? n._pathToAbsolute(p.path) : p.path), 
+    "blur" in l && r.blur(l.blur), (l.path && "path" == r.type || g) && (d.path = S(~t(p.path).toLowerCase().indexOf("r") ? n._pathToAbsolute(p.path) : p.path), 
     "image" == r.type && (r._.fillpos = [ p.x, p.y ], r._.fillsize = [ p.width, p.height ], 
     T(r, 1, 1, 0, 0, 0))), "transform" in l && r.transform(l.transform), v) {
      var _ = +p.cx, E = +p.cy, D = +p.rx || +p.r || 0, N = +p.ry || +p.r || 0;
@@ -17233,14 +17233,14 @@ function() {
       $ = s(a($, 0), 1), O.opacity = $, O.src && (O.color = "none");
      }
      d.appendChild(O);
-     var U = d.getElementsByTagName("stroke") && d.getElementsByTagName("stroke")[0], G = !1;
-     !U && (G = U = L("stroke")), (l.stroke && "none" != l.stroke || l["stroke-width"] || null != l["stroke-opacity"] || l["stroke-dasharray"] || l["stroke-miterlimit"] || l["stroke-linejoin"] || l["stroke-linecap"]) && (U.on = !0), 
+     var U = d.getElementsByTagName("stroke") && d.getElementsByTagName("stroke")[0], H = !1;
+     !U && (H = U = L("stroke")), (l.stroke && "none" != l.stroke || l["stroke-width"] || null != l["stroke-opacity"] || l["stroke-dasharray"] || l["stroke-miterlimit"] || l["stroke-linejoin"] || l["stroke-linecap"]) && (U.on = !0), 
      ("none" == l.stroke || null === l.stroke || null == U.on || 0 == l.stroke || 0 == l["stroke-width"]) && (U.on = !1);
      var q = n.getRGB(l.stroke);
      U.on && l.stroke && (U.color = q.hex), $ = ((+p["stroke-opacity"] + 1 || 2) - 1) * ((+p.opacity + 1 || 2) - 1) * ((+q.o + 1 || 2) - 1);
-     var H = .75 * (i(l["stroke-width"]) || 1);
-     if ($ = s(a($, 0), 1), null == l["stroke-width"] && (H = p["stroke-width"]), l["stroke-width"] && (U.weight = H), 
-     H && 1 > H && ($ *= H) && (U.weight = 1), U.opacity = $, l["stroke-linejoin"] && (U.joinstyle = l["stroke-linejoin"] || "miter"), 
+     var G = .75 * (i(l["stroke-width"]) || 1);
+     if ($ = s(a($, 0), 1), null == l["stroke-width"] && (G = p["stroke-width"]), l["stroke-width"] && (U.weight = G), 
+     G && 1 > G && ($ *= G) && (U.weight = 1), U.opacity = $, l["stroke-linejoin"] && (U.joinstyle = l["stroke-linejoin"] || "miter"), 
      U.miterlimit = l["stroke-miterlimit"] || 8, l["stroke-linecap"] && (U.endcap = "butt" == l["stroke-linecap"] ? "flat" : "square" == l["stroke-linecap"] ? "square" : "round"), 
      l["stroke-dasharray"]) {
       var z = {
@@ -17257,7 +17257,7 @@ function() {
       };
       U.dashstyle = z[e](l["stroke-dasharray"]) ? z[l["stroke-dasharray"]] : f;
      }
-     G && d.appendChild(U);
+     H && d.appendChild(U);
     }
     if ("text" == b.type) {
      b.paper.canvas.style.display = f;
@@ -17931,19 +17931,19 @@ function() {
     o.push(h);
     var f = this.lexer.options && this.lexer.options.ranges;
     this.parseError = "function" == typeof this.yy.parseError ? this.yy.parseError : Object.getPrototypeOf(this).parseError;
-    for (var m, g, v, b, y, x, w, S, C, _ = {}; ;) {
+    for (var m, g, v, b, y, x, w, C, S, _ = {}; ;) {
      if (v = i[i.length - 1], this.defaultActions[v] ? b = this.defaultActions[v] : ((null === m || "undefined" == typeof m) && (m = t()), 
      b = a[v] && a[v][m]), "undefined" == typeof b || !b.length || !b[0]) {
       var T = "";
-      C = [];
-      for (x in a[v]) this.terminals_[x] && x > d && C.push("'" + this.terminals_[x] + "'");
-      T = this.lexer.showPosition ? "Parse error on line " + (l + 1) + ":\n" + this.lexer.showPosition() + "\nExpecting " + C.join(", ") + ", got '" + (this.terminals_[m] || m) + "'" : "Parse error on line " + (l + 1) + ": Unexpected " + (m == p ? "end of input" : "'" + (this.terminals_[m] || m) + "'"), 
+      S = [];
+      for (x in a[v]) this.terminals_[x] && x > d && S.push("'" + this.terminals_[x] + "'");
+      T = this.lexer.showPosition ? "Parse error on line " + (l + 1) + ":\n" + this.lexer.showPosition() + "\nExpecting " + S.join(", ") + ", got '" + (this.terminals_[m] || m) + "'" : "Parse error on line " + (l + 1) + ": Unexpected " + (m == p ? "end of input" : "'" + (this.terminals_[m] || m) + "'"), 
       this.parseError(T, {
        text: this.lexer.match,
        token: this.terminals_[m] || m,
        line: this.lexer.yylineno,
        loc: h,
-       expected: C
+       expected: S
       });
      }
      if (b[0] instanceof Array && b.length > 1) throw new Error("Parse Error: multiple actions possible at state: " + v + ", token: " + m);
@@ -17963,8 +17963,8 @@ function() {
       }, f && (_._$.range = [ o[o.length - (w || 1)].range[0], o[o.length - 1].range[1] ]), 
       y = this.performAction.call(_, s, c, l, this.yy, b[1], r, o), "undefined" != typeof y) return y;
       w && (i = i.slice(0, -1 * w * 2), r = r.slice(0, -1 * w), o = o.slice(0, -1 * w)), 
-      i.push(this.productions_[b[1]][0]), r.push(_.$), o.push(_._$), S = a[i[i.length - 2]][i[i.length - 1]], 
-      i.push(S);
+      i.push(this.productions_[b[1]][0]), r.push(_.$), o.push(_._$), C = a[i[i.length - 2]][i[i.length - 1]], 
+      i.push(C);
       break;
 
      case 3:
@@ -18411,10 +18411,10 @@ function() {
    d.attr(y), s = i(e), l = r(e), this.draw_text(s, l, t, a);
   }
  });
- var S = function(e) {
+ var C = function(e) {
   this.init(e);
  };
- _.extend(S.prototype, w.prototype, {
+ _.extend(C.prototype, w.prototype, {
   init_font: function() {
    this._font = {
     "font-size": 16,
@@ -18422,10 +18422,10 @@ function() {
    };
   }
  });
- var C = function(e) {
+ var S = function(e) {
   this.init(e);
  };
- _.extend(C.prototype, w.prototype, {
+ _.extend(S.prototype, w.prototype, {
   init_font: function() {
    this._font = {
     "font-size": 16,
@@ -18440,8 +18440,8 @@ function() {
   }
  });
  var T = {
-  simple: S,
-  hand: C
+  simple: C,
+  hand: S
  };
  Diagram.prototype.drawSVG = function(e, t) {
   var n = {
@@ -18773,22 +18773,22 @@ function() {
   for (;r.length > 0; ) {
    var y = r.splice(0, 1)[0];
    if (y.indexOf("=>") >= 0) {
-    var x, w = y.split("=>"), S = {
+    var x, w = y.split("=>"), C = {
      key: w[0],
      symbolType: w[1],
      text: null,
      link: null,
      target: null
     };
-    if (S.symbolType.indexOf(": ") >= 0 && (x = S.symbolType.split(": "), S.symbolType = x[0], 
-    S.text = x[1]), S.text && S.text.indexOf(":>") >= 0 ? (x = S.text.split(":>"), S.text = x[0], 
-    S.link = x[1]) : S.symbolType.indexOf(":>") >= 0 && (x = S.symbolType.split(":>"), 
-    S.symbolType = x[0], S.link = x[1]), S.symbolType.indexOf("\n") >= 0 && (S.symbolType = S.symbolType.split("\n")[0]), 
-    S.link) {
-     var C = S.link.indexOf("[") + 1, _ = S.link.indexOf("]");
-     C >= 0 && _ >= 0 && (S.target = S.link.substring(C, _), S.link = S.link.substring(0, C - 1));
+    if (C.symbolType.indexOf(": ") >= 0 && (x = C.symbolType.split(": "), C.symbolType = x[0], 
+    C.text = x[1]), C.text && C.text.indexOf(":>") >= 0 ? (x = C.text.split(":>"), C.text = x[0], 
+    C.link = x[1]) : C.symbolType.indexOf(":>") >= 0 && (x = C.symbolType.split(":>"), 
+    C.symbolType = x[0], C.link = x[1]), C.symbolType.indexOf("\n") >= 0 && (C.symbolType = C.symbolType.split("\n")[0]), 
+    C.link) {
+     var S = C.link.indexOf("[") + 1, _ = C.link.indexOf("]");
+     S >= 0 && _ >= 0 && (C.target = C.link.substring(S, _), C.link = C.link.substring(0, S - 1));
     }
-    i.symbols[S.key] = S;
+    i.symbols[C.key] = C;
    } else if (y.indexOf("->") >= 0) for (var T = y.split("->"), k = 0, E = T.length; E > k; k++) {
     var I = T[k], D = t(I), N = n(I), L = null;
     if (N.indexOf(",") >= 0) {
@@ -18951,120 +18951,120 @@ function() {
  }, a.prototype.drawLineTo = function(e, t, n) {
   this.connectedTo.indexOf(e) < 0 && this.connectedTo.push(e);
   var o, a = this.getCenter().x, s = this.getCenter().y, l = (this.getTop(), this.getRight()), c = this.getBottom(), u = this.getLeft(), d = e.getCenter().x, p = e.getCenter().y, h = e.getTop(), f = e.getRight(), m = (e.getBottom(), 
-  e.getLeft()), g = a === d, v = s === p, b = p > s, y = s > p, x = a > d, w = d > a, S = 0, C = this.chart.options.symbols[this.symbolType]["line-length"] || this.chart.options["line-length"], _ = this.chart.options.symbols[this.symbolType]["line-width"] || this.chart.options["line-width"];
+  e.getLeft()), g = a === d, v = s === p, b = p > s, y = s > p, x = a > d, w = d > a, C = 0, S = this.chart.options.symbols[this.symbolType]["line-length"] || this.chart.options["line-length"], _ = this.chart.options.symbols[this.symbolType]["line-width"] || this.chart.options["line-width"];
   if (n && "bottom" !== n || !g || !b ? n && "right" !== n || !v || !w ? n && "left" !== n || !v || !x ? (n && "right" !== n || !g || !y) && (n && "right" !== n || !g || !b) ? n && "bottom" !== n || !x ? n && "bottom" !== n || !w ? n && "right" === n && x ? (o = i(this.chart, l, [ {
-   x: l.x + C / 2,
+   x: l.x + S / 2,
    y: l.y
   }, {
-   x: l.x + C / 2,
-   y: h.y - C / 2
+   x: l.x + S / 2,
+   y: h.y - S / 2
   }, {
    x: h.x,
-   y: h.y - C / 2
+   y: h.y - S / 2
   }, {
    x: h.x,
    y: h.y
-  } ], t), this.rightStart = !0, e.topEnd = !0, S = l.x + C / 2) : n && "right" === n && w ? (o = i(this.chart, l, [ {
+  } ], t), this.rightStart = !0, e.topEnd = !0, C = l.x + S / 2) : n && "right" === n && w ? (o = i(this.chart, l, [ {
    x: h.x,
    y: l.y
   }, {
    x: h.x,
    y: h.y
-  } ], t), this.rightStart = !0, e.topEnd = !0, S = l.x + C / 2) : n && "bottom" === n && g && y ? (o = i(this.chart, c, [ {
+  } ], t), this.rightStart = !0, e.topEnd = !0, C = l.x + S / 2) : n && "bottom" === n && g && y ? (o = i(this.chart, c, [ {
    x: c.x,
-   y: c.y + C / 2
+   y: c.y + S / 2
   }, {
-   x: l.x + C / 2,
-   y: c.y + C / 2
+   x: l.x + S / 2,
+   y: c.y + S / 2
   }, {
-   x: l.x + C / 2,
-   y: h.y - C / 2
+   x: l.x + S / 2,
+   y: h.y - S / 2
   }, {
    x: h.x,
-   y: h.y - C / 2
+   y: h.y - S / 2
   }, {
    x: h.x,
    y: h.y
-  } ], t), this.bottomStart = !0, e.topEnd = !0, S = c.x + C / 2) : "left" === n && (o = i(this.chart, u, [ {
+  } ], t), this.bottomStart = !0, e.topEnd = !0, C = c.x + S / 2) : "left" === n && (o = i(this.chart, u, [ {
    x: h.x + (u.x - h.x) / 2,
    y: u.y
   }, {
    x: h.x + (u.x - h.x) / 2,
-   y: h.y - C / 2
+   y: h.y - S / 2
   }, {
    x: h.x,
-   y: h.y - C / 2
-  }, {
-   x: h.x,
-   y: h.y
-  } ], t), this.leftStart = !0, e.topEnd = !0, S = u.x) : (o = i(this.chart, c, [ {
-   x: c.x,
-   y: c.y + C / 2
-  }, {
-   x: c.x + (c.x - h.x) / 2,
-   y: c.y + C / 2
-  }, {
-   x: c.x + (c.x - h.x) / 2,
-   y: h.y - C / 2
-  }, {
-   x: h.x,
-   y: h.y - C / 2
+   y: h.y - S / 2
   }, {
    x: h.x,
    y: h.y
-  } ], t), this.bottomStart = !0, e.topEnd = !0, S = c.x + (c.x - h.x) / 2) : (o = this.leftEnd && y ? i(this.chart, c, [ {
+  } ], t), this.leftStart = !0, e.topEnd = !0, C = u.x) : (o = i(this.chart, c, [ {
    x: c.x,
-   y: c.y + C / 2
+   y: c.y + S / 2
   }, {
    x: c.x + (c.x - h.x) / 2,
-   y: c.y + C / 2
+   y: c.y + S / 2
   }, {
    x: c.x + (c.x - h.x) / 2,
-   y: h.y - C / 2
+   y: h.y - S / 2
   }, {
    x: h.x,
-   y: h.y - C / 2
+   y: h.y - S / 2
+  }, {
+   x: h.x,
+   y: h.y
+  } ], t), this.bottomStart = !0, e.topEnd = !0, C = c.x + (c.x - h.x) / 2) : (o = this.leftEnd && y ? i(this.chart, c, [ {
+   x: c.x,
+   y: c.y + S / 2
+  }, {
+   x: c.x + (c.x - h.x) / 2,
+   y: c.y + S / 2
+  }, {
+   x: c.x + (c.x - h.x) / 2,
+   y: h.y - S / 2
+  }, {
+   x: h.x,
+   y: h.y - S / 2
   }, {
    x: h.x,
    y: h.y
   } ], t) : i(this.chart, c, [ {
    x: c.x,
-   y: h.y - C / 2
+   y: h.y - S / 2
   }, {
    x: h.x,
-   y: h.y - C / 2
+   y: h.y - S / 2
   }, {
    x: h.x,
    y: h.y
-  } ], t), this.bottomStart = !0, e.topEnd = !0, S = c.x + (c.x - h.x) / 2) : (o = i(this.chart, l, [ {
-   x: l.x + C / 2,
+  } ], t), this.bottomStart = !0, e.topEnd = !0, C = c.x + (c.x - h.x) / 2) : (o = i(this.chart, l, [ {
+   x: l.x + S / 2,
    y: l.y
   }, {
-   x: l.x + C / 2,
-   y: h.y - C / 2
+   x: l.x + S / 2,
+   y: h.y - S / 2
   }, {
    x: h.x,
-   y: h.y - C / 2
+   y: h.y - S / 2
   }, {
    x: h.x,
    y: h.y
-  } ], t), this.rightStart = !0, e.topEnd = !0, S = l.x + C / 2) : (o = i(this.chart, u, f, t), 
-  this.leftStart = !0, e.rightEnd = !0, S = f.x) : (o = i(this.chart, l, m, t), this.rightStart = !0, 
-  e.leftEnd = !0, S = m.x) : (o = i(this.chart, c, h, t), this.bottomStart = !0, e.topEnd = !0, 
-  S = c.x), o) {
+  } ], t), this.rightStart = !0, e.topEnd = !0, C = l.x + S / 2) : (o = i(this.chart, u, f, t), 
+  this.leftStart = !0, e.rightEnd = !0, C = f.x) : (o = i(this.chart, l, m, t), this.rightStart = !0, 
+  e.leftEnd = !0, C = m.x) : (o = i(this.chart, c, h, t), this.bottomStart = !0, e.topEnd = !0, 
+  C = c.x), o) {
    for (var T = 0, k = this.chart.lines.length; k > T; T++) for (var E, I = this.chart.lines[T], D = I.attr("path"), N = o.attr("path"), L = 0, M = D.length - 1; M > L; L++) {
     var A = [];
     A.push([ "M", D[L][1], D[L][2] ]), A.push([ "L", D[L + 1][1], D[L + 1][2] ]);
     for (var R = A[0][1], P = A[0][2], O = A[1][1], F = A[1][2], B = 0, j = N.length - 1; j > B; B++) {
      var $ = [];
      $.push([ "M", N[B][1], N[B][2] ]), $.push([ "L", N[B + 1][1], N[B + 1][2] ]);
-     var U = $[0][1], G = $[0][2], q = $[1][1], H = $[1][2], z = r(R, P, O, F, U, G, q, H);
+     var U = $[0][1], H = $[0][2], q = $[1][1], G = $[1][2], z = r(R, P, O, F, U, H, q, G);
      if (z.onLine1 && z.onLine2) {
       var W;
-      G === H ? U > q ? (W = [ "L", z.x + 2 * _, G ], N.splice(B + 1, 0, W), W = [ "C", z.x + 2 * _, G, z.x, G - 4 * _, z.x - 2 * _, G ], 
-      N.splice(B + 2, 0, W), o.attr("path", N)) : (W = [ "L", z.x - 2 * _, G ], N.splice(B + 1, 0, W), 
-      W = [ "C", z.x - 2 * _, G, z.x, G - 4 * _, z.x + 2 * _, G ], N.splice(B + 2, 0, W), 
-      o.attr("path", N)) : G > H ? (W = [ "L", U, z.y + 2 * _ ], N.splice(B + 1, 0, W), 
+      H === G ? U > q ? (W = [ "L", z.x + 2 * _, H ], N.splice(B + 1, 0, W), W = [ "C", z.x + 2 * _, H, z.x, H - 4 * _, z.x - 2 * _, H ], 
+      N.splice(B + 2, 0, W), o.attr("path", N)) : (W = [ "L", z.x - 2 * _, H ], N.splice(B + 1, 0, W), 
+      W = [ "C", z.x - 2 * _, H, z.x, H - 4 * _, z.x + 2 * _, H ], N.splice(B + 2, 0, W), 
+      o.attr("path", N)) : H > G ? (W = [ "L", U, z.y + 2 * _ ], N.splice(B + 1, 0, W), 
       W = [ "C", U, z.y + 2 * _, U + 4 * _, z.y, U, z.y - 2 * _ ], N.splice(B + 2, 0, W), 
       o.attr("path", N)) : (W = [ "L", U, z.y - 2 * _ ], N.splice(B + 1, 0, W), W = [ "C", U, z.y - 2 * _, U + 4 * _, z.y, U, z.y + 2 * _ ], 
       N.splice(B + 2, 0, W), o.attr("path", N)), B += 2, E += 2;
@@ -19073,7 +19073,7 @@ function() {
    }
    this.chart.lines.push(o);
   }
-  (!this.chart.maxXFromLine || this.chart.maxXFromLine && S > this.chart.maxXFromLine) && (this.chart.maxXFromLine = S);
+  (!this.chart.maxXFromLine || this.chart.maxXFromLine && C > this.chart.maxXFromLine) && (this.chart.maxXFromLine = C);
  }, g.inherits(s, a), s.prototype.render = function() {
   if (this.next) {
    var e = this.chart.options.symbols[this.symbolType]["line-length"] || this.chart.options["line-length"], t = this.getBottom();
@@ -19299,8 +19299,8 @@ function() {
    startOffset: i,
    endOffset: n,
    height: n - i
-  }), u = -10, d = -10, S();
- }, 500), v = !0, b = !1, y = !1, x = !1, w = !1, S = t.throttle(function() {
+  }), u = -10, d = -10, C();
+ }, 500), v = !0, b = !1, y = !1, x = !1, w = !1, C = t.throttle(function() {
   if (v && 0 !== f.length && f.length === m.length) {
    var e = l.scrollTop;
    0 > e && (e = 0);
@@ -19331,13 +19331,13 @@ function() {
  }, a.onFileClosed = function() {
   f = [];
  };
- var C = !1;
+ var S = !1;
  a.onReady = function() {
   c = document.querySelector(".preview-container"), l = document.querySelector("#wmd-input"), 
   e(c).scroll(function() {
-   w === !1 && C === !1 && (y = !0, b = !1, S()), C = !1;
+   w === !1 && S === !1 && (y = !0, b = !1, C()), S = !1;
   }), e(l).scroll(function() {
-   x === !1 && (b = !0, y = !1, S());
+   x === !1 && (b = !0, y = !1, C());
   }), e(".preview-panel").on("hide.layout.toggle", function() {
    v = !1;
   }).on("shown.layout.toggle", function() {
@@ -19361,7 +19361,7 @@ function() {
  }, a.onPreviewFinished = function() {
   _.style.removeProperty("height");
   var e = _.offsetHeight;
-  b = !0, T > e && (C = !0), g();
+  b = !0, T > e && (S = !0), g();
  }, a;
 }), define("text!html/buttonSyncSettingsBlock.html", [], function() {
  return '<p>Adds a "Synchronize Stories" button in the navigation bar.</p>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-5 control-label" for="input-sync-period">Sync Period (0: manual)</label>\n		<div class="col-sm-6 form-inline">\n			<input type="text" id="input-sync-period" class="col-sm-10 form-control" placeholder="180000"> ms\n		</div>\n	</div>\n	<div class="form-group">\n		<label class="col-sm-5 control-label"\n			for="input-sync-shortcut">Sync Shortcut</label>\n		<div class="col-sm-6">\n			<input type="text" id="input-sync-shortcut" class="form-control">\n		</div>\n	</div>\n</div>';
@@ -20903,8 +20903,8 @@ function() {
 }), define("extensions/comments", [ "jquery", "underscore", "utils", "storage", "crel", "rangy", "classes/Extension", "text!html/commentsPopoverContent.html", "bootstrap" ], function(e, t, n, i, r, o, a, s) {
  function l(e, t, n) {
   t = Math.round(t);
-  for (var i = t - 21; t + 22 > i; ) S[i] && (t = i + 22), i++;
-  !n && (S[t] = 1);
+  for (var i = t - 21; t + 22 > i; ) C[i] && (t = i + 22), i++;
+  !n && (C[t] = 1);
   var r = -8;
   -1 !== e.className.indexOf(" icon-split") && (r = -12);
   var o = t + r;
@@ -20947,7 +20947,7 @@ function() {
  f.onEditorCreated = function(e) {
   v = e, b = v.selectionMgr;
  };
- var y, x, w, S = [], C = r("a", {
+ var y, x, w, C = [], S = r("a", {
   "class": "discussion icon-comment new"
  });
  c.prototype.getDiscussion = function() {
@@ -20962,8 +20962,8 @@ function() {
     return !t.has(k.discussionList, n);
    }).forEach(function(e) {
     x.removeChild(e), delete N[e.discussionIndex];
-   }), l(C, w, !0), _ && !_.discussionIndex && (y.scrollTop += parseInt(C.style.top) - y.scrollTop - 3 * y.offsetHeight / 4, 
-   u(C)), L = t.sortBy(N, function(e) {
+   }), l(S, w, !0), _ && !_.discussionIndex && (y.scrollTop += parseInt(S.style.top) - y.scrollTop - 3 * y.offsetHeight / 4, 
+   u(S)), L = t.sortBy(N, function(e) {
     return e.selectionEnd;
    }), I.toggleClass("some", 0 !== L.length), I.toggleClass("replied", M), void D.toggleClass("icon-chat", 0 !== L.length);
    var a = o.shift(), s = N[a.discussionIndex];
@@ -20978,7 +20978,7 @@ function() {
   if (void 0 !== k) {
    M = !1, L = [];
    var n = i["author.name"];
-   S = [];
+   C = [];
    var o = t.sortBy(k.discussionList, function(e) {
     return e.selectionEnd;
    });
@@ -20990,7 +20990,7 @@ function() {
  }, f.onContentChanged = function(e) {
   k === e && A();
  }, f.onCursorCoordinates = function(e, t) {
-  w = t, l(C, t, !0);
+  w = t, l(S, t, !0);
  }, f.onCommentsChanged = function(e) {
   if (k === e) {
    if (void 0 !== _) {
@@ -21021,7 +21021,7 @@ function() {
   });
   var a = "";
   y = document.getElementById("wmd-input"), x = document.querySelector("#wmd-input > .editor-margin"), 
-  x.appendChild(C);
+  x.appendChild(S);
   var l = e(r("div", {
    "class": "comments-popover"
   }));
@@ -21110,7 +21110,7 @@ function() {
   }), l.on("click", ".popover", function(e) {
    e.stopPropagation();
   });
-  var f = e(C);
+  var f = e(S);
   I = e(".button-open-discussion").click(function(n) {
    var i = f;
    if (_) if (_.discussionIndex) {
@@ -21135,11 +21135,11 @@ function() {
   }), L = [];
  }
  function u() {
-  if (S) {
+  if (C) {
    try {
-    S && w.undoToRange(S);
+    C && w.undoToRange(C);
    } catch (e) {}
-   S = void 0;
+   C = void 0;
   }
  }
  function d(e) {
@@ -21196,18 +21196,18 @@ function() {
    return t.start > e;
   });
   if (n || (n = t.first(M)), n) {
-   if (S = L[n.start], !S) {
+   if (C = L[n.start], !C) {
     var i = b.selectionMgr.createRange(n.start, n.end);
-    S = a.createRange(), S.setStart(i.startContainer, i.startOffset), S.setEnd(i.endContainer, i.endOffset);
+    C = a.createRange(), C.setStart(i.startContainer, i.startOffset), C.setEnd(i.endContainer, i.endOffset);
    }
-   w.applyToRange(S), S.start = n.start, S.end = n.end, b.selectionMgr.setSelectionStartEnd(n.start, n.end), 
+   w.applyToRange(C), C.start = n.start, C.end = n.end, b.selectionMgr.setSelectionStartEnd(n.start, n.end), 
    b.selectionMgr.updateCursorCoordinates(!0);
   }
  }
  function m() {
-  if (!S) return f();
+  if (!C) return f();
   var e = k.val();
-  b.replace(S.start, S.end, e), setTimeout(function() {
+  b.replace(C.start, C.end, e), setTimeout(function() {
    f(), k.focus();
   }, 1);
  }
@@ -21231,7 +21231,7 @@ function() {
  v.onEventMgrCreated = function(e) {
   y = e;
  };
- var x, w, S, C, _, T, k, E, I, D, N, L = [], M = [], A = "", R = !1, P = !1, O = !1;
+ var x, w, C, S, _, T, k, E, I, D, N, L = [], M = [], A = "", R = !1, P = !1, O = !1;
  return v.onEditorPopover = function() {
   h();
  }, v.onContentChanged = t.bind(d, null, !0), v.onFileOpen = t.bind(d, null, !0), 
@@ -21240,7 +21240,7 @@ function() {
    normalize: !1
   }), w = a.createCssClassApplier("find-replace-select", {
    normalize: !1
-  }), C = document.querySelector("#wmd-input .editor-content");
+  }), S = document.querySelector("#wmd-input .editor-content");
   var i = n("div", {
    "class": "find-replace"
   });
@@ -21293,10 +21293,10 @@ function() {
    return s[s.length - 1];
   }; e; ) {
    if (o = !0, s.last() && L[s.last()]) e = e.replace(new RegExp("(.*)<\\s*\\/\\s*" + s.last() + "[^>]*>", "i"), function(e, n) {
-    return n = n.replace(w, "$1").replace(C, "$1"), t.chars && t.chars(c(n)), "";
+    return n = n.replace(w, "$1").replace(S, "$1"), t.chars && t.chars(c(n)), "";
    }), i("", s.last()); else if (0 === e.indexOf("<!--") ? (r = e.indexOf("--", 4), 
    r >= 0 && e.lastIndexOf("-->", r) === r && (t.comment && t.comment(e.substring(4, r)), 
-   e = e.substring(r + 3), o = !1)) : S.test(e) ? (a = e.match(S), a && (e = e.replace(a[0], ""), 
+   e = e.substring(r + 3), o = !1)) : C.test(e) ? (a = e.match(C), a && (e = e.replace(a[0], ""), 
    o = !1)) : x.test(e) ? (a = e.match(v), a && (e = e.substring(a[0].length), a[0].replace(v, i), 
    o = !1)) : y.test(e) && (a = e.match(g), a && (e = e.substring(a[0].length), a[0].replace(g, n), 
    o = !1)), o) {
@@ -21356,7 +21356,7 @@ function() {
    }), h.slice(0, -1).join("");
   });
  };
- var f = /^\s*(https?|ftp|mailto|tel|file):/, m = /^\s*(https?|ftp|file):|data:image\//, g = /^<\s*([\w:-]+)((?:\s+[\w:-]+(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)\s*>/, v = /^<\s*\/\s*([\w:-]+)[^>]*>/, b = /([\w:-]+)(?:\s*=\s*(?:(?:"((?:[^"])*)")|(?:'((?:[^'])*)')|([^>\s]+)))?/g, y = /^</, x = /^<\s*\//, w = /<!--(.*?)-->/g, S = /<!DOCTYPE([^>]*?)>/i, C = /<!\[CDATA\[(.*?)]]>/g, _ = /([^\#-~| |!])/g, T = s("area,br,col,hr,img,wbr"), k = s("colgroup,dd,dt,li,p,tbody,td,tfoot,th,thead,tr"), E = s("rp,rt"), I = t.extend({}, E, k), D = t.extend({}, k, s("address,article,aside,blockquote,caption,center,del,dir,div,dl,figure,figcaption,footer,h1,h2,h3,h4,h5,h6,header,hgroup,hr,ins,map,menu,nav,ol,pre,script,section,table,ul")), N = t.extend({}, E, s("a,abbr,acronym,b,bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,q,ruby,rp,rt,s,samp,small,span,strike,strong,sub,sup,time,tt,u,var")), L = s("script,style");
+ var f = /^\s*(https?|ftp|mailto|tel|file):/, m = /^\s*(https?|ftp|file):|data:image\//, g = /^<\s*([\w:-]+)((?:\s+[\w:-]+(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)\s*>/, v = /^<\s*\/\s*([\w:-]+)[^>]*>/, b = /([\w:-]+)(?:\s*=\s*(?:(?:"((?:[^"])*)")|(?:'((?:[^'])*)')|([^>\s]+)))?/g, y = /^</, x = /^<\s*\//, w = /<!--(.*?)-->/g, C = /<!DOCTYPE([^>]*?)>/i, S = /<!\[CDATA\[(.*?)]]>/g, _ = /([^\#-~| |!])/g, T = s("area,br,col,hr,img,wbr"), k = s("colgroup,dd,dt,li,p,tbody,td,tfoot,th,thead,tr"), E = s("rp,rt"), I = t.extend({}, E, k), D = t.extend({}, k, s("address,article,aside,blockquote,caption,center,del,dir,div,dl,figure,figcaption,footer,h1,h2,h3,h4,h5,h6,header,hgroup,hr,ins,map,menu,nav,ol,pre,script,section,table,ul")), N = t.extend({}, E, s("a,abbr,acronym,b,bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,q,ruby,rp,rt,s,samp,small,span,strike,strong,sub,sup,time,tt,u,var")), L = s("script,style");
  D.iframe = !0;
  var M = t.extend({}, T, D, N, I), A = s("background,cite,href,longdesc,src,usemap"), R = t.extend({}, A, s("abbr,align,alt,axis,bgcolor,border,cellpadding,cellspacing,class,clear,color,cols,colspan,compact,coords,dir,face,headers,height,hreflang,hspace,ismap,lang,language,nohref,nowrap,rel,rev,rows,rowspan,rules,scope,scrolling,shape,size,span,start,summary,target,title,type,valign,value,vspace,width"));
  R.id = !0, R.allowfullscreen = !0;
@@ -21577,13 +21577,13 @@ function() {
     y.appendChild(a(e));
    }), document.querySelector(".sync-menu").insertBefore(y, document.querySelector(".sync-divider")), 
    o.log("onCreatePubButton"), o.log("onCreatePubMngButton");
-   var w = c("onCreatePubButton"), S = c("onCreatePubMngButton"), C = document.createDocumentFragment();
+   var w = c("onCreatePubButton"), C = c("onCreatePubMngButton"), S = document.createDocumentFragment();
    t.each(w, function(e) {
-    C.appendChild(s(e));
-   }), document.querySelector(".publish-menu").insertBefore(C, document.querySelector(".publish-divider")), 
-   t.each(S, function(e) {
-    C.appendChild(s(e));
-   }), document.querySelector(".publish-menu").insertBefore(C, document.querySelector(".publish-divider"));
+    S.appendChild(s(e));
+   }), document.querySelector(".publish-menu").insertBefore(S, document.querySelector(".publish-divider")), 
+   t.each(C, function(e) {
+    S.appendChild(s(e));
+   }), document.querySelector(".publish-menu").insertBefore(S, document.querySelector(".publish-divider"));
   }
   o.log("onCreatePreviewButton");
   var _ = c("onCreatePreviewButton"), T = document.createDocumentFragment();
@@ -21805,23 +21805,23 @@ diff_match_patch.Diff, diff_match_patch.prototype.diff_main = function(e, t, n, 
    y = b == -v || b != v && l[x - 1] < l[x + 1] ? l[x + 1] : l[x - 1] + 1;
    for (var w = y - b; i > y && r > w && e.charAt(y) == t.charAt(w); ) y++, w++;
    if (l[x] = y, y > i) f += 2; else if (w > r) h += 2; else if (p) {
-    var S = a + d - b;
-    if (S >= 0 && s > S && -1 != c[S]) {
-     var C = i - c[S];
-     if (y >= C) return this.diff_bisectSplit_(e, t, y, w, n);
+    var C = a + d - b;
+    if (C >= 0 && s > C && -1 != c[C]) {
+     var S = i - c[C];
+     if (y >= S) return this.diff_bisectSplit_(e, t, y, w, n);
     }
    }
   }
   for (var _ = -v + m; v - g >= _; _ += 2) {
-   var C, S = a + _;
-   C = _ == -v || _ != v && c[S - 1] < c[S + 1] ? c[S + 1] : c[S - 1] + 1;
-   for (var T = C - _; i > C && r > T && e.charAt(i - C - 1) == t.charAt(r - T - 1); ) C++, 
+   var S, C = a + _;
+   S = _ == -v || _ != v && c[C - 1] < c[C + 1] ? c[C + 1] : c[C - 1] + 1;
+   for (var T = S - _; i > S && r > T && e.charAt(i - S - 1) == t.charAt(r - T - 1); ) S++, 
    T++;
-   if (c[S] = C, C > i) g += 2; else if (T > r) m += 2; else if (!p) {
+   if (c[C] = S, S > i) g += 2; else if (T > r) m += 2; else if (!p) {
     var x = a + d - _;
     if (x >= 0 && s > x && -1 != l[x]) {
      var y = l[x], w = a + y - x;
-     if (C = i - C, y >= C) return this.diff_bisectSplit_(e, t, y, w, n);
+     if (S = i - S, y >= S) return this.diff_bisectSplit_(e, t, y, w, n);
     }
    }
   }
@@ -22463,23 +22463,23 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
       return void e.setResult(b).exit();
      }
      d = {};
-     var y = f.slice(p, g - h), x = m.slice(p, v - h), w = a.get(y, x, u, d), S = [];
+     var y = f.slice(p, g - h), x = m.slice(p, v - h), w = a.get(y, x, u, d), C = [];
      for (b = b || {
       _t: "a"
      }, t = p; g - h > t; t++) c(w.indices1, t - p) < 0 && (b["_" + t] = [ f[t], 0, 0 ], 
-     S.push(t));
-     var C = !0;
-     e.options && e.options.arrays && e.options.arrays.detectMove === !1 && (C = !1);
+     C.push(t));
+     var S = !0;
+     e.options && e.options.arrays && e.options.arrays.detectMove === !1 && (S = !1);
      var _ = !1;
      e.options && e.options.arrays && e.options.arrays.includeValueOnMove && (_ = !0);
-     var T = S.length;
+     var T = C.length;
      for (t = p; v - h > t; t++) {
       var k = c(w.indices2, t - p);
       if (0 > k) {
        var E = !1;
-       if (C && T > 0) for (n = 0; T > n; n++) if (u(y, x, S[n] - p, t - p, d)) {
-        b["_" + S[n]].splice(1, 2, t, s), _ || (b["_" + S[n]][0] = ""), n = S[n], r = t, 
-        o = new i(e.left[n], e.right[r]), e.push(o, r), S.splice(n, 1), E = !0;
+       if (S && T > 0) for (n = 0; T > n; n++) if (u(y, x, C[n] - p, t - p, d)) {
+        b["_" + C[n]].splice(1, 2, t, s), _ || (b["_" + C[n]][0] = ""), n = C[n], r = t, 
+        o = new i(e.left[n], e.right[r]), e.push(o, r), C.splice(n, 1), E = !0;
         break;
        }
        E || (b[t] = [ m[t] ]);
@@ -22920,19 +22920,19 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   t.attributeNamespace = e.attributeNamespace, t.oldValue = e.oldValue, t;
  }
  function c(e, t) {
-  return S = new s(e, t);
+  return C = new s(e, t);
  }
  function u(e) {
-  return C ? C : (C = l(S), C.oldValue = e, C);
+  return S ? S : (S = l(C), S.oldValue = e, S);
  }
  function d() {
-  S = C = void 0;
+  C = S = void 0;
  }
  function p(e) {
-  return e === C || e === S;
+  return e === S || e === C;
  }
  function h(e, t) {
-  return e === t ? e : C && p(e) ? C : null;
+  return e === t ? e : S && p(e) ? S : null;
  }
  function f(e, t, n) {
   this.observer = e, this.target = t, this.options = n, this.transientObservedNodes = [];
@@ -22979,7 +22979,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    return this.records_ = [], e;
   }
  };
- var S, C;
+ var C, S;
  f.prototype = {
   enqueue: function(e) {
    var n = this.observer.records_, i = n.length;
@@ -23356,7 +23356,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   this.isWatching = !1;
   var e;
   this.startWatching = function() {
-   this.isWatching = !0, e = e || new MutationObserver(S), e.observe(N, {
+   this.isWatching = !0, e = e || new MutationObserver(C), e.observe(N, {
     childList: !0,
     subtree: !0,
     characterData: !0
@@ -23431,7 +23431,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
    U.editorEnd = t, u();
   }, this.saveSelectionState = function() {
    function t() {
-    if (G === !1) {
+    if (H === !1) {
      var t = e.selectionStart, n = e.selectionEnd, i = c.getSelection();
      if (i.rangeCount > 0) {
       var r = i.getRangeAt(0), o = r.startContainer;
@@ -23498,9 +23498,9 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   void 0 !== I && W.saveSelectionState(!0, !0, e);
  }
  function h(e) {
-  var t = H.diff_commonPrefix(V, e);
+  var t = G.diff_commonPrefix(V, e);
   t === V.length && t--;
-  var n = Math.min(H.diff_commonSuffix(V, e), V.length - t, e.length - t), i = e.substring(t, e.length - n), r = W.createRange(t, V.length - n);
+  var n = Math.min(G.diff_commonSuffix(V, e), V.length - t, e.length - t), i = e.substring(t, e.length - n), r = W.createRange(t, V.length - n);
   return r.deleteContents(), r.insertNode(document.createTextNode(i)), {
    start: t,
    end: e.length - n
@@ -23592,32 +23592,32 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
     selectionEndAfter: U.selectionEnd,
     content: e,
     discussionListJSON: U.discussionListJSON
-   }, this.currentMode = void 0, o = void 0, N.textContent = e, S();
+   }, this.currentMode = void 0, o = void 0, N.textContent = e, C();
   };
  }
  function w() {
   q.isWatching === !0 && (X.currentMode = X.currentMode || "comment", X.saveState());
  }
- function S() {
+ function C() {
   var e = I.textContent;
   if (N.lastChild === O && "\n" == O.textContent.slice(-1) && (e = e.slice(0, -1)), 
-  e = e.replace(/\r\n?/g, "\n"), G === !1) {
+  e = e.replace(/\r\n?/g, "\n"), H === !1) {
    if (e == V) return void (0 === N.children.length && (N.innerHTML = "", K.forEach(function(e) {
     N.appendChild(e.elt);
    }), k()));
    X.currentMode = X.currentMode || "typing";
    var n = t.values(U.discussionList);
    U.newDiscussion && n.push(U.newDiscussion);
-   var i = C(V, e, n);
+   var i = S(V, e, n);
    V = e, i === !0 && (U.discussionList = U.discussionList), U.content = V, W.saveSelectionState(), 
    r.onContentChanged(U, V), i && r.onCommentsChanged(U), X.saveState(), Y();
   } else V = e, U.content = V, W.setSelectionStartEnd(U.editorStart, U.editorEnd), 
   W.updateSelectionRange(), W.updateCursorCoordinates(), X.saveSelectionState(), r.onFileOpen(U, V), 
-  R.scrollTop = U.previewScrollTop, B = U.editorScrollTop, I.scrollTop = B, G = !1;
+  R.scrollTop = U.previewScrollTop, B = U.editorScrollTop, I.scrollTop = B, H = !1;
  }
- function C(e, t, n) {
+ function S(e, t, n) {
   if (n.length) {
-   var i = H.diff_main(e, t), r = !1, o = 0;
+   var i = G.diff_main(e, t), r = !1, o = 0;
    return i.forEach(function(e) {
     var t = e[0], i = e[1];
     if (0 === t) return void (o += i.length);
@@ -23632,7 +23632,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   }
  }
  function _(e) {
-  if (Z = [], J = [], Q = void 0, G === !0) return J = K, K = e, void (Z = e);
+  if (Z = [], J = [], Q = void 0, H === !0) return J = K, K = e, void (Z = e);
   var n = K.length;
   t.some(K, function(t, i) {
    var r = e[i];
@@ -23655,7 +23655,7 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   Z.forEach(function(t) {
    E(t), e.appendChild(t.elt);
   }), q.noWatch(function() {
-   if (G === !0) N.innerHTML = "", N.appendChild(e); else {
+   if (H === !0) N.innerHTML = "", N.appendChild(e); else {
     J.forEach(function(e) {
      e.elt.parentNode === N && N.removeChild(e.elt);
     }), void 0 !== Q ? N.insertBefore(e, Q.elt) : N.appendChild(e);
@@ -23698,15 +23698,15 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
  });
  var $ = 0;
  r.addListener("onSectionsCreated", function(e) {
-  $ || (_(e), T()), G === !0 ? P.refreshPreview() : j();
+  $ || (_(e), T()), H === !0 ? P.refreshPreview() : j();
  });
- var U, G = !0;
+ var U, H = !0;
  r.addListener("onFileSelected", function(e) {
-  G = !0, U = e;
+  H = !0, U = e;
  });
  var q = new u();
  F.watcher = q;
- var H = new a(), z = s.create({
+ var G = new a(), z = s.create({
   objectHash: function(e) {
    return JSON.stringify(e);
   },
@@ -23731,13 +23731,13 @@ this.DIFF_EQUAL = DIFF_EQUAL, define("diff_match_patch_uncompressed", function(e
   e.modify("move", "forward", "character")) : (e.modify("move", "forward", "character"), 
   e.modify("move", "backward", "character")));
  }, 10);
- F.adjustCommentOffsets = C, F.init = function() {
+ F.adjustCommentOffsets = S, F.init = function() {
   if (I = document.getElementById("wmd-input"), D = e(I), N = I.querySelector(".editor-content"), 
   L = e(N), M = I.querySelector(".editor-margin"), A = e(M), R = document.querySelector(".preview-container"), 
   D.addClass(i.editorFontClass), q.startWatching(), e(I).scroll(function() {
-   B = I.scrollTop, G === !1 && (U.editorScrollTop = B);
+   B = I.scrollTop, H === !1 && (U.editorScrollTop = B);
   }), e(R).scroll(function() {
-   G === !1 && (U.previewScrollTop = R.scrollTop);
+   H === !1 && (U.previewScrollTop = R.scrollTop);
   }), /AppleWebKit\/([\d.]+)/.exec(navigator.userAgent)) {
    var n = e('<input style="width:1px;height:1px;border:none;margin:0;padding:0;" tabIndex="-1">').appendTo("html");
    L.blur(function() {
@@ -24426,10 +24426,10 @@ var createCallback = function(e) {
 
 currentContextSelector = void 0, define("contextjs", function() {}), define("layout", [ "jquery", "underscore", "utils", "constants", "settings", "eventMgr", "crel", "mousetrap", "hammerjs", "contextjs" ], function(e, t, n, i, r, o, a, s, l) {
  function c() {
-  H = !0, b.$elt.addClass("layout-animate");
+  G = !0, b.$elt.addClass("layout-animate");
  }
  function u() {
-  H = !1, b.$elt.removeClass("layout-animate");
+  G = !1, b.$elt.removeClass("layout-animate");
  }
  function d(t) {
   this.selector = t, this.elt = document.querySelector(t), this.$elt = e(this.elt);
@@ -24461,15 +24461,15 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   }), K.toggleClass("hide", 0 === Q.children.length), o.onLayoutResize();
  }
  function m() {
-  b.width = v.width + B + (C.isShown ? j : 0), b.elt.style.width = b.width + "px", 
-  C.right = C.isShown ? 0 : -j, C.elt.style.right = C.right + "px";
+  b.width = v.width + B + (S.isShown ? j : 0), b.elt.style.width = b.width + "px", 
+  S.right = S.isShown ? 0 : -j, S.elt.style.right = S.right + "px";
  }
  function g() {
   for (v = {
    width: window.innerWidth,
    height: window.innerHeight
   }; ;) {
-   if (b.y = w.isOpen ? 0 : -P, b.x = S.isOpen ? 0 : C.isOpen ? -(B + j) : -B, b.width = v.width + B + j, 
+   if (b.y = w.isOpen ? 0 : -P, b.x = C.isOpen ? 0 : S.isOpen ? -(B + j) : -B, b.width = v.width + B + j, 
    b.height = v.height - b.y, y.left = B, y.width = v.width, y.height = b.height, x.top = P, 
    x.width = v.width, x.height = b.height - P, b.applyCss(), y.applyCss(), x.applyCss(), 
    window.viewerMode) return T.width = x.width, T.height = x.height, k.width = x.width, 
@@ -24509,34 +24509,34 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    w.isOpen = !1, w.$elt.trigger("hide.layout.toggle").trigger("hidden.layout.toggle");
   }
   E.$elt.toggleClass("open", w.isOpen), I.$elt.toggleClass("open", T.isOpen), D.$elt.toggleClass("open", T.isOpen), 
-  S.$elt.find(".toggle-button i").toggleClass("icon-cancel", S.isOpen), S.$elt.find(".toggle-button i").toggleClass("icon-menu", S.isOpen === !1), 
-  C.$elt.find(".toggle-button i").toggleClass("icon-cancel", C.isOpen), C.$elt.find(".toggle-button i").toggleClass("icon-folder-open", C.isOpen === !1), 
+  C.$elt.find(".toggle-button i").toggleClass("icon-cancel", C.isOpen), C.$elt.find(".toggle-button i").toggleClass("icon-menu", C.isOpen === !1), 
+  S.$elt.find(".toggle-button i").toggleClass("icon-cancel", S.isOpen), S.$elt.find(".toggle-button i").toggleClass("icon-folder-open", S.isOpen === !1), 
   _.applyCss(), T.applyCss(), k.applyCss(), I.applyCss(), D.applyCss(), E.applyCss(), 
   m(), N.adjustPosition(), f();
  }
- var v, b, y, x, w, S, C, _, T, k, E, I, D, N, L, M = {}, A = 32, R = 60, P = 60, O = {
+ var v, b, y, x, w, C, S, _, T, k, E, I, D, N, L, M = {}, A = 32, R = 60, P = 60, O = {
   width: 250,
   height: 140
  }, F = {
   width: 330,
   height: 160
- }, B = 335, j = 320, $ = 200, U = 18, G = 130, q = {
+ }, B = 335, j = 320, $ = 200, U = 18, H = 130, q = {
   x: -45,
   y: -6
- }, H = !1, z = [];
+ }, G = !1, z = [];
  d.prototype.applyCss = function() {
   void 0 !== this.top && (this.elt.style.top = this.top + "px"), void 0 !== this.left && (this.elt.style.left = this.left + "px"), 
   void 0 !== this.bottom && (this.elt.style.bottom = this.bottom + "px"), void 0 !== this.right && (this.elt.style.right = this.right + "px"), 
   (void 0 !== this.x || void 0 !== this.y) && (this.x = this.x || 0, this.y = this.y || 0, 
   this.elt.style["-webkit-transform"] = "translate(" + this.x + "px, " + this.y + "px)", 
   this.elt.style["-ms-transform"] = "translate(" + this.x + "px, " + this.y + "px)", 
-  this.elt.style.transform = "translate(" + this.x + "px, " + this.y + "px)"), H && this.width < this.oldWidth ? z.push(t.bind(function() {
+  this.elt.style.transform = "translate(" + this.x + "px, " + this.y + "px)"), G && this.width < this.oldWidth ? z.push(t.bind(function() {
    this.elt.style.width = this.width + "px";
   }, this)) : void 0 !== this.width && (this.elt.style.width = this.width + "px"), 
-  this.oldWidth = this.width, H && this.height < this.oldHeight ? z.push(t.bind(function() {
+  this.oldWidth = this.width, G && this.height < this.oldHeight ? z.push(t.bind(function() {
    this.elt.style.height = this.height + "px";
   }, this)) : void 0 !== this.height && (this.elt.style.height = this.height + "px"), 
-  this.oldHeight = this.height, clearTimeout(L), H && (L = setTimeout(p, 800));
+  this.oldHeight = this.height, clearTimeout(L), G && (L = setTimeout(p, 800));
  }, d.prototype.createToggler = function() {
   var e = 0;
   this.toggle = function(n) {
@@ -24604,14 +24604,14 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   }
   var i = 0;
   if (e(document.body).on("show.bs.modal", ".modal", function() {
-   S.toggle(!1), C.toggle(!1), i++;
+   C.toggle(!1), S.toggle(!1), i++;
   }).on("hidden.bs.modal", ".modal", function() {
    i--;
   }), function(e) {
    e.position = "absolute", e.top = 0, e.left = 0, e.bottom = 0, e.right = 0, e.overflow = "hidden";
   }(document.body.style), document.documentElement.style.overflow = "hidden", b = new d(".layout-wrapper-l1"), 
   y = new d(".layout-wrapper-l2"), x = new d(".layout-wrapper-l3"), w = new d(".navbar"), 
-  S = new d(".menu-panel"), C = new d(".document-panel"), _ = new d("#wmd-input"), 
+  C = new d(".menu-panel"), S = new d(".document-panel"), _ = new d("#wmd-input"), 
   T = new d(".preview-panel"), k = new d(".preview-container"), E = new d(".layout-toggler-navbar"), 
   I = new d(".layout-toggler-preview"), D = new d(".layout-resizer-preview"), N = new d(".extension-preview-buttons"), 
   W = _.elt.querySelector(".editor-content"), V = document.getElementById("preview-contents"), 
@@ -24631,16 +24631,16 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    t.defer(function() {
     T.isOpen || (window.location.href = "paper");
    });
-  }), C.isOpen = !1, C.createBackdropToggler(!0), C.$elt.find(".toggle-button").click(t.bind(C.toggle, C)), 
-  C.$elt.on("click", "a[data-toggle!=collapse]", t.bind(C.toggle, C, !1)), C.$elt.on("hidden.layout.toggle", function() {
+  }), S.isOpen = !1, S.createBackdropToggler(!0), S.$elt.find(".toggle-button").click(t.bind(S.toggle, S)), 
+  S.$elt.on("click", "a[data-toggle!=collapse]", t.bind(S.toggle, S, !1)), S.$elt.on("hidden.layout.toggle", function() {
    m();
-  }), S.isOpen = !1, !window.viewerMode) {
-   S.createBackdropToggler(!0), S.$elt.on("click", "a[data-toggle!=collapse]", t.bind(S.toggle, S, !1)), 
-   S.$elt.on("show.bs.collapse hidden.layout.toggle", function() {
-    S.$elt.find(".in").collapse("hide");
-   }), S.$elt.on("hidden.layout.toggle", function() {}), w.initHammer(), C.initHammer(), 
-   N.initHammer(), w.hammer.on("swipeleft", t.bind(C.toggle, C, !0)), w.hammer.on("swipeup", t.bind(w.toggle, w, !1)), 
-   C.hammer.on("swipeleft", t.bind(C.toggle, C, !0)), C.hammer.on("swiperight", t.bind(C.toggle, C, !1)), 
+  }), C.isOpen = !1, !window.viewerMode) {
+   C.createBackdropToggler(!0), C.$elt.on("click", "a[data-toggle!=collapse]", t.bind(C.toggle, C, !1)), 
+   C.$elt.on("show.bs.collapse hidden.layout.toggle", function() {
+    C.$elt.find(".in").collapse("hide");
+   }), C.$elt.on("hidden.layout.toggle", function() {}), w.initHammer(), S.initHammer(), 
+   N.initHammer(), w.hammer.on("swipeleft", t.bind(S.toggle, S, !0)), w.hammer.on("swipeup", t.bind(w.toggle, w, !1)), 
+   S.hammer.on("swipeleft", t.bind(S.toggle, S, !0)), S.hammer.on("swiperight", t.bind(S.toggle, S, !1)), 
    D.initHammer(!0);
    var o;
    D.hammer.on("dragstart", function() {
@@ -24673,9 +24673,9 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   }).on("dragend", function() {
    y.$elt.removeClass("dragging"), N.$elt.find(".btn-group").toggleClass("dropup", v.height / 2 > -N.y);
   }), s.stopCallback = function() {
-   return S.isOpen || C.isOpen || i;
+   return C.isOpen || S.isOpen || i;
   }, e(window).resize(g).focus(function() {
-   !S.isOpen && !C.isOpen && !i;
+   !C.isOpen && !S.isOpen && !i;
   });
   var c = "";
   n(16 * r.fontSizeRatio), n(17 * r.fontSizeRatio, 600), n(18 * r.fontSizeRatio, 1200);
@@ -24804,8 +24804,8 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
     n.find(".dropdown-menu").css({
      right: -N.elt.offsetWidth + n.width() + n.position().left
     });
-    var e = -N.y - G;
-    v.height / 2 > -N.y && (e = v.height + N.y - N.elt.offsetHeight - G), n.find(".markdown-syntax, .table-of-contents").css({
+    var e = -N.y - H;
+    v.height / 2 > -N.y && (e = v.height + N.y - N.elt.offsetHeight - H), n.find(".markdown-syntax, .table-of-contents").css({
      maxHeight: e
     });
    }).addClass("dropup");
@@ -24816,8 +24816,562 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    N.$elt.addClass("animate");
   }, 0));
  }), o.onLayoutCreated(M), M;
+}), !function(e, t) {
+ if ("function" == typeof define && define.amd) define("Slider", [ "jquery" ], t); else if ("object" == typeof module && module.exports) {
+  var n;
+  try {
+   n = require("jquery");
+  } catch (i) {
+   n = null;
+  }
+  module.exports = t(n);
+ } else e.Slider = t(e.jQuery);
+}(this, function(e) {
+ var t;
+ return function(e) {
+  function t() {}
+  function n(e) {
+   function n(t) {
+    t.prototype.option || (t.prototype.option = function(t) {
+     e.isPlainObject(t) && (this.options = e.extend(!0, this.options, t));
+    });
+   }
+   function r(t, n) {
+    e.fn[t] = function(r) {
+     if ("string" == typeof r) {
+      for (var a = i.call(arguments, 1), s = 0, l = this.length; l > s; s++) {
+       var c = this[s], u = e.data(c, t);
+       if (u) if (e.isFunction(u[r]) && "_" !== r.charAt(0)) {
+        var d = u[r].apply(u, a);
+        if (void 0 !== d && d !== u) return d;
+       } else o("no such method '" + r + "' for " + t + " instance"); else o("cannot call methods on " + t + " prior to initialization; attempted to call '" + r + "'");
+      }
+      return this;
+     }
+     var p = this.map(function() {
+      var i = e.data(this, t);
+      return i ? (i.option(r), i._init()) : (i = new n(this, r), e.data(this, t, i)), 
+      e(this);
+     });
+     return !p || p.length > 1 ? p : p[0];
+    };
+   }
+   if (e) {
+    var o = "undefined" == typeof console ? t : function(e) {
+     console.error(e);
+    };
+    return e.bridget = function(e, t) {
+     n(t), r(e, t);
+    }, e.bridget;
+   }
+  }
+  var i = Array.prototype.slice;
+  n(e);
+ }(e), function(e) {
+  function n(t, n) {
+   function i(e, t) {
+    var n = "data-slider-" + t.replace(/_/g, "-"), i = e.getAttribute(n);
+    try {
+     return JSON.parse(i);
+    } catch (r) {
+     return i;
+    }
+   }
+   "string" == typeof t ? this.element = document.querySelector(t) : t instanceof HTMLElement && (this.element = t), 
+   n = n ? n : {};
+   for (var o = Object.keys(this.defaultOptions), a = 0; a < o.length; a++) {
+    var s = o[a], l = n[s];
+    l = "undefined" != typeof l ? l : i(this.element, s), l = null !== l ? l : this.defaultOptions[s], 
+    this.options || (this.options = {}), this.options[s] = l;
+   }
+   var c, u, d, p, h, f = this.element.style.width, m = !1, g = this.element.parentNode;
+   if (this.sliderElem) m = !0; else {
+    this.sliderElem = document.createElement("div"), this.sliderElem.className = "slider";
+    var v = document.createElement("div");
+    if (v.className = "slider-track", u = document.createElement("div"), u.className = "slider-track-low", 
+    c = document.createElement("div"), c.className = "slider-selection", d = document.createElement("div"), 
+    d.className = "slider-track-high", p = document.createElement("div"), p.className = "slider-handle min-slider-handle", 
+    h = document.createElement("div"), h.className = "slider-handle max-slider-handle", 
+    v.appendChild(u), v.appendChild(c), v.appendChild(d), this.ticks = [], Array.isArray(this.options.ticks) && this.options.ticks.length > 0) {
+     for (a = 0; a < this.options.ticks.length; a++) {
+      var b = document.createElement("div");
+      b.className = "slider-tick", this.ticks.push(b), v.appendChild(b);
+     }
+     c.className += " tick-slider-selection";
+    }
+    if (v.appendChild(p), v.appendChild(h), this.tickLabels = [], Array.isArray(this.options.ticks_labels) && this.options.ticks_labels.length > 0) for (this.tickLabelContainer = document.createElement("div"), 
+    this.tickLabelContainer.className = "slider-tick-label-container", a = 0; a < this.options.ticks_labels.length; a++) {
+     var y = document.createElement("div");
+     y.className = "slider-tick-label", y.innerHTML = this.options.ticks_labels[a], this.tickLabels.push(y), 
+     this.tickLabelContainer.appendChild(y);
+    }
+    var x = function(e) {
+     var t = document.createElement("div");
+     t.className = "tooltip-arrow";
+     var n = document.createElement("div");
+     n.className = "tooltip-inner", e.appendChild(t), e.appendChild(n);
+    }, w = document.createElement("div");
+    w.className = "tooltip tooltip-main", x(w);
+    var C = document.createElement("div");
+    C.className = "tooltip tooltip-min", x(C);
+    var S = document.createElement("div");
+    S.className = "tooltip tooltip-max", x(S), this.sliderElem.appendChild(v), this.sliderElem.appendChild(w), 
+    this.sliderElem.appendChild(C), this.sliderElem.appendChild(S), this.tickLabelContainer && this.sliderElem.appendChild(this.tickLabelContainer), 
+    g.insertBefore(this.sliderElem, this.element), this.element.style.display = "none";
+   }
+   if (e && (this.$element = e(this.element), this.$sliderElem = e(this.sliderElem)), 
+   this.eventToCallbackMap = {}, this.sliderElem.id = this.options.id, this.touchCapable = "ontouchstart" in window || window.DocumentTouch && document instanceof window.DocumentTouch, 
+   this.tooltip = this.sliderElem.querySelector(".tooltip-main"), this.tooltipInner = this.tooltip.querySelector(".tooltip-inner"), 
+   this.tooltip_min = this.sliderElem.querySelector(".tooltip-min"), this.tooltipInner_min = this.tooltip_min.querySelector(".tooltip-inner"), 
+   this.tooltip_max = this.sliderElem.querySelector(".tooltip-max"), this.tooltipInner_max = this.tooltip_max.querySelector(".tooltip-inner"), 
+   r[this.options.scale] && (this.options.scale = r[this.options.scale]), m === !0 && (this._removeClass(this.sliderElem, "slider-horizontal"), 
+   this._removeClass(this.sliderElem, "slider-vertical"), this._removeClass(this.tooltip, "hide"), 
+   this._removeClass(this.tooltip_min, "hide"), this._removeClass(this.tooltip_max, "hide"), 
+   [ "left", "top", "width", "height" ].forEach(function(e) {
+    this._removeProperty(this.trackLow, e), this._removeProperty(this.trackSelection, e), 
+    this._removeProperty(this.trackHigh, e);
+   }, this), [ this.handle1, this.handle2 ].forEach(function(e) {
+    this._removeProperty(e, "left"), this._removeProperty(e, "top");
+   }, this), [ this.tooltip, this.tooltip_min, this.tooltip_max ].forEach(function(e) {
+    this._removeProperty(e, "left"), this._removeProperty(e, "top"), this._removeProperty(e, "margin-left"), 
+    this._removeProperty(e, "margin-top"), this._removeClass(e, "right"), this._removeClass(e, "top");
+   }, this)), "vertical" === this.options.orientation ? (this._addClass(this.sliderElem, "slider-vertical"), 
+   this.stylePos = "top", this.mousePos = "pageY", this.sizePos = "offsetHeight", this._addClass(this.tooltip, "right"), 
+   this.tooltip.style.left = "100%", this._addClass(this.tooltip_min, "right"), this.tooltip_min.style.left = "100%", 
+   this._addClass(this.tooltip_max, "right"), this.tooltip_max.style.left = "100%") : (this._addClass(this.sliderElem, "slider-horizontal"), 
+   this.sliderElem.style.width = f, this.options.orientation = "horizontal", this.stylePos = "left", 
+   this.mousePos = "pageX", this.sizePos = "offsetWidth", this._addClass(this.tooltip, "top"), 
+   this.tooltip.style.top = -this.tooltip.outerHeight - 14 + "px", this._addClass(this.tooltip_min, "top"), 
+   this.tooltip_min.style.top = -this.tooltip_min.outerHeight - 14 + "px", this._addClass(this.tooltip_max, "top"), 
+   this.tooltip_max.style.top = -this.tooltip_max.outerHeight - 14 + "px"), Array.isArray(this.options.ticks) && this.options.ticks.length > 0 && (this.options.max = Math.max.apply(Math, this.options.ticks), 
+   this.options.min = Math.min.apply(Math, this.options.ticks)), Array.isArray(this.options.value) ? this.options.range = !0 : this.options.range && (this.options.value = [ this.options.value, this.options.max ]), 
+   this.trackLow = u || this.trackLow, this.trackSelection = c || this.trackSelection, 
+   this.trackHigh = d || this.trackHigh, "none" === this.options.selection && (this._addClass(this.trackLow, "hide"), 
+   this._addClass(this.trackSelection, "hide"), this._addClass(this.trackHigh, "hide")), 
+   this.handle1 = p || this.handle1, this.handle2 = h || this.handle2, m === !0) for (this._removeClass(this.handle1, "round triangle"), 
+   this._removeClass(this.handle2, "round triangle hide"), a = 0; a < this.ticks.length; a++) this._removeClass(this.ticks[a], "round triangle hide");
+   var _ = [ "round", "triangle", "custom" ], T = -1 !== _.indexOf(this.options.handle);
+   if (T) for (this._addClass(this.handle1, this.options.handle), this._addClass(this.handle2, this.options.handle), 
+   a = 0; a < this.ticks.length; a++) this._addClass(this.ticks[a], this.options.handle);
+   this.offset = this._offset(this.sliderElem), this.size = this.sliderElem[this.sizePos], 
+   this.setValue(this.options.value), this.handle1Keydown = this._keydown.bind(this, 0), 
+   this.handle1.addEventListener("keydown", this.handle1Keydown, !1), this.handle2Keydown = this._keydown.bind(this, 1), 
+   this.handle2.addEventListener("keydown", this.handle2Keydown, !1), this.mousedown = this._mousedown.bind(this), 
+   this.touchCapable && this.sliderElem.addEventListener("touchstart", this.mousedown, !1), 
+   this.sliderElem.addEventListener("mousedown", this.mousedown, !1), "hide" === this.options.tooltip ? (this._addClass(this.tooltip, "hide"), 
+   this._addClass(this.tooltip_min, "hide"), this._addClass(this.tooltip_max, "hide")) : "always" === this.options.tooltip ? (this._showTooltip(), 
+   this._alwaysShowTooltip = !0) : (this.showTooltip = this._showTooltip.bind(this), 
+   this.hideTooltip = this._hideTooltip.bind(this), this.sliderElem.addEventListener("mouseenter", this.showTooltip, !1), 
+   this.sliderElem.addEventListener("mouseleave", this.hideTooltip, !1), this.handle1.addEventListener("focus", this.showTooltip, !1), 
+   this.handle1.addEventListener("blur", this.hideTooltip, !1), this.handle2.addEventListener("focus", this.showTooltip, !1), 
+   this.handle2.addEventListener("blur", this.hideTooltip, !1)), this.options.enabled ? this.enable() : this.disable();
+  }
+  var i = {
+   formatInvalidInputErrorMsg: function(e) {
+    return "Invalid input value '" + e + "' passed in";
+   },
+   callingContextNotSliderInstance: "Calling context element does not have instance of Slider bound to it. Check your code to make sure the JQuery object returned from the call to the slider() initializer is calling the method"
+  }, r = {
+   linear: {
+    toValue: function(e) {
+     var t = e / 100 * (this.options.max - this.options.min);
+     if (this.options.ticks_positions.length > 0) {
+      for (var n, i, r, o = 0, a = 0; a < this.options.ticks_positions.length; a++) if (e <= this.options.ticks_positions[a]) {
+       n = a > 0 ? this.options.ticks[a - 1] : 0, r = a > 0 ? this.options.ticks_positions[a - 1] : 0, 
+       i = this.options.ticks[a], o = this.options.ticks_positions[a];
+       break;
+      }
+      if (a > 0) {
+       var s = (e - r) / (o - r);
+       t = n + s * (i - n);
+      }
+     }
+     var l = this.options.min + Math.round(t / this.options.step) * this.options.step;
+     return l < this.options.min ? this.options.min : l > this.options.max ? this.options.max : l;
+    },
+    toPercentage: function(e) {
+     if (this.options.max === this.options.min) return 0;
+     if (this.options.ticks_positions.length > 0) {
+      for (var t, n, i, r = 0, o = 0; o < this.options.ticks.length; o++) if (e <= this.options.ticks[o]) {
+       t = o > 0 ? this.options.ticks[o - 1] : 0, i = o > 0 ? this.options.ticks_positions[o - 1] : 0, 
+       n = this.options.ticks[o], r = this.options.ticks_positions[o];
+       break;
+      }
+      if (o > 0) {
+       var a = (e - t) / (n - t);
+       return i + a * (r - i);
+      }
+     }
+     return 100 * (e - this.options.min) / (this.options.max - this.options.min);
+    }
+   },
+   logarithmic: {
+    toValue: function(e) {
+     var t = 0 === this.options.min ? 0 : Math.log(this.options.min), n = Math.log(this.options.max), i = Math.exp(t + (n - t) * e / 100);
+     return i = this.options.min + Math.round((i - this.options.min) / this.options.step) * this.options.step, 
+     i < this.options.min ? this.options.min : i > this.options.max ? this.options.max : i;
+    },
+    toPercentage: function(e) {
+     if (this.options.max === this.options.min) return 0;
+     var t = Math.log(this.options.max), n = 0 === this.options.min ? 0 : Math.log(this.options.min), i = 0 === e ? 0 : Math.log(e);
+     return 100 * (i - n) / (t - n);
+    }
+   }
+  };
+  if (t = function(e, t) {
+   return n.call(this, e, t), this;
+  }, t.prototype = {
+   _init: function() {},
+   constructor: t,
+   defaultOptions: {
+    id: "",
+    min: 0,
+    max: 10,
+    step: 1,
+    precision: 0,
+    orientation: "horizontal",
+    value: 5,
+    range: !1,
+    selection: "before",
+    tooltip: "show",
+    tooltip_split: !1,
+    handle: "round",
+    reversed: !1,
+    enabled: !0,
+    formatter: function(e) {
+     return Array.isArray(e) ? e[0] + " : " + e[1] : e;
+    },
+    natural_arrow_keys: !1,
+    ticks: [],
+    ticks_positions: [],
+    ticks_labels: [],
+    ticks_snap_bounds: 0,
+    scale: "linear",
+    focus: !1
+   },
+   over: !1,
+   inDrag: !1,
+   getValue: function() {
+    return this.options.range ? this.options.value : this.options.value[0];
+   },
+   setValue: function(e, t, n) {
+    e || (e = 0);
+    var i = this.getValue();
+    this.options.value = this._validateInputValue(e);
+    var r = this._applyPrecision.bind(this);
+    this.options.range ? (this.options.value[0] = r(this.options.value[0]), this.options.value[1] = r(this.options.value[1]), 
+    this.options.value[0] = Math.max(this.options.min, Math.min(this.options.max, this.options.value[0])), 
+    this.options.value[1] = Math.max(this.options.min, Math.min(this.options.max, this.options.value[1]))) : (this.options.value = r(this.options.value), 
+    this.options.value = [ Math.max(this.options.min, Math.min(this.options.max, this.options.value)) ], 
+    this._addClass(this.handle2, "hide"), this.options.value[1] = "after" === this.options.selection ? this.options.max : this.options.min), 
+    this.percentage = this.options.max > this.options.min ? [ this._toPercentage(this.options.value[0]), this._toPercentage(this.options.value[1]), 100 * this.options.step / (this.options.max - this.options.min) ] : [ 0, 0, 100 ], 
+    this._layout();
+    var o = this.options.range ? this.options.value : this.options.value[0];
+    return t === !0 && this._trigger("slide", o), i !== o && n === !0 && this._trigger("change", {
+     oldValue: i,
+     newValue: o
+    }), this._setDataVal(o), this;
+   },
+   destroy: function() {
+    this._removeSliderEventHandlers(), this.sliderElem.parentNode.removeChild(this.sliderElem), 
+    this.element.style.display = "", this._cleanUpEventCallbacksMap(), this.element.removeAttribute("data"), 
+    e && (this._unbindJQueryEventHandlers(), this.$element.removeData("slider"));
+   },
+   disable: function() {
+    return this.options.enabled = !1, this.handle1.removeAttribute("tabindex"), this.handle2.removeAttribute("tabindex"), 
+    this._addClass(this.sliderElem, "slider-disabled"), this._trigger("slideDisabled"), 
+    this;
+   },
+   enable: function() {
+    return this.options.enabled = !0, this.handle1.setAttribute("tabindex", 0), this.handle2.setAttribute("tabindex", 0), 
+    this._removeClass(this.sliderElem, "slider-disabled"), this._trigger("slideEnabled"), 
+    this;
+   },
+   toggle: function() {
+    return this.options.enabled ? this.disable() : this.enable(), this;
+   },
+   isEnabled: function() {
+    return this.options.enabled;
+   },
+   on: function(e, t) {
+    return this._bindNonQueryEventHandler(e, t), this;
+   },
+   getAttribute: function(e) {
+    return e ? this.options[e] : this.options;
+   },
+   setAttribute: function(e, t) {
+    return this.options[e] = t, this;
+   },
+   refresh: function() {
+    return this._removeSliderEventHandlers(), n.call(this, this.element, this.options), 
+    e && e.data(this.element, "slider", this), this;
+   },
+   relayout: function() {
+    return this._layout(), this;
+   },
+   _removeSliderEventHandlers: function() {
+    this.handle1.removeEventListener("keydown", this.handle1Keydown, !1), this.handle1.removeEventListener("focus", this.showTooltip, !1), 
+    this.handle1.removeEventListener("blur", this.hideTooltip, !1), this.handle2.removeEventListener("keydown", this.handle2Keydown, !1), 
+    this.handle2.removeEventListener("focus", this.handle2Keydown, !1), this.handle2.removeEventListener("blur", this.handle2Keydown, !1), 
+    this.sliderElem.removeEventListener("mouseenter", this.showTooltip, !1), this.sliderElem.removeEventListener("mouseleave", this.hideTooltip, !1), 
+    this.sliderElem.removeEventListener("touchstart", this.mousedown, !1), this.sliderElem.removeEventListener("mousedown", this.mousedown, !1);
+   },
+   _bindNonQueryEventHandler: function(e, t) {
+    void 0 === this.eventToCallbackMap[e] && (this.eventToCallbackMap[e] = []), this.eventToCallbackMap[e].push(t);
+   },
+   _cleanUpEventCallbacksMap: function() {
+    for (var e = Object.keys(this.eventToCallbackMap), t = 0; t < e.length; t++) {
+     var n = e[t];
+     this.eventToCallbackMap[n] = null;
+    }
+   },
+   _showTooltip: function() {
+    this.options.tooltip_split === !1 ? this._addClass(this.tooltip, "in") : (this._addClass(this.tooltip_min, "in"), 
+    this._addClass(this.tooltip_max, "in")), this.over = !0;
+   },
+   _hideTooltip: function() {
+    this.inDrag === !1 && this.alwaysShowTooltip !== !0 && (this._removeClass(this.tooltip, "in"), 
+    this._removeClass(this.tooltip_min, "in"), this._removeClass(this.tooltip_max, "in")), 
+    this.over = !1;
+   },
+   _layout: function() {
+    var e;
+    if (e = this.options.reversed ? [ 100 - this.percentage[0], this.percentage[1] ] : [ this.percentage[0], this.percentage[1] ], 
+    this.handle1.style[this.stylePos] = e[0] + "%", this.handle2.style[this.stylePos] = e[1] + "%", 
+    Array.isArray(this.options.ticks) && this.options.ticks.length > 0) {
+     var t = Math.max.apply(Math, this.options.ticks), n = Math.min.apply(Math, this.options.ticks), i = "vertical" === this.options.orientation ? "height" : "width", r = "vertical" === this.options.orientation ? "marginTop" : "marginLeft", o = this.size / (this.options.ticks.length - 1);
+     if (this.tickLabelContainer) {
+      var a = 0;
+      if (0 === this.options.ticks_positions.length) this.tickLabelContainer.style[r] = -o / 2 + "px", 
+      a = this.tickLabelContainer.offsetHeight; else for (s = 0; s < this.tickLabelContainer.childNodes.length; s++) this.tickLabelContainer.childNodes[s].offsetHeight > a && (a = this.tickLabelContainer.childNodes[s].offsetHeight);
+      "horizontal" === this.options.orientation && (this.sliderElem.style.marginBottom = a + "px");
+     }
+     for (var s = 0; s < this.options.ticks.length; s++) {
+      var l = this.options.ticks_positions[s] || 100 * (this.options.ticks[s] - n) / (t - n);
+      this.ticks[s].style[this.stylePos] = l + "%", this._removeClass(this.ticks[s], "in-selection"), 
+      this.options.range ? l >= e[0] && l <= e[1] && this._addClass(this.ticks[s], "in-selection") : "after" === this.options.selection && l >= e[0] ? this._addClass(this.ticks[s], "in-selection") : "before" === this.options.selection && l <= e[0] && this._addClass(this.ticks[s], "in-selection"), 
+      this.tickLabels[s] && (this.tickLabels[s].style[i] = o + "px", void 0 !== this.options.ticks_positions[s] && (this.tickLabels[s].style.position = "absolute", 
+      this.tickLabels[s].style[this.stylePos] = this.options.ticks_positions[s] + "%", 
+      this.tickLabels[s].style[r] = -o / 2 + "px"));
+     }
+    }
+    if ("vertical" === this.options.orientation) this.trackLow.style.top = "0", this.trackLow.style.height = Math.min(e[0], e[1]) + "%", 
+    this.trackSelection.style.top = Math.min(e[0], e[1]) + "%", this.trackSelection.style.height = Math.abs(e[0] - e[1]) + "%", 
+    this.trackHigh.style.bottom = "0", this.trackHigh.style.height = 100 - Math.min(e[0], e[1]) - Math.abs(e[0] - e[1]) + "%"; else {
+     this.trackLow.style.left = "0", this.trackLow.style.width = Math.min(e[0], e[1]) + "%", 
+     this.trackSelection.style.left = Math.min(e[0], e[1]) + "%", this.trackSelection.style.width = Math.abs(e[0] - e[1]) + "%", 
+     this.trackHigh.style.right = "0", this.trackHigh.style.width = 100 - Math.min(e[0], e[1]) - Math.abs(e[0] - e[1]) + "%";
+     var c = this.tooltip_min.getBoundingClientRect(), u = this.tooltip_max.getBoundingClientRect();
+     c.right > u.left ? (this._removeClass(this.tooltip_max, "top"), this._addClass(this.tooltip_max, "bottom"), 
+     this.tooltip_max.style.top = "18px") : (this._removeClass(this.tooltip_max, "bottom"), 
+     this._addClass(this.tooltip_max, "top"), this.tooltip_max.style.top = this.tooltip_min.style.top);
+    }
+    var d;
+    if (this.options.range) {
+     d = this.options.formatter(this.options.value), this._setText(this.tooltipInner, d), 
+     this.tooltip.style[this.stylePos] = (e[1] + e[0]) / 2 + "%", "vertical" === this.options.orientation ? this._css(this.tooltip, "margin-top", -this.tooltip.offsetHeight / 2 + "px") : this._css(this.tooltip, "margin-left", -this.tooltip.offsetWidth / 2 + "px"), 
+     "vertical" === this.options.orientation ? this._css(this.tooltip, "margin-top", -this.tooltip.offsetHeight / 2 + "px") : this._css(this.tooltip, "margin-left", -this.tooltip.offsetWidth / 2 + "px");
+     var p = this.options.formatter(this.options.value[0]);
+     this._setText(this.tooltipInner_min, p);
+     var h = this.options.formatter(this.options.value[1]);
+     this._setText(this.tooltipInner_max, h), this.tooltip_min.style[this.stylePos] = e[0] + "%", 
+     "vertical" === this.options.orientation ? this._css(this.tooltip_min, "margin-top", -this.tooltip_min.offsetHeight / 2 + "px") : this._css(this.tooltip_min, "margin-left", -this.tooltip_min.offsetWidth / 2 + "px"), 
+     this.tooltip_max.style[this.stylePos] = e[1] + "%", "vertical" === this.options.orientation ? this._css(this.tooltip_max, "margin-top", -this.tooltip_max.offsetHeight / 2 + "px") : this._css(this.tooltip_max, "margin-left", -this.tooltip_max.offsetWidth / 2 + "px");
+    } else d = this.options.formatter(this.options.value[0]), this._setText(this.tooltipInner, d), 
+    this.tooltip.style[this.stylePos] = e[0] + "%", "vertical" === this.options.orientation ? this._css(this.tooltip, "margin-top", -this.tooltip.offsetHeight / 2 + "px") : this._css(this.tooltip, "margin-left", -this.tooltip.offsetWidth / 2 + "px");
+   },
+   _removeProperty: function(e, t) {
+    e.style.removeProperty ? e.style.removeProperty(t) : e.style.removeAttribute(t);
+   },
+   _mousedown: function(e) {
+    if (!this.options.enabled) return !1;
+    this.offset = this._offset(this.sliderElem), this.size = this.sliderElem[this.sizePos];
+    var t = this._getPercentage(e);
+    if (this.options.range) {
+     var n = Math.abs(this.percentage[0] - t), i = Math.abs(this.percentage[1] - t);
+     this.dragged = i > n ? 0 : 1;
+    } else this.dragged = 0;
+    this.percentage[this.dragged] = this.options.reversed ? 100 - t : t, this._layout(), 
+    this.touchCapable && (document.removeEventListener("touchmove", this.mousemove, !1), 
+    document.removeEventListener("touchend", this.mouseup, !1)), this.mousemove && document.removeEventListener("mousemove", this.mousemove, !1), 
+    this.mouseup && document.removeEventListener("mouseup", this.mouseup, !1), this.mousemove = this._mousemove.bind(this), 
+    this.mouseup = this._mouseup.bind(this), this.touchCapable && (document.addEventListener("touchmove", this.mousemove, !1), 
+    document.addEventListener("touchend", this.mouseup, !1)), document.addEventListener("mousemove", this.mousemove, !1), 
+    document.addEventListener("mouseup", this.mouseup, !1), this.inDrag = !0;
+    var r = this._calculateValue();
+    return this._trigger("slideStart", r), this._setDataVal(r), this.setValue(r, !1, !0), 
+    this._pauseEvent(e), this.options.focus && this._triggerFocusOnHandle(this.dragged), 
+    !0;
+   },
+   _triggerFocusOnHandle: function(e) {
+    0 === e && this.handle1.focus(), 1 === e && this.handle2.focus();
+   },
+   _keydown: function(e, t) {
+    if (!this.options.enabled) return !1;
+    var n;
+    switch (t.keyCode) {
+    case 37:
+    case 40:
+     n = -1;
+     break;
+
+    case 39:
+    case 38:
+     n = 1;
+    }
+    if (n) {
+     if (this.options.natural_arrow_keys) {
+      var i = "vertical" === this.options.orientation && !this.options.reversed, r = "horizontal" === this.options.orientation && this.options.reversed;
+      (i || r) && (n = -n);
+     }
+     var o = this.options.value[e] + n * this.options.step;
+     return this.options.range && (o = [ e ? this.options.value[0] : o, e ? o : this.options.value[1] ]), 
+     this._trigger("slideStart", o), this._setDataVal(o), this.setValue(o, !0, !0), this._trigger("slideStop", o), 
+     this._setDataVal(o), this._layout(), this._pauseEvent(t), !1;
+    }
+   },
+   _pauseEvent: function(e) {
+    e.stopPropagation && e.stopPropagation(), e.preventDefault && e.preventDefault(), 
+    e.cancelBubble = !0, e.returnValue = !1;
+   },
+   _mousemove: function(e) {
+    if (!this.options.enabled) return !1;
+    var t = this._getPercentage(e);
+    this._adjustPercentageForRangeSliders(t), this.percentage[this.dragged] = this.options.reversed ? 100 - t : t, 
+    this._layout();
+    var n = this._calculateValue(!0);
+    return this.setValue(n, !0, !0), !1;
+   },
+   _adjustPercentageForRangeSliders: function(e) {
+    this.options.range && (0 === this.dragged && this.percentage[1] < e ? (this.percentage[0] = this.percentage[1], 
+    this.dragged = 1) : 1 === this.dragged && this.percentage[0] > e && (this.percentage[1] = this.percentage[0], 
+    this.dragged = 0));
+   },
+   _mouseup: function() {
+    if (!this.options.enabled) return !1;
+    this.touchCapable && (document.removeEventListener("touchmove", this.mousemove, !1), 
+    document.removeEventListener("touchend", this.mouseup, !1)), document.removeEventListener("mousemove", this.mousemove, !1), 
+    document.removeEventListener("mouseup", this.mouseup, !1), this.inDrag = !1, this.over === !1 && this._hideTooltip();
+    var e = this._calculateValue(!0);
+    return this._layout(), this._trigger("slideStop", e), this._setDataVal(e), !1;
+   },
+   _calculateValue: function(e) {
+    var t;
+    if (this.options.range ? (t = [ this.options.min, this.options.max ], 0 !== this.percentage[0] && (t[0] = this._toValue(this.percentage[0]), 
+    t[0] = this._applyPrecision(t[0])), 100 !== this.percentage[1] && (t[1] = this._toValue(this.percentage[1]), 
+    t[1] = this._applyPrecision(t[1]))) : (t = this._toValue(this.percentage[0]), t = parseFloat(t), 
+    t = this._applyPrecision(t)), e) {
+     for (var n = [ t, 1 / 0 ], i = 0; i < this.options.ticks.length; i++) {
+      var r = Math.abs(this.options.ticks[i] - t);
+      r <= n[1] && (n = [ this.options.ticks[i], r ]);
+     }
+     if (n[1] <= this.options.ticks_snap_bounds) return n[0];
+    }
+    return t;
+   },
+   _applyPrecision: function(e) {
+    var t = this.options.precision || this._getNumDigitsAfterDecimalPlace(this.options.step);
+    return this._applyToFixedAndParseFloat(e, t);
+   },
+   _getNumDigitsAfterDecimalPlace: function(e) {
+    var t = ("" + e).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+    return t ? Math.max(0, (t[1] ? t[1].length : 0) - (t[2] ? +t[2] : 0)) : 0;
+   },
+   _applyToFixedAndParseFloat: function(e, t) {
+    var n = e.toFixed(t);
+    return parseFloat(n);
+   },
+   _getPercentage: function(e) {
+    !this.touchCapable || "touchstart" !== e.type && "touchmove" !== e.type || (e = e.touches[0]);
+    var t = e[this.mousePos], n = this.offset[this.stylePos], i = t - n, r = i / this.size * 100;
+    return r = Math.round(r / this.percentage[2]) * this.percentage[2], Math.max(0, Math.min(100, r));
+   },
+   _validateInputValue: function(e) {
+    if ("number" == typeof e) return e;
+    if (Array.isArray(e)) return this._validateArray(e), e;
+    throw new Error(i.formatInvalidInputErrorMsg(e));
+   },
+   _validateArray: function(e) {
+    for (var t = 0; t < e.length; t++) {
+     var n = e[t];
+     if ("number" != typeof n) throw new Error(i.formatInvalidInputErrorMsg(n));
+    }
+   },
+   _setDataVal: function(e) {
+    var t = "value: '" + e + "'";
+    this.element.setAttribute("data", t), this.element.setAttribute("value", e), this.element.value = e;
+   },
+   _trigger: function(t, n) {
+    n = n || 0 === n ? n : void 0;
+    var i = this.eventToCallbackMap[t];
+    if (i && i.length) for (var r = 0; r < i.length; r++) {
+     var o = i[r];
+     o(n);
+    }
+    e && this._triggerJQueryEvent(t, n);
+   },
+   _triggerJQueryEvent: function(e, t) {
+    var n = {
+     type: e,
+     value: t
+    };
+    this.$element.trigger(n), this.$sliderElem.trigger(n);
+   },
+   _unbindJQueryEventHandlers: function() {
+    this.$element.off(), this.$sliderElem.off();
+   },
+   _setText: function(e, t) {
+    "undefined" != typeof e.innerText ? e.innerText = t : "undefined" != typeof e.textContent && (e.textContent = t);
+   },
+   _removeClass: function(e, t) {
+    for (var n = t.split(" "), i = e.className, r = 0; r < n.length; r++) {
+     var o = n[r], a = new RegExp("(?:\\s|^)" + o + "(?:\\s|$)");
+     i = i.replace(a, " ");
+    }
+    e.className = i.trim();
+   },
+   _addClass: function(e, t) {
+    for (var n = t.split(" "), i = e.className, r = 0; r < n.length; r++) {
+     var o = n[r], a = new RegExp("(?:\\s|^)" + o + "(?:\\s|$)"), s = a.test(i);
+     s || (i += " " + o);
+    }
+    e.className = i.trim();
+   },
+   _offsetLeft: function(e) {
+    for (var t = e.offsetLeft; (e = e.offsetParent) && !isNaN(e.offsetLeft); ) t += e.offsetLeft;
+    return t;
+   },
+   _offsetTop: function(e) {
+    for (var t = e.offsetTop; (e = e.offsetParent) && !isNaN(e.offsetTop); ) t += e.offsetTop;
+    return t;
+   },
+   _offset: function(e) {
+    return {
+     left: this._offsetLeft(e),
+     top: this._offsetTop(e)
+    };
+   },
+   _css: function(t, n, i) {
+    if (e) e.style(t, n, i); else {
+     var r = n.replace(/^-ms-/, "ms-").replace(/-([\da-z])/gi, function(e, t) {
+      return t.toUpperCase();
+     });
+     t.style[r] = i;
+    }
+   },
+   _toValue: function(e) {
+    return this.options.scale.toValue.apply(this, [ e ]);
+   },
+   _toPercentage: function(e) {
+    return this.options.scale.toPercentage.apply(this, [ e ]);
+   }
+  }, e) {
+   var o = e.fn.slider ? "bootstrapSlider" : "slider";
+   e.bridget(o, t);
+  }
+ }(e), t;
 }), define("text!html/bodyEditor.html", [], function() {
- return '<div class="working-indicator"></div>\n<div class="layout-wrapper-l1">\n    <div class="layout-wrapper-l2">\n<nav class="navbar navbar-default">\n    <div class="container-fluid navbar-inner">\n        <div class="navbar-header">\n            <a class="navbar-brand settings-menu dropdown-toggle" href="#" data-toggle="dropdown" id="settings-menu" title="Menu">\n                <i class="icon-menu"></i>\n            </a>\n            <ul class="dropdown-menu" role="menu" aria-labelledby="settings-menu">\n                <li>\n                    <a href="paper" title="WriteOn Paper" role="menuitem"><i class="icon-doc-text"></i> Switch to Paper</a>\n                </li>\n                <li>\n                    <a href="#" title="Settings & Preferences" data-toggle="modal" data-target=".modal-settings" class="action-load-settings"><i class="icon-cog-alt"></i> Settings & Preferences</a>\n                </li>\n                <li>\n                    <a href="#" title="About WriteOn" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-info"></i> About</a>\n                </li>\n                <li>\n                    <a href="#" title="Get Help" id="button-help"><i class="icon-help-circled"></i> Help</a>\n                </li>\n                <li>\n                    <a href="/logout" title="Logout"><i class="icon-logout"></i> Logout</a>\n                </li>\n            </ul>\n        </div>\n        <div class="nav right-space pull-right"></div>\n        <div class="buttons-dropdown dropdown">\n            <div class="nav">\n                <button class="btn btn-default" data-toggle="dropdown" title="Show buttons">\n                    <i class="icon-th-large"></i>\n                </button>\n                <div class="dropdown-menu">\n                </div>\n            </div>\n        </div>\n        <div class="navbar-collapse main-navbar-collapse" id="main-navbar-collapse">\n            <ul class="nav navbar-nav navbar-pad left-buttons">\n                <li class="wmd-button-group1 btn-group hidden"></li>\n                <li class="wmd-button-group2 btn-group hidden-xs"></li>\n                <li class="wmd-button-group3 btn-group hidden"></li>\n                <li class="wmd-button-group4 btn-group hidden-xs hidden-sm">\n                    <a class="btn btn-default button-open-discussion" title="Comments Ctrl/Cmd+M"><i class="icon-comment-alt"></i></a>\n                </li>\n                <li class="wmd-button-group5 btn-group hidden-xs"></li>\n            </ul>\n            <ul class="nav navbar-nav navbar-right extension-buttons syncing-menu">\n                <li class="offline-status hide">\n                    <div class="text-danger">\n                        <a class="btn btn-danger" title="You are offline...It\'s a great time to write!"><i class="icon-attention-circled"></i></a>\n                    </div>\n                </li>\n                <li class="dropdown extension-buttons syncing-menu">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Sync <span class="caret"></span></a>\n                    <ul class="dropdown-menu sync-menu" role="menu">\n                        <li class="divider show-already-synchronized sync-divider"></li>\n                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-upload-cloud text-blue"></i> My.WriteOn</a>\n                        </li>\n                        <li><a href="#" data-toggle="modal" data-target=".modal-manage-sharing" class="action-reset-input"><i class="icon-link text-green"></i> Sharing</a>\n                        </li>\n                        <li><a href="#" class="action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdrive action-sync-export-dialog-gdrive"><i class="icon-provider-gdrive"></i> Drive</a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i class="icon-provider-gdrive"></i> Drive<sup>2</sup></a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i class="icon-provider-gdrive"></i> Drive<sup>3</sup></a>\n                        </li>\n                    </ul>\n                </li>\n                <li class="dropdown extension-buttons publishing-menu">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Publish <span class="caret"></span></a>\n                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">\n                        <li class="divider show-already-published publish-divider"></li>\n                    </ul>\n                </li>\n                <li class="dropdown download-menu hidden-xs">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Download <span class="caret"></span></a>\n                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">\n                        <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>\n                        </li>\n                        <li><a class="action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>\n                        </li>\n                        <li><a class="action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>\n                        </li>\n                    </ul>\n                </li>\n                <li class="dropdown story-menu">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-docs text-blue"></i> <span class="caret"></span></a>\n                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">\n                        <li><a href="#" class="action-create-file"><i class="icon-file text-blue"></i> Create New Story</a>\n                        </li>\n                        <li><a href="#" class="file" data-toggle="modal" data-target=".modal-document-manager"><i class="icon-layers text-yellow"></i> Organize Stories</a>\n                        </li>\n                        <li class="divider"></li>\n                        <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> <strong>Import Stories</strong></a>\n                        </li>\n                        <li class="divider"></li>\n                        <li><a href="#" class="file action-sync-import-dialog-mywriteon hide"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a>\n                        </li>\n                        <li><a href="#" class="file action-sync-import-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>\n                        </li>\n                        <li><a href="#" class="file submenu-sync-gdrive action-sync-import-gdrive"><i class="icon-provider-gdrive"></i> Google Drive</a>\n                        </li>\n                        <li><a href="#" class="file submenu-sync-gdrivesec action-sync-import-gdrivesec"><i class="icon-provider-gdrive"></i> Google Drive<sup>2</sup></a>\n                        </li>\n                        <li><a href="#" class="file submenu-sync-gdriveter action-sync-import-gdriveter"><i class="icon-provider-gdrive"></i> Google Drive<sup>3</sup></a>\n                        </li>\n                        <li><a data-toggle="modal" data-target=".modal-import-url" class="file action-reset-input" href="#" title="Import from URL"><i class="icon-globe text-green"></i> Import URL</a>\n                        </li>\n                        <li><a data-toggle="modal" title="Import from disk" data-target=".modal-import-harddrive-markdown" class="file action-reset-input" href="#"><i class="icon-hdd text-orange"></i> Import from disk</a>\n                        </li>\n                        <li>\n                            <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input"> <i class="icon-paste"></i>Import HTML</a>\n                        </li>\n                    </ul>\n                </li>\n\n            </ul>\n            <form class="navbar-form navbar-right title-container" role="search">\n                <div class="form-group">\n                    <a class="btn btn-default file-title-navbar" href="#" title="Rename story"></a>\n                </div>\n                <div class="form-group input-file-title-container">\n                    <input type="text" class="col-sm-4 form-control hide input-file-title" placeholder="Story title" />\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n        <div class="layout-wrapper-l3">\n            <pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>\n            <div class="preview-panel">\n                <div class="layout-resizer layout-resizer-preview"></div>\n                <div class="layout-toggler layout-toggler-navbar btn btn-default" title="Toggle navigation bar"><i class="icon-resize-full"></i>\n                </div>\n                <div class="layout-toggler layout-toggler-preview btn btn-default open" title="Toggle preview"><i class="icon-none"></i>\n                </div>\n                <div class="preview-container">\n                    <div id="preview-contents">\n                        <div id="wmd-preview" class="preview-content"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="extension-preview-buttons">\n            <div class="btn-group drag-me" title="Drag me!">\n                <i class="icon-ellipsis-vert"></i>\n            </div>\n        </div>\n    </div>\n    <div id="wmd-button-bar" class="hide"></div>\n    <div class="menu-panel">\n        <button class="btn toggle-button hide" title="Menu">\n            <i class="icon-menu"></i>\n        </button>\n        <div class="panel-content">\n            <div class="list-group">\n                <a href="paper" title="WriteOn Paper" class="list-group-item">\n                    <i class="icon-doc-text"></i> WriteOn Paper\n                </a>\n            </div>\n            <div class="list-group">\n                <a href="#" data-toggle="collapse" data-target=".collapse-synchronize" class="list-group-item hide">\n                    <div><i class="icon-refresh"></i> Synchronize</div>\n                    <small>Save, share, collaborate in the Cloud</small>\n                </a>\n                <div class="sub-menu collapse collapse-synchronize clearfix">\n\n                </div>\n                <a href="#" data-toggle="collapse" data-target=".collapse-publish-on" class="list-group-item hide">\n                    <div><i class="icon-print"></i>Publish</div>\n                    <small>Publish to the web</small>\n                </a>\n                <div class="sub-menu collapse collapse-publish-on clearfix">\n\n                </div>\n                <a href="#" data-toggle="collapse" data-target=".collapse-export-on" class="list-group-item">\n                    <div><i class="icon-download"></i>Download</div>\n                    <small>Download stories for offline use</small>\n                </a>\n                <div class="sub-menu collapse collapse-export-on clearfix">\n                    <ul class="nav">\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-pdf" href="#" title="Download PDF file"><i class="icon-file"></i> PDF </a>\n                        </li>\n                    </ul>\n                </div>\n                <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input list-group-item hide">\n                    <div><i class="icon-paste"></i>Convert</div>\n                    <small>Convert HTML to Markdown</small>\n                </a>\n                <a href="#" data-toggle="modal" data-target=".modal-settings" class="action-load-settings list-group-item">\n                    <div><i class="icon-cog-alt"></i>Settings</div>\n                    <small>Settings, extenions & utilities</small>\n                </a>\n            </div>\n            <ul class="nav">\n                <li><a href="#" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-help-circled"></i> About</a>\n                </li>\n                <li><a href="/logout"><i class="icon-logout"></i> Logout</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n    <div class="document-panel">\n        <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">\n            <i class="icon-folder-open"></i>\n        </button>\n        <div class="search-bar clearfix">\n            <ul class="nav hide">\n                <li><a href="#" class="action-remove-file-confirm"><i class="icon-trash text-red"></i> Delete this story</a>\n                </li>\n            </ul>\n            <div class="input-group">\n                <span class="input-group-addon"><i class="icon-search"></i></span>\n                <input type="text" class="form-control" placeholder="Find story" />\n            </div>\n        </div>\n        <div class="panel-content">\n            <div class="list-group document-list"></div>\n            <div class="list-group document-list-filtered hide"></div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-document-manager">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Organize stories</h2>\n            </div>\n            <div class="modal-body">\n                <div></div>\n<nav class="navbar navbar-inverse document-list">\n    <div class="container-fluid">\n        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">\n            <ul class="nav navbar-nav">\n                <li class="active"><a href="#"><i class="icon-file"></i> <span class="document-count"></span></a>\n                </li>\n                <li><a href="#"><i class="icon-folder"></i> <span class="folder-count"></span></a>\n                </li>\n                <li class="dropdown">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="icon-check"></i> Actions <span class="caret"></span></a>\n                    <ul class="dropdown-menu" role="menu">\n                        <li><a href="#" class="action-select-all"><i class="icon-check"></i> Select all</a>\n                        </li>\n                        <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>\n                        </li>\n                        <li class="divider"></li>\n                        <li><a href="#" class="action-move-items"><i class="icon-forward"></i> Move to folder</a>\n                        </li>\n                        <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n            <ul class="nav navbar-nav navbar-right">\n                <li>\n                    <a href="#" class="action-create-folder"> <i class="icon-folder"></i> New Folder</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n</nav>\n                <div class="panel-group document-list" id="accordion" role="tablist" aria-multiselectable="true"></div>\n                <p class="confirm-delete hide">The following stories will be deleted locally:</p>\n                <p class="choose-folder hide">Please choose a destination folder:\n                </p>\n                <div class="panel-group selected-document-list hide"></div>\n                <div class="panel-group select-folder-list hide"></div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default confirm-delete choose-folder action-cancel hide">Cancel</a>\n                <a href="#" class="btn btn-danger confirm-delete action-delete-items-confirm hide">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-insert-link">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Hyperlink</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide the link URL and an optional title:</p>\n                <div class="input-group">\n                    <span class="input-group-addon"><i class="icon-globe"></i></span>\n                    <input id="input-insert-link" type="text" class="col-sm-5 form-control" placeholder=\'http://example.com/ "optional title"\' />\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-insert-link" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-insert-image">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Image</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide the image URL and an optional title:</p>\n                <div class="input-group">\n                    <span class="input-group-addon"><i class="icon-picture"></i></span>\n                    <input id="input-insert-image" type="text" class="col-sm-5 form-control" placeholder=\'http://example.com/image.jpg "optional title"\' />\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default pull-left action-import-image-gplus" data-dismiss="modal"><i class="icon-provider-gplus"></i> Import\nfrom Google+</a>  <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>  <a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-image">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Google+ image import</h2>\n            </div>\n            <div class="modal-body">\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <div class="col-sm-7">\n                            <img>\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label" for="input-import-image-title">Title (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-import-image-title" placeholder="Image title" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label" for="input-import-image-size">Size limit (optional)</label>\n                        <div class="col-sm-7 form-inline">\n                            <input type="text" id="input-import-image-size" placeholder="0" class="col-sm-3 form-control">px\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-import-image" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-remove-file-confirm">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Delete</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    Are you sure you want to delete "<span class="file-title"></span>"?\n                </p>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>Note:</b> It won\'t delete the file on synchronized locations.</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-danger action-remove-file" data-dismiss="modal">Delete</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-url">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Import from URL</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide a link to a Markdown formatted story (<code>.md</code> or <code>.markdown</code> extension).</p>\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <label class="col-sm-3 control-label" for="input-import-url">URL</label>\n                        <div class="col-sm-8">\n                            <input type="text" id="input-import-url" placeholder="http://my-awesome.com/story.md" class="form-control">\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-import-url">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-harddrive-markdown">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Import from disk</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please select your Markdown files here (<code>.md</code> or <code>.markdown</code> extension):</p>\n                <p>\n                    <input type="file" id="input-file-import-harddrive-markdown" multiple class="form-control" />\n                </p>\n                <p>Or drag and drop your Markdown files here:</p>\n                <p id="dropzone-import-harddrive-markdown" class="drop-zone">Drop files here</p>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-harddrive-html">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Convert HTML to Markdown</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please select your HTML files here:</p>\n                <p>\n                    <input type="file" id="input-file-import-harddrive-html" multiple class="form-control" />\n                </p>\n                <p>Or drag and drop your HTML files here:</p>\n                <p id="dropzone-import-harddrive-html" class="drop-zone">Drop files here</p>\n                <p>Or insert your HTML code here:</p>\n                <textarea id="input-convert-html" class="form-control prettyprint linenums lang-html"></textarea>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>  <a href="#" class="btn btn-primary action-convert-html" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-upload-gdrive">\n</div>\n<div class="modal fade modal-upload-gdrivesec">\n</div>\n<div class="modal fade modal-upload-gdriveter">\n</div>\n<div class="modal fade modal-autosync-gdrive">\n</div>\n<div class="modal fade modal-autosync-gdrivesec">\n</div>\n<div class="modal fade modal-autosync-gdriveter">\n</div>\n<div class="modal fade modal-upload-dropbox">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Save to Dropbox</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    This will save "<span class="file-title"></span>" to your <i class="icon-provider-dropbox"></i>\n                    <code>Dropbox</code>\n                    account and keep it synchronized.\n                </p>\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <label class="col-sm-3 control-label" for="input-sync-export-dropbox-path">File path</label>\n                        <div class="col-sm-8">\n                            <input type="text" id="input-sync-export-dropbox-path" placeholder="/path/to/My Story.md" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                </div>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <b>Note:</b>\n                    <ul>\n                        <li>Dropbox file path does not depend on story title.</li>\n                        <li>The title of your story will not be synchronized.</li>\n                        <li>Destination folder must exist.</li>\n                        <li>Any existing file at this location will be overwritten.</li>\n                    </ul>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-dropbox">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-download-mywriteon">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Open on My.WriteOn</h2>\n                <div class="form-horizontal list-mode">\n                    <br>\n                    <div class="form-group form-inline">\n                        <label for="input-sync-import-mywriteon-tag" class="col-sm-3 control-label">Filter by tag</label>\n                        <select id="input-sync-import-mywriteon-tag" class="col-sm-4 form-control">\n                        </select>\n                        <span class="col-sm-5">\n<a class="btn btn-link action-add-tag"><i class="icon-tag"></i> Add\n</a>\n<a class="btn btn-link action-remove-tag"><i class="icon-tag"></i> Remove\n</a>\n</span>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-body">\n                <p class="msg-default-mywriteon alert alert-warning">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <i class="icon-attention"></i>  <b>Careful:</b>\n                    This is Beta software, and you\'re using our public My.WriteOn instance.\n                    <b>That means anybody can open, edit and delete these stories.</b>\n                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">\u2665</span>\n                </p>\n                <div class="form-horizontal byid-mode">\n                    <div class="form-group">\n                        <label for="input-sync-import-mywriteon-documentid" class="col-sm-3 control-label">Story ID\n                        </label>\n                        <div class="col-sm-9">\n                            <input id="input-sync-import-mywriteon-documentid" class="form-control" placeholder="DocumentID">\n                            <span class="help-block">Multiple IDs can be provided (space separated)</span>\n                        </div>\n                    </div>\n                </div>\n                <ul class="list-mode nav nav-pills">\n                    <li class="pull-right dropdown"><a href="#" data-toggle="dropdown"><i class="icon-check"></i> Selection\n<b class="caret"></b></a>\n                        <ul class="dropdown-menu">\n                            <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>\n                            </li>\n                            <li class="divider"></li>\n                            <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>\n                            </li>\n                        </ul>\n                    </li>\n                </ul>\n                <p class="list-mode">\n                </p>\n                <div class="list-group document-list list-mode"></div>\n                <div class="list-mode text-center">\n                    <div class="please-wait"><b>Please wait...</b>\n                    </div>\n                    <div class="no-document"><b>No story.</b>\n                    </div>\n                    <button class="more-documents btn btn-link"><i class="icon-angle-double-down"></i> More stories</button>\n                </div>\n                <p class="delete-mode hide">The following stories will be removed from WriteOn:</p>\n                <div class="delete-mode list-group selected-document-list hide"></div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default pull-left list-mode action-byid-mode"><i class="icon-folder-open-empty"></i> Open by ID...</a>\n                <a href="#" class="btn btn-default delete-mode action-cancel hide">Cancel</a>\n                <a href="#" class="btn btn-primary delete-mode action-delete-items-confirm hide">Delete</a>\n                <a href="#" class="btn btn-default byid-mode action-cancel">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon byid-mode">Open</a>\n                <a href="#" class="btn btn-default list-mode" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon list-mode">Open</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-upload-mywriteon">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Save to My.WriteOn</h2>\n            </div>\n            <div class="modal-body">\n                <p class="msg-default-mywriteon alert alert-warning hide">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <i class="icon-attention"></i>  <b>Careful:</b>\n                    This is Beta software, and you\'re using our public My.WriteOn instance.\n                    <b>That means anybody can open, edit and delete your stories - and vise versa.</b>\n                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">\u2665</span>\n                </p>\n                <p>\n                    This will save "<span class="file-title"></span>" to My.WriteOn <sup class="text-danger">Beta</sup> and keep it synchronized.\n                </p>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>Tip:</b> You can use a YAML front matter to specify tags for your story:</p>\n                    <code class="panel">\n					---<br />\n					tags: tag1, tag2, tag3<br />\n					published: true<br />\n					---\n					</code>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-mywriteon">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-sync">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Synchronization</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    "<span class="file-title"></span>" is synchronized in the following location(s):\n                </p>\n                <div class="sync-list"></div>\n                <blockquote>\n                    <p><b>Hey There:</b> Removing a synchronized location will not delete the local story.\n                    </p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-publish">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">\nPublish on <span class="publish-provider-name"></span>\n</h2>\n            </div>\n            <div class="modal-body">\n                <div class="form-horizontal">\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-host">Host</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ssh-host" placeholder="hostname.or.ip" class="form-control"> <span class="help-block"> Host must be accessible publicly,\nunless you\'re hosting your own WriteOn instance.\n</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-port">Port (optional)\n                        </label>\n                        <div class="col-sm-2">\n                            <input type="text" id="input-publish-ssh-port" placeholder="22" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-username">Username</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ssh-username" placeholder="username" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-password">Password</label>\n                        <div class="col-sm-7">\n                            <input type="password" id="input-publish-ssh-password" placeholder="password" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-github-repo">Repository</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-github-repo" placeholder="Repository name or URL" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-github-branch">Branch</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-github-branch" placeholder="branch-name" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-file-path">File path</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-file-path" placeholder="path/to/file.md" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-filename">Filename</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-filename" placeholder="filename" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-gist-id">Existing ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gist-id" placeholder="GistID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-gist-public">Public</label>\n                        <div class="col-sm-7">\n                            <div class="checkbox">\n                                <input type="checkbox" id="input-publish-gist-public" checked="checked" />\n                            </div>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ghost">\n                        <label class="col-sm-4 control-label" for="input-publish-ghost-url">Ghost URL</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ghost-url" placeholder="http://example.ghost.org/" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-blogger modal-publish-bloggerpage">\n                        <label class="col-sm-4 control-label" for="input-publish-blogger-url">Blog URL</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-blogger-url" placeholder="http://example.blogger.com/" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-tumblr">\n                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">Blog hostname</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-tumblr-hostname" placeholder="example.tumblr.com" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-wordpress">\n                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">WordPress site</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-wordpress-site" placeholder="example.wordpress.com" class="form-control">\n                            <span class="help-block"> <a target="_blank" href="http://jetpack.me/">Jetpack plugin</a> is required for\nself-hosted sites.\n</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">\n                        <label class="col-sm-4 control-label" for="input-publish-postid">Update existing post ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-postid" placeholder="PostID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-bloggerpage">\n                        <label class="col-sm-4 control-label" for="input-publish-pageid">Update existing page ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-pageid" placeholder="PageID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-dropbox">\n                        <label class="col-sm-4 control-label" for="input-publish-dropbox-path">File path</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-dropbox-path" placeholder="/path/to/My Story.html" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gdrive">\n                        <label class="col-sm-4 control-label" for="input-publish-gdrive-fileid">File ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gdrive-fileid" placeholder="FileID" class="form-control"> <span class="help-block">If no file ID is supplied, a new file\nwill be created in your Google Drive root folder. You can move\nthe file afterwards within Google Drive.</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gdrive">\n                        <label class="col-sm-4 control-label" for="input-publish-gdrive-filename">Force filename (optional)\n                        </label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gdrive-filename" placeholder="Filename" class="form-control"> <span class="help-block">If no file name is supplied, the\nstory title will be used.</span>\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label">Format</label>\n                        <div class="col-sm-7">\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="markdown">Markdown\n                                </label>\n                            </div>\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="html">HTML\n                                </label>\n                            </div>\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="template">Template\n                                </label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="collapse publish-custom-template-collapse">\n                        <div class="form-group">\n                            <div class="col-sm-4"></div>\n                            <div class="col-sm-7">\n                                <div class="checkbox">\n                                    <label>\n                                        <input type="checkbox" id="checkbox-publish-custom-template">Custom template\n                                    </label> <a href="#" class="tooltip-template">(?)</a>\n                                </div>\n                            </div>\n                        </div>\n                        <div class="form-group">\n                            <div class="col-sm-4"></div>\n                            <div class="col-sm-7">\n                                <textarea class="form-control" id="textarea-publish-custom-template"></textarea>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <blockquote class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress alert alert-info">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n					<p><b>Tip:</b> You can use a YAML front matter to specify the title and the tags/labels of your published story.</p>\n                    <p class="panel"><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.\n						<br /> <code>\n						---<br />\n						title: My Published Title\n						tags: tag1, tag2, tag3<br />\n						published: true<br />\n						date: YYYY-MM-DD HH:MM:SS +/-TTTT<br />\n						---</code>\n					</p>\n                </blockquote>\n                <blockquote class="front-matter-info modal-publish-bloggerpage alert alert-info">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n					<p><b>Tip:</b> You can use a YAML front matter to specify the title and the tags/labels of your published story.</p>\n                    <p class="panel"><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.\n						<br /> <code>\n						---<br />\n						title: My Published Title\n						tags: tag1, tag2, tag3<br />\n						published: true<br />\n						date: YYYY-MM-DD HH:MM:SS +/-TTTT<br />\n						---</code>\n					</p>\n                </blockquote>\n                <blockquote class="url-info modal-publish-bloggerpage alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>About URL:</b> For newly created page , Blogger API will append a generated number to the url like <code>about-me-1234.html</code>, if you deeply care about your URL naming, you should first create the page on Blogger and then update them with WriteOn specifying the pageId when publishing.\n                    </p>\n                    <p><b>About page visibility:</b> Blogger API does not respect published status for pages.When publishing the page to Blogger, the page will be <strong>live</strong> but not added to the page listing. You should arrange the page listing from Blogger dashboard.\n                    </p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-process-publish">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-publish">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Publication</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    "<span class="file-title"></span>" is published on the following location(s):\n                </p>\n                <div class="publish-list"></div>\n                <blockquote>\n                    <p><b>Stating the Obvious?</b> Maybe, but removing a published location will not delete the actual post out in the wild.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-sharing">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Sharing</h2>\n            </div>\n            <div class="modal-body">\n                <p>To <strong>collaborate</strong> on "<span class="file-title"></span>" with other WriteOn users, share this link(s):</p>\n                <p class="msg-no-share-editor alert alert-info" role="alert"><b>No sharing link yet.</b> To collaborate on this story, just\n                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn</a>\n                </p>\n                <div class="share-editor-list"></div>\n                <hr>\n                <p> To <strong>share</strong> a public, read-only version of "<span class="file-title"></span>" using the following link(s):</p>\n                <p class="msg-no-share-viewer alert alert-info" role="alert"><b>No sharing link yet!</b> To share a read-only version of this story, just \n                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn.</a></p>\n                <div class="share-viewer-list"></div>\n                <blockquote>\n                    <p><b>Did You Know?</b> You can open any <code>.md</code> or <code>.markdown</code> URL using the <i>WriteOn Paper</i> like so: \n                        <a href="paper#!url=https://raw.githubusercontent.com/github/markup/master/README.md" title="Sharing example">\n                            <code>/paper#!url=[your-url-here]</code></a>.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-settings">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Settings</h2>\n            </div>\n            <div class="modal-body">\n            <div class="col-md-3 modal-nav">\n                <ul class="nav nav-tabs nav-stacked">\n                    <li class="active"><a class="action-load-settings" href="#tabpane-settings-basic" data-toggle="tab"><i class="icon-cog"></i> Basic</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-advanced" data-toggle="tab"><i class="icon-tasks"></i> Advanced</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-permissions" data-toggle="tab"><i class="icon-lock"></i> Permissions</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-templates" data-toggle="tab"><i class="icon-list-alt"></i> Templates</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-extensions" data-toggle="tab"><i class="icon-puzzle"></i> Extensions</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab"><i class="icon-briefcase"></i> Utilities</a>\n                    </li>\n            </ul>\n            </div>\n            \n            \n                <div class="col-md-9 tab-content clearfix" data-spy="scroll">\n                    <div class="tab-pane active" id="tabpane-settings-basic">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Layout orientation</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-layout-orientation" value="horizontal">Horizontal\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-layout-orientation" value="vertical">Vertical\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-theme">Theme</label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-theme" class="form-control">\n                                    </select>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-5"></div>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-markdown-extra" />\n                                            <b>Markdown Extra/GitHub Flavored Markdown</b> syntax\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-markdown-mime-type">Markdown MIME type\n                                </label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-markdown-mime-type" class="form-control">\n                                        <option value="text/plain">text/plain</option>\n                                        <option value="text/x-markdown">text/x-markdown</option>\n                                    </select>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <div class="col-sm-5"></div>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-mathjax" />\n                                            <b>LaTeX mathematical expressions</b> using <code>$</code> and <code>$$</code> delimiters\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-gdrive-multiaccount">Google Drive multiple accounts\n                                </label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-gdrive-multiaccount" class="form-control">\n                                        <option value="1">1 account</option>\n                                        <option value="2">2 accounts</option>\n                                        <option value="3">3 accounts</option>\n                                    </select>\n                                    <span class="help-block">Once linked, you\'ll have to <a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab">Reset WriteOn</a> to change Google accounts.</span>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-advanced">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Edit mode</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-edit-mode" value="ltr">Left-To-Right\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-edit-mode" value="rtl">Right-To-Left\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Edit Pad\'s font style</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-editor-font-class" value="font-rich">Rich\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-editor-font-class" value="font-monospaced">Monospaced\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-font-size">Font size ratio</label>\n                                <div class="col-sm-7 form-inline">\n                                    <input type="text" id="input-settings-font-size" class="form-control" data-slider-id=\'input-settings-font-size-slider\' data-slider-min="0.1" data-slider-max="10" data-slider-step="1" data-slider-value="">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-max-width">Max width ratio</label>\n                                <div class="col-sm-7 form-inline">\n                                    <input type="text" id="input-settings-max-width" class="form-control" data-slider-id=\'input-settings-max-width-slider\' data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-cursor-focus">Cursor focus ratio</label>\n                                <div class="col-sm-7 form-inline">\n                                    <input type="text" id="input-settings-cursor-focus" class="form-control col-sm-2">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-lazy-rendering">Lazy rendering <a href="#" class="tooltip-lazy-rendering">(?)</a>\n                                </label>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <input type="checkbox" id="input-settings-lazy-rendering" />\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-templates">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-4 control-label" for="textarea-settings-default-content">Backlink\n                                    <a href="#" class="tooltip-default-content">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-default-content" class="form-control smaller"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-4 control-label" for="textarea-settings-putemplatetempla">Default Template <a href="#" class="tooltip-template">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-publish-template" class="form-control"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-template">PDF Template <a href="#" class="tooltip-template">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-pdf-template" class="form-control"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-options">PDF options\n                                    <a href="#" class="tooltip-pdf-options">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-pdf-options" class="form-control"></textarea>\n                                </div>\n                            </div>                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-permissions">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-gdrive-full-access" />Allow WriteOn to open any story in Google Drive\n                                        </label> <span class="help-block">Existing authorization has to be revoked in\n<a href="https://www.google.com/settings/dashboard" target="_blank">Google Dashboard</a>\nfor this change to take effect.</span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-dropbox-full-access" />Allow WriteOn to open any story in Dropbox\n                                        </label> <span class="help-block">If unchecked, access will be restricted to folder\n<b>/Applications/WriteOn</b> for existing stories.</span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-github-full-access" />Allow WriteOn to access private repositories in GitHub\n                                        </label> <span class="help-block">Existing authorization has to be revoked in\n<a href="https://github.com/settings/applications" target="_blank">GitHub settings</a>\nfor this change to take effect.</span>\n                                    </div>\n                                </div>\n                            </div>                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-extensions">\n                        <div class="panel-group accordion-extensions"></div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-utils">\n                        <p>Some of these are quite powerful, and can result in the total loss of your data. </p>\n                        <div class="col-sm-5 tab-pane-button-container">\n                            <a href="#" class="btn btn-block btn-default action-welcome-file" data-dismiss="modal"><i class="icon-help-circled"></i> Load Welcome Guide</a>\n                            <a href="#" class="btn btn-block btn-default action-guide-file" data-dismiss="modal"><i class="icon-keyboard"></i> Load Syntax Guide</a>\n                            <a href="#" class="btn btn-block btn-default action-welcome-tour" data-dismiss="modal"><i class="icon-comment"></i> Welcome tour</a>\n                            <a target="_blank" href="recovery.html" class="btn btn-block btn-danger"><i class="icon-medkit"></i> WriteOn recovery</a>\n                        </div>\n                        <div class="col-sm-offset-1 col-sm-6 tab-pane-button-container">\n                            <a href="#" class="btn btn-block btn-default action-import-docs-settings"><i class="icon-cog-alt"></i> Import stories & settings</a>  \n                            <a href="#" class="btn btn-block btn-default action-export-docs-settings" data-dismiss="modal"><i class="icon-share"></i> Export stories & settings</a> \n                            <a href="#" class="btn btn-block btn-default action-default-settings" data-dismiss="modal"><i class="icon-wrench"></i> Load default settings</a>  \n                            <a href="#" class="btn btn-block btn-danger" data-dismiss="modal" data-toggle="modal" data-target=".modal-app-reset"><i class="icon-fire"></i> Reset application</a>  \n                            <input type="file" id="input-file-import-docs-settings" class="hide">\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-apply-settings" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-non-unique">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Ooops...</h2>\n            </div>\n            <div class="modal-body">\n                <p>WriteOn has stopped because another instance was running in the same browser or the local cache was disrupted.</p>\n                <blockquote>\n                    <p>If you want to reopen WriteOn, click on "Reload".\n                    </p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-redirect-confirm">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Redirection</h2>\n            </div>\n            <div class="modal-body">\n                <p class="redirect-msg"></p>\n                <blockquote>\n                    <p>Please click <b>OK</b> to proceed.</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a class="btn btn-primary action-redirect-confirm" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-app-reset">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Reset application</h2>\n            </div>\n            <div class="modal-body">\n                <p>This will delete all your local stories.</p>\n                <blockquote><b>Are you sure?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-app-reset" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-docs-settings">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Import stories and settings</h2>\n            </div>\n            <div class="modal-body">\n                <p>This will delete all existing local stories.</p>\n                <blockquote><b>Are you sure?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-import-docs-settings-confirm" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-add-google-drive-account">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Add Google Drive account</h2>\n            </div>\n            <div class="modal-body">\n                <p>To perform this request, you need to configure another Google Drive account in WriteOn.</p>\n                <blockquote><b>Do you want to proceed?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default action-remove-google-drive-state" data-dismiss="modal">No</a>\n                <a href="#" class="btn btn-primary action-add-google-drive-account" data-dismiss="modal">Yes</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-sponsor-only">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Sponsors only</h2>\n            </div>\n            <div class="modal-body">\n                <p>This feature is restricted to sponsors. Note that sponsoring WriteOn would cost you only $3/month.</p>\n                <p>To see how a PDF looks <a target="_blank" href="/Welcome%story.pdf">click here</a>.</p>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>Tip:</b> PDFs are fully customizable via Settings>Advanced>PDF template/options.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div id="dropboxjs" data-app-key="r3vgaee214zfvc7"></div>\n';
+ return '<div class="working-indicator"></div>\n<div class="layout-wrapper-l1">\n    <div class="layout-wrapper-l2">\n<nav class="navbar navbar-default">\n    <div class="container-fluid navbar-inner">\n        <div class="navbar-header">\n            <a class="navbar-brand settings-menu dropdown-toggle" href="#" data-toggle="dropdown" id="settings-menu" title="Menu">\n                <i class="icon-menu"></i>\n            </a>\n            <ul class="dropdown-menu" role="menu" aria-labelledby="settings-menu">\n                <li>\n                    <a href="paper" title="WriteOn Paper" role="menuitem"><i class="icon-doc-text"></i> Switch to Paper</a>\n                </li>\n                <li>\n                    <a href="#" title="Settings & Preferences" data-toggle="modal" data-target=".modal-settings" class="action-load-settings"><i class="icon-cog-alt"></i> Settings & Preferences</a>\n                </li>\n                <li>\n                    <a href="#" title="About WriteOn" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-info"></i> About</a>\n                </li>\n                <li>\n                    <a href="#" title="Get Help" id="button-help"><i class="icon-help-circled"></i> Help</a>\n                </li>\n                <li>\n                    <a href="/logout" title="Logout"><i class="icon-logout"></i> Logout</a>\n                </li>\n            </ul>\n        </div>\n        <div class="nav right-space pull-right"></div>\n        <div class="buttons-dropdown dropdown">\n            <div class="nav">\n                <button class="btn btn-default" data-toggle="dropdown" title="Show buttons">\n                    <i class="icon-th-large"></i>\n                </button>\n                <div class="dropdown-menu">\n                </div>\n            </div>\n        </div>\n        <div class="navbar-collapse main-navbar-collapse" id="main-navbar-collapse">\n            <ul class="nav navbar-nav navbar-pad left-buttons">\n                <li class="wmd-button-group1 btn-group hidden"></li>\n                <li class="wmd-button-group2 btn-group hidden-xs"></li>\n                <li class="wmd-button-group3 btn-group hidden"></li>\n                <li class="wmd-button-group4 btn-group hidden-xs hidden-sm">\n                    <a class="btn btn-default button-open-discussion" title="Comments Ctrl/Cmd+M"><i class="icon-comment-alt"></i></a>\n                </li>\n                <li class="wmd-button-group5 btn-group hidden-xs"></li>\n            </ul>\n            <ul class="nav navbar-nav navbar-right extension-buttons syncing-menu">\n                <li class="offline-status hide">\n                    <div class="text-danger">\n                        <a class="btn btn-danger" title="You are offline...It\'s a great time to write!"><i class="icon-attention-circled"></i></a>\n                    </div>\n                </li>\n                <li class="dropdown extension-buttons syncing-menu">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Sync <span class="caret"></span></a>\n                    <ul class="dropdown-menu sync-menu" role="menu">\n                        <li class="divider show-already-synchronized sync-divider"></li>\n                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-upload-cloud text-blue"></i> My.WriteOn</a>\n                        </li>\n                        <li><a href="#" data-toggle="modal" data-target=".modal-manage-sharing" class="action-reset-input"><i class="icon-link text-green"></i> Sharing</a>\n                        </li>\n                        <li><a href="#" class="action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdrive action-sync-export-dialog-gdrive"><i class="icon-provider-gdrive"></i> Drive</a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i class="icon-provider-gdrive"></i> Drive<sup>2</sup></a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i class="icon-provider-gdrive"></i> Drive<sup>3</sup></a>\n                        </li>\n                    </ul>\n                </li>\n                <li class="dropdown extension-buttons publishing-menu">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Publish <span class="caret"></span></a>\n                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">\n                        <li class="divider show-already-published publish-divider"></li>\n                    </ul>\n                </li>\n                <li class="dropdown download-menu hidden-xs">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Download <span class="caret"></span></a>\n                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">\n                        <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>\n                        </li>\n                        <li><a class="action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>\n                        </li>\n                        <li><a class="action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>\n                        </li>\n                    </ul>\n                </li>\n                <li class="dropdown story-menu">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-docs text-blue"></i> <span class="caret"></span></a>\n                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">\n                        <li><a href="#" class="action-create-file"><i class="icon-file text-blue"></i> Create New Story</a>\n                        </li>\n                        <li><a href="#" class="file" data-toggle="modal" data-target=".modal-document-manager"><i class="icon-layers text-yellow"></i> Organize Stories</a>\n                        </li>\n                        <li class="divider"></li>\n                        <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> <strong>Import Stories</strong></a>\n                        </li>\n                        <li class="divider"></li>\n                        <li><a href="#" class="file action-sync-import-dialog-mywriteon hide"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a>\n                        </li>\n                        <li><a href="#" class="file action-sync-import-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>\n                        </li>\n                        <li><a href="#" class="file submenu-sync-gdrive action-sync-import-gdrive"><i class="icon-provider-gdrive"></i> Google Drive</a>\n                        </li>\n                        <li><a href="#" class="file submenu-sync-gdrivesec action-sync-import-gdrivesec"><i class="icon-provider-gdrive"></i> Google Drive<sup>2</sup></a>\n                        </li>\n                        <li><a href="#" class="file submenu-sync-gdriveter action-sync-import-gdriveter"><i class="icon-provider-gdrive"></i> Google Drive<sup>3</sup></a>\n                        </li>\n                        <li><a data-toggle="modal" data-target=".modal-import-url" class="file action-reset-input" href="#" title="Import from URL"><i class="icon-globe text-green"></i> Import URL</a>\n                        </li>\n                        <li><a data-toggle="modal" title="Import from disk" data-target=".modal-import-harddrive-markdown" class="file action-reset-input" href="#"><i class="icon-hdd text-orange"></i> Import from disk</a>\n                        </li>\n                        <li>\n                            <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input"> <i class="icon-paste"></i>Import HTML</a>\n                        </li>\n                    </ul>\n                </li>\n\n            </ul>\n            <form class="navbar-form navbar-right title-container" role="search">\n                <div class="form-group">\n                    <a class="btn btn-default file-title-navbar" href="#" title="Rename story"></a>\n                </div>\n                <div class="form-group input-file-title-container">\n                    <input type="text" class="col-sm-4 form-control hide input-file-title" placeholder="Story title" />\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n        <div class="layout-wrapper-l3">\n            <pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>\n            <div class="preview-panel">\n                <div class="layout-resizer layout-resizer-preview"></div>\n                <div class="layout-toggler layout-toggler-navbar btn btn-default" title="Toggle navigation bar"><i class="icon-resize-full"></i>\n                </div>\n                <div class="layout-toggler layout-toggler-preview btn btn-default open" title="Toggle preview"><i class="icon-none"></i>\n                </div>\n                <div class="preview-container">\n                    <div id="preview-contents">\n                        <div id="wmd-preview" class="preview-content"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="extension-preview-buttons">\n            <div class="btn-group drag-me" title="Drag me!">\n                <i class="icon-ellipsis-vert"></i>\n            </div>\n        </div>\n    </div>\n    <div id="wmd-button-bar" class="hide"></div>\n    <div class="menu-panel">\n        <button class="btn toggle-button hide" title="Menu">\n            <i class="icon-menu"></i>\n        </button>\n        <div class="panel-content">\n            <div class="list-group">\n                <a href="paper" title="WriteOn Paper" class="list-group-item">\n                    <i class="icon-doc-text"></i> WriteOn Paper\n                </a>\n            </div>\n            <div class="list-group">\n                <a href="#" data-toggle="collapse" data-target=".collapse-synchronize" class="list-group-item hide">\n                    <div><i class="icon-refresh"></i> Synchronize</div>\n                    <small>Save, share, collaborate in the Cloud</small>\n                </a>\n                <div class="sub-menu collapse collapse-synchronize clearfix">\n\n                </div>\n                <a href="#" data-toggle="collapse" data-target=".collapse-publish-on" class="list-group-item hide">\n                    <div><i class="icon-print"></i>Publish</div>\n                    <small>Publish to the web</small>\n                </a>\n                <div class="sub-menu collapse collapse-publish-on clearfix">\n\n                </div>\n                <a href="#" data-toggle="collapse" data-target=".collapse-export-on" class="list-group-item">\n                    <div><i class="icon-download"></i>Download</div>\n                    <small>Download stories for offline use</small>\n                </a>\n                <div class="sub-menu collapse collapse-export-on clearfix">\n                    <ul class="nav">\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-pdf" href="#" title="Download PDF file"><i class="icon-file"></i> PDF </a>\n                        </li>\n                    </ul>\n                </div>\n                <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input list-group-item hide">\n                    <div><i class="icon-paste"></i>Convert</div>\n                    <small>Convert HTML to Markdown</small>\n                </a>\n                <a href="#" data-toggle="modal" data-target=".modal-settings" class="action-load-settings list-group-item">\n                    <div><i class="icon-cog-alt"></i>Settings</div>\n                    <small>Settings, extenions & utilities</small>\n                </a>\n            </div>\n            <ul class="nav">\n                <li><a href="#" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-help-circled"></i> About</a>\n                </li>\n                <li><a href="/logout"><i class="icon-logout"></i> Logout</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n    <div class="document-panel">\n        <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">\n            <i class="icon-folder-open"></i>\n        </button>\n        <div class="search-bar clearfix">\n            <ul class="nav hide">\n                <li><a href="#" class="action-remove-file-confirm"><i class="icon-trash text-red"></i> Delete this story</a>\n                </li>\n            </ul>\n            <div class="input-group">\n                <span class="input-group-addon"><i class="icon-search"></i></span>\n                <input type="text" class="form-control" placeholder="Find story" />\n            </div>\n        </div>\n        <div class="panel-content">\n            <div class="list-group document-list"></div>\n            <div class="list-group document-list-filtered hide"></div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-document-manager">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Organize stories</h2>\n            </div>\n            <div class="modal-body">\n                <div></div>\n<nav class="navbar navbar-inverse document-list">\n    <div class="container-fluid">\n        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">\n            <ul class="nav navbar-nav">\n                <li class="active"><a href="#"><i class="icon-file"></i> <span class="document-count"></span></a>\n                </li>\n                <li><a href="#"><i class="icon-folder"></i> <span class="folder-count"></span></a>\n                </li>\n                <li class="dropdown">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="icon-check"></i> Actions <span class="caret"></span></a>\n                    <ul class="dropdown-menu" role="menu">\n                        <li><a href="#" class="action-select-all"><i class="icon-check"></i> Select all</a>\n                        </li>\n                        <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>\n                        </li>\n                        <li class="divider"></li>\n                        <li><a href="#" class="action-move-items"><i class="icon-forward"></i> Move to folder</a>\n                        </li>\n                        <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n            <ul class="nav navbar-nav navbar-right">\n                <li>\n                    <a href="#" class="action-create-folder"> <i class="icon-folder"></i> New Folder</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n</nav>\n                <div class="panel-group document-list" id="accordion" role="tablist" aria-multiselectable="true"></div>\n                <p class="confirm-delete hide">The following stories will be deleted locally:</p>\n                <p class="choose-folder hide">Please choose a destination folder:\n                </p>\n                <div class="panel-group selected-document-list hide"></div>\n                <div class="panel-group select-folder-list hide"></div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default confirm-delete choose-folder action-cancel hide">Cancel</a>\n                <a href="#" class="btn btn-danger confirm-delete action-delete-items-confirm hide">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-insert-link">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Hyperlink</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide the link URL and an optional title:</p>\n                <div class="input-group">\n                    <span class="input-group-addon"><i class="icon-globe"></i></span>\n                    <input id="input-insert-link" type="text" class="col-sm-5 form-control" placeholder=\'http://example.com/ "optional title"\' />\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-insert-link" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-insert-image">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Image</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide the image URL and an optional title:</p>\n                <div class="input-group">\n                    <span class="input-group-addon"><i class="icon-picture"></i></span>\n                    <input id="input-insert-image" type="text" class="col-sm-5 form-control" placeholder=\'http://example.com/image.jpg "optional title"\' />\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default pull-left action-import-image-gplus" data-dismiss="modal"><i class="icon-provider-gplus"></i> Import\nfrom Google+</a>  <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>  <a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-image">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Google+ image import</h2>\n            </div>\n            <div class="modal-body">\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <div class="col-sm-7">\n                            <img>\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label" for="input-import-image-title">Title (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-import-image-title" placeholder="Image title" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label" for="input-import-image-size">Size limit (optional)</label>\n                        <div class="col-sm-7 form-inline">\n                            <input type="text" id="input-import-image-size" placeholder="0" class="col-sm-3 form-control">px\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-import-image" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-remove-file-confirm">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Delete</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    Are you sure you want to delete "<span class="file-title"></span>"?\n                </p>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>Note:</b> It won\'t delete the file on synchronized locations.</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-danger action-remove-file" data-dismiss="modal">Delete</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-url">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Import from URL</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide a link to a Markdown formatted story (<code>.md</code> or <code>.markdown</code> extension).</p>\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <label class="col-sm-3 control-label" for="input-import-url">URL</label>\n                        <div class="col-sm-8">\n                            <input type="text" id="input-import-url" placeholder="http://my-awesome.com/story.md" class="form-control">\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-import-url">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-harddrive-markdown">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Import from disk</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please select your Markdown files here (<code>.md</code> or <code>.markdown</code> extension):</p>\n                <p>\n                    <input type="file" id="input-file-import-harddrive-markdown" multiple class="form-control" />\n                </p>\n                <p>Or drag and drop your Markdown files here:</p>\n                <p id="dropzone-import-harddrive-markdown" class="drop-zone">Drop files here</p>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-harddrive-html">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Convert HTML to Markdown</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please select your HTML files here:</p>\n                <p>\n                    <input type="file" id="input-file-import-harddrive-html" multiple class="form-control" />\n                </p>\n                <p>Or drag and drop your HTML files here:</p>\n                <p id="dropzone-import-harddrive-html" class="drop-zone">Drop files here</p>\n                <p>Or insert your HTML code here:</p>\n                <textarea id="input-convert-html" class="form-control prettyprint linenums lang-html"></textarea>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>  <a href="#" class="btn btn-primary action-convert-html" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-upload-gdrive">\n</div>\n<div class="modal fade modal-upload-gdrivesec">\n</div>\n<div class="modal fade modal-upload-gdriveter">\n</div>\n<div class="modal fade modal-autosync-gdrive">\n</div>\n<div class="modal fade modal-autosync-gdrivesec">\n</div>\n<div class="modal fade modal-autosync-gdriveter">\n</div>\n<div class="modal fade modal-upload-dropbox">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Save to Dropbox</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    This will save "<span class="file-title"></span>" to your <i class="icon-provider-dropbox"></i>\n                    <code>Dropbox</code>\n                    account and keep it synchronized.\n                </p>\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <label class="col-sm-3 control-label" for="input-sync-export-dropbox-path">File path</label>\n                        <div class="col-sm-8">\n                            <input type="text" id="input-sync-export-dropbox-path" placeholder="/path/to/My Story.md" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                </div>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <b>Note:</b>\n                    <ul>\n                        <li>Dropbox file path does not depend on story title.</li>\n                        <li>The title of your story will not be synchronized.</li>\n                        <li>Destination folder must exist.</li>\n                        <li>Any existing file at this location will be overwritten.</li>\n                    </ul>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-dropbox">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-download-mywriteon">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Open on My.WriteOn</h2>\n                <div class="form-horizontal list-mode">\n                    <br>\n                    <div class="form-group form-inline">\n                        <label for="input-sync-import-mywriteon-tag" class="col-sm-3 control-label">Filter by tag</label>\n                        <select id="input-sync-import-mywriteon-tag" class="col-sm-4 form-control">\n                        </select>\n                        <span class="col-sm-5">\n<a class="btn btn-link action-add-tag"><i class="icon-tag"></i> Add\n</a>\n<a class="btn btn-link action-remove-tag"><i class="icon-tag"></i> Remove\n</a>\n</span>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-body">\n                <p class="msg-default-mywriteon alert alert-warning">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <i class="icon-attention"></i>  <b>Careful:</b>\n                    This is Beta software, and you\'re using our public My.WriteOn instance.\n                    <b>That means anybody can open, edit and delete these stories.</b>\n                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">\u2665</span>\n                </p>\n                <div class="form-horizontal byid-mode">\n                    <div class="form-group">\n                        <label for="input-sync-import-mywriteon-documentid" class="col-sm-3 control-label">Story ID\n                        </label>\n                        <div class="col-sm-9">\n                            <input id="input-sync-import-mywriteon-documentid" class="form-control" placeholder="DocumentID">\n                            <span class="help-block">Multiple IDs can be provided (space separated)</span>\n                        </div>\n                    </div>\n                </div>\n                <ul class="list-mode nav nav-pills">\n                    <li class="pull-right dropdown"><a href="#" data-toggle="dropdown"><i class="icon-check"></i> Selection\n<b class="caret"></b></a>\n                        <ul class="dropdown-menu">\n                            <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>\n                            </li>\n                            <li class="divider"></li>\n                            <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>\n                            </li>\n                        </ul>\n                    </li>\n                </ul>\n                <p class="list-mode">\n                </p>\n                <div class="list-group document-list list-mode"></div>\n                <div class="list-mode text-center">\n                    <div class="please-wait"><b>Please wait...</b>\n                    </div>\n                    <div class="no-document"><b>No story.</b>\n                    </div>\n                    <button class="more-documents btn btn-link"><i class="icon-angle-double-down"></i> More stories</button>\n                </div>\n                <p class="delete-mode hide">The following stories will be removed from WriteOn:</p>\n                <div class="delete-mode list-group selected-document-list hide"></div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default pull-left list-mode action-byid-mode"><i class="icon-folder-open-empty"></i> Open by ID...</a>\n                <a href="#" class="btn btn-default delete-mode action-cancel hide">Cancel</a>\n                <a href="#" class="btn btn-primary delete-mode action-delete-items-confirm hide">Delete</a>\n                <a href="#" class="btn btn-default byid-mode action-cancel">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon byid-mode">Open</a>\n                <a href="#" class="btn btn-default list-mode" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon list-mode">Open</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-upload-mywriteon">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Save to My.WriteOn</h2>\n            </div>\n            <div class="modal-body">\n                <p class="msg-default-mywriteon alert alert-warning hide">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <i class="icon-attention"></i>  <b>Careful:</b>\n                    This is Beta software, and you\'re using our public My.WriteOn instance.\n                    <b>That means anybody can open, edit and delete your stories - and vise versa.</b>\n                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">\u2665</span>\n                </p>\n                <p>\n                    This will save "<span class="file-title"></span>" to My.WriteOn <sup class="text-danger">Beta</sup> and keep it synchronized.\n                </p>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>Tip:</b> You can use a YAML front matter to specify tags for your story:</p>\n                    <code class="panel">\n					---<br />\n					tags: tag1, tag2, tag3<br />\n					published: true<br />\n					---\n					</code>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-mywriteon">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-sync">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Synchronization</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    "<span class="file-title"></span>" is synchronized in the following location(s):\n                </p>\n                <div class="sync-list"></div>\n                <blockquote>\n                    <p><b>Hey There:</b> Removing a synchronized location will not delete the local story.\n                    </p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-publish">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">\nPublish on <span class="publish-provider-name"></span>\n</h2>\n            </div>\n            <div class="modal-body">\n                <div class="form-horizontal">\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-host">Host</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ssh-host" placeholder="hostname.or.ip" class="form-control"> <span class="help-block"> Host must be accessible publicly,\nunless you\'re hosting your own WriteOn instance.\n</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-port">Port (optional)\n                        </label>\n                        <div class="col-sm-2">\n                            <input type="text" id="input-publish-ssh-port" placeholder="22" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-username">Username</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ssh-username" placeholder="username" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-password">Password</label>\n                        <div class="col-sm-7">\n                            <input type="password" id="input-publish-ssh-password" placeholder="password" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-github-repo">Repository</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-github-repo" placeholder="Repository name or URL" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-github-branch">Branch</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-github-branch" placeholder="branch-name" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-file-path">File path</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-file-path" placeholder="path/to/file.md" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-filename">Filename</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-filename" placeholder="filename" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-gist-id">Existing ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gist-id" placeholder="GistID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-gist-public">Public</label>\n                        <div class="col-sm-7">\n                            <div class="checkbox">\n                                <input type="checkbox" id="input-publish-gist-public" checked="checked" />\n                            </div>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ghost">\n                        <label class="col-sm-4 control-label" for="input-publish-ghost-url">Ghost URL</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ghost-url" placeholder="http://example.ghost.org/" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-blogger modal-publish-bloggerpage">\n                        <label class="col-sm-4 control-label" for="input-publish-blogger-url">Blog URL</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-blogger-url" placeholder="http://example.blogger.com/" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-tumblr">\n                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">Blog hostname</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-tumblr-hostname" placeholder="example.tumblr.com" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-wordpress">\n                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">WordPress site</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-wordpress-site" placeholder="example.wordpress.com" class="form-control">\n                            <span class="help-block"> <a target="_blank" href="http://jetpack.me/">Jetpack plugin</a> is required for\nself-hosted sites.\n</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">\n                        <label class="col-sm-4 control-label" for="input-publish-postid">Update existing post ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-postid" placeholder="PostID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-bloggerpage">\n                        <label class="col-sm-4 control-label" for="input-publish-pageid">Update existing page ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-pageid" placeholder="PageID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-dropbox">\n                        <label class="col-sm-4 control-label" for="input-publish-dropbox-path">File path</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-dropbox-path" placeholder="/path/to/My Story.html" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gdrive">\n                        <label class="col-sm-4 control-label" for="input-publish-gdrive-fileid">File ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gdrive-fileid" placeholder="FileID" class="form-control"> <span class="help-block">If no file ID is supplied, a new file\nwill be created in your Google Drive root folder. You can move\nthe file afterwards within Google Drive.</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gdrive">\n                        <label class="col-sm-4 control-label" for="input-publish-gdrive-filename">Force filename (optional)\n                        </label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gdrive-filename" placeholder="Filename" class="form-control"> <span class="help-block">If no file name is supplied, the\nstory title will be used.</span>\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label">Format</label>\n                        <div class="col-sm-7">\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="markdown">Markdown\n                                </label>\n                            </div>\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="html">HTML\n                                </label>\n                            </div>\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="template">Template\n                                </label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="collapse publish-custom-template-collapse">\n                        <div class="form-group">\n                            <div class="col-sm-4"></div>\n                            <div class="col-sm-7">\n                                <div class="checkbox">\n                                    <label>\n                                        <input type="checkbox" id="checkbox-publish-custom-template">Custom template\n                                    </label> <a href="#" class="tooltip-template">(?)</a>\n                                </div>\n                            </div>\n                        </div>\n                        <div class="form-group">\n                            <div class="col-sm-4"></div>\n                            <div class="col-sm-7">\n                                <textarea class="form-control" id="textarea-publish-custom-template"></textarea>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <blockquote class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress alert alert-info">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n					<p><b>Tip:</b> You can use a YAML front matter to specify the title and the tags/labels of your published story.</p>\n                    <p class="panel"><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.\n						<br /> <code>\n						---<br />\n						title: My Published Title\n						tags: tag1, tag2, tag3<br />\n						published: true<br />\n						date: YYYY-MM-DD HH:MM:SS +/-TTTT<br />\n						---</code>\n					</p>\n                </blockquote>\n                <blockquote class="front-matter-info modal-publish-bloggerpage alert alert-info">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n					<p><b>Tip:</b> You can use a YAML front matter to specify the title and the tags/labels of your published story.</p>\n                    <p class="panel"><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.\n						<br /> <code>\n						---<br />\n						title: My Published Title\n						tags: tag1, tag2, tag3<br />\n						published: true<br />\n						date: YYYY-MM-DD HH:MM:SS +/-TTTT<br />\n						---</code>\n					</p>\n                </blockquote>\n                <blockquote class="url-info modal-publish-bloggerpage alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>About URL:</b> For newly created page , Blogger API will append a generated number to the url like <code>about-me-1234.html</code>, if you deeply care about your URL naming, you should first create the page on Blogger and then update them with WriteOn specifying the pageId when publishing.\n                    </p>\n                    <p><b>About page visibility:</b> Blogger API does not respect published status for pages.When publishing the page to Blogger, the page will be <strong>live</strong> but not added to the page listing. You should arrange the page listing from Blogger dashboard.\n                    </p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-process-publish">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-publish">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Publication</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    "<span class="file-title"></span>" is published on the following location(s):\n                </p>\n                <div class="publish-list"></div>\n                <blockquote>\n                    <p><b>Stating the Obvious?</b> Maybe, but removing a published location will not delete the actual post out in the wild.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-sharing">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Sharing</h2>\n            </div>\n            <div class="modal-body">\n                <p>To <strong>collaborate</strong> on "<span class="file-title"></span>" with other WriteOn users, share this link(s):</p>\n                <p class="msg-no-share-editor alert alert-info" role="alert"><b>No sharing link yet.</b> To collaborate on this story, just\n                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn</a>\n                </p>\n                <div class="share-editor-list"></div>\n                <hr>\n                <p> To <strong>share</strong> a public, read-only version of "<span class="file-title"></span>" using the following link(s):</p>\n                <p class="msg-no-share-viewer alert alert-info" role="alert"><b>No sharing link yet!</b> To share a read-only version of this story, just \n                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn.</a></p>\n                <div class="share-viewer-list"></div>\n                <blockquote>\n                    <p><b>Did You Know?</b> You can open any <code>.md</code> or <code>.markdown</code> URL using the <i>WriteOn Paper</i> like so: \n                        <a href="paper#!url=https://raw.githubusercontent.com/github/markup/master/README.md" title="Sharing example">\n                            <code>/paper#!url=[your-url-here]</code></a>.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-settings">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Settings</h2>\n            </div>\n            <div class="modal-body">\n            <div class="col-md-3 modal-nav">\n                <ul class="nav nav-tabs nav-stacked">\n                    <li class="active"><a class="action-load-settings" href="#tabpane-settings-basic" data-toggle="tab"><i class="icon-cog"></i> Basic</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-advanced" data-toggle="tab"><i class="icon-tasks"></i> Advanced</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-permissions" data-toggle="tab"><i class="icon-lock"></i> Permissions</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-templates" data-toggle="tab"><i class="icon-list-alt"></i> Templates</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-extensions" data-toggle="tab"><i class="icon-puzzle"></i> Extensions</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab"><i class="icon-briefcase"></i> Utilities</a>\n                    </li>\n            </ul>\n            </div>\n            \n            \n                <div class="col-md-9 tab-content clearfix" data-spy="scroll">\n                    <div class="tab-pane active" id="tabpane-settings-basic">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Layout orientation</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-layout-orientation" value="horizontal">Horizontal\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-layout-orientation" value="vertical">Vertical\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-theme">Theme</label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-theme" class="form-control">\n                                    </select>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-5"></div>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-markdown-extra" />\n                                            <b>Markdown Extra/GitHub Flavored Markdown</b> syntax\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-markdown-mime-type">Markdown MIME type\n                                </label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-markdown-mime-type" class="form-control">\n                                        <option value="text/plain">text/plain</option>\n                                        <option value="text/x-markdown">text/x-markdown</option>\n                                    </select>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <div class="col-sm-5"></div>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-mathjax" />\n                                            <b>LaTeX mathematical expressions</b> using <code>$</code> and <code>$$</code> delimiters\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-gdrive-multiaccount">Google Drive multiple accounts\n                                </label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-gdrive-multiaccount" class="form-control">\n                                        <option value="1">1 account</option>\n                                        <option value="2">2 accounts</option>\n                                        <option value="3">3 accounts</option>\n                                    </select>\n                                    <span class="help-block">Once linked, you\'ll have to <a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab">Reset WriteOn</a> to change Google accounts.</span>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-advanced">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Edit mode</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-edit-mode" value="ltr">Left-To-Right\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-edit-mode" value="rtl">Right-To-Left\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Edit Pad\'s font style</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-editor-font-class" value="font-rich">Rich\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-editor-font-class" value="font-monospaced">Monospaced\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-font-size">Font size ratio</label>\n                                <div class="col-sm-7 form-inline slider-inline">\n                                    <input type="text" id="input-settings-font-size" class="form-control">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-max-width">Max width ratio</label>\n                                <div class="col-sm-7 form-inline slider-inline">\n                                    <input type="text" id="input-settings-max-width" class="form-control">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-cursor-focus">Cursor focus ratio</label>\n                                <div class="col-sm-7 form-inline slider-inline">\n                                    <input type="text" id="input-settings-cursor-focus" class="form-control">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-lazy-rendering">Lazy rendering <a href="#" class="tooltip-lazy-rendering">(?)</a>\n                                </label>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <input type="checkbox" id="input-settings-lazy-rendering" />\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-templates">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-4 control-label" for="textarea-settings-default-content">Backlink\n                                    <a href="#" class="tooltip-default-content">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-default-content" class="form-control sm"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-4 control-label" for="textarea-settings-publish-template">Default Template <a href="#" class="tooltip-template">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-publish-template" class="form-control lg"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-template">PDF Template <a href="#" class="tooltip-template">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-pdf-template" class="form-control"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-options">PDF options\n                                    <a href="#" class="tooltip-pdf-options">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-pdf-options" class="form-control"></textarea>\n                                </div>\n                            </div>                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-permissions">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-gdrive-full-access" />Allow WriteOn to open any story in Google Drive\n                                        </label> <span class="help-block">Existing authorization has to be revoked in\n<a href="https://www.google.com/settings/dashboard" target="_blank">Google Dashboard</a>\nfor this change to take effect.</span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-dropbox-full-access" />Allow WriteOn to open any story in Dropbox\n                                        </label> <span class="help-block">If unchecked, access will be restricted to folder\n<b>/Applications/WriteOn</b> for existing stories.</span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-github-full-access" />Allow WriteOn to access private repositories in GitHub\n                                        </label> <span class="help-block">Existing authorization has to be revoked in\n<a href="https://github.com/settings/applications" target="_blank">GitHub settings</a>\nfor this change to take effect.</span>\n                                    </div>\n                                </div>\n                            </div>                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-extensions">\n                        <div class="panel-group accordion-extensions"></div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-utils">\n                        <p>Some of these are quite powerful, and can result in the total loss of your data. </p>\n                        <div class="col-sm-5 tab-pane-button-container">\n                            <a href="#" class="btn btn-block btn-default action-welcome-file" data-dismiss="modal"><i class="icon-help-circled"></i> Load Welcome Guide</a>\n                            <a href="#" class="btn btn-block btn-default action-guide-file" data-dismiss="modal"><i class="icon-keyboard"></i> Load Syntax Guide</a>\n                            <a href="#" class="btn btn-block btn-default action-welcome-tour" data-dismiss="modal"><i class="icon-comment"></i> Welcome tour</a>\n                            <a target="_blank" href="recovery.html" class="btn btn-block btn-danger"><i class="icon-medkit"></i> WriteOn recovery</a>\n                        </div>\n                        <div class="col-sm-offset-1 col-sm-6 tab-pane-button-container">\n                            <a href="#" class="btn btn-block btn-default action-import-docs-settings"><i class="icon-cog-alt"></i> Import stories & settings</a>  \n                            <a href="#" class="btn btn-block btn-default action-export-docs-settings" data-dismiss="modal"><i class="icon-share"></i> Export stories & settings</a> \n                            <a href="#" class="btn btn-block btn-default action-default-settings" data-dismiss="modal"><i class="icon-wrench"></i> Load default settings</a>  \n                            <a href="#" class="btn btn-block btn-danger" data-dismiss="modal" data-toggle="modal" data-target=".modal-app-reset"><i class="icon-fire"></i> Reset application</a>  \n                            <input type="file" id="input-file-import-docs-settings" class="hide">\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-apply-settings" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-non-unique">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Ooops...</h2>\n            </div>\n            <div class="modal-body">\n                <p>WriteOn has stopped because another instance was running in the same browser or the local cache was disrupted.</p>\n                <blockquote>\n                    <p>If you want to reopen WriteOn, click on "Reload".\n                    </p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-redirect-confirm">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Redirection</h2>\n            </div>\n            <div class="modal-body">\n                <p class="redirect-msg"></p>\n                <blockquote>\n                    <p>Please click <b>OK</b> to proceed.</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a class="btn btn-primary action-redirect-confirm" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-app-reset">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Reset application</h2>\n            </div>\n            <div class="modal-body">\n                <p>This will delete all your local stories.</p>\n                <blockquote><b>Are you sure?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-app-reset" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-docs-settings">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Import stories and settings</h2>\n            </div>\n            <div class="modal-body">\n                <p>This will delete all existing local stories.</p>\n                <blockquote><b>Are you sure?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-import-docs-settings-confirm" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-add-google-drive-account">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Add Google Drive account</h2>\n            </div>\n            <div class="modal-body">\n                <p>To perform this request, you need to configure another Google Drive account in WriteOn.</p>\n                <blockquote><b>Do you want to proceed?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default action-remove-google-drive-state" data-dismiss="modal">No</a>\n                <a href="#" class="btn btn-primary action-add-google-drive-account" data-dismiss="modal">Yes</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-sponsor-only">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Sponsors only</h2>\n            </div>\n            <div class="modal-body">\n                <p>This feature is restricted to sponsors. Note that sponsoring WriteOn would cost you only $3/month.</p>\n                <p>To see how a PDF looks <a target="_blank" href="/Welcome%story.pdf">click here</a>.</p>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>Tip:</b> PDFs are fully customizable via Settings>Advanced>PDF template/options.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div id="dropboxjs" data-app-key="r3vgaee214zfvc7"></div>\n';
 }), define("text!html/bodyViewer.html", [], function() {
  return '<div class="layout-wrapper-l1">\n    <div class="layout-wrapper-l2">\n        <div class="navbar navbar-default">\n            <div class="navbar-inner">\n                <div class="nav left-space"></div>\n                <div class="nav right-space pull-right"></div>\n                <div class="buttons-dropdown dropdown">\n                    <div class="nav">\n                        <button class="btn btn-success" data-toggle="dropdown" title="Show buttons">\n                            <i class="icon-th-large"></i>\n                        </button>\n                        <div class="dropdown-menu">\n                        </div>\n                    </div>\n                </div>\n                <ul class="nav pull-right">\n                    <li class="btn-group">\n                        <button class="btn btn-success action-edit-document hide" title="Edit This Story">\n                            <i class="icon-pencil"></i>\n                        </button>\n                    </li>\n                    <li class="btn-group">\n                        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown" title="Download This Story">\n                            <i class="icon-download"></i>\n                        </button>\n                        <ul class="dropdown-menu">\n                            <li><a class="action-download-md" href="#"><i class="icon-book"></i> Download as Markdown</a>\n                            </li>\n                            <li><a class="action-download-html" href="#"><i class="icon-shield"></i> Download as HTML</a>\n                            </li>\n                            <li><a class="action-download-template" href="#"><i class="icon-list-alt"></i> Download using template</a>\n                            </li>\n                        </ul>\n                    </li>\n                </ul>\n                <ul class="nav pull-right title-container">\n                    <li><span class="btn btn-success file-title-navbar"></span>\n                    </li>\n                </ul>\n            </div>\n        </div>\n        <div class="layout-wrapper-l3">\n            <div class="working-indicator"></div>\n            <pre id="wmd-input" class="form-control"><div class="editor-content"></div><div class="editor-margin"></div></pre>\n            <div class="preview-panel">\n                <div class="preview-container">\n                    <div id="preview-contents">\n                        <div id="wmd-preview" class="preview-content"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="extension-preview-buttons">\n            <div class="btn-group drag-me" title="Drag me!">\n                <i class="icon-ellipsis-vert"></i>\n            </div>\n        </div>\n    </div>\n    <div id="wmd-button-bar" class="hide"></div>\n    <div class="menu-panel">\n        <button class="btn toggle-button action-open-writeon" title="Switch to Pad">\n            <i class="icon-pencil-squared"></i>  <strong>Switch to Pad</strong>\n        </button>\n    </div>\n    <div class="document-panel">\n        <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">\n            <i class="icon-folder-open"></i>\n        </button>\n        <div class="search-bar clearfix">\n            <div class="input-group">\n                <span class="input-group-addon"><i class="icon-search"></i></span>\n                <input type="text" class="form-control" placeholder="Find story" />\n            </div>\n        </div>\n        <div class="panel-content">\n            <div class="list-group document-list"></div>\n            <div class="list-group document-list-filtered hide"></div>\n        </div>\n    </div>\n</div>\n<div id="wmd-button-bar" class="hide"></div>\n<div class="modal modal-non-unique">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h3 class="modal-title">Ooops...</h3>\n            </div>\n            <div class="modal-body">\n                <p>WriteOn has stopped because another instance was running in the same browser.</p>\n                <blockquote>\n                    <p>If you want to reopen WriteOn, click on "Reload".</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a>\n            </div>\n        </div>\n    </div>\n</div>\n';
 }), define("text!html/tooltipSettingsTemplate.html", [], function() {
@@ -25379,60 +25933,69 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
  }, y.doHorizontalRule = function(e) {
   e.startTag = "----------\n", e.selection = "", e.skipLines(2, 1, !0);
  };
-}(), define("pagedown", function() {}), define("core", [ "jquery", "underscore", "crel", "editor", "layout", "constants", "utils", "storage", "settings", "eventMgr", "monetizejs", "text!html/bodyEditor.html", "text!html/bodyViewer.html", "text!html/tooltipSettingsTemplate.html", "text!html/tooltipSettingsPdfOptions.html", "storage", "pagedown" ], function(e, t, n, i, r, o, a, s, l, c, u, d, p, h, f) {
- function m() {
-  T = !0, k = !0;
-  var e = a.currentTime;
-  e > I + 1e3 && (I = e, c.onUserActive());
- }
+}(), define("pagedown", function() {}), define("core", [ "jquery", "underscore", "crel", "editor", "layout", "constants", "utils", "storage", "settings", "eventMgr", "monetizejs", "Slider", "text!html/bodyEditor.html", "text!html/bodyViewer.html", "text!html/tooltipSettingsTemplate.html", "text!html/tooltipSettingsPdfOptions.html", "storage", "pagedown" ], function(e, t, n, i, r, o, a, s, l, c, u, d, p, h, f, m) {
  function g() {
-  return a.currentTime - I > o.USER_IDLE_THRESHOLD && (k = !1), k && E;
+  k = !0, E = !0;
+  var e = a.currentTime;
+  e > D + 1e3 && (D = e, c.onUserActive());
  }
  function v() {
-  if (T !== !1 && E !== !1) {
-   void 0 === C && (C = a.id(), s.frontWindowId = C);
+  return a.currentTime - D > o.USER_IDLE_THRESHOLD && (E = !1), E && I;
+ }
+ function b() {
+  if (k !== !1 && I !== !1) {
+   void 0 === _ && (_ = a.id(), s.frontWindowId = _);
    var t = s.frontWindowId;
-   t != C && (E = !1, void 0 !== S && clearInterval(S), e(".modal").modal("hide"), 
+   t != _ && (I = !1, void 0 !== S && clearInterval(S), e(".modal").modal("hide"), 
    e(".modal-non-unique").modal("show"), window.close());
   }
  }
- function b() {
-  D === !0 && (D = !1, c.onOfflineChanged(!1));
- }
  function y() {
-  D === !0 && navigator.onLine === !0 && N + o.CHECK_ONLINE_PERIOD < a.currentTime && (N = a.currentTime, 
+  N === !0 && (N = !1, c.onOfflineChanged(!1));
+ }
+ function x() {
+  N === !0 && navigator.onLine === !0 && L + o.CHECK_ONLINE_PERIOD < a.currentTime && (L = a.currentTime, 
   e.ajax({
    url: "//www.google.com/jsapi",
    timeout: o.AJAX_TIMEOUT,
    dataType: "script"
   }).done(function() {
-   b();
+   y();
   }));
  }
- function x() {
-  a.setInputRadio("radio-layout-orientation", l.layoutOrientation), a.setInputValue(L, window.theme), 
-  L.change(), a.setInputChecked("#input-settings-lazy-rendering", l.lazyRendering), 
-  a.setInputRadio("radio-settings-editor-font-class", l.editorFontClass), a.setInputValue("#input-settings-font-size", l.fontSizeRatio);
-  new Slider("#input-settings-font-size", {
-   precision: 1,
+ function w() {
+  a.setInputRadio("radio-layout-orientation", l.layoutOrientation), a.setInputValue(M, window.theme), 
+  M.change(), a.setInputChecked("#input-settings-lazy-rendering", l.lazyRendering), 
+  a.setInputRadio("radio-settings-editor-font-class", l.editorFontClass);
+  new d("#input-settings-font-size", {
+   step: .1,
+   min: .1,
+   max: 10,
    value: l.fontSizeRatio
-  });
-  a.setInputValue("#input-settings-max-width", l.maxWidthRatio);
-  new Slider("#input-settings-max-width", {
+  }), new d("#input-settings-max-width", {
+   precision: 1,
+   step: .1,
+   min: .1,
+   max: 1,
    value: l.maxWidthRatio
+  }), new d("#input-settings-cursor-focus", {
+   precision: 1,
+   step: .1,
+   min: .1,
+   max: 1,
+   value: l.cursorFocusRatio
   });
-  a.setInputValue("#input-settings-cursor-focus", l.cursorFocusRatio), a.setInputValue("#textarea-settings-default-content", l.defaultContent), 
-  a.setInputRadio("radio-settings-edit-mode", l.editMode), a.setInputValue("#input-settings-markdown-mime-type", l.markdownMimeType), 
-  a.setInputValue("#input-settings-gdrive-multiaccount", l.gdriveMultiAccount), a.setInputChecked("#input-settings-gdrive-full-access", l.gdriveFullAccess), 
-  a.setInputChecked("#input-settings-dropbox-full-access", l.dropboxFullAccess), a.setInputChecked("#input-settings-github-full-access", l.githubFullAccess), 
-  a.setInputValue("#textarea-settings-publish-template", l.template), a.setInputValue("#textarea-settings-pdf-template", l.pdfTemplate), 
-  a.setInputValue("#textarea-settings-pdf-options", l.pdfOptions), a.setInputValue("#input-settings-publish-commit-msg", l.commitMsg), 
-  c.onLoadSettings();
+  a.setInputValue("#textarea-settings-default-content", l.defaultContent), a.setInputRadio("radio-settings-edit-mode", l.editMode), 
+  a.setInputValue("#input-settings-markdown-mime-type", l.markdownMimeType), a.setInputValue("#input-settings-gdrive-multiaccount", l.gdriveMultiAccount), 
+  a.setInputChecked("#input-settings-gdrive-full-access", l.gdriveFullAccess), a.setInputChecked("#input-settings-dropbox-full-access", l.dropboxFullAccess), 
+  a.setInputChecked("#input-settings-github-full-access", l.githubFullAccess), a.setInputValue("#textarea-settings-publish-template", l.template), 
+  a.setInputValue("#textarea-settings-pdf-template", l.pdfTemplate), a.setInputValue("#textarea-settings-pdf-options", l.pdfOptions), 
+  a.setInputValue("#input-settings-publish-commit-msg", l.commitMsg), c.onLoadSettings();
  }
- function w(t) {
+ function C(t) {
   var n = {};
   n.layoutOrientation = a.getInputRadio("radio-layout-orientation");
-  var i = a.getInputValue(L);
+  var i = a.getInputValue(M);
   n.lazyRendering = a.getInputChecked("#input-settings-lazy-rendering"), n.editorFontClass = a.getInputRadio("radio-settings-editor-font-class"), 
   n.fontSizeRatio = a.getInputFloatValue("#input-settings-font-size", t, .1, 10), 
   n.maxWidthRatio = a.getInputFloatValue("#input-settings-max-width", t, .1, 10), 
@@ -25448,30 +26011,30 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   c.onSaveSettings(n.extensionSettings, t), t.isPropagationStopped() || (l.dropboxFullAccess !== n.dropboxFullAccess && s.removeItem("dropbox.lastChangeId"), 
   e.extend(l, n), s.settings = JSON.stringify(l), s.themeV4 = i);
  }
- var S, C, _ = {}, T = !1, k = !1, E = !0, I = 0, D = !1, N = a.currentTime;
- _.setOffline = function() {
-  N = a.currentTime, D === !1 && (D = !0, c.onOfflineChanged(!0));
+ var S, _, T = {}, k = !1, E = !1, I = !0, D = 0, N = !1, L = a.currentTime;
+ T.setOffline = function() {
+  L = a.currentTime, N === !1 && (N = !0, c.onOfflineChanged(!0));
  };
- var L, M, A;
- return _.initEditor = function(t) {
-  if (void 0 !== A && c.onFileClosed(A), A = t, void 0 !== M) return i.undoMgr.init(), 
-  M.uiManager.setUndoRedoButtonStates();
+ var M, A, R;
+ return T.initEditor = function(t) {
+  if (void 0 !== R && c.onFileClosed(R), R = t, void 0 !== A) return i.undoMgr.init(), 
+  A.uiManager.setUndoRedoButtonStates();
   var n = new Markdown.Converter(), r = {
    _DoItalicsAndBold: function(e) {
     return e = e.replace(/(\*\*|__)(?=\S)(.+?[*_]*)(?=\S)\1/g, "<strong>$2</strong>"), 
     e = e.replace(/(\*|_)(?=\S)(.+?)(?=\S)\1/g, "<em>$2</em>");
    }
   };
-  n.setOptions(r), M = new Markdown.Editor(n, void 0, {
+  n.setOptions(r), A = new Markdown.Editor(n, void 0, {
    undoManager: i.undoMgr
-  }), M.hooks.set("insertLinkDialog", function(t) {
-   return _.insertLinkCallback = t, a.resetModalInputs(), e(".modal-insert-link").modal(), 
+  }), A.hooks.set("insertLinkDialog", function(t) {
+   return T.insertLinkCallback = t, a.resetModalInputs(), e(".modal-insert-link").modal(), 
    !0;
-  }), M.hooks.set("insertImageDialog", function(t) {
-   return _.insertLinkCallback = t, _.catchModal ? !0 : (a.resetModalInputs(), e(".modal-insert-image").modal(), 
+  }), A.hooks.set("insertImageDialog", function(t) {
+   return T.insertLinkCallback = t, T.catchModal ? !0 : (a.resetModalInputs(), e(".modal-insert-image").modal(), 
    !0);
-  }), c.onPagedownConfigure(M), M.hooks.chain("onPreviewRefresh", c.onAsyncPreview), 
-  M.run(), i.undoMgr.init(), e(".wmd-button-row li").addClass("btn btn-default").css("left", 0).find("span").hide();
+  }), c.onPagedownConfigure(A), A.hooks.chain("onPreviewRefresh", c.onAsyncPreview), 
+  A.run(), i.undoMgr.init(), e(".wmd-button-row li").addClass("btn btn-default").css("left", 0).find("span").hide();
   var o = e(".wmd-button-group1");
   e("#wmd-bold-button").append(e('<i class="icon-bold">')).appendTo(o), e("#wmd-italic-button").append(e('<i class="icon-italic">')).appendTo(o), 
   o = e(".wmd-button-group2"), e("#wmd-link-button").append(e('<i class="icon-globe">')).appendTo(o), 
@@ -25481,12 +26044,12 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   e("#wmd-ulist-button").append(e('<i class="icon-list-bullet">')).appendTo(o), e("#wmd-heading-button").append(e('<i class="icon-text-height">')).appendTo(o), 
   e("#wmd-hr-button").append(e('<i class="icon-ellipsis">')).appendTo(o), o = e(".wmd-button-group5"), 
   e("#wmd-undo-button").append(e('<i class="icon-reply">')).appendTo(o), e("#wmd-redo-button").append(e('<i class="icon-forward">')).appendTo(o);
- }, _.onReady = function() {
-  document.body.className += " " + l.editMode, document.body.innerHTML = window.viewerMode === !0 ? p : d, 
-  a.init(), e(window).on("offline", _.setOffline), e(window).on("online", b), navigator.onLine === !1 && _.setOffline(), 
-  e(document).mousemove(m).keypress(m), r.init(), i.init(), S = window.setInterval(function() {
-   a.updateCurrentTime(), v(), (g() === !0 || window.viewerMode === !0) && (c.onPeriodicRun(), 
-   y());
+ }, T.onReady = function() {
+  document.body.className += " " + l.editMode, document.body.innerHTML = window.viewerMode === !0 ? h : p, 
+  a.init(), e(window).on("offline", T.setOffline), e(window).on("online", y), navigator.onLine === !1 && T.setOffline(), 
+  e(document).mousemove(g).keypress(g), r.init(), i.init(), S = window.setInterval(function() {
+   a.updateCurrentTime(), b(), (v() === !0 || window.viewerMode === !0) && (c.onPeriodicRun(), 
+   x());
   }, 1e3), c.onReady();
  }, c.addListener("onOfflineChanged"), c.addListener("onReady", function() {
   function n(e) {
@@ -25507,22 +26070,22 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    13 != t.which || e(t.target).is("textarea") || e(this).find(".modal-footer a:last").click();
   }), e(".action-insert-link").click(function(t) {
    var n = a.getInputTextValue(e("#input-insert-link"), t);
-   void 0 !== n && (_.insertLinkCallback(n), _.insertLinkCallback = void 0);
+   void 0 !== n && (T.insertLinkCallback(n), T.insertLinkCallback = void 0);
   }), e(".action-insert-image").click(function(t) {
    var n = a.getInputTextValue(e("#input-insert-image"), t);
-   void 0 !== n && (_.insertLinkCallback(n), _.insertLinkCallback = void 0);
+   void 0 !== n && (T.insertLinkCallback(n), T.insertLinkCallback = void 0);
   }), e(".modal-insert-link, .modal-insert-image").on("hidden.bs.modal", function() {
-   void 0 !== _.insertLinkCallback && (_.insertLinkCallback(null), _.insertLinkCallback = void 0);
+   void 0 !== T.insertLinkCallback && (T.insertLinkCallback(null), T.insertLinkCallback = void 0);
   }), e(".action-load-settings").click(function() {
-   x();
+   w();
   }), e(".action-apply-settings").click(function(e) {
-   w(e), e.isPropagationStopped() || window.location.reload();
+   C(e), e.isPropagationStopped() || window.location.reload();
   }), e(".action-add-google-drive-account").click(function() {
    3 !== l.gdriveMultiAccount && (l.gdriveMultiAccount++, s.settings = JSON.stringify(l), 
    window.location.reload());
   });
   var r = window.theme;
-  L = e("#input-settings-theme"), L.on("change", function() {
+  M = e("#input-settings-theme"), M.on("change", function() {
    n(this.value);
   }), e(".action-import-docs-settings").click(function() {
    e("#input-file-import-docs-settings").click();
@@ -25562,7 +26125,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    a.resetModalInputs();
   }), a.createTooltip(".tooltip-lazy-rendering", "Disable preview rendering while typing in order to offload CPU. Refresh preview after 500 ms of inactivity."), 
   a.createTooltip(".tooltip-default-content", [ "Thanks for supporting WriteOn by adding a backlink in your stories! But if not, thanks for using WriteOn." ].join("")), 
-  a.createTooltip(".tooltip-template", h), a.createTooltip(".tooltip-pdf-options", f), 
+  a.createTooltip(".tooltip-template", f), a.createTooltip(".tooltip-pdf-options", m), 
   e("div.dropdown-menu").click(function(e) {
    e.stopPropagation();
   }), e(".modal-non-unique").modal({
@@ -25578,7 +26141,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    }, "");
    document.getElementById("input-settings-theme").innerHTML = d;
   }
- }), _;
+ }), T;
 }), define("text!WELCOME.md", [], function() {
  return 'Welcome to WriteOn!\n===================\n\n\nHey! I\'m your first story in **WriteOn**[^writeon]. Don\'t delete me, I\'m very helpful! I can be recovered anyway in the **Utils** tab of the <i class="icon-cog"></i> **Settings** dialog.\n\n----------\n\n\nStories\n-------------\n\nWriteOn stores your stories in your browser, which means all your stories are automatically saved locally and are accessible **offline!**\n\n> **Note:**\n\n> - WriteOn is accessible offline after the application has been loaded for the first time.\n> - Your local stories are not shared between different browsers or computers.\n> - Clearing your browser\'s data may **delete all your local stories!** Make sure your stories are synchronized with **Google Drive** or **Dropbox** (check out the [<i class="icon-refresh"></i> Synchronization](#synchronization) section).\n\n#### <i class="icon-file"></i> Create a story\n\nThe story panel is accessible using the <i class="icon-folder-open"></i> button in the navigation bar. You can create a new story by clicking <i class="icon-file"></i> **New story** in the story panel.\n\n#### <i class="icon-folder-open"></i> Switch to another story\n\nAll your local stories are listed in the story panel. You can switch from one to another by clicking a story in the list or you can toggle stories using <kbd>Ctrl+[</kbd> and <kbd>Ctrl+]</kbd>.\n\n#### <i class="icon-pencil"></i> Rename a story\n\nYou can rename the current story by clicking the story title in the navigation bar.\n\n#### <i class="icon-trash"></i> Delete a story\n\nYou can delete the current story by clicking <i class="icon-trash"></i> **Delete story** in the story panel.\n\n#### <i class="icon-hdd"></i> Export a story\n\nYou can save the current story to a file by clicking <i class="icon-hdd"></i> **Export to disk** from the <i class="icon-provider-writeon"></i> menu panel.\n\n> **Tip:** Check out the [<i class="icon-upload"></i> Publish a story](#publish-a-document) section for a description of the different output formats.\n\n\n----------\n\n\nSynchronization\n-------------------\n\nWriteOn can be combined with <i class="icon-provider-gdrive"></i> **Google Drive** and <i class="icon-provider-dropbox"></i> **Dropbox** to have your stories saved in the *Cloud*. The synchronization mechanism takes care of uploading your modifications or downloading the latest version of your stories.\n\n> **Note:**\n\n> - Full access to **Google Drive** or **Dropbox** is required to be able to import any story in WriteOn. Permission restrictions can be configured in the settings.\n> - Imported stories are downloaded in your browser and are not transmitted to a server.\n> - If you experience problems saving your stories on Google Drive, check and optionally disable browser extensions, such as Disconnect.\n\n#### <i class="icon-refresh"></i> Open a story\n\nYou can open a story from <i class="icon-provider-gdrive"></i> **Google Drive** or the <i class="icon-provider-dropbox"></i> **Dropbox** by opening the <i class="icon-refresh"></i> **Synchronize** sub-menu and by clicking **Open from...**. Once opened, any modification in your story will be automatically synchronized with the file in your **Google Drive** / **Dropbox** account.\n\n#### <i class="icon-refresh"></i> Save a story\n\nYou can save any story by opening the <i class="icon-refresh"></i> **Synchronize** sub-menu and by clicking **Save on...**. Even if your story is already synchronized with **Google Drive** or **Dropbox**, you can export it to a another location. WriteOn can synchronize one story with multiple locations and accounts.\n\n#### <i class="icon-refresh"></i> Synchronize a story\n\nOnce your story is linked to a <i class="icon-provider-gdrive"></i> **Google Drive** or a <i class="icon-provider-dropbox"></i> **Dropbox** file, WriteOn will periodically (every 3 minutes) synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be detected.\n\nIf you just have modified your story and you want to force the synchronization, click the <i class="icon-refresh"></i> button in the navigation bar.\n\n> **Note:** The <i class="icon-refresh"></i> button is disabled when you have no story to synchronize.\n\n#### <i class="icon-refresh"></i> Manage story synchronization\n\nSince one story can be synchronized with multiple locations, you can list and manage synchronized locations by clicking <i class="icon-refresh"></i> **Manage synchronization** in the <i class="icon-refresh"></i> **Synchronize** sub-menu. This will let you remove synchronization locations that are associated to your story.\n\n> **Note:** If you delete the file from **Google Drive** or from **Dropbox**, the story will no longer be synchronized with that location.\n\n----------\n\n\nPublication\n-------------\n\nOnce you are happy with your story, you can publish it on different websites directly from WriteOn. As for now, WriteOn can publish on **Blogger**, **Dropbox**, **Gist**, **GitHub**, **Google Drive**, **Tumblr**, **WordPress** and on any SSH server.\n\n#### <i class="icon-upload"></i> Publish a story\n\nYou can publish your story by opening the <i class="icon-upload"></i> **Publish** sub-menu and by choosing a website. In the dialog box, you can choose the publication format:\n\n- Markdown, to publish the Markdown text on a website that can interpret it (**GitHub** for instance),\n- HTML, to publish the story converted into HTML (on a blog for example),\n- Template, to have a full control of the output.\n\n> **Note:** The default template is a simple webpage wrapping your story in HTML format. You can customize it in the **Advanced** tab of the <i class="icon-cog"></i> **Settings** dialog.\n\n#### <i class="icon-upload"></i> Update a publication\n\nAfter publishing, WriteOn will keep your story linked to that publication which makes it easy for you to update it. Once you have modified your story and you want to update your publication, click on the <i class="icon-upload"></i> button in the navigation bar.\n\n> **Note:** The <i class="icon-upload"></i> button is disabled when your story has not been published yet.\n\n#### <i class="icon-upload"></i> Manage story publication\n\nSince one story can be published on multiple locations, you can list and manage publish locations by clicking <i class="icon-upload"></i> **Manage publication** in the <i class="icon-provider-writeon"></i> menu panel. This will let you remove publication \n\n\n----------\n\n\nlocations that are associated to your story.\n\n> **Note:** If the file has been removed from the website or the blog, the story will no longer be published on that location.\n\n----------\n\n\nMarkdown Extra\n--------------------\n\nWriteOn supports **Markdown Extra**, which extends **Markdown** syntax with some nice features.\n\n> **Tip:** You can disable any **Markdown Extra** feature in the **Extensions** tab of the <i class="icon-cog"></i> **Settings** dialog.\n\n> **Note:** You can find more information about **Markdown** syntax [here][2] and **Markdown Extra** extension [here][3].\n\n\n### Tables\n\n**Markdown Extra** has a special syntax for tables:\n\nItem     | Value\n-------- | ---\nComputer | $1600\nPhone    | $12\nPipe     | $1\n\nYou can specify column alignment with one or two colons:\n\n| Item     | Value | Qty   |\n| :------- | ----: | :---: |\n| Computer | $1600 |  5    |\n| Phone    | $12   |  12   |\n| Pipe     | $1    |  234  |\n\n\n### Definition Lists\n\n**Markdown Extra** has a special syntax for definition lists too:\n\nTerm 1\nTerm 2\n:   Definition A\n:   Definition B\n\nTerm 3\n\n:   Definition C\n\n:   Definition D\n\n	> part of definition D\n\n\n### Fenced code blocks\n\nGitHub\'s fenced code blocks are also supported with **Highlight.js** syntax highlighting:\n\n```\n// Foo\nvar bar = 0;\n```\n\n> **Tip:** To use **Prettify** instead of **Highlight.js**, just configure the **Markdown Extra** extension in the <i class="icon-cog"></i> **Settings** dialog.\n\n> **Note:** You can find more information:\n\n> - about **Prettify** syntax highlighting [here][5],\n> - about **Highlight.js** syntax highlighting [here][6].\n\n\n### Footnotes\n\nYou can create footnotes like this[^footnote].\n\n  [^footnote]: Here is the *text* of the **footnote**.\n\n\n### SmartyPants\n\nSmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:\n\n|                  | ASCII                        | HTML              |\n ----------------- | ---------------------------- | ------------------\n| Single backticks | `\'Isn\'t this fun?\'`            | \'Isn\'t this fun?\' |\n| Quotes           | `"Isn\'t this fun?"`            | "Isn\'t this fun?" |\n| Dashes           | `-- is en-dash, --- is em-dash` | -- is en-dash, --- is em-dash |\n\n\n### Table of contents\n\nYou can insert a table of contents using the marker `[TOC]`:\n\n[TOC]\n\n\n### UML diagrams\n\nYou can render sequence diagrams like this:\n\n```sequence\nBeard->Fedora: Hello Beard, how are you?\nNote right of Beard: Beard thinks\nBeard-->Fedora: I am good thanks!\n```\n\nAnd flow charts like this:\n\n```flow\nst=>start: Start\ne=>end\nop=>operation: My Operation\ncond=>condition: Yes or No?\n\nst->op->cond\ncond(yes)->e\ncond(no)->op\n```\n\n> **Note:** You can find more information:\n\n> - about **Sequence diagrams** syntax [here][7],\n> - about **Flow charts** syntax [here][8].\n\n\n  [^writeon]: [WriteOn](https://writeon.io/) let\'s you write without distraction, and publish without effort. WriteOn is an in-browser story editor which is fast, easy and unique. The refined text editor of WriteOn helps you focus on your writing, while visualizing the shape of it in real time.\n\n\n  [1]: http://math.stackexchange.com/\n  [2]: http://daringfireball.net/projects/markdown/syntax "Markdown"\n  [3]: https://github.com/jmcmanus/pagedown-extra "Pagedown Extra"\n  [5]: https://code.google.com/p/google-code-prettify/\n  [6]: http://highlightjs.org/\n  [7]: http://bramp.github.io/js-sequence-diagrams/\n  [8]: http://adrai.github.io/flowchart.js/\n';
 }), define("text!GUIDE.md", [], function() {
@@ -25739,9 +26302,9 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
     } else i[1] += u, r[1] += u; else -1 === c ? i[1] += u : 1 === c && (r[1] += u);
    }), i[1] == r[1] ? n.push([ 0, r[1] ]) : t(), n;
   }
-  var m = n.content, g = n.title, v = n.discussionListJSON, b = n.discussionList, y = t.crc32(m), x = t.crc32(g), w = t.crc32(v), S = t.crc32(s), C = t.crc32(l), _ = t.crc32(h), T = a.contentCRC != y, k = a.contentCRC != S, E = m != s && k, I = E && T;
+  var m = n.content, g = n.title, v = n.discussionListJSON, b = n.discussionList, y = t.crc32(m), x = t.crc32(g), w = t.crc32(v), C = t.crc32(s), S = t.crc32(l), _ = t.crc32(h), T = a.contentCRC != y, k = a.contentCRC != C, E = m != s && k, I = E && T;
   a.titleCRC = a.titleCRC || x;
-  var D, N, L = a.titleCRC != x, M = a.titleCRC != C, A = g != l && M, R = A && L, P = a.discussionListCRC != w, O = a.discussionListCRC != _, F = v != h && O, B = F && P, j = [], $ = s, U = l, G = p, q = !1, H = !1, z = !1;
+  var D, N, L = a.titleCRC != x, M = a.titleCRC != S, A = g != l && M, R = A && L, P = a.discussionListCRC != w, O = a.discussionListCRC != _, F = v != h && O, B = F && P, j = [], $ = s, U = l, H = p, q = !1, G = !1, z = !1;
   if (!d && (I || R || B) || I && void 0 === a.content || R && void 0 === a.title || B && void 0 === a.discussionList) r.createFile(g + " (backup)", m, v), 
   i.onMessage('Conflict detected on "' + g + '". A backup has been created locally.'); else {
    if (I) {
@@ -25760,7 +26323,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
      }), X && (X.selectionEnd = $.length, j.push(X));
     }
    }
-   E && (P && (q = !0), O ? H = !0 : (q = !0, G = b)), B && (z = !0), R && (N = c.patch_make(a.title, g), 
+   E && (P && (q = !0), O ? G = !0 : (q = !0, H = b)), B && (z = !0), R && (N = c.patch_make(a.title, g), 
    U = c.patch_apply(N, l)[0]);
   }
   var Y;
@@ -25772,7 +26335,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    }, Q.push(Y), n.newDiscussion && Q.push(n.newDiscussion)), q && (Q = Q.concat(e.values(b))), 
    F |= o.adjustCommentOffsets(m, $, Q);
   }
-  if (H) {
+  if (G) {
    var K = e.values(p);
    o.adjustCommentOffsets(s, $, K);
   }
@@ -25784,23 +26347,23 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   }
   return j.length && (F = !0, j.forEach(function(n) {
    var i;
-   do i = t.id(); while (e.has(G, i));
-   n.discussionIndex = i, G[i] = n;
+   do i = t.id(); while (e.has(H, i));
+   n.discussionIndex = i, H[i] = n;
   })), A && (n.title = U, i.onTitleChanged(n), i.onMessage('"' + g + '" has been renamed to "' + U + '" on ' + this.providerName + ".")), 
   (E || F) && o.watcher.noWatch(e.bind(function() {
    if (E && (r.currentFile === n && (o.setValueNoWatch($), Y && o.selectionMgr.setSelectionStartEnd(Y.selectionStart, Y.selectionEnd)), 
    n.content = $, i.onContentChanged(n, $)), F) {
-    n.discussionList = G;
-    var t = u.diff(b, G), a = !1;
+    n.discussionList = H;
+    var t = u.diff(b, H), a = !1;
     e.each(t, function(t, r) {
-     e.isArray(t) ? 1 === t.length ? i.onDiscussionCreated(n, G[r]) : i.onDiscussionRemoved(n, b[r]) : a = !0;
+     e.isArray(t) ? 1 === t.length ? i.onDiscussionCreated(n, H[r]) : i.onDiscussionRemoved(n, b[r]) : a = !0;
     }), a && i.onCommentsChanged(n);
    }
    o.undoMgr.currentMode = "sync", o.undoMgr.saveState(), i.onMessage('"' + l + '" has been updated from ' + this.providerName + "."), 
    j.length && i.onMessage('"' + l + '" has conflicts that you have to review.');
   }, this)), {
-   contentCRC: S,
-   titleCRC: C,
+   contentCRC: C,
+   titleCRC: S,
    discussionListCRC: _
   };
  }, l;
@@ -26585,7 +27148,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   r = r || "{}";
   var a = {};
   return a.provider = x, a.id = e, a.rev = t, a.contentCRC = o.crc32(n), a.titleCRC = o.crc32(i), 
-  a.discussionListCRC = o.crc32(r), a.syncIndex = m(e), S === !0 && (a.content = n, 
+  a.discussionListCRC = o.crc32(r), a.syncIndex = m(e), C === !0 && (a.content = n, 
   a.title = i, a.discussionList = r), a;
  }
  function v(e, n) {
@@ -26616,7 +27179,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
  x.getSyncLocationLink = function(e) {
   return [ c.couchdbUrl, "/", e.id, "/content" ].join("");
  };
- var w, S = "merge" == c.conflictMode;
+ var w, C = "merge" == c.conflictMode;
  return x.importFiles = function() {
   var n = e("#select-sync-import-" + y + "-tag").val();
   if (!n) {
@@ -26634,7 +27197,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   if (s.contentCRC == t && s.titleCRC == i && s.discussionListCRC == o) return l(void 0, !1);
   var c = x.serializeContent(e, r), u = b(a, n);
   f.uploadDocument(s.id, n, c, u, s.rev, function(a, c) {
-   return a ? l(a, !0) : (s.rev = c.rev, S === !0 && (s.content = e, s.title = n, s.discussionList = r), 
+   return a ? l(a, !0) : (s.rev = c.rev, C === !0 && (s.content = e, s.title = n, s.discussionList = r), 
    s.contentCRC = t, s.titleCRC = i, s.discussionListCRC = o, void l(void 0, !0));
   });
  }, x.syncDown = function(e) {
@@ -26656,7 +27219,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
      if (t.deleted === !0) return u.onError('"' + s.title + '" has been removed from WriteOn.'), 
      s.removeSyncLocation(l), u.onSyncRemoved(s, l);
      var c = t, d = o.decodeBase64(c._attachments.content.data), p = x.parseContent(d), h = p.content, f = c.title, m = p.discussionListJSON, g = p.discussionList, v = x.syncMerge(s, l, h, f, g, m);
-     l.rev = c._rev, S === !0 && (l.content = h, l.title = f, l.discussionList = m), 
+     l.rev = c._rev, C === !0 && (l.content = h, l.title = f, l.discussionList = m), 
      l.contentCRC = v.contentCRC, l.titleCRC = v.titleCRC, l.discussionListCRC = v.discussionListCRC, 
      o.storeAttributes(l), setTimeout(i, 5);
     }
@@ -26672,7 +27235,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    v.each(function() {
     var n = e(this).data("documentId");
     t.push(n), g.push(h[n]);
-   }), w.val(t.join(" ")), S.empty().append(v), e(b.querySelectorAll(".action-delete-items")).parent().toggleClass("disabled", 0 === g.length);
+   }), w.val(t.join(" ")), C.empty().append(v), e(b.querySelectorAll(".action-delete-items")).parent().toggleClass("disabled", 0 === g.length);
   }
   function l() {
    h = {}, m = void 0, x.empty(), s();
@@ -26705,11 +27268,11 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
     e || "" === t.length;
    });
   }), w = e("#input-sync-import-" + y + "-documentid");
-  var h, m, g, v, b = document.querySelector(".modal-download-" + y), x = e(b.querySelector(".document-list")), S = e(b.querySelector(".selected-document-list")), C = e(b.querySelector(".please-wait")), _ = e(b.querySelector(".no-document")), T = e(b.querySelector(".more-documents"));
+  var h, m, g, v, b = document.querySelector(".modal-download-" + y), x = e(b.querySelector(".document-list")), C = e(b.querySelector(".selected-document-list")), S = e(b.querySelector(".please-wait")), _ = e(b.querySelector(".no-document")), T = e(b.querySelector(".more-documents"));
   l();
   var k = t.debounce(function() {
-   C.removeClass("hide"), _.addClass("hide"), T.addClass("hide"), f.listDocuments(I.val(), m && m.updated, function(e, n) {
-    if (C.addClass("hide"), e) return void T.removeClass("hide");
+   S.removeClass("hide"), _.addClass("hide"), T.addClass("hide"), f.listDocuments(I.val(), m && m.updated, function(e, n) {
+    if (S.addClass("hide"), e) return void T.removeClass("hide");
     n.length === r.COUCHDB_PAGE_SIZE && (T.removeClass("hide"), m = n.pop());
     var i = t.reduce(n, function(e, n) {
      return h[n._id] = n, e + t.template(p, {
@@ -27422,11 +27985,11 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
        c.selectFile(r), l.onMessage('"' + t.title + '" created successfully on ' + u + ".");
       }
      })); else if ("open" == x.action) {
-      var S = [];
+      var C = [];
       t.each(x.ids, function(e) {
        var t = m(e), n = c.getFileFromSyncIndex(t);
-       void 0 !== n ? n !== c.currentFile && c.selectFile(n) : S.push(e);
-      }), v(S, i.lockUI());
+       void 0 !== n ? n !== c.currentFile && c.selectFile(n) : C.push(e);
+      }), v(C, i.lockUI());
      }
     }
    }
@@ -28063,8 +28626,8 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   "markdown" == t.format ? e.content : "html" == t.format ? n.withoutComments : v.applyTemplate(e, t, n);
  }
  function h(e, t) {
-  if (0 === S.length) return void e(t);
-  var n = S.pop(), i = p(y, n, x), r = (y.frontMatter || {}).title || y.title;
+  if (0 === C.length) return void e(t);
+  var n = C.pop(), i = p(y, n, x), r = (y.frontMatter || {}).title || y.title;
   n.provider.publish(n, y.frontMatter, r, i, function(i) {
    if (void 0 !== i) {
     var r = i.toString();
@@ -28144,21 +28707,21 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    return a.onError(s), s.message;
   }
  };
- var y, x, w, S = [];
+ var y, x, w, C = [];
  a.addListener("onPreviewFinished", function(e, t) {
   w = {
    withComments: e,
    withoutComments: t
   };
  });
- var C = !1;
+ var S = !1;
  a.addListener("onOfflineChanged", function(e) {
-  C = e;
+  S = e;
  });
  var _ = !1;
  v.publish = function() {
-  _ !== !0 && C !== !0 && (_ = !0, a.onPublishRunning(!0), y = l.currentFile, x = w, 
-  S = t.values(y.publishLocations), h(function(e) {
+  _ !== !0 && S !== !0 && (_ = !0, a.onPublishRunning(!0), y = l.currentFile, x = w, 
+  C = t.values(y.publishLocations), h(function(e) {
    _ = !1, a.onPublishRunning(!1), void 0 === e && a.onPublishSuccess(y);
   }));
  };
@@ -28208,7 +28771,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
     customTmpl: o.pdfTemplate
    }, w), u = new d();
    u.onRun(function() {
-    return C === !0 ? (a.onError("That is not available in offline mode."), u.chain()) : a.isSponsor ? void f.getTokenImmediate(function(e, t) {
+    return S === !0 ? (a.onError("That is not available in offline mode."), u.chain()) : a.isSponsor ? void f.getTokenImmediate(function(e, t) {
      r = t, u.chain();
     }) : (e(".modal-sponsor-only").modal("show"), u.chain());
    }), u.onRun(function() {
@@ -28550,11 +29113,11 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    return null;
   };
  }
- function S(e) {
+ function C(e) {
   this.isElementMerge = 1 == e.nodeType, this.firstTextNode = this.isElementMerge ? e.lastChild : e, 
   this.textNodes = [ this.firstTextNode ];
  }
- function C(e, t, i) {
+ function S(e, t, i) {
   this.cssClass = e;
   var r, a, s, l, c = null;
   if ("object" == typeof t && null !== t) {
@@ -28573,7 +29136,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   a = 0, s = i.length; s > a; ++a) "*" == i[a] ? this.applyToAnyTagName = !0 : this.tagNames.push(i[a].toLowerCase()); else this.tagNames = [ this.elementTagName ];
  }
  function _(e, t, n) {
-  return new C(e, t, n);
+  return new S(e, t, n);
  }
  e.requireModules([ "WrappedSelection", "WrappedRange" ]);
  var T, k = e.dom, E = "span", I = function() {
@@ -28599,7 +29162,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   };
  }();
  var N = /^inline(-block|-table)?$/i, L = /[^\r\n\t\f \u200B]/, M = w(!1), A = w(!0);
- S.prototype = {
+ C.prototype = {
   doMerge: function() {
    for (var e, t, n, i = [], r = 0, o = this.textNodes.length; o > r; ++r) e = this.textNodes[r], 
    t = e.parentNode, i[r] = e.data, r && (t.removeChild(e), t.hasChildNodes() || t.parentNode.removeChild(t));
@@ -28617,7 +29180,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
  var R = [ "elementTagName", "ignoreWhiteSpace", "applyToEditableOnly" ], P = {
   "class": "className"
  };
- C.prototype = {
+ S.prototype = {
   elementTagName: E,
   elementProperties: {},
   ignoreWhiteSpace: !0,
@@ -28640,10 +29203,10 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   },
   postApply: function(e, t, n) {
    for (var i, r, o, a = e[0], s = e[e.length - 1], l = [], c = a, u = s, d = 0, p = s.length, h = 0, f = e.length; f > h; ++h) r = e[h], 
-   o = M(r, !n), o ? (i || (i = new S(o), l.push(i)), i.textNodes.push(r), r === a && (c = i.firstTextNode, 
+   o = M(r, !n), o ? (i || (i = new C(o), l.push(i)), i.textNodes.push(r), r === a && (c = i.firstTextNode, 
    d = c.length), r === s && (u = i.firstTextNode, p = i.getLength())) : i = null;
    var m = A(s, !n);
-   if (m && (i || (i = new S(s), l.push(i)), i.textNodes.push(m)), l.length) {
+   if (m && (i || (i = new C(s), l.push(i)), i.textNodes.push(m)), l.length) {
     for (h = 0, f = l.length; f > h; ++h) l[h].doMerge();
     t.setStart(c, d), t.setEnd(u, p);
    }
@@ -28723,7 +29286,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    this.isAppliedToSelection(e) ? this.undoToSelection(e) : this.applyToSelection(e);
   },
   detach: function() {}
- }, C.util = {
+ }, S.util = {
   hasClass: i,
   addClass: r,
   removeClass: I,
@@ -28735,7 +29298,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   isEditableElement: D,
   isEditingHost: f,
   isEditable: m
- }, e.CssClassApplier = C, e.createCssClassApplier = _;
+ }, e.CssClassApplier = S, e.createCssClassApplier = _;
 }), define("rangy-cssclassapplier", function() {}), requirejs.config({
  waitSeconds: 0,
  nodeRequire: require,
@@ -28775,7 +29338,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   stacktrace: "bower-libs/stacktrace/stacktrace",
   "requirejs-text": "bower-libs/requirejs-text/text",
   "bootstrap-tour": "bower-libs/bootstrap-tour/build/js/bootstrap-tour",
-  slider: "bower-libs/seiyria-bootstrap-slider/dist/bootstrap-slider.min",
+  Slider: "bower-libs/seiyria-bootstrap-slider/dist/bootstrap-slider.min",
   css_browser_selector: "bower-libs/css_browser_selector/css_browser_selector",
   "pagedown-extra": "bower-libs/pagedown-extra/node-pagedown-extra",
   pagedownExtra: "bower-libs/pagedown-extra/Markdown.Extra",

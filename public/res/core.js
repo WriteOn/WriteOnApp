@@ -120,6 +120,7 @@ define([
 		utils.setInputRadio("radio-settings-editor-font-class", settings.editorFontClass);
 		// Font size ratio
 		//utils.setInputValue("#input-settings-font-size", settings.fontSizeRatio);
+		/* jshint ignore:start */
 		var fontSlider = new Slider("#input-settings-font-size", {
 			step: .10,
 			min: .10,
@@ -144,6 +145,7 @@ define([
 			max: 1,
 			value: settings.cursorFocusRatio
 		});
+		/* jshint ignore:end */
 		// Default content
 		utils.setInputValue("#textarea-settings-default-content", settings.defaultContent);
 		// Edit mode
