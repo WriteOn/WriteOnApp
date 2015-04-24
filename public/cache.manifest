@@ -1,6 +1,6 @@
 CACHE MANIFEST
-#Date Fri Apr 24 2015 01:47:38 GMT+0000 (UTC)
-#Version 1.7.10
+#Date Fri Apr 24 2015 01:50:12 GMT+0000 (UTC)
+#Version 1.7.11
 
 CACHE:
 
@@ -79,6 +79,7 @@ res-min/themes/neat.css
 res-min/themes/night.css
 res-min/themes/school.css
 res-min/themes/solarized-dark.css
+res-min/themes/solarized-light.css
 # end_inject_resources
 
 
