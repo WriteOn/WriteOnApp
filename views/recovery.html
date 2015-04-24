@@ -37,7 +37,7 @@
             try {
                 // Try to use WriteOn dependencies to save a file
                 var utils = require('utils');
-                //utils.saveAs(JSON.stringify(localStorage), "WriteOn local storage.json");
+                utils.saveAs(JSON.stringify(localStorage), "WriteOn local storage.json");
             } catch(e) {
                 // Try something safer
                 document.getElementsByTagName('textarea')[0].value = JSON.stringify(localStorage);
