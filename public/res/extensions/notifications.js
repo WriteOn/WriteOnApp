@@ -5,22 +5,29 @@ define([
     "logger",
     "classes/Extension",
     "jgrowl",
+	"Slider",
     "text!html/notificationsSettingsBlock.html",
-], function($, _, utils, logger, Extension, jGrowl, notificationsSettingsBlockHTML) {
+], function($, _, utils, logger, Extension, jGrowl, Slider, notificationsSettingsBlockHTML) {
 
     var notifications = new Extension("notifications", "Notifications");
     notifications.settingsBlock = notificationsSettingsBlockHTML;
     notifications.defaultConfig = {
         timeout: 8000
     };
+	var timeout;
 
     notifications.onLoadSettings = function() {
         utils.setInputValue("#input-notifications-timeout", notifications.config.timeout);
+		timeout = notifications.config.timeout;
     };
 
     notifications.onSaveSettings = function(newConfig, event) {
         newConfig.timeout = utils.getInputIntValue("#input-notifications-timeout", event, 1, 60000);
     };
+	
+	$("#input-notifications-timeout").slider({
+		value: timeout
+	});
 
     var isInit = false;
     function init() {

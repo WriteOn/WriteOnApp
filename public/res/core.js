@@ -119,33 +119,11 @@ define([
 		// Editor font class
 		utils.setInputRadio("radio-settings-editor-font-class", settings.editorFontClass);
 		// Font size ratio
-		//utils.setInputValue("#input-settings-font-size", settings.fontSizeRatio);
-		/* jshint ignore:start */
-		var fontSlider = new Slider("#input-settings-font-size", {
-			step: .10,
-			min: .10,
-			max: 10,
-			value: settings.fontSizeRatio
-		});
+		utils.setInputValue("#input-settings-font-size", settings.fontSizeRatio);
 		// Max width ratio
-		//utils.setInputValue("#input-settings-max-width", settings.maxWidthRatio);
-		var maxWidthSlider = new Slider("#input-settings-max-width", {
-			precision: 1,
-			step: .1,
-			min: 0.1,
-			max: 1,
-			value: settings.maxWidthRatio
-		});
+		utils.setInputValue("#input-settings-max-width", settings.maxWidthRatio);
 		// Cursor locking ratio
-		//utils.setInputValue("#input-settings-cursor-focus", settings.cursorFocusRatio);
-		var cursorFocusSlider = new Slider("#input-settings-cursor-focus", {
-			precision: 1,
-			step: .1,
-			min: 0.1,
-			max: 1,
-			value: settings.cursorFocusRatio
-		});
-		/* jshint ignore:end */
+		utils.setInputValue("#input-settings-cursor-focus", settings.cursorFocusRatio);
 		// Default content
 		utils.setInputValue("#textarea-settings-default-content", settings.defaultContent);
 		// Edit mode
@@ -592,7 +570,7 @@ define([
 
 		utils.createTooltip(".tooltip-lazy-rendering", 'Disable preview rendering while typing in order to offload CPU. Refresh preview after 500 ms of inactivity.');
 		utils.createTooltip(".tooltip-default-content", [
-			'Thanks for supporting WriteOn by adding a backlink in your stories! But if not, thanks for using WriteOn.',
+			'Thanks for supporting WriteOn by adding a backlink in your stories! You can also leave this blank - thanks for using WriteOn!',
 		].join(''));
 		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML);
 		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML);
@@ -625,6 +603,10 @@ define([
 			}, '');
 			document.getElementById('input-settings-theme').innerHTML = themeOptions;
 		}
+		// Load Bootstap Plugins, such as Input Slider, for Settings
+		$("#input-settings-font-size").slider({value: settings.fontSizeRatio});
+		$("#input-settings-max-width").slider({value: settings.maxWidthRatio});
+		$("#input-settings-cursor-focus").slider({value: settings.cursorFocusRatio});
 
 		//$('.modal-header').append('<a class="dialog-header-message" href="https://github.com/beardandfedora/WriteOn/issues" target="_blank">Give your feedback <i class="icon-megaphone"></i></a>');
 		

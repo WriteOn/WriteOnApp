@@ -1,7 +1,7 @@
 {
   "name": "WriteOn",
   "version": "1.7.10",
-  "description": "Write without distraction // Publish without effort.",
+  "description": "On a mission to build the world's finest writing experience.",
   "dependencies": {
     "bootstrap": "3.3.4",
     "jquery": "2.1.3",

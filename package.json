@@ -2,7 +2,7 @@
   "name": "WriteOn",
   "version": "1.7.10",
   "private": true,
-  "description": "Write without distraction and publish without effort.",
+  "description": "On a mission to build the world's finest writing experience.",
   "main": "res/main.js",
   "engines": {
     "node": "0.10.x"

@@ -14455,58 +14455,616 @@ function() {
   var t;
   return t || e.jQuery.jGrowl;
  };
-}(this)), define("text!html/notificationsSettingsBlock.html", [], function() {
- return '<p>Shows notification messages in the bottom-right corner of the\n	screen.</p>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-4 control-label" for="input-notifications-timeout">Timeout</label>\n		<div class="col-sm-7 form-inline">\n			<input type="text" id="input-notifications-timeout"\n				class="col-sm-5 form-control"> <span class="help-inline">ms</span>\n		</div>\n	</div>\n</div>';
-}), define("extensions/notifications", [ "jquery", "underscore", "utils", "logger", "classes/Extension", "jgrowl", "text!html/notificationsSettingsBlock.html" ], function(e, t, n, i, r, o, a) {
- function s() {
-  h === !1 && (o.defaults.life = u.config.timeout, o.defaults.closer = !1, o.defaults.closeTemplate = "", 
-  o.defaults.position = "bottom-right", h = !0);
+}(this)), !function(e, t) {
+ if ("function" == typeof define && define.amd) define("Slider", [ "jquery" ], t); else if ("object" == typeof module && module.exports) {
+  var n;
+  try {
+   n = require("jquery");
+  } catch (i) {
+   n = null;
+  }
+  module.exports = t(n);
+ } else e.Slider = t(e.jQuery);
+}(this, function(e) {
+ var t;
+ return function(e) {
+  function t() {}
+  function n(e) {
+   function n(t) {
+    t.prototype.option || (t.prototype.option = function(t) {
+     e.isPlainObject(t) && (this.options = e.extend(!0, this.options, t));
+    });
+   }
+   function r(t, n) {
+    e.fn[t] = function(r) {
+     if ("string" == typeof r) {
+      for (var a = i.call(arguments, 1), s = 0, l = this.length; l > s; s++) {
+       var c = this[s], u = e.data(c, t);
+       if (u) if (e.isFunction(u[r]) && "_" !== r.charAt(0)) {
+        var d = u[r].apply(u, a);
+        if (void 0 !== d && d !== u) return d;
+       } else o("no such method '" + r + "' for " + t + " instance"); else o("cannot call methods on " + t + " prior to initialization; attempted to call '" + r + "'");
+      }
+      return this;
+     }
+     var p = this.map(function() {
+      var i = e.data(this, t);
+      return i ? (i.option(r), i._init()) : (i = new n(this, r), e.data(this, t, i)), 
+      e(this);
+     });
+     return !p || p.length > 1 ? p : p[0];
+    };
+   }
+   if (e) {
+    var o = "undefined" == typeof console ? t : function(e) {
+     console.error(e);
+    };
+    return e.bridget = function(e, t) {
+     n(t), r(e, t);
+    }, e.bridget;
+   }
+  }
+  var i = Array.prototype.slice;
+  n(e);
+ }(e), function(e) {
+  function n(t, n) {
+   function i(e, t) {
+    var n = "data-slider-" + t.replace(/_/g, "-"), i = e.getAttribute(n);
+    try {
+     return JSON.parse(i);
+    } catch (r) {
+     return i;
+    }
+   }
+   "string" == typeof t ? this.element = document.querySelector(t) : t instanceof HTMLElement && (this.element = t), 
+   n = n ? n : {};
+   for (var o = Object.keys(this.defaultOptions), a = 0; a < o.length; a++) {
+    var s = o[a], l = n[s];
+    l = "undefined" != typeof l ? l : i(this.element, s), l = null !== l ? l : this.defaultOptions[s], 
+    this.options || (this.options = {}), this.options[s] = l;
+   }
+   var c, u, d, p, h, f = this.element.style.width, m = !1, g = this.element.parentNode;
+   if (this.sliderElem) m = !0; else {
+    this.sliderElem = document.createElement("div"), this.sliderElem.className = "slider";
+    var v = document.createElement("div");
+    if (v.className = "slider-track", u = document.createElement("div"), u.className = "slider-track-low", 
+    c = document.createElement("div"), c.className = "slider-selection", d = document.createElement("div"), 
+    d.className = "slider-track-high", p = document.createElement("div"), p.className = "slider-handle min-slider-handle", 
+    h = document.createElement("div"), h.className = "slider-handle max-slider-handle", 
+    v.appendChild(u), v.appendChild(c), v.appendChild(d), this.ticks = [], Array.isArray(this.options.ticks) && this.options.ticks.length > 0) {
+     for (a = 0; a < this.options.ticks.length; a++) {
+      var b = document.createElement("div");
+      b.className = "slider-tick", this.ticks.push(b), v.appendChild(b);
+     }
+     c.className += " tick-slider-selection";
+    }
+    if (v.appendChild(p), v.appendChild(h), this.tickLabels = [], Array.isArray(this.options.ticks_labels) && this.options.ticks_labels.length > 0) for (this.tickLabelContainer = document.createElement("div"), 
+    this.tickLabelContainer.className = "slider-tick-label-container", a = 0; a < this.options.ticks_labels.length; a++) {
+     var y = document.createElement("div");
+     y.className = "slider-tick-label", y.innerHTML = this.options.ticks_labels[a], this.tickLabels.push(y), 
+     this.tickLabelContainer.appendChild(y);
+    }
+    var x = function(e) {
+     var t = document.createElement("div");
+     t.className = "tooltip-arrow";
+     var n = document.createElement("div");
+     n.className = "tooltip-inner", e.appendChild(t), e.appendChild(n);
+    }, w = document.createElement("div");
+    w.className = "tooltip tooltip-main", x(w);
+    var C = document.createElement("div");
+    C.className = "tooltip tooltip-min", x(C);
+    var S = document.createElement("div");
+    S.className = "tooltip tooltip-max", x(S), this.sliderElem.appendChild(v), this.sliderElem.appendChild(w), 
+    this.sliderElem.appendChild(C), this.sliderElem.appendChild(S), this.tickLabelContainer && this.sliderElem.appendChild(this.tickLabelContainer), 
+    g.insertBefore(this.sliderElem, this.element), this.element.style.display = "none";
+   }
+   if (e && (this.$element = e(this.element), this.$sliderElem = e(this.sliderElem)), 
+   this.eventToCallbackMap = {}, this.sliderElem.id = this.options.id, this.touchCapable = "ontouchstart" in window || window.DocumentTouch && document instanceof window.DocumentTouch, 
+   this.tooltip = this.sliderElem.querySelector(".tooltip-main"), this.tooltipInner = this.tooltip.querySelector(".tooltip-inner"), 
+   this.tooltip_min = this.sliderElem.querySelector(".tooltip-min"), this.tooltipInner_min = this.tooltip_min.querySelector(".tooltip-inner"), 
+   this.tooltip_max = this.sliderElem.querySelector(".tooltip-max"), this.tooltipInner_max = this.tooltip_max.querySelector(".tooltip-inner"), 
+   r[this.options.scale] && (this.options.scale = r[this.options.scale]), m === !0 && (this._removeClass(this.sliderElem, "slider-horizontal"), 
+   this._removeClass(this.sliderElem, "slider-vertical"), this._removeClass(this.tooltip, "hide"), 
+   this._removeClass(this.tooltip_min, "hide"), this._removeClass(this.tooltip_max, "hide"), 
+   [ "left", "top", "width", "height" ].forEach(function(e) {
+    this._removeProperty(this.trackLow, e), this._removeProperty(this.trackSelection, e), 
+    this._removeProperty(this.trackHigh, e);
+   }, this), [ this.handle1, this.handle2 ].forEach(function(e) {
+    this._removeProperty(e, "left"), this._removeProperty(e, "top");
+   }, this), [ this.tooltip, this.tooltip_min, this.tooltip_max ].forEach(function(e) {
+    this._removeProperty(e, "left"), this._removeProperty(e, "top"), this._removeProperty(e, "margin-left"), 
+    this._removeProperty(e, "margin-top"), this._removeClass(e, "right"), this._removeClass(e, "top");
+   }, this)), "vertical" === this.options.orientation ? (this._addClass(this.sliderElem, "slider-vertical"), 
+   this.stylePos = "top", this.mousePos = "pageY", this.sizePos = "offsetHeight", this._addClass(this.tooltip, "right"), 
+   this.tooltip.style.left = "100%", this._addClass(this.tooltip_min, "right"), this.tooltip_min.style.left = "100%", 
+   this._addClass(this.tooltip_max, "right"), this.tooltip_max.style.left = "100%") : (this._addClass(this.sliderElem, "slider-horizontal"), 
+   this.sliderElem.style.width = f, this.options.orientation = "horizontal", this.stylePos = "left", 
+   this.mousePos = "pageX", this.sizePos = "offsetWidth", this._addClass(this.tooltip, "top"), 
+   this.tooltip.style.top = -this.tooltip.outerHeight - 14 + "px", this._addClass(this.tooltip_min, "top"), 
+   this.tooltip_min.style.top = -this.tooltip_min.outerHeight - 14 + "px", this._addClass(this.tooltip_max, "top"), 
+   this.tooltip_max.style.top = -this.tooltip_max.outerHeight - 14 + "px"), Array.isArray(this.options.ticks) && this.options.ticks.length > 0 && (this.options.max = Math.max.apply(Math, this.options.ticks), 
+   this.options.min = Math.min.apply(Math, this.options.ticks)), Array.isArray(this.options.value) ? this.options.range = !0 : this.options.range && (this.options.value = [ this.options.value, this.options.max ]), 
+   this.trackLow = u || this.trackLow, this.trackSelection = c || this.trackSelection, 
+   this.trackHigh = d || this.trackHigh, "none" === this.options.selection && (this._addClass(this.trackLow, "hide"), 
+   this._addClass(this.trackSelection, "hide"), this._addClass(this.trackHigh, "hide")), 
+   this.handle1 = p || this.handle1, this.handle2 = h || this.handle2, m === !0) for (this._removeClass(this.handle1, "round triangle"), 
+   this._removeClass(this.handle2, "round triangle hide"), a = 0; a < this.ticks.length; a++) this._removeClass(this.ticks[a], "round triangle hide");
+   var _ = [ "round", "triangle", "custom" ], T = -1 !== _.indexOf(this.options.handle);
+   if (T) for (this._addClass(this.handle1, this.options.handle), this._addClass(this.handle2, this.options.handle), 
+   a = 0; a < this.ticks.length; a++) this._addClass(this.ticks[a], this.options.handle);
+   this.offset = this._offset(this.sliderElem), this.size = this.sliderElem[this.sizePos], 
+   this.setValue(this.options.value), this.handle1Keydown = this._keydown.bind(this, 0), 
+   this.handle1.addEventListener("keydown", this.handle1Keydown, !1), this.handle2Keydown = this._keydown.bind(this, 1), 
+   this.handle2.addEventListener("keydown", this.handle2Keydown, !1), this.mousedown = this._mousedown.bind(this), 
+   this.touchCapable && this.sliderElem.addEventListener("touchstart", this.mousedown, !1), 
+   this.sliderElem.addEventListener("mousedown", this.mousedown, !1), "hide" === this.options.tooltip ? (this._addClass(this.tooltip, "hide"), 
+   this._addClass(this.tooltip_min, "hide"), this._addClass(this.tooltip_max, "hide")) : "always" === this.options.tooltip ? (this._showTooltip(), 
+   this._alwaysShowTooltip = !0) : (this.showTooltip = this._showTooltip.bind(this), 
+   this.hideTooltip = this._hideTooltip.bind(this), this.sliderElem.addEventListener("mouseenter", this.showTooltip, !1), 
+   this.sliderElem.addEventListener("mouseleave", this.hideTooltip, !1), this.handle1.addEventListener("focus", this.showTooltip, !1), 
+   this.handle1.addEventListener("blur", this.hideTooltip, !1), this.handle2.addEventListener("focus", this.showTooltip, !1), 
+   this.handle2.addEventListener("blur", this.hideTooltip, !1)), this.options.enabled ? this.enable() : this.disable();
+  }
+  var i = {
+   formatInvalidInputErrorMsg: function(e) {
+    return "Invalid input value '" + e + "' passed in";
+   },
+   callingContextNotSliderInstance: "Calling context element does not have instance of Slider bound to it. Check your code to make sure the JQuery object returned from the call to the slider() initializer is calling the method"
+  }, r = {
+   linear: {
+    toValue: function(e) {
+     var t = e / 100 * (this.options.max - this.options.min);
+     if (this.options.ticks_positions.length > 0) {
+      for (var n, i, r, o = 0, a = 0; a < this.options.ticks_positions.length; a++) if (e <= this.options.ticks_positions[a]) {
+       n = a > 0 ? this.options.ticks[a - 1] : 0, r = a > 0 ? this.options.ticks_positions[a - 1] : 0, 
+       i = this.options.ticks[a], o = this.options.ticks_positions[a];
+       break;
+      }
+      if (a > 0) {
+       var s = (e - r) / (o - r);
+       t = n + s * (i - n);
+      }
+     }
+     var l = this.options.min + Math.round(t / this.options.step) * this.options.step;
+     return l < this.options.min ? this.options.min : l > this.options.max ? this.options.max : l;
+    },
+    toPercentage: function(e) {
+     if (this.options.max === this.options.min) return 0;
+     if (this.options.ticks_positions.length > 0) {
+      for (var t, n, i, r = 0, o = 0; o < this.options.ticks.length; o++) if (e <= this.options.ticks[o]) {
+       t = o > 0 ? this.options.ticks[o - 1] : 0, i = o > 0 ? this.options.ticks_positions[o - 1] : 0, 
+       n = this.options.ticks[o], r = this.options.ticks_positions[o];
+       break;
+      }
+      if (o > 0) {
+       var a = (e - t) / (n - t);
+       return i + a * (r - i);
+      }
+     }
+     return 100 * (e - this.options.min) / (this.options.max - this.options.min);
+    }
+   },
+   logarithmic: {
+    toValue: function(e) {
+     var t = 0 === this.options.min ? 0 : Math.log(this.options.min), n = Math.log(this.options.max), i = Math.exp(t + (n - t) * e / 100);
+     return i = this.options.min + Math.round((i - this.options.min) / this.options.step) * this.options.step, 
+     i < this.options.min ? this.options.min : i > this.options.max ? this.options.max : i;
+    },
+    toPercentage: function(e) {
+     if (this.options.max === this.options.min) return 0;
+     var t = Math.log(this.options.max), n = 0 === this.options.min ? 0 : Math.log(this.options.min), i = 0 === e ? 0 : Math.log(e);
+     return 100 * (i - n) / (t - n);
+    }
+   }
+  };
+  if (t = function(e, t) {
+   return n.call(this, e, t), this;
+  }, t.prototype = {
+   _init: function() {},
+   constructor: t,
+   defaultOptions: {
+    id: "",
+    min: 0,
+    max: 10,
+    step: 1,
+    precision: 0,
+    orientation: "horizontal",
+    value: 5,
+    range: !1,
+    selection: "before",
+    tooltip: "show",
+    tooltip_split: !1,
+    handle: "round",
+    reversed: !1,
+    enabled: !0,
+    formatter: function(e) {
+     return Array.isArray(e) ? e[0] + " : " + e[1] : e;
+    },
+    natural_arrow_keys: !1,
+    ticks: [],
+    ticks_positions: [],
+    ticks_labels: [],
+    ticks_snap_bounds: 0,
+    scale: "linear",
+    focus: !1
+   },
+   over: !1,
+   inDrag: !1,
+   getValue: function() {
+    return this.options.range ? this.options.value : this.options.value[0];
+   },
+   setValue: function(e, t, n) {
+    e || (e = 0);
+    var i = this.getValue();
+    this.options.value = this._validateInputValue(e);
+    var r = this._applyPrecision.bind(this);
+    this.options.range ? (this.options.value[0] = r(this.options.value[0]), this.options.value[1] = r(this.options.value[1]), 
+    this.options.value[0] = Math.max(this.options.min, Math.min(this.options.max, this.options.value[0])), 
+    this.options.value[1] = Math.max(this.options.min, Math.min(this.options.max, this.options.value[1]))) : (this.options.value = r(this.options.value), 
+    this.options.value = [ Math.max(this.options.min, Math.min(this.options.max, this.options.value)) ], 
+    this._addClass(this.handle2, "hide"), this.options.value[1] = "after" === this.options.selection ? this.options.max : this.options.min), 
+    this.percentage = this.options.max > this.options.min ? [ this._toPercentage(this.options.value[0]), this._toPercentage(this.options.value[1]), 100 * this.options.step / (this.options.max - this.options.min) ] : [ 0, 0, 100 ], 
+    this._layout();
+    var o = this.options.range ? this.options.value : this.options.value[0];
+    return t === !0 && this._trigger("slide", o), i !== o && n === !0 && this._trigger("change", {
+     oldValue: i,
+     newValue: o
+    }), this._setDataVal(o), this;
+   },
+   destroy: function() {
+    this._removeSliderEventHandlers(), this.sliderElem.parentNode.removeChild(this.sliderElem), 
+    this.element.style.display = "", this._cleanUpEventCallbacksMap(), this.element.removeAttribute("data"), 
+    e && (this._unbindJQueryEventHandlers(), this.$element.removeData("slider"));
+   },
+   disable: function() {
+    return this.options.enabled = !1, this.handle1.removeAttribute("tabindex"), this.handle2.removeAttribute("tabindex"), 
+    this._addClass(this.sliderElem, "slider-disabled"), this._trigger("slideDisabled"), 
+    this;
+   },
+   enable: function() {
+    return this.options.enabled = !0, this.handle1.setAttribute("tabindex", 0), this.handle2.setAttribute("tabindex", 0), 
+    this._removeClass(this.sliderElem, "slider-disabled"), this._trigger("slideEnabled"), 
+    this;
+   },
+   toggle: function() {
+    return this.options.enabled ? this.disable() : this.enable(), this;
+   },
+   isEnabled: function() {
+    return this.options.enabled;
+   },
+   on: function(e, t) {
+    return this._bindNonQueryEventHandler(e, t), this;
+   },
+   getAttribute: function(e) {
+    return e ? this.options[e] : this.options;
+   },
+   setAttribute: function(e, t) {
+    return this.options[e] = t, this;
+   },
+   refresh: function() {
+    return this._removeSliderEventHandlers(), n.call(this, this.element, this.options), 
+    e && e.data(this.element, "slider", this), this;
+   },
+   relayout: function() {
+    return this._layout(), this;
+   },
+   _removeSliderEventHandlers: function() {
+    this.handle1.removeEventListener("keydown", this.handle1Keydown, !1), this.handle1.removeEventListener("focus", this.showTooltip, !1), 
+    this.handle1.removeEventListener("blur", this.hideTooltip, !1), this.handle2.removeEventListener("keydown", this.handle2Keydown, !1), 
+    this.handle2.removeEventListener("focus", this.handle2Keydown, !1), this.handle2.removeEventListener("blur", this.handle2Keydown, !1), 
+    this.sliderElem.removeEventListener("mouseenter", this.showTooltip, !1), this.sliderElem.removeEventListener("mouseleave", this.hideTooltip, !1), 
+    this.sliderElem.removeEventListener("touchstart", this.mousedown, !1), this.sliderElem.removeEventListener("mousedown", this.mousedown, !1);
+   },
+   _bindNonQueryEventHandler: function(e, t) {
+    void 0 === this.eventToCallbackMap[e] && (this.eventToCallbackMap[e] = []), this.eventToCallbackMap[e].push(t);
+   },
+   _cleanUpEventCallbacksMap: function() {
+    for (var e = Object.keys(this.eventToCallbackMap), t = 0; t < e.length; t++) {
+     var n = e[t];
+     this.eventToCallbackMap[n] = null;
+    }
+   },
+   _showTooltip: function() {
+    this.options.tooltip_split === !1 ? this._addClass(this.tooltip, "in") : (this._addClass(this.tooltip_min, "in"), 
+    this._addClass(this.tooltip_max, "in")), this.over = !0;
+   },
+   _hideTooltip: function() {
+    this.inDrag === !1 && this.alwaysShowTooltip !== !0 && (this._removeClass(this.tooltip, "in"), 
+    this._removeClass(this.tooltip_min, "in"), this._removeClass(this.tooltip_max, "in")), 
+    this.over = !1;
+   },
+   _layout: function() {
+    var e;
+    if (e = this.options.reversed ? [ 100 - this.percentage[0], this.percentage[1] ] : [ this.percentage[0], this.percentage[1] ], 
+    this.handle1.style[this.stylePos] = e[0] + "%", this.handle2.style[this.stylePos] = e[1] + "%", 
+    Array.isArray(this.options.ticks) && this.options.ticks.length > 0) {
+     var t = Math.max.apply(Math, this.options.ticks), n = Math.min.apply(Math, this.options.ticks), i = "vertical" === this.options.orientation ? "height" : "width", r = "vertical" === this.options.orientation ? "marginTop" : "marginLeft", o = this.size / (this.options.ticks.length - 1);
+     if (this.tickLabelContainer) {
+      var a = 0;
+      if (0 === this.options.ticks_positions.length) this.tickLabelContainer.style[r] = -o / 2 + "px", 
+      a = this.tickLabelContainer.offsetHeight; else for (s = 0; s < this.tickLabelContainer.childNodes.length; s++) this.tickLabelContainer.childNodes[s].offsetHeight > a && (a = this.tickLabelContainer.childNodes[s].offsetHeight);
+      "horizontal" === this.options.orientation && (this.sliderElem.style.marginBottom = a + "px");
+     }
+     for (var s = 0; s < this.options.ticks.length; s++) {
+      var l = this.options.ticks_positions[s] || 100 * (this.options.ticks[s] - n) / (t - n);
+      this.ticks[s].style[this.stylePos] = l + "%", this._removeClass(this.ticks[s], "in-selection"), 
+      this.options.range ? l >= e[0] && l <= e[1] && this._addClass(this.ticks[s], "in-selection") : "after" === this.options.selection && l >= e[0] ? this._addClass(this.ticks[s], "in-selection") : "before" === this.options.selection && l <= e[0] && this._addClass(this.ticks[s], "in-selection"), 
+      this.tickLabels[s] && (this.tickLabels[s].style[i] = o + "px", void 0 !== this.options.ticks_positions[s] && (this.tickLabels[s].style.position = "absolute", 
+      this.tickLabels[s].style[this.stylePos] = this.options.ticks_positions[s] + "%", 
+      this.tickLabels[s].style[r] = -o / 2 + "px"));
+     }
+    }
+    if ("vertical" === this.options.orientation) this.trackLow.style.top = "0", this.trackLow.style.height = Math.min(e[0], e[1]) + "%", 
+    this.trackSelection.style.top = Math.min(e[0], e[1]) + "%", this.trackSelection.style.height = Math.abs(e[0] - e[1]) + "%", 
+    this.trackHigh.style.bottom = "0", this.trackHigh.style.height = 100 - Math.min(e[0], e[1]) - Math.abs(e[0] - e[1]) + "%"; else {
+     this.trackLow.style.left = "0", this.trackLow.style.width = Math.min(e[0], e[1]) + "%", 
+     this.trackSelection.style.left = Math.min(e[0], e[1]) + "%", this.trackSelection.style.width = Math.abs(e[0] - e[1]) + "%", 
+     this.trackHigh.style.right = "0", this.trackHigh.style.width = 100 - Math.min(e[0], e[1]) - Math.abs(e[0] - e[1]) + "%";
+     var c = this.tooltip_min.getBoundingClientRect(), u = this.tooltip_max.getBoundingClientRect();
+     c.right > u.left ? (this._removeClass(this.tooltip_max, "top"), this._addClass(this.tooltip_max, "bottom"), 
+     this.tooltip_max.style.top = "18px") : (this._removeClass(this.tooltip_max, "bottom"), 
+     this._addClass(this.tooltip_max, "top"), this.tooltip_max.style.top = this.tooltip_min.style.top);
+    }
+    var d;
+    if (this.options.range) {
+     d = this.options.formatter(this.options.value), this._setText(this.tooltipInner, d), 
+     this.tooltip.style[this.stylePos] = (e[1] + e[0]) / 2 + "%", "vertical" === this.options.orientation ? this._css(this.tooltip, "margin-top", -this.tooltip.offsetHeight / 2 + "px") : this._css(this.tooltip, "margin-left", -this.tooltip.offsetWidth / 2 + "px"), 
+     "vertical" === this.options.orientation ? this._css(this.tooltip, "margin-top", -this.tooltip.offsetHeight / 2 + "px") : this._css(this.tooltip, "margin-left", -this.tooltip.offsetWidth / 2 + "px");
+     var p = this.options.formatter(this.options.value[0]);
+     this._setText(this.tooltipInner_min, p);
+     var h = this.options.formatter(this.options.value[1]);
+     this._setText(this.tooltipInner_max, h), this.tooltip_min.style[this.stylePos] = e[0] + "%", 
+     "vertical" === this.options.orientation ? this._css(this.tooltip_min, "margin-top", -this.tooltip_min.offsetHeight / 2 + "px") : this._css(this.tooltip_min, "margin-left", -this.tooltip_min.offsetWidth / 2 + "px"), 
+     this.tooltip_max.style[this.stylePos] = e[1] + "%", "vertical" === this.options.orientation ? this._css(this.tooltip_max, "margin-top", -this.tooltip_max.offsetHeight / 2 + "px") : this._css(this.tooltip_max, "margin-left", -this.tooltip_max.offsetWidth / 2 + "px");
+    } else d = this.options.formatter(this.options.value[0]), this._setText(this.tooltipInner, d), 
+    this.tooltip.style[this.stylePos] = e[0] + "%", "vertical" === this.options.orientation ? this._css(this.tooltip, "margin-top", -this.tooltip.offsetHeight / 2 + "px") : this._css(this.tooltip, "margin-left", -this.tooltip.offsetWidth / 2 + "px");
+   },
+   _removeProperty: function(e, t) {
+    e.style.removeProperty ? e.style.removeProperty(t) : e.style.removeAttribute(t);
+   },
+   _mousedown: function(e) {
+    if (!this.options.enabled) return !1;
+    this.offset = this._offset(this.sliderElem), this.size = this.sliderElem[this.sizePos];
+    var t = this._getPercentage(e);
+    if (this.options.range) {
+     var n = Math.abs(this.percentage[0] - t), i = Math.abs(this.percentage[1] - t);
+     this.dragged = i > n ? 0 : 1;
+    } else this.dragged = 0;
+    this.percentage[this.dragged] = this.options.reversed ? 100 - t : t, this._layout(), 
+    this.touchCapable && (document.removeEventListener("touchmove", this.mousemove, !1), 
+    document.removeEventListener("touchend", this.mouseup, !1)), this.mousemove && document.removeEventListener("mousemove", this.mousemove, !1), 
+    this.mouseup && document.removeEventListener("mouseup", this.mouseup, !1), this.mousemove = this._mousemove.bind(this), 
+    this.mouseup = this._mouseup.bind(this), this.touchCapable && (document.addEventListener("touchmove", this.mousemove, !1), 
+    document.addEventListener("touchend", this.mouseup, !1)), document.addEventListener("mousemove", this.mousemove, !1), 
+    document.addEventListener("mouseup", this.mouseup, !1), this.inDrag = !0;
+    var r = this._calculateValue();
+    return this._trigger("slideStart", r), this._setDataVal(r), this.setValue(r, !1, !0), 
+    this._pauseEvent(e), this.options.focus && this._triggerFocusOnHandle(this.dragged), 
+    !0;
+   },
+   _triggerFocusOnHandle: function(e) {
+    0 === e && this.handle1.focus(), 1 === e && this.handle2.focus();
+   },
+   _keydown: function(e, t) {
+    if (!this.options.enabled) return !1;
+    var n;
+    switch (t.keyCode) {
+    case 37:
+    case 40:
+     n = -1;
+     break;
+
+    case 39:
+    case 38:
+     n = 1;
+    }
+    if (n) {
+     if (this.options.natural_arrow_keys) {
+      var i = "vertical" === this.options.orientation && !this.options.reversed, r = "horizontal" === this.options.orientation && this.options.reversed;
+      (i || r) && (n = -n);
+     }
+     var o = this.options.value[e] + n * this.options.step;
+     return this.options.range && (o = [ e ? this.options.value[0] : o, e ? o : this.options.value[1] ]), 
+     this._trigger("slideStart", o), this._setDataVal(o), this.setValue(o, !0, !0), this._trigger("slideStop", o), 
+     this._setDataVal(o), this._layout(), this._pauseEvent(t), !1;
+    }
+   },
+   _pauseEvent: function(e) {
+    e.stopPropagation && e.stopPropagation(), e.preventDefault && e.preventDefault(), 
+    e.cancelBubble = !0, e.returnValue = !1;
+   },
+   _mousemove: function(e) {
+    if (!this.options.enabled) return !1;
+    var t = this._getPercentage(e);
+    this._adjustPercentageForRangeSliders(t), this.percentage[this.dragged] = this.options.reversed ? 100 - t : t, 
+    this._layout();
+    var n = this._calculateValue(!0);
+    return this.setValue(n, !0, !0), !1;
+   },
+   _adjustPercentageForRangeSliders: function(e) {
+    this.options.range && (0 === this.dragged && this.percentage[1] < e ? (this.percentage[0] = this.percentage[1], 
+    this.dragged = 1) : 1 === this.dragged && this.percentage[0] > e && (this.percentage[1] = this.percentage[0], 
+    this.dragged = 0));
+   },
+   _mouseup: function() {
+    if (!this.options.enabled) return !1;
+    this.touchCapable && (document.removeEventListener("touchmove", this.mousemove, !1), 
+    document.removeEventListener("touchend", this.mouseup, !1)), document.removeEventListener("mousemove", this.mousemove, !1), 
+    document.removeEventListener("mouseup", this.mouseup, !1), this.inDrag = !1, this.over === !1 && this._hideTooltip();
+    var e = this._calculateValue(!0);
+    return this._layout(), this._trigger("slideStop", e), this._setDataVal(e), !1;
+   },
+   _calculateValue: function(e) {
+    var t;
+    if (this.options.range ? (t = [ this.options.min, this.options.max ], 0 !== this.percentage[0] && (t[0] = this._toValue(this.percentage[0]), 
+    t[0] = this._applyPrecision(t[0])), 100 !== this.percentage[1] && (t[1] = this._toValue(this.percentage[1]), 
+    t[1] = this._applyPrecision(t[1]))) : (t = this._toValue(this.percentage[0]), t = parseFloat(t), 
+    t = this._applyPrecision(t)), e) {
+     for (var n = [ t, 1 / 0 ], i = 0; i < this.options.ticks.length; i++) {
+      var r = Math.abs(this.options.ticks[i] - t);
+      r <= n[1] && (n = [ this.options.ticks[i], r ]);
+     }
+     if (n[1] <= this.options.ticks_snap_bounds) return n[0];
+    }
+    return t;
+   },
+   _applyPrecision: function(e) {
+    var t = this.options.precision || this._getNumDigitsAfterDecimalPlace(this.options.step);
+    return this._applyToFixedAndParseFloat(e, t);
+   },
+   _getNumDigitsAfterDecimalPlace: function(e) {
+    var t = ("" + e).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+    return t ? Math.max(0, (t[1] ? t[1].length : 0) - (t[2] ? +t[2] : 0)) : 0;
+   },
+   _applyToFixedAndParseFloat: function(e, t) {
+    var n = e.toFixed(t);
+    return parseFloat(n);
+   },
+   _getPercentage: function(e) {
+    !this.touchCapable || "touchstart" !== e.type && "touchmove" !== e.type || (e = e.touches[0]);
+    var t = e[this.mousePos], n = this.offset[this.stylePos], i = t - n, r = i / this.size * 100;
+    return r = Math.round(r / this.percentage[2]) * this.percentage[2], Math.max(0, Math.min(100, r));
+   },
+   _validateInputValue: function(e) {
+    if ("number" == typeof e) return e;
+    if (Array.isArray(e)) return this._validateArray(e), e;
+    throw new Error(i.formatInvalidInputErrorMsg(e));
+   },
+   _validateArray: function(e) {
+    for (var t = 0; t < e.length; t++) {
+     var n = e[t];
+     if ("number" != typeof n) throw new Error(i.formatInvalidInputErrorMsg(n));
+    }
+   },
+   _setDataVal: function(e) {
+    var t = "value: '" + e + "'";
+    this.element.setAttribute("data", t), this.element.setAttribute("value", e), this.element.value = e;
+   },
+   _trigger: function(t, n) {
+    n = n || 0 === n ? n : void 0;
+    var i = this.eventToCallbackMap[t];
+    if (i && i.length) for (var r = 0; r < i.length; r++) {
+     var o = i[r];
+     o(n);
+    }
+    e && this._triggerJQueryEvent(t, n);
+   },
+   _triggerJQueryEvent: function(e, t) {
+    var n = {
+     type: e,
+     value: t
+    };
+    this.$element.trigger(n), this.$sliderElem.trigger(n);
+   },
+   _unbindJQueryEventHandlers: function() {
+    this.$element.off(), this.$sliderElem.off();
+   },
+   _setText: function(e, t) {
+    "undefined" != typeof e.innerText ? e.innerText = t : "undefined" != typeof e.textContent && (e.textContent = t);
+   },
+   _removeClass: function(e, t) {
+    for (var n = t.split(" "), i = e.className, r = 0; r < n.length; r++) {
+     var o = n[r], a = new RegExp("(?:\\s|^)" + o + "(?:\\s|$)");
+     i = i.replace(a, " ");
+    }
+    e.className = i.trim();
+   },
+   _addClass: function(e, t) {
+    for (var n = t.split(" "), i = e.className, r = 0; r < n.length; r++) {
+     var o = n[r], a = new RegExp("(?:\\s|^)" + o + "(?:\\s|$)"), s = a.test(i);
+     s || (i += " " + o);
+    }
+    e.className = i.trim();
+   },
+   _offsetLeft: function(e) {
+    for (var t = e.offsetLeft; (e = e.offsetParent) && !isNaN(e.offsetLeft); ) t += e.offsetLeft;
+    return t;
+   },
+   _offsetTop: function(e) {
+    for (var t = e.offsetTop; (e = e.offsetParent) && !isNaN(e.offsetTop); ) t += e.offsetTop;
+    return t;
+   },
+   _offset: function(e) {
+    return {
+     left: this._offsetLeft(e),
+     top: this._offsetTop(e)
+    };
+   },
+   _css: function(t, n, i) {
+    if (e) e.style(t, n, i); else {
+     var r = n.replace(/^-ms-/, "ms-").replace(/-([\da-z])/gi, function(e, t) {
+      return t.toUpperCase();
+     });
+     t.style[r] = i;
+    }
+   },
+   _toValue: function(e) {
+    return this.options.scale.toValue.apply(this, [ e ]);
+   },
+   _toPercentage: function(e) {
+    return this.options.scale.toPercentage.apply(this, [ e ]);
+   }
+  }, e) {
+   var o = e.fn.slider ? "bootstrapSlider" : "slider";
+   e.bridget(o, t);
+  }
+ }(e), t;
+}), define("text!html/notificationsSettingsBlock.html", [], function() {
+ return '<p>Shows notification messages in the bottom-right corner of the screen.</p>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-4 control-label" for="input-notifications-timeout">Timeout</label>\n		<div class="col-sm-7 form-inline">\n			<input type="text" id="input-notifications-timeout"\n				class="col-sm-5 form-control" data-slider-min="800" data-slider-max="10000" data-slider-step="100" data-slider-value=""> <span class="help-inline">ms</span>\n		</div>\n	</div>\n</div>';
+}), define("extensions/notifications", [ "jquery", "underscore", "utils", "logger", "classes/Extension", "jgrowl", "Slider", "text!html/notificationsSettingsBlock.html" ], function(e, t, n, i, r, o, a, s) {
+ function l() {
+  m === !1 && (o.defaults.life = d.config.timeout, o.defaults.closer = !1, o.defaults.closeTemplate = "", 
+  o.defaults.position = "bottom-right", m = !0);
  }
- function l(e, n, r) {
-  if (i.info(e), s(), e) {
+ function c(e, n, r) {
+  if (i.info(e), l(), e) {
    var a = e.indexOf("|");
    (-1 === a || (e = e.substring(0, a))) && (r = r || {}, n = n || "icon-info-circled", 
    o("<i class='icon-white " + n + "'></i> " + t.escape(e).replace(/\n/g, "<br/>"), r));
   }
  }
- function c() {
-  f !== !1 && (d.toggleClass("hide", !m), p.toggleClass("hide", m));
+ function u() {
+  g !== !1 && (h.toggleClass("hide", !v), f.toggleClass("hide", v));
  }
- var u = new r("notifications", "Notifications");
- u.settingsBlock = a, u.defaultConfig = {
+ var d = new r("notifications", "Notifications");
+ d.settingsBlock = s, d.defaultConfig = {
   timeout: 8e3
- }, u.onLoadSettings = function() {
-  n.setInputValue("#input-notifications-timeout", u.config.timeout);
- }, u.onSaveSettings = function(e, t) {
+ };
+ var p;
+ d.onLoadSettings = function() {
+  n.setInputValue("#input-notifications-timeout", d.config.timeout), p = d.config.timeout;
+ }, d.onSaveSettings = function(e, t) {
   e.timeout = n.getInputIntValue("#input-notifications-timeout", t, 1, 6e4);
+ }, e("#input-notifications-timeout").slider({
+  value: p
+ });
+ var h, f, m = !1, g = !1;
+ d.onReady = function() {
+  g = !0, h = e(".navbar .offline-status"), f = e(".navbar .extension-buttons"), u();
+ }, d.onMessage = function(e) {
+  c(e);
+ }, d.onError = function(e) {
+  i.error(e), t.isString(e) ? c(e, "icon-attention") : t.isObject(e) && c(e.message, "icon-attention");
  };
- var d, p, h = !1, f = !1;
- u.onReady = function() {
-  f = !0, d = e(".navbar .offline-status"), p = e(".navbar .extension-buttons"), c();
- }, u.onMessage = function(e) {
-  l(e);
- }, u.onError = function(e) {
-  i.error(e), t.isString(e) ? l(e, "icon-attention") : t.isObject(e) && l(e.message, "icon-attention");
- };
- var m = !1;
- return u.onOfflineChanged = function(e) {
-  m = e, c(), m === !0 ? l("You are offline.", "icon-attention-circled msg-offline") : l("You are back online.", "icon-signal");
- }, u.onSyncImportSuccess = function(e, n) {
+ var v = !1;
+ return d.onOfflineChanged = function(e) {
+  v = e, u(), v === !0 ? c("You are offline.", "icon-attention-circled msg-offline") : c("You are back online.", "icon-signal");
+ }, d.onSyncImportSuccess = function(e, n) {
   var i = t.map(e, function(e) {
    return e.title;
   }).join(", ");
-  l(i + " imported successfully from " + n.providerName + ".");
- }, u.onSyncExportSuccess = function(e, t) {
-  l('"' + e.title + '" will now be synchronized on ' + t.provider.providerName + ".");
- }, u.onSyncRemoved = function(e, t) {
-  l(t.provider.providerName + " synchronized location has been removed.");
- }, u.onPublishSuccess = function(e) {
-  l('"' + e.title + '" successfully published.');
- }, u.onNewPublishSuccess = function(e, t) {
-  l('"' + e.title + '" is now published on ' + t.provider.providerName + ".");
- }, u.onPublishRemoved = function(e, t) {
-  l(t.provider.providerName + " publish location has been removed.");
- }, u;
+  c(i + " imported successfully from " + n.providerName + ".");
+ }, d.onSyncExportSuccess = function(e, t) {
+  c('"' + e.title + '" will now be synchronized on ' + t.provider.providerName + ".");
+ }, d.onSyncRemoved = function(e, t) {
+  c(t.provider.providerName + " synchronized location has been removed.");
+ }, d.onPublishSuccess = function(e) {
+  c('"' + e.title + '" successfully published.');
+ }, d.onNewPublishSuccess = function(e, t) {
+  c('"' + e.title + '" is now published on ' + t.provider.providerName + ".");
+ }, d.onPublishRemoved = function(e, t) {
+  c(t.provider.providerName + " publish location has been removed.");
+ }, d;
 }), define("text!html/umlDiagramsSettingsBlock.html", [], function() {
  return '<p>Creates UML diagrams from plain text description.</p>\n\n<p>Sequence diagrams:</p>\n<pre><div class="help-block pull-right"><a target="_blank" href="http://bramp.github.io/js-sequence-diagrams/">More info</a></div><code>```sequence\nFedora->Beard: Hello Beard, how are you?\nBeard-->Fedora: I am good thanks!\n```</code>\n</pre>\n\n<p>Flow charts:</p>\n<pre><div class="help-block pull-right"><a target="_blank" href="http://adrai.github.io/flowchart.js/">More info</a></div><code>```flow\nst=>start: Start\ne=>end\nop=>operation: My Operation\ncond=>condition: Yes or No?\nst->op->cond\ncond(yes)->e\ncond(no)->op\n```</code>\n</pre>\n<blockquote>\n    <p><b>Note:</b> Markdown Extra extension has to be enabled with GFM fenced code blocks option.</p>\n</blockquote>\n\n';
 }), function(e) {
@@ -19364,27 +19922,32 @@ function() {
   b = !0, T > e && (S = !0), g();
  }, a;
 }), define("text!html/buttonSyncSettingsBlock.html", [], function() {
- return '<p>Adds a "Synchronize Stories" button in the navigation bar.</p>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-5 control-label" for="input-sync-period">Sync Period (0: manual)</label>\n		<div class="col-sm-6 form-inline">\n			<input type="text" id="input-sync-period" class="col-sm-10 form-control" placeholder="180000"> ms\n		</div>\n	</div>\n	<div class="form-group">\n		<label class="col-sm-5 control-label"\n			for="input-sync-shortcut">Sync Shortcut</label>\n		<div class="col-sm-6">\n			<input type="text" id="input-sync-shortcut" class="form-control">\n		</div>\n	</div>\n</div>';
-}), define("extensions/buttonSync", [ "jquery", "underscore", "crel", "utils", "classes/Extension", "mousetrap", "text!html/buttonSyncSettingsBlock.html" ], function(e, t, n, i, r, o, a) {
- var s = new r("buttonSync", 'Button "Synchronize"', !1, !0);
- s.settingsBlock = a, s.defaultConfig = {
-  syncPeriod: 18e4,
+ return '<p>Adds a "Synchronize Stories" button in the navigation bar.</p>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-5 control-label" for="input-sync-period">Sync Period (0: Manual)</label>\n		<div class="col-sm-6 form-inline">\n			<input type="text" id="input-sync-period" class="col-sm-10 form-control" data-slider-min="0" data-slider-max="1200000" data-slider-step="100" data-slider-value=""> ms\n		</div>\n	</div>\n	<div class="form-group">\n		<label class="col-sm-5 control-label"\n			for="input-sync-shortcut">Sync Shortcut</label>\n		<div class="col-sm-6">\n			<input type="text" id="input-sync-shortcut" class="form-control">\n		</div>\n	</div>\n</div>';
+}), define("extensions/buttonSync", [ "jquery", "underscore", "crel", "utils", "classes/Extension", "mousetrap", "Slider", "text!html/buttonSyncSettingsBlock.html" ], function(e, t, n, i, r, o, a, s) {
+ var l = new r("buttonSync", 'Button "Synchronize"', !1, !0);
+ l.settingsBlock = s, l.defaultConfig = {
+  syncPeriod: 6e4,
   syncShortcut: "mod+s"
- }, s.onLoadSettings = function() {
-  i.setInputValue("#input-sync-period", s.config.syncPeriod), i.setInputValue("#input-sync-shortcut", s.config.syncShortcut);
- }, s.onSaveSettings = function(e, t) {
+ };
+ var c;
+ l.onLoadSettings = function() {
+  i.setInputValue("#input-sync-period", l.config.syncPeriod), i.setInputValue("#input-sync-shortcut", l.config.syncShortcut), 
+  c = l.config.syncPeriod;
+ }, l.onSaveSettings = function(e, t) {
   e.syncPeriod = i.getInputIntValue("#input-sync-period", t, 0), e.syncShortcut = i.getInputTextValue("#input-sync-shortcut", t);
  };
- var l;
- s.onSynchronizerCreated = function(e) {
-  l = e;
- };
- var c, u = !1, d = !1, p = function() {
-  void 0 !== c && (u === !0 || l.hasSync() === !1 || d ? c.addClass("disabled") : c.removeClass("disabled"));
- }, h = 0;
- return s.onPeriodicRun = function() {
-  !s.config.syncPeriod || h + s.config.syncPeriod > i.currentTime || l.sync() && (h = i.currentTime);
- }, s.onCreateSyncButton = function() {
+ var u;
+ l.onSynchronizerCreated = function(e) {
+  u = e;
+ }, e("#input-sync-period").slider({
+  value: c
+ });
+ var d, p = !1, h = !1, f = function() {
+  void 0 !== d && (p === !0 || u.hasSync() === !1 || h ? d.addClass("disabled") : d.removeClass("disabled"));
+ }, m = 0;
+ return l.onPeriodicRun = function() {
+  !l.config.syncPeriod || m + l.config.syncPeriod > i.currentTime || u.sync() && (m = i.currentTime);
+ }, l.onCreateSyncButton = function() {
   var t = n("a", {
    "class": "button-synchronize action-force-synchronization",
    title: "Force Sync Ctrl/Cmd+S",
@@ -19392,10 +19955,10 @@ function() {
   }, n("i", {
    "class": "icon-refresh"
   }), n("span", " Sync Now"));
-  return c = e(t), c.click(function() {
-   c.hasClass("disabled") || l.sync() && (h = i.currentTime);
+  return d = e(t), d.click(function() {
+   d.hasClass("disabled") || u.sync() && (m = i.currentTime);
   }), t;
- }, s.onCreateSyncMngButton = function() {
+ }, l.onCreateSyncMngButton = function() {
   var t = n("a", {
    "class": "action-reset-input",
    title: "Manage Syncs",
@@ -19405,19 +19968,19 @@ function() {
   }, n("i", {
    "class": "icon-edit"
   }), n("span", " Manage"));
-  return c = e(t), t;
- }, s.onReady = p, s.onFileCreated = p, s.onFileDeleted = p, s.onSyncImportSuccess = p, 
- s.onSyncExportSuccess = p, s.onSyncRemoved = p, s.onSyncRunning = function(e) {
-  u = e, p();
- }, s.onOfflineChanged = function(e) {
-  d = e, p();
- }, s.onReady = function() {
-  o.bind(s.config.syncShortcut, function(e) {
-   l.sync() && (h = i.currentTime), e.preventDefault();
+  return d = e(t), t;
+ }, l.onReady = f, l.onFileCreated = f, l.onFileDeleted = f, l.onSyncImportSuccess = f, 
+ l.onSyncExportSuccess = f, l.onSyncRemoved = f, l.onSyncRunning = function(e) {
+  p = e, f();
+ }, l.onOfflineChanged = function(e) {
+  h = e, f();
+ }, l.onReady = function() {
+  o.bind(l.config.syncShortcut, function(e) {
+   u.sync() && (m = i.currentTime), e.preventDefault();
   }), e(".action-force-synchronization").click(function() {
-   l.sync() && (h = i.currentTime);
+   u.sync() && (m = i.currentTime);
   });
- }, s;
+ }, l;
 }), define("extensions/buttonPublish", [ "jquery", "underscore", "crel", "classes/Extension" ], function(e, t, n, i) {
  function r() {
   void 0 !== o && (c === !0 || u === !1 || d === !0 ? o.addClass("disabled") : o.removeClass("disabled"));
@@ -24816,562 +25379,8 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    N.$elt.addClass("animate");
   }, 0));
  }), o.onLayoutCreated(M), M;
-}), !function(e, t) {
- if ("function" == typeof define && define.amd) define("Slider", [ "jquery" ], t); else if ("object" == typeof module && module.exports) {
-  var n;
-  try {
-   n = require("jquery");
-  } catch (i) {
-   n = null;
-  }
-  module.exports = t(n);
- } else e.Slider = t(e.jQuery);
-}(this, function(e) {
- var t;
- return function(e) {
-  function t() {}
-  function n(e) {
-   function n(t) {
-    t.prototype.option || (t.prototype.option = function(t) {
-     e.isPlainObject(t) && (this.options = e.extend(!0, this.options, t));
-    });
-   }
-   function r(t, n) {
-    e.fn[t] = function(r) {
-     if ("string" == typeof r) {
-      for (var a = i.call(arguments, 1), s = 0, l = this.length; l > s; s++) {
-       var c = this[s], u = e.data(c, t);
-       if (u) if (e.isFunction(u[r]) && "_" !== r.charAt(0)) {
-        var d = u[r].apply(u, a);
-        if (void 0 !== d && d !== u) return d;
-       } else o("no such method '" + r + "' for " + t + " instance"); else o("cannot call methods on " + t + " prior to initialization; attempted to call '" + r + "'");
-      }
-      return this;
-     }
-     var p = this.map(function() {
-      var i = e.data(this, t);
-      return i ? (i.option(r), i._init()) : (i = new n(this, r), e.data(this, t, i)), 
-      e(this);
-     });
-     return !p || p.length > 1 ? p : p[0];
-    };
-   }
-   if (e) {
-    var o = "undefined" == typeof console ? t : function(e) {
-     console.error(e);
-    };
-    return e.bridget = function(e, t) {
-     n(t), r(e, t);
-    }, e.bridget;
-   }
-  }
-  var i = Array.prototype.slice;
-  n(e);
- }(e), function(e) {
-  function n(t, n) {
-   function i(e, t) {
-    var n = "data-slider-" + t.replace(/_/g, "-"), i = e.getAttribute(n);
-    try {
-     return JSON.parse(i);
-    } catch (r) {
-     return i;
-    }
-   }
-   "string" == typeof t ? this.element = document.querySelector(t) : t instanceof HTMLElement && (this.element = t), 
-   n = n ? n : {};
-   for (var o = Object.keys(this.defaultOptions), a = 0; a < o.length; a++) {
-    var s = o[a], l = n[s];
-    l = "undefined" != typeof l ? l : i(this.element, s), l = null !== l ? l : this.defaultOptions[s], 
-    this.options || (this.options = {}), this.options[s] = l;
-   }
-   var c, u, d, p, h, f = this.element.style.width, m = !1, g = this.element.parentNode;
-   if (this.sliderElem) m = !0; else {
-    this.sliderElem = document.createElement("div"), this.sliderElem.className = "slider";
-    var v = document.createElement("div");
-    if (v.className = "slider-track", u = document.createElement("div"), u.className = "slider-track-low", 
-    c = document.createElement("div"), c.className = "slider-selection", d = document.createElement("div"), 
-    d.className = "slider-track-high", p = document.createElement("div"), p.className = "slider-handle min-slider-handle", 
-    h = document.createElement("div"), h.className = "slider-handle max-slider-handle", 
-    v.appendChild(u), v.appendChild(c), v.appendChild(d), this.ticks = [], Array.isArray(this.options.ticks) && this.options.ticks.length > 0) {
-     for (a = 0; a < this.options.ticks.length; a++) {
-      var b = document.createElement("div");
-      b.className = "slider-tick", this.ticks.push(b), v.appendChild(b);
-     }
-     c.className += " tick-slider-selection";
-    }
-    if (v.appendChild(p), v.appendChild(h), this.tickLabels = [], Array.isArray(this.options.ticks_labels) && this.options.ticks_labels.length > 0) for (this.tickLabelContainer = document.createElement("div"), 
-    this.tickLabelContainer.className = "slider-tick-label-container", a = 0; a < this.options.ticks_labels.length; a++) {
-     var y = document.createElement("div");
-     y.className = "slider-tick-label", y.innerHTML = this.options.ticks_labels[a], this.tickLabels.push(y), 
-     this.tickLabelContainer.appendChild(y);
-    }
-    var x = function(e) {
-     var t = document.createElement("div");
-     t.className = "tooltip-arrow";
-     var n = document.createElement("div");
-     n.className = "tooltip-inner", e.appendChild(t), e.appendChild(n);
-    }, w = document.createElement("div");
-    w.className = "tooltip tooltip-main", x(w);
-    var C = document.createElement("div");
-    C.className = "tooltip tooltip-min", x(C);
-    var S = document.createElement("div");
-    S.className = "tooltip tooltip-max", x(S), this.sliderElem.appendChild(v), this.sliderElem.appendChild(w), 
-    this.sliderElem.appendChild(C), this.sliderElem.appendChild(S), this.tickLabelContainer && this.sliderElem.appendChild(this.tickLabelContainer), 
-    g.insertBefore(this.sliderElem, this.element), this.element.style.display = "none";
-   }
-   if (e && (this.$element = e(this.element), this.$sliderElem = e(this.sliderElem)), 
-   this.eventToCallbackMap = {}, this.sliderElem.id = this.options.id, this.touchCapable = "ontouchstart" in window || window.DocumentTouch && document instanceof window.DocumentTouch, 
-   this.tooltip = this.sliderElem.querySelector(".tooltip-main"), this.tooltipInner = this.tooltip.querySelector(".tooltip-inner"), 
-   this.tooltip_min = this.sliderElem.querySelector(".tooltip-min"), this.tooltipInner_min = this.tooltip_min.querySelector(".tooltip-inner"), 
-   this.tooltip_max = this.sliderElem.querySelector(".tooltip-max"), this.tooltipInner_max = this.tooltip_max.querySelector(".tooltip-inner"), 
-   r[this.options.scale] && (this.options.scale = r[this.options.scale]), m === !0 && (this._removeClass(this.sliderElem, "slider-horizontal"), 
-   this._removeClass(this.sliderElem, "slider-vertical"), this._removeClass(this.tooltip, "hide"), 
-   this._removeClass(this.tooltip_min, "hide"), this._removeClass(this.tooltip_max, "hide"), 
-   [ "left", "top", "width", "height" ].forEach(function(e) {
-    this._removeProperty(this.trackLow, e), this._removeProperty(this.trackSelection, e), 
-    this._removeProperty(this.trackHigh, e);
-   }, this), [ this.handle1, this.handle2 ].forEach(function(e) {
-    this._removeProperty(e, "left"), this._removeProperty(e, "top");
-   }, this), [ this.tooltip, this.tooltip_min, this.tooltip_max ].forEach(function(e) {
-    this._removeProperty(e, "left"), this._removeProperty(e, "top"), this._removeProperty(e, "margin-left"), 
-    this._removeProperty(e, "margin-top"), this._removeClass(e, "right"), this._removeClass(e, "top");
-   }, this)), "vertical" === this.options.orientation ? (this._addClass(this.sliderElem, "slider-vertical"), 
-   this.stylePos = "top", this.mousePos = "pageY", this.sizePos = "offsetHeight", this._addClass(this.tooltip, "right"), 
-   this.tooltip.style.left = "100%", this._addClass(this.tooltip_min, "right"), this.tooltip_min.style.left = "100%", 
-   this._addClass(this.tooltip_max, "right"), this.tooltip_max.style.left = "100%") : (this._addClass(this.sliderElem, "slider-horizontal"), 
-   this.sliderElem.style.width = f, this.options.orientation = "horizontal", this.stylePos = "left", 
-   this.mousePos = "pageX", this.sizePos = "offsetWidth", this._addClass(this.tooltip, "top"), 
-   this.tooltip.style.top = -this.tooltip.outerHeight - 14 + "px", this._addClass(this.tooltip_min, "top"), 
-   this.tooltip_min.style.top = -this.tooltip_min.outerHeight - 14 + "px", this._addClass(this.tooltip_max, "top"), 
-   this.tooltip_max.style.top = -this.tooltip_max.outerHeight - 14 + "px"), Array.isArray(this.options.ticks) && this.options.ticks.length > 0 && (this.options.max = Math.max.apply(Math, this.options.ticks), 
-   this.options.min = Math.min.apply(Math, this.options.ticks)), Array.isArray(this.options.value) ? this.options.range = !0 : this.options.range && (this.options.value = [ this.options.value, this.options.max ]), 
-   this.trackLow = u || this.trackLow, this.trackSelection = c || this.trackSelection, 
-   this.trackHigh = d || this.trackHigh, "none" === this.options.selection && (this._addClass(this.trackLow, "hide"), 
-   this._addClass(this.trackSelection, "hide"), this._addClass(this.trackHigh, "hide")), 
-   this.handle1 = p || this.handle1, this.handle2 = h || this.handle2, m === !0) for (this._removeClass(this.handle1, "round triangle"), 
-   this._removeClass(this.handle2, "round triangle hide"), a = 0; a < this.ticks.length; a++) this._removeClass(this.ticks[a], "round triangle hide");
-   var _ = [ "round", "triangle", "custom" ], T = -1 !== _.indexOf(this.options.handle);
-   if (T) for (this._addClass(this.handle1, this.options.handle), this._addClass(this.handle2, this.options.handle), 
-   a = 0; a < this.ticks.length; a++) this._addClass(this.ticks[a], this.options.handle);
-   this.offset = this._offset(this.sliderElem), this.size = this.sliderElem[this.sizePos], 
-   this.setValue(this.options.value), this.handle1Keydown = this._keydown.bind(this, 0), 
-   this.handle1.addEventListener("keydown", this.handle1Keydown, !1), this.handle2Keydown = this._keydown.bind(this, 1), 
-   this.handle2.addEventListener("keydown", this.handle2Keydown, !1), this.mousedown = this._mousedown.bind(this), 
-   this.touchCapable && this.sliderElem.addEventListener("touchstart", this.mousedown, !1), 
-   this.sliderElem.addEventListener("mousedown", this.mousedown, !1), "hide" === this.options.tooltip ? (this._addClass(this.tooltip, "hide"), 
-   this._addClass(this.tooltip_min, "hide"), this._addClass(this.tooltip_max, "hide")) : "always" === this.options.tooltip ? (this._showTooltip(), 
-   this._alwaysShowTooltip = !0) : (this.showTooltip = this._showTooltip.bind(this), 
-   this.hideTooltip = this._hideTooltip.bind(this), this.sliderElem.addEventListener("mouseenter", this.showTooltip, !1), 
-   this.sliderElem.addEventListener("mouseleave", this.hideTooltip, !1), this.handle1.addEventListener("focus", this.showTooltip, !1), 
-   this.handle1.addEventListener("blur", this.hideTooltip, !1), this.handle2.addEventListener("focus", this.showTooltip, !1), 
-   this.handle2.addEventListener("blur", this.hideTooltip, !1)), this.options.enabled ? this.enable() : this.disable();
-  }
-  var i = {
-   formatInvalidInputErrorMsg: function(e) {
-    return "Invalid input value '" + e + "' passed in";
-   },
-   callingContextNotSliderInstance: "Calling context element does not have instance of Slider bound to it. Check your code to make sure the JQuery object returned from the call to the slider() initializer is calling the method"
-  }, r = {
-   linear: {
-    toValue: function(e) {
-     var t = e / 100 * (this.options.max - this.options.min);
-     if (this.options.ticks_positions.length > 0) {
-      for (var n, i, r, o = 0, a = 0; a < this.options.ticks_positions.length; a++) if (e <= this.options.ticks_positions[a]) {
-       n = a > 0 ? this.options.ticks[a - 1] : 0, r = a > 0 ? this.options.ticks_positions[a - 1] : 0, 
-       i = this.options.ticks[a], o = this.options.ticks_positions[a];
-       break;
-      }
-      if (a > 0) {
-       var s = (e - r) / (o - r);
-       t = n + s * (i - n);
-      }
-     }
-     var l = this.options.min + Math.round(t / this.options.step) * this.options.step;
-     return l < this.options.min ? this.options.min : l > this.options.max ? this.options.max : l;
-    },
-    toPercentage: function(e) {
-     if (this.options.max === this.options.min) return 0;
-     if (this.options.ticks_positions.length > 0) {
-      for (var t, n, i, r = 0, o = 0; o < this.options.ticks.length; o++) if (e <= this.options.ticks[o]) {
-       t = o > 0 ? this.options.ticks[o - 1] : 0, i = o > 0 ? this.options.ticks_positions[o - 1] : 0, 
-       n = this.options.ticks[o], r = this.options.ticks_positions[o];
-       break;
-      }
-      if (o > 0) {
-       var a = (e - t) / (n - t);
-       return i + a * (r - i);
-      }
-     }
-     return 100 * (e - this.options.min) / (this.options.max - this.options.min);
-    }
-   },
-   logarithmic: {
-    toValue: function(e) {
-     var t = 0 === this.options.min ? 0 : Math.log(this.options.min), n = Math.log(this.options.max), i = Math.exp(t + (n - t) * e / 100);
-     return i = this.options.min + Math.round((i - this.options.min) / this.options.step) * this.options.step, 
-     i < this.options.min ? this.options.min : i > this.options.max ? this.options.max : i;
-    },
-    toPercentage: function(e) {
-     if (this.options.max === this.options.min) return 0;
-     var t = Math.log(this.options.max), n = 0 === this.options.min ? 0 : Math.log(this.options.min), i = 0 === e ? 0 : Math.log(e);
-     return 100 * (i - n) / (t - n);
-    }
-   }
-  };
-  if (t = function(e, t) {
-   return n.call(this, e, t), this;
-  }, t.prototype = {
-   _init: function() {},
-   constructor: t,
-   defaultOptions: {
-    id: "",
-    min: 0,
-    max: 10,
-    step: 1,
-    precision: 0,
-    orientation: "horizontal",
-    value: 5,
-    range: !1,
-    selection: "before",
-    tooltip: "show",
-    tooltip_split: !1,
-    handle: "round",
-    reversed: !1,
-    enabled: !0,
-    formatter: function(e) {
-     return Array.isArray(e) ? e[0] + " : " + e[1] : e;
-    },
-    natural_arrow_keys: !1,
-    ticks: [],
-    ticks_positions: [],
-    ticks_labels: [],
-    ticks_snap_bounds: 0,
-    scale: "linear",
-    focus: !1
-   },
-   over: !1,
-   inDrag: !1,
-   getValue: function() {
-    return this.options.range ? this.options.value : this.options.value[0];
-   },
-   setValue: function(e, t, n) {
-    e || (e = 0);
-    var i = this.getValue();
-    this.options.value = this._validateInputValue(e);
-    var r = this._applyPrecision.bind(this);
-    this.options.range ? (this.options.value[0] = r(this.options.value[0]), this.options.value[1] = r(this.options.value[1]), 
-    this.options.value[0] = Math.max(this.options.min, Math.min(this.options.max, this.options.value[0])), 
-    this.options.value[1] = Math.max(this.options.min, Math.min(this.options.max, this.options.value[1]))) : (this.options.value = r(this.options.value), 
-    this.options.value = [ Math.max(this.options.min, Math.min(this.options.max, this.options.value)) ], 
-    this._addClass(this.handle2, "hide"), this.options.value[1] = "after" === this.options.selection ? this.options.max : this.options.min), 
-    this.percentage = this.options.max > this.options.min ? [ this._toPercentage(this.options.value[0]), this._toPercentage(this.options.value[1]), 100 * this.options.step / (this.options.max - this.options.min) ] : [ 0, 0, 100 ], 
-    this._layout();
-    var o = this.options.range ? this.options.value : this.options.value[0];
-    return t === !0 && this._trigger("slide", o), i !== o && n === !0 && this._trigger("change", {
-     oldValue: i,
-     newValue: o
-    }), this._setDataVal(o), this;
-   },
-   destroy: function() {
-    this._removeSliderEventHandlers(), this.sliderElem.parentNode.removeChild(this.sliderElem), 
-    this.element.style.display = "", this._cleanUpEventCallbacksMap(), this.element.removeAttribute("data"), 
-    e && (this._unbindJQueryEventHandlers(), this.$element.removeData("slider"));
-   },
-   disable: function() {
-    return this.options.enabled = !1, this.handle1.removeAttribute("tabindex"), this.handle2.removeAttribute("tabindex"), 
-    this._addClass(this.sliderElem, "slider-disabled"), this._trigger("slideDisabled"), 
-    this;
-   },
-   enable: function() {
-    return this.options.enabled = !0, this.handle1.setAttribute("tabindex", 0), this.handle2.setAttribute("tabindex", 0), 
-    this._removeClass(this.sliderElem, "slider-disabled"), this._trigger("slideEnabled"), 
-    this;
-   },
-   toggle: function() {
-    return this.options.enabled ? this.disable() : this.enable(), this;
-   },
-   isEnabled: function() {
-    return this.options.enabled;
-   },
-   on: function(e, t) {
-    return this._bindNonQueryEventHandler(e, t), this;
-   },
-   getAttribute: function(e) {
-    return e ? this.options[e] : this.options;
-   },
-   setAttribute: function(e, t) {
-    return this.options[e] = t, this;
-   },
-   refresh: function() {
-    return this._removeSliderEventHandlers(), n.call(this, this.element, this.options), 
-    e && e.data(this.element, "slider", this), this;
-   },
-   relayout: function() {
-    return this._layout(), this;
-   },
-   _removeSliderEventHandlers: function() {
-    this.handle1.removeEventListener("keydown", this.handle1Keydown, !1), this.handle1.removeEventListener("focus", this.showTooltip, !1), 
-    this.handle1.removeEventListener("blur", this.hideTooltip, !1), this.handle2.removeEventListener("keydown", this.handle2Keydown, !1), 
-    this.handle2.removeEventListener("focus", this.handle2Keydown, !1), this.handle2.removeEventListener("blur", this.handle2Keydown, !1), 
-    this.sliderElem.removeEventListener("mouseenter", this.showTooltip, !1), this.sliderElem.removeEventListener("mouseleave", this.hideTooltip, !1), 
-    this.sliderElem.removeEventListener("touchstart", this.mousedown, !1), this.sliderElem.removeEventListener("mousedown", this.mousedown, !1);
-   },
-   _bindNonQueryEventHandler: function(e, t) {
-    void 0 === this.eventToCallbackMap[e] && (this.eventToCallbackMap[e] = []), this.eventToCallbackMap[e].push(t);
-   },
-   _cleanUpEventCallbacksMap: function() {
-    for (var e = Object.keys(this.eventToCallbackMap), t = 0; t < e.length; t++) {
-     var n = e[t];
-     this.eventToCallbackMap[n] = null;
-    }
-   },
-   _showTooltip: function() {
-    this.options.tooltip_split === !1 ? this._addClass(this.tooltip, "in") : (this._addClass(this.tooltip_min, "in"), 
-    this._addClass(this.tooltip_max, "in")), this.over = !0;
-   },
-   _hideTooltip: function() {
-    this.inDrag === !1 && this.alwaysShowTooltip !== !0 && (this._removeClass(this.tooltip, "in"), 
-    this._removeClass(this.tooltip_min, "in"), this._removeClass(this.tooltip_max, "in")), 
-    this.over = !1;
-   },
-   _layout: function() {
-    var e;
-    if (e = this.options.reversed ? [ 100 - this.percentage[0], this.percentage[1] ] : [ this.percentage[0], this.percentage[1] ], 
-    this.handle1.style[this.stylePos] = e[0] + "%", this.handle2.style[this.stylePos] = e[1] + "%", 
-    Array.isArray(this.options.ticks) && this.options.ticks.length > 0) {
-     var t = Math.max.apply(Math, this.options.ticks), n = Math.min.apply(Math, this.options.ticks), i = "vertical" === this.options.orientation ? "height" : "width", r = "vertical" === this.options.orientation ? "marginTop" : "marginLeft", o = this.size / (this.options.ticks.length - 1);
-     if (this.tickLabelContainer) {
-      var a = 0;
-      if (0 === this.options.ticks_positions.length) this.tickLabelContainer.style[r] = -o / 2 + "px", 
-      a = this.tickLabelContainer.offsetHeight; else for (s = 0; s < this.tickLabelContainer.childNodes.length; s++) this.tickLabelContainer.childNodes[s].offsetHeight > a && (a = this.tickLabelContainer.childNodes[s].offsetHeight);
-      "horizontal" === this.options.orientation && (this.sliderElem.style.marginBottom = a + "px");
-     }
-     for (var s = 0; s < this.options.ticks.length; s++) {
-      var l = this.options.ticks_positions[s] || 100 * (this.options.ticks[s] - n) / (t - n);
-      this.ticks[s].style[this.stylePos] = l + "%", this._removeClass(this.ticks[s], "in-selection"), 
-      this.options.range ? l >= e[0] && l <= e[1] && this._addClass(this.ticks[s], "in-selection") : "after" === this.options.selection && l >= e[0] ? this._addClass(this.ticks[s], "in-selection") : "before" === this.options.selection && l <= e[0] && this._addClass(this.ticks[s], "in-selection"), 
-      this.tickLabels[s] && (this.tickLabels[s].style[i] = o + "px", void 0 !== this.options.ticks_positions[s] && (this.tickLabels[s].style.position = "absolute", 
-      this.tickLabels[s].style[this.stylePos] = this.options.ticks_positions[s] + "%", 
-      this.tickLabels[s].style[r] = -o / 2 + "px"));
-     }
-    }
-    if ("vertical" === this.options.orientation) this.trackLow.style.top = "0", this.trackLow.style.height = Math.min(e[0], e[1]) + "%", 
-    this.trackSelection.style.top = Math.min(e[0], e[1]) + "%", this.trackSelection.style.height = Math.abs(e[0] - e[1]) + "%", 
-    this.trackHigh.style.bottom = "0", this.trackHigh.style.height = 100 - Math.min(e[0], e[1]) - Math.abs(e[0] - e[1]) + "%"; else {
-     this.trackLow.style.left = "0", this.trackLow.style.width = Math.min(e[0], e[1]) + "%", 
-     this.trackSelection.style.left = Math.min(e[0], e[1]) + "%", this.trackSelection.style.width = Math.abs(e[0] - e[1]) + "%", 
-     this.trackHigh.style.right = "0", this.trackHigh.style.width = 100 - Math.min(e[0], e[1]) - Math.abs(e[0] - e[1]) + "%";
-     var c = this.tooltip_min.getBoundingClientRect(), u = this.tooltip_max.getBoundingClientRect();
-     c.right > u.left ? (this._removeClass(this.tooltip_max, "top"), this._addClass(this.tooltip_max, "bottom"), 
-     this.tooltip_max.style.top = "18px") : (this._removeClass(this.tooltip_max, "bottom"), 
-     this._addClass(this.tooltip_max, "top"), this.tooltip_max.style.top = this.tooltip_min.style.top);
-    }
-    var d;
-    if (this.options.range) {
-     d = this.options.formatter(this.options.value), this._setText(this.tooltipInner, d), 
-     this.tooltip.style[this.stylePos] = (e[1] + e[0]) / 2 + "%", "vertical" === this.options.orientation ? this._css(this.tooltip, "margin-top", -this.tooltip.offsetHeight / 2 + "px") : this._css(this.tooltip, "margin-left", -this.tooltip.offsetWidth / 2 + "px"), 
-     "vertical" === this.options.orientation ? this._css(this.tooltip, "margin-top", -this.tooltip.offsetHeight / 2 + "px") : this._css(this.tooltip, "margin-left", -this.tooltip.offsetWidth / 2 + "px");
-     var p = this.options.formatter(this.options.value[0]);
-     this._setText(this.tooltipInner_min, p);
-     var h = this.options.formatter(this.options.value[1]);
-     this._setText(this.tooltipInner_max, h), this.tooltip_min.style[this.stylePos] = e[0] + "%", 
-     "vertical" === this.options.orientation ? this._css(this.tooltip_min, "margin-top", -this.tooltip_min.offsetHeight / 2 + "px") : this._css(this.tooltip_min, "margin-left", -this.tooltip_min.offsetWidth / 2 + "px"), 
-     this.tooltip_max.style[this.stylePos] = e[1] + "%", "vertical" === this.options.orientation ? this._css(this.tooltip_max, "margin-top", -this.tooltip_max.offsetHeight / 2 + "px") : this._css(this.tooltip_max, "margin-left", -this.tooltip_max.offsetWidth / 2 + "px");
-    } else d = this.options.formatter(this.options.value[0]), this._setText(this.tooltipInner, d), 
-    this.tooltip.style[this.stylePos] = e[0] + "%", "vertical" === this.options.orientation ? this._css(this.tooltip, "margin-top", -this.tooltip.offsetHeight / 2 + "px") : this._css(this.tooltip, "margin-left", -this.tooltip.offsetWidth / 2 + "px");
-   },
-   _removeProperty: function(e, t) {
-    e.style.removeProperty ? e.style.removeProperty(t) : e.style.removeAttribute(t);
-   },
-   _mousedown: function(e) {
-    if (!this.options.enabled) return !1;
-    this.offset = this._offset(this.sliderElem), this.size = this.sliderElem[this.sizePos];
-    var t = this._getPercentage(e);
-    if (this.options.range) {
-     var n = Math.abs(this.percentage[0] - t), i = Math.abs(this.percentage[1] - t);
-     this.dragged = i > n ? 0 : 1;
-    } else this.dragged = 0;
-    this.percentage[this.dragged] = this.options.reversed ? 100 - t : t, this._layout(), 
-    this.touchCapable && (document.removeEventListener("touchmove", this.mousemove, !1), 
-    document.removeEventListener("touchend", this.mouseup, !1)), this.mousemove && document.removeEventListener("mousemove", this.mousemove, !1), 
-    this.mouseup && document.removeEventListener("mouseup", this.mouseup, !1), this.mousemove = this._mousemove.bind(this), 
-    this.mouseup = this._mouseup.bind(this), this.touchCapable && (document.addEventListener("touchmove", this.mousemove, !1), 
-    document.addEventListener("touchend", this.mouseup, !1)), document.addEventListener("mousemove", this.mousemove, !1), 
-    document.addEventListener("mouseup", this.mouseup, !1), this.inDrag = !0;
-    var r = this._calculateValue();
-    return this._trigger("slideStart", r), this._setDataVal(r), this.setValue(r, !1, !0), 
-    this._pauseEvent(e), this.options.focus && this._triggerFocusOnHandle(this.dragged), 
-    !0;
-   },
-   _triggerFocusOnHandle: function(e) {
-    0 === e && this.handle1.focus(), 1 === e && this.handle2.focus();
-   },
-   _keydown: function(e, t) {
-    if (!this.options.enabled) return !1;
-    var n;
-    switch (t.keyCode) {
-    case 37:
-    case 40:
-     n = -1;
-     break;
-
-    case 39:
-    case 38:
-     n = 1;
-    }
-    if (n) {
-     if (this.options.natural_arrow_keys) {
-      var i = "vertical" === this.options.orientation && !this.options.reversed, r = "horizontal" === this.options.orientation && this.options.reversed;
-      (i || r) && (n = -n);
-     }
-     var o = this.options.value[e] + n * this.options.step;
-     return this.options.range && (o = [ e ? this.options.value[0] : o, e ? o : this.options.value[1] ]), 
-     this._trigger("slideStart", o), this._setDataVal(o), this.setValue(o, !0, !0), this._trigger("slideStop", o), 
-     this._setDataVal(o), this._layout(), this._pauseEvent(t), !1;
-    }
-   },
-   _pauseEvent: function(e) {
-    e.stopPropagation && e.stopPropagation(), e.preventDefault && e.preventDefault(), 
-    e.cancelBubble = !0, e.returnValue = !1;
-   },
-   _mousemove: function(e) {
-    if (!this.options.enabled) return !1;
-    var t = this._getPercentage(e);
-    this._adjustPercentageForRangeSliders(t), this.percentage[this.dragged] = this.options.reversed ? 100 - t : t, 
-    this._layout();
-    var n = this._calculateValue(!0);
-    return this.setValue(n, !0, !0), !1;
-   },
-   _adjustPercentageForRangeSliders: function(e) {
-    this.options.range && (0 === this.dragged && this.percentage[1] < e ? (this.percentage[0] = this.percentage[1], 
-    this.dragged = 1) : 1 === this.dragged && this.percentage[0] > e && (this.percentage[1] = this.percentage[0], 
-    this.dragged = 0));
-   },
-   _mouseup: function() {
-    if (!this.options.enabled) return !1;
-    this.touchCapable && (document.removeEventListener("touchmove", this.mousemove, !1), 
-    document.removeEventListener("touchend", this.mouseup, !1)), document.removeEventListener("mousemove", this.mousemove, !1), 
-    document.removeEventListener("mouseup", this.mouseup, !1), this.inDrag = !1, this.over === !1 && this._hideTooltip();
-    var e = this._calculateValue(!0);
-    return this._layout(), this._trigger("slideStop", e), this._setDataVal(e), !1;
-   },
-   _calculateValue: function(e) {
-    var t;
-    if (this.options.range ? (t = [ this.options.min, this.options.max ], 0 !== this.percentage[0] && (t[0] = this._toValue(this.percentage[0]), 
-    t[0] = this._applyPrecision(t[0])), 100 !== this.percentage[1] && (t[1] = this._toValue(this.percentage[1]), 
-    t[1] = this._applyPrecision(t[1]))) : (t = this._toValue(this.percentage[0]), t = parseFloat(t), 
-    t = this._applyPrecision(t)), e) {
-     for (var n = [ t, 1 / 0 ], i = 0; i < this.options.ticks.length; i++) {
-      var r = Math.abs(this.options.ticks[i] - t);
-      r <= n[1] && (n = [ this.options.ticks[i], r ]);
-     }
-     if (n[1] <= this.options.ticks_snap_bounds) return n[0];
-    }
-    return t;
-   },
-   _applyPrecision: function(e) {
-    var t = this.options.precision || this._getNumDigitsAfterDecimalPlace(this.options.step);
-    return this._applyToFixedAndParseFloat(e, t);
-   },
-   _getNumDigitsAfterDecimalPlace: function(e) {
-    var t = ("" + e).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
-    return t ? Math.max(0, (t[1] ? t[1].length : 0) - (t[2] ? +t[2] : 0)) : 0;
-   },
-   _applyToFixedAndParseFloat: function(e, t) {
-    var n = e.toFixed(t);
-    return parseFloat(n);
-   },
-   _getPercentage: function(e) {
-    !this.touchCapable || "touchstart" !== e.type && "touchmove" !== e.type || (e = e.touches[0]);
-    var t = e[this.mousePos], n = this.offset[this.stylePos], i = t - n, r = i / this.size * 100;
-    return r = Math.round(r / this.percentage[2]) * this.percentage[2], Math.max(0, Math.min(100, r));
-   },
-   _validateInputValue: function(e) {
-    if ("number" == typeof e) return e;
-    if (Array.isArray(e)) return this._validateArray(e), e;
-    throw new Error(i.formatInvalidInputErrorMsg(e));
-   },
-   _validateArray: function(e) {
-    for (var t = 0; t < e.length; t++) {
-     var n = e[t];
-     if ("number" != typeof n) throw new Error(i.formatInvalidInputErrorMsg(n));
-    }
-   },
-   _setDataVal: function(e) {
-    var t = "value: '" + e + "'";
-    this.element.setAttribute("data", t), this.element.setAttribute("value", e), this.element.value = e;
-   },
-   _trigger: function(t, n) {
-    n = n || 0 === n ? n : void 0;
-    var i = this.eventToCallbackMap[t];
-    if (i && i.length) for (var r = 0; r < i.length; r++) {
-     var o = i[r];
-     o(n);
-    }
-    e && this._triggerJQueryEvent(t, n);
-   },
-   _triggerJQueryEvent: function(e, t) {
-    var n = {
-     type: e,
-     value: t
-    };
-    this.$element.trigger(n), this.$sliderElem.trigger(n);
-   },
-   _unbindJQueryEventHandlers: function() {
-    this.$element.off(), this.$sliderElem.off();
-   },
-   _setText: function(e, t) {
-    "undefined" != typeof e.innerText ? e.innerText = t : "undefined" != typeof e.textContent && (e.textContent = t);
-   },
-   _removeClass: function(e, t) {
-    for (var n = t.split(" "), i = e.className, r = 0; r < n.length; r++) {
-     var o = n[r], a = new RegExp("(?:\\s|^)" + o + "(?:\\s|$)");
-     i = i.replace(a, " ");
-    }
-    e.className = i.trim();
-   },
-   _addClass: function(e, t) {
-    for (var n = t.split(" "), i = e.className, r = 0; r < n.length; r++) {
-     var o = n[r], a = new RegExp("(?:\\s|^)" + o + "(?:\\s|$)"), s = a.test(i);
-     s || (i += " " + o);
-    }
-    e.className = i.trim();
-   },
-   _offsetLeft: function(e) {
-    for (var t = e.offsetLeft; (e = e.offsetParent) && !isNaN(e.offsetLeft); ) t += e.offsetLeft;
-    return t;
-   },
-   _offsetTop: function(e) {
-    for (var t = e.offsetTop; (e = e.offsetParent) && !isNaN(e.offsetTop); ) t += e.offsetTop;
-    return t;
-   },
-   _offset: function(e) {
-    return {
-     left: this._offsetLeft(e),
-     top: this._offsetTop(e)
-    };
-   },
-   _css: function(t, n, i) {
-    if (e) e.style(t, n, i); else {
-     var r = n.replace(/^-ms-/, "ms-").replace(/-([\da-z])/gi, function(e, t) {
-      return t.toUpperCase();
-     });
-     t.style[r] = i;
-    }
-   },
-   _toValue: function(e) {
-    return this.options.scale.toValue.apply(this, [ e ]);
-   },
-   _toPercentage: function(e) {
-    return this.options.scale.toPercentage.apply(this, [ e ]);
-   }
-  }, e) {
-   var o = e.fn.slider ? "bootstrapSlider" : "slider";
-   e.bridget(o, t);
-  }
- }(e), t;
 }), define("text!html/bodyEditor.html", [], function() {
- return '<div class="working-indicator"></div>\n<div class="layout-wrapper-l1">\n    <div class="layout-wrapper-l2">\n<nav class="navbar navbar-default">\n    <div class="container-fluid navbar-inner">\n        <div class="navbar-header">\n            <a class="navbar-brand settings-menu dropdown-toggle" href="#" data-toggle="dropdown" id="settings-menu" title="Menu">\n                <i class="icon-menu"></i>\n            </a>\n            <ul class="dropdown-menu" role="menu" aria-labelledby="settings-menu">\n                <li>\n                    <a href="paper" title="WriteOn Paper" role="menuitem"><i class="icon-doc-text"></i> Switch to Paper</a>\n                </li>\n                <li>\n                    <a href="#" title="Settings & Preferences" data-toggle="modal" data-target=".modal-settings" class="action-load-settings"><i class="icon-cog-alt"></i> Settings & Preferences</a>\n                </li>\n                <li>\n                    <a href="#" title="About WriteOn" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-info"></i> About</a>\n                </li>\n                <li>\n                    <a href="#" title="Get Help" id="button-help"><i class="icon-help-circled"></i> Help</a>\n                </li>\n                <li>\n                    <a href="/logout" title="Logout"><i class="icon-logout"></i> Logout</a>\n                </li>\n            </ul>\n        </div>\n        <div class="nav right-space pull-right"></div>\n        <div class="buttons-dropdown dropdown">\n            <div class="nav">\n                <button class="btn btn-default" data-toggle="dropdown" title="Show buttons">\n                    <i class="icon-th-large"></i>\n                </button>\n                <div class="dropdown-menu">\n                </div>\n            </div>\n        </div>\n        <div class="navbar-collapse main-navbar-collapse" id="main-navbar-collapse">\n            <ul class="nav navbar-nav navbar-pad left-buttons">\n                <li class="wmd-button-group1 btn-group hidden"></li>\n                <li class="wmd-button-group2 btn-group hidden-xs"></li>\n                <li class="wmd-button-group3 btn-group hidden"></li>\n                <li class="wmd-button-group4 btn-group hidden-xs hidden-sm">\n                    <a class="btn btn-default button-open-discussion" title="Comments Ctrl/Cmd+M"><i class="icon-comment-alt"></i></a>\n                </li>\n                <li class="wmd-button-group5 btn-group hidden-xs"></li>\n            </ul>\n            <ul class="nav navbar-nav navbar-right extension-buttons syncing-menu">\n                <li class="offline-status hide">\n                    <div class="text-danger">\n                        <a class="btn btn-danger" title="You are offline...It\'s a great time to write!"><i class="icon-attention-circled"></i></a>\n                    </div>\n                </li>\n                <li class="dropdown extension-buttons syncing-menu">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Sync <span class="caret"></span></a>\n                    <ul class="dropdown-menu sync-menu" role="menu">\n                        <li class="divider show-already-synchronized sync-divider"></li>\n                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-upload-cloud text-blue"></i> My.WriteOn</a>\n                        </li>\n                        <li><a href="#" data-toggle="modal" data-target=".modal-manage-sharing" class="action-reset-input"><i class="icon-link text-green"></i> Sharing</a>\n                        </li>\n                        <li><a href="#" class="action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdrive action-sync-export-dialog-gdrive"><i class="icon-provider-gdrive"></i> Drive</a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i class="icon-provider-gdrive"></i> Drive<sup>2</sup></a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i class="icon-provider-gdrive"></i> Drive<sup>3</sup></a>\n                        </li>\n                    </ul>\n                </li>\n                <li class="dropdown extension-buttons publishing-menu">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Publish <span class="caret"></span></a>\n                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">\n                        <li class="divider show-already-published publish-divider"></li>\n                    </ul>\n                </li>\n                <li class="dropdown download-menu hidden-xs">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Download <span class="caret"></span></a>\n                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">\n                        <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>\n                        </li>\n                        <li><a class="action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>\n                        </li>\n                        <li><a class="action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>\n                        </li>\n                    </ul>\n                </li>\n                <li class="dropdown story-menu">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-docs text-blue"></i> <span class="caret"></span></a>\n                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">\n                        <li><a href="#" class="action-create-file"><i class="icon-file text-blue"></i> Create New Story</a>\n                        </li>\n                        <li><a href="#" class="file" data-toggle="modal" data-target=".modal-document-manager"><i class="icon-layers text-yellow"></i> Organize Stories</a>\n                        </li>\n                        <li class="divider"></li>\n                        <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> <strong>Import Stories</strong></a>\n                        </li>\n                        <li class="divider"></li>\n                        <li><a href="#" class="file action-sync-import-dialog-mywriteon hide"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a>\n                        </li>\n                        <li><a href="#" class="file action-sync-import-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>\n                        </li>\n                        <li><a href="#" class="file submenu-sync-gdrive action-sync-import-gdrive"><i class="icon-provider-gdrive"></i> Google Drive</a>\n                        </li>\n                        <li><a href="#" class="file submenu-sync-gdrivesec action-sync-import-gdrivesec"><i class="icon-provider-gdrive"></i> Google Drive<sup>2</sup></a>\n                        </li>\n                        <li><a href="#" class="file submenu-sync-gdriveter action-sync-import-gdriveter"><i class="icon-provider-gdrive"></i> Google Drive<sup>3</sup></a>\n                        </li>\n                        <li><a data-toggle="modal" data-target=".modal-import-url" class="file action-reset-input" href="#" title="Import from URL"><i class="icon-globe text-green"></i> Import URL</a>\n                        </li>\n                        <li><a data-toggle="modal" title="Import from disk" data-target=".modal-import-harddrive-markdown" class="file action-reset-input" href="#"><i class="icon-hdd text-orange"></i> Import from disk</a>\n                        </li>\n                        <li>\n                            <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input"> <i class="icon-paste"></i>Import HTML</a>\n                        </li>\n                    </ul>\n                </li>\n\n            </ul>\n            <form class="navbar-form navbar-right title-container" role="search">\n                <div class="form-group">\n                    <a class="btn btn-default file-title-navbar" href="#" title="Rename story"></a>\n                </div>\n                <div class="form-group input-file-title-container">\n                    <input type="text" class="col-sm-4 form-control hide input-file-title" placeholder="Story title" />\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n        <div class="layout-wrapper-l3">\n            <pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>\n            <div class="preview-panel">\n                <div class="layout-resizer layout-resizer-preview"></div>\n                <div class="layout-toggler layout-toggler-navbar btn btn-default" title="Toggle navigation bar"><i class="icon-resize-full"></i>\n                </div>\n                <div class="layout-toggler layout-toggler-preview btn btn-default open" title="Toggle preview"><i class="icon-none"></i>\n                </div>\n                <div class="preview-container">\n                    <div id="preview-contents">\n                        <div id="wmd-preview" class="preview-content"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="extension-preview-buttons">\n            <div class="btn-group drag-me" title="Drag me!">\n                <i class="icon-ellipsis-vert"></i>\n            </div>\n        </div>\n    </div>\n    <div id="wmd-button-bar" class="hide"></div>\n    <div class="menu-panel">\n        <button class="btn toggle-button hide" title="Menu">\n            <i class="icon-menu"></i>\n        </button>\n        <div class="panel-content">\n            <div class="list-group">\n                <a href="paper" title="WriteOn Paper" class="list-group-item">\n                    <i class="icon-doc-text"></i> WriteOn Paper\n                </a>\n            </div>\n            <div class="list-group">\n                <a href="#" data-toggle="collapse" data-target=".collapse-synchronize" class="list-group-item hide">\n                    <div><i class="icon-refresh"></i> Synchronize</div>\n                    <small>Save, share, collaborate in the Cloud</small>\n                </a>\n                <div class="sub-menu collapse collapse-synchronize clearfix">\n\n                </div>\n                <a href="#" data-toggle="collapse" data-target=".collapse-publish-on" class="list-group-item hide">\n                    <div><i class="icon-print"></i>Publish</div>\n                    <small>Publish to the web</small>\n                </a>\n                <div class="sub-menu collapse collapse-publish-on clearfix">\n\n                </div>\n                <a href="#" data-toggle="collapse" data-target=".collapse-export-on" class="list-group-item">\n                    <div><i class="icon-download"></i>Download</div>\n                    <small>Download stories for offline use</small>\n                </a>\n                <div class="sub-menu collapse collapse-export-on clearfix">\n                    <ul class="nav">\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-pdf" href="#" title="Download PDF file"><i class="icon-file"></i> PDF </a>\n                        </li>\n                    </ul>\n                </div>\n                <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input list-group-item hide">\n                    <div><i class="icon-paste"></i>Convert</div>\n                    <small>Convert HTML to Markdown</small>\n                </a>\n                <a href="#" data-toggle="modal" data-target=".modal-settings" class="action-load-settings list-group-item">\n                    <div><i class="icon-cog-alt"></i>Settings</div>\n                    <small>Settings, extenions & utilities</small>\n                </a>\n            </div>\n            <ul class="nav">\n                <li><a href="#" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-help-circled"></i> About</a>\n                </li>\n                <li><a href="/logout"><i class="icon-logout"></i> Logout</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n    <div class="document-panel">\n        <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">\n            <i class="icon-folder-open"></i>\n        </button>\n        <div class="search-bar clearfix">\n            <ul class="nav hide">\n                <li><a href="#" class="action-remove-file-confirm"><i class="icon-trash text-red"></i> Delete this story</a>\n                </li>\n            </ul>\n            <div class="input-group">\n                <span class="input-group-addon"><i class="icon-search"></i></span>\n                <input type="text" class="form-control" placeholder="Find story" />\n            </div>\n        </div>\n        <div class="panel-content">\n            <div class="list-group document-list"></div>\n            <div class="list-group document-list-filtered hide"></div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-document-manager">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Organize stories</h2>\n            </div>\n            <div class="modal-body">\n                <div></div>\n<nav class="navbar navbar-inverse document-list">\n    <div class="container-fluid">\n        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">\n            <ul class="nav navbar-nav">\n                <li class="active"><a href="#"><i class="icon-file"></i> <span class="document-count"></span></a>\n                </li>\n                <li><a href="#"><i class="icon-folder"></i> <span class="folder-count"></span></a>\n                </li>\n                <li class="dropdown">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="icon-check"></i> Actions <span class="caret"></span></a>\n                    <ul class="dropdown-menu" role="menu">\n                        <li><a href="#" class="action-select-all"><i class="icon-check"></i> Select all</a>\n                        </li>\n                        <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>\n                        </li>\n                        <li class="divider"></li>\n                        <li><a href="#" class="action-move-items"><i class="icon-forward"></i> Move to folder</a>\n                        </li>\n                        <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n            <ul class="nav navbar-nav navbar-right">\n                <li>\n                    <a href="#" class="action-create-folder"> <i class="icon-folder"></i> New Folder</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n</nav>\n                <div class="panel-group document-list" id="accordion" role="tablist" aria-multiselectable="true"></div>\n                <p class="confirm-delete hide">The following stories will be deleted locally:</p>\n                <p class="choose-folder hide">Please choose a destination folder:\n                </p>\n                <div class="panel-group selected-document-list hide"></div>\n                <div class="panel-group select-folder-list hide"></div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default confirm-delete choose-folder action-cancel hide">Cancel</a>\n                <a href="#" class="btn btn-danger confirm-delete action-delete-items-confirm hide">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-insert-link">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Hyperlink</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide the link URL and an optional title:</p>\n                <div class="input-group">\n                    <span class="input-group-addon"><i class="icon-globe"></i></span>\n                    <input id="input-insert-link" type="text" class="col-sm-5 form-control" placeholder=\'http://example.com/ "optional title"\' />\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-insert-link" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-insert-image">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Image</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide the image URL and an optional title:</p>\n                <div class="input-group">\n                    <span class="input-group-addon"><i class="icon-picture"></i></span>\n                    <input id="input-insert-image" type="text" class="col-sm-5 form-control" placeholder=\'http://example.com/image.jpg "optional title"\' />\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default pull-left action-import-image-gplus" data-dismiss="modal"><i class="icon-provider-gplus"></i> Import\nfrom Google+</a>  <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>  <a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-image">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Google+ image import</h2>\n            </div>\n            <div class="modal-body">\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <div class="col-sm-7">\n                            <img>\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label" for="input-import-image-title">Title (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-import-image-title" placeholder="Image title" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label" for="input-import-image-size">Size limit (optional)</label>\n                        <div class="col-sm-7 form-inline">\n                            <input type="text" id="input-import-image-size" placeholder="0" class="col-sm-3 form-control">px\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-import-image" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-remove-file-confirm">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Delete</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    Are you sure you want to delete "<span class="file-title"></span>"?\n                </p>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>Note:</b> It won\'t delete the file on synchronized locations.</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-danger action-remove-file" data-dismiss="modal">Delete</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-url">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Import from URL</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide a link to a Markdown formatted story (<code>.md</code> or <code>.markdown</code> extension).</p>\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <label class="col-sm-3 control-label" for="input-import-url">URL</label>\n                        <div class="col-sm-8">\n                            <input type="text" id="input-import-url" placeholder="http://my-awesome.com/story.md" class="form-control">\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-import-url">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-harddrive-markdown">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Import from disk</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please select your Markdown files here (<code>.md</code> or <code>.markdown</code> extension):</p>\n                <p>\n                    <input type="file" id="input-file-import-harddrive-markdown" multiple class="form-control" />\n                </p>\n                <p>Or drag and drop your Markdown files here:</p>\n                <p id="dropzone-import-harddrive-markdown" class="drop-zone">Drop files here</p>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-harddrive-html">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Convert HTML to Markdown</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please select your HTML files here:</p>\n                <p>\n                    <input type="file" id="input-file-import-harddrive-html" multiple class="form-control" />\n                </p>\n                <p>Or drag and drop your HTML files here:</p>\n                <p id="dropzone-import-harddrive-html" class="drop-zone">Drop files here</p>\n                <p>Or insert your HTML code here:</p>\n                <textarea id="input-convert-html" class="form-control prettyprint linenums lang-html"></textarea>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>  <a href="#" class="btn btn-primary action-convert-html" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-upload-gdrive">\n</div>\n<div class="modal fade modal-upload-gdrivesec">\n</div>\n<div class="modal fade modal-upload-gdriveter">\n</div>\n<div class="modal fade modal-autosync-gdrive">\n</div>\n<div class="modal fade modal-autosync-gdrivesec">\n</div>\n<div class="modal fade modal-autosync-gdriveter">\n</div>\n<div class="modal fade modal-upload-dropbox">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Save to Dropbox</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    This will save "<span class="file-title"></span>" to your <i class="icon-provider-dropbox"></i>\n                    <code>Dropbox</code>\n                    account and keep it synchronized.\n                </p>\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <label class="col-sm-3 control-label" for="input-sync-export-dropbox-path">File path</label>\n                        <div class="col-sm-8">\n                            <input type="text" id="input-sync-export-dropbox-path" placeholder="/path/to/My Story.md" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                </div>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <b>Note:</b>\n                    <ul>\n                        <li>Dropbox file path does not depend on story title.</li>\n                        <li>The title of your story will not be synchronized.</li>\n                        <li>Destination folder must exist.</li>\n                        <li>Any existing file at this location will be overwritten.</li>\n                    </ul>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-dropbox">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-download-mywriteon">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Open on My.WriteOn</h2>\n                <div class="form-horizontal list-mode">\n                    <br>\n                    <div class="form-group form-inline">\n                        <label for="input-sync-import-mywriteon-tag" class="col-sm-3 control-label">Filter by tag</label>\n                        <select id="input-sync-import-mywriteon-tag" class="col-sm-4 form-control">\n                        </select>\n                        <span class="col-sm-5">\n<a class="btn btn-link action-add-tag"><i class="icon-tag"></i> Add\n</a>\n<a class="btn btn-link action-remove-tag"><i class="icon-tag"></i> Remove\n</a>\n</span>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-body">\n                <p class="msg-default-mywriteon alert alert-warning">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <i class="icon-attention"></i>  <b>Careful:</b>\n                    This is Beta software, and you\'re using our public My.WriteOn instance.\n                    <b>That means anybody can open, edit and delete these stories.</b>\n                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">\u2665</span>\n                </p>\n                <div class="form-horizontal byid-mode">\n                    <div class="form-group">\n                        <label for="input-sync-import-mywriteon-documentid" class="col-sm-3 control-label">Story ID\n                        </label>\n                        <div class="col-sm-9">\n                            <input id="input-sync-import-mywriteon-documentid" class="form-control" placeholder="DocumentID">\n                            <span class="help-block">Multiple IDs can be provided (space separated)</span>\n                        </div>\n                    </div>\n                </div>\n                <ul class="list-mode nav nav-pills">\n                    <li class="pull-right dropdown"><a href="#" data-toggle="dropdown"><i class="icon-check"></i> Selection\n<b class="caret"></b></a>\n                        <ul class="dropdown-menu">\n                            <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>\n                            </li>\n                            <li class="divider"></li>\n                            <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>\n                            </li>\n                        </ul>\n                    </li>\n                </ul>\n                <p class="list-mode">\n                </p>\n                <div class="list-group document-list list-mode"></div>\n                <div class="list-mode text-center">\n                    <div class="please-wait"><b>Please wait...</b>\n                    </div>\n                    <div class="no-document"><b>No story.</b>\n                    </div>\n                    <button class="more-documents btn btn-link"><i class="icon-angle-double-down"></i> More stories</button>\n                </div>\n                <p class="delete-mode hide">The following stories will be removed from WriteOn:</p>\n                <div class="delete-mode list-group selected-document-list hide"></div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default pull-left list-mode action-byid-mode"><i class="icon-folder-open-empty"></i> Open by ID...</a>\n                <a href="#" class="btn btn-default delete-mode action-cancel hide">Cancel</a>\n                <a href="#" class="btn btn-primary delete-mode action-delete-items-confirm hide">Delete</a>\n                <a href="#" class="btn btn-default byid-mode action-cancel">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon byid-mode">Open</a>\n                <a href="#" class="btn btn-default list-mode" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon list-mode">Open</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-upload-mywriteon">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Save to My.WriteOn</h2>\n            </div>\n            <div class="modal-body">\n                <p class="msg-default-mywriteon alert alert-warning hide">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <i class="icon-attention"></i>  <b>Careful:</b>\n                    This is Beta software, and you\'re using our public My.WriteOn instance.\n                    <b>That means anybody can open, edit and delete your stories - and vise versa.</b>\n                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">\u2665</span>\n                </p>\n                <p>\n                    This will save "<span class="file-title"></span>" to My.WriteOn <sup class="text-danger">Beta</sup> and keep it synchronized.\n                </p>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>Tip:</b> You can use a YAML front matter to specify tags for your story:</p>\n                    <code class="panel">\n					---<br />\n					tags: tag1, tag2, tag3<br />\n					published: true<br />\n					---\n					</code>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-mywriteon">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-sync">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Synchronization</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    "<span class="file-title"></span>" is synchronized in the following location(s):\n                </p>\n                <div class="sync-list"></div>\n                <blockquote>\n                    <p><b>Hey There:</b> Removing a synchronized location will not delete the local story.\n                    </p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-publish">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">\nPublish on <span class="publish-provider-name"></span>\n</h2>\n            </div>\n            <div class="modal-body">\n                <div class="form-horizontal">\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-host">Host</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ssh-host" placeholder="hostname.or.ip" class="form-control"> <span class="help-block"> Host must be accessible publicly,\nunless you\'re hosting your own WriteOn instance.\n</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-port">Port (optional)\n                        </label>\n                        <div class="col-sm-2">\n                            <input type="text" id="input-publish-ssh-port" placeholder="22" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-username">Username</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ssh-username" placeholder="username" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-password">Password</label>\n                        <div class="col-sm-7">\n                            <input type="password" id="input-publish-ssh-password" placeholder="password" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-github-repo">Repository</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-github-repo" placeholder="Repository name or URL" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-github-branch">Branch</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-github-branch" placeholder="branch-name" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-file-path">File path</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-file-path" placeholder="path/to/file.md" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-filename">Filename</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-filename" placeholder="filename" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-gist-id">Existing ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gist-id" placeholder="GistID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-gist-public">Public</label>\n                        <div class="col-sm-7">\n                            <div class="checkbox">\n                                <input type="checkbox" id="input-publish-gist-public" checked="checked" />\n                            </div>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ghost">\n                        <label class="col-sm-4 control-label" for="input-publish-ghost-url">Ghost URL</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ghost-url" placeholder="http://example.ghost.org/" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-blogger modal-publish-bloggerpage">\n                        <label class="col-sm-4 control-label" for="input-publish-blogger-url">Blog URL</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-blogger-url" placeholder="http://example.blogger.com/" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-tumblr">\n                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">Blog hostname</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-tumblr-hostname" placeholder="example.tumblr.com" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-wordpress">\n                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">WordPress site</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-wordpress-site" placeholder="example.wordpress.com" class="form-control">\n                            <span class="help-block"> <a target="_blank" href="http://jetpack.me/">Jetpack plugin</a> is required for\nself-hosted sites.\n</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">\n                        <label class="col-sm-4 control-label" for="input-publish-postid">Update existing post ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-postid" placeholder="PostID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-bloggerpage">\n                        <label class="col-sm-4 control-label" for="input-publish-pageid">Update existing page ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-pageid" placeholder="PageID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-dropbox">\n                        <label class="col-sm-4 control-label" for="input-publish-dropbox-path">File path</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-dropbox-path" placeholder="/path/to/My Story.html" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gdrive">\n                        <label class="col-sm-4 control-label" for="input-publish-gdrive-fileid">File ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gdrive-fileid" placeholder="FileID" class="form-control"> <span class="help-block">If no file ID is supplied, a new file\nwill be created in your Google Drive root folder. You can move\nthe file afterwards within Google Drive.</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gdrive">\n                        <label class="col-sm-4 control-label" for="input-publish-gdrive-filename">Force filename (optional)\n                        </label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gdrive-filename" placeholder="Filename" class="form-control"> <span class="help-block">If no file name is supplied, the\nstory title will be used.</span>\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label">Format</label>\n                        <div class="col-sm-7">\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="markdown">Markdown\n                                </label>\n                            </div>\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="html">HTML\n                                </label>\n                            </div>\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="template">Template\n                                </label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="collapse publish-custom-template-collapse">\n                        <div class="form-group">\n                            <div class="col-sm-4"></div>\n                            <div class="col-sm-7">\n                                <div class="checkbox">\n                                    <label>\n                                        <input type="checkbox" id="checkbox-publish-custom-template">Custom template\n                                    </label> <a href="#" class="tooltip-template">(?)</a>\n                                </div>\n                            </div>\n                        </div>\n                        <div class="form-group">\n                            <div class="col-sm-4"></div>\n                            <div class="col-sm-7">\n                                <textarea class="form-control" id="textarea-publish-custom-template"></textarea>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <blockquote class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress alert alert-info">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n					<p><b>Tip:</b> You can use a YAML front matter to specify the title and the tags/labels of your published story.</p>\n                    <p class="panel"><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.\n						<br /> <code>\n						---<br />\n						title: My Published Title\n						tags: tag1, tag2, tag3<br />\n						published: true<br />\n						date: YYYY-MM-DD HH:MM:SS +/-TTTT<br />\n						---</code>\n					</p>\n                </blockquote>\n                <blockquote class="front-matter-info modal-publish-bloggerpage alert alert-info">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n					<p><b>Tip:</b> You can use a YAML front matter to specify the title and the tags/labels of your published story.</p>\n                    <p class="panel"><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.\n						<br /> <code>\n						---<br />\n						title: My Published Title\n						tags: tag1, tag2, tag3<br />\n						published: true<br />\n						date: YYYY-MM-DD HH:MM:SS +/-TTTT<br />\n						---</code>\n					</p>\n                </blockquote>\n                <blockquote class="url-info modal-publish-bloggerpage alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>About URL:</b> For newly created page , Blogger API will append a generated number to the url like <code>about-me-1234.html</code>, if you deeply care about your URL naming, you should first create the page on Blogger and then update them with WriteOn specifying the pageId when publishing.\n                    </p>\n                    <p><b>About page visibility:</b> Blogger API does not respect published status for pages.When publishing the page to Blogger, the page will be <strong>live</strong> but not added to the page listing. You should arrange the page listing from Blogger dashboard.\n                    </p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-process-publish">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-publish">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Publication</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    "<span class="file-title"></span>" is published on the following location(s):\n                </p>\n                <div class="publish-list"></div>\n                <blockquote>\n                    <p><b>Stating the Obvious?</b> Maybe, but removing a published location will not delete the actual post out in the wild.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-sharing">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Sharing</h2>\n            </div>\n            <div class="modal-body">\n                <p>To <strong>collaborate</strong> on "<span class="file-title"></span>" with other WriteOn users, share this link(s):</p>\n                <p class="msg-no-share-editor alert alert-info" role="alert"><b>No sharing link yet.</b> To collaborate on this story, just\n                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn</a>\n                </p>\n                <div class="share-editor-list"></div>\n                <hr>\n                <p> To <strong>share</strong> a public, read-only version of "<span class="file-title"></span>" using the following link(s):</p>\n                <p class="msg-no-share-viewer alert alert-info" role="alert"><b>No sharing link yet!</b> To share a read-only version of this story, just \n                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn.</a></p>\n                <div class="share-viewer-list"></div>\n                <blockquote>\n                    <p><b>Did You Know?</b> You can open any <code>.md</code> or <code>.markdown</code> URL using the <i>WriteOn Paper</i> like so: \n                        <a href="paper#!url=https://raw.githubusercontent.com/github/markup/master/README.md" title="Sharing example">\n                            <code>/paper#!url=[your-url-here]</code></a>.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-settings">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Settings</h2>\n            </div>\n            <div class="modal-body">\n            <div class="col-md-3 modal-nav">\n                <ul class="nav nav-tabs nav-stacked">\n                    <li class="active"><a class="action-load-settings" href="#tabpane-settings-basic" data-toggle="tab"><i class="icon-cog"></i> Basic</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-advanced" data-toggle="tab"><i class="icon-tasks"></i> Advanced</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-permissions" data-toggle="tab"><i class="icon-lock"></i> Permissions</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-templates" data-toggle="tab"><i class="icon-list-alt"></i> Templates</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-extensions" data-toggle="tab"><i class="icon-puzzle"></i> Extensions</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab"><i class="icon-briefcase"></i> Utilities</a>\n                    </li>\n            </ul>\n            </div>\n            \n            \n                <div class="col-md-9 tab-content clearfix" data-spy="scroll">\n                    <div class="tab-pane active" id="tabpane-settings-basic">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Layout orientation</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-layout-orientation" value="horizontal">Horizontal\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-layout-orientation" value="vertical">Vertical\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-theme">Theme</label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-theme" class="form-control">\n                                    </select>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-5"></div>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-markdown-extra" />\n                                            <b>Markdown Extra/GitHub Flavored Markdown</b> syntax\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-markdown-mime-type">Markdown MIME type\n                                </label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-markdown-mime-type" class="form-control">\n                                        <option value="text/plain">text/plain</option>\n                                        <option value="text/x-markdown">text/x-markdown</option>\n                                    </select>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <div class="col-sm-5"></div>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-mathjax" />\n                                            <b>LaTeX mathematical expressions</b> using <code>$</code> and <code>$$</code> delimiters\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-gdrive-multiaccount">Google Drive multiple accounts\n                                </label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-gdrive-multiaccount" class="form-control">\n                                        <option value="1">1 account</option>\n                                        <option value="2">2 accounts</option>\n                                        <option value="3">3 accounts</option>\n                                    </select>\n                                    <span class="help-block">Once linked, you\'ll have to <a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab">Reset WriteOn</a> to change Google accounts.</span>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-advanced">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Edit mode</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-edit-mode" value="ltr">Left-To-Right\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-edit-mode" value="rtl">Right-To-Left\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Edit Pad\'s font style</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-editor-font-class" value="font-rich">Rich\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-editor-font-class" value="font-monospaced">Monospaced\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-font-size">Font size ratio</label>\n                                <div class="col-sm-7 form-inline slider-inline">\n                                    <input type="text" id="input-settings-font-size" class="form-control">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-max-width">Max width ratio</label>\n                                <div class="col-sm-7 form-inline slider-inline">\n                                    <input type="text" id="input-settings-max-width" class="form-control">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-cursor-focus">Cursor focus ratio</label>\n                                <div class="col-sm-7 form-inline slider-inline">\n                                    <input type="text" id="input-settings-cursor-focus" class="form-control">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-lazy-rendering">Lazy rendering <a href="#" class="tooltip-lazy-rendering">(?)</a>\n                                </label>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <input type="checkbox" id="input-settings-lazy-rendering" />\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-templates">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-4 control-label" for="textarea-settings-default-content">Backlink\n                                    <a href="#" class="tooltip-default-content">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-default-content" class="form-control sm"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-4 control-label" for="textarea-settings-publish-template">Default Template <a href="#" class="tooltip-template">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-publish-template" class="form-control lg"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-template">PDF Template <a href="#" class="tooltip-template">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-pdf-template" class="form-control"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-options">PDF options\n                                    <a href="#" class="tooltip-pdf-options">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-pdf-options" class="form-control"></textarea>\n                                </div>\n                            </div>                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-permissions">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-gdrive-full-access" />Allow WriteOn to open any story in Google Drive\n                                        </label> <span class="help-block">Existing authorization has to be revoked in\n<a href="https://www.google.com/settings/dashboard" target="_blank">Google Dashboard</a>\nfor this change to take effect.</span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-dropbox-full-access" />Allow WriteOn to open any story in Dropbox\n                                        </label> <span class="help-block">If unchecked, access will be restricted to folder\n<b>/Applications/WriteOn</b> for existing stories.</span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-github-full-access" />Allow WriteOn to access private repositories in GitHub\n                                        </label> <span class="help-block">Existing authorization has to be revoked in\n<a href="https://github.com/settings/applications" target="_blank">GitHub settings</a>\nfor this change to take effect.</span>\n                                    </div>\n                                </div>\n                            </div>                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-extensions">\n                        <div class="panel-group accordion-extensions"></div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-utils">\n                        <p>Some of these are quite powerful, and can result in the total loss of your data. </p>\n                        <div class="col-sm-5 tab-pane-button-container">\n                            <a href="#" class="btn btn-block btn-default action-welcome-file" data-dismiss="modal"><i class="icon-help-circled"></i> Load Welcome Guide</a>\n                            <a href="#" class="btn btn-block btn-default action-guide-file" data-dismiss="modal"><i class="icon-keyboard"></i> Load Syntax Guide</a>\n                            <a href="#" class="btn btn-block btn-default action-welcome-tour" data-dismiss="modal"><i class="icon-comment"></i> Welcome tour</a>\n                            <a target="_blank" href="recovery.html" class="btn btn-block btn-danger"><i class="icon-medkit"></i> WriteOn recovery</a>\n                        </div>\n                        <div class="col-sm-offset-1 col-sm-6 tab-pane-button-container">\n                            <a href="#" class="btn btn-block btn-default action-import-docs-settings"><i class="icon-cog-alt"></i> Import stories & settings</a>  \n                            <a href="#" class="btn btn-block btn-default action-export-docs-settings" data-dismiss="modal"><i class="icon-share"></i> Export stories & settings</a> \n                            <a href="#" class="btn btn-block btn-default action-default-settings" data-dismiss="modal"><i class="icon-wrench"></i> Load default settings</a>  \n                            <a href="#" class="btn btn-block btn-danger" data-dismiss="modal" data-toggle="modal" data-target=".modal-app-reset"><i class="icon-fire"></i> Reset application</a>  \n                            <input type="file" id="input-file-import-docs-settings" class="hide">\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-apply-settings" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-non-unique">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Ooops...</h2>\n            </div>\n            <div class="modal-body">\n                <p>WriteOn has stopped because another instance was running in the same browser or the local cache was disrupted.</p>\n                <blockquote>\n                    <p>If you want to reopen WriteOn, click on "Reload".\n                    </p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-redirect-confirm">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Redirection</h2>\n            </div>\n            <div class="modal-body">\n                <p class="redirect-msg"></p>\n                <blockquote>\n                    <p>Please click <b>OK</b> to proceed.</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a class="btn btn-primary action-redirect-confirm" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-app-reset">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Reset application</h2>\n            </div>\n            <div class="modal-body">\n                <p>This will delete all your local stories.</p>\n                <blockquote><b>Are you sure?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-app-reset" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-docs-settings">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Import stories and settings</h2>\n            </div>\n            <div class="modal-body">\n                <p>This will delete all existing local stories.</p>\n                <blockquote><b>Are you sure?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-import-docs-settings-confirm" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-add-google-drive-account">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Add Google Drive account</h2>\n            </div>\n            <div class="modal-body">\n                <p>To perform this request, you need to configure another Google Drive account in WriteOn.</p>\n                <blockquote><b>Do you want to proceed?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default action-remove-google-drive-state" data-dismiss="modal">No</a>\n                <a href="#" class="btn btn-primary action-add-google-drive-account" data-dismiss="modal">Yes</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-sponsor-only">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Sponsors only</h2>\n            </div>\n            <div class="modal-body">\n                <p>This feature is restricted to sponsors. Note that sponsoring WriteOn would cost you only $3/month.</p>\n                <p>To see how a PDF looks <a target="_blank" href="/Welcome%story.pdf">click here</a>.</p>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>Tip:</b> PDFs are fully customizable via Settings>Advanced>PDF template/options.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div id="dropboxjs" data-app-key="r3vgaee214zfvc7"></div>\n';
+ return '<div class="working-indicator"></div>\n<div class="layout-wrapper-l1">\n    <div class="layout-wrapper-l2">\n<nav class="navbar navbar-default">\n    <div class="container-fluid navbar-inner">\n        <div class="navbar-header">\n            <a class="navbar-brand settings-menu dropdown-toggle" href="#" data-toggle="dropdown" id="settings-menu" title="Menu">\n                <i class="icon-menu"></i>\n            </a>\n            <ul class="dropdown-menu" role="menu" aria-labelledby="settings-menu">\n                <li>\n                    <a href="paper" title="WriteOn Paper" role="menuitem"><i class="icon-doc-text"></i> Switch to Paper</a>\n                </li>\n                <li>\n                    <a href="#" title="Settings & Preferences" data-toggle="modal" data-target=".modal-settings" class="action-load-settings"><i class="icon-cog-alt"></i> Settings & Preferences</a>\n                </li>\n                <li>\n                    <a href="#" title="About WriteOn" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-info"></i> About</a>\n                </li>\n                <li>\n                    <a href="#" title="Get Help" id="button-help"><i class="icon-help-circled"></i> Help</a>\n                </li>\n                <li>\n                    <a href="/logout" title="Logout"><i class="icon-logout"></i> Logout</a>\n                </li>\n            </ul>\n        </div>\n        <div class="nav right-space pull-right"></div>\n        <div class="buttons-dropdown dropdown">\n            <div class="nav">\n                <button class="btn btn-default" data-toggle="dropdown" title="Show buttons">\n                    <i class="icon-th-large"></i>\n                </button>\n                <div class="dropdown-menu">\n                </div>\n            </div>\n        </div>\n        <div class="navbar-collapse main-navbar-collapse" id="main-navbar-collapse">\n            <ul class="nav navbar-nav navbar-pad left-buttons">\n                <li class="wmd-button-group1 btn-group hidden"></li>\n                <li class="wmd-button-group2 btn-group hidden-xs"></li>\n                <li class="wmd-button-group3 btn-group hidden"></li>\n                <li class="wmd-button-group4 btn-group hidden-xs hidden-sm">\n                    <a class="btn btn-default button-open-discussion" title="Comments Ctrl/Cmd+M"><i class="icon-comment-alt"></i></a>\n                </li>\n                <li class="wmd-button-group5 btn-group hidden-xs"></li>\n            </ul>\n            <ul class="nav navbar-nav navbar-right extension-buttons syncing-menu">\n                <li class="offline-status hide">\n                    <div class="text-danger">\n                        <a class="btn btn-danger" title="You are offline...It\'s a great time to write!"><i class="icon-attention-circled"></i></a>\n                    </div>\n                </li>\n                <li class="dropdown extension-buttons syncing-menu">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Sync <span class="caret"></span></a>\n                    <ul class="dropdown-menu sync-menu" role="menu">\n                        <li class="divider show-already-synchronized sync-divider"></li>\n                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-upload-cloud text-blue"></i> My.WriteOn</a>\n                        </li>\n                        <li><a href="#" data-toggle="modal" data-target=".modal-manage-sharing" class="action-reset-input"><i class="icon-link text-green"></i> Sharing</a>\n                        </li>\n                        <li><a href="#" class="action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdrive action-sync-export-dialog-gdrive"><i class="icon-provider-gdrive"></i> Drive</a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i class="icon-provider-gdrive"></i> Drive<sup>2</sup></a>\n                        </li>\n                        <li><a href="#" class="submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i class="icon-provider-gdrive"></i> Drive<sup>3</sup></a>\n                        </li>\n                    </ul>\n                </li>\n                <li class="dropdown extension-buttons publishing-menu">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Publish <span class="caret"></span></a>\n                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">\n                        <li class="divider show-already-published publish-divider"></li>\n                    </ul>\n                </li>\n                <li class="dropdown download-menu hidden-xs">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Download <span class="caret"></span></a>\n                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">\n                        <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>\n                        </li>\n                        <li><a class="action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>\n                        </li>\n                        <li><a class="action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>\n                        </li>\n                    </ul>\n                </li>\n                <li class="dropdown story-menu">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-docs text-blue"></i> <span class="caret"></span></a>\n                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">\n                        <li><a href="#" class="action-create-file"><i class="icon-file text-blue"></i> Create New Story</a>\n                        </li>\n                        <li><a href="#" class="file" data-toggle="modal" data-target=".modal-document-manager"><i class="icon-layers text-yellow"></i> Organize Stories</a>\n                        </li>\n                        <li class="divider"></li>\n                        <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> <strong>Import Stories</strong></a>\n                        </li>\n                        <li class="divider"></li>\n                        <li><a href="#" class="file action-sync-import-dialog-mywriteon hide"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a>\n                        </li>\n                        <li><a href="#" class="file action-sync-import-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>\n                        </li>\n                        <li><a href="#" class="file submenu-sync-gdrive action-sync-import-gdrive"><i class="icon-provider-gdrive"></i> Google Drive</a>\n                        </li>\n                        <li><a href="#" class="file submenu-sync-gdrivesec action-sync-import-gdrivesec"><i class="icon-provider-gdrive"></i> Google Drive<sup>2</sup></a>\n                        </li>\n                        <li><a href="#" class="file submenu-sync-gdriveter action-sync-import-gdriveter"><i class="icon-provider-gdrive"></i> Google Drive<sup>3</sup></a>\n                        </li>\n                        <li><a data-toggle="modal" data-target=".modal-import-url" class="file action-reset-input" href="#" title="Import from URL"><i class="icon-globe text-green"></i> Import URL</a>\n                        </li>\n                        <li><a data-toggle="modal" title="Import from disk" data-target=".modal-import-harddrive-markdown" class="file action-reset-input" href="#"><i class="icon-hdd text-orange"></i> Import from disk</a>\n                        </li>\n                        <li>\n                            <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input"> <i class="icon-paste"></i>Import HTML</a>\n                        </li>\n                    </ul>\n                </li>\n\n            </ul>\n            <form class="navbar-form navbar-right title-container" role="search">\n                <div class="form-group">\n                    <a class="btn btn-default file-title-navbar" href="#" title="Rename story"></a>\n                </div>\n                <div class="form-group input-file-title-container">\n                    <input type="text" class="col-sm-4 form-control hide input-file-title" placeholder="Story title" />\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n        <div class="layout-wrapper-l3">\n            <pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>\n            <div class="preview-panel">\n                <div class="layout-resizer layout-resizer-preview"></div>\n                <div class="layout-toggler layout-toggler-navbar btn btn-default" title="Toggle navigation bar"><i class="icon-resize-full"></i>\n                </div>\n                <div class="layout-toggler layout-toggler-preview btn btn-default open" title="Toggle preview"><i class="icon-none"></i>\n                </div>\n                <div class="preview-container">\n                    <div id="preview-contents">\n                        <div id="wmd-preview" class="preview-content"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="extension-preview-buttons">\n            <div class="btn-group drag-me" title="Drag me!">\n                <i class="icon-ellipsis-vert"></i>\n            </div>\n        </div>\n    </div>\n    <div id="wmd-button-bar" class="hide"></div>\n    <div class="menu-panel">\n        <button class="btn toggle-button hide" title="Menu">\n            <i class="icon-menu"></i>\n        </button>\n        <div class="panel-content">\n            <div class="list-group">\n                <a href="paper" title="WriteOn Paper" class="list-group-item">\n                    <i class="icon-doc-text"></i> WriteOn Paper\n                </a>\n            </div>\n            <div class="list-group">\n                <a href="#" data-toggle="collapse" data-target=".collapse-synchronize" class="list-group-item hide">\n                    <div><i class="icon-refresh"></i> Synchronize</div>\n                    <small>Save, share, collaborate in the Cloud</small>\n                </a>\n                <div class="sub-menu collapse collapse-synchronize clearfix">\n\n                </div>\n                <a href="#" data-toggle="collapse" data-target=".collapse-publish-on" class="list-group-item hide">\n                    <div><i class="icon-print"></i>Publish</div>\n                    <small>Publish to the web</small>\n                </a>\n                <div class="sub-menu collapse collapse-publish-on clearfix">\n\n                </div>\n                <a href="#" data-toggle="collapse" data-target=".collapse-export-on" class="list-group-item">\n                    <div><i class="icon-download"></i>Download</div>\n                    <small>Download stories for offline use</small>\n                </a>\n                <div class="sub-menu collapse collapse-export-on clearfix">\n                    <ul class="nav">\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>\n                        </li>\n                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-pdf" href="#" title="Download PDF file"><i class="icon-file"></i> PDF </a>\n                        </li>\n                    </ul>\n                </div>\n                <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input list-group-item hide">\n                    <div><i class="icon-paste"></i>Convert</div>\n                    <small>Convert HTML to Markdown</small>\n                </a>\n                <a href="#" data-toggle="modal" data-target=".modal-settings" class="action-load-settings list-group-item">\n                    <div><i class="icon-cog-alt"></i>Settings</div>\n                    <small>Settings, extenions & utilities</small>\n                </a>\n            </div>\n            <ul class="nav">\n                <li><a href="#" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-help-circled"></i> About</a>\n                </li>\n                <li><a href="/logout"><i class="icon-logout"></i> Logout</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n    <div class="document-panel">\n        <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">\n            <i class="icon-folder-open"></i>\n        </button>\n        <div class="search-bar clearfix">\n            <ul class="nav hide">\n                <li><a href="#" class="action-remove-file-confirm"><i class="icon-trash text-red"></i> Delete this story</a>\n                </li>\n            </ul>\n            <div class="input-group">\n                <span class="input-group-addon"><i class="icon-search"></i></span>\n                <input type="text" class="form-control" placeholder="Find story" />\n            </div>\n        </div>\n        <div class="panel-content">\n            <div class="list-group document-list"></div>\n            <div class="list-group document-list-filtered hide"></div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-document-manager">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Organize stories</h2>\n            </div>\n            <div class="modal-body">\n                <div></div>\n<nav class="navbar navbar-inverse document-list">\n    <div class="container-fluid">\n        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">\n            <ul class="nav navbar-nav">\n                <li class="active"><a href="#"><i class="icon-file"></i> <span class="document-count"></span></a>\n                </li>\n                <li><a href="#"><i class="icon-folder"></i> <span class="folder-count"></span></a>\n                </li>\n                <li class="dropdown">\n                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="icon-check"></i> Actions <span class="caret"></span></a>\n                    <ul class="dropdown-menu" role="menu">\n                        <li><a href="#" class="action-select-all"><i class="icon-check"></i> Select all</a>\n                        </li>\n                        <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>\n                        </li>\n                        <li class="divider"></li>\n                        <li><a href="#" class="action-move-items"><i class="icon-forward"></i> Move to folder</a>\n                        </li>\n                        <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>\n                        </li>\n                    </ul>\n                </li>\n            </ul>\n            <ul class="nav navbar-nav navbar-right">\n                <li>\n                    <a href="#" class="action-create-folder"> <i class="icon-folder"></i> New Folder</a>\n                </li>\n            </ul>\n        </div>\n    </div>\n</nav>\n                <div class="panel-group document-list" id="accordion" role="tablist" aria-multiselectable="true"></div>\n                <p class="confirm-delete hide">The following stories will be deleted locally:</p>\n                <p class="choose-folder hide">Please choose a destination folder:\n                </p>\n                <div class="panel-group selected-document-list hide"></div>\n                <div class="panel-group select-folder-list hide"></div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default confirm-delete choose-folder action-cancel hide">Cancel</a>\n                <a href="#" class="btn btn-danger confirm-delete action-delete-items-confirm hide">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-insert-link">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Hyperlink</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide the link URL and an optional title:</p>\n                <div class="input-group">\n                    <span class="input-group-addon"><i class="icon-globe"></i></span>\n                    <input id="input-insert-link" type="text" class="col-sm-5 form-control" placeholder=\'http://example.com/ "optional title"\' />\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-insert-link" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-insert-image">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Image</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide the image URL and an optional title:</p>\n                <div class="input-group">\n                    <span class="input-group-addon"><i class="icon-picture"></i></span>\n                    <input id="input-insert-image" type="text" class="col-sm-5 form-control" placeholder=\'http://example.com/image.jpg "optional title"\' />\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default pull-left action-import-image-gplus" data-dismiss="modal"><i class="icon-provider-gplus"></i> Import\nfrom Google+</a>  <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>  <a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-image">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Google+ image import</h2>\n            </div>\n            <div class="modal-body">\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <div class="col-sm-7">\n                            <img>\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label" for="input-import-image-title">Title (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-import-image-title" placeholder="Image title" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label" for="input-import-image-size">Size limit (optional)</label>\n                        <div class="col-sm-7 form-inline">\n                            <input type="text" id="input-import-image-size" placeholder="0" class="col-sm-3 form-control">px\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-import-image" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-remove-file-confirm">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Delete</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    Are you sure you want to delete "<span class="file-title"></span>"?\n                </p>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>Note:</b> It won\'t delete the file on synchronized locations.</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-danger action-remove-file" data-dismiss="modal">Delete</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-url">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Import from URL</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please provide a link to a Markdown formatted story (<code>.md</code> or <code>.markdown</code> extension).</p>\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <label class="col-sm-3 control-label" for="input-import-url">URL</label>\n                        <div class="col-sm-8">\n                            <input type="text" id="input-import-url" placeholder="http://my-awesome.com/story.md" class="form-control">\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-import-url">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-harddrive-markdown">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Import from disk</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please select your Markdown files here (<code>.md</code> or <code>.markdown</code> extension):</p>\n                <p>\n                    <input type="file" id="input-file-import-harddrive-markdown" multiple class="form-control" />\n                </p>\n                <p>Or drag and drop your Markdown files here:</p>\n                <p id="dropzone-import-harddrive-markdown" class="drop-zone">Drop files here</p>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-harddrive-html">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Convert HTML to Markdown</h2>\n            </div>\n            <div class="modal-body">\n                <p>Please select your HTML files here:</p>\n                <p>\n                    <input type="file" id="input-file-import-harddrive-html" multiple class="form-control" />\n                </p>\n                <p>Or drag and drop your HTML files here:</p>\n                <p id="dropzone-import-harddrive-html" class="drop-zone">Drop files here</p>\n                <p>Or insert your HTML code here:</p>\n                <textarea id="input-convert-html" class="form-control prettyprint linenums lang-html"></textarea>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>  <a href="#" class="btn btn-primary action-convert-html" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-upload-gdrive">\n</div>\n<div class="modal fade modal-upload-gdrivesec">\n</div>\n<div class="modal fade modal-upload-gdriveter">\n</div>\n<div class="modal fade modal-autosync-gdrive">\n</div>\n<div class="modal fade modal-autosync-gdrivesec">\n</div>\n<div class="modal fade modal-autosync-gdriveter">\n</div>\n<div class="modal fade modal-upload-dropbox">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Save to Dropbox</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    This will save "<span class="file-title"></span>" to your <i class="icon-provider-dropbox"></i>\n                    <code>Dropbox</code>\n                    account and keep it synchronized.\n                </p>\n                <div class="form-horizontal">\n                    <div class="form-group">\n                        <label class="col-sm-3 control-label" for="input-sync-export-dropbox-path">File path</label>\n                        <div class="col-sm-8">\n                            <input type="text" id="input-sync-export-dropbox-path" placeholder="/path/to/My Story.md" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                </div>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <b>Note:</b>\n                    <ul>\n                        <li>Dropbox file path does not depend on story title.</li>\n                        <li>The title of your story will not be synchronized.</li>\n                        <li>Destination folder must exist.</li>\n                        <li>Any existing file at this location will be overwritten.</li>\n                    </ul>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-dropbox">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-download-mywriteon">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Open on My.WriteOn</h2>\n                <div class="form-horizontal list-mode">\n                    <br>\n                    <div class="form-group form-inline">\n                        <label for="input-sync-import-mywriteon-tag" class="col-sm-3 control-label">Filter by tag</label>\n                        <select id="input-sync-import-mywriteon-tag" class="col-sm-4 form-control">\n                        </select>\n                        <span class="col-sm-5">\n<a class="btn btn-link action-add-tag"><i class="icon-tag"></i> Add\n</a>\n<a class="btn btn-link action-remove-tag"><i class="icon-tag"></i> Remove\n</a>\n</span>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-body">\n                <p class="msg-default-mywriteon alert alert-warning">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <i class="icon-attention"></i>  <b>Careful:</b>\n                    This is Beta software, and you\'re using our public My.WriteOn instance.\n                    <b>That means anybody can open, edit and delete these stories.</b>\n                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">\u2665</span>\n                </p>\n                <div class="form-horizontal byid-mode">\n                    <div class="form-group">\n                        <label for="input-sync-import-mywriteon-documentid" class="col-sm-3 control-label">Story ID\n                        </label>\n                        <div class="col-sm-9">\n                            <input id="input-sync-import-mywriteon-documentid" class="form-control" placeholder="DocumentID">\n                            <span class="help-block">Multiple IDs can be provided (space separated)</span>\n                        </div>\n                    </div>\n                </div>\n                <ul class="list-mode nav nav-pills">\n                    <li class="pull-right dropdown"><a href="#" data-toggle="dropdown"><i class="icon-check"></i> Selection\n<b class="caret"></b></a>\n                        <ul class="dropdown-menu">\n                            <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>\n                            </li>\n                            <li class="divider"></li>\n                            <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>\n                            </li>\n                        </ul>\n                    </li>\n                </ul>\n                <p class="list-mode">\n                </p>\n                <div class="list-group document-list list-mode"></div>\n                <div class="list-mode text-center">\n                    <div class="please-wait"><b>Please wait...</b>\n                    </div>\n                    <div class="no-document"><b>No story.</b>\n                    </div>\n                    <button class="more-documents btn btn-link"><i class="icon-angle-double-down"></i> More stories</button>\n                </div>\n                <p class="delete-mode hide">The following stories will be removed from WriteOn:</p>\n                <div class="delete-mode list-group selected-document-list hide"></div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default pull-left list-mode action-byid-mode"><i class="icon-folder-open-empty"></i> Open by ID...</a>\n                <a href="#" class="btn btn-default delete-mode action-cancel hide">Cancel</a>\n                <a href="#" class="btn btn-primary delete-mode action-delete-items-confirm hide">Delete</a>\n                <a href="#" class="btn btn-default byid-mode action-cancel">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon byid-mode">Open</a>\n                <a href="#" class="btn btn-default list-mode" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon list-mode">Open</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-upload-mywriteon">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Save to My.WriteOn</h2>\n            </div>\n            <div class="modal-body">\n                <p class="msg-default-mywriteon alert alert-warning hide">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <i class="icon-attention"></i>  <b>Careful:</b>\n                    This is Beta software, and you\'re using our public My.WriteOn instance.\n                    <b>That means anybody can open, edit and delete your stories - and vise versa.</b>\n                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">\u2665</span>\n                </p>\n                <p>\n                    This will save "<span class="file-title"></span>" to My.WriteOn <sup class="text-danger">Beta</sup> and keep it synchronized.\n                </p>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>Tip:</b> You can use a YAML front matter to specify tags for your story:</p>\n                    <code class="panel">\n					---<br />\n					tags: tag1, tag2, tag3<br />\n					published: true<br />\n					---\n					</code>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-mywriteon">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-sync">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Synchronization</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    "<span class="file-title"></span>" is synchronized in the following location(s):\n                </p>\n                <div class="sync-list"></div>\n                <blockquote>\n                    <p><b>Hey There:</b> Removing a synchronized location will not delete the local story.\n                    </p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-publish">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">\nPublish on <span class="publish-provider-name"></span>\n</h2>\n            </div>\n            <div class="modal-body">\n                <div class="form-horizontal">\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-host">Host</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ssh-host" placeholder="hostname.or.ip" class="form-control"> <span class="help-block"> Host must be accessible publicly,\nunless you\'re hosting your own WriteOn instance.\n</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-port">Port (optional)\n                        </label>\n                        <div class="col-sm-2">\n                            <input type="text" id="input-publish-ssh-port" placeholder="22" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-username">Username</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ssh-username" placeholder="username" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh">\n                        <label class="col-sm-4 control-label" for="input-publish-ssh-password">Password</label>\n                        <div class="col-sm-7">\n                            <input type="password" id="input-publish-ssh-password" placeholder="password" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-github-repo">Repository</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-github-repo" placeholder="Repository name or URL" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-github-branch">Branch</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-github-branch" placeholder="branch-name" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ssh modal-publish-github">\n                        <label class="col-sm-4 control-label" for="input-publish-file-path">File path</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-file-path" placeholder="path/to/file.md" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-filename">Filename</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-filename" placeholder="filename" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-gist-id">Existing ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gist-id" placeholder="GistID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gist">\n                        <label class="col-sm-4 control-label" for="input-publish-gist-public">Public</label>\n                        <div class="col-sm-7">\n                            <div class="checkbox">\n                                <input type="checkbox" id="input-publish-gist-public" checked="checked" />\n                            </div>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-ghost">\n                        <label class="col-sm-4 control-label" for="input-publish-ghost-url">Ghost URL</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-ghost-url" placeholder="http://example.ghost.org/" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-blogger modal-publish-bloggerpage">\n                        <label class="col-sm-4 control-label" for="input-publish-blogger-url">Blog URL</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-blogger-url" placeholder="http://example.blogger.com/" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-tumblr">\n                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">Blog hostname</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-tumblr-hostname" placeholder="example.tumblr.com" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-wordpress">\n                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">WordPress site</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-wordpress-site" placeholder="example.wordpress.com" class="form-control">\n                            <span class="help-block"> <a target="_blank" href="http://jetpack.me/">Jetpack plugin</a> is required for\nself-hosted sites.\n</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">\n                        <label class="col-sm-4 control-label" for="input-publish-postid">Update existing post ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-postid" placeholder="PostID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-bloggerpage">\n                        <label class="col-sm-4 control-label" for="input-publish-pageid">Update existing page ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-pageid" placeholder="PageID" class="form-control">\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-dropbox">\n                        <label class="col-sm-4 control-label" for="input-publish-dropbox-path">File path</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-dropbox-path" placeholder="/path/to/My Story.html" class="form-control">\n                            <span class="help-block"> File path is composed of both\nfolder and filename. </span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gdrive">\n                        <label class="col-sm-4 control-label" for="input-publish-gdrive-fileid">File ID (optional)</label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gdrive-fileid" placeholder="FileID" class="form-control"> <span class="help-block">If no file ID is supplied, a new file\nwill be created in your Google Drive root folder. You can move\nthe file afterwards within Google Drive.</span>\n                        </div>\n                    </div>\n                    <div class="form-group modal-publish-gdrive">\n                        <label class="col-sm-4 control-label" for="input-publish-gdrive-filename">Force filename (optional)\n                        </label>\n                        <div class="col-sm-7">\n                            <input type="text" id="input-publish-gdrive-filename" placeholder="Filename" class="form-control"> <span class="help-block">If no file name is supplied, the\nstory title will be used.</span>\n                        </div>\n                    </div>\n                    <div class="form-group">\n                        <label class="col-sm-4 control-label">Format</label>\n                        <div class="col-sm-7">\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="markdown">Markdown\n                                </label>\n                            </div>\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="html">HTML\n                                </label>\n                            </div>\n                            <div class="radio">\n                                <label>\n                                    <input type="radio" name="radio-publish-format" value="template">Template\n                                </label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="collapse publish-custom-template-collapse">\n                        <div class="form-group">\n                            <div class="col-sm-4"></div>\n                            <div class="col-sm-7">\n                                <div class="checkbox">\n                                    <label>\n                                        <input type="checkbox" id="checkbox-publish-custom-template">Custom template\n                                    </label> <a href="#" class="tooltip-template">(?)</a>\n                                </div>\n                            </div>\n                        </div>\n                        <div class="form-group">\n                            <div class="col-sm-4"></div>\n                            <div class="col-sm-7">\n                                <textarea class="form-control" id="textarea-publish-custom-template"></textarea>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <blockquote class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress alert alert-info">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n					<p><b>Tip:</b> You can use a YAML front matter to specify the title and the tags/labels of your published story.</p>\n                    <p class="panel"><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.\n						<br /> <code>\n						---<br />\n						title: My Published Title\n						tags: tag1, tag2, tag3<br />\n						published: true<br />\n						date: YYYY-MM-DD HH:MM:SS +/-TTTT<br />\n						---</code>\n					</p>\n                </blockquote>\n                <blockquote class="front-matter-info modal-publish-bloggerpage alert alert-info">\n                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n					<p><b>Tip:</b> You can use a YAML front matter to specify the title and the tags/labels of your published story.</p>\n                    <p class="panel"><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.\n						<br /> <code>\n						---<br />\n						title: My Published Title\n						tags: tag1, tag2, tag3<br />\n						published: true<br />\n						date: YYYY-MM-DD HH:MM:SS +/-TTTT<br />\n						---</code>\n					</p>\n                </blockquote>\n                <blockquote class="url-info modal-publish-bloggerpage alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>About URL:</b> For newly created page , Blogger API will append a generated number to the url like <code>about-me-1234.html</code>, if you deeply care about your URL naming, you should first create the page on Blogger and then update them with WriteOn specifying the pageId when publishing.\n                    </p>\n                    <p><b>About page visibility:</b> Blogger API does not respect published status for pages.When publishing the page to Blogger, the page will be <strong>live</strong> but not added to the page listing. You should arrange the page listing from Blogger dashboard.\n                    </p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" data-dismiss="modal" class="btn btn-primary action-process-publish">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-publish">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Publication</h2>\n            </div>\n            <div class="modal-body">\n                <p>\n                    "<span class="file-title"></span>" is published on the following location(s):\n                </p>\n                <div class="publish-list"></div>\n                <blockquote>\n                    <p><b>Stating the Obvious?</b> Maybe, but removing a published location will not delete the actual post out in the wild.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-manage-sharing">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Sharing</h2>\n            </div>\n            <div class="modal-body">\n                <p>To <strong>collaborate</strong> on "<span class="file-title"></span>" with other WriteOn users, share this link(s):</p>\n                <p class="msg-no-share-editor alert alert-info" role="alert"><b>No sharing link yet.</b> To collaborate on this story, just\n                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn</a>\n                </p>\n                <div class="share-editor-list"></div>\n                <hr>\n                <p> To <strong>share</strong> a public, read-only version of "<span class="file-title"></span>" using the following link(s):</p>\n                <p class="msg-no-share-viewer alert alert-info" role="alert"><b>No sharing link yet!</b> To share a read-only version of this story, just \n                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn.</a></p>\n                <div class="share-viewer-list"></div>\n                <blockquote>\n                    <p><b>Did You Know?</b> You can open any <code>.md</code> or <code>.markdown</code> URL using the <i>WriteOn Paper</i> like so: \n                        <a href="paper#!url=https://raw.githubusercontent.com/github/markup/master/README.md" title="Sharing example">\n                            <code>/paper#!url=[your-url-here]</code></a>.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-settings">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>\n                <h2 class="modal-title">Settings</h2>\n            </div>\n            <div class="modal-body">\n            <div class="col-md-3 modal-nav">\n                <ul class="nav nav-tabs nav-stacked">\n                    <li class="active"><a class="action-load-settings" href="#tabpane-settings-basic" data-toggle="tab"><i class="icon-cog"></i> Basic</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-advanced" data-toggle="tab"><i class="icon-tasks"></i> Advanced</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-permissions" data-toggle="tab"><i class="icon-lock"></i> Permissions</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-templates" data-toggle="tab"><i class="icon-list-alt"></i> Templates</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-extensions" data-toggle="tab"><i class="icon-puzzle"></i> Extensions</a>\n                    </li>\n                    <li><a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab"><i class="icon-briefcase"></i> Utilities</a>\n                    </li>\n            </ul>\n            </div>\n            \n            \n                <div class="col-md-9 tab-content clearfix" data-spy="scroll">\n                    <div class="tab-pane active" id="tabpane-settings-basic">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Layout orientation</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-layout-orientation" value="horizontal">Horizontal\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-layout-orientation" value="vertical">Vertical\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-theme">Theme</label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-theme" class="form-control">\n                                    </select>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-5"></div>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-markdown-extra" />\n                                            <b>Markdown Extra/GitHub Flavored Markdown</b> syntax\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-markdown-mime-type">Markdown MIME type\n                                </label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-markdown-mime-type" class="form-control">\n                                        <option value="text/plain">text/plain</option>\n                                        <option value="text/x-markdown">text/x-markdown</option>\n                                    </select>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <div class="col-sm-5"></div>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-mathjax" />\n                                            <b>LaTeX mathematical expressions</b> using <code>$</code> and <code>$$</code> delimiters\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-gdrive-multiaccount">Google Drive multiple accounts\n                                </label>\n                                <div class="col-sm-7">\n                                    <select id="input-settings-gdrive-multiaccount" class="form-control">\n                                        <option value="1">1 account</option>\n                                        <option value="2">2 accounts</option>\n                                        <option value="3">3 accounts</option>\n                                    </select>\n                                    <span class="help-block">Once linked, you\'ll have to <a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab">Reset WriteOn</a> to change Google accounts.</span>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-advanced">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Edit mode</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-edit-mode" value="ltr">Left-To-Right\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-edit-mode" value="rtl">Right-To-Left\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label">Edit Pad\'s font style</label>\n                                <div class="col-sm-7">\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-editor-font-class" value="font-rich">Rich\n                                        </label>\n                                    </div>\n                                    <div class="radio">\n                                        <label>\n                                            <input type="radio" name="radio-settings-editor-font-class" value="font-monospaced">Monospaced\n                                        </label>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-font-size">Font size ratio</label>\n                                <div class="col-sm-7 form-inline slider-inline">\n                                    <input type="text" id="input-settings-font-size" class="form-control" data-slider-min="0.1" data-slider-max="2" data-slider-step=".10" data-slider-value="">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-max-width">Max width ratio</label>\n                                <div class="col-sm-7 form-inline slider-inline">\n                                    <input type="text" id="input-settings-max-width" class="form-control" data-slider-min="0.1" data-slider-max="1" data-slider-step=".10" data-slider-value="">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-cursor-focus">Cursor focus ratio</label>\n                                <div class="col-sm-7 form-inline slider-inline">\n                                    <input type="text" id="input-settings-cursor-focus" class="form-control" data-slider-min="0.1" data-slider-max="1" data-slider-step=".1" data-slider-value="">\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-5 control-label" for="input-settings-lazy-rendering">Lazy rendering <a href="#" class="tooltip-lazy-rendering">(?)</a>\n                                </label>\n                                <div class="col-sm-7">\n                                    <div class="checkbox">\n                                        <input type="checkbox" id="input-settings-lazy-rendering" />\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-templates">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <label class="col-sm-4 control-label" for="textarea-settings-default-content">Backlink\n                                    <a href="#" class="tooltip-default-content">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-default-content" class="form-control sm"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <label class="col-sm-4 control-label" for="textarea-settings-publish-template">Default Template <a href="#" class="tooltip-template">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-publish-template" class="form-control lg"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-template">PDF Template <a href="#" class="tooltip-template">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-pdf-template" class="form-control"></textarea>\n                                </div>\n                            </div>\n                            <div class="form-group hide">\n                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-options">PDF options\n                                    <a href="#" class="tooltip-pdf-options">(?)</a>\n                                </label>\n                                <div class="col-sm-8">\n                                    <textarea id="textarea-settings-pdf-options" class="form-control"></textarea>\n                                </div>\n                            </div>                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-permissions">\n                        <div class="form-horizontal">\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-gdrive-full-access" />Allow WriteOn to open any story in Google Drive\n                                        </label> <span class="help-block">Existing authorization has to be revoked in\n<a href="https://www.google.com/settings/dashboard" target="_blank">Google Dashboard</a>\nfor this change to take effect.</span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-dropbox-full-access" />Allow WriteOn to open any story in Dropbox\n                                        </label> <span class="help-block">If unchecked, access will be restricted to folder\n<b>/Applications/WriteOn</b> for existing stories.</span>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class="form-group">\n                                <div class="col-sm-12">\n                                    <div class="checkbox">\n                                        <label>\n                                            <input type="checkbox" id="input-settings-github-full-access" />Allow WriteOn to access private repositories in GitHub\n                                        </label> <span class="help-block">Existing authorization has to be revoked in\n<a href="https://github.com/settings/applications" target="_blank">GitHub settings</a>\nfor this change to take effect.</span>\n                                    </div>\n                                </div>\n                            </div>                        </div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-extensions">\n                        <div class="panel-group accordion-extensions"></div>\n                    </div>\n                    <div class="tab-pane" id="tabpane-settings-utils">\n                        <p>Some of these are quite powerful, and can result in the total loss of your data. </p>\n                        <div class="col-sm-5 tab-pane-button-container">\n                            <a href="#" class="btn btn-block btn-default action-welcome-file" data-dismiss="modal"><i class="icon-help-circled"></i> Load Welcome Guide</a>\n                            <a href="#" class="btn btn-block btn-default action-guide-file" data-dismiss="modal"><i class="icon-keyboard"></i> Load Syntax Guide</a>\n                            <a href="#" class="btn btn-block btn-default action-welcome-tour" data-dismiss="modal"><i class="icon-comment"></i> Welcome tour</a>\n                            <a target="_blank" href="recovery.html" class="btn btn-block btn-success"><i class="icon-medkit"></i> WriteOn recovery</a>\n                        </div>\n                        <div class="col-sm-offset-1 col-sm-6 tab-pane-button-container">\n                            <a href="#" class="btn btn-block btn-default action-import-docs-settings"><i class="icon-cog-alt"></i> Import stories & settings</a>  \n                            <a href="#" class="btn btn-block btn-default action-export-docs-settings" data-dismiss="modal"><i class="icon-share"></i> Export stories & settings</a> \n                            <a href="#" class="btn btn-block btn-default action-default-settings" data-dismiss="modal"><i class="icon-wrench"></i> Load default settings</a>  \n                            <a href="#" class="btn btn-block btn-danger" data-dismiss="modal" data-toggle="modal" data-target=".modal-app-reset"><i class="icon-fire"></i> Reset WriteOn</a>  \n                            <input type="file" id="input-file-import-docs-settings" class="hide">\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-apply-settings" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-non-unique">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Ooops...</h2>\n            </div>\n            <div class="modal-body">\n                <p>WriteOn has stopped because another instance was running in the same browser or the local cache was disrupted.</p>\n                <blockquote>\n                    <p>If you want to reopen WriteOn, click on "Reload".\n                    </p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-redirect-confirm">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Redirection</h2>\n            </div>\n            <div class="modal-body">\n                <p class="redirect-msg"></p>\n                <blockquote>\n                    <p>Please click <b>OK</b> to proceed.</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a class="btn btn-primary action-redirect-confirm" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-app-reset">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Reset application</h2>\n            </div>\n            <div class="modal-body">\n                <p>This will delete all your local stories.</p>\n                <blockquote><b>Are you sure?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-app-reset" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-import-docs-settings">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Import stories and settings</h2>\n            </div>\n            <div class="modal-body">\n                <p>This will delete all existing local stories.</p>\n                <blockquote><b>Are you sure?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>\n                <a href="#" class="btn btn-primary action-import-docs-settings-confirm" data-dismiss="modal">OK</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-add-google-drive-account">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Add Google Drive account</h2>\n            </div>\n            <div class="modal-body">\n                <p>To perform this request, you need to configure another Google Drive account in WriteOn.</p>\n                <blockquote><b>Do you want to proceed?</b>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="#" class="btn btn-default action-remove-google-drive-state" data-dismiss="modal">No</a>\n                <a href="#" class="btn btn-primary action-add-google-drive-account" data-dismiss="modal">Yes</a>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="modal fade modal-sponsor-only">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h2 class="modal-title">Sponsors only</h2>\n            </div>\n            <div class="modal-body">\n                <p>This feature is restricted to sponsors. Note that sponsoring WriteOn would cost you only $3/month.</p>\n                <p>To see how a PDF looks <a target="_blank" href="/Welcome%story.pdf">click here</a>.</p>\n                <blockquote class="alert alert-info">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    </button>\n                    <p><b>Tip:</b> PDFs are fully customizable via Settings>Advanced>PDF template/options.</p>\n                </blockquote>\n            </div>\n        </div>\n    </div>\n</div>\n<div id="dropboxjs" data-app-key="r3vgaee214zfvc7"></div>\n';
 }), define("text!html/bodyViewer.html", [], function() {
  return '<div class="layout-wrapper-l1">\n    <div class="layout-wrapper-l2">\n        <div class="navbar navbar-default">\n            <div class="navbar-inner">\n                <div class="nav left-space"></div>\n                <div class="nav right-space pull-right"></div>\n                <div class="buttons-dropdown dropdown">\n                    <div class="nav">\n                        <button class="btn btn-success" data-toggle="dropdown" title="Show buttons">\n                            <i class="icon-th-large"></i>\n                        </button>\n                        <div class="dropdown-menu">\n                        </div>\n                    </div>\n                </div>\n                <ul class="nav pull-right">\n                    <li class="btn-group">\n                        <button class="btn btn-success action-edit-document hide" title="Edit This Story">\n                            <i class="icon-pencil"></i>\n                        </button>\n                    </li>\n                    <li class="btn-group">\n                        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown" title="Download This Story">\n                            <i class="icon-download"></i>\n                        </button>\n                        <ul class="dropdown-menu">\n                            <li><a class="action-download-md" href="#"><i class="icon-book"></i> Download as Markdown</a>\n                            </li>\n                            <li><a class="action-download-html" href="#"><i class="icon-shield"></i> Download as HTML</a>\n                            </li>\n                            <li><a class="action-download-template" href="#"><i class="icon-list-alt"></i> Download using template</a>\n                            </li>\n                        </ul>\n                    </li>\n                </ul>\n                <ul class="nav pull-right title-container">\n                    <li><span class="btn btn-success file-title-navbar"></span>\n                    </li>\n                </ul>\n            </div>\n        </div>\n        <div class="layout-wrapper-l3">\n            <div class="working-indicator"></div>\n            <pre id="wmd-input" class="form-control"><div class="editor-content"></div><div class="editor-margin"></div></pre>\n            <div class="preview-panel">\n                <div class="preview-container">\n                    <div id="preview-contents">\n                        <div id="wmd-preview" class="preview-content"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class="extension-preview-buttons">\n            <div class="btn-group drag-me" title="Drag me!">\n                <i class="icon-ellipsis-vert"></i>\n            </div>\n        </div>\n    </div>\n    <div id="wmd-button-bar" class="hide"></div>\n    <div class="menu-panel">\n        <button class="btn toggle-button action-open-writeon" title="Switch to Pad">\n            <i class="icon-pencil-squared"></i>  <strong>Switch to Pad</strong>\n        </button>\n    </div>\n    <div class="document-panel">\n        <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">\n            <i class="icon-folder-open"></i>\n        </button>\n        <div class="search-bar clearfix">\n            <div class="input-group">\n                <span class="input-group-addon"><i class="icon-search"></i></span>\n                <input type="text" class="form-control" placeholder="Find story" />\n            </div>\n        </div>\n        <div class="panel-content">\n            <div class="list-group document-list"></div>\n            <div class="list-group document-list-filtered hide"></div>\n        </div>\n    </div>\n</div>\n<div id="wmd-button-bar" class="hide"></div>\n<div class="modal modal-non-unique">\n    <div class="modal-dialog">\n        <div class="modal-content">\n            <div class="modal-header">\n                <h3 class="modal-title">Ooops...</h3>\n            </div>\n            <div class="modal-body">\n                <p>WriteOn has stopped because another instance was running in the same browser.</p>\n                <blockquote>\n                    <p>If you want to reopen WriteOn, click on "Reload".</p>\n                </blockquote>\n            </div>\n            <div class="modal-footer">\n                <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a>\n            </div>\n        </div>\n    </div>\n</div>\n';
 }), define("text!html/tooltipSettingsTemplate.html", [], function() {
@@ -25966,25 +25975,8 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
  function w() {
   a.setInputRadio("radio-layout-orientation", l.layoutOrientation), a.setInputValue(M, window.theme), 
   M.change(), a.setInputChecked("#input-settings-lazy-rendering", l.lazyRendering), 
-  a.setInputRadio("radio-settings-editor-font-class", l.editorFontClass);
-  new d("#input-settings-font-size", {
-   step: .1,
-   min: .1,
-   max: 10,
-   value: l.fontSizeRatio
-  }), new d("#input-settings-max-width", {
-   precision: 1,
-   step: .1,
-   min: .1,
-   max: 1,
-   value: l.maxWidthRatio
-  }), new d("#input-settings-cursor-focus", {
-   precision: 1,
-   step: .1,
-   min: .1,
-   max: 1,
-   value: l.cursorFocusRatio
-  });
+  a.setInputRadio("radio-settings-editor-font-class", l.editorFontClass), a.setInputValue("#input-settings-font-size", l.fontSizeRatio), 
+  a.setInputValue("#input-settings-max-width", l.maxWidthRatio), a.setInputValue("#input-settings-cursor-focus", l.cursorFocusRatio), 
   a.setInputValue("#textarea-settings-default-content", l.defaultContent), a.setInputRadio("radio-settings-edit-mode", l.editMode), 
   a.setInputValue("#input-settings-markdown-mime-type", l.markdownMimeType), a.setInputValue("#input-settings-gdrive-multiaccount", l.gdriveMultiAccount), 
   a.setInputChecked("#input-settings-gdrive-full-access", l.gdriveFullAccess), a.setInputChecked("#input-settings-dropbox-full-access", l.dropboxFullAccess), 
@@ -26124,7 +26116,7 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
   }), e(".action-reset-input").click(function() {
    a.resetModalInputs();
   }), a.createTooltip(".tooltip-lazy-rendering", "Disable preview rendering while typing in order to offload CPU. Refresh preview after 500 ms of inactivity."), 
-  a.createTooltip(".tooltip-default-content", [ "Thanks for supporting WriteOn by adding a backlink in your stories! But if not, thanks for using WriteOn." ].join("")), 
+  a.createTooltip(".tooltip-default-content", [ "Thanks for supporting WriteOn by adding a backlink in your stories! You can also leave this blank - thanks for using WriteOn!" ].join("")), 
   a.createTooltip(".tooltip-template", f), a.createTooltip(".tooltip-pdf-options", m), 
   e("div.dropdown-menu").click(function(e) {
    e.stopPropagation();
@@ -26141,6 +26133,13 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
    }, "");
    document.getElementById("input-settings-theme").innerHTML = d;
   }
+  e("#input-settings-font-size").slider({
+   value: l.fontSizeRatio
+  }), e("#input-settings-max-width").slider({
+   value: l.maxWidthRatio
+  }), e("#input-settings-cursor-focus").slider({
+   value: l.cursorFocusRatio
+  });
  }), T;
 }), define("text!WELCOME.md", [], function() {
  return 'Welcome to WriteOn!\n===================\n\n\nHey! I\'m your first story in **WriteOn**[^writeon]. Don\'t delete me, I\'m very helpful! I can be recovered anyway in the **Utils** tab of the <i class="icon-cog"></i> **Settings** dialog.\n\n----------\n\n\nStories\n-------------\n\nWriteOn stores your stories in your browser, which means all your stories are automatically saved locally and are accessible **offline!**\n\n> **Note:**\n\n> - WriteOn is accessible offline after the application has been loaded for the first time.\n> - Your local stories are not shared between different browsers or computers.\n> - Clearing your browser\'s data may **delete all your local stories!** Make sure your stories are synchronized with **Google Drive** or **Dropbox** (check out the [<i class="icon-refresh"></i> Synchronization](#synchronization) section).\n\n#### <i class="icon-file"></i> Create a story\n\nThe story panel is accessible using the <i class="icon-folder-open"></i> button in the navigation bar. You can create a new story by clicking <i class="icon-file"></i> **New story** in the story panel.\n\n#### <i class="icon-folder-open"></i> Switch to another story\n\nAll your local stories are listed in the story panel. You can switch from one to another by clicking a story in the list or you can toggle stories using <kbd>Ctrl+[</kbd> and <kbd>Ctrl+]</kbd>.\n\n#### <i class="icon-pencil"></i> Rename a story\n\nYou can rename the current story by clicking the story title in the navigation bar.\n\n#### <i class="icon-trash"></i> Delete a story\n\nYou can delete the current story by clicking <i class="icon-trash"></i> **Delete story** in the story panel.\n\n#### <i class="icon-hdd"></i> Export a story\n\nYou can save the current story to a file by clicking <i class="icon-hdd"></i> **Export to disk** from the <i class="icon-provider-writeon"></i> menu panel.\n\n> **Tip:** Check out the [<i class="icon-upload"></i> Publish a story](#publish-a-document) section for a description of the different output formats.\n\n\n----------\n\n\nSynchronization\n-------------------\n\nWriteOn can be combined with <i class="icon-provider-gdrive"></i> **Google Drive** and <i class="icon-provider-dropbox"></i> **Dropbox** to have your stories saved in the *Cloud*. The synchronization mechanism takes care of uploading your modifications or downloading the latest version of your stories.\n\n> **Note:**\n\n> - Full access to **Google Drive** or **Dropbox** is required to be able to import any story in WriteOn. Permission restrictions can be configured in the settings.\n> - Imported stories are downloaded in your browser and are not transmitted to a server.\n> - If you experience problems saving your stories on Google Drive, check and optionally disable browser extensions, such as Disconnect.\n\n#### <i class="icon-refresh"></i> Open a story\n\nYou can open a story from <i class="icon-provider-gdrive"></i> **Google Drive** or the <i class="icon-provider-dropbox"></i> **Dropbox** by opening the <i class="icon-refresh"></i> **Synchronize** sub-menu and by clicking **Open from...**. Once opened, any modification in your story will be automatically synchronized with the file in your **Google Drive** / **Dropbox** account.\n\n#### <i class="icon-refresh"></i> Save a story\n\nYou can save any story by opening the <i class="icon-refresh"></i> **Synchronize** sub-menu and by clicking **Save on...**. Even if your story is already synchronized with **Google Drive** or **Dropbox**, you can export it to a another location. WriteOn can synchronize one story with multiple locations and accounts.\n\n#### <i class="icon-refresh"></i> Synchronize a story\n\nOnce your story is linked to a <i class="icon-provider-gdrive"></i> **Google Drive** or a <i class="icon-provider-dropbox"></i> **Dropbox** file, WriteOn will periodically (every 3 minutes) synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be detected.\n\nIf you just have modified your story and you want to force the synchronization, click the <i class="icon-refresh"></i> button in the navigation bar.\n\n> **Note:** The <i class="icon-refresh"></i> button is disabled when you have no story to synchronize.\n\n#### <i class="icon-refresh"></i> Manage story synchronization\n\nSince one story can be synchronized with multiple locations, you can list and manage synchronized locations by clicking <i class="icon-refresh"></i> **Manage synchronization** in the <i class="icon-refresh"></i> **Synchronize** sub-menu. This will let you remove synchronization locations that are associated to your story.\n\n> **Note:** If you delete the file from **Google Drive** or from **Dropbox**, the story will no longer be synchronized with that location.\n\n----------\n\n\nPublication\n-------------\n\nOnce you are happy with your story, you can publish it on different websites directly from WriteOn. As for now, WriteOn can publish on **Blogger**, **Dropbox**, **Gist**, **GitHub**, **Google Drive**, **Tumblr**, **WordPress** and on any SSH server.\n\n#### <i class="icon-upload"></i> Publish a story\n\nYou can publish your story by opening the <i class="icon-upload"></i> **Publish** sub-menu and by choosing a website. In the dialog box, you can choose the publication format:\n\n- Markdown, to publish the Markdown text on a website that can interpret it (**GitHub** for instance),\n- HTML, to publish the story converted into HTML (on a blog for example),\n- Template, to have a full control of the output.\n\n> **Note:** The default template is a simple webpage wrapping your story in HTML format. You can customize it in the **Advanced** tab of the <i class="icon-cog"></i> **Settings** dialog.\n\n#### <i class="icon-upload"></i> Update a publication\n\nAfter publishing, WriteOn will keep your story linked to that publication which makes it easy for you to update it. Once you have modified your story and you want to update your publication, click on the <i class="icon-upload"></i> button in the navigation bar.\n\n> **Note:** The <i class="icon-upload"></i> button is disabled when your story has not been published yet.\n\n#### <i class="icon-upload"></i> Manage story publication\n\nSince one story can be published on multiple locations, you can list and manage publish locations by clicking <i class="icon-upload"></i> **Manage publication** in the <i class="icon-provider-writeon"></i> menu panel. This will let you remove publication \n\n\n----------\n\n\nlocations that are associated to your story.\n\n> **Note:** If the file has been removed from the website or the blog, the story will no longer be published on that location.\n\n----------\n\n\nMarkdown Extra\n--------------------\n\nWriteOn supports **Markdown Extra**, which extends **Markdown** syntax with some nice features.\n\n> **Tip:** You can disable any **Markdown Extra** feature in the **Extensions** tab of the <i class="icon-cog"></i> **Settings** dialog.\n\n> **Note:** You can find more information about **Markdown** syntax [here][2] and **Markdown Extra** extension [here][3].\n\n\n### Tables\n\n**Markdown Extra** has a special syntax for tables:\n\nItem     | Value\n-------- | ---\nComputer | $1600\nPhone    | $12\nPipe     | $1\n\nYou can specify column alignment with one or two colons:\n\n| Item     | Value | Qty   |\n| :------- | ----: | :---: |\n| Computer | $1600 |  5    |\n| Phone    | $12   |  12   |\n| Pipe     | $1    |  234  |\n\n\n### Definition Lists\n\n**Markdown Extra** has a special syntax for definition lists too:\n\nTerm 1\nTerm 2\n:   Definition A\n:   Definition B\n\nTerm 3\n\n:   Definition C\n\n:   Definition D\n\n	> part of definition D\n\n\n### Fenced code blocks\n\nGitHub\'s fenced code blocks are also supported with **Highlight.js** syntax highlighting:\n\n```\n// Foo\nvar bar = 0;\n```\n\n> **Tip:** To use **Prettify** instead of **Highlight.js**, just configure the **Markdown Extra** extension in the <i class="icon-cog"></i> **Settings** dialog.\n\n> **Note:** You can find more information:\n\n> - about **Prettify** syntax highlighting [here][5],\n> - about **Highlight.js** syntax highlighting [here][6].\n\n\n### Footnotes\n\nYou can create footnotes like this[^footnote].\n\n  [^footnote]: Here is the *text* of the **footnote**.\n\n\n### SmartyPants\n\nSmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:\n\n|                  | ASCII                        | HTML              |\n ----------------- | ---------------------------- | ------------------\n| Single backticks | `\'Isn\'t this fun?\'`            | \'Isn\'t this fun?\' |\n| Quotes           | `"Isn\'t this fun?"`            | "Isn\'t this fun?" |\n| Dashes           | `-- is en-dash, --- is em-dash` | -- is en-dash, --- is em-dash |\n\n\n### Table of contents\n\nYou can insert a table of contents using the marker `[TOC]`:\n\n[TOC]\n\n\n### UML diagrams\n\nYou can render sequence diagrams like this:\n\n```sequence\nBeard->Fedora: Hello Beard, how are you?\nNote right of Beard: Beard thinks\nBeard-->Fedora: I am good thanks!\n```\n\nAnd flow charts like this:\n\n```flow\nst=>start: Start\ne=>end\nop=>operation: My Operation\ncond=>condition: Yes or No?\n\nst->op->cond\ncond(yes)->e\ncond(no)->op\n```\n\n> **Note:** You can find more information:\n\n> - about **Sequence diagrams** syntax [here][7],\n> - about **Flow charts** syntax [here][8].\n\n\n  [^writeon]: [WriteOn](https://writeon.io/) let\'s you write without distraction, and publish without effort. WriteOn is an in-browser story editor which is fast, easy and unique. The refined text editor of WriteOn helps you focus on your writing, while visualizing the shape of it in real time.\n\n\n  [1]: http://math.stackexchange.com/\n  [2]: http://daringfireball.net/projects/markdown/syntax "Markdown"\n  [3]: https://github.com/jmcmanus/pagedown-extra "Pagedown Extra"\n  [5]: https://code.google.com/p/google-code-prettify/\n  [6]: http://highlightjs.org/\n  [7]: http://bramp.github.io/js-sequence-diagrams/\n  [8]: http://adrai.github.io/flowchart.js/\n';

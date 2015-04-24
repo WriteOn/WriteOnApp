@@ -113,7 +113,10 @@ app.use(stormpath.init(app, {
 app.get('/', function(req, res) {
 	res.redirect('/login');
 });
-
+// Serve recovery.html in /
+app.get('/recovery', function(req, res) {
+	res.renderDebug('recovery.html');
+});
 // Redirects
 app.get('/signup', function(req, res) {
     res.redirect('/register');

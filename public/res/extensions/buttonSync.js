@@ -5,30 +5,38 @@ define([
     "utils",
     "classes/Extension",
     "mousetrap",
+	"Slider",
     "text!html/buttonSyncSettingsBlock.html",
-], function($, _, crel, utils, Extension, mousetrap, buttonSyncSettingsBlockHTML) {
+], function($, _, crel, utils, Extension, mousetrap, Slider, buttonSyncSettingsBlockHTML) {
 
     var buttonSync = new Extension("buttonSync", 'Button "Synchronize"', false, true);
     buttonSync.settingsBlock = buttonSyncSettingsBlockHTML;
     buttonSync.defaultConfig = {
-        syncPeriod: 180000,
+        syncPeriod: 60000,
         syncShortcut: 'mod+s'
     };
+	var syncPeriod;
 
     buttonSync.onLoadSettings = function() {
         utils.setInputValue("#input-sync-period", buttonSync.config.syncPeriod);
         utils.setInputValue("#input-sync-shortcut", buttonSync.config.syncShortcut);
+		syncPeriod = buttonSync.config.syncPeriod;
+		
     };
 
     buttonSync.onSaveSettings = function(newConfig, event) {
         newConfig.syncPeriod = utils.getInputIntValue("#input-sync-period", event, 0);
         newConfig.syncShortcut = utils.getInputTextValue("#input-sync-shortcut", event);
     };
-
+	
     var synchronizer;
     buttonSync.onSynchronizerCreated = function(synchronizerParameter) {
         synchronizer = synchronizerParameter;
     };
+
+	$("#input-sync-period").slider({
+		value: syncPeriod
+	});
 
     var $button;
     var syncRunning = false;

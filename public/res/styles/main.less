@@ -518,14 +518,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
     .box-shadow(~"@{form-control-inset-shadow}");
 }
 /* Slider Hack for when plugin loads two sliders instead of one */
-.slider-inline {
-	&.slider {
-		&:first-child {
-			display:none; 
-		}
-	}
-	& > .slider:first-child {display:none;}
-}
+
 
 .form-inline {
 	@media (min-width: @screen-sm) {

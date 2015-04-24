@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WriteOn – Recovery</title>
+    <link rel="canonical" href="http://writeon.io/recovery">
+    <link rel="icon" href="/res-min/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="res-min/img/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="description" content="On a mission to craft the world's finest writing experience.">
+    <meta name="author" content="Beard & Fedora">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/res-min/themes/gray.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/paper/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <style>body{font-size:2.7em;font-weight:300;}.navbar-fixed{position:fixed;}.content{position:absolute;width:100%;height:100%;}.slide{position:relative;width:100%;height:100%;}#slide1{height:90%;}.footer{position:absolute;top:inherit;bottom:0;height:50px;width:100%;padding:5px;}.slide,.footer,h1{text-align:center;}.footer .btn{font-size:28px;line-height:1;padding:0 11px;}.btn-info{color:#777;}.centered{position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;}.logo{width:600px;height:250px;}.logo img{height:200px;}.logo .subtitle{position:absolute;text-align:center;color:#888;top:170px;width: 100%;font-size:22px;}h1{margin:1.2em 0;}h2{font-weight:500;font-size:1.5em;margin:.8em 0!important;}.icon-provider-couchdb{background-position:-325px 0;width:34px;height:34px;margin-left:0;background-image:url(res-min/img/icons2x.png);}.transition{-webkit-transition:all ease-in-out 1.5s;transition:all ease-out 1.5s;}.transparent{opacity:0;}.scale{-webkit-transform:scale(1.04);-ms-transform:scale(1.04);transform:scale(1.04);}.navbar .nav{float:none;}.navbar .file-title-navbar{font-size:20px;line-height:1.6;margin-bottom: 6px;}.file-title-navbar i{line-height:1;}.img{display:block;margin:20px auto;}.social{font-size:26px;margin:0 16px 5px;}.social i::before{margin-right:8px;margin-left:-3px;}.social a{color:#555;}.social img{width:100px;height:25px;}.container{margin-bottom:40px;}.dark{background-color:#aeaeae;}.inset-shadow{-webkit-box-shadow:inset 0 4px 16px rgba(0,0,0,0.2);box-shadow:inset 0 4px 16px rgba(0,0,0,0.2);}.tablet-img{background-image:url(res-min/img/writeon-ipad.jpg);background-size:auto;background-repeat:no-repeat;background-position:50% 0;height:340px;}.offline-img{background-color: #555;background-image:url(res-min/img/device-sync.png);background-size:auto;background-repeat:no-repeat;background-position:50% 10px;height:246px;}hr{margin:1em 0;}@media min-width 600px{.logo{width:600px;height:160px;}.logo img{width:600px;height:135px;}.logo .subtitle{text-align:center;top:105px;}} .plane {background-image: url(res-min/img/plane.png);background-repeat: no-repeat;background-position: 90% 51%;}.videowrapper {position: relative;overflow: hidden;padding-bottom: 56.25%;padding-top: 30px;}.videowrapper iframe, .videowrapper object,.videowrapper embed {position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+    </style>
+    <script>
+        // Use http://.../?debug to serve original JavaScript files instead of minified
+        window.baseDir = 'res-min';
+        window.noStart = true;
+        window.require = {
+            baseUrl: window.baseDir,
+            deps: ['main']
+        };
+        var timer = 5;
+
+        function waitTimer() {
+            try {
+                document.getElementById('timer').textContent = --timer;
+            } catch(e) {}
+            if(timer) {
+                return setTimeout(waitTimer, 1000);
+            }
+            var failure = false;
+            try {
+                // Try to use WriteOn dependencies to save a file
+                var utils = require('utils');
+                //utils.saveAs(JSON.stringify(localStorage), "WriteOn local storage.json");
+            } catch(e) {
+                // Try something safer
+                document.getElementsByTagName('textarea')[0].value = JSON.stringify(localStorage);
+                failure = true;
+            }
+            listFiles();
+            // Show finish messages
+            var eltList = document.querySelectorAll(failure ? '.download-failure' : '.download-success');
+            for(var i = 0; i < eltList.length; ++i) {
+                var elt = eltList[i];
+                show(elt);
+            }
+        }
+        setTimeout(waitTimer, 1000);
+
+        function show(elt) {
+            elt.className = elt.className.replace(/ hide/, '');
+        }
+        var entityMap = {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': '&quot;',
+            "'": '&#39;',
+            "/": '&#x2F;'
+        };
+
+        function escapeHtml(string) {
+            return String(string).replace(/[&<>"'\/]/g, function(s) {
+                return entityMap[s];
+            });
+        }
+
+        function listFiles() {
+            // List files
+            var fileListElt = document.querySelector('.file-list');
+            fileListElt.innerHTML = '';
+            var fileIndexList = (localStorage['file.list'] || '').split(';');
+            for(var i = 0; i < fileIndexList.length; ++i) {
+                var fileIndex = fileIndexList[i];
+                if(!fileIndex) continue;
+                var fileTitle = localStorage[fileIndex + '.title'];
+                var divElt = document.createElement('div');
+                divElt.innerHTML = ['<a href="javascript:removeFile(\'',
+                    fileIndex, '\')" class="btn btn-danger icon-trash" style="margin: 10px;"></a> ',
+                    escapeHtml(fileTitle),
+                ].join('');
+                fileListElt.appendChild(divElt);
+            }
+        }
+
+        function removeFile(fileIndex) {
+            var ok = confirm('Are you sure you want to remove "' + localStorage[fileIndex + '.title'] + '"?');
+            if(ok) {
+                // Protect against multiple windows
+                localStorage.removeItem('frontWindowId');
+                localStorage['file.list'] = localStorage['file.list'].replace(';' + fileIndex + ';', ';');
+                for(var key in localStorage) {
+                    key.indexOf(fileIndex) === 0 && localStorage.removeItem(key);
+                }
+                listFiles();
+            }
+        }
+
+        function clearLocalStorage() {
+            var ok = confirm('This will remove all your stories and settings. Are you sure?');
+            if(ok) {
+                localStorage.clear();
+                listFiles();
+            }
+        }
+    </script>
+    <script src="res-min/require.js"></script>
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="navbar navbar-inverse">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="padding-top: 9px;">
+                    <img src="/res-min/img/logo.svg" style="height:38px;" />
+                </a>
+            </div>
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="recovery-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="javascript:void(0)" onclick="show(document.querySelector('.file-panel'))"><i class="icon-folder"></i> Remove Local Stories</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            <a href="javascript:void(0)" onclick="clearLocalStorage()"><i class="icon-trash"></i> Clear Local Storage</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <div class="container">        
+        <h3 class="space-top-3x">WriteOn Recovery</h3>
+        <div class="panel panel-info">
+			
+		<div class="panel-heading">
+    		<h3 class="panel-title"><strong>The download of your stories and settings will start in <span id="timer">5</span> seconds...</strong></h3>
+       	</div>
+		<div class="panel-body">
+		<p>To import your stories and settings back into WriteOn, go to your Utilities panel in your Settings:</p>
+        <blockquote>
+            <i class="icon-menu"></i>
+            <code>Menu</code>
+            <i class="icon-angle-right"></i>
+            <i class="icon-cog-alt"></i>
+            <code>Settings</code>
+            <i class="icon-angle-right"></i>
+			<i class="icon-briefcase"></i>
+            <code>Utils</code>
+            <i class="icon-angle-right"></i>
+            <a class="btn btn-default"><i class="icon-cog-alt"></i> Import Stories & Settings</a>
+        </blockquote>
+		</div>
+		</div>
+        <p class="download-success hide alert alert-success">
+			<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+            <strong>
+                    <i class="icon-ok"></i> Your stories and settings have been downloaded successfully. Nice job!</strong>
+        </p>
+        <p class="download-failure hide aler alert-danger">
+			<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+            <strong>
+                    <i class="icon-cancel"></i>Download failed. Please copy/paste the following content into a file:</strong>
+        </p>
+        <p>
+            <textarea class="download-failure hide form-control" rows="10"></textarea>
+        </p>
+        <div class="panel panel-default file-panel hide">
+				<div class="panel-heading">
+					<h4>You can manually delete the following stories, which are stored in your local database.</h4>
+				</div>
+			<div class="file-list panel-body">
+			</div>
+		</div>
+    </div>
+</body>
+
+</html>
