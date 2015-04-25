@@ -215,6 +215,7 @@ define([
 	}
 
 	// Create the PageDown editor
+	// TODO: implement {writeon-pad} editor
 	var pagedownEditor;
 	var fileDesc;
 	core.initEditor = function(fileDescParam) {
@@ -230,6 +231,7 @@ define([
 		}
 
 		// Create the converter and the editor
+		// TODO: implement {writeon-pad} converter
 		var converter = new Markdown.Converter();
 		var options = {
 			_DoItalicsAndBold: function(text) {
@@ -241,6 +243,7 @@ define([
 				return text;
 			}
 		};
+		// TODO: implement {writeon-pad} editor
 		converter.setOptions(options);
 		pagedownEditor = new Markdown.Editor(converter, undefined, {
 			undoManager: editor.undoMgr
@@ -264,6 +267,7 @@ define([
 			return true;
 		});
 
+		// TODO: implement {writeon-pad} editor instance
 		eventMgr.onPagedownConfigure(pagedownEditor);
 		pagedownEditor.hooks.chain("onPreviewRefresh", eventMgr.onAsyncPreview);
 		pagedownEditor.run();
@@ -273,6 +277,7 @@ define([
 		$(".wmd-button-row li").addClass("btn btn-default").css("left", 0).find("span").hide();
 
 		// Add customized buttons
+		// TODO: implement {writeon-pad} editor/viewer toggle syntax hint button
 		var $btnGroupElt = $('.wmd-button-group1');
 		$("#wmd-bold-button").append($('<i class="icon-bold">')).appendTo($btnGroupElt);
 		$("#wmd-italic-button").append($('<i class="icon-italic">')).appendTo($btnGroupElt);

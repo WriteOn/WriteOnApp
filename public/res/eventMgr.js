@@ -148,20 +148,14 @@ define([
 			var newExtensionConfig = _.extend({}, extension.defaultConfig);
 			newExtensionConfig.enabled = utils.getInputChecked("#input-enable-extension-" + extension.extensionId);
 			var isChecked;
-			// Special case for Markdown Extra and MathJax
+			// Special case for Markdown Extra
 			if(extension.extensionId == 'markdownExtra') {
 				isChecked = utils.getInputChecked("#input-settings-markdown-extra");
 				if(isChecked != extension.enabled) {
 					newExtensionConfig.enabled = isChecked;
 				}
 			}
-/*			else if(extension.extensionId == 'mathJax') {
-				isChecked = utils.getInputChecked("#input-settings-mathjax");
-				if(isChecked != extension.enabled) {
-					newExtensionConfig.enabled = isChecked;
-				}
-			}
-*/			var onSaveSettingsListener = extension.onSaveSettings;
+			var onSaveSettingsListener = extension.onSaveSettings;
 			onSaveSettingsListener && onSaveSettingsListener(newExtensionConfig, event);
 			newExtensionSettings[extension.extensionId] = newExtensionConfig;
 		});
@@ -213,6 +207,7 @@ define([
 	addEventHook("onExtensionButtonResize");
 
 	// Operations on editor
+	// TODO: implement {writeon-pad} editor
 	addEventHook("onPagedownConfigure");
 	addEventHook("onSectionsCreated");
 	addEventHook("onCursorCoordinates");
