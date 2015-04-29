@@ -9,7 +9,7 @@
             </a>
             <ul class="dropdown-menu" role="menu" aria-labelledby="settings-menu">
                 <li>
-                    <a href="paper" title="WriteOn Paper" role="menuitem"><i class="icon-doc-text"></i> Switch to Paper</a>
+                    <a href="paper" title="WriteOn Paper" role="menuitem" class="hide hidden"><i class="icon-doc-text"></i> Switch to Paper</a>
                 </li>
                 <li>
                     <a href="#" title="Settings & Preferences" data-toggle="modal" data-target=".modal-settings" class="action-load-settings"><i class="icon-cog-alt"></i> Settings & Preferences</a>
@@ -232,19 +232,18 @@
 <div class="modal fade modal-document-manager">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Organize stories</h2>
-            </div>
             <div class="modal-body">
                 <div></div>
 <nav class="navbar navbar-inverse document-list">
     <div class="container-fluid">
+		<div class="navbar-header">
+      		<a class="navbar-brand" href="#">Organize Stories</a>
+    	</div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#"><i class="icon-file"></i> <span class="document-count"></span></a>
+                <li><a href="#" title="Number of Stories"><i class="icon-file"></i> <span class="document-count"></span></a>
                 </li>
-                <li><a href="#"><i class="icon-folder"></i> <span class="folder-count"></span></a>
+                <li><a href="#" title="Number of Folders"><i class="icon-folder"></i> <span class="folder-count"></span></a>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="icon-check"></i> Actions <span class="caret"></span></a>
@@ -262,9 +261,10 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" class="action-create-folder"> <i class="icon-folder"></i> New Folder</a>
+                <li class="active">
+                    <a href="#" class="action-create-folder" title="Create New Folder"> <i class="icon-folder"></i> New Folder</a>
                 </li>
+				<li><button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="font-size: 3.2em;padding-top: 14.5px;   padding-bottom: 14.5px 0 14.5px 14.px;">×</button></li>
             </ul>
         </div>
     </div>
@@ -288,7 +288,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Hyperlink</h2>
+                <h2 class="modal-title">Insert Link</h2>
             </div>
             <div class="modal-body">
                 <p>Please provide the link URL and an optional title:</p>
@@ -309,7 +309,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Image</h2>
+                <h2 class="modal-title">Insert Image</h2>
             </div>
             <div class="modal-body">
                 <p>Please provide the image URL and an optional title:</p>
@@ -631,10 +631,11 @@ folder and filename. </span>
                     "<span class="file-title"></span>" is synchronized in the following location(s):
                 </p>
                 <div class="sync-list"></div>
-                <blockquote>
-                    <p><b>Hey There:</b> Removing a synchronized location will not delete the local story.
-                    </p>
-                </blockquote>
+				<blockquote class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<p>Removing a synchronized location will not delete the local story.</p>
+				</blockquote>
             </div>
         </div>
     </div>
@@ -759,7 +760,7 @@ self-hosted sites.
                     <div class="form-group modal-publish-dropbox">
                         <label class="col-sm-4 control-label" for="input-publish-dropbox-path">File path</label>
                         <div class="col-sm-7">
-                            <input type="text" id="input-publish-dropbox-path" placeholder="/path/to/My Story.html" class="form-control">
+                            <input type="text" id="input-publish-dropbox-path" placeholder="/path/to/My Story.md" class="form-control">
                             <span class="help-block"> File path is composed of both
 folder and filename. </span>
                         </div>
@@ -823,10 +824,10 @@ story title will be used.</span>
                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
 					<p><b>Tip:</b> You can use a YAML front matter to specify the title and the tags/labels of your published story.</p>
-                    <p class="panel"><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.
+                    <p class="panel"><b>Interpreted variables:</b>
 						<br /> <code>
 						---<br />
-						title: My Published Title
+						title: My Published Title<br />
 						tags: tag1, tag2, tag3<br />
 						published: true<br />
 						date: YYYY-MM-DD HH:MM:SS +/-TTTT<br />
@@ -875,7 +876,9 @@ story title will be used.</span>
                     "<span class="file-title"></span>" is published on the following location(s):
                 </p>
                 <div class="publish-list"></div>
-                <blockquote>
+				<blockquote class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
                     <p><b>Stating the Obvious?</b> Maybe, but removing a published location will not delete the actual post out in the wild.</p>
                 </blockquote>
             </div>
@@ -1171,10 +1174,6 @@ for this change to take effect.</span>
             </div>
             <div class="modal-body">
                 <p>WriteOn has stopped because another instance was running in the same browser or the local cache was disrupted.</p>
-                <blockquote>
-                    <p>If you want to reopen WriteOn, click on "Reload".
-                    </p>
-                </blockquote>
             </div>
             <div class="modal-footer">
                 <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a>
@@ -1190,9 +1189,6 @@ for this change to take effect.</span>
             </div>
             <div class="modal-body">
                 <p class="redirect-msg"></p>
-                <blockquote>
-                    <p>Please click <b>OK</b> to proceed.</p>
-                </blockquote>
             </div>
             <div class="modal-footer">
                 <a class="btn btn-default" data-dismiss="modal">Cancel</a>

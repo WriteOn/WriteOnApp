@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#Date Wed Apr 29 2015 15:09:31 GMT+0000 (UTC)
+#Date Wed Apr 29 2015 22:25:09 GMT+0000 (UTC)
 #Version 1.7.13
 
 CACHE:
@@ -8,6 +8,7 @@ paper
 pad
 
 # start_inject_resources
+res-min/domReady.js
 res-min/main.js
 res-min/require.js
 res-min/font/LICENSE.txt
@@ -79,7 +80,6 @@ res-min/themes/neat.css
 res-min/themes/night.css
 res-min/themes/school.css
 res-min/themes/solarized-dark.css
-res-min/themes/solarized-light.css
 # end_inject_resources
 
 

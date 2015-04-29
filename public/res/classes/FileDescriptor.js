@@ -180,7 +180,7 @@ define([
 			//addSyncIcon(result, attributes);
 		});
 		if(_.size(this.syncLocations) !== 0) {
-			result.push('<i class="icon-refresh title-icon-category"></i>');
+			// result.push('<i class="icon-refresh title-icon-category"></i>');
 		}
 		/* 
 		 *  REMOVING these automagically added Provider icons as above on line 126

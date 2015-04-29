@@ -1,44 +1,49 @@
 <div class="layout-wrapper-l1">
     <div class="layout-wrapper-l2">
-        <div class="navbar navbar-default">
-            <div class="navbar-inner">
-                <div class="nav left-space"></div>
-                <div class="nav right-space pull-right"></div>
-                <div class="buttons-dropdown dropdown">
-                    <div class="nav">
-                        <button class="btn btn-success" data-toggle="dropdown" title="Show buttons">
-                            <i class="icon-th-large"></i>
-                        </button>
-                        <div class="dropdown-menu">
-                        </div>
-                    </div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid navbar-inner">
+        <div class="navbar-header">
+            <button class="btn toggle-button action-open-writeon" title="Switch to Pad">
+            	<i class="icon-pencil-squared"></i>  <strong>Open Pad</strong>
+        	</button>
+        </div>
+        <div class="nav right-space pull-right"></div>
+        <div class="buttons-dropdown dropdown">
+            <div class="nav">
+                <button class="btn btn-default" data-toggle="dropdown" title="Show buttons">
+                    <i class="icon-th-large"></i>
+                </button>
+                <div class="dropdown-menu">
                 </div>
-                <ul class="nav pull-right">
-                    <li class="btn-group">
-                        <button class="btn btn-success action-edit-document hide" title="Edit This Story">
-                            <i class="icon-pencil"></i>
-                        </button>
-                    </li>
-                    <li class="btn-group">
-                        <button class="btn btn-success dropdown-toggle" data-toggle="dropdown" title="Download This Story">
-                            <i class="icon-download"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="action-download-md" href="#"><i class="icon-book"></i> Download as Markdown</a>
-                            </li>
-                            <li><a class="action-download-html" href="#"><i class="icon-shield"></i> Download as HTML</a>
-                            </li>
-                            <li><a class="action-download-template" href="#"><i class="icon-list-alt"></i> Download using template</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav pull-right title-container">
-                    <li><span class="btn btn-success file-title-navbar"></span>
-                    </li>
-                </ul>
             </div>
         </div>
+        <div class="navbar-collapse main-navbar-collapse" id="main-navbar-collapse">
+            <ul class="nav navbar-nav navbar-right extension-buttons syncing-menu">
+                <li class="offline-status hide">
+                    <div class="text-danger">
+                        <a class="btn btn-danger" title="You are offline...It's a great time to write!"><i class="icon-attention-circled"></i></a>
+                    </div>
+                </li>
+                <li class="dropdown download-menu hidden-xs">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Download <span class="caret"></span></a>
+                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
+                        <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>
+                        </li>
+                        <li><a class="action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>
+                        </li>
+                        <li><a class="action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right title-container" role="search">
+                <div class="form-group">
+                    <a class="btn btn-default file-title-navbar" href="#" title="Story Title"></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
         <div class="layout-wrapper-l3">
             <div class="working-indicator"></div>
             <pre id="wmd-input" class="form-control"><div class="editor-content"></div><div class="editor-margin"></div></pre>
@@ -57,26 +62,6 @@
         </div>
     </div>
     <div id="wmd-button-bar" class="hide"></div>
-    <div class="menu-panel">
-        <button class="btn toggle-button action-open-writeon" title="Switch to Pad">
-            <i class="icon-pencil-squared"></i>  <strong>Switch to Pad</strong>
-        </button>
-    </div>
-    <div class="document-panel">
-        <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">
-            <i class="icon-folder-open"></i>
-        </button>
-        <div class="search-bar clearfix">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="icon-search"></i></span>
-                <input type="text" class="form-control" placeholder="Find story" />
-            </div>
-        </div>
-        <div class="panel-content">
-            <div class="list-group document-list"></div>
-            <div class="list-group document-list-filtered hide"></div>
-        </div>
-    </div>
 </div>
 <div id="wmd-button-bar" class="hide"></div>
 <div class="modal modal-non-unique">

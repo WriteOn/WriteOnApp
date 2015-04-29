@@ -44,8 +44,8 @@ define([
 			onEnd: function() {
 				storage.welcomeTour = 'done';
 				infoTooltip('.drag-me', 'Drag me!', 'left');
-				infoTooltip('.layout-toggler-preview', 'Toggle preview', 'right');
-				infoTooltip('.layout-toggler-navbar', 'Toggle menu bar', 'right');
+				infoTooltip('.layout-toggler-preview', 'Toggle preview', 'left');
+				infoTooltip('.layout-toggler-navbar', 'Toggle menu bar', 'left');
 			},
 			template: [
 				'<div class="popover tour">',

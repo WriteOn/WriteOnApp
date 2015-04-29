@@ -572,10 +572,9 @@ define([
 		navbarToggler.$elt.click(_.bind(navbar.toggle, navbar));
 
 		previewPanel.isOpen = true;
-		previewPanel.createBackdropToggler(); // or createToggler()
+		previewPanel.createToggler(); // or createBackdropToggler()
 		previewPanel.halfSize = true;
 		previewToggler.$elt.click(_.bind(previewPanel.toggle, previewPanel));
-		// now close the viewer for default writing mode
 
 
 		// Open WriteOn Paper if failing to open the preview
@@ -751,6 +750,8 @@ define([
 		document.head.appendChild(style);
 
 		resizeAll();
+		$('.layout-toggler-preview').click();
+		
 	};
 
 	eventMgr.addListener('onReady', function() {

@@ -5,7 +5,7 @@ if(process.env.NODETIME_ACCOUNT_KEY) {
   });
 }
 require('nodetime');
-require('newrelic');
+//require('newrelic');
 var cluster = require('cluster');
 var app = require('./app');
 

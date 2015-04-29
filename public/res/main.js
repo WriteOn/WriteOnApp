@@ -33,6 +33,7 @@ requirejs.config({
 		material_ripples: 'bower-libs/bootstrap-material-design/dist/js/ripples.min',
 		bootstrap_material: 'bower-libs/bootstrap-material-design/dist/js/bootstrap.material.min',
 		requirejs: 'bower-libs/requirejs/require',
+		domReady: 'bower-libs/requirejs-domready/domReady',
 		'google-code-prettify': 'bower-libs/google-code-prettify/src/prettify',
 		highlightjs: 'libs/highlight/highlight.pack',
 		'jquery-waitforimages': 'bower-libs/waitForImages/src/jquery.waitforimages',
@@ -78,7 +79,6 @@ requirejs.config({
 		monetizejs: 'bower-libs/monetizejs/src/monetize',
 		'to-markdown': 'bower-libs/to-markdown/src/to-markdown',
 		waitForImages: 'bower-libs/waitForImages/dist/jquery.waitforimages',
-//		MathJax: 'bower-libs/MathJax/MathJax',
 		alertify: 'bower-libs/alertify.js/lib/alertify',
         oauth: 'bower-libs/oauth-js/dist/oauth',
         couchdb: 'libs/jquery.couch',
@@ -89,10 +89,7 @@ requirejs.config({
 		underscore: {
 			exports: '_'
 		},
-/*		mathjax: [
-			'libs/mathjax_init'
-		],
-*/		jgrowl: {
+		jgrowl: {
 			deps: [
 				'jquery'
 			],
@@ -243,6 +240,45 @@ require([
 
 	$(function() {
 
+		//load the loader while WriteOn installs, updgrades, or loads
+			// populate welcome message
+			var welcome_msgs = [
+				{"message": "Have a great day writing today."},
+				{"message": "What good shall I do this day?"},
+				{"message": "Remember to get up & stretch<br>once in a while."},
+				{"message": "We’re all in this together."},
+				{"message": "You look nice today."},
+				{"message": "Thank you for using WriteOn.<br>We ♥ you!"},
+				{"message": "Please enjoy WriteOn responsibly."},
+				{"message": "Be cool. But also be warm."},
+				{"message": "The mystery of life isn't a problem to solve, but a reality to experience."},
+				{"message": "We like you."},
+				{"message": "Please consider the environment before printing anything."},
+				{"message": "Always get plenty of sleep, if you can."},
+				{"message": "You're here! The day just got better."},
+				{"message": "Alright world, time to take you on!"},
+				{"message": "Each day will be better than the last. This one especially."},
+				{"message": "What a day! What cannot be accomplished on such a splendid day?"},
+			];
+					
+			var welcome_msg;
+			
+			if (!welcome_msg && welcome_msgs.length){
+				welcome_msg = welcome_msgs[Math.round(Math.random() * (welcome_msgs.length - 1))];
+			}
+			
+			var loading_welcome_msg = document.getElementById('hello_love');
+			var loading_indicator = document.getElementById('indicator');
+			
+			if (welcome_msg){
+				loading_welcome_msg.innerHTML = welcome_msg.message;
+			}
+			
+			// without this delay, the css transition does not happen!
+			setTimeout(function() {
+				loading_welcome_msg.style.opacity = 1;
+			}, 10);	
+		
 		// Check if a new cache / version is available on page load.
 		window.applicationCache.addEventListener('updateready', function() {
 				if(window.applicationCache.status === window.applicationCache.UPDATEREADY) {
