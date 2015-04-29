@@ -6931,7 +6931,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  }, utils;
 }), define("constants", [], function() {
  var e = {};
- return e.VERSION = "1.7.13", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
+ return e.VERSION = "1.7.14", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
  e.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ", e.GOOGLE_DRIVE_APP_ID = "1017251498254", 
  e.DROPBOX_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_APP_SECRET = "1mesyckskczn3f9", 
  e.DROPBOX_RESTRICTED_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_RESTRICTED_APP_SECRET = "1mesyckskczn3f9", 
@@ -29493,10 +29493,7 @@ require([ "jquery", "rangy", "core", "eventMgr", "synchronizer", "publisher", "s
    message: "What a day! What cannot be accomplished on such a splendid day?"
   } ];
   !e && r.length && (e = r[Math.round(Math.random() * (r.length - 1))]);
-  {
-   var o = document.getElementById("hello_love");
-   document.getElementById("indicator");
-  }
+  var o = document.getElementById("hello_love");
   e && (o.innerHTML = e.message), setTimeout(function() {
    o.style.opacity = 1;
   }, 10), window.applicationCache.addEventListener("updateready", function() {

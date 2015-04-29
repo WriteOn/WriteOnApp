@@ -268,7 +268,6 @@ require([
 			}
 			
 			var loading_welcome_msg = document.getElementById('hello_love');
-			var loading_indicator = document.getElementById('indicator');
 			
 			if (welcome_msg){
 				loading_welcome_msg.innerHTML = welcome_msg.message;
