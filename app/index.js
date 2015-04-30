@@ -61,7 +61,9 @@ app.use(function(req, res, next) {
 // get us some auth middleware loaded up...docs via stormpath.com
 app.set('view engine', 'jade');
 app.use(stormpath.init(app, {
-    apiKeyFile: __dirname + '/../app/auth/apiKey.properties',
+    // apiKeyFile: __dirname + '/../app/auth/apiKey.properties',
+	apiKeyId: '69ZDB6J0NHEE4LEBI81KPQP76',
+	apiKeySecret: 'oGibdMjhQn+nKRXICQEmldp+CKydCj5Q+fLslVWm7jM',
     application: 'https://api.stormpath.com/v1/applications/4SgKKI7uk6OY7vbVt8uW4c',
     secretKey: 'mgUkj8P4eFt8Gxo9B9&X4Ih9d0w#NWAlZU&vQ88RqmysRz0lC6',
     googleAnalyticsID: 'UA-56730909-3',
