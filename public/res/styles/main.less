@@ -417,7 +417,7 @@ a {
     .open &.dropdown-toggle {
     	color: darken(@secondary, 30%);
     	border-color: @btn-default-hover-border;
-    	background-color: @btn-default-hover-bg !important; // important to override .nav > li > a:hover
+    	background-color: @btn-default-hover-bg; // important to override .nav > li > a:hover
     }
 }
 
@@ -433,7 +433,7 @@ a {
     .open &.dropdown-toggle {
     	color: darken(@secondary, 30%);
     	border-color: @btn-primary-hover-border;
-    	background-color: @btn-primary-hover-bg !important; // important to override .nav > li > a:hover
+    	background-color: @btn-primary-hover-bg; // important to override .nav > li > a:hover
     }
 }
 
@@ -448,9 +448,9 @@ a {
     &:focus,
     &:active,
     .open &.dropdown-toggle {
-    	color: @btn-success-hover-color !important;
+    	color: @btn-success-hover-color;
     	border-color: @primary-border-color;
-    	background-color: @btn-success-hover-bg !important; // important to override .nav > li > a:hover
+    	background-color: @btn-success-hover-bg; // important to override .nav > li > a:hover
     }
 }
 
@@ -485,7 +485,7 @@ a {
     .open &.dropdown-toggle {
     	color: @btn-info-hover-color;
     	border-color: @btn-info-hover-border;
-    	background-color: @btn-info-hover-bg !important; // important to override .nav > li > a:hover
+    	background-color: @btn-info-hover-bg; // important to override .nav > li > a:hover
     }
 }
 
@@ -506,6 +506,50 @@ a {
 .btn-group>.btn+.dropdown-toggle {
 	padding-right: 11px;
 	padding-left: 11px;
+}
+
+// Floating Action Button (FAB)
+
+.btn-fab {
+    margin: 0;
+    padding: 15px;
+    font-size: 26px;
+    width: 56px;
+    height: 56px;
+	border-radius: 100%;
+    &, &:hover {
+        //.variations(#{""}, background-color, transparent);
+    }
+    &, .ripple-wrapper {
+        border-radius: 100%;
+    }
+    &.btn-mini {
+        width: 40px;
+        height: 40px;
+        padding: 13px;
+        font-size: 15px;
+    }
+	&.btn-primary {
+		background-color:#2196f3;
+		color:#fff;
+		&:hover {
+			background-color: #0d87e9;
+		}
+	}
+	&.fab-pad {
+		padding: 8px;
+	}
+}
+
+//new story floating action button
+.new-story-button {
+	position: fixed;  
+	bottom: 60px;
+	right: 60px;
+	z-index: 100;
+	.fa-lg {
+		padding-top:8px;
+	}
 }
 
 

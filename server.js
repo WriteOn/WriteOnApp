@@ -4,6 +4,13 @@ if(process.env.NODETIME_ACCOUNT_KEY) {
     appName: 'WriteOn' // optional
   });
 }
+/* THIS IS COMMENTED OUT IN PROD< AND ONLY USED IN DEV */
+require('nodetime').profile({
+    accountKey: '6beee53d53766816b0f2a443cfc34fd6ab549325', 
+    appName: 'WriteOn Dev'
+  });
+/**/
+
 require('nodetime');
 //require('newrelic');
 var cluster = require('cluster');

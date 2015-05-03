@@ -1,22 +1,22 @@
 {
   "name": "WriteOn",
-  "version": "1.7.15",
+  "version": "1.7.14",
   "private": true,
   "description": "On a mission to build the world's finest writing experience.",
   "main": "res/main.js",
   "engines": {
-    "node": "0.12.x"
+    "node": "0.12.x" //"node": "0.10.x"
   },
   "directories": {
     "doc": "doc"
   },
   "dependencies": {
     "express": "*",
-    "ejs": "~1.0.0",
-    "request": "*",
+    "ejs": "~1.0.0", //"ejs": "~0.8.8",
+    "request": "*", //"request": "~2.40.0",
     "ssh2": "^0.3.5",
-    "compression": "*", 
-    "serve-static": "*",
+    "compression": "*", //"compression": "^1.0.11",
+    "serve-static": "*", // "serve-static": "^1.7.1",
     "nodetime": "*",
     "newrelic": "*",
     "express-stormpath": "*",
