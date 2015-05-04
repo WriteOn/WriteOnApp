@@ -25194,7 +25194,8 @@ currentContextSelector = void 0, define("contextjs", function() {}), define("lay
     T.isOpen || (window.location.href = "paper");
    });
   }), S.isOpen = !1, S.createBackdropToggler(!0), S.$elt.find(".toggle-button").click(t.bind(S.toggle, S)), 
-  S.$elt.on("click", "a[data-toggle!=dropdown]", t.bind(S.toggle, S, !1)), S.$elt.on("hidden.layout.toggle", function() {
+  S.$elt.on("click", "a[data-toggle!=dropdown]", t.bind(S.toggle, S, !1)) || S.$elt.on("click", "a[data-toggle!=collapse]", t.bind(S.toggle, S, !1)), 
+  S.$elt.on("hidden.layout.toggle", function() {
    m();
   }), C.isOpen = !1, !window.viewerMode) {
    C.createBackdropToggler(!0), C.$elt.on("click", "a[data-toggle!=collapse]", t.bind(C.toggle, C, !1)), 
