@@ -73,17 +73,8 @@ define([
 				element: '.document-panel .toggle-button',
 				title: 'My Stories',
 				content: [
-					'<p>The <i class="icon-folder-open"></i> <b>My Stories</b> panel allows you to open and search for your stories.</p>',
+					'<p>The <i class="icon-folder-open"></i> <b>My Stories</b> panel allows you to open and search for your stories, and gives you quick access to create a new story, organize exsiting stories, and import stories.</p>',
 					'<b>Tip:</b> Use <kbd>Ctrl+[</kbd> and <kbd>Ctrl+]</kbd> to toggle local stories.'
-				].join(""),
-				placement: 'left',
-				reflex: true
-			},
-			{
-				element: '.story-menu',
-				title: 'Story Menu',
-				content: [
-					'<p>The <i class="icon-docs text-blue"></i> <b>Story action</b> menu gives you quick access to create a new story, organize exsiting stories, and import stories.</p>'
 				].join(""),
 				placement: 'left',
 				reflex: true
@@ -122,7 +113,7 @@ define([
 				element: '.settings-menu',
 				title: 'Menu',
 				content: [
-					'<p>Use the <i class="icon-menu"></i> <b>Main menu</b> to switch from <i class="icon-pencil-squared"> <strong>Pad</strong></i> to <i class="icon-doc-text"></i> <strong>Paper</strong>, your account, settings, extensions, utilities and help.</p>'				
+					'<p>Use the <i class="icon-menu"></i> <b>Main menu</b> to update your account, settings, extensions, utilities and find help.</p>'				
                 ].join(""),
 				placement: 'right',
 				reflex: true

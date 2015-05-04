@@ -105,11 +105,16 @@ Custom Buildpack: https://github.com/davidmfoley/heroku-buildpack-nodejs-gulp-bo
         $ gulp boop
         $ gulp bop
 
-### Working With Heorku BuildPack API
+### Working With Heroku BuildPack API
 
 See https://github.com/heroku/heroku-repo
 
         $ heroku repo:purge_cache -a writeon-{instance}
+
+### Logging with Heroku
+
+		$ heroku labs:enable log-runtime-metrics -a writeon-{instance}
+
 
 ##Docker container:
 
@@ -700,7 +705,7 @@ OPTIONAL:
   [9]: https://github.com/BeardandFedora/WriteOn-Wordpress-Proxy
   [10]: https://github.com/BeardandFedora/WriteOn-Tumblr-Proxy
   [11]: https://github.com/prose/gatekeeper
-  [12]: http://mammal-charter.codio.io/doc/img/architecture.png "WriteOn architecture"
+  [12]: img/architecture.png "WriteOn architecture"
   [13]: #module-injection
   [14]: http://layout.jquery-dev.net/ "UI Layout"
   [15]: http://ace.c9.io
