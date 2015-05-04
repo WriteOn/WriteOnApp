@@ -18,10 +18,7 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<script type="text/javascript">
             window.baseDir="res";if(!/(\?|&)debug($|&)/.test(location.search)){window.baseDir+="-min"}window.require={baseUrl:window.baseDir,deps:["main"]}
-			
-			
 			window.onload = function() {
-		
 			// populate welcome message
 			var welcome_msgs = [
 				{"message": "Have a great day writing today."},
@@ -40,21 +37,16 @@
 				{"message": "Alright world, time to take you on!"},
 				{"message": "Each day will be better than the last. This one especially."},
 				{"message": "What a day! What cannot be accomplished on such a splendid day?"},
-			];
-					
+			];	
 			var welcome_msg;
-			
 			if (!welcome_msg && welcome_msgs.length){
 				welcome_msg = welcome_msgs[Math.round(Math.random() * (welcome_msgs.length - 1))];
 			}
-			
 			var loading_welcome_msg = document.getElementById('hello_love');
 			var loading_indicator = document.getElementById('indicator');
-			
 			if (welcome_msg){
 				loading_welcome_msg.innerHTML = welcome_msg.message;
 			}
-			
 			// without this delay, the css transition does not happen!
 			setTimeout(function() {
 				loading_welcome_msg.style.opacity = 1;
@@ -63,10 +55,10 @@
         </script>
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
-		<style>.load-writeon {font-family: 'Playfair Display', serif;} .load-writeon i {  position: relative;margin-top: 17%;left: 48%;font-size: 3em;color: #0c84e4;}.load-writeon span {font-size: 20px;color: #4D394B;font-weight: 300;text-align: center;margin: 0 auto;	opacity: 0;width: 600px;text-shadow: 0 1px white;line-height: 2rem;max-width: 400px;-webkit-transition: opacity .25s ease-in-out;-moz-transition: opacity .25s ease-in-out;-ms-transition: opacity .25s ease-in-out;-o-transition: opacity .25s ease-in-out;transition: opacity .25s ease-in-out;display: block;margin-top: 10px;}</style>
+		<style>.load-writeon {font-family: 'Playfair Display', serif;} .load-writeon i {  position: relative;margin-top: 17%;left: 48.5%;font-size: 3em;color: #0c84e4;}.load-writeon span {font-size: 20px;color: #4D394B;font-weight: 300;text-align: center;margin: 0 auto; opacity: 0;width: 600px;text-shadow: 0 1px #e3e3e3;line-height: 2rem;max-width: 400px;-webkit-transition: opacity .25s ease-in-out;-moz-transition: opacity .25s ease-in-out;-ms-transition: opacity .25s ease-in-out;-o-transition: opacity .25s ease-in-out;transition: opacity .25s ease-in-out;display: block;margin-top: 10px;}.load-writeon img {text-align: center;margin: 0 auto; opacity: 1;width: 50px;line-height: 2rem;max-width: 400px;-webkit-transition: opacity .25s ease-in-out;-moz-transition: opacity .25s ease-in-out;-ms-transition: opacity .25s ease-in-out;-o-transition: opacity .25s ease-in-out;transition: opacity .25s ease-in-out;display: block;margin-top: 10px;}</style>
     </head>
     <body class="pad">
-		<div class="load-writeon"><i id="indicator" class="fa fa-cog fa-spin"></i><span id="hello_love">&nbsp;</span></div>
+		<div class="load-writeon"><i id="indicator" class="fa fa-cog fa-spin"></i><span id="hello_love">&nbsp;</span><img src="res-min/img/writeon-logo.png"></div>
 		<script src="res-min/require.js" data-main="main.js"></script>
 	</body>
 </html>

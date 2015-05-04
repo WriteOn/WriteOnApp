@@ -86,37 +86,6 @@
                         </li>
                     </ul>
                 </li>
-                <li class="dropdown story-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-docs text-blue"></i> <span class="caret"></span></a>
-                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
-                        <li><a href="#" class="action-create-file"><i class="icon-file text-blue"></i> Create New Story</a>
-                        </li>
-                        <li><a href="#" class="file" data-toggle="modal" data-target=".modal-document-manager"><i class="icon-layers text-yellow"></i> Organize Stories</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li class="disabled"><a href="#"><i class="icon-angle-double-down"></i> <strong>Import Stories</strong></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="#" class="file action-sync-import-dialog-mywriteon hide"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a>
-                        </li>
-                        <li><a href="#" class="file action-sync-import-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
-                        </li>
-                        <li><a href="#" class="file submenu-sync-gdrive action-sync-import-gdrive"><i class="icon-provider-gdrive"></i> Google Drive</a>
-                        </li>
-                        <li><a href="#" class="file submenu-sync-gdrivesec action-sync-import-gdrivesec"><i class="icon-provider-gdrive"></i> Google Drive<sup>2</sup></a>
-                        </li>
-                        <li><a href="#" class="file submenu-sync-gdriveter action-sync-import-gdriveter"><i class="icon-provider-gdrive"></i> Google Drive<sup>3</sup></a>
-                        </li>
-                        <li><a data-toggle="modal" data-target=".modal-import-url" class="file action-reset-input" href="#" title="Import from URL"><i class="icon-globe text-green"></i> Import URL</a>
-                        </li>
-                        <li><a data-toggle="modal" title="Import from disk" data-target=".modal-import-harddrive-markdown" class="file action-reset-input" href="#"><i class="icon-hdd text-orange"></i> Import from disk</a>
-                        </li>
-                        <li>
-                            <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input"> <i class="icon-paste"></i>Import HTML</a>
-                        </li>
-                    </ul>
-                </li>
-
             </ul>
             <form class="navbar-form navbar-right title-container" role="search">
                 <div class="form-group">
@@ -148,7 +117,7 @@
 			</div>
         </div>
         <div class="extension-preview-buttons">
-            <div class="btn-group drag-me" title="Drag me!">
+            <div class="btn-group drag-me" title="Open me!">
                 <i class="icon-ellipsis-vert"></i>
             </div>
         </div>
@@ -212,25 +181,53 @@
             </ul>
         </div>
     </div>
-    <div class="document-panel">
-        <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">
-            <i class="icon-folder-open"></i>
-        </button>
-        <div class="search-bar clearfix">
-            <ul class="nav hide">
-                <li><a href="#" class="action-remove-file-confirm"><i class="icon-trash text-red"></i> Delete this story</a>
-                </li>
-            </ul>
-            <div class="input-group">
-                <span class="input-group-addon"><i class="icon-search"></i></span>
-                <input type="text" class="form-control" placeholder="Find story" />
+<div class="document-panel">
+    <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">
+        <i class="icon-folder-open"></i>
+    </button>
+    <div class="search-bar clearfix">
+		    <nav class="navbar navbar-default story-navbar" style="position: relative;border: 1px solid #e6e6e6;border-radius: 2px;">
+            <div id="story-navbar-collapse">
+                <ul class="nav navbar-nav navbar-left extension-buttons syncing-menu" style="margin-bottom:0;">
+                    <li><a href="#" class="action-create-file" title="Create New Story" style="padding:8px;"><i class="icon-plus-circled fa-lg text-blue"></i></a></li>
+					<li><a href="#" class="action-remove-file-confirm" title="Delete Current Story"><i class="icon-trash text-red"></i></a></li>
+					<li><a href="#" class="file" data-toggle="modal" data-target=".modal-document-manager" title="Organize Stories"><i class="icon-layers text-yellow"></i></a></li>
+					<li class="dropdown story-menu pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true" title="Import Stories"><i class="icon-docs text-dark-yellow"></i><span class="caret"></span></a>
+                        <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
+                            <li><a href="#" class="file action-sync-import-dialog-mywriteon hide"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a>
+                            </li>
+                            <li><a href="#" class="file action-sync-import-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
+                            </li>
+                            <li><a href="#" class="file submenu-sync-gdrive action-sync-import-gdrive"><i class="icon-provider-gdrive"></i> Google Drive</a>
+                            </li>
+                            <li><a href="#" class="file submenu-sync-gdrivesec action-sync-import-gdrivesec"><i class="icon-provider-gdrive"></i> Google Drive<sup>2</sup></a>
+                            </li>
+                            <li><a href="#" class="file submenu-sync-gdriveter action-sync-import-gdriveter"><i class="icon-provider-gdrive"></i> Google Drive<sup>3</sup></a>
+                            </li>
+                            <li><a data-toggle="modal" data-target=".modal-import-url" class="file action-reset-input" href="#" title="Import from URL"><i class="icon-globe text-green"></i> Import URL</a>
+                            </li>
+                            <li><a data-toggle="modal" title="Import from disk" data-target=".modal-import-harddrive-markdown" class="file action-reset-input" href="#"><i class="icon-hdd text-orange"></i> Import from disk</a>
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input"> <i class="icon-paste"></i>Import HTML</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
             </div>
-        </div>
-        <div class="panel-content">
-            <div class="list-group document-list"></div>
-            <div class="list-group document-list-filtered hide"></div>
+    </nav>
+		<div class="input-group">
+            <span class="input-group-addon"><i class="icon-search"></i></span>
+            <input type="text" class="form-control" placeholder="Find story" />
         </div>
     </div>
+    <div class="panel-content">
+        <div class="list-group document-list"></div>
+        <div class="list-group document-list-filtered hide"></div>
+    </div>
+</div>
 </div>
 <div class="modal fade modal-document-manager">
     <div class="modal-dialog">
@@ -603,7 +600,7 @@ folder and filename. </span>
                 <p>
                     This will save "<span class="file-title"></span>" to My.WriteOn <sup class="text-danger">Beta</sup> and keep it synchronized.
                 </p>
-                <blockquote class="alert alert-info">
+                <blockquote class="alert alert-info hide hidden">
 					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
                     <p><b>Tip:</b> You can use a YAML front matter to specify tags for your story:</p>
@@ -823,7 +820,7 @@ story title will be used.</span>
                         </div>
                     </div>
                 </div>
-                <blockquote class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress alert alert-info">
+                <blockquote class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress alert alert-info hide hidden">
                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
 					<p><b>Tip:</b> You can use a YAML front matter to specify the title and the tags/labels of your published story.</p>
@@ -837,7 +834,7 @@ story title will be used.</span>
 						---</code>
 					</p>
                 </blockquote>
-                <blockquote class="front-matter-info modal-publish-bloggerpage alert alert-info">
+                <blockquote class="front-matter-info modal-publish-bloggerpage alert alert-info hide hidden">
                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
 					<p><b>Tip:</b> You can use a YAML front matter to specify the title and the tags/labels of your published story.</p>
@@ -902,14 +899,14 @@ story title will be used.</span>
                 </p>
                 <div class="share-editor-list"></div>
                 <hr>
-                <p> To <strong>share</strong> a public, read-only version of "<span class="file-title"></span>" using the following link(s):</p>
+                <p class="hide hidden"> To <strong>share</strong> a public, read-only version of "<span class="file-title"></span>" using the following link(s):</p>
                 <p class="msg-no-share-viewer alert alert-info" role="alert"><b>No sharing link yet!</b> To share a read-only version of this story, just 
                     <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn.</a></p>
                 <div class="share-viewer-list"></div>
                 <blockquote>
                     <p><b>Did You Know?</b> You can open any <code>.md</code> or <code>.markdown</code> URL using the <i>WriteOn Paper</i> like so: 
                         <a href="paper#!url=https://raw.githubusercontent.com/github/markup/master/README.md" title="Sharing example">
-                            <code>/paper#!url=[your-url-here]</code></a>.</p>
+                            <code>/paper#!url=[http://sample.com/your_file.md]</code></a>.</p>
                 </blockquote>
             </div>
         </div>

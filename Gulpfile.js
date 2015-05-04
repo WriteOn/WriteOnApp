@@ -235,6 +235,27 @@ gulp.task('cache-manifest-mathjax', function() {
         .pipe(gulp.dest('./public/'));
 });
 
+gulp.task('cache', function() {
+	return gulp.src('./public/cache.manifest')
+		.pipe(replace(/(#Date ).*/, '$1' + Date()))
+		.pipe(replace(/(#Version ).*/, '$1' + getVersion()))
+		.pipe(inject(gulp.src([
+				'./res-min/**/*.*'
+			], {
+				read: false,
+				cwd: './public'
+			}),
+			{
+				starttag: '# start_inject_resources',
+				endtag: '# end_inject_resources',
+				ignoreExtensions: true,
+				transform: function(filepath) {
+					return filepath.substring(1);
+				}
+			}))
+		// .pipe(debug())
+        .pipe(gulp.dest('./public/'));
+});
 gulp.task('cache-manifest', function() {
 	return gulp.src('./public/cache.manifest')
 		.pipe(replace(/(#Date ).*/, '$1' + Date()))

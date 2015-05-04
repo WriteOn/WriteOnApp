@@ -28,7 +28,6 @@ requirejs.config({
 		'mousetrap-record': 'bower-libs/mousetrap/plugins/record/mousetrap-record',
 		toMarkdown: 'bower-libs/to-markdown/src/to-markdown',
 		text: 'bower-libs/requirejs-text/text',
-//		mathjax: '../res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML', 
 		bootstrap: 'bower-libs/bootstrap/dist/js/bootstrap',
 		material_ripples: 'bower-libs/bootstrap-material-design/dist/js/ripples.min',
 		bootstrap_material: 'bower-libs/bootstrap-material-design/dist/js/bootstrap.material.min',

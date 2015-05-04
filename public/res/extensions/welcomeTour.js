@@ -43,7 +43,7 @@ define([
 			},
 			onEnd: function() {
 				storage.welcomeTour = 'done';
-				infoTooltip('.drag-me', 'Drag me!', 'left');
+				infoTooltip('.drag-me', 'Open me!', 'left');
 				infoTooltip('.layout-toggler-preview', 'Toggle preview', 'left');
 				infoTooltip('.layout-toggler-navbar', 'Toggle menu bar', 'left');
 			},
