@@ -1,6 +1,6 @@
 {
   "name": "WriteOn",
-  "version": "1.7.15",
+  "version": "1.8.0",
   "private": true,
   "description": "On a mission to build the world's finest writing experience.",
   "main": "res/main.js",
@@ -15,7 +15,7 @@
     "ejs": "~1.0.0",
     "request": "*",
     "ssh2": "^0.3.5",
-    "compression": "*", 
+    "compression": "*",
     "serve-static": "*",
     "nodetime": "*",
     "newrelic": "*",
