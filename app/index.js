@@ -102,8 +102,8 @@ app.use(stormpath.init(app, {
     enableAutoLogin: true,
     enableForgotPassword: true,
     enableAccountVerification: true,
-    enableUsername: true,
-    requireUsername: true,
+    enableUsername: false,
+    requireUsername: false,
     sessionDuration: 1000 * 60 * 120, // Make sessions expire after 120 minutes.
     registrationView: __dirname + '/../views/auth/register.jade',
     loginView: __dirname + '/../views/auth/login.jade',
@@ -146,6 +146,25 @@ app.get('/x6ywhf', function(req, res) {
 app.get('/viewer', function(req, res) {
     res.redirect('/paper');
 });
+
+/* **********************
+ * Variant Landing Pages
+ * **********************
+*/ 
+
+// Serve landing.html
+app.get('/landing', function(req, res) {
+	res.renderDebug('landing.html');
+});
+// Serve landing-pages/200-authors-a.html
+app.get('/authors', function(req, res) {
+	res.renderDebug('landing-pages/200-author-a.html');
+});
+// Serve landing-pages/200-travel-a.html
+app.get('/travel-writers', function(req, res) {
+	res.renderDebug('landing-pages/200-travel-a.html');
+});
+
 
 // Serve editor.html in /pad
 // Let's also lock this down with stormpath, by directory groups

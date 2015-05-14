@@ -11,19 +11,20 @@ block body
         a.scrollToSlide1(href='/', title='Home')
           img(src='/res-min/img/logo.svg')
       div.nav.pull-right.nav-right
-        a.btn.btn-default.file-title-navbar(href='http://writeon.io', title='Home' style='margin-right: 10px;')
-          i.icon-home
-          | Home
         a.btn.btn-primary.file-title-navbar(href='/', title='Login')
           i.icon-login
           | Login
 
-
   .container.custom-container
     .va-wrapper
-      .view.registration-view.container
+      .view.login-view.container
         .box.row
-          .col-sm-12
+          if app.get('stormpathEnableFacebook') || app.get('stormpathEnableGoogle')
+            - var cls = 'small col-sm-8'
+          else
+            - var cls = 'large col-sm-12'
+
+          div(class='email-password-area col-xs-12 #{cls}')
             .header
               span Create Account
 
@@ -38,6 +39,12 @@ block body
 
             form.registration-form.form-horizontal.sp-form(method='post', role='form')
               input(name='_csrf', type='hidden', value=csrfToken)
+
+              .form-group.group-email(form-group='true')
+                label.col-sm-4 Email
+                .col-sm-8
+                  - var value = form.data ? form.data.email : '';
+                  input.form-control(placeholder='Email', name='email', value=value, required='true', type='text')
 
               if app.get('stormpathEnableUsername')
                 .form-group.group-username(form-group='true')
@@ -67,17 +74,20 @@ block body
                     - var value = form.data ? form.data.surname : '';
                     input.form-control(placeholder='Last Name', name='surname', value=value, required=app.get('stormpathRequireSurname') ? true : false, type='text')
 
-              .form-group.group-email(form-group='true')
-                label.col-sm-4 Email
-                .col-sm-8
-                  - var value = form.data ? form.data.email : '';
-                  input.form-control(placeholder='Email', name='email', value=value, required='true', type='text')
-
               .form-group.group-password(form-group='true')
                 label.col-sm-4 Password
                 .col-sm-8
                   input.form-control(placeholder='Password', name='password', required='true', type='password')
-
-              button.btn.btn-register.btn-primary(type='submit') Create Account
+              div
+                button.btn.btn-register.btn-primary(type='submit') Create Account
+          
+          if app.get('stormpathEnableFacebook') || app.get('stormpathEnableGoogle')
+            .social-area.col-xs-12.col-sm-4
+              .header &nbsp;
+              label Easy 1-Click Registration:
+              if app.get('stormpathEnableFacebook')
+                include facebook_login_form.jade
+              if app.get('stormpathEnableGoogle')
+                include google_login_form.jade
 
         a.to-login(href=app.get('stormpathLoginUrl')) Back to Log In

@@ -16,15 +16,20 @@ require('nodetime');
 var cluster = require('cluster');
 var app = require('./app');
 
-var count = require('os').cpus().length;
-
+// Node Clustering
 if(!process.env.NO_CLUSTER && cluster.isMaster) {
+	// Count the machine's CPUs 
+	var count = require('os').cpus().length;
+	// Create a worker for each CPU
 	for(var i = 0; i < count; i++) {
 		cluster.fork();
 	}
 	cluster.on('exit', function() {
-		console.log('Worker died. Spawning a new process...');
+ 		console.log('Worker died. Spawning a new process...');
 		cluster.fork();
+	});
+	cluster.on('fork', function(worker) {
+		console.log('Worker ' + worker.id + ' is now running.');
 	});
 }
 else {
@@ -34,4 +39,5 @@ else {
 		console.log('Server started: http://localhost:' + port);
 	});
 }
+
 
