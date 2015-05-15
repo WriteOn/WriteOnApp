@@ -1,7 +1,7 @@
 extends base
 block vars
-  - var title = 'Create an Account'
-  - var description = 'Create a new account.'
+  - var title = 'WriteOn - Create your free account'
+  - var description = 'Create your free WriteOn account.'
   - var bodytag = 'register'
 
 block body
@@ -11,7 +11,7 @@ block body
         a.scrollToSlide1(href='/', title='Home')
           img(src='/res-min/img/logo.svg')
       div.nav.pull-right.nav-right
-        a.btn.btn-primary.file-title-navbar(href='/', title='Login')
+        a.btn.btn-default.file-title-navbar(href='/', title='Login')
           i.icon-login
           | Login
 
@@ -26,7 +26,7 @@ block body
 
           div(class='email-password-area col-xs-12 #{cls}')
             .header
-              span Create Account
+              span Create Your Free Account
 
             if error
               .alert.alert-danger
@@ -37,7 +37,7 @@ block body
                 each error in formErrors
                   p #{error.error}
 
-            form.registration-form.form-horizontal.sp-form(method='post', role='form')
+            form.registration-form.form-horizontal.sp-form(method='post', role='form', name='RegisterForm')
               input(name='_csrf', type='hidden', value=csrfToken)
 
               .form-group.group-email(form-group='true')
@@ -86,8 +86,10 @@ block body
               .header &nbsp;
               label Easy 1-Click Registration:
               if app.get('stormpathEnableFacebook')
-                include facebook_login_form.jade
+                include facebook_register_form.jade
               if app.get('stormpathEnableGoogle')
-                include google_login_form.jade
+                include google_register_form.jade
 
-        a.to-login(href=app.get('stormpathLoginUrl')) Back to Log In
+        a.to-login(href=app.get('stormpathLoginUrl')) 
+          i.icon-login
+          | Back to Log In

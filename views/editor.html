@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html<%- cache ? ' manifest="cccache.manifest"' : '' %>>
+<html<%- cache ? ' manifest="cache.manifest"' : '' %>>
 
     <head>
         <title>WriteOn Pad</title>
@@ -56,7 +56,23 @@
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
 		<style>.load-writeon {font-family: 'Playfair Display', serif;} .load-writeon i {  position: relative;margin-top: 17%;left: 48.5%;font-size: 3em;color: #0c84e4;}.load-writeon span {font-size: 20px;color: #4D394B;font-weight: 300;text-align: center;margin: 0 auto; opacity: 0;width: 600px;text-shadow: 0 1px #e3e3e3;line-height: 2rem;max-width: 400px;-webkit-transition: opacity .25s ease-in-out;-moz-transition: opacity .25s ease-in-out;-ms-transition: opacity .25s ease-in-out;-o-transition: opacity .25s ease-in-out;transition: opacity .25s ease-in-out;display: block;margin-top: 10px;}.load-writeon img {text-align: center;margin: 0 auto; opacity: 1;width: 50px;line-height: 2rem;max-width: 400px;-webkit-transition: opacity .25s ease-in-out;-moz-transition: opacity .25s ease-in-out;-ms-transition: opacity .25s ease-in-out;-o-transition: opacity .25s ease-in-out;transition: opacity .25s ease-in-out;display: block;margin-top: 10px;}</style>
-    </head>
+		<!-- Facebook Conversion Code for WriteOn - New User -->
+		<script>(function() {
+  		var _fbq = window._fbq || (window._fbq = []);
+  		if (!_fbq.loaded) {
+    		var fbds = document.createElement('script');
+    		fbds.async = true;
+    		fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    		var s = document.getElementsByTagName('script')[0];
+    		s.parentNode.insertBefore(fbds, s);
+    		_fbq.loaded = true;
+  		}
+		})();
+		window._fbq = window._fbq || [];
+		window._fbq.push(['track', '6030585827155', {'value':'0.00','currency':'USD'}]);
+		</script>
+		<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6030585827155&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+	</head>
     <body class="pad">
 		<div class="load-writeon"><i id="indicator" class="fa fa-cog fa-spin"></i><span id="hello_love">&nbsp;</span><img src="res-min/img/writeon-logo.png"></div>
 		<script src="res-min/require.js" data-main="main.js"></script>

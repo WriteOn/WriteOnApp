@@ -13,11 +13,8 @@ block body
         a.scrollToSlide1(href='/', title='Home')
           img(src='/res-min/img/logo.svg')
       div.nav.pull-right.nav-right
-        a.btn.btn-default.file-title-navbar(href='http://writeon.io', title='Home' style='margin-right: 10px;')
-          i.icon-home
-          | Home
         a.btn.btn-primary.file-title-navbar(href='register', title='Register')
-          i.icon-heart
+          i.icon-plus-squared
           | Register
 
   .container.custom-container
@@ -32,7 +29,7 @@ block body
           div(class='email-password-area col-xs-12 #{cls}')
             .header
               span.
-                Log In or <a href="#{app.get('stormpathRegistrationUrl')}">Create Account</a>
+                Log In or <a href="#{app.get('stormpathRegistrationUrl')}">Create Your Account</a>
 
             if error
               .alert.alert-danger.bad-login
@@ -43,7 +40,7 @@ block body
                 each error in formErrors
                   p #{error.error}
 
-            form.login-form.form-horizontal(method='post', role='form')
+            form.login-form.form-horizontal(method='post', role='form', name='LoginForm')
               input(name='_csrf', type='hidden', value=csrfToken)
 
               .form-group.group-email
