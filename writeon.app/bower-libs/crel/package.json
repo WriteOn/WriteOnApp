@@ -1,0 +1,27 @@
+{
+  "name": "crel",
+  "description": "A small, simple, and fast DOM creation utility",
+  "author": "Kory Nunn <knunn187@gmail.com>",
+  "tags": [
+    "DOM"
+  ],
+  "version": "2.1.6",
+  "main": "crel.js",
+  "dependencies": {},
+  "devDependencies": {
+    "smokestack": "^2.0.0",
+    "tape": "^3.0.3"
+  },
+  "scripts": {
+    "test": "browserify ./test | smokestack",
+    "build": "browserify test/index.js > test/index.browser.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/KoryNunn/crel.git"
+  },
+  "bugs": {
+    "url": "http://github.com/KoryNunn/crel/issues"
+  },
+  "contributors": []
+}

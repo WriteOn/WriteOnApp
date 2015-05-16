@@ -1,0 +1,13 @@
+{
+  "name": "js-sequence-diagrams",
+  "homepage": "https://github.com/BeardandFedora/js-sequence-diagrams",
+  "_release": "d11ba01363",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d11ba01363365fe6ef088548b69aaf83b90469ba"
+  },
+  "_source": "https://github.com/BeardandFedora/js-sequence-diagrams.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/BeardandFedora/js-sequence-diagrams.git"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "xregexp",
+  "_cacheHeaders": {
+    "ETag": "\"aa0bd1be4e814226de38bac2e60e8602b66b2dfa\"",
+    "Content-Type": "application/zip",
+    "Content-Disposition": "attachment; filename=xregexp-0.1.1.zip"
+  },
+  "_release": "e-tag:aa0bd1be4",
+  "_source": "https://github.com/BeardandFedora/xregexp/archive/0.1.1.zip",
+  "_target": "*",
+  "_originalSource": "https://github.com/BeardandFedora/xregexp/archive/0.1.1.zip"
+}

@@ -37,10 +37,10 @@ function getVersion() {
 }
 
 gulp.task('constants', function() {
-	return gulp.src('./public/res/constants.js')
+	return gulp.src('./writeon.app/constants.js')
 		.pipe(replace(/constants\.VERSION = .*/, 'constants.VERSION = "' + getVersion() + '";'))
         //.pipe(debug())
-		.pipe(gulp.dest('./public/res/'));
+		.pipe(gulp.dest('./writeon.app/'));
 });
 
 /** __________________________________________
@@ -50,12 +50,12 @@ gulp.task('constants', function() {
 gulp.task('jshint', function() {
 	return gulp.src([
 		'./*.js',
-		'./app/**/*.js',
-		'./public/res/classes/**/*.js',
-		'./public/res/extensions/**/*.js',
-		'./public/res/helpers/**/*.js',
-		'./public/res/providers/**/*.js',
-		'./public/res/*.js'
+		'./writeon.server/**/*.js',
+		'./writeon.app/classes/**/*.js',
+		'./writeon.app/extensions/**/*.js',
+		'./writeon.app/helpers/**/*.js',
+		'./writeon.app/providers/**/*.js',
+		'./writeon.app/*.js'
 	])
 		// .pipe(debug())
         .pipe(jshint())
@@ -69,17 +69,17 @@ gulp.task('jshint', function() {
 
 gulp.task('clean-requirejs', function() {
 	return gulp.src([
-		'./public/res-min/main.js',
-		'./public/res-min/require.js'
+		'./public/writeon/main.js',
+		'./public/writeon/require.js'
 	])
 		// .pipe(debug())
         .pipe(clean());
 });
 
 gulp.task('copy-requirejs', ['clean-requirejs'], function() {
-	return gulp.src('./public/res/bower-libs/requirejs/require.js')
+	return gulp.src('./writeon.app/bower-libs/requirejs/require.js')
 		// .pipe(debug())
-        .pipe(gulp.dest('./public/res-min/'));
+        .pipe(gulp.dest('./public/writeon/'));
 });
 
 gulp.task('requirejs', [
@@ -90,7 +90,7 @@ gulp.task('requirejs', [
 		baseUrl: 'public/res',
 		name: 'main',
 		out: 'main.js',
-		mainConfigFile: 'public/res/main.js',
+		mainConfigFile: 'writeon.app/main.js',
 		optimize: 'uglify2',
 		inlineText: true,
 		paths: {
@@ -110,12 +110,12 @@ gulp.task('requirejs', [
 			}
 		}))
 		// .pipe(debug())
-        .pipe(gulp.dest('./public/res-min/'));
+        .pipe(gulp.dest('./public/writeon/'));
 });
 
 gulp.task('bower-requirejs', function(cb) {
 	bowerRequirejs({
-		config: './public/res/main.js'
+		config: './writeon.app/main.js'
 	}, function() {
 		cb();
 	});
@@ -126,21 +126,21 @@ gulp.task('bower-requirejs', function(cb) {
  */
 
 gulp.task('clean-less', function() {
-	return gulp.src('./public/res-min/themes')
+	return gulp.src('./public/writeon/themes')
 		// .pipe(debug())
         .pipe(clean());
 });
 
 gulp.task('less', ['clean-less'], function() {
 	return gulp.src([
-		'./public/res/styles/base.less',
-		'./public/res/themes/*.less'
+		'./writeon.app/styles/base.less',
+		'./writeon.app/themes/*.less'
 	])
 		.pipe(less({
 			compress: true
 		}))
 		// .pipe(debug())
-        .pipe(gulp.dest('./public/res-min/themes/'));
+        .pipe(gulp.dest('./public/writeon/themes/'));
 });
 
 /** __________________________________________
@@ -148,18 +148,18 @@ gulp.task('less', ['clean-less'], function() {
  */
 
 gulp.task('clean-font', function() {
-	return gulp.src('./public/res-min/font')
+	return gulp.src('./public/writeon/font')
 		// .pipe(debug())
         .pipe(clean());
 });
 
 gulp.task('copy-font', ['clean-font'], function() {
 	return gulp.src([
-        './public/res/font/*', 
-        './public/res/bower-libs/bootstrap-material-design/fonts/*'
+        './writeon.app/font/*', 
+        './writeon.app/bower-libs/bootstrap-material-design/fonts/*'
     ])
 		// .pipe(debug())
-        .pipe(gulp.dest('./public/res-min/font/'));
+        .pipe(gulp.dest('./public/writeon/font/'));
 });
 
 /** __________________________________________
@@ -167,15 +167,15 @@ gulp.task('copy-font', ['clean-font'], function() {
  */
 
 gulp.task('clean-img', function() {
-	return gulp.src('./public/res-min/img')
+	return gulp.src('./public/writeon/img')
 		// .pipe(debug())
         .pipe(clean());
 });
 
 gulp.task('copy-img', ['clean-img'], function() {
-	return gulp.src('./public/res/img/*')
+	return gulp.src('./writeon.app/img/*')
 		// .pipe(debug())
-        .pipe(gulp.dest('./public/res-min/img/'));
+        .pipe(gulp.dest('./public/writeon/img/'));
 });
 
 /** __________________________________________
@@ -187,7 +187,7 @@ gulp.task('cache-manifest-mathjax', function() {
 		.pipe(replace(/(#Date ).*/, '$1' + Date()))
 		.pipe(replace(/(#Version ).*/, '$1' + getVersion()))
 		.pipe(inject(gulp.src([
-				'./res-min/**/*.*'
+				'./writeon/**/*.*'
 			], {
 				read: false,
 				cwd: './public'
@@ -240,7 +240,7 @@ gulp.task('cache', function() {
 		.pipe(replace(/(#Date ).*/, '$1' + Date()))
 		.pipe(replace(/(#Version ).*/, '$1' + getVersion()))
 		.pipe(inject(gulp.src([
-				'./res-min/**/*.*'
+				'./writeon/**/*.*'
 			], {
 				read: false,
 				cwd: './public'
@@ -261,7 +261,7 @@ gulp.task('cache-manifest', function() {
 		.pipe(replace(/(#Date ).*/, '$1' + Date()))
 		.pipe(replace(/(#Version ).*/, '$1' + getVersion()))
 		.pipe(inject(gulp.src([
-				'./res-min/**/*.*'
+				'./writeon/**/*.*'
 			], {
 				read: false,
 				cwd: './public'
@@ -324,7 +324,7 @@ function exec(cmd, cb) {
 gulp.task('git-tag', function(cb) {
 	var tag = 'v' + getVersion();
 	util.log('Tagging as: ' + util.colors.cyan(tag));
-	exec('git add ./public/res-min', function(err) {
+	exec('git add ./public/writeon', function(err) {
 		if(err) {
 			return cb(err);
 		}

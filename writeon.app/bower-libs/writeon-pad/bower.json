@@ -1,0 +1,27 @@
+{
+  "name": "WriteOn-Pad",
+  "version": "0.0.3",
+  "homepage": "https://github.com/BeardndFedora/WriteOn-Pad",
+  "description": "Enjoy live editing(+markdown) in WriteOn",
+  "main": [
+    "src/pad.js",
+    "src/pad.css"
+  ],
+  "keywords": [
+    "editor",
+    "wysiwyg",
+    "markdown"
+  ],
+  "authors": [
+    "sofish",
+	"BeardndFedora"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

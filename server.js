@@ -14,7 +14,7 @@ require('nodetime').profile({
 require('nodetime');
 //require('newrelic');
 var cluster = require('cluster');
-var app = require('./app');
+var app = require('./writeon.server');
 
 // Node Clustering
 if(!process.env.NO_CLUSTER && cluster.isMaster) {
