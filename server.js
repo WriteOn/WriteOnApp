@@ -1,10 +1,15 @@
+/* 
+ * LOAD APPLICATION MONITORING. 
+*/
+// Load Nodetime
 if(process.env.NODETIME_ACCOUNT_KEY) {
   require('nodetime').profile({
     accountKey: process.env.NODETIME_ACCOUNT_KEY,
     appName: 'WriteOn' // optional
   });
 }
-/* THIS IS COMMENTED OUT IN PROD< AND ONLY USED IN DEV * /
+/* THIS IS COMMENTED OUT IN PROD< AND ONLY USED IN DEV 
+ * /
 require('nodetime').profile({
     accountKey: '6beee53d53766816b0f2a443cfc34fd6ab549325', 
     appName: 'WriteOn Dev'
@@ -12,11 +17,36 @@ require('nodetime').profile({
 /*/
 
 require('nodetime');
-//require('newrelic');
+require('newrelic');
+
+/* 
+ * LOAD SERVER DEPEDENCIES 
+ */
 var cluster = require('cluster');
+
+/* 
+ * LOAD APPLICATIONS
+ */
 var app = require('./writeon.server');
+var web = require('./writeon.io');
+
+
+// FORCE HTTPS
+app.all('*', function(req, res, next) {
+	if (req.headers.host == 'writeon.io' && req.headers['x-forwarded-proto'] != 'https') {
+		return res.redirect('https://writeon.io' + req.url);
+	}
+	if (req.headers.host == 'beta.writeon.io' && req.headers['x-forwarded-proto'] != 'https') {
+		return res.redirect('https://beta.writeon.io' + req.url);
+	}
+	/\.(eot|ttf|woff|svg)$/.test(req.url) && res.header('Access-Control-Allow-Origin', '*');
+	next();
+});
+
+
 
 // Node Clustering
+// To turn off clustering, set $ process.env.NO_CLUSTER=1 
 if(!process.env.NO_CLUSTER && cluster.isMaster) {
 	// Count the machine's CPUs 
 	var count = require('os').cpus().length;
