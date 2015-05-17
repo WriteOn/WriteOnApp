@@ -1,12 +1,12 @@
 /* 
- * LOAD APPLICATION MONITORING. 
-*/
+ * LOAD APPLICATION MONITORING.
+ */
 // Load Nodetime
 if(process.env.NODETIME_ACCOUNT_KEY) {
-  require('nodetime').profile({
-    accountKey: process.env.NODETIME_ACCOUNT_KEY,
-    appName: 'WriteOn' // optional
-  });
+    require('nodetime').profile({
+        accountKey: process.env.NODETIME_ACCOUNT_KEY,
+        appName: 'WriteOn' // optional
+    });
 }
 /* THIS IS COMMENTED OUT IN PROD< AND ONLY USED IN DEV 
  * /
@@ -15,23 +15,29 @@ require('nodetime').profile({
     appName: 'WriteOn Dev'
   });
 /*/
-
 require('nodetime');
 require('newrelic');
-
 /* 
- * LOAD SERVER DEPEDENCIES 
+ * LOAD SERVER DEPEDENCIES
  */
 var cluster = require('cluster');
-
 /* 
  * LOAD APPLICATIONS
  */
 var app = require('./writeon.server');
-var web = require('./writeon.io');
-
-
-// FORCE HTTPS
+var web = require('./writeon.io')(app);
+/* 
+ * FORCE HTTPS
+ */
+/* Used to force SSL - required for security */
+app.use(function(req, res, next) {
+    if(req.headers['x-forwarded-proto'] != 'https') {
+        res.redirect('https://' + req.headers.host + req.path);
+    } else {
+        return next();
+    }
+});
+/* Legacy ...
 app.all('*', function(req, res, next) {
 	if (req.headers.host == 'writeon.io' && req.headers['x-forwarded-proto'] != 'https') {
 		return res.redirect('https://writeon.io' + req.url);
@@ -42,32 +48,29 @@ app.all('*', function(req, res, next) {
 	/\.(eot|ttf|woff|svg)$/.test(req.url) && res.header('Access-Control-Allow-Origin', '*');
 	next();
 });
-
-
-
-// Node Clustering
+*/
+/* 
+ * NODE CLUSTERING
+ */
 // To turn off clustering, set $ process.env.NO_CLUSTER=1 
 if(!process.env.NO_CLUSTER && cluster.isMaster) {
-	// Count the machine's CPUs 
-	var count = require('os').cpus().length;
-	// Create a worker for each CPU
-	for(var i = 0; i < count; i++) {
-		cluster.fork();
-	}
-	cluster.on('exit', function() {
- 		console.log('Worker died. Spawning a new process...');
-		cluster.fork();
-	});
-	cluster.on('fork', function(worker) {
-		console.log('Worker ' + worker.id + ' is now running.');
-	});
+    // Count the machine's CPUs 
+    var count = require('os').cpus().length;
+    // Create a worker for each CPU
+    for(var i = 0; i < count; i++) {
+        cluster.fork();
+    }
+    cluster.on('exit', function() {
+        console.log('Worker died. Spawning a new process...');
+        cluster.fork();
+    });
+    cluster.on('fork', function(worker) {
+        console.log('Worker ' + worker.id + ' is now running.');
+    });
+} else {
+    // Listen on port 3000
+    var port = process.env.PORT || 3000;
+    app.listen(port, null, function() {
+        console.log('Server started: http://localhost:' + port);
+    });
 }
-else {
-	// Listen on port 3000
-	var port = process.env.PORT || 3000;
-	app.listen(port, null, function() {
-		console.log('Server started: http://localhost:' + port);
-	});
-}
-
-
