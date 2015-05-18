@@ -6,11 +6,11 @@
 * To change this template use Tools | Templates.
 */
 
-module.exports = function(app) {
+module.exports = function(app, stormpath) {
 
 // Global Auth stretegies here	
 	
 // Set up the Stormpath application
-require('./stormpath.js')(app);
+require('./stormpath.js')(app, stormpath);
 	
 };

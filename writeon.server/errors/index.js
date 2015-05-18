@@ -43,7 +43,7 @@ app.use(function(req, res){
   res.status(404);
 
   // respond with html page
-  if (req.accepts('html')2) {
+  if (req.accepts('html')) {
     res.render('error_404.html');
     return;
   }

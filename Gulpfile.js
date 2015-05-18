@@ -87,10 +87,10 @@ gulp.task('requirejs', [
 	'constants'
 ], function() {
 	return requirejs({
-		baseUrl: 'public/res',
+		baseUrl: './writeon.app',
 		name: 'main',
 		out: 'main.js',
-		mainConfigFile: 'writeon.app/main.js',
+		mainConfigFile: './writeon.app/main.js',
 		optimize: 'uglify2',
 		inlineText: true,
 		paths: {

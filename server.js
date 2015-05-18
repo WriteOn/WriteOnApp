@@ -25,7 +25,7 @@ var cluster = require('cluster');
  * LOAD APPLICATIONS
  */
 var app = require('./writeon.server');
-var web = require('./writeon.io')(app);
+
 /* 
  * FORCE HTTPS
  */

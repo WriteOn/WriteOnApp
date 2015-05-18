@@ -9,10 +9,10 @@
 module.exports = function(app) {
 
 	//connect some custom middleware
-	app.post('/bootmywriteon', require('./middleware/bootmywriteon').bootmywriteon);
-	app.post('/pdfExport', require('./middleware/pdf').export);
-	app.post('/sshPublish', require('./middleware/ssh').publish);
-	app.post('/picasaImportImg', require('./middleware/picasa').importImg);
-	app.get('/downloadImport', require('./middleware/download').importPublic);
+	app.post('/bootmywriteon', require('./bootmywriteon').bootmywriteon);
+	app.post('/pdfExport', require('./pdf').export);
+	app.post('/sshPublish', require('./ssh').publish);
+	app.post('/picasaImportImg', require('./picasa').importImg);
+	app.get('/downloadImport', require('./download').importPublic);
 	
 };

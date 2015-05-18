@@ -8,9 +8,10 @@
 
 module.exports = function(app, stormpath) {
 
+var extend = require('xtend');
 	
-/* KISS. A keep it simple routing scheme here... forever. This app is intended to
- * be a single page app with meta pages, both of which we can assign routes for.
+/* 
+ * KISS. A keep it simple routing scheme for core app functions and the API. Cannot use root /
 */ 
 
 // Serve recovery.html in /
@@ -27,13 +28,6 @@ app.get('/signup', function(req, res) {
 app.get('/signin', function(req, res) {
     res.redirect('/login');
 });
-app.get('/x6ywhf', function(req, res) {
-    res.redirect('/pad');
-});
-app.get('/viewer', function(req, res) {
-    res.redirect('/paper');
-});
-
 
 
 // Serve editor.html in /pad
@@ -51,14 +45,18 @@ app.get('/pad', stormpath.loginRequired, function(req, res) {
 app.get('/paper', function(req, res) {
     res.renderDebug('viewer.html');
 });
-
-// route middleware to make sure a user is logged in
-
-    function isLoggedIn(req, res, next) {
+	
+/* 
+ * AUTH. This is vendor specific routing 
+*/
+// Route middleware to make sure a user is logged in
+    /* jshint ignore:start */
+	function isLoggedIn(req, res, next) {
         // if user is authenticated in the session, carry on 
         if(req.isAuthenticated()) return next();
         // if they aren't redirect them to the home page
         res.redirect('/');
     }
+	/* jshint ignore:end */
 	
 };	
