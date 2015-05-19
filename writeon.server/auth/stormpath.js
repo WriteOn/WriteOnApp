@@ -12,7 +12,7 @@ module.exports = function(app, stormpath) {
 // get us some auth middleware loaded up...docs via stormpath.com
 //app.set('view engine', 'jade');
 app.use(stormpath.init(app, {
-    apiKeyFile: './apiKey.properties',
+    apiKeyFile: __dirname + '/apiKey.properties',
 	// apiKeyId: '69ZDB6J0NHEE4LEBI81KPQP76',
 	// apiKeySecret: 'oGibdMjhQn+nKRXICQEmldp+CKydCj5Q+fLslVWm7jM',
     application: 'https://api.stormpath.com/v1/applications/4SgKKI7uk6OY7vbVt8uW4c',
@@ -52,20 +52,20 @@ app.use(stormpath.init(app, {
     enableUsername: false,
     requireUsername: false,
     sessionDuration: 1000 * 60 * 120, // Make sessions expire after 120 minutes.
-    registrationView: '../views/auth/register.jade',
-    loginView: '../views/auth/login.jade',
-    forgotPasswordView: '../views/auth/forgot.jade',
-    forgotPasswordEmailSentView: '../views/auth/forgot_email_sent.jade',
-    forgotPasswordChangeView: '../views/auth/forgot_change.jade',
-    forgotPasswordChangeFailedView: '../views/auth/forgot_change_failed.jade',
-    forgotPasswordCompleteView: '../views/auth/forgot_complete.jade',
-    accountVerificationEmailSentView: '../views/auth/verification_email_sent.jade',
-    accountVerificationCompleteView: '../views/auth/verification_complete.jade',
-    accountVerificationFailedView: '../views/auth/verification_failed.jade',
-    idSiteVerificationFailedView: '../views/auth/id_site_verification_failed.jade',
-    googleLoginFailedView: '../views/auth/google_login_failed.jade',
-    facebookLoginFailedView: '../views/auth/facebook_login_failed.jade',
-    unauthorizedView: '../views/auth/unauthorized.jade'
+    registrationView: __dirname + '/views/register.jade',
+    loginView: __dirname + '/views/login.jade',
+    forgotPasswordView: __dirname + '/views/forgot.jade',
+    forgotPasswordEmailSentView: __dirname + '/views/forgot_email_sent.jade',
+    forgotPasswordChangeView: __dirname + '/views/forgot_change.jade',
+    forgotPasswordChangeFailedView: __dirname + '/views/forgot_change_failed.jade',
+    forgotPasswordCompleteView: __dirname + '/views/forgot_complete.jade',
+    accountVerificationEmailSentView: __dirname + '/views/verification_email_sent.jade',
+    accountVerificationCompleteView: __dirname + '/views/verification_complete.jade',
+    accountVerificationFailedView: __dirname + '/views/verification_failed.jade',
+    idSiteVerificationFailedView: __dirname + '/views/id_site_verification_failed.jade',
+    googleLoginFailedView: __dirname + '/views/google_login_failed.jade',
+    facebookLoginFailedView: __dirname + '/views/facebook_login_failed.jade',
+    unauthorizedView: __dirname + '/views/unauthorized.jade'
 }));
 
 	

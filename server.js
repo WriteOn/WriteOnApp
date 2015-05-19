@@ -21,6 +21,7 @@ require('newrelic');
  * LOAD SERVER DEPEDENCIES
  */
 var cluster = require('cluster');
+var no_cluster = 1;
 /* 
  * LOAD APPLICATIONS
  */
@@ -53,7 +54,7 @@ app.all('*', function(req, res, next) {
  * NODE CLUSTERING
  */
 // To turn off clustering, set $ process.env.NO_CLUSTER=1 
-if(!process.env.NO_CLUSTER && cluster.isMaster) {
+if(!process.env.NO_CLUSTER && !no_cluster && cluster.isMaster) {
     // Count the machine's CPUs 
     var count = require('os').cpus().length;
     // Create a worker for each CPU

@@ -18,10 +18,6 @@ var extend = require('xtend');
 app.get('/recovery', function(req, res) {
 	res.renderDebug('recovery.html');
 });
-// Redirects
-app.get('/login', function(req, res) {
-    res.redirect('/');
-});
 app.get('/signup', function(req, res) {
     res.redirect('/register');
 });

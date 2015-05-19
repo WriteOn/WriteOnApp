@@ -9,7 +9,7 @@
 
 /* jshint -W015 */
 var gulp = require('gulp');
-var grunt = require('gulp-grunt')(gulp,); // add all the gruntfile tasks to gulp
+var grunt = require('gulp-grunt')(gulp); // add all the gruntfile tasks to gulp
 //var debug = require('gulp-debug');
 var util = require('gulp-util');
 var clean = require('gulp-clean');
@@ -392,11 +392,7 @@ gulp.task('watch', function () {
 /* 
  * Import Grunt Tasks
  */ 
-gulp.task('default', [
-  // run complete grunt tasks
-  'grunt-minify',
-  'grunt-test',
-  // or run specific targets
-  'grunt-sass:dist',
-  'grunt-browserify:dev'
-]);
+gulp.task('grunt-test', ['grunt-test']);
+gulp.task('grunt-build', ['grunt-build']);
+gulp.task('grunt-copydist', ['grunt-copydist']);
+gulp.task('grunt-deploy', ['grunt-deploy']);
