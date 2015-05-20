@@ -15,7 +15,7 @@ module.exports = function(grunt) {
     //this is a new html5 rewrite rule so we can use normalized URLs, instead hashmaps (ie - /main instead of /#/main)
     var _sendIndex = function(req, res) {
         var fs = require('fs');
-        fs.readFile('writeon.io/app/index.html', function(error, info) {
+        fs.readFile('app/index.html', function(error, info) {
             res.setHeader('Content-Type', 'text/html');
             res.end(info);
         });
@@ -34,11 +34,11 @@ module.exports = function(grunt) {
         yeoman: appConfig,
         bump: {
             options: {
-                files: ['writeon.io/package.json', 'writeon.io/bower.json'],
+                files: ['package.json', 'bower.json'],
                 updateConfigs: [],
                 commit: true,
                 commitMessage: 'Release v%VERSION%',
-                commitfiles: ['writeon.io/package.json', 'writeon.io/bower.json'],
+                commitfiles: ['package.json', 'bower.json'],
                 createTag: true,
                 tagName: 'v%VERSION%',
                 tagMessage: 'Version %VERSION%',
@@ -51,24 +51,24 @@ module.exports = function(grunt) {
         // Watches files for changes and runs tasks based on the changed files
         watch: {
             bower: {
-                files: ['writeon.io/bower.json'],
+                files: ['./writeon.io/bower.json'],
                 tasks: ['wiredep']
             },
             js: {
-                files: ['writeon.io/app/scripts/{,*/}*.js'],
+                files: ['./writeon.io/app/scripts/{,*/}*.js'],
                 tasks: ['newer:jshint:all'],
                 options: {
                     livereload: '<%= connect.options.livereload %>'
                 }
             },
             jsTest: {
-                files: ['writeon.io/test/spec/{,*/}*.js'],
+                files: ['./writeon.io/test/spec/{,*/}*.js'],
                 //No Karma until it's needed
                 tasks: ['newer:jshint:test', 'karma']
                 //tasks: ['newer:jshint:test']
             },
             compass: {
-                files: ['writeon.io/app/styles/{,*/}*.{scss,sass}'],
+                files: ['./writeon.io/app/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
             },
             gruntfile: {
@@ -78,7 +78,7 @@ module.exports = function(grunt) {
                 options: {
                     livereload: '<%= connect.options.livereload %>'
                 },
-                files: ['writeon.io/app/{,*/}*.html', '.tmp/styles/{,*/}*.css', 'writeon.io/app/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}']
+                files: ['./writeon.io/app/{,*/}*.html', '.tmp/styles/{,*/}*.css', './writeon.io/app/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}']
             }
         },
         // The actual grunt server settings
@@ -100,7 +100,7 @@ module.exports = function(grunt) {
                 options: {
                     open: true,
                     middleware: function(connect) {
-                        return [require('connect-modrewrite')(['!(\\..+)$ / [L]']), connect.static('.tmp'), connect().use('/bower_components', connect.static('./writeon.io/bower_components')), connect().use('/fonts', connect.static('./writeon.io/bower_components/bootstrap/dist/fonts')), connect().use('/fonts', connect.static('./writeon.io/bower_components/font-awesome/fonts')), connect.static(appConfig.app)];
+                        return [require('connect-modrewrite')(['!(\\..+)$ / [L]']), connect.static('.tmp'), connect().use('/bower_components', connect.static('bower_components')), connect().use('/fonts', connect.static('bower_components/bootstrap/dist/fonts')), connect().use('/fonts', connect.static('bower_components/font-awesome/fonts')), connect.static(appConfig.app)];
                     }
                 }
             },
@@ -108,14 +108,14 @@ module.exports = function(grunt) {
                 options: {
                     port: 9001,
                     middleware: function(connect) {
-                        return [connect.static('.tmp'), connect.static('test'), connect().use('/bower_components', connect.static('./writeon.io/bower_components')), connect.static(appConfig.app)];
+                        return [connect.static('.tmp'), connect.static('test'), connect().use('/bower_components', connect.static('bower_components')), connect.static(appConfig.app)];
                     }
                 }
             },
             dist: {
                 options: {
                     open: true,
-                    base: 'writeon.io/dist'
+                    base: 'dist'
                 }
             }
         },
@@ -126,13 +126,13 @@ module.exports = function(grunt) {
                 reporter: require('jshint-stylish')
             },
             all: {
-                src: ['Gruntfile.js', 'writeon.io/app/scripts/{,*/}*.js']
+                src: ['Gruntfile.js', 'app/scripts/{,*/}*.js']
             },
             test: {
                 options: {
-                    jshintrc: 'writeon.io/test/.jshintrc'
+                    jshintrc: 'test/.jshintrc'
                 },
-                src: ['writeon.io/test/spec/{,*/}*.js']
+                src: ['test/spec/{,*/}*.js']
             }
         },
         // Empties folders to start fresh
@@ -140,15 +140,15 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     dot: true,
-                    src: ['.tmp', 'writeon.io/dist/{,*/}*', '!./writeon.io/dist/.git{,*/}*']
+                    src: ['.tmp', 'dist/{,*/}*', '!./writeon.io/dist/.git{,*/}*']
 
                 }]
             },
-            public: {
+            deploy: {
                 files: [{
                     dot: true,
-					cwd: './public/web',
-					src: ['*.{ico,png,txt}', 'index.html', 'sitemap.xml', 'views/{,*/}*.html', 'variants/{,*/}*.css', 'variants/{,*/}*.{png,jpg,jpeg,gif,webp,svg}','variants/{,*/}*.html', 'images/{,*/}*.{webp}', 'styles/fonts/{,*/}*.*']
+					cwd: '../public',
+					src: ['*.html', '*.xml', 'scripts/{,*/}*.js', 'views/{,*/}*.html', 'variants/{,*/}*.css',  'variants/{,*/}*.js', 'variants/{,*/}*.{png,jpg,jpeg,gif,webp,svg}','variants/{,*/}*.html', 'images/{,*/}*.{webp}', 'styles/fonts/{,*/}*.*']
 
                 }]
             },
@@ -172,24 +172,24 @@ module.exports = function(grunt) {
         // Automatically inject Bower components into the app
         wiredep: {
             app: {
-                src: ['writeon.io/app/index.html'],
+                src: ['app/index.html'],
                 ignorePath: /\.\.\//
             },
             sass: {
-                src: ['writeon.io/app/styles/{,*/}*.{scss,sass}'],
+                src: ['app/styles/{,*/}*.{scss,sass}'],
                 ignorePath: /(\.\.\/){1,2}bower_components\//
             }
         },
         // Compiles Sass to CSS and generates necessary files if requested
         compass: {
             options: {
-                sassDir: 'writeon.io/app/styles',
+                sassDir: 'app/styles',
                 cssDir: '.tmp/styles',
                 generatedImagesDir: '.tmp/images/generated',
-                imagesDir: 'writeon.io/app/images',
-                javascriptsDir: 'writeon.io/app/scripts',
-                fontsDir: 'writeon.io/app/styles/fonts',
-                importPath: 'writeon.io/bower_components',
+                imagesDir: 'app/images',
+                javascriptsDir: 'app/scripts',
+                fontsDir: 'app/styles/fonts',
+                importPath: 'bower_components',
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
                 httpFontsPath: '/styles/fonts',
@@ -200,7 +200,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 options: {
-                    generatedImagesDir: 'writeon.io/dist/images/generated'
+                    generatedImagesDir: 'dist/images/generated'
                 }
             },
             server: {
@@ -212,16 +212,16 @@ module.exports = function(grunt) {
         // Renames files for browser caching purposes
         filerev: {
             dist: {
-                src: ['writeon.io/dist/scripts/{,*/}*.js', 'writeon.io/dist/{,*/}*.js', 'writeon.io/dist/styles/{,*/}*.css', 'writeon.io/dist/images/**/*.{png,jpg,jpeg,gif,webp,svg}', 'writeon.io/dist/styles/fonts/*']
+                src: ['dist/scripts/{,*/}*.js', 'dist/{,*/}*.js', 'dist/styles/{,*/}*.css', 'dist/images/**/*.{png,jpg,jpeg,gif,webp,svg}', 'dist/styles/fonts/*']
             }
         },
         // Reads HTML for usemin blocks to enable smart builds that automatically
         // concat, minify and revision files. Creates configurations in memory so
         // additional tasks can operate on them
         useminPrepare: {
-            html: 'writeon.io/app/index.html',
+            html: 'app/index.html',
             options: {
-                dest: 'writeon.io/dist',
+                dest: 'dist',
                 flow: {
                     html: {
                         steps: {
@@ -235,10 +235,10 @@ module.exports = function(grunt) {
         },
         // Performs rewrites based on filerev and the useminPrepare configuration
         usemin: {
-            html: ['writeon.io/dist/**/*.html', 'writeon.io/dist/views/{,*/}*.html', 'writeon.io/dist/variants/{,*/}*.html'],
-            css: ['writeon.io/dist/styles/**/*.css'],
+            html: ['dist/**/*.html', 'dist/views/{,*/}*.html', 'dist/variants/{,*/}*.html'],
+            css: ['dist/styles/**/*.css'],
             options: {
-                assetsDirs: ['writeon.io/dist', 'writeon.io/dist/images/']
+                assetsDirs: ['dist', 'dist/images/']
             }
         },
         // The following *-min tasks will produce minified files in the dist folder
@@ -248,7 +248,7 @@ module.exports = function(grunt) {
         // cssmin: {
         //   dist: {
         //     files: {
-        //       'writeon.io/dist/styles/main.css': [
+        //       'dist/styles/main.css': [
         //         '.tmp/styles/{,*/}*.css'
         //       ]
         //     }
@@ -257,8 +257,8 @@ module.exports = function(grunt) {
         // uglify: {
         //   dist: {
         //     files: {
-        //       'writeon.io/dist/scripts/scripts.js': [
-        //         'writeon.io/dist/scripts/scripts.js'
+        //       'dist/scripts/scripts.js': [
+        //         'dist/scripts/scripts.js'
         //       ]
         //     }
         //   }
@@ -270,9 +270,9 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: 'writeon.io/app/images',
+                    cwd: 'app/images',
                     src: '**/*.{png,jpg,jpeg,gif}',
-                    dest: 'writeon.io/dist/images'
+                    dest: 'dist/images'
                 }]
             }
         },
@@ -280,9 +280,9 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: 'writeon.io/app/images',
+                    cwd: 'app/images',
                     src: '**/*.svg',
-                    dest: 'writeon.io/dist/images'
+                    dest: 'dist/images'
                 }]
             }
         },
@@ -297,9 +297,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'writeon.io/dist',
+                    cwd: 'dist',
                     src: ['*.html', 'views/**/*.html'],
-                    dest: 'writeon.io/dist'
+                    dest: 'dist'
                 }]
             }
         },
@@ -318,7 +318,7 @@ module.exports = function(grunt) {
         // Replace Google CDN references
         cdnify: {
             dist: {
-                html: ['writeon.io/dist/*.html']
+                html: ['dist/*.html']
             }
         },
         // Copies remaining files to places other tasks can use
@@ -327,43 +327,33 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: 'writeon.io/app',
-                    dest: 'writeon.io/dist',
-                    src: ['*.{ico,png,txt}', '.htaccess', '*.html', 'sitemap.xml', 'views/{,*/}*.html', 'variants/{,*/}*.css', 'variants/{,*/}*.{png,jpg,jpeg,gif,webp,svg}','variants/{,*/}*.html', 'images/{,*/}*.{webp}', 'styles/fonts/{,*/}*.*']
+                    cwd: 'app',
+                    dest: 'dist',
+                    src: ['*.{ico,png,txt}', '*.html', 'sitemap.xml', 'scripts/{,*/}*.js', 'views/{,*/}*.html', 'variants/{,*/}*.css', 'variants/{,*/}*.{png,jpg,jpeg,gif,webp,svg}','variants/{,*/}*.html', 'images/{,*/}*.{webp}', 'styles/fonts/{,*/}*.*']
                 }, {
                     expand: true,
                     cwd: '.tmp/images',
-                    dest: 'writeon.io/dist/images',
+                    dest: 'dist/images',
                     src: ['generated/*']
                 }, {
                     expand: true,
                     cwd: '.',
-                    src: 'writeon.io/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-                    dest: 'writeon.io/dist'
+                    src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
+                    dest: 'dist'
                 }]
             },
             deploy: {
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: 'writeon.io/dist',
-                    dest: './public/web',
-                    src: ['*.{ico,png,txt}', '.htaccess', '*.html', 'sitemap.xml', 'views/{,*/}*.html', 'variants/{,*/}*.css', 'variants/{,*/}*.{png,jpg,jpeg,gif,webp,svg}','variants/{,*/}*.html', 'images/{,*/}*.{webp}', 'styles/fonts/{,*/}*.*']
-                }, {
-                    expand: true,
-                    cwd: '.tmp/images',
-                    dest: './public/web/images',
-                    src: ['generated/*']
-                }, {
-                    expand: true,
-                    cwd: '.',
-                    src: 'writeon.io/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-                    dest: './public/web'
+                    cwd: 'dist',
+                    dest: '../public',
+                    src: ['*.{ico,png,txt}', '**/*', '*.html', 'sitemap.xml', 'views/{,*/}*.html', 'variants/{,*/}*.css', 'variants/{,*/}*.{png,jpg,jpeg,gif,webp,svg}','variants/{,*/}*.html', 'images/{,*/}*.{webp}', 'styles/fonts/{,*/}*.*']
                 }]
             },
             styles: {
                 expand: true,
-                cwd: 'writeon.io/app/styles',
+                cwd: 'app/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
             }
@@ -378,7 +368,7 @@ module.exports = function(grunt) {
         // Test settings
         karma: {
             unit: {
-                configFile: 'writeon.io/test/karma.conf.js',
+                configFile: 'test/karma.conf.js',
                 singleRun: true
             }
         }
@@ -388,19 +378,23 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
     grunt.loadNpmTasks('grunt-bump');
 
-	grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
+	// now that we've loaded the package.json and the node_modules we set the base path
+  	// for the actual execution of the tasks
+  	grunt.file.setBase('writeon.io')
+
+	grunt.registerTask('serve-io', 'Compile then start a connect web server', function(target) {
         if(target === 'dist') {
-            return grunt.task.run(['build', 'connect:dist:keepalive']);
+            return grunt.task.run(['build-io', 'connect:dist:keepalive']);
         }
         grunt.task.run(['clean:server', 'wiredep', 'concurrent:server', 'autoprefixer', 'connect:livereload', 'watch']);
     });
-    grunt.registerTask('test', ['clean:server', 'concurrent:test', 'autoprefixer', 'connect:test', 'karma']);
-    grunt.registerTask('build', ['clean:dist', 'wiredep', 'useminPrepare', 'concurrent:dist', 'autoprefixer', 'ngAnnotate', 'copy:dist', 'cdnify', 'filerev', 'usemin', 'htmlmin']);
-    grunt.registerTask('default', ['newer:jshint', 'test', 'build']);
-	grunt.registerTask('copydist', ['copy:dist']);
-	grunt.registerTask('deploy', ['copy:deploy']);
-    grunt.registerTask('heroku', function(target) {
+    grunt.registerTask('test-io', ['clean:server', 'concurrent:test', 'autoprefixer', 'connect:test', 'karma']);
+    grunt.registerTask('build-io', ['clean:dist', 'wiredep', 'useminPrepare', 'concurrent:dist', 'autoprefixer', 'ngAnnotate', 'copy:dist', 'cdnify', 'filerev', 'usemin', 'htmlmin']);
+    grunt.registerTask('default', ['newer:jshint', 'test']);
+	grunt.registerTask('copydist-io', ['copy:dist']);
+	grunt.registerTask('deploy-io', ['clean:deploy', 'copy:deploy']);
+    grunt.registerTask('heroku-io', function(target) {
         // use the target to do whatever, for example:
-        grunt.task.run('build:' + target);
+        grunt.task.run('build-io:' + target);
     });
 };

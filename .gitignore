@@ -1,11 +1,9 @@
 # SysAdmin Level - Better know what you're doing
 
-#Uncomment to push to heroku
+#Uncomment to exclude from git push
 #app
-test
-
-#Uncomment to push to github
 #dist
+#public
 #newrelic.js
 
 .tmp
