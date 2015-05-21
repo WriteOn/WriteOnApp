@@ -47,7 +47,7 @@ module.exports = function(grunt) {
                 createTag: true,
                 tagName: 'v%VERSION%',
                 tagMessage: 'Version %VERSION%',
-                push: true,
+                push: false, // True if you want to auto deploy while doing $ grunt bump:beep
                 pushTo: 'github',
                 gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
                 globalReplace: false

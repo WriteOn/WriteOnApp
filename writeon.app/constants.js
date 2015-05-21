@@ -3,9 +3,9 @@
 
 define([], function() {
 	var constants = {};
-	constants.VERSION = "1.8.2";
+	constants.VERSION = "1.9.2";
 	constants.MAIN_URL = "https://writeon.io/";
-	constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3";
+	constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1";
 	constants.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ";
 	constants.GOOGLE_DRIVE_APP_ID = "1017251498254";
 	constants.DROPBOX_APP_KEY = "r3vgaee214zfvc7";
@@ -14,7 +14,7 @@ define([], function() {
 	constants.DROPBOX_RESTRICTED_APP_SECRET = "1mesyckskczn3f9";
 	constants.BITLY_ACCESS_TOKEN = "c93d4289b9c1a0313378f1dad028c2d334bbc3c6";
 	constants.DEFAULT_FILE_TITLE = "Story Title";
-	constants.DEFAULT_FOLDER_NAME = "New Folder";
+	constants.DEFAULT_FOLDER_NAME = "New Storybook";
 	constants.GDRIVE_DEFAULT_FILE_TITLE = "New Story";
 	constants.EDITOR_DEFAULT_PADDING = 35;
 	constants.CHECK_ONLINE_PERIOD = 120000;
@@ -51,7 +51,7 @@ define([], function() {
      // PRODUCTION ENVIRONMENT VARIABLE CONSTANTS 
 	if(location.hostname.indexOf("writeon.io") === 0) {
 		constants.BASE_URL = constants.MAIN_URL;
-        constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3";
+        constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1";
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = 'af6858e3fa3165986ce7';
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
@@ -143,8 +143,8 @@ define([], function() {
 		"blue": "Blue",
 		"night": "Night",
 //		"school": "School",
-		"solarized-light": "Solarized",
-//		"solarized-dark": "Solarized Dark"
+		"solarized-light": "Solar",
+//		"solarized-dark": "Dark Solar"
 	};
 
 	return constants;

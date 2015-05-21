@@ -182,7 +182,29 @@ gulp.task('copy-img', ['clean-img'], function() {
  * cache.manifest
  */
 
-gulp.task('cache-manifest-mathjax', function() {
+gulp.task('cache', function() {
+	return gulp.src('./public/writeon/cache.manifest')
+		.pipe(replace(/(#Date ).*/, '$1' + Date()))
+		.pipe(replace(/(#Version ).*/, '$1' + getVersion()))
+		.pipe(inject(gulp.src([
+				'./writeon/**/*.*'
+			], {
+				read: false,
+				cwd: './public'
+			}),
+			{
+				starttag: '# start_inject_resources',
+				endtag: '# end_inject_resources',
+				ignoreExtensions: true,
+				transform: function(filepath) {
+					return filepath.substring(1);
+				}
+			}))
+		// .pipe(debug())
+        .pipe(gulp.dest('./public/writeon/'));
+});
+
+gulp.task('cache-mathjax', function() {
 	return gulp.src('./public/cache.manifest')
 		.pipe(replace(/(#Date ).*/, '$1' + Date()))
 		.pipe(replace(/(#Version ).*/, '$1' + getVersion()))
@@ -235,49 +257,6 @@ gulp.task('cache-manifest-mathjax', function() {
         .pipe(gulp.dest('./public/'));
 });
 
-gulp.task('cache', function() {
-	return gulp.src('./public/cache.manifest')
-		.pipe(replace(/(#Date ).*/, '$1' + Date()))
-		.pipe(replace(/(#Version ).*/, '$1' + getVersion()))
-		.pipe(inject(gulp.src([
-				'./writeon/**/*.*'
-			], {
-				read: false,
-				cwd: './public'
-			}),
-			{
-				starttag: '# start_inject_resources',
-				endtag: '# end_inject_resources',
-				ignoreExtensions: true,
-				transform: function(filepath) {
-					return filepath.substring(1);
-				}
-			}))
-		// .pipe(debug())
-        .pipe(gulp.dest('./public/'));
-});
-gulp.task('cache-manifest', function() {
-	return gulp.src('./public/cache.manifest')
-		.pipe(replace(/(#Date ).*/, '$1' + Date()))
-		.pipe(replace(/(#Version ).*/, '$1' + getVersion()))
-		.pipe(inject(gulp.src([
-				'./writeon/**/*.*'
-			], {
-				read: false,
-				cwd: './public'
-			}),
-			{
-				starttag: '# start_inject_resources',
-				endtag: '# end_inject_resources',
-				ignoreExtensions: true,
-				transform: function(filepath) {
-					return filepath.substring(1);
-				}
-			}))
-		// .pipe(debug())
-        .pipe(gulp.dest('./public/'));
-});
-
 gulp.task('clean', [
 	'clean-requirejs',
 	'clean-less',
@@ -292,7 +271,7 @@ gulp.task('build', function(cb) {
 			'copy-font',
 			'copy-img'
 		],
-		'cache-manifest',
+		'cache',
 		cb);
 });
 
@@ -387,3 +366,39 @@ gulp.task('watch', function () {
   gulp.watch(['./views/*.html'], ['html']);
 });
 
+
+
+/* 
+ * TASK LIST - For reference only.
+ * From the writeon.docs/developer-guide.md#Independent Build/Minify Steps
+ * 
+
+gulp constants 			# builds constants
+gulp jshint 			# builds javascript sources
+gulp clean-requirejs 	# removes requireJS modules (./public/writeon/main.js, ./public/writeon/require.js)
+gulp copy-requirejs 	# builds requireJS modules
+gulp requirejs 			# performs clean-requirejs + copy-requirejs and builds LESS, MathJax, etc.
+gulp bower-requirejs 	# SEE note above, requires adding module to bower using --save
+gulp clean-less 		# removes ./public/writeon/themes/*.css files
+gulp less 				# builds & compresses all LESS ./public/res/styles/base.less + ./public/res/themes/*
+gulp clean-font 		# removes all fonts from ./public/writeon/font
+gulp copy-font 			# removes and builds fonts    
+gulp clean-img 			# removes all images from ./public/writeon/img
+gulp copy-img 			# removes and builds images
+gulp cache 				# cleans and builds the cache manifest
+gulp clean 				# cleans out all of the above clean tasks
+gulp build 				# basic build of the project
+gulp beep 				# apply a patch (see https://github.com/webjay/node-bump)
+gulp boop 				# apply a minor version
+gulp boop 				# apply a major version 
+gulp bump-patch 		# apply a patch (see https://github.com/webjay/node-bump)
+gulp bump-minor 		# apply a minor version
+gulp bump-major 		# apply a major version 
+gulp git-tag 			# creates a tagged commit & pushes...
+
+# Performs git add ./public/writeon, git commit -a -m "Prepare release", git tag -a '_tag_', git push __endpoint__ master --tags
+gulp patch # runs releaseTask('patch')
+gulp minor # runs releaseTask('minor')
+gulp major # runs releaseTask('major')
+
+*/ 

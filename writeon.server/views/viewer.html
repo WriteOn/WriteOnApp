@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html<%- cache ? ' manifest="cache.manifest"' : '' %>>
+<html<%- cache ? ' manifest="writeon/cache.manifest"' : '' %>>
 
     <head>
         <title>WriteOn Paper</title>
-        <link rel="canonical" href="http://beta.writeon.io/paper">
-        <link rel="icon" href="res-min/img/favicon.ico" type="image/x-icon">
-        <link rel="icon" sizes="192x192" href="res-min/img/logo-highres.png">
-        <link rel="shortcut icon" href="res-min/img/favicon.ico" type="image/x-icon">
-        <link rel="shortcut icon" sizes="192x192" href="res-min/img/logo-highres.png">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="res-min/img/logo-ipad-retina.png">
+        <link rel="canonical" href="http://writeon.io/paper">
+        <link rel="icon" href="writeon/img/favicon.ico" type="image/x-icon">
+        <link rel="icon" sizes="192x192" href="writeon/img/logo-highres.png">
+        <link rel="shortcut icon" href="writeon/img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" sizes="192x192" href="writeon/img/logo-highres.png">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="writeon/img/logo-ipad-retina.png">
         <meta charset="UTF-8">
 		<meta name="description" content="The world's finest writing experience.">
         <meta name="author" content="WriteOn">
@@ -58,7 +58,7 @@
 		<style>.load-writeon {font-family: 'Playfair Display', serif;} .load-writeon i {  position: relative;margin-top: 17%;left: 48.5%;font-size: 3em;color: #0c84e4;}.load-writeon span {font-size: 20px;color: #4D394B;font-weight: 300;text-align: center;margin: 0 auto; opacity: 0;width: 600px;text-shadow: 0 1px #e3e3e3;line-height: 2rem;max-width: 400px;-webkit-transition: opacity .25s ease-in-out;-moz-transition: opacity .25s ease-in-out;-ms-transition: opacity .25s ease-in-out;-o-transition: opacity .25s ease-in-out;transition: opacity .25s ease-in-out;display: block;margin-top: 10px;}.load-writeon img {text-align: center;margin: 0 auto; opacity: 1;width: 50px;line-height: 2rem;max-width: 400px;-webkit-transition: opacity .25s ease-in-out;-moz-transition: opacity .25s ease-in-out;-ms-transition: opacity .25s ease-in-out;-o-transition: opacity .25s ease-in-out;transition: opacity .25s ease-in-out;display: block;margin-top: 10px;}</style>
     </head>
     <body class="paper viewer">
-		<div class="load-writeon"><i id="indicator" class="fa fa-cog fa-spin"></i><span id="hello_love">&nbsp;</span><img src="res-min/img/writeon-logo.png"></div>
-		<script src="res-min/require.js" data-main="main.js"></script>
+		<div class="load-writeon"><i id="indicator" class="fa fa-cog fa-spin"></i><span id="hello_love">&nbsp;</span><img src="writeon/img/writeon-logo.png"></div>
+		<script src="writeon/require.js" data-main="main.js"></script>
 	</body>
 </html>

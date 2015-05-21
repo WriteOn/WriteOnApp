@@ -18,7 +18,7 @@ var morgan = require('morgan');
  * in the app for loading and download in the browser [(]via serverStatic() below]
  *
  */
-app.set('views', __dirname + './views');
+app.set('views', __dirname + '/views');
 // Configure view engine // Currently expressjs (ejs)
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');

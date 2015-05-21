@@ -2,17 +2,17 @@
 <html<%- cache ? ' manifest="cache.manifest"' : '' %>>
 
 <head>
-    <title>WriteOn Beta – Write without distraction // publish without effort.</title>
+    <title>WriteOn – Write without distraction // publish without effort.</title>
     <link rel="canonical" href="https://writeon.io/">
-    <link rel="icon" href="/res-min/img/typewriter-icon-32.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="res-min/img/typewriter-icon-32.ico" type="image/x-icon">
+    <link rel="icon" href="/writeon/img/typewriter-icon-32.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="writeon/img/typewriter-icon-32.ico" type="image/x-icon">
     <meta name="description" content="Write without distraction, publish without effort.">
     <meta name="author" content="Beard & Fedora">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="/res-min/themes/neat.css">
+    <link rel="stylesheet" href="/writeon/themes/neat.css">
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <style>
-        body{font-size:2.7em;font-weight:300;}.navbar-fixed{position:fixed;}.content{position:absolute;width:100%;height:100%;}.slide{position:relative;width:100%;height:100%;}.footer{position:absolute;top:inherit;bottom:0;height:50px;width:100%;padding:5px;}.slide,.footer,h1{text-align:center;}.footer .btn{font-size:28px;line-height:1;padding:0 11px;}.btn-info{color:#777;}.centered{position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;}.logo{width:300px;height:150px;}.logo img{width:300px;height:67px;}.logo .subtitle{position:absolute;text-align:center;color:#888;top:80px;right:10px;font-size:22px;}h1{margin:1.2em 0;}h2{font-weight:500;font-size:1.5em;margin:.8em 0!important;}.icon-provider-couchdb{background-position:-325px 0;width:34px;height:34px;margin-left:0;background-image:url(res-min/img/icons2x.png);}.transition{-webkit-transition:all ease-in-out 1.5s;transition:all ease-out 1.5s;}.transparent{opacity:0;}.scale{-webkit-transform:scale(1.04);-ms-transform:scale(1.04);transform:scale(1.04);}.navbar .nav{float:none;}.navbar .file-title-navbar{font-size:20px;line-height:1.6;}.file-title-navbar i{line-height:1;}.img{display:block;margin:20px auto;}.social{font-size:26px;margin:0 16px 5px;}.social i::before{margin-right:8px;margin-left:-3px;}.social a{color:#555;}.social img{width:100px;height:25px;}.container{margin-bottom:40px;}.dark{background-color:#aeaeae;}.inset-shadow{-webkit-box-shadow:inset 0 4px 16px rgba(0,0,0,0.2);box-shadow:inset 0 4px 16px rgba(0,0,0,0.2);}.menu-img{background-image:url(res-min/img/menu.png);background-size:auto 240px;background-repeat:no-repeat;background-position:30%;height:240px;}.offline-img{background-image:url(res-min/img/offline-editor.png);background-size:auto 260px;background-repeat:no-repeat;background-position:30%;height:206px;}hr{margin:1em 0;}@media min-width 600px{.logo{width:600px;height:160px;}.logo img{width:600px;height:135px;}.logo .subtitle{text-align:right;top:105px;}}
+        body{font-size:2.7em;font-weight:300;}.navbar-fixed{position:fixed;}.content{position:absolute;width:100%;height:100%;}.slide{position:relative;width:100%;height:100%;}.footer{position:absolute;top:inherit;bottom:0;height:50px;width:100%;padding:5px;}.slide,.footer,h1{text-align:center;}.footer .btn{font-size:28px;line-height:1;padding:0 11px;}.btn-info{color:#777;}.centered{position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;}.logo{width:300px;height:150px;}.logo img{width:300px;height:67px;}.logo .subtitle{position:absolute;text-align:center;color:#888;top:80px;right:10px;font-size:22px;}h1{margin:1.2em 0;}h2{font-weight:500;font-size:1.5em;margin:.8em 0!important;}.icon-provider-couchdb{background-position:-325px 0;width:34px;height:34px;margin-left:0;background-image:url(writeon/img/icons2x.png);}.transition{-webkit-transition:all ease-in-out 1.5s;transition:all ease-out 1.5s;}.transparent{opacity:0;}.scale{-webkit-transform:scale(1.04);-ms-transform:scale(1.04);transform:scale(1.04);}.navbar .nav{float:none;}.navbar .file-title-navbar{font-size:20px;line-height:1.6;}.file-title-navbar i{line-height:1;}.img{display:block;margin:20px auto;}.social{font-size:26px;margin:0 16px 5px;}.social i::before{margin-right:8px;margin-left:-3px;}.social a{color:#555;}.social img{width:100px;height:25px;}.container{margin-bottom:40px;}.dark{background-color:#aeaeae;}.inset-shadow{-webkit-box-shadow:inset 0 4px 16px rgba(0,0,0,0.2);box-shadow:inset 0 4px 16px rgba(0,0,0,0.2);}.menu-img{background-image:url(writeon/img/menu.png);background-size:auto 240px;background-repeat:no-repeat;background-position:30%;height:240px;}.offline-img{background-image:url(writeon/img/offline-editor.png);background-size:auto 260px;background-repeat:no-repeat;background-position:30%;height:206px;}hr{margin:1em 0;}@media min-width 600px{.logo{width:600px;height:160px;}.logo img{width:600px;height:135px;}.logo .subtitle{text-align:right;top:105px;}}
     </style>
     <script>
         function animate(elts) {
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="centered logo transition transparent scale">
-            <img src="res-min/img/logo.svg"/> 
+            <img src="writeon/img/logo.svg"/> 
 
             <div class="subtitle transition transparent scale">
                 Write without distraction, publish without effort.<br>
@@ -82,7 +82,7 @@
                     <br>
                     <br>
                     <br>
-                    <img class="img modal-content" width="600" src="res-min/img/syntax-highlighting.gif">
+                    <img class="img modal-content" width="600" src="writeon/img/syntax-highlighting.gif">
                 </div>
                 <div class="col-md-4 col-md-offset-1">
                     <h2 id="rich-markdown-editor">Rich, yet minimalistic</h2>
@@ -114,7 +114,7 @@
                 </div>
             </div>
             <br>
-            <img class="img modal-content" width="600" src="res-min/img/live-preview.png">
+            <img class="img modal-content" width="600" src="writeon/img/live-preview.png">
             <br>
             <br>
             <div class="row">
@@ -168,7 +168,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <br><br>
-                    <img class="img modal-content" width="600" src="res-min/img/publish.png">
+                    <img class="img modal-content" width="600" src="writeon/img/publish.png">
                 </div>
                 <div class="col-md-5 col-md-offset-1">
                     <h2 id="straight-to-your-blog">Publish instantly</h2>
@@ -198,13 +198,13 @@
                         the modifications.</p>
                 </div>
                 <div class="col-md-7 col-md-offset-1">
-                    <img class="img" width="600" src="res-min/img/comments.png">
+                    <img class="img" width="600" src="writeon/img/comments.png">
                 </div>
             </div>
             <div class="row">
 
                 <div class="col-md-7">
-                    <img class="img" width="600" src="res-min/img/conflict.png">
+                    <img class="img" width="600" src="writeon/img/conflict.png">
                 </div>
                 <div class="col-md-4 col-md-offset-1">
                     <br>
@@ -337,7 +337,7 @@
                 </div>
             </div>
     <div class="modal-body">
-        <img class="background-img img img-rounded" width="620" src="res-min/img/toc.gif">
+        <img class="background-img img img-rounded" width="620" src="writeon/img/toc.gif">
     </div>
 
             <div class="row">
@@ -374,7 +374,7 @@
                     <br>
                 </div>
                 <div class="col-md-6 col-md-offset-1">
-                    <img class="img" width="330" src="res-min/img/math.png">
+                    <img class="img" width="330" src="writeon/img/math.png">
                 </div>
             </div>
 
@@ -391,7 +391,7 @@
                     <br>
                 </div>
                 <div class="col-md-6 col-md-offset-1">
-                    <img class="img" width="220" src="res-min/img/diagram.png">
+                    <img class="img" width="220" src="writeon/img/diagram.png">
                 </div>
             </div>
             <br>
