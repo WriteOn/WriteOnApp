@@ -1,0 +1,41 @@
+{
+  "name": "angular-mailchimp",
+  "main": "angular-mailchimp.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/BeardandFedora/angular-mailchimp"
+  },
+  "authors": {
+    "name": "Keith Hall",
+    "web": "http://keith.io"
+  },
+  "description": "Angular controller for facilitating MailChimp subscription.",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "mailchimp"
+  ],
+  "license": "MIT",
+  "homepage": "http://keithio.github.io/angular-mailchimp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.2",
+    "angular-resource": "~1.3.2",
+    "angular-sanitize": "~1.3.2"
+  },
+  "_release": "935d622506",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "935d622506d215c4c8b332fbb89767c3f4310747"
+  },
+  "_source": "https://github.com/BeardandFedora/angular-mailchimp.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/BeardandFedora/angular-mailchimp.git"
+}

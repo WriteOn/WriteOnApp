@@ -1,0 +1,20 @@
+//
+// Backgrounds
+// --------------------------------------------------
+
+// Default backgrounds
+// --------------------------------------------------
+@include bg-variant('.bg-gray-darker', $gray-darker);
+@include bg-variant('.bg-gray-dark', $gray-dark);
+@include bg-variant('.bg-gray', $gray);
+@include bg-variant('.bg-gray-light', $gray-light, $text-color);
+@include bg-variant('.bg-gray-lighter', $gray-lighter, $text-color);
+@include bg-variant('.bg-white', #fff, $text-color);
+
+// Alternate backgrounds
+// --------------------------------------------------
+@include bg-variant('.bg-primary', $brand-primary);
+@include bg-variant('.bg-success', $brand-success);
+@include bg-variant('.bg-info', $brand-info);
+@include bg-variant('.bg-warning', $brand-warning);
+@include bg-variant('.bg-danger', $brand-danger);

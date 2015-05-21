@@ -1,0 +1,35 @@
+{
+  "name": "ngFitText",
+  "version": "3.1.2",
+  "main": [
+    "/src/ng-FitText.js"
+  ],
+  "keywords": [
+    "angular",
+    "javascript",
+    "typography"
+  ],
+  "ignore": [
+    "demo",
+    "lib",
+    "node_modules",
+    "test",
+    ".bowerrc",
+    "gulpfile.js",
+    "package.json",
+    "index.html"
+  ],
+  "dependencies": {
+    "angular": "~1.3.0"
+  },
+  "homepage": "https://github.com/BeardandFedora/ng-FitText.js",
+  "_release": "3.1.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.1.2",
+    "commit": "882f51b24028e6f9c6c0983f2bc30d74edf9ed5c"
+  },
+  "_source": "https://github.com/BeardandFedora/ng-FitText.js.git",
+  "_target": "^3.1.2",
+  "_originalSource": "https://github.com/BeardandFedora/ng-FitText.js.git"
+}

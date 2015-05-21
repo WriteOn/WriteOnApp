@@ -1,0 +1,43 @@
+// Background variants
+//
+// Easily pump out default styles, as well as alt buttons
+// for all background options
+
+@mixin bg-variant($parent, $bg-color: $clouds, $color: #fff) {
+    #{$parent} {
+        color: $color;
+        background-color: $bg-color;
+        border-top: 5px solid $bg-color;
+        
+        &.bg-border-top {
+            border-top: 5px solid darken($bg-color, 10%);
+        }
+        
+        a.btn {
+            @include button-inverse-variant($bg-color);
+        }
+        
+        a:not(.btn) {
+            color: $color;
+            text-decoration: underline;
+            @include transition(.25s);
+    
+            &:hover,
+            &:focus {
+                @include opacity(.75);
+            }
+            
+            &:focus {
+                outline: none;
+            }
+        }
+        
+        .darken {
+            background: rgba(0,0,0,.2)
+        }
+    }
+  
+    a#{$parent}:hover {
+        background-color: darken($color, 10%);
+    }
+}

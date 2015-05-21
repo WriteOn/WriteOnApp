@@ -1,0 +1,140 @@
+/*
+    Document   : app/styles/docs/theme．scss
+    Created on : 2014-11-06 06:57 PM
+    Author     : yaboi
+    Description: Purpose of the stylesheet follows.
+    Version    : 1.0.0
+*/
+
+mark, .mark {
+	background-color: #f9f9b0;
+}
+.theme-showcase {
+	> p > .btn {
+		margin: 5px 0;
+	}
+	.navbar .container {
+		width: auto;
+	}
+}
+.theme-dropdown .dropdown-menu {
+	position: static;
+	display: block;
+	margin-bottom: 20px;
+}
+.bigger {font-size: 1.4em;}
+
+//== From the main writeon app theme (base+main)
+.nav > li > a:hover, .nav > li > a:focus, , .nav > li > a:active {
+    text-decoration: underline;
+}
+.navbar > .container > ul.secondary {
+    background-color: rgba(255, 255, 255, .85);
+    padding: 0px 0 3px 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    border-bottom-left-radius: 3px;
+
+}
+.navbar > .container > ul.secondary > .item {
+    border-right: 1px solid #ccc;
+    border-bottom: none;
+    display: inline-block;
+    padding: 0 18px;
+}
+.navbar > .container > ul.secondary > .item:last-child {
+    border: none;
+}
+.navbar > .container > ul.secondary a {
+    color: #545454;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 20px;
+    vertical-align: top;
+    padding-top: 7px;
+}
+hr {
+    border-top: 1px solid rgba(128,128,128,0.1);padding: 20px 0;
+}
+.underline {
+    border-bottom: 1px dotted;
+}
+.highlight {
+    text-shadow: 1px 1px 6px $brand-primary;
+    -webkit-filter: blur(0.7px);
+}
+blockquote {
+    border-left-width: 10px;
+    background-color: rgba(128,128,128,0.05);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 15px 20px;
+    margin: 0 0 1.1em;
+    border-left: 5px solid rgba(128,128,128,0.075);
+}
+img {
+    margin: 20px auto;
+}
+.navbar-brand > img {
+    margin: 0 auto;
+}
+del {
+    background: rgba(0,0,0,.5);
+    transform: rotate(-7deg);
+    border-radius: 3px;
+    padding: 1px;
+}
+.plane {
+    background-image: url('/images/main/plane.png');
+    background-repeat: no-repeat;
+    background-position: 90% 30%;
+}
+.lightplane {
+    background-image: url('/images/main/plane-light.png');
+    background-repeat: no-repeat;
+    background-position: 90% 30%;
+}
+.whiteplane {
+    background-image: url('/images/main/plane-white.png');
+    background-repeat: no-repeat;
+    background-position: 90% 30%;
+}
+.paper {
+    background-image: url('/images/main/paper.png');
+    background-repeat: no-repeat;
+    background-position: 90% 30%;
+}
+.lightpaper {
+    background-image: url('/images/main/paper-light.png');
+    background-repeat: no-repeat;
+    background-position: 90% 30%;
+}
+.whitepaper {
+    background-image: url('/images/main/paper-white.png');
+    background-repeat: no-repeat;
+    background-position: 90% 30%;
+}
+.bg-primary.whiteplane, .bg-primary.lightplane, .bg-primary.whitepaper, .bg-primary.lightpaper {
+    color: #111;
+}
+.bg-primary .well {
+    color:#545454;
+}
+.bg-secondary {
+    background-color: #f8f8f8;
+}
+.modal-content {
+background-color: #fff;
+border: 1px solid #999;
+border: 1px solid #e6e6e6;
+border-radius: 6px;
+-webkit-box-shadow: 0 3px 9px rgba(0,0,0,0.5);
+box-shadow: 0 3px 9px rgba(0,0,0,0.5);
+background-clip: padding-box;
+outline: none;
+}
+.serif {font-family: $font-family-serif;}
+footer .breadcrumb {background-color: transparent;}
+.angel iframe {height: 25px !important;}

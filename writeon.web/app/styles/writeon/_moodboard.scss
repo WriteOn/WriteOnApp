@@ -1,0 +1,398 @@
+/*
+    Document   : app/styles/docs/moodboard．scss
+    Created on : 2014-11-06 06:57 PM
+    Author     : yaboi
+    Description: Purpose of the stylesheet follows.
+    Version    : 1.0.0
+    
+*/
+
+//colors
+$alabaster: #fafafa;
+$white: #ffffff;
+$color_gallery_approx: #eee;
+$color_drover_approx: #f9f9b0;
+$color_cornflower_approx: #92c9e4;
+$color_seagull_approx: #77bcdd;
+$color_viking_approx: #69b5da;
+$color_shakespeare_approx: #4ea7d3;
+$color_rose_bud_approx: #eeaa99;
+$color_apricot_approx: #e9927c;
+$color_copperfield_approx: #e7866d;
+$color_burnt_sienna_approx: #e26d50;
+$color_alto_approx: #ddd;
+$color_fuscous_gray_approx: #545454;
+$color_celeste_approx: #ccc;
+$color_green_sea: #16a085;
+$color_turqoise: #1abc9c;
+$color_asphalt: #34495e;
+$color_peter_river: #3498db;
+$color_belize_hole: #2980b9;
+$color_paper_blue: #2196f3;
+$color_wisteria: #8e44ad;
+$color_concrete: #95a5a6;
+
+//@extend-elements
+//original selectors
+//.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary
+%extend_1 {
+	color: $white;
+	background-color: $color_belize_hole;
+	border-color: $color_paper_blue;
+}
+
+//original selectors
+//.btn-secondary:hover, .btn-secondary:focus, .btn-secondary.focus, .btn-secondary:active, .btn-secondary.active, .open>.dropdown-toggle.btn-secondary
+%extend_2 {
+	color: $white;
+	background-color: $color_asphalt;
+	border-color: $color_wisteria;
+}
+
+
+body {
+	font-weight: 300;
+}
+mark {
+	background-color: $color_drover_approx;
+}
+.mark {
+	background-color: $color_drover_approx;
+}
+.navbar {
+	min-height: 35px;
+	margin-bottom: 0;
+	.nav p {
+		margin: 7px 0;
+	}
+}
+.btn-primary {
+	color: $white;
+	background-color: $color_paper_blue;
+	border-color: $color_belize_hole;
+	&:hover {
+		@extend %extend_1;
+	}
+	&:focus {
+		@extend %extend_1;
+	}
+	&.focus {
+		@extend %extend_1;
+	}
+	&:active {
+		@extend %extend_1;
+		background-image: none;
+	}
+	&.active {
+		@extend %extend_1;
+		background-image: none;
+	}
+	&.disabled {
+		background-color: $btn-link-disabled-bg;
+		border-color: $color_belize_hole;
+		&:hover {
+			background-color: $color_concrete;
+			border-color: $color_belize_hole;
+		}
+		&:focus {
+			background-color: $color_concrete;
+			border-color: $color_belize_hole;
+		}
+		&.focus {
+			background-color: $color_concrete;
+			border-color: $color_belize_hole;
+		}
+		&:active {
+			background-color: $color_concrete;
+			border-color: $color_belize_hole;
+		}
+		&.active {
+			background-color: $color_concrete;
+			border-color: $color_belize_hole;
+		}
+	}
+	.badge {
+		color: $color_belize_hole;
+		background-color: $white;
+	}
+}
+.btn-primary[disabled] {
+	background-color: $btn-link-disabled-bg;
+	border-color: $color_paper_blue;
+	&:hover {
+		background-color: $color_concrete;
+		border-color: $color_paper_blue;
+	}
+	&:focus {
+		background-color: $color_concrete;
+		border-color: $color_paper_blue;
+	}
+	&.focus {
+		background-color: $color_concrete;
+		border-color: $color_paper_blue;
+	}
+	&:active {
+		background-color: $color_concrete;
+		border-color: $color_paper_blue;
+	}
+	&.active {
+		background-color: $color_concrete;
+		border-color: $color_paper_blue;
+	}
+}
+fieldset[disabled] {
+	.btn-primary {
+		background-color: $color_concrete;
+		border-color: $color_paper_blue;
+		&:hover {
+			background-color: $color_concrete;
+			border-color: $color_paper_blue;
+		}
+		&:focus {
+			background-color: $color_concrete;
+			border-color: $color_paper_blue;
+		}
+		&.focus {
+			background-color: $color_concrete;
+			border-color: $color_paper_blue;
+		}
+		&:active {
+			background-color: $color_concrete;
+			border-color: $color_paper_blue;
+		}
+		&.active {
+			background-color: $color_concrete;
+			border-color: $color_paper_blue;
+		}
+	}
+	.btn-secondary {
+		background-color: $color_asphalt;
+		border-color: $color_wisteria;
+		&:hover {
+			background-color: $color_asphalt;
+			border-color: $color_wisteria;
+		}
+		&:focus {
+			background-color: $color_asphalt;
+			border-color: $color_wisteria;
+		}
+		&.focus {
+			background-color: $color_asphalt;
+			border-color: $color_wisteria;
+		}
+		&:active {
+			background-color: $color_asphalt;
+			border-color: $color_wisteria;
+		}
+		&.active {
+			background-color: $color_asphalt;
+			border-color: $color_wisteria;
+		}
+	}
+}
+.btn-secondary {
+	color: $white;
+	background-color: $color_asphalt;
+	border-color: $color_wisteria;
+	&:hover {
+		@extend %extend_2;
+	}
+	&:focus {
+		@extend %extend_2;
+	}
+	&.focus {
+		@extend %extend_2;
+	}
+	&:active {
+		@extend %extend_2;
+		background-image: none;
+	}
+	&.active {
+		@extend %extend_2;
+		background-image: none;
+	}
+	&.disabled {
+		background-color: $color_asphalt;
+		border-color: $color_wisteria;
+		&:hover {
+			background-color: $color_asphalt;
+			border-color: $color_wisteria;
+		}
+		&:focus {
+			background-color: $color_asphalt;
+			border-color: $color_wisteria;
+		}
+		&.focus {
+			background-color: $color_asphalt;
+			border-color: $color_wisteria;
+		}
+		&:active {
+			background-color: $color_asphalt;
+			border-color: $color_wisteria;
+		}
+		&.active {
+			background-color: $color_asphalt;
+			border-color: $color_wisteria;
+		}
+	}
+	.badge {
+		color: $color_wisteria;
+		background-color: $white;
+	}
+}
+.btn-secondary[disabled] {
+	background-color: $color_asphalt;
+	border-color: $color_wisteria;
+	&:hover {
+		background-color: $color_asphalt;
+		border-color: $color_wisteria;
+	}
+	&:focus {
+		background-color: $color_asphalt;
+		border-color: $color_wisteria;
+	}
+	&.focus {
+		background-color: $color_asphalt;
+		border-color: $color_wisteria;
+	}
+	&:active {
+		background-color: $color_asphalt;
+		border-color: $color_wisteria;
+	}
+	&.active {
+		background-color: $color_asphalt;
+		border-color: $color_wisteria;
+	}
+}
+.border-left-gray {
+	border-left: 1px solid $color_alto_approx;
+}
+.color-palette {
+	.color {
+		min-height: 250px;
+		display: flex;
+		align-items: center;
+		color: $white;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+	li {
+		&:first-child .thumbnail .color {
+			background-color: $white;
+			color: $color_fuscous_gray_approx;
+		}
+		&:nth-child(3) .thumbnail .color {
+			background-color: $color_fuscous_gray_approx;
+		}
+		&:nth-child(4) .thumbnail .color {
+			background-color: $color_celeste_approx;
+		}
+		&:nth-child(5) .thumbnail .color {
+			background-color: $color_cornflower_approx;
+		}
+		&:nth-child(6) .thumbnail .color {
+			background-color: $color_rose_bud_approx;
+		}
+	}
+}
+.typography {
+	h2 {
+		margin-bottom: .05em;
+	}
+	h3 {
+		margin-bottom: .05em;
+	}
+	h4 {
+		margin-bottom: .05em;
+	}
+	h5 {
+		margin-bottom: .05em;
+	}
+	h6 {
+		margin-bottom: .05em;
+	}
+	.h1 {
+		margin-bottom: .05em;
+	}
+	.h2 {
+		margin-bottom: .05em;
+	}
+	.h3 {
+		margin-bottom: .05em;
+	}
+	.h4 {
+		margin-bottom: .05em;
+	}
+	.h5 {
+		margin-bottom: .05em;
+	}
+	.h6 {
+		margin-bottom: .05em;
+	}
+	h1:not(.page-header) {
+		margin-bottom: .05em;
+	}
+}
+* {
+	//Instead of the line below you could use @includebox-sizing($bs)
+	box-sizing: border-box !important;
+	&:before {
+		//Instead of the line below you could use @includebox-sizing($bs)
+		box-sizing: border-box !important;
+	}
+	&:after {
+		//Instead of the line below you could use @includebox-sizing($bs)
+		box-sizing: border-box !important;
+	}
+}
+#post {
+	&.row {
+	}
+	.item {
+		display: inline-block;
+		margin: .5em;
+		width: 98%;
+	}
+}
+.isotope {
+	//Instead of the line below you could use @includetransition-duration($duration-1, $duration-2, $duration-3, $duration-4, $duration-5, $duration-6, $duration-7, $duration-8, $duration-9, $duration-10)
+	transition-duration: 0.8s;
+	//Instead of the line below you could use @includetransition-property($property-1, $property-2, $property-3, $property-4, $property-5, $property-6, $property-7, $property-8, $property-9, $property-10)
+	transition-property: height, width;
+	.item {
+		//Instead of the line below you could use @includetransition-duration($duration-1, $duration-2, $duration-3, $duration-4, $duration-5, $duration-6, $duration-7, $duration-8, $duration-9, $duration-10)
+		transition-duration: 0.8s;
+		//Instead of the line below you could use @includetransition-property($property-1, $property-2, $property-3, $property-4, $property-5, $property-6, $property-7, $property-8, $property-9, $property-10)
+		transition-property: transform, opacity;
+	}
+}
+@media (max-width: 768px) {
+	.isotope .item {
+		position: static ! important;
+		//Instead of the line below you could use @includetransform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+		transform: translate(0px, 0) ! important;
+	}
+}
+@media (min-width: 1170px) {
+	section {
+		background-color: $white;
+		border-left: 1px solid $color_gallery_approx;
+		border-right: 1px solid $color_gallery_approx;
+	}
+	.color-palette .color.secondary {
+		min-height: 110px;
+	}
+}
+.open>.dropdown-toggle {
+	&.btn-primary {
+		@extend %extend_1;
+		background-image: none;
+	}
+	&.btn-secondary {
+		@extend %extend_2;
+		background-image: none;
+	}
+}
+.item img.image {
+	max-width: 100%;
+}

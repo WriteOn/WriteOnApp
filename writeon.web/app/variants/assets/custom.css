@@ -1,0 +1,20 @@
+h6 {
+  font-size: 18px;
+}	
+.nav-1 .logo {
+  margin-top: 25px;
+  max-height: 50px;
+}
+.nav-1.shrink .logo {
+  margin-top: 15px;
+}
+.nav-1 .navbar {
+	background: #149290;
+	background: -webkit-gradient(linear, 100% 0, 0 0, color-stop(0.32, #fff), color-stop(0.9, #e3e3e3));
+	background: -webkit-linear-gradient(180deg, #fff 32%, #e3e3e3 90%);
+	background: -moz-linear-gradient(180deg, #fff 32%, #e3e3e3 90%);
+	background: -o-linear-gradient(180deg, #fff 32%, #e3e3e3 90%);
+	background: linear-gradient(180deg, #fff 32%, #e3e3e3 90%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#e3e3e3',GradientType=1 );
+}
+.footer-1 img {max-height: 35px;}

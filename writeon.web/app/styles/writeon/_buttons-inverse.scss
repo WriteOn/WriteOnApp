@@ -1,0 +1,13 @@
+/*
+    Document   : app/styles/writeon/_buttons-inverse．scss
+    Created on : 2014-12-11 06:31 PM
+    Author     : yaboi
+    Description: Purpose of the stylesheet follows.
+    Version    : 1.0.0
+    
+    *Note: To change this template use Tools | Templates.*
+*/
+
+.btn-default-inverse {
+    @include button-inverse-variant(#fff);
+}

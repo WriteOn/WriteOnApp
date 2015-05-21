@@ -1,0 +1,9 @@
+// Padding
+//
+// Easily pump out default styles, as well as alt buttons
+// for all background options
+
+@mixin padding-vertical($padding-top, $padding-bottom: $padding-top) { 
+    padding-top: $padding-top;
+    padding-bottom: $padding-bottom;
+}
