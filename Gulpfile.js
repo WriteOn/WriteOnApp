@@ -10,7 +10,7 @@
 /* jshint -W015 */
 var gulp = require('gulp');
 var grunt = require('gulp-grunt')(gulp); // add all the gruntfile tasks to gulp
-//var debug = require('gulp-debug');
+var debug = require('gulp-debug');
 var util = require('gulp-util');
 var clean = require('gulp-clean');
 var jshint = require('gulp-jshint');
@@ -179,11 +179,12 @@ gulp.task('copy-img', ['clean-img'], function() {
 });
 
 /** __________________________________________
- * cache.manifest
+ * CACHE.
+ * cache.manifest files for offline app parts
  */
 
 gulp.task('cache', function() {
-	return gulp.src('./public/writeon/cache.manifest')
+	return gulp.src('./public/writeon.app.manifest')
 		.pipe(replace(/(#Date ).*/, '$1' + Date()))
 		.pipe(replace(/(#Version ).*/, '$1' + getVersion()))
 		.pipe(inject(gulp.src([
@@ -200,12 +201,12 @@ gulp.task('cache', function() {
 					return filepath.substring(1);
 				}
 			}))
-		// .pipe(debug())
-        .pipe(gulp.dest('./public/writeon/'));
+		.pipe(debug())
+        .pipe(gulp.dest('./public/offline'));
 });
 
 gulp.task('cache-mathjax', function() {
-	return gulp.src('./public/cache.manifest')
+	return gulp.src('./public/writeon.mathjax.manifest')
 		.pipe(replace(/(#Date ).*/, '$1' + Date()))
 		.pipe(replace(/(#Version ).*/, '$1' + getVersion()))
 		.pipe(inject(gulp.src([
@@ -237,7 +238,7 @@ gulp.task('cache-mathjax', function() {
 				'./res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/**/*.*'
 			], {
 				read: false,
-				cwd: './public'
+				cwd: './writeon.app'
 			}),
 			{
 				starttag: '# start_inject_mathjax',
