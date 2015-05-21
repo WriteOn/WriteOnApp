@@ -9,8 +9,7 @@
 
 /* jshint -W015 */
 var gulp = require('gulp');
-var grunt = require('gulp-grunt')(gulp); // add all the gruntfile tasks to gulp
-var debug = require('gulp-debug');
+//var debug = require('gulp-debug');
 var util = require('gulp-util');
 var clean = require('gulp-clean');
 var jshint = require('gulp-jshint');
@@ -25,6 +24,7 @@ var childProcess = require('child_process');
 var runSequence = require('run-sequence');
 var fs = require('fs');
 var connect = require('gulp-connect');
+
 
 var options = {
   app: 'writeon.app',
@@ -55,10 +55,10 @@ function getVersion() {
 }
 
 gulp.task('constants', function() {
-	return gulp.src(options.app + '/constants.js')
+	return gulp.src('./writeon.app/constants.js')
 		.pipe(replace(/constants\.VERSION = .*/, 'constants.VERSION = "' + getVersion() + '";'))
         //.pipe(debug())
-		.pipe(gulp.dest(options.app));
+		.pipe(gulp.dest('./writeon.app/'));
 });
 
 /** __________________________________________
@@ -67,14 +67,14 @@ gulp.task('constants', function() {
 
 gulp.task('jshint', function() {
 	return gulp.src([
-		options.server + '/**/*.js',
-		options.app + '/classes/**/*.js',
-		options.app + '/extensions/**/*.js',
-		options.app + '/helpers/**/*.js',
-		options.app + '/providers/**/*.js',
-		options.app + '/*.js'
+		'./writeon.server/**/*.js',
+		'./writeon.app/classes/**/*.js',
+		'./writeon.app/extensions/**/*.js',
+		'./writeon.app/helpers/**/*.js',
+		'./writeon.app/providers/**/*.js',
+		'./writeon.app/*.js'
 	])
-		.pipe(debug())
+		// .pipe(debug())
         .pipe(jshint())
 		.pipe(jshint.reporter('default'))
 		.pipe(jshint.reporter('fail'));
@@ -86,17 +86,17 @@ gulp.task('jshint', function() {
 
 gulp.task('clean-requirejs', function() {
 	return gulp.src([
-		options.dist + '/main.js',
-		options.dist + './require.js'
+		'./public/writeon/main.js',
+		'./public/writeon/require.js'
 	])
-		.pipe(debug())
+		// .pipe(debug())
         .pipe(clean());
 });
 
 gulp.task('copy-requirejs', ['clean-requirejs'], function() {
-	return gulp.src(options.app + '/bower-libs/requirejs/require.js')
-		.pipe(debug())
-        .pipe(gulp.dest(options.dist));
+	return gulp.src('./writeon.app/bower-libs/requirejs/require.js')
+		// .pipe(debug())
+        .pipe(gulp.dest('./public/writeon/'));
 });
 
 gulp.task('requirejs', [
@@ -104,10 +104,10 @@ gulp.task('requirejs', [
 	'constants'
 ], function() {
 	return requirejs({
-		baseUrl: options.app,
+		baseUrl: 'writeon.app',
 		name: 'main',
 		out: 'main.js',
-		mainConfigFile: options.app + '/main.js',
+		mainConfigFile: 'writeon.app/main.js',
 		optimize: 'uglify2',
 		inlineText: true,
 		paths: {
@@ -126,13 +126,13 @@ gulp.task('requirejs', [
 				ascii_only: true
 			}
 		}))
-		.pipe(debug())
-        .pipe(gulp.dest(options.dist));
+		// .pipe(debug())
+        .pipe(gulp.dest('./public/writeon/'));
 });
 
 gulp.task('bower-requirejs', function(cb) {
 	bowerRequirejs({
-		config: options.app + '/main.js'
+		config: './writeon.app/main.js'
 	}, function() {
 		cb();
 	});
@@ -143,21 +143,21 @@ gulp.task('bower-requirejs', function(cb) {
  */
 
 gulp.task('clean-less', function() {
-	return gulp.src(options.dist + '/themes')
-		.pipe(debug())
+	return gulp.src('./public/writeon/themes')
+		// .pipe(debug())
         .pipe(clean());
 });
 
 gulp.task('less', ['clean-less'], function() {
 	return gulp.src([
-		options.app + '/styles/base.less',
-		options.app + '/themes/*.less'
+		'./writeon.app/styles/base.less',
+		'./writeon.app/themes/*.less'
 	])
 		.pipe(less({
 			compress: true
 		}))
-		.pipe(debug())
-        .pipe(gulp.dest(options.dist + '/themes/'));
+		// .pipe(debug())
+        .pipe(gulp.dest('./public/writeon/themes/'));
 });
 
 /** __________________________________________
@@ -165,18 +165,18 @@ gulp.task('less', ['clean-less'], function() {
  */
 
 gulp.task('clean-font', function() {
-	return gulp.src(options.dist + '/font')
-		.pipe(debug())
+	return gulp.src('./public/writeon/font')
+		// .pipe(debug())
         .pipe(clean());
 });
 
 gulp.task('copy-font', ['clean-font'], function() {
 	return gulp.src([
-        options.app + '/font/*', 
-        options.app + '/bower-libs/bootstrap-material-design/fonts/*'
+        './writeon.app/font/*', 
+        './writeon.app/bower-libs/bootstrap-material-design/fonts/*'
     ])
-		.pipe(debug())
-        .pipe(gulp.dest(options.dist + '/font/'));
+		// .pipe(debug())
+        .pipe(gulp.dest('./public/writeon/font/'));
 });
 
 /** __________________________________________
@@ -184,15 +184,15 @@ gulp.task('copy-font', ['clean-font'], function() {
  */
 
 gulp.task('clean-img', function() {
-	return gulp.src(options.dist + '/img')
-		.pipe(debug())
+	return gulp.src('./public/writeon/img')
+		// .pipe(debug())
         .pipe(clean());
 });
 
 gulp.task('copy-img', ['clean-img'], function() {
-	return gulp.src(options.app + '/img/*')
-		.pipe(debug())
-        .pipe(gulp.dest(options.app + '/img/'));
+	return gulp.src('./writeon.app/img/*')
+		// .pipe(debug())
+        .pipe(gulp.dest('./public/writeon/img/'));
 });
 
 /** __________________________________________
@@ -215,11 +215,11 @@ gulp.task('cache', function() {
 				endtag: '# end_inject_resources',
 				ignoreExtensions: true,
 				transform: function(filepath) {
-					return filepath.substring(1);
+					return filepath.substring('/' + 1);
 				}
 			}))
 		// .pipe(debug())
-        .pipe(gulp.dest('./public/offline'));
+        .pipe(gulp.dest('./public/offline/'));
 });
 
 gulp.task('cache-mathjax', function() {
@@ -300,7 +300,7 @@ function bumpTask(importance) {
 			'./bower.json'
 		])
 			.pipe(bump({type: importance}))
-            .pipe(debug())
+            // .pipe(debug())
 			.pipe(gulp.dest('./'));
 	};
 }
@@ -376,14 +376,13 @@ gulp.task('connect', function() {
 });
  
 gulp.task('html', function () {
-  gulp.src(options.server + '/views/*.html')
+  gulp.src('./writeon.server/views/*.html')
     .pipe(connect.reload());
 });
  
 gulp.task('watch', function () {
-  gulp.watch([options.server + '/views/*.html'], ['html']);
+  gulp.watch(['./writeon.server/views/*.html'], ['html']);
 });
-
 
 
 /* 

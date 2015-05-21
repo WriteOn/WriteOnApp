@@ -4643,25 +4643,25 @@ function diff_match_patch() {
   });
  }), o = "v6"), "v6" == o && (n = localStorage["file.current"], void 0 !== n && (localStorage[n + ".selectTime"] = new Date().getTime(), 
  localStorage.removeItem("file.current")), o = "v7"), ("v7" == o || "v8" == o || "v9" == o) && (e.has(localStorage, "settings") && (i = JSON.parse(localStorage.settings), 
- delete i.editorFontFamily, delete i.editorFontSize, i.template && (i.template = i.template.replace("http://beta.writeon.io/css/main-min.css", "http://beta.writeon.io/writeon/themes/neat.css")), 
+ delete i.editorFontFamily, delete i.editorFontSize, i.template && (i.template = i.template.replace("http://writeon.io/css/main-min.css", "http://writeon.io/writeon/themes/neat.css")), 
  localStorage.settings = JSON.stringify(i)), o = "v10"), "v10" == o && (e.has(localStorage, "settings") && (i = JSON.parse(localStorage.settings), 
  ((i.extensionSettings || {}).markdownExtra || {}).extensions && i.extensionSettings.markdownExtra.extensions.push("smartypants"), 
  "http://writeon-ssh-proxy.herokuapp.com/" == i.sshProxy && (i.sshProxy = "https://writeon-ssh-proxy.herokuapp.com/"), 
- i.template && (i.template = i.template.replace("http://beta.writeon.io/lib/", "https://beta.writeon.io/libs/")), 
- i.template && (i.template = i.template.replace("http://beta.writeon.io/", "https://beta.writeon.io/")), 
- i.pdfTemplate && (i.pdfTemplate = i.pdfTemplate.replace("http://beta.writeon.io/lib/", "https://beta.writeon.io/libs/")), 
- i.pdfTemplate && (i.pdfTemplate = i.pdfTemplate.replace("http://beta.writeon.io/", "https://beta.writeon.io/")), 
- i.defaultContent && (i.defaultContent = i.defaultContent.replace("http://beta.writeon.io/", "https://beta.writeon.io/")), 
- i.commitMsg && (i.commitMsg = i.commitMsg.replace("http://beta.writeon.io/", "https://beta.writeon.io/")), 
+ i.template && (i.template = i.template.replace("http://writeon.io/lib/", "https://writeon.io/libs/")), 
+ i.template && (i.template = i.template.replace("http://writeon.io/", "https://writeon.io/")), 
+ i.pdfTemplate && (i.pdfTemplate = i.pdfTemplate.replace("http://writeon.io/lib/", "https://writeon.io/libs/")), 
+ i.pdfTemplate && (i.pdfTemplate = i.pdfTemplate.replace("http://writeon.io/", "https://writeon.io/")), 
+ i.defaultContent && (i.defaultContent = i.defaultContent.replace("http://writeon.io/", "https://writeon.io/")), 
+ i.commitMsg && (i.commitMsg = i.commitMsg.replace("http://writeon.io/", "https://writeon.io/")), 
  localStorage.settings = JSON.stringify(i)), o = "v11"), "v11" == o && (localStorage.removeItem("theme"), 
  e.has(localStorage, "settings") && (i = JSON.parse(localStorage.settings), delete i.editorFontFamily, 
- delete i.editorFontSize, i.template && (i.template = i.template.replace("https://beta.writeon.io/writeon/themes/default.css", "https://beta.writeon.io/writeon/themes/base.css")), 
- i.pdfTemplate && (i.pdfTemplate = i.pdfTemplate.replace("https://beta.writeon.io/writeon/themes/default.css", "https://beta.writeon.io/writeon/themes/base.css")), 
+ delete i.editorFontSize, i.template && (i.template = i.template.replace("https://writeon.io/writeon/themes/default.css", "https://writeon.io/writeon/themes/base.css")), 
+ i.pdfTemplate && (i.pdfTemplate = i.pdfTemplate.replace("https://writeon.io/writeon/themes/default.css", "https://writeon.io/writeon/themes/base.css")), 
  localStorage.settings = JSON.stringify(i)), o = "v12"), ("v12" == o || "v13" == o) && (e.has(localStorage, "settings") && (i = JSON.parse(localStorage.settings), 
  delete i.editorFontFamily, localStorage.settings = JSON.stringify(i)), o = "v14"), 
  "v14" == o && (e.has(localStorage, "settings") && (i = JSON.parse(localStorage.settings), 
- i.template && (i.template = i.template.replace("https://beta.writeon.io/writeon/themes/default.css", "https://beta.writeon.io/writeon/themes/base.css")), 
- i.pdfTemplate && (i.pdfTemplate = i.pdfTemplate.replace("https://beta.writeon.io/writeon/themes/default.css", "https://beta.writeon.io/writeon/themes/base.css")), 
+ i.template && (i.template = i.template.replace("https://writeon.io/writeon/themes/default.css", "https://writeon.io/writeon/themes/base.css")), 
+ i.pdfTemplate && (i.pdfTemplate = i.pdfTemplate.replace("https://writeon.io/writeon/themes/default.css", "https://writeon.io/writeon/themes/base.css")), 
  localStorage.settings = JSON.stringify(i)), o = "v15"), "v15" == o && (localStorage.removeItem("gdrivePermissions"), 
  e.has(localStorage, "gdrive.lastChangeId") && (localStorage["google.gdrive0.gdrive.lastChangeId"] = localStorage["gdrive.lastChangeId"], 
  localStorage.removeItem("gdrive.lastChangeId")), e.has(localStorage, "settings") && (i = JSON.parse(localStorage.settings), 
@@ -4679,8 +4679,8 @@ function diff_match_patch() {
  o = "v20"), "v20" == o && (e.has(localStorage, "settings") && (i = JSON.parse(localStorage.settings), 
  delete i.markdownMimeType, localStorage.settings = JSON.stringify(i)), o = "v21"), 
  "v21" == o && (e.has(localStorage, "settings") && (i = JSON.parse(localStorage.settings), 
- i.template && (i.template = i.template.replace("https://beta.writeon.io/libs/MathJax/", "https://cdn.mathjax.org/mathjax/latest/")), 
- i.pdfTemplate && (i.pdfTemplate = i.pdfTemplate.replace("/libs/MathJax/", "/res/bower-libs/MathJax/")), 
+ i.template && (i.template = i.template.replace("https://writeon.io/libs/MathJax/", "https://cdn.mathjax.org/mathjax/latest/")), 
+ i.pdfTemplate && (i.pdfTemplate = i.pdfTemplate.replace("/libs/MathJax/", "/writeon.app/bower-libs/MathJax/")), 
  localStorage.settings = JSON.stringify(i)), o = "v22"), localStorage.version = o, 
  localStorage;
 }), function(e) {
@@ -6931,12 +6931,12 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  }, utils;
 }), define("constants", [], function() {
  var e = {};
- return e.VERSION = "1.8.2", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
+ return e.VERSION = "1.9.2", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
  e.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ", e.GOOGLE_DRIVE_APP_ID = "1017251498254", 
  e.DROPBOX_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_APP_SECRET = "1mesyckskczn3f9", 
  e.DROPBOX_RESTRICTED_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_RESTRICTED_APP_SECRET = "1mesyckskczn3f9", 
  e.BITLY_ACCESS_TOKEN = "c93d4289b9c1a0313378f1dad028c2d334bbc3c6", e.DEFAULT_FILE_TITLE = "Story Title", 
- e.DEFAULT_FOLDER_NAME = "New Folder", e.GDRIVE_DEFAULT_FILE_TITLE = "New Story", 
+ e.DEFAULT_FOLDER_NAME = "New Storybook", e.GDRIVE_DEFAULT_FILE_TITLE = "New Story", 
  e.EDITOR_DEFAULT_PADDING = 35, e.CHECK_ONLINE_PERIOD = 12e4, e.AJAX_TIMEOUT = 3e4, 
  e.ASYNC_TASK_DEFAULT_TIMEOUT = 6e4, e.ASYNC_TASK_LONG_TIMEOUT = 18e4, e.USER_IDLE_THRESHOLD = 3e5, 
  e.IMPORT_FILE_MAX_CONTENT_SIZE = 1e5, e.IMPORT_IMG_MAX_CONTENT_SIZE = 1e7, e.COUCHDB_PAGE_SIZE = 25, 
@@ -6950,7 +6950,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.GHOST_PROXY_URL = "https://writeon-ghost-proxy.herokuapp.com/", 
  e.WORDPRESS_CLIENT_ID = "37431", e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", 
- 0 === location.hostname.indexOf("writeon.io") ? (e.BASE_URL = e.MAIN_URL, e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-3", 
+ 0 === location.hostname.indexOf("writeon.io") ? (e.BASE_URL = e.MAIN_URL, e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
  e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr.herokuapp.com/", e.COUCHDB_SERVER = "https://cloud1.writeon.io") : 0 === location.hostname.indexOf("beta.writeon.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
@@ -6988,7 +6988,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
   neat: "Minimal",
   blue: "Blue",
   night: "Night",
-  "solarized-light": "Solarized"
+  "solarized-light": "Solar"
  }, e;
 }), define("settings", [ "underscore", "constants", "storage" ], function(e, t, n) {
  var i = {
