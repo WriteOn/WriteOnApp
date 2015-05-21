@@ -36,7 +36,7 @@ app.get('/pad', stormpath.loginRequired, function(req, res) {
     username: req.user.username
   });
 });
-
+	
 // Serve viewer.html in /paper
 app.get('/paper', function(req, res) {
     res.renderDebug('viewer.html');

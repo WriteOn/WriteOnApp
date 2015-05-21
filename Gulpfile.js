@@ -24,6 +24,7 @@ var childProcess = require('child_process');
 var runSequence = require('run-sequence');
 var fs = require('fs');
 var connect = require('gulp-connect');
+var copy = require('gulp-copy');
 
 
 var options = {
@@ -79,6 +80,31 @@ gulp.task('jshint', function() {
 		.pipe(jshint.reporter('default'))
 		.pipe(jshint.reporter('fail'));
 });
+
+/** __________________________________________
+ *  Require.js LESS.js and CSS.js
+ */
+
+gulp.task('clean-requireless', function() {
+	return gulp.src([
+		'./public/bower-libs/**/*less.js',
+		'./public/bower-libs/**/*css.js'
+	])
+		// .pipe(debug())
+        .pipe(clean());
+});
+
+gulp.task('copy-requireless', function() {
+return gulp.src(options.app + '/bower-libs/require-less/less.js')
+  .pipe(copy('./public/writeon/bower-libs', {prefix: 2}));
+});
+
+
+gulp.task('copy-requirecss', function() {
+return gulp.src(options.app + '/bower-libs/require-css/css.js')
+  .pipe(copy('./public/writeon/bower-libs', {prefix: 2}));
+});
+
 
 /** __________________________________________
  * RequireJS
@@ -281,6 +307,19 @@ gulp.task('clean', [
 	'clean-font',
 	'clean-img'
 ]);
+gulp.task('copy-require', [
+	'clean-requireless',
+	'copy-requireless',
+	'copy-requirecss'
+]);
+gulp.task('copy-require', function(cb) {
+	runSequence([
+			'clean-requireless',
+			'copy-requireless',
+			'copy-requirecss'
+		],
+		cb);
+});
 gulp.task('build', function(cb) {
 	runSequence([
 			'jshint',
@@ -292,6 +331,7 @@ gulp.task('build', function(cb) {
 		'cache',
 		cb);
 });
+
 
 function bumpTask(importance) {
 	return function() {
