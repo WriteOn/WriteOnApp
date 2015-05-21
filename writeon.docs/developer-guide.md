@@ -62,15 +62,15 @@ Getting started
 
 	gulp constants # builds constants
     gulp jshint # builds javascript sources
-    gulp clean-requirejs # removes requireJS modules (./public/res-min/main.js, ./public/res-min/require.js)
+    gulp clean-requirejs # removes requireJS modules (./public/writeon/main.js, ./public/writeon/require.js)
     gulp copy-requirejs # builds requireJS modules
     gulp requirejs # performs clean-requirejs + copy-requirejs and builds LESS, MathJax, etc.
     gulp bower-requirejs # SEE note above, requires adding module to bower using --save
-    gulp clean-less # removes ./public/res-min/themes/*.css files
+    gulp clean-less # removes ./public/writeon/themes/*.css files
     gulp less # builds & compresses all LESS ./public/res/styles/base.less + ./public/res/themes/*
-    gulp clean-font # removes all fonts from ./public/res-min/font
+    gulp clean-font # removes all fonts from ./public/writeon/font
     gulp copy-font # removes and builds fonts    
-    gulp clean-img # removes all images from ./public/res-min/img
+    gulp clean-img # removes all images from ./public/writeon/img
     gulp copy-img # removes and builds images
     gulp cache-manifest # cleans and builds the cache manifest
     gulp clean # cleans out all of the above clean tasks
@@ -82,7 +82,7 @@ Getting started
     gulp bump-minor # apply a minor version
     gulp bump-major # apply a major version 
     gulp git-tag # creates a tagged commit & pushes...
-      # Performs git add ./public/res-min, git commit -a -m "Prepare release", git tag -a '_tag_', git push __endpoint__ master --tags
+      # Performs git add ./public/writeon, git commit -a -m "Prepare release", git tag -a '_tag_', git push __endpoint__ master --tags
     gulp patch # runs releaseTask('patch')
     gulp minor # runs releaseTask('minor')
     gulp major # runs releaseTask('major')

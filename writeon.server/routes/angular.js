@@ -12,7 +12,7 @@ module.exports = function(app) {
     // Leave this alone for the most part
     app.get('/*', function(req, res, next) {
         res.sendFile('index.html', {
-            root: __dirname + "/public"
+            root: './public'
         });
     });
 	
