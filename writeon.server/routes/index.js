@@ -55,4 +55,15 @@ app.get('/paper', function(req, res) {
     }
 	/* jshint ignore:end */
 	
+
+/* 
+ * ROUTES. This is writeon.io specific routing 
+*/	
+// Variant Static Pages -  includes fully configured static routes for landing pages
+require('./variant')(app);
+
+// Angular route middleware for writeon.io
+require('./angular')(app);
+	
+	
 };	

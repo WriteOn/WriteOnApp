@@ -72,8 +72,6 @@ require('./auth')(app, stormpath);
 // Load Routes ======================================================================
 // Server Routes - load our routes and pass in stormpath middlware
 require('./routes')(app, stormpath);
-// Front End Website -  includes fully configured Angular router for /*
-require('../writeon.io/routes')(app);
 /* 
  * ERROR HANDLING. A keep it simple error scheme... forever.
  */

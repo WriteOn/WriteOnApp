@@ -50,7 +50,6 @@ gulp.task('constants', function() {
 
 gulp.task('jshint', function() {
 	return gulp.src([
-		'./*.js',
 		'./writeon.server/**/*.js',
 		'./writeon.app/classes/**/*.js',
 		'./writeon.app/extensions/**/*.js',
@@ -88,10 +87,10 @@ gulp.task('requirejs', [
 	'constants'
 ], function() {
 	return requirejs({
-		baseUrl: './writeon.app',
+		baseUrl: __dirname + '/writeon.app',
 		name: 'main',
 		out: 'main.js',
-		mainConfigFile: './writeon.app/main.js',
+		mainConfigFile: '../writeon.app/main.js',
 		optimize: 'uglify2',
 		inlineText: true,
 		paths: {
@@ -285,7 +284,7 @@ gulp.task('clean', [
 	'clean-font',
 	'clean-img'
 ]);
-gulp.task('default', function(cb) {
+gulp.task('build', function(cb) {
 	runSequence([
 			'jshint',
 			'requirejs',
@@ -348,7 +347,7 @@ function releaseTask(importance) {
 	return function(cb) {
 		runSequence(
 			'bump-' + importance,
-			'default',
+			'build',
 			'git-tag',
 			cb);
 	};
@@ -388,11 +387,3 @@ gulp.task('watch', function () {
   gulp.watch(['./views/*.html'], ['html']);
 });
 
-
-/* 
- * Import Grunt Tasks
- */ 
-gulp.task('grunt-test', ['grunt-test']);
-gulp.task('grunt-build', ['grunt-build']);
-gulp.task('grunt-copydist', ['grunt-copydist']);
-gulp.task('grunt-deploy', ['grunt-deploy']);
