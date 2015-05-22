@@ -6,20 +6,7 @@
  * # MainCtrl
  * Controller of the angularApp
  */
-angular.module('app.controllers', []).controller('WriteOnCtrl', function($scope, $location) {
-    // LoginCtrl.js
-    function LoginCtrl($scope, auth, store, $location) {
-        $scope.login = function() {
-            auth.signin({}, function(profile, token) {
-                // Success callback
-                store.set('profile', profile);
-                store.set('token', token);
-                $location.path('/pad');
-            }, function() {
-                // Error callback
-            });
-        }
-    }
+angular.module('app.controllers', ['auth0']).controller('WriteOnCtrl', function($scope, auth, store, $location) {
 
     function isMain() {
         return($location.path() === '/home') || ($location.path() === '/features') ? true : false;
@@ -35,14 +22,51 @@ angular.module('app.controllers', []).controller('WriteOnCtrl', function($scope,
         $scope.main = isMain();
         $scope.inverse = isInverse();
     });
-    $scope.$on('$routeChangeSuccess', function() {
+    $scope.$on('$routeChangeSuccess', function(e, nextRoute) {
         window.scrollTo(0, 0);
         $scope.thePath = $location.path();
+		if ( nextRoute.$$route && angular.isDefined( nextRoute.$$route.pageTitle ) ) {
+      		$scope.pageTitle = nextRoute.$$route.pageTitle + ' | WriteOn Auth' ;
+    	}
     });
-}).controller('MainCtrl', function($scope, $location, $routeParams) {
+
+}).controller('MainCtrl', function($scope, $location, $routeParams) { 
     $scope.full = ($routeParams.fG7tNpKU) ? true : false;
-}).controller('NavController', function($scope, $location) {
+}).controller('NavController', function($scope, auth, store, $location) { 
     $scope.go = function(url) {
         $location.path(url);
     };
+	// Auth0.com Specific Controller logic
+	$scope.login = function() {
+            auth.signin({}, function(profile, token) {
+                // Success callback
+                store.set('profile', profile);
+                store.set('token', token);
+                $location.path('/pad');
+            }, function() {
+                // Error callback
+            });
+    };
+	$scope.logout = function() {
+  		auth.signout();
+  		store.remove('profile');
+  		store.remove('token');
+	};
+
+}).controller('LoginController', function($scope, auth, store, $location) { // Auth0.com Specific Controller logic
+    $scope.login = function() {
+            auth.signin({}, function(profile, token) {
+                // Success callback
+                store.set('profile', profile);
+                store.set('token', token);
+                $location.path('/pad');
+            }, function() {
+                // Error callback
+            });
+    };
+	$scope.logout = function() {
+  		auth.signout();
+  		store.remove('profile');
+  		store.remove('token');
+	};
 });
