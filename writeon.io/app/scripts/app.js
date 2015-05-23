@@ -57,8 +57,6 @@ angular.module('angularApp', [
             redirectTo: '/home'
         }).when('/main', {
             redirectTo: '/home'
-        }).when('/login/', {
-            redirectTo: 'https://beta.writeon.io/login'
         }).otherwise({
             templateUrl: 'views/404.html'
         });

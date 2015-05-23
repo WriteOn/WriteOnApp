@@ -88,6 +88,8 @@ gulp.task('jshint', function() {
 gulp.task('clean-requireless', function() {
 	return gulp.src([
 		'./public/bower-libs/**/*less.js',
+		'./public/bower-libs/**/*lessc.js',
+		'./public/bower-libs/**/*normalize.js',
 		'./public/bower-libs/**/*css.js'
 	])
 		// .pipe(debug())
@@ -95,13 +97,20 @@ gulp.task('clean-requireless', function() {
 });
 
 gulp.task('copy-requireless', function() {
-return gulp.src(options.app + '/bower-libs/require-less/less.js')
+return gulp.src([
+		options.app + '/bower-libs/require-less/less.js',
+		options.app + '/bower-libs/require-less/lessc.js',
+		options.app + '/bower-libs/require-less/normalize.js'
+	])
   .pipe(copy('./public/writeon/bower-libs', {prefix: 2}));
 });
 
 
 gulp.task('copy-requirecss', function() {
-return gulp.src(options.app + '/bower-libs/require-css/css.js')
+return gulp.src([
+		options.app + '/bower-libs/require-css/css.min.js',
+		options.app + '/bower-libs/require-css/normalize.js'
+	])
   .pipe(copy('./public/writeon/bower-libs', {prefix: 2}));
 });
 
@@ -307,7 +316,7 @@ gulp.task('clean', [
 	'clean-font',
 	'clean-img'
 ]);
-gulp.task('copy-require', [
+gulp.task('requireless', [
 	'clean-requireless',
 	'copy-requireless',
 	'copy-requirecss'

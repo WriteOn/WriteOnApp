@@ -33,25 +33,24 @@ angular.module('app.controllers', ['auth0']).controller('WriteOnCtrl', function(
 }).controller('MainCtrl', function($scope, $location, $routeParams) { 
     $scope.full = ($routeParams.fG7tNpKU) ? true : false;
 }).controller('NavController', function($scope, auth, store, $location) { 
-    $scope.go = function(url) {
-        $location.path(url);
-    };
 	// Auth0.com Specific Controller logic
 	$scope.login = function() {
-            auth.signin({}, function(profile, token) {
-                // Success callback
-                store.set('profile', profile);
-                store.set('token', token);
-                $location.path('/pad');
-            }, function() {
-                // Error callback
-            });
-    };
+    auth.signin({}, function(profile, token) {
+      store.set('profile', profile);
+      store.set('token', token);
+      $location.path("/pad");
+    }, function(error) {
+      console.log("There was an error logging in", error);
+    });
+  	}
 	$scope.logout = function() {
   		auth.signout();
   		store.remove('profile');
   		store.remove('token');
 	};
+    $scope.go = function(url) {
+        $location.path(url);
+    };
 
 }).controller('LoginController', function($scope, auth, store, $location) { // Auth0.com Specific Controller logic
     $scope.login = function() {

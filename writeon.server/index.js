@@ -2,7 +2,7 @@ var express = require('express');
 var stormpath = require('express-stormpath');
 var app = express();
 var compression = require('compression');
-//var serveStatic = require('serve-static');
+var serveStatic = require('serve-static');
 //var extend = require('xtend');
 var gzippo = require('gzippo');
 var morgan = require('morgan');
@@ -51,7 +51,7 @@ require('./middleware')(app);
  * This allows us to operate Pad & Paper as thin browser clients with no dependency on server middleware
  */
 // Using ServeStatic
-// app.use(serveStatic(__dirname + '/../public'));
+app.use(serveStatic(__dirname + '/../public'));
 // Using G-Zippo (gzip)
 app.use(gzippo.staticGzip(__dirname + '/../public'));
 /* 
