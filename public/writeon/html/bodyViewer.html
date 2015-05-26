@@ -1,0 +1,84 @@
+<div class="layout-wrapper-l1">
+    <div class="layout-wrapper-l2">
+<nav class="navbar navbar-default">
+    <div class="container-fluid navbar-inner">
+        <div class="navbar-header">
+            <button class="btn toggle-button action-open-writeon" style="margin-top: 8px;" title="Switch to Pad">
+            	<i class="icon-pencil-squared"></i>  <strong>Open Pad</strong>
+        	</button>
+        </div>
+        <div class="nav right-space pull-right"></div>
+        <div class="buttons-dropdown dropdown">
+            <div class="nav">
+                <button class="btn btn-default" data-toggle="dropdown" title="Show buttons">
+                    <i class="icon-th-large"></i>
+                </button>
+                <div class="dropdown-menu">
+                </div>
+            </div>
+        </div>
+        <div class="navbar-collapse main-navbar-collapse" id="main-navbar-collapse">
+            <ul class="nav navbar-nav navbar-right extension-buttons syncing-menu">
+                <li class="offline-status hide">
+                    <div class="text-danger">
+                        <a class="btn btn-danger" title="You are offline...It's a great time to write!"><i class="icon-attention-circled"></i></a>
+                    </div>
+                </li>
+                <li class="dropdown download-menu hidden-xs">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Download <span class="caret"></span></a>
+                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
+                        <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>
+                        </li>
+                        <li><a class="action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>
+                        </li>
+                        <li><a class="action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right title-container" role="search">
+                <div class="form-group">
+                    <a class="btn btn-default file-title-navbar" href="#" title="Story Title"></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+        <div class="layout-wrapper-l3">
+            <div class="working-indicator"></div>
+            <pre id="wmd-input" class="form-control"><div class="editor-content"></div><div class="editor-margin"></div></pre>
+            <div class="preview-panel">
+                <div class="preview-container">
+                    <div id="preview-contents">
+                        <div id="wmd-preview" class="preview-content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="extension-preview-buttons">
+            <div class="btn-group drag-me" title="Open me!">
+                <i class="icon-ellipsis-vert"></i>
+            </div>
+        </div>
+    </div>
+    <div id="wmd-button-bar" class="hide"></div>
+</div>
+<div id="wmd-button-bar" class="hide"></div>
+<div class="modal modal-non-unique">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Ooops...</h3>
+            </div>
+            <div class="modal-body">
+                <p>WriteOn has stopped because another instance was running in the same browser.</p>
+                <blockquote>
+                    <p>If you want to reopen WriteOn, click on "Reload".</p>
+                </blockquote>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a>
+            </div>
+        </div>
+    </div>
+</div>

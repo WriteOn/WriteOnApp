@@ -8,11 +8,11 @@
 
 module.exports = function(app, auth0, jwt) {
 
-var jwt = require('express-jwt');
+// var jwt = require('express-jwt');
 
   var jwtCheck = jwt({
     secret: new Buffer('WTZUqWIyEvHxvBaWj50pZIZFIPIvcBCzhnYBlACMfZWilCXSgrwHGj20V-7HGyft', 'base64'),
     audience: 'p5xvPZdGVcK0ftTqBO5hcsirangc5dt8'
   });
 	
-}
+};

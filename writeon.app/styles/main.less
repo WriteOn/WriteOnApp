@@ -141,7 +141,8 @@
 @modal-footer-border-color: @secondary-border-color-light;
 @modal-content-separator-color: @secondary-border-color-lighter;
 /* @modal-backdrop-bg: desaturate(@tertiary, 50%); */
-@modal-backdrop-bg: @tertiary;	
+@modal-backdrop-bg: @tertiary-bg;
+@modal-backdrop-opacity: 1;
 @tooltip-max-width: 250px;
 @close-color: @secondary-color-darkest;
 @popover-bg: @secondary-bg;
@@ -234,7 +235,7 @@ transition: opacity .07s linear,top .1s ease-out;
 	&.fade .modal-dialog {
 		.translate(0, 0);
         width: 65%;
-        margin: 30px auto;
+        margin: 90px auto;
         -webkit-transition: -webkit-transform 0.07s ease-out;
         -moz-transition: -moz-transform 0.07s ease-out;
         -o-transition: -o-transform 0.07s ease-out;
@@ -254,8 +255,9 @@ transition: opacity .07s linear,top .1s ease-out;
         }
     }
     .modal-content {
-		box-shadow: 0 13px 25px 0 rgba(0, 0, 0, 0.4);
+		box-shadow: none; /* 0 13px 25px 0 rgba(0, 0, 0, 0.4); */
 		border-radius: 2px;
+		border: none;
     }
     .modal-body {
         /*max-height: 100%; */
@@ -555,6 +557,11 @@ a {
 	}
 }
 
+// bootstrap button overrides & hacks
+.btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) {
+	
+}
+
 
 /********************
  * Input
@@ -740,18 +747,27 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 		padding: 3px 8px;
 		box-shadow: none;
 		border:none;
+	  	border-radius: 100%;
+		
+		&:hover {
+			background: none;
+			border: none;
+			-webkit-box-shadow: none;
+  	  		box-shadow: none;
+			color: @primary-blue;
+		}
 	}
 	.btn-group > .btn {
 		&.disabled,
 		&.blocked,
 		&[disabled] {
 			* {
-				color: fade(@btn-success-color, 30%);
+				color: fade(@btn-primary-color, 40%);
 			}
 		}
 		&:hover {
-			-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  			box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+	  		-webkit-box-shadow: none;
+  	  		box-shadow: none;
 		};
 	}
 	.navbar-form {
@@ -1240,11 +1256,23 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
     .modal-dialog {
         width: 450px;
     }
+	.modal-content {
+		-webkit-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  		box-shadow: 0 5px 15px rgba(0,0,0,0.5)
+	}
 }
 
 .modal-settings {
 	.modal-header {
 		padding-bottom: 0;
+	}
+	
+	.modal-content {
+	margin: 60px auto;
+	}
+		.modal-content {
+		-webkit-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  		box-shadow: 0 5px 15px rgba(0,0,0,0.5)
 	}
     
     .modal-body {

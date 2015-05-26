@@ -317,7 +317,7 @@ define([
 		if(navigator.onLine === false) {
 			core.setOffline();
 		}
-
+		
 		// Detect user activity
 		$(document).mousemove(setUserActive).keypress(setUserActive);
 
@@ -579,6 +579,9 @@ define([
 		].join(''));
 		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML);
 		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML);
+		
+		// Activate any and all tooltips in the editor or layout
+  		$('[data-toggle="tooltip"]').tooltip();
 
 		// Avoid dropdown panels to close on click
 		$("div.dropdown-menu").click(function(e) {

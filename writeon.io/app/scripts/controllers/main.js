@@ -6,7 +6,7 @@
  * # MainCtrl
  * Controller of the angularApp
  */
-angular.module('app.controllers', ['auth0']).controller('WriteOnCtrl', function($scope, auth, store, $location) {
+angular.module('app.controllers', []).controller('WriteOnCtrl', function($scope, $location) {
 
     function isMain() {
         return($location.path() === '/home') || ($location.path() === '/features') ? true : false;
@@ -25,47 +25,25 @@ angular.module('app.controllers', ['auth0']).controller('WriteOnCtrl', function(
     $scope.$on('$routeChangeSuccess', function(e, nextRoute) {
         window.scrollTo(0, 0);
         $scope.thePath = $location.path();
-		if ( nextRoute.$$route && angular.isDefined( nextRoute.$$route.pageTitle ) ) {
-      		$scope.pageTitle = nextRoute.$$route.pageTitle + ' | WriteOn Auth' ;
-    	}
     });
 
 }).controller('MainCtrl', function($scope, $location, $routeParams) { 
     $scope.full = ($routeParams.fG7tNpKU) ? true : false;
-}).controller('NavController', function($scope, auth, store, $location) { 
-	// Auth0.com Specific Controller logic
-	$scope.login = function() {
-    auth.signin({}, function(profile, token) {
-      store.set('profile', profile);
-      store.set('token', token);
-      $location.path("/pad");
-    }, function(error) {
-      console.log("There was an error logging in", error);
-    });
-  	}
-	$scope.logout = function() {
-  		auth.signout();
-  		store.remove('profile');
-  		store.remove('token');
-	};
+}).controller('NavController', function($rootScope, $location, $window, $scope) { 
+	$rootScope.$on('$routeChangeStart', function(event, next, current) {
+    if (next && next.$$route && next.$$route.originalPath === '/login') {
+        // Stops the ngRoute to proceed
+        event.preventDefault();
+        // We have to do it async so that the route callback 
+        // can be cleanly completed first, so $timeout works too
+        $rootScope.$evalAsync(function() {
+          // next.$$route.redirectTo would equal be '/homepage'
+          $window.location.href = next.$$route.redirectTo;
+        });
+      }
+  });
     $scope.go = function(url) {
         $location.path(url);
     };
 
-}).controller('LoginController', function($scope, auth, store, $location) { // Auth0.com Specific Controller logic
-    $scope.login = function() {
-            auth.signin({}, function(profile, token) {
-                // Success callback
-                store.set('profile', profile);
-                store.set('token', token);
-                $location.path('/pad');
-            }, function() {
-                // Error callback
-            });
-    };
-	$scope.logout = function() {
-  		auth.signout();
-  		store.remove('profile');
-  		store.remove('token');
-	};
 });

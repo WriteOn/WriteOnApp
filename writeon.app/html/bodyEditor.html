@@ -39,9 +39,9 @@
             <ul class="nav navbar-nav navbar-pad left-buttons">
                 <li class="wmd-button-group1 btn-group hidden"></li>
                 <li class="wmd-button-group2 btn-group hidden-xs"></li>
-                <li class="wmd-button-group3 btn-group hidden"></li>
-                <li class="wmd-button-group4 btn-group hidden-xs hidden-sm">
-                    <a class="btn btn-default button-open-discussion" title="Comments Ctrl/Cmd+M"><i class="icon-comment-alt"></i></a>
+                <li class="wmd-button-group3 btn-group hidden-xs hidden-sm"></li>
+                <li class="wmd-button-group4 btn-group hidden-xs">
+                    <a class="btn btn-default button-open-discussion" title=" Insert Comment (Ctrl/Cmd+M)" data-toggle="tooltip" data-placement="bottom"><i class="icon-comment-alt"></i></a>
                 </li>
                 <li class="wmd-button-group5 btn-group hidden-xs"></li>
             </ul>
@@ -75,7 +75,7 @@
                         <li class="divider show-already-published publish-divider"></li>
                     </ul>
                 </li>
-                <li class="dropdown download-menu hidden-xs">
+                <li class="dropdown download-menu hidden-xs hidden-sm">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Download <span class="caret"></span></a>
                     <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
                         <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>
@@ -89,7 +89,7 @@
             </ul>
             <form class="navbar-form navbar-right title-container" role="search">
                 <div class="form-group">
-                    <a class="btn btn-default file-title-navbar" href="#" title="Rename story"></a>
+                    <a class="btn btn-text file-title-navbar" href="#" title="Rename story"></a>
                 </div>
                 <div class="form-group input-file-title-container">
                     <input type="text" class="col-sm-4 form-control hide input-file-title" placeholder="Story title" />
@@ -277,8 +277,8 @@
                 <div class="panel-group select-folder-list hide"></div>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default confirm-delete choose-folder action-cancel hide">Cancel</a>
-                <a href="#" class="btn btn-danger confirm-delete action-delete-items-confirm hide">OK</a>
+                <a href="#" class="btn btn-link btn-flat confirm-delete choose-folder action-cancel hide">Cancel</a>
+                <a href="#" class="btn btn-danger confirm-delete action-delete-items-confirm hide">Delete</a>
             </div>
         </div>
     </div>
@@ -298,8 +298,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                <a href="#" class="btn btn-primary action-insert-link" data-dismiss="modal">OK</a>
+                <a href="#" class="btn btn-primary action-insert-link" data-dismiss="modal">Insert</a>
             </div>
         </div>
     </div>
@@ -319,8 +318,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default pull-left action-import-image-gplus" data-dismiss="modal"><i class="icon-provider-gplus"></i> Import
-from Google+</a>  <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>  <a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal">OK</a>
+                <a href="#" class="btn btn-default pull-left action-import-image-gplus" data-dismiss="modal"><i class="icon-provider-gplus"></i> Import from Google+</a>  
+				<a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal">Import</a>
             </div>
         </div>
     </div>
@@ -354,8 +353,7 @@ from Google+</a>  <a href="#" class="btn btn-default" data-dismiss="modal">Cance
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                <a href="#" class="btn btn-primary action-import-image" data-dismiss="modal">OK</a>
+                <a href="#" class="btn btn-primary action-import-image" data-dismiss="modal">Import</a>
             </div>
         </div>
     </div>
@@ -378,7 +376,7 @@ from Google+</a>  <a href="#" class="btn btn-default" data-dismiss="modal">Cance
                 </blockquote>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+                <a href="#" class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
                 <a href="#" class="btn btn-danger action-remove-file" data-dismiss="modal">Delete</a>
             </div>
         </div>
@@ -403,8 +401,7 @@ from Google+</a>  <a href="#" class="btn btn-default" data-dismiss="modal">Cance
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                <a href="#" data-dismiss="modal" class="btn btn-primary action-import-url">OK</a>
+                <a href="#" data-dismiss="modal" class="btn btn-primary action-import-url">Import</a>
             </div>
         </div>
     </div>
@@ -445,7 +442,7 @@ from Google+</a>  <a href="#" class="btn btn-default" data-dismiss="modal">Cance
                 <textarea id="input-convert-html" class="form-control prettyprint linenums lang-html"></textarea>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>  <a href="#" class="btn btn-primary action-convert-html" data-dismiss="modal">OK</a>
+				<a href="#" class="btn btn-primary action-convert-html" data-dismiss="modal">Convert</a>
             </div>
         </div>
     </div>
@@ -498,8 +495,7 @@ folder and filename. </span>
                 </blockquote>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-dropbox">OK</a>
+                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-dropbox">Save</a>
             </div>
         </div>
     </div>
@@ -571,11 +567,11 @@ folder and filename. </span>
             </div>
             <div class="modal-footer">
                 <a href="#" class="btn btn-default pull-left list-mode action-byid-mode"><i class="icon-folder-open-empty"></i> Open by ID...</a>
-                <a href="#" class="btn btn-default delete-mode action-cancel hide">Cancel</a>
-                <a href="#" class="btn btn-primary delete-mode action-delete-items-confirm hide">Delete</a>
-                <a href="#" class="btn btn-default byid-mode action-cancel">Cancel</a>
+                <a href="#" class="btn btn-link btn-flat delete-mode action-cancel hide">Cancel</a>
+                <a href="#" class="btn btn-danger delete-mode action-delete-items-confirm hide">Delete</a>
+                <a href="#" class="btn btn-link btn-flat byid-mode action-cancel">Cancel</a>
                 <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon byid-mode">Open</a>
-                <a href="#" class="btn btn-default list-mode" data-dismiss="modal">Cancel</a>
+                <a href="#" class="btn btn-link btn-flat list-mode" data-dismiss="modal">Cancel</a>
                 <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon list-mode">Open</a>
             </div>
         </div>
@@ -613,8 +609,7 @@ folder and filename. </span>
                 </blockquote>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-mywriteon">OK</a>
+                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-mywriteon">Save</a>
             </div>
         </div>
     </div>
@@ -858,8 +853,7 @@ story title will be used.</span>
                 </blockquote>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                <a href="#" data-dismiss="modal" class="btn btn-primary action-process-publish">OK</a>
+                <a href="#" data-dismiss="modal" class="btn btn-primary action-process-publish">Publish</a>
             </div>
         </div>
     </div>
@@ -1160,8 +1154,8 @@ for this change to take effect.</span>
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                <a href="#" class="btn btn-primary action-apply-settings" data-dismiss="modal">OK</a>
+                <a href="#" class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
+                <a href="#" class="btn btn-primary action-apply-settings" data-dismiss="modal">Save</a>
             </div>
         </div>
     </div>
@@ -1191,7 +1185,7 @@ for this change to take effect.</span>
                 <p class="redirect-msg"></p>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-default" data-dismiss="modal">Cancel</a>
+                <a class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
                 <a class="btn btn-primary action-redirect-confirm" data-dismiss="modal">OK</a>
             </div>
         </div>
@@ -1209,8 +1203,8 @@ for this change to take effect.</span>
                 </blockquote>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                <a href="#" class="btn btn-primary action-app-reset" data-dismiss="modal">OK</a>
+                <a href="#" class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
+                <a href="#" class="btn btn-danger action-app-reset" data-dismiss="modal">Reset</a>
             </div>
         </div>
     </div>
@@ -1227,8 +1221,8 @@ for this change to take effect.</span>
                 </blockquote>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                <a href="#" class="btn btn-primary action-import-docs-settings-confirm" data-dismiss="modal">OK</a>
+                <a href="#" class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
+                <a href="#" class="btn btn-primary action-import-docs-settings-confirm" data-dismiss="modal">Import</a>
             </div>
         </div>
     </div>

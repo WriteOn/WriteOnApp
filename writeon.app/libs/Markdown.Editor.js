@@ -1494,6 +1494,8 @@
                 button.id = id + postfix;
                 button.appendChild(buttonImage);
                 button.title = title;
+				button.setAttribute("data-toggle", "tooltip");
+				button.setAttribute("data-placement", "bottom");
                 button.XShift = XShift;
                 if (textOp)
                     button.textOp = textOp;

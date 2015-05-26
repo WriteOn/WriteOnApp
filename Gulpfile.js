@@ -56,10 +56,10 @@ function getVersion() {
 }
 
 gulp.task('constants', function() {
-	return gulp.src('./writeon.app/constants.js')
+	return gulp.src(options.app + '/constants.js')
 		.pipe(replace(/constants\.VERSION = .*/, 'constants.VERSION = "' + getVersion() + '";'))
         //.pipe(debug())
-		.pipe(gulp.dest('./writeon.app/'));
+		.pipe(gulp.dest(options.app));
 });
 
 /** __________________________________________
@@ -68,12 +68,12 @@ gulp.task('constants', function() {
 
 gulp.task('jshint', function() {
 	return gulp.src([
-		'./writeon.server/**/*.js',
-		'./writeon.app/classes/**/*.js',
-		'./writeon.app/extensions/**/*.js',
-		'./writeon.app/helpers/**/*.js',
-		'./writeon.app/providers/**/*.js',
-		'./writeon.app/*.js'
+		options.server + '/**/*.js',
+		options.app + '/classes/**/*.js',
+		options.app + '/extensions/**/*.js',
+		options.app + '/helpers/**/*.js',
+		options.app + '/providers/**/*.js',
+		options.app + '/*.js'
 	])
 		// .pipe(debug())
         .pipe(jshint())
@@ -87,10 +87,10 @@ gulp.task('jshint', function() {
 
 gulp.task('clean-requireless', function() {
 	return gulp.src([
-		'./public/bower-libs/**/*less.js',
-		'./public/bower-libs/**/*lessc.js',
-		'./public/bower-libs/**/*normalize.js',
-		'./public/bower-libs/**/*css.js'
+		options.dist + '/bower-libs/**/*less.js',
+		options.dist + '/bower-libs/**/*lessc.js',
+		options.dist + '/bower-libs/**/*normalize.js',
+		options.dist + '/bower-libs/**/*css*.js'
 	])
 		// .pipe(debug())
         .pipe(clean());
@@ -102,7 +102,7 @@ return gulp.src([
 		options.app + '/bower-libs/require-less/lessc.js',
 		options.app + '/bower-libs/require-less/normalize.js'
 	])
-  .pipe(copy('./public/writeon/bower-libs', {prefix: 2}));
+  .pipe(copy(options.dist + '/bower-libs', {prefix: 2}));
 });
 
 
@@ -111,7 +111,7 @@ return gulp.src([
 		options.app + '/bower-libs/require-css/css.min.js',
 		options.app + '/bower-libs/require-css/normalize.js'
 	])
-  .pipe(copy('./public/writeon/bower-libs', {prefix: 2}));
+  .pipe(copy(options.dist + '/bower-libs', {prefix: 2}));
 });
 
 
@@ -121,17 +121,17 @@ return gulp.src([
 
 gulp.task('clean-requirejs', function() {
 	return gulp.src([
-		'./public/writeon/main.js',
-		'./public/writeon/require.js'
+		options.dist + '/main.js',
+		options.dist + '/require.js'
 	])
 		// .pipe(debug())
         .pipe(clean());
 });
 
 gulp.task('copy-requirejs', ['clean-requirejs'], function() {
-	return gulp.src('./writeon.app/bower-libs/requirejs/require.js')
+	return gulp.src(options.app + '/bower-libs/requirejs/require.js')
 		// .pipe(debug())
-        .pipe(gulp.dest('./public/writeon/'));
+        .pipe(gulp.dest(options.dist + '/'));
 });
 
 gulp.task('requirejs', [
@@ -139,10 +139,10 @@ gulp.task('requirejs', [
 	'constants'
 ], function() {
 	return requirejs({
-		baseUrl: 'writeon.app',
+		baseUrl: options.app,
 		name: 'main',
 		out: 'main.js',
-		mainConfigFile: 'writeon.app/main.js',
+		mainConfigFile: options.app + '/main.js',
 		optimize: 'uglify2',
 		inlineText: true,
 		paths: {
@@ -162,12 +162,12 @@ gulp.task('requirejs', [
 			}
 		}))
 		// .pipe(debug())
-        .pipe(gulp.dest('./public/writeon/'));
+        .pipe(gulp.dest('./public/writeon'));
 });
 
 gulp.task('bower-requirejs', function(cb) {
 	bowerRequirejs({
-		config: './writeon.app/main.js'
+		config: options.app + '/main.js'
 	}, function() {
 		cb();
 	});
@@ -178,21 +178,21 @@ gulp.task('bower-requirejs', function(cb) {
  */
 
 gulp.task('clean-less', function() {
-	return gulp.src('./public/writeon/themes')
+	return gulp.src(options.dist + '/themes')
 		// .pipe(debug())
         .pipe(clean());
 });
 
 gulp.task('less', ['clean-less'], function() {
 	return gulp.src([
-		'./writeon.app/styles/base.less',
-		'./writeon.app/themes/*.less'
+		options.app + '/styles/base.less',
+		options.app + '/themes/*.less'
 	])
 		.pipe(less({
 			compress: true
 		}))
 		// .pipe(debug())
-        .pipe(gulp.dest('./public/writeon/themes/'));
+        .pipe(gulp.dest(options.dist + '/themes/'));
 });
 
 /** __________________________________________
@@ -200,18 +200,18 @@ gulp.task('less', ['clean-less'], function() {
  */
 
 gulp.task('clean-font', function() {
-	return gulp.src('./public/writeon/font')
+	return gulp.src(options.dist + '/font')
 		// .pipe(debug())
         .pipe(clean());
 });
 
 gulp.task('copy-font', ['clean-font'], function() {
 	return gulp.src([
-        './writeon.app/font/*', 
-        './writeon.app/bower-libs/bootstrap-material-design/fonts/*'
+        options.app + '/font/*', 
+        options.app + '/bower-libs/bootstrap-material-design/fonts/*'
     ])
 		// .pipe(debug())
-        .pipe(gulp.dest('./public/writeon/font/'));
+        .pipe(gulp.dest(options.dist + '/font/'));
 });
 
 /** __________________________________________
@@ -219,15 +219,33 @@ gulp.task('copy-font', ['clean-font'], function() {
  */
 
 gulp.task('clean-img', function() {
-	return gulp.src('./public/writeon/img')
+	return gulp.src(options.dist + '/img')
 		// .pipe(debug())
         .pipe(clean());
 });
 
 gulp.task('copy-img', ['clean-img'], function() {
-	return gulp.src('./writeon.app/img/*')
+	return gulp.src(options.app + '/img/*')
 		// .pipe(debug())
-        .pipe(gulp.dest('./public/writeon/img/'));
+        .pipe(gulp.dest(options.dist + '/img/'));
+});
+
+/** __________________________________________
+ * HTML Parts
+ */
+
+gulp.task('clean-html', function() {
+	return gulp.src(options.dist + '/html')
+		// .pipe(debug())
+        .pipe(clean());
+});
+
+gulp.task('copy-html', ['clean-html'], function() {
+	return gulp.src([
+        options.app + '/html/*'
+    ])
+		// .pipe(debug())
+        .pipe(gulp.dest(options.dist + '/html/'));
 });
 
 /** __________________________________________
@@ -314,7 +332,8 @@ gulp.task('clean', [
 	'clean-requirejs',
 	'clean-less',
 	'clean-font',
-	'clean-img'
+	'clean-img',
+	'clean-html'
 ]);
 gulp.task('requireless', [
 	'clean-requireless',
@@ -332,10 +351,12 @@ gulp.task('copy-require', function(cb) {
 gulp.task('build', function(cb) {
 	runSequence([
 			'jshint',
+			'requireless',
 			'requirejs',
 			'less',
 			'copy-font',
-			'copy-img'
+			'copy-img',
+			'copy-html'
 		],
 		'cache',
 		cb);
@@ -425,12 +446,12 @@ gulp.task('connect', function() {
 });
  
 gulp.task('html', function () {
-  gulp.src('./writeon.server/views/*.html')
+  gulp.src(options.server + '/views/*.html')
     .pipe(connect.reload());
 });
  
 gulp.task('watch', function () {
-  gulp.watch(['./writeon.server/views/*.html'], ['html']);
+  gulp.watch([options.server + '/views/*.html'], ['html']);
 });
 
 

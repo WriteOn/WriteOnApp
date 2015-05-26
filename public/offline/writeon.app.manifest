@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#Date Thu May 21 2015 19:32:15 GMT+0000 (UTC)
+#Date Tue May 26 2015 17:37:58 GMT+0000 (UTC)
 #Version 1.9.2
 
 CACHE:
@@ -9,7 +9,6 @@ CACHE:
 
 # start_inject_resources
 /writeon/domReady.js
-/writeon/main.js
 /writeon/require.js
 /writeon/font/LICENSE.txt
 /writeon/font/Material-Design-Icons.eot
@@ -31,6 +30,47 @@ CACHE:
 /writeon/font/cursive_standard-webfont.woff
 /writeon/font/fontello.svg
 /writeon/font/fontello.woff
+/writeon/html/bodyEditor.html
+/writeon/html/bodyEditorNav.html
+/writeon/html/bodyLoading.html
+/writeon/html/bodyViewer.html
+/writeon/html/buttonHtmlCode.html
+/writeon/html/buttonHtmlCodeSettingsBlock.html
+/writeon/html/buttonMarkdownSyntax.html
+/writeon/html/buttonStat.html
+/writeon/html/buttonStatSettingsBlock.html
+/writeon/html/buttonSyncSettingsBlock.html
+/writeon/html/buttonToc.html
+/writeon/html/buttonUserFeedback.html
+/writeon/html/buttonViewer.html
+/writeon/html/commentsPopoverContent.html
+/writeon/html/dialogAbout.html
+/writeon/html/dialogAutoSyncGdrive.html
+/writeon/html/dialogExportGdrive.html
+/writeon/html/dialogManagePublicationLocation.html
+/writeon/html/dialogManageSharingLocation.html
+/writeon/html/dialogManageSharingViewerLocation.html
+/writeon/html/dialogManageSynchronizationLocation.html
+/writeon/html/documentSelectorSettingsBlock.html
+/writeon/html/findReplace.html
+/writeon/html/findReplaceSettingsBlock.html
+/writeon/html/htmlSanitizerSettingsBlock.html
+/writeon/html/markdownExtraSettingsBlock.html
+/writeon/html/mysyncURLSettingsBlock.html
+/writeon/html/notificationsSettingsBlock.html
+/writeon/html/partialRenderingSettingsBlock.html
+/writeon/html/scrollSyncSettingsBlock.html
+/writeon/html/settingsExtensionsAccordion.html
+/writeon/html/shortcutsSettingsBlock.html
+/writeon/html/spellCheckSettingsBlock.html
+/writeon/html/supportWriteonSettingsBlock.html
+/writeon/html/tocSettingsBlock.html
+/writeon/html/tooltipSettingsPdfOptions.html
+/writeon/html/tooltipSettingsShortcutsExtension.html
+/writeon/html/tooltipSettingsTemplate.html
+/writeon/html/tooltipUserCustomExtension.html
+/writeon/html/umlDiagramsSettingsBlock.html
+/writeon/html/userCustomSettingsBlock.html
 /writeon/img/THS-6.png
 /writeon/img/button.svg
 /writeon/img/code-block.png
@@ -81,6 +121,11 @@ CACHE:
 /writeon/themes/school.css
 /writeon/themes/solarized-dark.css
 /writeon/themes/solarized-light.css
+/writeon/bower-libs/require-css/css.min.js
+/writeon/bower-libs/require-css/normalize.js
+/writeon/bower-libs/require-less/less.js
+/writeon/bower-libs/require-less/lessc.js
+/writeon/bower-libs/require-less/normalize.js
 # end_inject_resources
 
 

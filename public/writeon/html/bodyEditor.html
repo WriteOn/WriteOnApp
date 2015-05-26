@@ -1,0 +1,1266 @@
+<div class="working-indicator"></div>
+<div class="layout-wrapper-l1">
+    <div class="layout-wrapper-l2">
+<nav class="navbar navbar-default">
+    <div class="container-fluid navbar-inner">
+        <div class="navbar-header">
+            <a class="navbar-brand settings-menu dropdown-toggle" href="#" data-toggle="dropdown" id="settings-menu" title="Menu">
+                <i class="icon-menu"></i>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="settings-menu">
+                <li>
+                    <a href="paper" title="WriteOn Paper" role="menuitem" class="hide hidden"><i class="icon-doc-text"></i> Switch to Paper</a>
+                </li>
+                <li>
+                    <a href="#" title="Settings & Preferences" data-toggle="modal" data-target=".modal-settings" class="action-load-settings"><i class="icon-cog-alt"></i> Settings & Preferences</a>
+                </li>
+                <li>
+                    <a href="#" title="About WriteOn" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-info"></i> About</a>
+                </li>
+                <li>
+                    <a href="#" title="Get Help" id="button-help"><i class="icon-help-circled"></i> Help</a>
+                </li>
+                <li>
+                    <a href="/logout" title="Logout"><i class="icon-logout"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav right-space pull-right"></div>
+        <div class="buttons-dropdown dropdown">
+            <div class="nav">
+                <button class="btn btn-default" data-toggle="dropdown" title="Show buttons">
+                    <i class="icon-th-large"></i>
+                </button>
+                <div class="dropdown-menu">
+                </div>
+            </div>
+        </div>
+        <div class="navbar-collapse main-navbar-collapse" id="main-navbar-collapse">
+            <ul class="nav navbar-nav navbar-pad left-buttons">
+                <li class="wmd-button-group1 btn-group hidden-xs hidden-sm"></li>
+                <li class="wmd-button-group2 btn-group hidden-xs"></li>
+                <li class="wmd-button-group3 btn-group hidden-xs hidden-sm"></li>
+                <li class="wmd-button-group4 btn-group hidden-xs">
+                    <a class="btn btn-default button-open-discussion" title=" Insert Comment (Ctrl/Cmd+M)" data-toggle="tooltip" data-placement="bottom"><i class="icon-comment-alt"></i></a>
+                </li>
+                <li class="wmd-button-group5 btn-group hidden-xs"></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right extension-buttons syncing-menu">
+                <li class="offline-status hide">
+                    <div class="text-danger">
+                        <a class="btn btn-danger" title="You are offline...It's a great time to write!"><i class="icon-attention-circled"></i></a>
+                    </div>
+                </li>
+                <li class="dropdown extension-buttons syncing-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Sync <span class="caret"></span></a>
+                    <ul class="dropdown-menu sync-menu" role="menu">
+                        <li class="divider show-already-synchronized sync-divider"></li>
+                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-upload-cloud text-blue"></i> My.WriteOn</a>
+                        </li>
+                        <li><a href="#" class="action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
+                        </li>
+                        <li><a href="#" class="submenu-sync-gdrive action-sync-export-dialog-gdrive"><i class="icon-provider-gdrive"></i> Drive</a>
+                        </li>
+                        <li><a href="#" class="submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i class="icon-provider-gdrive"></i> Drive<sup>2</sup></a>
+                        </li>
+                        <li><a href="#" class="submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i class="icon-provider-gdrive"></i> Drive<sup>3</sup></a>
+                        </li>
+                        <li><a href="#" data-toggle="modal" data-target=".modal-manage-sharing" class="action-reset-input"><i class="icon-link text-green"></i> Sharing</a>
+                        </li>
+					</ul>
+                </li>
+                <li class="dropdown extension-buttons publishing-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Publish <span class="caret"></span></a>
+                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
+                        <li class="divider show-already-published publish-divider"></li>
+                    </ul>
+                </li>
+                <li class="dropdown download-menu hidden-xs hidden-sm">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Download <span class="caret"></span></a>
+                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
+                        <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>
+                        </li>
+                        <li><a class="action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>
+                        </li>
+                        <li><a class="action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-right title-container" role="search">
+                <div class="form-group">
+                    <a class="btn btn-text file-title-navbar" href="#" title="Rename story"></a>
+                </div>
+                <div class="form-group input-file-title-container">
+                    <input type="text" class="col-sm-4 form-control hide input-file-title" placeholder="Story title" />
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+        <div class="layout-wrapper-l3">
+            <pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>
+            <div class="preview-panel">
+                <div class="layout-resizer layout-resizer-preview"></div>
+                <div class="layout-toggler layout-toggler-navbar btn btn-default" title="Toggle navigation bar"><i class="icon-resize-full"></i>
+                </div>
+                <div class="layout-toggler layout-toggler-preview btn btn-default open" title="Toggle preview"><i class="icon-none"></i>
+                </div>
+                <div class="preview-container">
+                    <div id="preview-contents">
+                        <div id="wmd-preview" class="preview-content"></div>
+                    </div>
+                </div>
+            </div>
+			<div class="new-story-button">
+				<a href="#" class="btn btn-fab fab-pad btn-primary action-create-file" title="Create New Story"><i class="fa fa-plus fa-lg"></i></a>
+			</div>
+        </div>
+        <div class="extension-preview-buttons">
+            <div class="btn-group drag-me" title="Open me!">
+                <i class="icon-ellipsis-vert"></i>
+            </div>
+        </div>
+    </div>
+    <div id="wmd-button-bar" class="hide"></div>
+    <div class="menu-panel">
+        <button class="btn toggle-button hide" title="Menu">
+            <i class="icon-menu"></i>
+        </button>
+        <div class="panel-content">
+            <div class="list-group">
+                <a href="paper" title="WriteOn Paper" class="list-group-item">
+                    <i class="icon-doc-text"></i> WriteOn Paper
+                </a>
+            </div>
+            <div class="list-group">
+                <a href="#" data-toggle="collapse" data-target=".collapse-synchronize" class="list-group-item hide">
+                    <div><i class="icon-refresh"></i> Synchronize</div>
+                    <small>Save, share, collaborate in the Cloud</small>
+                </a>
+                <div class="sub-menu collapse collapse-synchronize clearfix">
+
+                </div>
+                <a href="#" data-toggle="collapse" data-target=".collapse-publish-on" class="list-group-item hide">
+                    <div><i class="icon-print"></i>Publish</div>
+                    <small>Publish to the web</small>
+                </a>
+                <div class="sub-menu collapse collapse-publish-on clearfix">
+
+                </div>
+                <a href="#" data-toggle="collapse" data-target=".collapse-export-on" class="list-group-item">
+                    <div><i class="icon-download"></i>Download</div>
+                    <small>Download stories for offline use</small>
+                </a>
+                <div class="sub-menu collapse collapse-export-on clearfix">
+                    <ul class="nav">
+                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>
+                        </li>
+                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>
+                        </li>
+                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>
+                        </li>
+                        <li class="col-sm-6"><a class="btn btn-default btn-col action-download-pdf" href="#" title="Download PDF file"><i class="icon-file"></i> PDF </a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input list-group-item hide">
+                    <div><i class="icon-paste"></i>Convert</div>
+                    <small>Convert HTML to Markdown</small>
+                </a>
+                <a href="#" data-toggle="modal" data-target=".modal-settings" class="action-load-settings list-group-item">
+                    <div><i class="icon-cog-alt"></i>Settings</div>
+                    <small>Settings, extenions & utilities</small>
+                </a>
+            </div>
+            <ul class="nav">
+                <li><a href="#" data-toggle="modal" data-target=".modal-about" class="action-load-about"><i class="icon-help-circled"></i> About</a>
+                </li>
+                <li><a href="/logout"><i class="icon-logout"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+<div class="document-panel">
+    <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">
+        <i class="icon-folder-open fa-2x text-black"></i>
+    </button>
+    <div class="search-bar clearfix">
+		    <nav class="navbar navbar-default story-navbar" style="position: relative;border: 1px solid #e6e6e6;border-radius: 2px;">
+            <div id="story-navbar-collapse">
+                <ul class="nav navbar-nav navbar-left" style="margin-bottom:0;">
+                    <li><a href="#" class="action-create-file" title="Create New Story" style="padding:8px;"><i class="icon-plus-circled fa-lg text-blue"></i></a></li>
+					<li><a href="#" class="action-remove-file-confirm" title="Delete Current Story"><i class="icon-trash text-red"></i></a></li>
+					<li><a href="#" class="file" data-toggle="modal" data-target=".modal-document-manager" title="Organize Stories"><i class="icon-layers text-yellow"></i></a></li>
+					<li class="dropdown story-menu pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true" title="Import Stories"><i class="icon-docs text-dark-yellow"></i><span class="caret"></span></a>
+                        <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
+                            <li><a href="#" class="file action-sync-import-dialog-mywriteon hide"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a>
+                            </li>
+                            <li><a href="#" class="file action-sync-import-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
+                            </li>
+                            <li><a href="#" class="file submenu-sync-gdrive action-sync-import-gdrive"><i class="icon-provider-gdrive"></i> Google Drive</a>
+                            </li>
+                            <li><a href="#" class="file submenu-sync-gdrivesec action-sync-import-gdrivesec"><i class="icon-provider-gdrive"></i> Google Drive<sup>2</sup></a>
+                            </li>
+                            <li><a href="#" class="file submenu-sync-gdriveter action-sync-import-gdriveter"><i class="icon-provider-gdrive"></i> Google Drive<sup>3</sup></a>
+                            </li>
+                            <li><a data-toggle="modal" data-target=".modal-import-url" class="file action-reset-input" href="#" title="Import from URL"><i class="icon-globe text-green"></i> Import URL</a>
+                            </li>
+                            <li><a data-toggle="modal" title="Import from disk" data-target=".modal-import-harddrive-markdown" class="file action-reset-input" href="#"><i class="icon-hdd text-orange"></i> Import from disk</a>
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input"> <i class="icon-paste"></i>Import HTML</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+    </nav>
+		<div class="input-group">
+            <span class="input-group-addon"><i class="icon-search"></i></span>
+            <input type="text" class="form-control" placeholder="Find story" />
+        </div>
+    </div>
+    <div class="panel-content">
+        <div class="list-group document-list"></div>
+        <div class="list-group document-list-filtered hide"></div>
+    </div>
+</div>
+</div>
+<div class="modal fade modal-document-manager">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div></div>
+<nav class="navbar navbar-inverse document-list">
+    <div class="container-fluid">
+		<div class="navbar-header">
+      		<a class="navbar-brand" href="#">Organize Stories</a>
+    	</div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <ul class="nav navbar-nav">
+                <li><a href="#" title="Number of Stories"><i class="icon-file"></i> <span class="document-count"></span></a>
+                </li>
+                <li><a href="#" title="Number of Folders"><i class="icon-folder"></i> <span class="folder-count"></span></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="icon-check"></i> Actions <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" class="action-select-all"><i class="icon-check"></i> Select all</a>
+                        </li>
+                        <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#" class="action-move-items"><i class="icon-forward"></i> Move to folder</a>
+                        </li>
+                        <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active">
+                    <a href="#" class="action-create-folder" title="Create New Folder"> <i class="icon-folder"></i> New Folder</a>
+                </li>
+				<li><button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="font-size: 3.2em;padding: 14.5px 0 14.5px 14.5px;">×</button></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+                <div class="panel-group document-list" id="accordion" role="tablist" aria-multiselectable="true"></div>
+                <p class="confirm-delete hide">The following stories will be deleted locally:</p>
+                <p class="choose-folder hide">Please choose a destination folder:
+                </p>
+                <div class="panel-group selected-document-list hide"></div>
+                <div class="panel-group select-folder-list hide"></div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-link btn-flat confirm-delete choose-folder action-cancel hide">Cancel</a>
+                <a href="#" class="btn btn-danger confirm-delete action-delete-items-confirm hide">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-insert-link">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">Insert Link</h2>
+            </div>
+            <div class="modal-body">
+                <p>Please provide the link URL and an optional title:</p>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="icon-globe"></i></span>
+                    <input id="input-insert-link" type="text" class="col-sm-5 form-control" placeholder='http://example.com/ "optional title"' />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-primary action-insert-link" data-dismiss="modal">Insert</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-insert-image">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">Insert Image</h2>
+            </div>
+            <div class="modal-body">
+                <p>Please provide the image URL and an optional title:</p>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="icon-picture"></i></span>
+                    <input id="input-insert-image" type="text" class="col-sm-5 form-control" placeholder='http://example.com/image.jpg "optional title"' />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default pull-left action-import-image-gplus" data-dismiss="modal"><i class="icon-provider-gplus"></i> Import from Google+</a>  
+				<a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal">Import</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-import-image">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">Google+ image import</h2>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-sm-7">
+                            <img>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="input-import-image-title">Title (optional)</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-import-image-title" placeholder="Image title" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" for="input-import-image-size">Size limit (optional)</label>
+                        <div class="col-sm-7 form-inline">
+                            <input type="text" id="input-import-image-size" placeholder="0" class="col-sm-3 form-control">px
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-primary action-import-image" data-dismiss="modal">Import</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-remove-file-confirm">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">Delete</h2>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Are you sure you want to delete "<span class="file-title"></span>"?
+                </p>
+                <blockquote class="alert alert-info">
+					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <p><b>Note:</b> It won't delete the file on synchronized locations.</p>
+                </blockquote>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
+                <a href="#" class="btn btn-danger action-remove-file" data-dismiss="modal">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-import-url">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">Import from URL</h2>
+            </div>
+            <div class="modal-body">
+                <p>Please provide a link to a Markdown formatted story (<code>.md</code> or <code>.markdown</code> extension).</p>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="input-import-url">URL</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="input-import-url" placeholder="http://my-awesome.com/story.md" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-primary action-import-url">Import</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-import-harddrive-markdown">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">Import from disk</h2>
+            </div>
+            <div class="modal-body">
+                <p>Please select your Markdown files here (<code>.md</code> or <code>.markdown</code> extension):</p>
+                <p>
+                    <input type="file" id="input-file-import-harddrive-markdown" multiple class="form-control" />
+                </p>
+                <p>Or drag and drop your Markdown files here:</p>
+                <p id="dropzone-import-harddrive-markdown" class="drop-zone">Drop files here</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-import-harddrive-html">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">Convert HTML to Markdown</h2>
+            </div>
+            <div class="modal-body">
+                <p>Please select your HTML files here:</p>
+                <p>
+                    <input type="file" id="input-file-import-harddrive-html" multiple class="form-control" />
+                </p>
+                <p>Or drag and drop your HTML files here:</p>
+                <p id="dropzone-import-harddrive-html" class="drop-zone">Drop files here</p>
+                <p>Or insert your HTML code here:</p>
+                <textarea id="input-convert-html" class="form-control prettyprint linenums lang-html"></textarea>
+            </div>
+            <div class="modal-footer">
+				<a href="#" class="btn btn-primary action-convert-html" data-dismiss="modal">Convert</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-upload-gdrive">
+</div>
+<div class="modal fade modal-upload-gdrivesec">
+</div>
+<div class="modal fade modal-upload-gdriveter">
+</div>
+<div class="modal fade modal-autosync-gdrive">
+</div>
+<div class="modal fade modal-autosync-gdrivesec">
+</div>
+<div class="modal fade modal-autosync-gdriveter">
+</div>
+<div class="modal fade modal-upload-dropbox">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">Save to Dropbox</h2>
+            </div>
+            <div class="modal-body">
+                <p>
+                    This will save "<span class="file-title"></span>" to your <i class="icon-provider-dropbox"></i>
+                    <code>Dropbox</code>
+                    account and keep it synchronized.
+                </p>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="input-sync-export-dropbox-path">File path</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="input-sync-export-dropbox-path" placeholder="/path/to/My Story.md" class="form-control">
+                            <span class="help-block"> File path is composed of both
+folder and filename. </span>
+                        </div>
+                    </div>
+                </div>
+                <blockquote class="alert alert-info">
+					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <b>Note:</b>
+                    <ul>
+                        <li>Dropbox file path does not depend on story title.</li>
+                        <li>The title of your story will not be synchronized.</li>
+                        <li>Destination folder must exist.</li>
+                        <li>Any existing file at this location will be overwritten.</li>
+                    </ul>
+                </blockquote>
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-dropbox">Save</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-download-mywriteon">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">Open on My.WriteOn</h2>
+                <div class="form-horizontal list-mode">
+                    <br>
+                    <div class="form-group form-inline">
+                        <label for="input-sync-import-mywriteon-tag" class="col-sm-3 control-label">Filter by tag</label>
+                        <select id="input-sync-import-mywriteon-tag" class="col-sm-4 form-control">
+                        </select>
+                        <span class="col-sm-5">
+<a class="btn btn-link action-add-tag"><i class="icon-tag"></i> Add
+</a>
+<a class="btn btn-link action-remove-tag"><i class="icon-tag"></i> Remove
+</a>
+</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <p class="msg-default-mywriteon alert alert-warning">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <i class="icon-attention"></i>  <b>Careful:</b>
+                    This is Beta software, and you're using our public My.WriteOn instance.
+                    <b>That means anybody can open, edit and delete these stories.</b>
+                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">♥</span>
+                </p>
+                <div class="form-horizontal byid-mode">
+                    <div class="form-group">
+                        <label for="input-sync-import-mywriteon-documentid" class="col-sm-3 control-label">Story ID
+                        </label>
+                        <div class="col-sm-9">
+                            <input id="input-sync-import-mywriteon-documentid" class="form-control" placeholder="DocumentID">
+                            <span class="help-block">Multiple IDs can be provided (space separated)</span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-mode nav nav-pills">
+                    <li class="pull-right dropdown"><a href="#" data-toggle="dropdown"><i class="icon-check"></i> Selection
+<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p class="list-mode">
+                </p>
+                <div class="list-group document-list list-mode"></div>
+                <div class="list-mode text-center">
+                    <div class="please-wait"><b>Please wait...</b>
+                    </div>
+                    <div class="no-document"><b>No story.</b>
+                    </div>
+                    <button class="more-documents btn btn-link"><i class="icon-angle-double-down"></i> More stories</button>
+                </div>
+                <p class="delete-mode hide">The following stories will be removed from WriteOn:</p>
+                <div class="delete-mode list-group selected-document-list hide"></div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default pull-left list-mode action-byid-mode"><i class="icon-folder-open-empty"></i> Open by ID...</a>
+                <a href="#" class="btn btn-link btn-flat delete-mode action-cancel hide">Cancel</a>
+                <a href="#" class="btn btn-danger delete-mode action-delete-items-confirm hide">Delete</a>
+                <a href="#" class="btn btn-link btn-flat byid-mode action-cancel">Cancel</a>
+                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon byid-mode">Open</a>
+                <a href="#" class="btn btn-link btn-flat list-mode" data-dismiss="modal">Cancel</a>
+                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-import-mywriteon list-mode">Open</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-upload-mywriteon">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">Save to My.WriteOn</h2>
+            </div>
+            <div class="modal-body">
+                <p class="msg-default-mywriteon alert alert-warning hide">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <i class="icon-attention"></i>  <b>Careful:</b>
+                    This is Beta software, and you're using our public My.WriteOn instance.
+                    <b>That means anybody can open, edit and delete your stories - and vise versa.</b>
+                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">♥</span>
+                </p>
+                <p>
+                    This will save "<span class="file-title"></span>" to My.WriteOn <sup class="text-danger">Beta</sup> and keep it synchronized.
+                </p>
+                <blockquote class="alert alert-info hide hidden">
+					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <p><b>Tip:</b> You can use a YAML front matter to specify tags for your story:</p>
+                    <code class="panel">
+					---<br />
+					tags: tag1, tag2, tag3<br />
+					published: true<br />
+					---
+					</code>
+                </blockquote>
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-mywriteon">Save</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-manage-sync">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">Synchronization</h2>
+            </div>
+            <div class="modal-body">
+                <p>
+                    "<span class="file-title"></span>" is synchronized in the following location(s):
+                </p>
+                <div class="sync-list"></div>
+				<blockquote class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<p>Removing a synchronized location will not delete the local story.</p>
+				</blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-publish">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">
+Publish on <span class="publish-provider-name"></span>
+</h2>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group modal-publish-ssh">
+                        <label class="col-sm-4 control-label" for="input-publish-ssh-host">Host</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-ssh-host" placeholder="hostname.or.ip" class="form-control"> <span class="help-block"> Host must be accessible publicly,
+unless you're hosting your own WriteOn instance.
+</span>
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-ssh">
+                        <label class="col-sm-4 control-label" for="input-publish-ssh-port">Port (optional)
+                        </label>
+                        <div class="col-sm-2">
+                            <input type="text" id="input-publish-ssh-port" placeholder="22" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-ssh">
+                        <label class="col-sm-4 control-label" for="input-publish-ssh-username">Username</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-ssh-username" placeholder="username" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-ssh">
+                        <label class="col-sm-4 control-label" for="input-publish-ssh-password">Password</label>
+                        <div class="col-sm-7">
+                            <input type="password" id="input-publish-ssh-password" placeholder="password" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-github">
+                        <label class="col-sm-4 control-label" for="input-publish-github-repo">Repository</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-github-repo" placeholder="Repository name or URL" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-github">
+                        <label class="col-sm-4 control-label" for="input-publish-github-branch">Branch</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-github-branch" placeholder="branch-name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-ssh modal-publish-github">
+                        <label class="col-sm-4 control-label" for="input-publish-file-path">File path</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-file-path" placeholder="path/to/file.md" class="form-control">
+                            <span class="help-block"> File path is composed of both
+folder and filename. </span>
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-gist">
+                        <label class="col-sm-4 control-label" for="input-publish-filename">Filename</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-filename" placeholder="filename" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-gist">
+                        <label class="col-sm-4 control-label" for="input-publish-gist-id">Existing ID (optional)</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-gist-id" placeholder="GistID" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-gist">
+                        <label class="col-sm-4 control-label" for="input-publish-gist-public">Public</label>
+                        <div class="col-sm-7">
+                            <div class="checkbox">
+                                <input type="checkbox" id="input-publish-gist-public" checked="checked" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-ghost">
+                        <label class="col-sm-4 control-label" for="input-publish-ghost-url">Ghost URL</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-ghost-url" placeholder="http://example.ghost.org/" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-blogger modal-publish-bloggerpage">
+                        <label class="col-sm-4 control-label" for="input-publish-blogger-url">Blog URL</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-blogger-url" placeholder="http://example.blogger.com/" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-tumblr">
+                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">Blog hostname</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-tumblr-hostname" placeholder="example.tumblr.com" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-wordpress">
+                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">WordPress site</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-wordpress-site" placeholder="example.wordpress.com" class="form-control">
+                            <span class="help-block"> <a target="_blank" href="http://jetpack.me/">Jetpack plugin</a> is required for
+self-hosted sites.
+</span>
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">
+                        <label class="col-sm-4 control-label" for="input-publish-postid">Update existing post ID (optional)</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-postid" placeholder="PostID" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-bloggerpage">
+                        <label class="col-sm-4 control-label" for="input-publish-pageid">Update existing page ID (optional)</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-pageid" placeholder="PageID" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-dropbox">
+                        <label class="col-sm-4 control-label" for="input-publish-dropbox-path">File path</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-dropbox-path" placeholder="/path/to/My Story.md" class="form-control">
+                            <span class="help-block"> File path is composed of both
+folder and filename. </span>
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-gdrive">
+                        <label class="col-sm-4 control-label" for="input-publish-gdrive-fileid">File ID (optional)</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-gdrive-fileid" placeholder="FileID" class="form-control"> <span class="help-block">If no file ID is supplied, a new file
+will be created in your Google Drive root folder. You can move
+the file afterwards within Google Drive.</span>
+                        </div>
+                    </div>
+                    <div class="form-group modal-publish-gdrive">
+                        <label class="col-sm-4 control-label" for="input-publish-gdrive-filename">Force filename (optional)
+                        </label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-gdrive-filename" placeholder="Filename" class="form-control"> <span class="help-block">If no file name is supplied, the
+story title will be used.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Format</label>
+                        <div class="col-sm-7">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-format" value="markdown">Markdown
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-format" value="html">HTML
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-format" value="template">Template
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse publish-custom-template-collapse">
+                        <div class="form-group">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-7">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="checkbox-publish-custom-template">Custom template
+                                    </label> <a href="#" class="tooltip-template">(?)</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-7">
+                                <textarea class="form-control" id="textarea-publish-custom-template"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <blockquote class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress alert alert-info hide hidden">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+					<p><b>Tip:</b> You can use a YAML front matter to specify the title and the tags/labels of your published story.</p>
+                    <p class="panel"><b>Interpreted variables:</b>
+						<br /> <code>
+						---<br />
+						title: My Published Title<br />
+						tags: tag1, tag2, tag3<br />
+						published: true<br />
+						date: YYYY-MM-DD HH:MM:SS +/-TTTT<br />
+						---</code>
+					</p>
+                </blockquote>
+                <blockquote class="front-matter-info modal-publish-bloggerpage alert alert-info hide hidden">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+					<p><b>Tip:</b> You can use a YAML front matter to specify the title and the tags/labels of your published story.</p>
+                    <p class="panel"><b>Interpreted variables:</b>  <code>title</code>, <code>tags</code>, <code>published</code>, <code>date</code>.
+						<br /> <code>
+						---<br />
+						title: My Published Title
+						tags: tag1, tag2, tag3<br />
+						published: true<br />
+						date: YYYY-MM-DD HH:MM:SS +/-TTTT<br />
+						---</code>
+					</p>
+                </blockquote>
+                <blockquote class="url-info modal-publish-bloggerpage alert alert-info">
+					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <p><b>About URL:</b> For newly created page , Blogger API will append a generated number to the url like <code>about-me-1234.html</code>, if you deeply care about your URL naming, you should first create the page on Blogger and then update them with WriteOn specifying the pageId when publishing.
+                    </p>
+                    <p><b>About page visibility:</b> Blogger API does not respect published status for pages.When publishing the page to Blogger, the page will be <strong>live</strong> but not added to the page listing. You should arrange the page listing from Blogger dashboard.
+                    </p>
+                </blockquote>
+            </div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-primary action-process-publish">Publish</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-manage-publish">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">Publication</h2>
+            </div>
+            <div class="modal-body">
+                <p>
+                    "<span class="file-title"></span>" is published on the following location(s):
+                </p>
+                <div class="publish-list"></div>
+				<blockquote class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+                    <p><b>Stating the Obvious?</b> Maybe, but removing a published location will not delete the actual post out in the wild.</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-manage-sharing">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">Sharing</h2>
+            </div>
+            <div class="modal-body">
+                <p>To <strong>collaborate</strong> on "<span class="file-title"></span>" with other WriteOn users, share this link(s):</p>
+                <p class="msg-no-share-editor alert alert-info" role="alert"><b>No sharing link yet.</b> To collaborate on this story, just
+                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn</a>
+                </p>
+                <div class="share-editor-list"></div>
+                <hr>
+                <p class="hide hidden"> To <strong>share</strong> a public, read-only version of "<span class="file-title"></span>" using the following link(s):</p>
+                <p class="msg-no-share-viewer alert alert-info hide hidden" role="alert"><b>No sharing link yet!</b> To share a read-only version of this story, just 
+                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn.</a></p>
+                <div class="share-viewer-list"></div>
+                <blockquote>
+                    <p><b>Did You Know?</b> You can open any <code>.md</code> or <code>.markdown</code> URL using the <i>WriteOn Paper</i> like so: 
+                        <a href="paper#!url=https://raw.githubusercontent.com/github/markup/master/README.md" title="Sharing example">
+                            <code>/paper#!url=[http://sample.com/your_file.md]</code></a>.</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-settings">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">Settings</h2>
+            </div>
+            <div class="modal-body">
+            <div class="col-md-3 modal-nav">
+                <ul class="nav nav-tabs nav-stacked">
+                    <li class="active"><a class="action-load-settings" href="#tabpane-settings-basic" data-toggle="tab"><i class="icon-cog"></i> Basic</a>
+                    </li>
+                    <li><a class="action-load-settings" href="#tabpane-settings-advanced" data-toggle="tab"><i class="icon-tasks"></i> Advanced</a>
+                    </li>
+                    <li><a class="action-load-settings" href="#tabpane-settings-permissions" data-toggle="tab"><i class="icon-lock"></i> Permissions</a>
+                    </li>
+                    <li><a class="action-load-settings" href="#tabpane-settings-templates" data-toggle="tab"><i class="icon-list-alt"></i> Templates</a>
+                    </li>
+                    <li><a class="action-load-settings" href="#tabpane-settings-extensions" data-toggle="tab"><i class="icon-puzzle"></i> Extensions</a>
+                    </li>
+                    <li><a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab"><i class="icon-briefcase"></i> Utilities</a>
+                    </li>
+            </ul>
+            </div>
+            
+            
+                <div class="col-md-9 tab-content clearfix" data-spy="scroll">
+                    <div class="tab-pane active" id="tabpane-settings-basic">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label">Layout orientation</label>
+                                <div class="col-sm-7">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="radio-layout-orientation" value="horizontal">Horizontal
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="radio-layout-orientation" value="vertical">Vertical
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" for="input-settings-theme">Theme</label>
+                                <div class="col-sm-7">
+                                    <select id="input-settings-theme" class="form-control">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-5"></div>
+                                <div class="col-sm-7">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="input-settings-markdown-extra" />
+                                            <b>Markdown Extra/GitHub Flavored Markdown</b> syntax
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" for="input-settings-markdown-mime-type">Markdown MIME type
+                                </label>
+                                <div class="col-sm-7">
+                                    <select id="input-settings-markdown-mime-type" class="form-control">
+                                        <option value="text/plain">text/plain</option>
+                                        <option value="text/x-markdown">text/x-markdown</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group hide">
+                                <div class="col-sm-5"></div>
+                                <div class="col-sm-7">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="input-settings-mathjax" />
+                                            <b>LaTeX mathematical expressions</b> using <code>$</code> and <code>$$</code> delimiters
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" for="input-settings-gdrive-multiaccount">Google Drive multiple accounts
+                                </label>
+                                <div class="col-sm-7">
+                                    <select id="input-settings-gdrive-multiaccount" class="form-control">
+                                        <option value="1">1 account</option>
+                                        <option value="2">2 accounts</option>
+                                        <option value="3">3 accounts</option>
+                                    </select>
+                                    <span class="help-block">Once linked, you'll have to <a class="action-load-settings" href="#tabpane-settings-utils" data-toggle="tab">Reset WriteOn</a> to change Google accounts.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tabpane-settings-advanced">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label">Edit mode</label>
+                                <div class="col-sm-7">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="radio-settings-edit-mode" value="ltr">Left-To-Right
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="radio-settings-edit-mode" value="rtl">Right-To-Left
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label">Edit Pad's font style</label>
+                                <div class="col-sm-7">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="radio-settings-editor-font-class" value="font-rich">Rich
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="radio-settings-editor-font-class" value="font-monospaced">Monospaced
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" for="input-settings-font-size">Font size ratio</label>
+                                <div class="col-sm-7 form-inline slider-inline">
+                                    <input type="text" id="input-settings-font-size" class="form-control" data-slider-min="0.1" data-slider-max="2" data-slider-step=".10" data-slider-value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" for="input-settings-max-width">Max width ratio</label>
+                                <div class="col-sm-7 form-inline slider-inline">
+                                    <input type="text" id="input-settings-max-width" class="form-control" data-slider-min="0.1" data-slider-max="1" data-slider-step=".10" data-slider-value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" for="input-settings-cursor-focus">Cursor focus ratio</label>
+                                <div class="col-sm-7 form-inline slider-inline">
+                                    <input type="text" id="input-settings-cursor-focus" class="form-control" data-slider-min="0.1" data-slider-max="1" data-slider-step=".1" data-slider-value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label" for="input-settings-lazy-rendering">Lazy rendering <a href="#" class="tooltip-lazy-rendering">(?)</a>
+                                </label>
+                                <div class="col-sm-7">
+                                    <div class="checkbox">
+                                        <input type="checkbox" id="input-settings-lazy-rendering" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tabpane-settings-templates">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="textarea-settings-default-content">Backlink
+                                    <a href="#" class="tooltip-default-content">(?)</a>
+                                </label>
+                                <div class="col-sm-8">
+                                    <textarea id="textarea-settings-default-content" class="form-control sm"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="textarea-settings-publish-template">Default Template <a href="#" class="tooltip-template">(?)</a>
+                                </label>
+                                <div class="col-sm-8">
+                                    <textarea id="textarea-settings-publish-template" class="form-control lg"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group hide">
+                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-template">PDF Template <a href="#" class="tooltip-template">(?)</a>
+                                </label>
+                                <div class="col-sm-8">
+                                    <textarea id="textarea-settings-pdf-template" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group hide">
+                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-options">PDF options
+                                    <a href="#" class="tooltip-pdf-options">(?)</a>
+                                </label>
+                                <div class="col-sm-8">
+                                    <textarea id="textarea-settings-pdf-options" class="form-control"></textarea>
+                                </div>
+                            </div>                        </div>
+                    </div>
+                    <div class="tab-pane" id="tabpane-settings-permissions">
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="input-settings-gdrive-full-access" />Allow WriteOn to open any story in Google Drive
+                                        </label> <span class="help-block">Existing authorization has to be revoked in
+<a href="https://www.google.com/settings/dashboard" target="_blank">Google Dashboard</a>
+for this change to take effect.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="input-settings-dropbox-full-access" />Allow WriteOn to open any story in Dropbox
+                                        </label> <span class="help-block">If unchecked, access will be restricted to folder
+<b>/Applications/WriteOn</b> for existing stories.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="input-settings-github-full-access" />Allow WriteOn to access private repositories in GitHub
+                                        </label> <span class="help-block">Existing authorization has to be revoked in
+<a href="https://github.com/settings/applications" target="_blank">GitHub settings</a>
+for this change to take effect.</span>
+                                    </div>
+                                </div>
+                            </div>                        </div>
+                    </div>
+                    <div class="tab-pane" id="tabpane-settings-extensions">
+                        <div class="panel-group accordion-extensions"></div>
+                    </div>
+                    <div class="tab-pane" id="tabpane-settings-utils">
+                        <p>Some of these are quite powerful, and can result in the total loss of your data. </p>
+                        <div class="col-sm-5 tab-pane-button-container">
+                            <a href="#" class="btn btn-block btn-default action-welcome-file" data-dismiss="modal"><i class="icon-help-circled"></i> Load Welcome Guide</a>
+                            <a href="#" class="btn btn-block btn-default action-guide-file" data-dismiss="modal"><i class="icon-keyboard"></i> Load Syntax Guide</a>
+                            <a href="#" class="btn btn-block btn-default action-welcome-tour" data-dismiss="modal"><i class="icon-comment"></i> Welcome tour</a>
+                            <a target="_blank" href="recovery" class="btn btn-block btn-success"><i class="icon-medkit"></i> WriteOn recovery</a>
+                        </div>
+                        <div class="col-sm-offset-1 col-sm-6 tab-pane-button-container">
+                            <a href="#" class="btn btn-block btn-default action-import-docs-settings"><i class="icon-cog-alt"></i> Import stories & settings</a>  
+                            <a href="#" class="btn btn-block btn-default action-export-docs-settings" data-dismiss="modal"><i class="icon-share"></i> Export stories & settings</a> 
+                            <a href="#" class="btn btn-block btn-default action-default-settings" data-dismiss="modal"><i class="icon-wrench"></i> Load default settings</a>  
+                            <a href="#" class="btn btn-block btn-danger" data-dismiss="modal" data-toggle="modal" data-target=".modal-app-reset"><i class="icon-fire"></i> Reset WriteOn</a>  
+                            <input type="file" id="input-file-import-docs-settings" class="hide">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
+                <a href="#" class="btn btn-primary action-apply-settings" data-dismiss="modal">Save</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-non-unique">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Ooops...</h2>
+            </div>
+            <div class="modal-body">
+                <p>WriteOn has stopped because another instance was running in the same browser or the local cache was disrupted.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-redirect-confirm">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Redirection</h2>
+            </div>
+            <div class="modal-body">
+                <p class="redirect-msg"></p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
+                <a class="btn btn-primary action-redirect-confirm" data-dismiss="modal">OK</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-app-reset">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Reset application</h2>
+            </div>
+            <div class="modal-body">
+                <p>This will delete all your local stories.</p>
+                <blockquote><b>Are you sure?</b>
+                </blockquote>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
+                <a href="#" class="btn btn-danger action-app-reset" data-dismiss="modal">Reset</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-import-docs-settings">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Import stories and settings</h2>
+            </div>
+            <div class="modal-body">
+                <p>This will delete all existing local stories.</p>
+                <blockquote><b>Are you sure?</b>
+                </blockquote>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
+                <a href="#" class="btn btn-primary action-import-docs-settings-confirm" data-dismiss="modal">Import</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-add-google-drive-account">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Add Google Drive account</h2>
+            </div>
+            <div class="modal-body">
+                <p>To perform this request, you need to configure another Google Drive account in WriteOn.</p>
+                <blockquote><b>Do you want to proceed?</b>
+                </blockquote>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default action-remove-google-drive-state" data-dismiss="modal">No</a>
+                <a href="#" class="btn btn-primary action-add-google-drive-account" data-dismiss="modal">Yes</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-sponsor-only">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Sponsors only</h2>
+            </div>
+            <div class="modal-body">
+                <p>This feature is restricted to sponsors. Note that sponsoring WriteOn would cost you only $3/month.</p>
+                <p>To see how a PDF looks <a target="_blank" href="/Welcome%story.pdf">click here</a>.</p>
+                <blockquote class="alert alert-info">
+					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <p><b>Tip:</b> PDFs are fully customizable via Settings>Advanced>PDF template/options.</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="dropboxjs" data-app-key="r3vgaee214zfvc7"></div>
