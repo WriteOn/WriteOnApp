@@ -15,10 +15,11 @@ define([
 	"text!html/bodyEditor.html",
 	"text!html/bodyViewer.html",
 	"text!html/tooltipSettingsTemplate.html",
+	"text!html/tooltipDropboxTemplate.html",
 	"text!html/tooltipSettingsPdfOptions.html",
 	"storage",
 	'pagedown'
-], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, MonetizeJS, Slider, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsPdfOptionsTooltipHTML) {
+], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, MonetizeJS, Slider, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsDropboxTooltipHTML, settingsPdfOptionsTooltipHTML) {
 
 	var core = {};
 
@@ -578,6 +579,7 @@ define([
 			'Thanks for supporting WriteOn by adding a backlink in your stories! You can also leave this blank - thanks for using WriteOn!',
 		].join(''));
 		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML);
+		utils.createTooltip(".tooltip-dropbox", settingsDropboxTooltipHTML);
 		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML);
 		
 		// Activate any and all tooltips in the editor or layout

@@ -768,7 +768,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 		&:hover {
 	  		-webkit-box-shadow: none;
   	  		box-shadow: none;
-		};
+		}
 	}
 	.navbar-form {
 		margin: 0;
@@ -1156,6 +1156,9 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 	}
 }
 
+.low-opacity {opacity: .4;}
+.med-opacity {opacity: .7;}
+.high-opacity {opacity: .9;}
 
 /********************
  * Extensions buttons
@@ -1172,7 +1175,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 		&:hover {
 			-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   			box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-		};
+		}
     }
     &:first-child > .btn,
     &:first-child > .btn {
@@ -1255,6 +1258,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 .modal-about {
     .modal-dialog {
         width: 450px;
+		margin: 30px auto;
     }
 	.modal-content {
 		-webkit-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
@@ -1263,18 +1267,16 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 }
 
 .modal-settings {
+	.modal-dialog {
+		margin: 30px auto;
+	}
 	.modal-header {
 		padding-bottom: 0;
 	}
-	
 	.modal-content {
-	margin: 60px auto;
-	}
-		.modal-content {
 		-webkit-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
   		box-shadow: 0 5px 15px rgba(0,0,0,0.5)
 	}
-    
     .modal-body {
         padding: 0 20px 0 0 !important;
         max-height: 100%;

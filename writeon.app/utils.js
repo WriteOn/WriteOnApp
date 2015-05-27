@@ -300,7 +300,7 @@ define([
 	// Create a backdrop and add to the body
 	utils.createBackdrop = function(parent) {
 		var result = crel('div', {
-			'class': 'modal-backdrop fade'
+			'class': 'modal-backdrop fade med-opacity'
 		});
 		parent = parent || document.body;
 		parent.appendChild(result);
