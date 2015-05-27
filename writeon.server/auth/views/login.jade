@@ -22,12 +22,18 @@ block body
         .box.row
           if app.get('stormpathEnableFacebook') || app.get('stormpathEnableGoogle')
             .social-area.col-xs-12.col-sm-4
-              .header &nbsp;
-              label(style='display:block;margin:5px auto;text-align:center;') Easy 1-Click Login:
+              .header
+              label(style='display:block;margin:5px auto;text-align:center;font-size:1.2em;') Easy 1-Click Login:
               if app.get('stormpathEnableFacebook')
                 include facebook_login_form.jade
               if app.get('stormpathEnableGoogle')
                 include google_login_form.jade
+              
+                hr
+                div
+                  span(style='display:block;text-align:center;padding:15px;') Don't have an account?
+
+                  span(style='font-size: 1.2em;display:block;text-align:center;') <a href="#{app.get('stormpathRegistrationUrl')}" style="font-size:1.2em;">Signup</a>
 
           if app.get('stormpathEnableFacebook') || app.get('stormpathEnableGoogle')
             - var cls = 'small col-sm-8'
@@ -98,9 +104,3 @@ block body
                 if app.get('stormpathEnableForgotPassword')
                   div(class='#{cls}')
                     a.forgot.text-muted(href="#{app.get('stormpathForgotPasswordUrl')}") Forgot Password?
-
-        div
-          span(style='display:block;text-align:center;padding:15px;') Don't have an account?
-
-            span(style='font-size: 1.2em;display:block;text-align:center;') <a href="#{app.get('stormpathRegistrationUrl')}" style="font-size:1.2em;">Signup</a>
-

@@ -1,4 +1,6 @@
-button.btn.btn-social.btn-google.google-register(onclick='googleLogin()') Google
+button.btn.btn-social.btn-google.google-register(onclick='googleLogin()')
+    i.fa.fa-google
+
 script(type='text/javascript').
   function googleLogin() {
     var clientId = '#{app.get("stormpathSocial").google.clientId}';
