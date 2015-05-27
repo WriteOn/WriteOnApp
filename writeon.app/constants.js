@@ -72,9 +72,9 @@ define([], function() {
         constants.COUCHDB_SERVER = 'https://cloud2.writeon.io';
 
     }
-	else if(location.hostname.indexOf("writeon-beta.herokuapp.com") === 0) {
+	else if(location.hostname.indexOf("next.writeon.io") === 0) {
 		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1";
-        constants.BASE_URL = 'https://writeon-beta.herokuapp.com/';
+        constants.BASE_URL = 'https://next.writeon.io/';
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '302c5c415085534c1346';
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-beta.herokuapp.com/";

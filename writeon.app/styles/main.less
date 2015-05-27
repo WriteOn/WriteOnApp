@@ -14,7 +14,7 @@
  * WriteOn
  * ===
  * 
- * This is the main Style Guide for the Editor Experience for Version 1.x.x, 
+ * This is the main Style Guide for Pad/Paper/App
  * birthed upon Día de Muertos in the year 2014
  * 
  * WriteOn
@@ -1258,24 +1258,30 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 .modal-about {
     .modal-dialog {
         width: 450px;
-		margin: 30px auto;
+		margin: 30px auto !important;
     }
 	.modal-content {
-		-webkit-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-  		box-shadow: 0 5px 15px rgba(0,0,0,0.5)
+		-webkit-box-shadow: 0 27px 24px 0 rgba(0,0,0,.2);
+  		box-shadow: 0 27px 24px 0 rgba(0,0,0,.2);
+  		-webkit-flex-direction: column;
+  		-ms-flex-direction: column;
+  		flex-direction: column;
 	}
 }
 
 .modal-settings {
 	.modal-dialog {
-		margin: 30px auto;
+		margin: 30px auto !important;
 	}
 	.modal-header {
 		padding-bottom: 0;
 	}
 	.modal-content {
-		-webkit-box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-  		box-shadow: 0 5px 15px rgba(0,0,0,0.5)
+		-webkit-box-shadow: 0 27px 24px 0 rgba(0,0,0,.2);
+  		box-shadow: 0 27px 24px 0 rgba(0,0,0,.2);
+  		-webkit-flex-direction: column;
+  		-ms-flex-direction: column;
+  		flex-direction: column;
 	}
     .modal-body {
         padding: 0 20px 0 0 !important;
@@ -1290,7 +1296,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 		textarea {
 			min-height: 100px;
 			&.sm {
-				min-height: 120px;
+				min-height: 60px;
 			}
 			&.md {
 				min-height: 190px;
@@ -1345,7 +1351,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 	}
 
 	.modal-nav {
-        height: 445px;
+        max-height: 445px;
         padding: 0;
         border-right: 1px solid #DDD;
         background: #fbfaf8;
@@ -2019,6 +2025,10 @@ input[type="file"] {
 }
 //Tour Popovers
 .tour.left .arrow , .tour.right .arrow {top: 25px;}
+.popover[class*="tour-"] {
+	.popover.bottom>.arrow {border-bottom-color: @jgrowl-bg-color;}
+	.popover.bottom>.arrow:after {border-bottom-color: @jgrowl-bg-color;}
+}
 
 // comments popover
 .comments-popover .popover {

@@ -6,22 +6,26 @@ block vars
   - var bodytag = 'login'
 
 block body
-  div.navbar.navbar-default.navbar-fixed
+
+  div.navbar.navbar-fixed.navbar-inverse.bar-header
     div.navbar-inner
-      div.nav.pull-left.nav-left(style='width: 100px; margin-top: 0;')
-        a.scrollToSlide1(href='/', title='Home')
-          img(src='/writeon/img/logo.svg')
 
   .container.custom-container
     .va-wrapper
       .view.login-view.container
+        .box-row
+
+          img(src='/writeon/img/logo.svg', style='max-width: 200px;margin: 0 auto;display: block;')
         .box.row
           .email-password-area.col-xs-12.large.col-sm-12
             .header
-              span.
-                Your password reset email has been sent!
+              h4.
+                Your password reset email has been sent.
               p.
                 We have sent a password reset email to the email
                 address you have provided.
               p.
                 Please check your inbox to continue.
+
+        if app.get('stormpathEnableLogin')
+          a.btn.btn-link.btn-block(style='text-align=center;', href="#{app.get('stormpathLoginUrl')}") <i class="icon-login"></i> Back to Log In

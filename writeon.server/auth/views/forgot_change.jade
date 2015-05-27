@@ -6,23 +6,21 @@ block vars
   - var bodytag = 'login'
 
 block body
-  div.navbar.navbar-default.navbar-fixed
+
+  div.navbar.navbar-fixed.navbar-inverse.bar-header
     div.navbar-inner
-      div.nav.pull-left.nav-left(style='width: 100px; margin-top: 0;')
-        a.scrollToSlide1(href='/', title='Home')
-          img(src='/writeon/img/logo.svg')
-      div.nav.pull-right.nav-right
-        a.btn.btn-primary.file-title-navbar(href='/', title='Login')
-          i.icon-login
-          | Login
 
   .container.custom-container
     .va-wrapper
       .view.login-view.container
+        .box-row
+
+          img(src='/writeon/img/logo.svg', style='max-width: 200px;margin: 0 auto;display: block;')
+
         .box.row
           .email-password-area.col-xs-12.large.col-sm-12
             .header
-              span.
+              h4.
                 Change Your Password
               p.
                 Enter your new account password below.  Once confirmed,

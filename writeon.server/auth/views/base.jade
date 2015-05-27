@@ -46,10 +46,22 @@ html(class='no-js', lang='en')
     | new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     | j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     | '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    | })(window,document,'script','dataLayer','GTM-MK3FZ3');</script>
+    | })(window,document,'script','dataLayer','#{googleTagContainer}');</script>
     | <!-- End Google Tag Manager -->
 
     block body
+
+    .container.custom-container
+      .va-wrapper
+        footer
+          div(style='display:block;margin:0 auto;text-align:center;')
+            ol.breadcrumb(style='background: transparent;')
+              li
+                a(href='/', title='Home', analytics-on='', analytics-event='Navigate', analytics-category='Bottom Nav', analytics-label='Home') Home
+              li
+                a(href='/privacy', title='Privacy', analytics-on='', analytics-event='Navigate', analytics-category='Bottom Nav', analytics-label='Privacy') Privacy
+              li
+                span Copyright 2015 WriteOn Coporation. All rights reserved.
 
     script(src='//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js')
     script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js')

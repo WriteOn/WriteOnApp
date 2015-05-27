@@ -6,26 +6,21 @@ block vars
   - var bodytag = 'login'
 
 block body
-  div.navbar.navbar-default.navbar-fixed
+
+  div.navbar.navbar-fixed.navbar-inverse.bar-header
     div.navbar-inner
-      div.nav.pull-left.nav-left(style='width: 100px;')
-        a.scrollToSlide1(href='/', title='Home')
-          img(src='/writeon/img/logo.svg')
-      div.nav.pull-right.nav-right
-        a.btn.btn-default.file-title-navbar(href='http://writeon.io', title='Home' style='margin-right: 10px;')
-          i.icon-home
-          | Home
-        a.btn.btn-primary.file-title-navbar(href='/', title='Login' res.redirect('/login');)
-          i.icon-login
-          | Login
 
   .container.custom-container
     .va-wrapper
       .view.login-view.container
+        .box-row
+
+          img(src='/writeon/img/logo.svg', style='max-width: 200px;margin: 0 auto;display: block;')
+
         .box.row
           .email-password-area.col-xs-12.large.col-sm-12
             .header
-              span.
+              h4.
                 Forgot your password?
               p.
                 Enter your email address below to reset your password. You will
@@ -45,13 +40,12 @@ block body
               input(name='_csrf', type='hidden', value=csrfToken)
 
               .form-group.group-email
-                label.col-sm-4 Email
 
-                div.col-sm-8
-                  input.form-control(placeholder='Email', required=true, name='email', type='text')
+                div.col-sm-12
+                  input.form-control(placeholder=' Enter Your Email', required=true, name='email', type='text')
 
               div
-                button.login.btn.btn-login.btn-primary(type='submit') Submit
+                button.login.btn.btn-login.btn-waves.btn-block.btn-lg.btn-primary(type='submit') Reset Password
 
         if app.get('stormpathEnableLogin')
-          a.forgot(href="#{app.get('stormpathLoginUrl')}") Back to Log In
+          a.btn.btn-link.btn-block(style='text-align=center;', href="#{app.get('stormpathLoginUrl')}") <i class="icon-login"></i> Back to Log In

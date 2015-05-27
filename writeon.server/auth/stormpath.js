@@ -18,6 +18,7 @@ app.use(stormpath.init(app, {
     application: 'https://api.stormpath.com/v1/applications/4SgKKI7uk6OY7vbVt8uW4c',
     secretKey: 'mgUkj8P4eFt8Gxo9B9&X4Ih9d0w#NWAlZU&vQ88RqmysRz0lC6',
     googleAnalyticsID: 'UA-56730909-3',
+    googleTagContainer: 'GTM-MK3FZ3',
     enableFacebook: true,
     enableGoogle: true,
     social: {
@@ -65,7 +66,8 @@ app.use(stormpath.init(app, {
     idSiteVerificationFailedView: __dirname + '/views/id_site_verification_failed.jade',
     googleLoginFailedView: __dirname + '/views/google_login_failed.jade',
     facebookLoginFailedView: __dirname + '/views/facebook_login_failed.jade',
-    unauthorizedView: __dirname + '/views/unauthorized.jade'
+    unauthorizedView: __dirname + '/views/unauthorized.jade',
+	
 }));
 
 	
