@@ -323,7 +323,7 @@ define([
 				container = $tooltipElt.parents('.modal-content');
 			}
 			$tooltipElt.tooltip({
-				delay: { "show": 600, "hide": 100 },
+				delay: { "show": 410, "hide": 100 },
 				animation: true,
 				html: true,
 				container: container,
