@@ -147,7 +147,7 @@ define([
             _.size(orphanDocumentList),
             '</div>',
             '<div class="name"><i class="icon-folder"></i> ',
-            'My Default Folder</div></a>'
+            'Default Storybook</div></a>'
         ].join('');
 
         // Add orphan documents
@@ -287,7 +287,7 @@ define([
                 _.size(orphanDocumentList),
                 '</div>',
                 '<div class="name"><i class="icon-forward"></i> ',
-                'My Story Folder</div></a>',
+                'My Storybook</div></a>',
 				'</h4></div>'
             ].join('');
             selectFolderListHtml += _.chain(folderList).sortBy(function(folderDesc) {
@@ -327,6 +327,7 @@ define([
             $(modalElt.querySelectorAll('.confirm-delete, .choose-folder, .selected-document-list, .select-folder-list')).addClass('hide');
         });
 
+        // Delete button
         $(documentListElt).on('click', '.button-delete', function(evt) {
             evt.stopPropagation();
             var $buttonElt = $(this);

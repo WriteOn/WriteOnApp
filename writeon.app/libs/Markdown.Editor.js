@@ -19,37 +19,37 @@
         };
 
     var defaultsStrings = {
-        bold: "Strong <strong> Ctrl/Cmd+B",
+        bold: "Strong/Bold",
         boldexample: "strong text",
 
-        italic: "Emphasis <em> Ctrl/Cmd+I",
+        italic: "Emphasis/Italic",
         italicexample: "emphasized text",
 
-        link: "Hyperlink <a> Ctrl/Cmd+L",
+        link: "Insert Hyperlink",
         linkdescription: "enter link description here",
         linkdialog: "<p><b>Insert Hyperlink</b></p><p>http://example.com/ \"optional title\"</p>",
 
-        quote: "Blockquote <blockquote> Ctrl/Cmd+Q",
+        quote: "Blockquote",
         quoteexample: "Blockquote",
 
-        code: "Code Sample <pre><code> Ctrl/Cmd+K",
+        code: "Codeblock",
         codeexample: "enter code here",
 
-        image: "Image <img> Ctrl/Cmd+G",
+        image: "Insert Image",
         imagedescription: "enter image description here",
         imagedialog: "<p><b>Insert Image</b></p><p>http://example.com/images/diagram.jpg \"optional title\"<br><br>Need <a href='http://www.google.com/search?q=free+image+hosting' target='_blank'>free image hosting?</a></p>",
 
-        olist: "Numbered List <ol> Ctrl/Cmd+O",
-        ulist: "Bulleted List <ul> Ctrl/Cmd+U",
-        litem: "List item",
+        olist: "Numbered List",
+        ulist: "Bulleted List",
+        litem: "List Item",
 
-        heading: "Heading <h1>/<h2> Ctrl/Cmd+H",
+        heading: "Heading",
         headingexample: "Heading",
 
-        hr: "Horizontal Rule <hr> Ctrl/Cmd+R",
+        hr: "Horizontal Rule",
 
-        undo: "Undo - Ctrl/Cmd+Z",
-        redo: "Redo - Ctrl/Cmd+Y",
+        undo: "Undo",
+        redo: "Redo",
 
         help: "Markdown Editing Help"
     };
@@ -1487,15 +1487,15 @@
             var xPosition = 0;
             var makeButton = function (id, title, XShift, textOp) {
                 var button = document.createElement("li");
-                button.className = "wmd-button";
+                button.className = "wmd-button " + id;
                 button.style.left = xPosition + "px";
                 xPosition += 25;
                 var buttonImage = document.createElement("span");
                 button.id = id + postfix;
                 button.appendChild(buttonImage);
                 button.title = title;
-				button.setAttribute("data-toggle", "tooltip");
-				button.setAttribute("data-placement", "bottom");
+				//button.setAttribute("data-toggle", "tooltip");
+				//button.setAttribute("data-placement", "bottom");
                 button.XShift = XShift;
                 if (textOp)
                     button.textOp = textOp;

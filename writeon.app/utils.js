@@ -316,23 +316,20 @@ define([
 	};
 
 	var openedTooltip;
-	utils.createTooltip = function(selector, content) {
+	utils.createTooltip = function(selector, content, placement, trigger, container) {
 		_.each(document.querySelectorAll(selector), function(tooltipElt) {
 			var $tooltipElt = $(tooltipElt);
+			if(container === 'modal') {
+				container = $tooltipElt.parents('.modal-content');
+			}
 			$tooltipElt.tooltip({
+				delay: { "show": 600, "hide": 100 },
+				animation: true,
 				html: true,
-				container: $tooltipElt.parents('.modal-content'),
-				placement: 'right',
-				trigger: 'manual',
+				container: container,
+				placement: placement,
+				trigger: trigger,
 				title: content
-			}).click(function() {
-				var elt = this;
-				if(openedTooltip && openedTooltip[0] === elt) {
-					return;
-				}
-				utils.defer(function() {
-					openedTooltip = $(elt).tooltip('show');
-				});
 			});
 		});
 	};

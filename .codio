@@ -10,7 +10,7 @@
 		"Serve writeon.io (3000)": "grunt server-io",
         "Build writeon.io": "grunt build-io",
         "Deploy writeon.io": "grunt deploy-io",
-	    "Build writoen.app": "gulp build",
+	    "Build writeon.app": "gulp build",
 	    "Release (Patch)": "gulp beep",
         "Release (Minor)": "gulp boop",
         "Release (Minor)": "gulp bop"

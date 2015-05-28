@@ -16,10 +16,11 @@ define([
 	"text!html/bodyViewer.html",
 	"text!html/tooltipSettingsTemplate.html",
 	"text!html/tooltipDropboxTemplate.html",
+	"text!html/tooltipMyWriteOnTemplate.html",
 	"text!html/tooltipSettingsPdfOptions.html",
 	"storage",
 	'pagedown'
-], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, MonetizeJS, Slider, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsDropboxTooltipHTML, settingsPdfOptionsTooltipHTML) {
+], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, MonetizeJS, Slider, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsDropboxTooltipHTML, settingsMyWriteonTooltipHTML, settingsPdfOptionsTooltipHTML) {
 
 	var core = {};
 
@@ -295,6 +296,20 @@ define([
 		$btnGroupElt = $('.wmd-button-group5');
 		$("#wmd-undo-button").append($('<i class="icon-reply">')).appendTo($btnGroupElt);
 		$("#wmd-redo-button").append($('<i class="icon-forward">')).appendTo($btnGroupElt);
+		// Custom editor button tooltips loaded with the editor
+		// In this order: selector, content, placement, trigger, container
+		// See Bootstrap tooltip docs for help
+		utils.createTooltip(".wmd-link-button", "Insert Hyperlink", "bottom", "hover", "body");
+		utils.createTooltip(".wmd-image-button", "Insert Image", "bottom", "hover", "body");
+		utils.createTooltip(".wmd-quote-button", "Blockquote", "bottom", "hover", "body");
+		utils.createTooltip(".wmd-code-button", "Codeblock", "bottom", "hover", "body");
+		utils.createTooltip(".wmd-olist-button", "Numbered List", "bottom", "hover", "body");
+		utils.createTooltip(".wmd-ulist-button", "Bullet List", "bottom", "hover", "body");
+		utils.createTooltip(".wmd-heading-button", "Heading", "bottom", "hover", "body");
+		utils.createTooltip(".wmd-hr-button", "Insert Horizontal Rule", "bottom", "hover", "body");
+		utils.createTooltip(".wmd-undo-button", "Undo", "bottom", "hover", "body");
+		utils.createTooltip(".wmd-redo-button", "Redo", "bottom", "hover", "body");
+
 	};
 
 	// Initialize multiple things and then fire eventMgr.onReady
@@ -574,17 +589,31 @@ define([
 			utils.resetModalInputs();
 		});
 
-		utils.createTooltip(".tooltip-lazy-rendering", 'Disable preview rendering while typing in order to offload CPU. Refresh preview after 500 ms of inactivity.');
+		// Tooltips and helpers within the app
+		// In this order: selector, content, placement, trigger, container
+		// See Bootstrap tooltip docs for help
+		utils.createTooltip(".tooltip-lazy-rendering", 'Disable preview rendering while typing in order to offload CPU. Refresh preview after 500 ms of inactivity.', "right", "hover", "modal");
 		utils.createTooltip(".tooltip-default-content", [
 			'Thanks for supporting WriteOn by adding a backlink in your stories! You can also leave this blank - thanks for using WriteOn!',
-		].join(''));
-		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML);
-		utils.createTooltip(".tooltip-dropbox", settingsDropboxTooltipHTML);
-		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML);
+		].join(''), "right", "hover", "modal");
+		utils.createTooltip(".tooltip-delete", '<p><b>Note:</b></p> <p>This only deletes the local story.</p><p>Any synchronized or published stories will not be affected.</p>', "right", "hover", "modal");
+		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML, "right", "hover", "modal");
+		utils.createTooltip(".tooltip-dropbox", settingsDropboxTooltipHTML, "right", "hover", "modal");
+		utils.createTooltip(".tooltip-mywriteon", settingsMyWriteonTooltipHTML, "right", "hover", "modal");
+		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML, "right", "hover", "modal");
+		utils.createTooltip(".tooltip-dm-stories", "Number of Stories", "bottom", "hover", "modal");
+		utils.createTooltip(".tooltip-dm-folders", "Number of Storybooks", "bottom", "hover", "modal");
+		utils.createTooltip(".button-open-discussion", "Insert Comment", "bottom", "hover", "body");
+		utils.createTooltip(".title-container", "Rename Story", "bottom", "hover", "body");
+		utils.createTooltip(".create-fab", "New Story", "top", "hover", "editor-content");		
+		utils.createTooltip(".action-create-file", "New Story", "bottom", "hover", "body");
+		utils.createTooltip(".action-remove-file-confirm", "Delete Story", "bottom", "hover", "body");		
+		utils.createTooltip(".action-dm", "Manage Stories", "bottom", "hover", "body");		
+		utils.createTooltip(".story-menu", "Import Stories", "bottom", "hover", "body");		
+		utils.createTooltip(".tooltip-sync", "Sync", "bottom", "hover", "body");		
+		utils.createTooltip(".tooltip-publish", "Publish", "bottom", "hover", "body");		
+		utils.createTooltip(".tooltip-download", "Download", "bottom", "hover", "body");		
 		
-		// Activate any and all tooltips in the editor or layout
-  		$('[data-toggle="tooltip"]').tooltip();
-
 		// Avoid dropdown panels to close on click
 		$("div.dropdown-menu").click(function(e) {
 			e.stopPropagation();

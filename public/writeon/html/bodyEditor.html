@@ -41,7 +41,9 @@
                 <li class="wmd-button-group2 btn-group hidden-xs"></li>
                 <li class="wmd-button-group3 btn-group hidden-xs hidden-sm"></li>
                 <li class="wmd-button-group4 btn-group hidden-xs">
-                    <a class="btn btn-default button-open-discussion" title=" Insert Comment (Ctrl/Cmd+M)" data-toggle="tooltip" data-placement="bottom"><i class="icon-comment-alt"></i></a>
+                    <a class="btn btn-default button-open-discussion" title="Insert Comment (Ctrl/Cmd+M)">
+						<i class="icon-comment-alt tooltip-discussion"></i>
+					</a>
                 </li>
                 <li class="wmd-button-group5 btn-group hidden-xs"></li>
             </ul>
@@ -52,7 +54,7 @@
                     </div>
                 </li>
                 <li class="dropdown extension-buttons syncing-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Sync <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle tooltip-sync" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-cw"></i> <span class="caret"></span></a>
                     <ul class="dropdown-menu sync-menu" role="menu">
                         <li class="divider show-already-synchronized sync-divider"></li>
                         <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-upload-cloud text-blue"></i> My.WriteOn</a>
@@ -70,13 +72,13 @@
 					</ul>
                 </li>
                 <li class="dropdown extension-buttons publishing-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Publish <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle tooltip-publish" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-share"></i> <span class="caret"></span></a>
                     <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
                         <li class="divider show-already-published publish-divider"></li>
                     </ul>
                 </li>
                 <li class="dropdown download-menu hidden-xs hidden-sm">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true">Download <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle tooltip-download" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-collapse"></i> <span class="caret"></span></a>
                     <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
                         <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>
                         </li>
@@ -89,7 +91,7 @@
             </ul>
             <form class="navbar-form navbar-right title-container" role="search">
                 <div class="form-group">
-                    <a class="btn btn-text file-title-navbar" href="#" title="Rename story"></a>
+                    <a class="btn btn-text file-title-navbar" href="#"></a>
                 </div>
                 <div class="form-group input-file-title-container">
                     <input type="text" class="col-sm-4 form-control hide input-file-title" placeholder="Story title" />
@@ -113,7 +115,7 @@
                 </div>
             </div>
 			<div class="new-story-button">
-				<a href="#" class="btn btn-fab fab-pad btn-primary action-create-file" title="Create New Story"><i class="fa fa-plus fa-lg"></i></a>
+				<a href="#" class="btn btn-fab fab-pad btn-primary action-create-file create-fab" title="Create New Story"><i class="fa fa-plus fa-lg"></i></a>
 			</div>
         </div>
         <div class="extension-preview-buttons">
@@ -191,7 +193,7 @@
                 <ul class="nav navbar-nav navbar-left" style="margin-bottom:0;">
                     <li><a href="#" class="action-create-file" title="Create New Story" style="padding:8px;"><i class="icon-plus-circled fa-lg text-blue"></i></a></li>
 					<li><a href="#" class="action-remove-file-confirm" title="Delete Current Story"><i class="icon-trash text-red"></i></a></li>
-					<li><a href="#" class="file" data-toggle="modal" data-target=".modal-document-manager" title="Organize Stories"><i class="icon-layers text-yellow"></i></a></li>
+					<li><a href="#" class="file action-dm" data-toggle="modal" data-target=".modal-document-manager" title="Organize Stories"><i class="icon-layers text-yellow"></i></a></li>
 					<li class="dropdown story-menu pull-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true" title="Import Stories"><i class="icon-docs text-dark-yellow"></i><span class="caret"></span></a>
                         <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
@@ -230,58 +232,60 @@
 </div>
 </div>
 <div class="modal fade modal-document-manager">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div></div>
-<nav class="navbar navbar-inverse document-list">
-    <div class="container-fluid">
-		<div class="navbar-header">
-      		<a class="navbar-brand" href="#">Organize Stories</a>
-    	</div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-            <ul class="nav navbar-nav">
-                <li><a href="#" title="Number of Stories"><i class="icon-file"></i> <span class="document-count"></span></a>
-                </li>
-                <li><a href="#" title="Number of Folders"><i class="icon-folder"></i> <span class="folder-count"></span></a>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="icon-check"></i> Actions <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#" class="action-select-all"><i class="icon-check"></i> Select all</a>
-                        </li>
-                        <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="#" class="action-move-items"><i class="icon-forward"></i> Move to folder</a>
-                        </li>
-                        <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active">
-                    <a href="#" class="action-create-folder" title="Create New Folder"> <i class="icon-folder"></i> New Folder</a>
-                </li>
-				<li><button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="font-size: 3.2em;padding: 14.5px 0 14.5px 14.5px;">×</button></li>
-            </ul>
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div></div>
+            <nav class="navbar navbar-inverse document-list">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <span class="navbar-brand">Organize Stories</span>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                        <ul class="nav navbar-nav">
+                            <li class="tooltip-dm-stories"><a href="#" title="Number of Stories"><i class="icon-file"></i> <span class="document-count"></span></a>
+                            </li>
+                            <li class="tooltip-dm-folders"><a href="#" title="Number of Storybooks"><i class="icon-folder"></i> <span class="folder-count"></span></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="icon-check"></i> Actions <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#" class="action-select-all"><i class="icon-check"></i> Select all</a>
+                                    </li>
+                                    <li><a href="#" class="action-unselect-all"><i class="icon-check-empty"></i> Unselect all</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a href="#" class="action-move-items"><i class="icon-forward"></i> Move to Storybook</a>
+                                    </li>
+                                    <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active">
+                                <a href="#" class="action-create-folder text-black" title="Create New Storybook"> <i class="icon-plus-squared"></i> New Storybook</a>
+                            </li>
+                            <li>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="font-size: 3.2em;padding: 14.5px 0 14.5px 14.5px;">×</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="panel-group document-list" id="accordion" role="tablist" aria-multiselectable="true"></div>
+            <p class="confirm-delete hide">The following stories will be deleted locally:</p>
+            <p class="choose-folder hide">Please choose a destination storybook:
+            </p>
+            <div class="panel-group selected-document-list hide"></div>
+            <div class="panel-group select-folder-list hide"></div>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn btn-link btn-flat confirm-delete choose-folder action-cancel hide">Cancel</a>
+            <a href="#" class="btn btn-danger confirm-delete action-delete-items-confirm hide">Delete</a>
         </div>
     </div>
-</nav>
-                <div class="panel-group document-list" id="accordion" role="tablist" aria-multiselectable="true"></div>
-                <p class="confirm-delete hide">The following stories will be deleted locally:</p>
-                <p class="choose-folder hide">Please choose a destination folder:
-                </p>
-                <div class="panel-group selected-document-list hide"></div>
-                <div class="panel-group select-folder-list hide"></div>
-            </div>
-            <div class="modal-footer">
-                <a href="#" class="btn btn-link btn-flat confirm-delete choose-folder action-cancel hide">Cancel</a>
-                <a href="#" class="btn btn-danger confirm-delete action-delete-items-confirm hide">Delete</a>
-            </div>
-        </div>
-    </div>
+</div>
 </div>
 <div class="modal fade modal-insert-link">
     <div class="modal-dialog">
@@ -367,13 +371,8 @@
             </div>
             <div class="modal-body">
                 <p>
-                    Are you sure you want to delete "<span class="file-title"></span>"?
+                    Are you sure you want to delete "<span class="file-title"></span>"<a href="#" class="tooltip-delete">?</a>
                 </p>
-                <blockquote class="alert alert-info">
-					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-                    </button>
-                    <p><b>Note:</b> This won't delete the synchronized files.</p>
-                </blockquote>
             </div>
             <div class="modal-footer">
                 <a href="#" class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
@@ -493,7 +492,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Open on My.WriteOn</h2>
+                <h2 class="modal-title">Open from My.WriteOn <a href="#" class="tooltip-mywriteon">?</a></h2>
                 <div class="form-horizontal list-mode">
                     <br>
                     <div class="form-group form-inline">
@@ -510,14 +509,6 @@
                 </div>
             </div>
             <div class="modal-body">
-                <p class="msg-default-mywriteon alert alert-warning">
-                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-                    </button>
-                    <i class="icon-attention"></i>  <b>Careful:</b>
-                    This is Beta software, and you're using our public My.WriteOn instance.
-                    <b>That means anybody can open, edit and delete these stories.</b>
-                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">♥</span>
-                </p>
                 <div class="form-horizontal byid-mode">
                     <div class="form-group">
                         <label for="input-sync-import-mywriteon-documentid" class="col-sm-3 control-label">Story ID
@@ -677,8 +668,7 @@ unless you're hosting your own WriteOn instance.
                         <label class="col-sm-4 control-label" for="input-publish-file-path">File path</label>
                         <div class="col-sm-7">
                             <input type="text" id="input-publish-file-path" placeholder="path/to/file.md" class="form-control">
-                            <span class="help-block"> File path is composed of both
-folder and filename. </span>
+                            <span class="help-block"> File path is composed of both folder and filename. </span>
                         </div>
                     </div>
                     <div class="form-group modal-publish-gist">
@@ -723,9 +713,7 @@ folder and filename. </span>
                         <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">WordPress site</label>
                         <div class="col-sm-7">
                             <input type="text" id="input-publish-wordpress-site" placeholder="example.wordpress.com" class="form-control">
-                            <span class="help-block"> <a target="_blank" href="http://jetpack.me/">Jetpack plugin</a> is required for
-self-hosted sites.
-</span>
+                            <span class="help-block"> <a target="_blank" href="http://jetpack.me/">Jetpack plugin</a> is required for self-hosted sites. </span>
                         </div>
                     </div>
                     <div class="form-group modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">
@@ -744,8 +732,7 @@ self-hosted sites.
                         <label class="col-sm-4 control-label" for="input-publish-dropbox-path">File path</label>
                         <div class="col-sm-7">
                             <input type="text" id="input-publish-dropbox-path" placeholder="/path/to/My Story.md" class="form-control">
-                            <span class="help-block"> File path is composed of both
-folder and filename. </span>
+                            <span class="help-block"> File path is composed of both folder and filename. </span>
                         </div>
                     </div>
                     <div class="form-group modal-publish-gdrive">
@@ -1065,7 +1052,7 @@ story title will be used.</span>
                                 <label class="col-sm-4 control-label" for="textarea-settings-publish-template">Default Template <a href="#" class="tooltip-template">(?)</a>
                                 </label>
                                 <div class="col-sm-8">
-									<pre><code id="textarea-settings-publish-template" class="language-html"></code></pre>
+									<textarea id="textarea-settings-publish-template" class="form-control lg"></textarea>
                                 </div>
                             </div>
                             <div class="form-group hide">
@@ -1102,8 +1089,7 @@ for this change to take effect.</span>
                                     <div class="checkbox">
                                         <label>
                                             <input type="checkbox" id="input-settings-dropbox-full-access" />Allow WriteOn to open any story in Dropbox
-                                        </label> <span class="help-block">If unchecked, access will be restricted to folder
-<b>/Applications/WriteOn</b> for existing stories.</span>
+                                        </label> <span class="help-block">If unchecked, access will be restricted to folder <b>/Applications/WriteOn</b> for existing stories.</span>
                                     </div>
                                 </div>
                             </div>
@@ -1157,7 +1143,7 @@ for this change to take effect.</span>
                 <p>WriteOn has stopped because another instance was running in the same browser or the local cache was disrupted.</p>
             </div>
             <div class="modal-footer">
-                <a href="javascript:window.location.reload();" class="btn btn-primary">Reload</a>
+                <a href="javascript:window.location.reload();" class="btn btn-link btn-flat btn-waves">Reload</a>
             </div>
         </div>
     </div>

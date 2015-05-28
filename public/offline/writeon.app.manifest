@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#Date Wed May 27 2015 01:10:08 GMT+0000 (UTC)
+#Date Wed May 27 2015 22:47:27 GMT+0000 (UTC)
 #Version 1.9.2
 
 CACHE:
@@ -67,6 +67,7 @@ CACHE:
 /writeon/html/supportWriteonSettingsBlock.html
 /writeon/html/tocSettingsBlock.html
 /writeon/html/tooltipDropboxTemplate.html
+/writeon/html/tooltipMyWriteOnTemplate.html
 /writeon/html/tooltipSettingsPdfOptions.html
 /writeon/html/tooltipSettingsShortcutsExtension.html
 /writeon/html/tooltipSettingsTemplate.html
@@ -123,11 +124,6 @@ CACHE:
 /writeon/themes/school.css
 /writeon/themes/solarized-dark.css
 /writeon/themes/solarized-light.css
-/writeon/bower-libs/require-css/css.min.js
-/writeon/bower-libs/require-css/normalize.js
-/writeon/bower-libs/require-less/less.js
-/writeon/bower-libs/require-less/lessc.js
-/writeon/bower-libs/require-less/normalize.js
 # end_inject_resources
 
 

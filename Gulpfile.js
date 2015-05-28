@@ -330,6 +330,7 @@ gulp.task('cache-mathjax', function() {
 
 gulp.task('clean', [
 	'clean-requirejs',
+	'clean-requireless',
 	'clean-less',
 	'clean-font',
 	'clean-img',
@@ -340,14 +341,7 @@ gulp.task('requireless', [
 	'copy-requireless',
 	'copy-requirecss'
 ]);
-gulp.task('copy-require', function(cb) {
-	runSequence([
-			'clean-requireless',
-			'copy-requireless',
-			'copy-requirecss'
-		],
-		cb);
-});
+
 gulp.task('build', function(cb) {
 	runSequence([
 			'jshint',
