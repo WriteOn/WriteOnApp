@@ -46,6 +46,7 @@ app.use(stormpath.init(app, {
 	*/ 
 	//enableHttps: true,
     loginUrl: '/login',
+	logoutUrl: '/logout',
     redirectUrl: '/pad',
     enableAutoLogin: true,
     enableForgotPassword: true,

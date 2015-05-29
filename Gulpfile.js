@@ -385,7 +385,7 @@ function exec(cmd, cb) {
 gulp.task('git-tag', function(cb) {
 	var tag = 'v' + getVersion();
 	util.log('Tagging as: ' + util.colors.cyan(tag));
-	exec('git add ./public/writeon', function(err) {
+	exec('git add --all', function(err) {
 		if(err) {
 			return cb(err);
 		}
@@ -397,22 +397,12 @@ gulp.task('git-tag', function(cb) {
 				if(err) {
 					return cb(err);
 				}
-				//exec('git push heroku-beta master --tags', cb); // fedora - this is NOT ideal, where we hard code the git direction...needs elegance
+				//exec('git push heroku-next master --tags', cb); // fedora - this is NOT ideal, where we hard code the git direction...needs elegance
 				exec('git push github 2.0 --tags', cb); // fedora - this is NOT ideal, where we hard code the git direction...needs elegance
 			});
 		});
 	});
 });
-
-function releaseTask(importance) {
-	return function(cb) {
-		runSequence(
-			'bump-' + importance,
-			'build',
-			'git-tag',
-			cb);
-	};
-}
 
 
 /* 
@@ -424,7 +414,15 @@ gulp.task('beep', releaseTask('patch'));     // beep
 gulp.task('boop', releaseTask('minor'));     // boop
 gulp.task('bop', releaseTask('major'));     // bop
 
-
+function releaseTask(importance) {
+	return function(cb) {
+		runSequence(
+			'bump-' + importance,
+			'build',
+			'git-tag',
+			cb);
+	};
+}
 
 
 /*
