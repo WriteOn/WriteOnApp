@@ -6931,7 +6931,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  }, utils;
 }), define("constants", [], function() {
  var e = {};
- return e.VERSION = "1.9.4", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
+ return e.VERSION = "1.9.5", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
  e.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ", e.GOOGLE_DRIVE_APP_ID = "1017251498254", 
  e.DROPBOX_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_APP_SECRET = "1mesyckskczn3f9", 
  e.DROPBOX_RESTRICTED_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_RESTRICTED_APP_SECRET = "1mesyckskczn3f9", 
@@ -6949,7 +6949,7 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  e.BASE_URL = e.MAIN_URL, e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.GHOST_PROXY_URL = "https://writeon-ghost-proxy.herokuapp.com/", 
- e.WORDPRESS_CLIENT_ID = "37431", e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", 
+ e.WORDPRESS_CLIENT_ID = "37535", e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", 
  0 === location.hostname.indexOf("writeon.io") ? (e.BASE_URL = e.MAIN_URL, e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
  e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/", 
@@ -6960,9 +6960,9 @@ var saveAs = saveAs || "undefined" != typeof navigator && navigator.msSaveOrOpen
  e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy-beta.herokuapp.com/", e.COUCHDB_DB = "documents", 
  e.COUCHDB_SERVER = "https://cloud2.writeon.io") : 0 === location.hostname.indexOf("next.writeon.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
  e.BASE_URL = "https://next.writeon.io/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
- e.GITHUB_CLIENT_ID = "302c5c415085534c1346", e.GATEKEEPER_URL = "https://writeon-gatekeeper-beta.herokuapp.com/", 
- e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "38332", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy-beta.herokuapp.com/", e.COUCHDB_DB = "documents", 
+ e.GITHUB_CLIENT_ID = "e4fb02a63b777728ee2d", e.GATEKEEPER_URL = "https://writeon-gatekeeper-next.herokuapp.com/", 
+ e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy-next.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "37430", 
+ e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy-next.herokuapp.com/", e.COUCHDB_DB = "documents", 
  e.COUCHDB_SERVER = "https://cloud2.writeon.io") : 0 === location.hostname.indexOf("mammal-charter.codio.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
  e.BASE_URL = "https://mammal-charter.codio.io:9500/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/", 
@@ -29517,7 +29517,7 @@ require([ "jquery", "rangy", "core", "eventMgr", "synchronizer", "publisher", "s
    i.onMessage("A new version of WriteOn is available.\nJust reload this tab when you are ready to upgrade."));
   }, !1), t.init(), n.onReady(), window.applicationCache && window.applicationCache.addEventListener("updateready", function() {
    window.applicationCache.status === window.applicationCache.UPDATEREADY && (window.applicationCache.swapCache(), 
-   i.onMessage("A new version of WriteOn is available.\nJust reload this tab when you are ready to upgrade."));
+   i.onMessage("A new version of WriteOn is available. Just reload this when you are ready to upgrade."));
   }, !1);
  });
 }), define("main", function() {});

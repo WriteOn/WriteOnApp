@@ -3,7 +3,7 @@
 
 define([], function() {
 	var constants = {};
-	constants.VERSION = "1.9.4";
+	constants.VERSION = "1.9.5";
 	constants.MAIN_URL = "https://writeon.io/";
 	constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1";
 	constants.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ";
