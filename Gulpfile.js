@@ -337,7 +337,6 @@ gulp.task('clean', [
 	'clean-html'
 ]);
 gulp.task('requireless', [
-	'clean-requireless',
 	'copy-requireless',
 	'copy-requirecss'
 ]);
