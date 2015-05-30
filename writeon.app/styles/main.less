@@ -33,7 +33,7 @@
 
 
 /* Colors */
-@logo-yellow: #ECB50C;
+@logo-yellow: #FFC107;
 @logo-blue: #BBD500;
 @logo-orange: #E2670B;
 @logo-green: #BBD500;
@@ -46,7 +46,7 @@
 @secondary-desaturated: desaturate(@secondary, 80%);
 @transparent: fade(#000, 0%);
 @red-color: #E84C3D;
-@purple-color: #C999C3;
+@purple-color: #9C27B0;
 @black-color: #222;
 
 // Navbar
@@ -88,7 +88,7 @@
 /* Layout Sizes */
 @title-max-width: 270px;
 @menu-panel-width: 335px;
-@document-panel-width: 320px;
+@document-panel-width: 400px;
 @jgrowl-width: 280px;
 @resizer-size: 32px;
 @editor-line-weight: 1.65;
@@ -163,8 +163,8 @@
 
 /* Color Constants */
 .text-orange {color: @logo-orange !important;}
-.text-dark-yellow {color: @logo-yellow !important;}
-.text-yellow {color: @logo-green !important;}
+.text-dark-yellow {color: #FFC107 !important;}
+.text-yellow {color: #FFEB3B !important;}
 .text-blue {color: @primary-blue !important;}
 .text-green {color: @primary-green !important;}
 .text-light-green {color: @logo-blue !important;}
@@ -246,7 +246,7 @@ transition: opacity .07s linear,top .1s ease-out;
 		padding: 20px;
         /* enlarged close button */
         .close {
-            font-size: 3em;
+            font-size: 3.3em;
 			margin-top: 6px;
         }
         .modal-title {
@@ -286,6 +286,7 @@ transition: opacity .07s linear,top .1s ease-out;
 	.btn + .btn {
 		margin-left: 30px;
 	}
+	text-align: center;
 }
 
 .modal-iframe {
@@ -1055,6 +1056,25 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 		.nav {
 			border: 0;
 			margin: 0;
+			li.story-item {
+				.anchorjs-link {
+  					float: right;
+  					width: 1em;
+  					height: 1em;
+  					opacity: 0;
+  					color: @red-color;
+  					text-align: center;
+				}
+				&:focus, &:hover {
+					.anchorjs-link {
+  						opacity: .75;
+  						transition: color .16s linear;
+						&:focus, &:hover {
+							opacity: 1;
+						}
+					}
+				} 
+			}
 			.file {
 			    padding-left: 30px;
 			    padding-right: 30px;
@@ -1258,6 +1278,14 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 	}
 }
 
+/**************************
+ * Autosync dialog
+ **************************/
+.modal-autosync-gdrive {
+    .modal-dialog {
+		margin: 45px auto !important;
+    }
+}
 
 /**************************
  * Settings dialog
@@ -1295,6 +1323,9 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
         max-height: 100%;
         overflow-y: auto;
     }
+	.modal-footer {
+		text-align: right;
+	}
 	textarea {
 		min-height: inherit;
 		max-width: 100%;
@@ -1354,6 +1385,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 		.btn {
     		text-align: start;
     		padding-left: 15px;
+			margin: 25px auto;
     	}
 	}
 

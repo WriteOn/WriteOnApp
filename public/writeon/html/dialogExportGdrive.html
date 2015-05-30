@@ -16,29 +16,24 @@
 			<div class="collapse form-horizontal sync-export-<%= providerId %>-options-collapse">
 				<div class="form-group">
 					<label class="col-lg-3 control-label"
-						for="input-sync-export-<%= providerId %>-parentid">Folder ID
-						(optional)</label>
+						for="input-sync-export-<%= providerId %>-parentid">Folder <a href="#" class="tooltip-autosync-help">?</a></label>
 					<div class="col-lg-8">
+						<div class="input-group">
+                        <div class="input-group-btn">
+                            <a class="btn btn-link btn-sm action-export-<%= providerId %>-choose-folder tooltip-autosync-folder"
+                               title="Choose <%= providerName %> folder" data-dismiss="modal"><i class="icon-folder-open"></i></a>
+                        </div>
                         <input type="text" id="input-sync-export-<%= providerId %>-parentid"
                             placeholder="FolderID" class="form-control">
-                        <div class="text-right">
-                            <a class="btn btn-link btn-sm action-export-<%= providerId %>-choose-folder"
-                               title="Choose folder" data-dismiss="modal"><i
-                                    class="icon-folder-open"></i> Open folder</a>
-                        </div>
-						<span class="help-block"> If no folder ID is supplied, the
-							file will be created in your root folder. </span>
+					</div>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-lg-3 control-label"
-						for="input-sync-export-<%= providerId %>-fileid">Existing file ID
-						(optional)</label>
+						for="input-sync-export-<%= providerId %>-fileid">Existing Story ID <a href="#" class="tooltip-gdrivesync-help">?</a></label>
 					<div class="col-lg-8">
 						<input type="text" id="input-sync-export-<%= providerId %>-fileid"
-							placeholder="FileID" class="form-control"> <span
-							class="help-block"> This will overwrite the existing file
-							on the server. </span>
+							placeholder="FileID" class="form-control"> 
 					</div>
 				</div>
 			</div>
@@ -54,11 +49,9 @@
 			</blockquote>
 		</div>
 		<div class="modal-footer">
-			<a href="#" class="btn btn-warning pull-left action-autosync-dialog-<%= providerId %>" data-dismiss="modal"><i
-				class="icon-provider-gdrive"></i> Setup AutoSync</a>
-			<a href="#" class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
-			<a href="#" data-dismiss="modal"
-				class="btn btn-primary action-sync-export-<%= providerId %>">Save</a>
+			<a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-<%= providerId %>" style="margin-right: 30px;">Save</a> OR 
+			<a href="#" class="btn btn-warning action-autosync-dialog-<%= providerId %>" data-dismiss="modal"><i class="icon-provider-gdrive"></i> Setup AutoSync</a>
+
 		</div>
 	</div>
 </div>

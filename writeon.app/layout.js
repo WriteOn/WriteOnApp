@@ -7,8 +7,8 @@ define([
 	'eventMgr',
 	'crel',
 	'mousetrap',
-	'hammerjs',
-    'contextjs'
+	'hammerjs'
+    //'contextjs'
 ], function($, _, utils, constants, settings, eventMgr, crel, mousetrap, hammer) {
 	var layout = {};
 
@@ -24,7 +24,7 @@ define([
 		height: 160
 	};
 	var menuPanelWidth = 335;
-	var documentPanelWidth = 320;
+	var documentPanelWidth = 400;
 	var titleMinWidth = 200;
 	var previewButtonsClosedOffset = 18;
 	var previewButtonsDropdownMargin = 130;
@@ -758,7 +758,7 @@ define([
         
     /* jshint ignore:start */
     
-    /* ContextJS contexutal menus */
+    /* ContextJS contexutal menus 
     context.init({preventDoubleContext: false});
     context.settings({compress: true});
 	context.attach('.document-panel', [
@@ -825,7 +825,8 @@ define([
 		{text: '<i class="icon-twitter"></i> Twitter', href: 'http://twitter.com/WriteOnApp', target: '_blank'}
 	]);
     
-        
+    */
+		
     /* jshint ignore:end */
 
 

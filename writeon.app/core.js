@@ -613,6 +613,9 @@ define([
 		utils.createTooltip(".tooltip-sync", "Sync", "bottom", "hover", "body");		
 		utils.createTooltip(".tooltip-publish", "Publish", "bottom", "hover", "body");		
 		utils.createTooltip(".tooltip-download", "Download", "bottom", "hover", "body");		
+		utils.createTooltip(".tooltip-autosync-help", "If no folder is specified, your stories will be created in the root folder", "right", "hover", "modal");		
+		utils.createTooltip(".tooltip-gdrivesync-help", "This will overwrite the existing story", "right", "hover", "modal");		
+		utils.createTooltip(".tooltip-autosync-folder", "Choose folder", "top", "hover", "modal");		
 		
 		// Avoid dropdown panels to close on click
 		$("div.dropdown-menu").click(function(e) {

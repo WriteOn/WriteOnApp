@@ -190,7 +190,7 @@
     <div class="search-bar clearfix">
 		    <nav class="navbar navbar-default story-navbar" style="position: relative;border: 1px solid #e6e6e6;border-radius: 2px;">
             <div id="story-navbar-collapse">
-                <ul class="nav navbar-nav navbar-left" style="margin-bottom:0;">
+                <ul class="nav navbar-nav navbar-left" style="margin-bottom:0; margin-left: 3em;">
                     <li><a href="#" class="action-create-file" title="Create New Story" style="padding:8px;"><i class="icon-plus-circled fa-lg text-blue"></i></a></li>
 					<li><a href="#" class="action-remove-file-confirm" title="Delete Current Story"><i class="icon-trash text-red"></i></a></li>
 					<li><a href="#" class="file action-dm" data-toggle="modal" data-target=".modal-document-manager" title="Organize Stories"><i class="icon-layers text-yellow"></i></a></li>
@@ -281,7 +281,6 @@
             <div class="panel-group select-folder-list hide"></div>
         </div>
         <div class="modal-footer">
-            <a href="#" class="btn btn-link btn-flat confirm-delete choose-folder action-cancel hide">Cancel</a>
             <a href="#" class="btn btn-danger confirm-delete action-delete-items-confirm hide">Delete</a>
         </div>
     </div>
@@ -375,7 +374,6 @@
                 </p>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
                 <a href="#" class="btn btn-danger action-remove-file" data-dismiss="modal">Delete</a>
             </div>
         </div>
@@ -862,8 +860,8 @@ story title will be used.</span>
             </div>
             <div class="modal-body">
                 <p>To <strong>collaborate</strong> on "<span class="file-title"></span>" with other WriteOn users, share this link(s):</p>
-                <p class="msg-no-share-editor alert alert-info" role="alert"><b>No sharing link yet.</b> To collaborate on this story, just
-                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn</a>
+                <p class="msg-no-share-editor panel panel-info" role="alert" style="padding:20px;"><b>No sharing link yet.</b> To collaborate on this story, just
+                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link btn btn-link" data-dismiss="modal"><i class="icon-download-cloud text-blue"></i> Save To My WriteOn</a>
                 </p>
                 <div class="share-editor-list"></div>
                 <hr>
@@ -1117,8 +1115,8 @@ for this change to take effect.</span>
                             <a target="_blank" href="recovery" class="btn btn-block btn-primary"><i class="icon-medkit"></i> WriteOn recovery</a>
                         </div>
                         <div class="col-sm-offset-1 col-lg-5 col-sm-12 tab-pane-button-container">
-                            <a href="#" class="btn btn-block btn-default action-import-docs-settings"><i class="icon-cog-alt"></i> Import stories & settings</a>  
-                            <a href="#" class="btn btn-block btn-default action-export-docs-settings" data-dismiss="modal"><i class="icon-share"></i> Export stories & settings</a> 
+                            <a href="#" class="btn btn-block btn-default action-import-docs-settings"><i class="icon-cog-alt"></i> Import everything</a>  
+                            <a href="#" class="btn btn-block btn-default action-export-docs-settings" data-dismiss="modal"><i class="icon-share"></i> Export everything</a> 
                             <a href="#" class="btn btn-block btn-default action-default-settings" data-dismiss="modal"><i class="icon-wrench"></i> Load default settings</a>  
                             <a href="#" class="btn btn-block btn-danger" data-dismiss="modal" data-toggle="modal" data-target=".modal-app-reset"><i class="icon-fire"></i> Reset WriteOn</a>  
                             <input type="file" id="input-file-import-docs-settings" class="hide">
@@ -1158,7 +1156,6 @@ for this change to take effect.</span>
                 <p class="redirect-msg"></p>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
                 <a class="btn btn-primary action-redirect-confirm" data-dismiss="modal">OK</a>
             </div>
         </div>
@@ -1176,7 +1173,6 @@ for this change to take effect.</span>
                 </blockquote>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
                 <a href="#" class="btn btn-danger action-app-reset" data-dismiss="modal">Reset</a>
             </div>
         </div>
@@ -1194,7 +1190,6 @@ for this change to take effect.</span>
                 </blockquote>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-link btn-flat" data-dismiss="modal">Cancel</a>
                 <a href="#" class="btn btn-primary action-import-docs-settings-confirm" data-dismiss="modal">Import</a>
             </div>
         </div>

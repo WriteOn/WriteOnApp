@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#Date Fri May 29 2015 19:00:16 GMT+0000 (UTC)
+#Date Sat May 30 2015 01:56:57 GMT+0000 (UTC)
 #Version 1.9.5
 
 CACHE:
@@ -124,6 +124,11 @@ CACHE:
 /writeon/themes/school.css
 /writeon/themes/solarized-dark.css
 /writeon/themes/solarized-light.css
+/writeon/bower-libs/require-css/css.min.js
+/writeon/bower-libs/require-css/normalize.js
+/writeon/bower-libs/require-less/less.js
+/writeon/bower-libs/require-less/lessc.js
+/writeon/bower-libs/require-less/normalize.js
 # end_inject_resources
 
 

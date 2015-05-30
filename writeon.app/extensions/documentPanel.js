@@ -34,6 +34,7 @@ define([
         ' class="list-group-item file<%= fileDesc === selectedFileDesc ? " active" : "" %>"',
         ' data-file-index="<%= fileDesc.fileIndex %>">',
         '   <%= fileDesc.composeTitle() %>',
+		'<span class="anchorjs-link button-delete"><i class="icon-trash text-red"></i></span>',
         '</a>',
     ].join('');
 
@@ -54,7 +55,7 @@ define([
         var documentListHtml = _.chain(orphanDocumentList).sortBy(function(fileDesc) {
             return fileDesc.title.toLowerCase();
         }).reduce(function(result, fileDesc) {
-            return result + '<li>' + _.template(documentEltTmpl, {
+            return result + '<li class="story-item">' + _.template(documentEltTmpl, {
                 fileDesc: fileDesc,
                 selectedFileDesc: selectedFileDesc
             }) + '</li>';
@@ -68,7 +69,7 @@ define([
             var fileListHtml = _.chain(folderDesc.fileList).sortBy(function(fileDesc) {
                 return fileDesc.title.toLowerCase();
             }).reduce(function(result, fileDesc) {
-                return result + '<li>' + _.template(documentEltTmpl, {
+                return result + '<li class="story-item">' + _.template(documentEltTmpl, {
                     fileDesc: fileDesc,
                     selectedFileDesc: selectedFileDesc
                 }) + '</li>';
@@ -87,7 +88,7 @@ define([
         var documentListFilteredHtml = _.chain(fileSystem).sortBy(function(fileDesc) {
             return fileDesc.title.toLowerCase();
         }).reduce(function(result, fileDesc) {
-            return result + '<li>' + _.template(documentEltTmpl, {
+            return result + '<li class="story-item">' + _.template(documentEltTmpl, {
                 fileDesc: fileDesc,
                 selectedFileDesc: selectedFileDesc
             }) + '</li>';
