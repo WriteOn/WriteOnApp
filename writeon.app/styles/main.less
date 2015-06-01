@@ -27,9 +27,9 @@
 /* import plugins to  `main.less` (compiled as `main.css`) */
 @import "base.less";
 @import "alertify.less";
-@import "../bower-libs/bootstrap-tour/src/less/bootstrap-tour.less";
+@import "/bower_components/bootstrap-tour/src/less/bootstrap-tour.less";
 @import (less) "jquery.jgrowl.css";
-@import (less) "../bower-libs/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css";
+@import (less) "/bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css";
 
 
 /* Colors */
@@ -646,37 +646,12 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 }
 
 /*******************
- * Working Indicator
+ * Working Indicator (now using pace.js, found in bower_components)
+ * 
+ * Docs: http://github.hubspot.com/pace/
  *******************/
+.pace .pace-progress {height: 3px;}
 
-.working-indicator {
-		display: block;
-		vertical-align: middle;
-	    overflow: hidden;
-        height: 37px;
-        width: 120px;
-        padding-top: 4px;
-        margin: auto;
-        position: absolute;
-        top: 35%;
-        left: 44%;
-        z-index: 2000;
-        .bars {
-            margin: 0 auto;
-            padding: 0 18px;
-            background: rgba(0, 0, 0, 0.75);
-            border-radius: 3px;
-        }
-        .bar {
-		    display: inline-block;
-		    width: 24px;
-            height: 8px;
-            border-radius: 1px;
-            margin: 0 2px;
-            .opacity(0.25);
-            background-color: fade(@btn-success-color, 75%);
-		}
-}
 
 /*******************
  * Navbar

@@ -26,20 +26,20 @@ app.get('/signin', function(req, res) {
 });
 
 
-// Serve editor.html in /pad
+// Serve pad.html in /pad
 // Let's also lock this down with stormpath, by directory groups
 //app.get('/pad', stormpath.groupsRequired(['Tier 1', 'Tier 2', 'Admin', 'Beta'], false), function(req, res) {
 app.get('/pad', stormpath.authenticationRequired, function(req, res) {
-    res.renderDebug('editor.html'), extend({
+    res.renderDebug('pad.html'), extend({
     givenName: req.user.givenName,
     surname: req.user.surname,
     username: req.user.username
   });
 });
 	
-// Serve viewer.html in /paper
+// Serve paper.html in /paper
 app.get('/paper', function(req, res) {
-    res.renderDebug('viewer.html');
+    res.renderDebug('paper.html');
 });
 	
 /* 

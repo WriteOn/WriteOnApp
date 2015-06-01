@@ -2,12 +2,39 @@ define([
     "jquery",
     "underscore",
     "crel",
-    "classes/Extension"
-], function ($, _, crel, Extension) {
+    "classes/Extension",
+	"pace"
+], function ($, _, crel, Extension, pace) {
+
 
     var workingIndicator = new Extension("workingIndicator", "Working Indicator");
 
-    var keyframeTemlate = [
+ 	/* 
+	 * We use Pace and ASyncTask for a working indicator manager 
+	 * Documentation: http://github.hubspot.com/pace/
+	*/
+	paceOptions = {
+  		elements: false,
+		ajax: true,
+  		document: false, 
+  		eventLag: true, 
+
+  		// Only show the progress on regular and ajax-y page navigation,
+  		// not every request
+  		restartOnRequestAfter: false
+	}	
+	
+    workingIndicator.onAsyncRunning = function (isRunning) {
+        if (isRunning) {
+			pace.start();
+			pace.restart();
+		} else if (!isRunning) {
+			pace.stop();
+		}
+    };
+
+	/* 
+   var keyframeTemlate = [
         '@<%= prefix %>keyframes <%= name %> {',
         '    0% { opacity:<%= z %>; }',
         '    <%= start %>.01% { opacity:<%= alpha %>; }',
@@ -17,7 +44,7 @@ define([
         '}'
     ].join('\n');
 
-    var $bodyElt;
+	var $bodyElt;
     var $workingIndicatorElt;
     workingIndicator.onAsyncRunning = function (isRunning) {
         $bodyElt.toggleClass("working", isRunning);
@@ -59,6 +86,7 @@ define([
         document.head.appendChild(styleElt);
         styleElt.innerHTML = styleContent;
     };
+	*/
 
     return workingIndicator;
 });

@@ -269,7 +269,7 @@ define([
 		if(_.has(localStorage, 'settings')) {
 			settings = JSON.parse(localStorage.settings);
 			settings.template && (settings.template = settings.template.replace('https://writeon.io/libs/MathJax/', 'https://cdn.mathjax.org/mathjax/latest/'));
-			settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('/libs/MathJax/', '/writeon.app/bower-libs/MathJax/'));
+			settings.pdfTemplate && (settings.pdfTemplate = settings.pdfTemplate.replace('/libs/MathJax/', '/bower_components/MathJax/'));
 			localStorage.settings = JSON.stringify(settings);
 		}
 		version = "v22";

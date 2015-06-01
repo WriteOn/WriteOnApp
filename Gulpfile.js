@@ -33,6 +33,8 @@ var options = {
   dist: 'public/writeon',
   tmp: '.tmp',
   e2e: 'e2e',
+  bower_dist: 'public/bower_components',
+  bower: 'bower_components',
   errorHandler: function(title) {
     return function(err) {
       gutil.log(gutil.colors.red('[' + title + ']'), err.toString());
@@ -40,7 +42,7 @@ var options = {
     };
   },
   wiredep: {
-    directory: './writeon.app/bower-libs',
+    directory: 'bower_components',
     exclude: [/bootstrap-sass-official\/.*\.js/, /bootstrap\.css/]
   }
 };
@@ -87,10 +89,10 @@ gulp.task('jshint', function() {
 
 gulp.task('clean-requireless', function() {
 	return gulp.src([
-		options.dist + '/bower-libs/**/*less.js',
-		options.dist + '/bower-libs/**/*lessc.js',
-		options.dist + '/bower-libs/**/*normalize.js',
-		options.dist + '/bower-libs/**/*css*.js'
+		options.bower_dist + '/**/*less.js',
+		options.bower_dist + '/**/*lessc.js',
+		options.bower_dist + '/**/*normalize.js',
+		options.bower_dist + '/**/*css*.js'
 	])
 		// .pipe(debug())
         .pipe(clean());
@@ -98,20 +100,20 @@ gulp.task('clean-requireless', function() {
 
 gulp.task('copy-requireless', function() {
 return gulp.src([
-		options.app + '/bower-libs/require-less/less.js',
-		options.app + '/bower-libs/require-less/lessc.js',
-		options.app + '/bower-libs/require-less/normalize.js'
+		options.bower + '/require-less/less.js',
+		options.bower + '/require-less/lessc.js',
+		options.bower + '/require-less/normalize.js'
 	])
-  .pipe(copy(options.dist + '/bower-libs', {prefix: 2}));
+  .pipe(copy(options.bower_dist + '', {prefix: 2}));
 });
 
 
 gulp.task('copy-requirecss', function() {
 return gulp.src([
-		options.app + '/bower-libs/require-css/css.min.js',
-		options.app + '/bower-libs/require-css/normalize.js'
+		options.bower + '/require-css/css.min.js',
+		options.bower + '/require-css/normalize.js'
 	])
-  .pipe(copy(options.dist + '/bower-libs', {prefix: 2}));
+  .pipe(copy(options.bower_dist + '', {prefix: 2}));
 });
 
 
@@ -122,6 +124,7 @@ return gulp.src([
 gulp.task('clean-requirejs', function() {
 	return gulp.src([
 		options.dist + '/main.js',
+		options.dist + '/pace.min.js',
 		options.dist + '/require.js'
 	])
 		// .pipe(debug())
@@ -129,7 +132,10 @@ gulp.task('clean-requirejs', function() {
 });
 
 gulp.task('copy-requirejs', ['clean-requirejs'], function() {
-	return gulp.src(options.app + '/bower-libs/requirejs/require.js')
+	return gulp.src([
+		options.bower + '/pace/pace.min.js',
+		options.bower + '/requirejs/require.js'
+	])
 		// .pipe(debug())
         .pipe(gulp.dest(options.dist + '/'));
 });
@@ -208,7 +214,7 @@ gulp.task('clean-font', function() {
 gulp.task('copy-font', ['clean-font'], function() {
 	return gulp.src([
         options.app + '/font/*', 
-        options.app + '/bower-libs/bootstrap-material-design/fonts/*'
+        options.bower + '/bootstrap-material-design/fonts/*'
     ])
 		// .pipe(debug())
         .pipe(gulp.dest(options.dist + '/font/'));
@@ -294,18 +300,18 @@ gulp.task('cache-mathjax', function() {
 				}
 			}))
 		.pipe(inject(gulp.src([
-				'./res/bower-libs/MathJax/MathJax.js',
-				'./res/bower-libs/MathJax/config/Safe.js',
-				'./res/bower-libs/MathJax/config/TeX-AMS_HTML.js',
-				'./res/bower-libs/MathJax/images/CloseX-31.png',
-				'./res/bower-libs/MathJax/images/MenuArrow-15.png',
-				'./res/bower-libs/MathJax/jax/output/HTML-CSS/jax.js',
-				'./res/bower-libs/MathJax/extensions/**/*.*',
-				'./res/bower-libs/MathJax/fonts/HTML-CSS/TeX/woff/**/*.*',
-				'./res/bower-libs/MathJax/jax/element/**/*.*',
-				'./res/bower-libs/MathJax/jax/output/HTML-CSS/autoload/**/*.*',
-				'./res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/TeX/**/*.*',
-				'./res/bower-libs/MathJax/jax/output/HTML-CSS/fonts/STIX/**/*.*'
+				options.bower + '/MathJax/MathJax.js',
+				options.bower + '/MathJax/config/Safe.js',
+				options.bower + '/MathJax/config/TeX-AMS_HTML.js',
+				options.bower + '/MathJax/images/CloseX-31.png',
+				options.bower + '/MathJax/images/MenuArrow-15.png',
+				options.bower + '/MathJax/jax/output/HTML-CSS/jax.js',
+				options.bower + '/MathJax/extensions/**/*.*',
+				options.bower + '/MathJax/fonts/HTML-CSS/TeX/woff/**/*.*',
+				options.bower + '/MathJax/jax/element/**/*.*',
+				options.bower + '/MathJax/jax/output/HTML-CSS/autoload/**/*.*',
+				options.bower + '/MathJax/jax/output/HTML-CSS/fonts/TeX/**/*.*',
+				options.bower + '/MathJax/jax/output/HTML-CSS/fonts/STIX/**/*.*'
 			], {
 				read: false,
 				cwd: './writeon.app'
@@ -315,7 +321,7 @@ gulp.task('cache-mathjax', function() {
 				endtag: '# end_inject_mathjax',
 				ignoreExtensions: true,
 				transform: function(filepath) {
-					if(filepath == '/res/bower-libs/MathJax/MathJax.js') {
+					if(filepath == options.bower + '/MathJax/MathJax.js') {
 						filepath += '?config=TeX-AMS_HTML';
 					}
 					else {
