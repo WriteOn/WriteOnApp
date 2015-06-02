@@ -16,11 +16,11 @@
 			<div class="collapse form-horizontal sync-export-<%= providerId %>-options-collapse">
 				<div class="form-group">
 					<label class="col-lg-3 control-label"
-						for="input-sync-export-<%= providerId %>-parentid">Folder <a href="#" class="tooltip-autosync-help">?</a></label>
+						for="input-sync-export-<%= providerId %>-parentid">Folder <a href="#" class="tooltip-gdrivesync-folder">?</a></label>
 					<div class="col-lg-8">
 						<div class="input-group">
                         <div class="input-group-btn">
-                            <a class="btn btn-link btn-sm action-export-<%= providerId %>-choose-folder tooltip-autosync-folder"
+                            <a class="btn btn-link btn-sm action-export-<%= providerId %>-choose-folder"
                                title="Choose <%= providerName %> folder" data-dismiss="modal"><i class="icon-folder-open"></i></a>
                         </div>
                         <input type="text" id="input-sync-export-<%= providerId %>-parentid"
@@ -50,7 +50,7 @@
 		</div>
 		<div class="modal-footer">
 			<a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-<%= providerId %>" style="margin-right: 30px;">Save</a> OR 
-			<a href="#" class="btn btn-warning action-autosync-dialog-<%= providerId %>" data-dismiss="modal"><i class="icon-provider-gdrive"></i> Setup AutoSync</a>
+			<a href="#" class="btn btn-link action-autosync-dialog-<%= providerId %>" data-dismiss="modal"><i class="icon-provider-gdrive"></i> Setup AutoSync</a>
 
 		</div>
 	</div>

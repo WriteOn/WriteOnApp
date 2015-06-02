@@ -16,7 +16,8 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<script src="writeon/pace.min.js"></script>
+		<script data-pace-options='{ "ajax": true, "document": true, "eventLag": true }' src="writeon/pace.min.js"></script>
+		<link href="writeon/pace-theme-writeon.css" rel="stylesheet">
 		<script type="text/javascript">
             paceOptions = {elements: false,ajax: true,document: true,eventLag: true}
 			window.baseDir="writeon";if(!/(\?|&)edge($|&)/.test(location.search)){window.baseDir+=""}window.require={baseUrl:window.baseDir,deps:["main"]}

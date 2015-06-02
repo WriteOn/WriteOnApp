@@ -104,7 +104,7 @@ return gulp.src([
 		options.bower + '/require-less/lessc.js',
 		options.bower + '/require-less/normalize.js'
 	])
-  .pipe(copy(options.bower_dist + '', {prefix: 2}));
+  .pipe(copy(options.bower_dist + '/require-less/', {prefix: 2}));
 });
 
 
@@ -113,7 +113,7 @@ return gulp.src([
 		options.bower + '/require-css/css.min.js',
 		options.bower + '/require-css/normalize.js'
 	])
-  .pipe(copy(options.bower_dist + '', {prefix: 2}));
+  .pipe(copy(options.bower_dist + '/require-css/', {prefix: 2}));
 });
 
 
@@ -124,6 +124,7 @@ return gulp.src([
 gulp.task('clean-requirejs', function() {
 	return gulp.src([
 		options.dist + '/main.js',
+		options.dist + '/pace-theme-writeon.css',
 		options.dist + '/pace.min.js',
 		options.dist + '/require.js'
 	])
@@ -133,6 +134,7 @@ gulp.task('clean-requirejs', function() {
 
 gulp.task('copy-requirejs', ['clean-requirejs'], function() {
 	return gulp.src([
+		options.app + '/libs/pace/pace-theme-writeon.css',
 		options.bower + '/pace/pace.min.js',
 		options.bower + '/requirejs/require.js'
 	])

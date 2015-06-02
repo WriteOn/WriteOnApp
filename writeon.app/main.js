@@ -221,6 +221,7 @@ if(window.baseDir.indexOf('writeon') !== -1) {
 // RequireJS entry point. By requiring synchronizer, publisher, sharing and
 // media-importer, we are actually loading all the modules
 require([
+	"pace",
 	"jquery",
 	"rangy",
 	"core",
@@ -232,7 +233,7 @@ require([
 	"css",
 	"rangy-cssclassapplier",
 	themeModule
-], function($, rangy, core, eventMgr) {
+], function(pace, $, rangy, core, eventMgr) {
 
 	if(window.noStart) {
 		return;

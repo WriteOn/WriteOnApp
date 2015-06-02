@@ -16,13 +16,13 @@ define([
 	paceOptions = {
   		elements: false,
 		ajax: true,
-  		document: false, 
+  		document: true, 
   		eventLag: true, 
 
   		// Only show the progress on regular and ajax-y page navigation,
   		// not every request
-  		restartOnRequestAfter: false
-	}	
+  		//restartOnRequestAfter: false
+	};	
 	
     workingIndicator.onAsyncRunning = function (isRunning) {
         if (isRunning) {

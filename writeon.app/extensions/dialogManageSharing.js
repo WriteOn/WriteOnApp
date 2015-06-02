@@ -20,6 +20,7 @@ define([
 	var fileDesc;
 	var shareEditorListElt;
 	var shareViewerListElt;
+	var $msgNoShareElt;
 	var $msgNoShareEditorElt;
 	var $msgNoShareViewerElt;
 	var refreshDocumentSharing = function(fileDescParameter) {
@@ -44,6 +45,7 @@ define([
 			return result;
 		}, '');
 		shareEditorListElt.innerHTML = editorLinkListHtml;
+		$msgNoShareElt.toggleClass('hide', editorLinkListHtml.length === 0);
 		$msgNoShareEditorElt.toggleClass('hide', editorLinkListHtml.length !== 0);
 
 		var viewerLinkListHtml = _.reduce(fileDesc.syncLocations, function(result, attributes) {
@@ -97,6 +99,7 @@ define([
 		var modalElt = document.querySelector('.modal-manage-sharing');
 		shareEditorListElt = modalElt.querySelector('.share-editor-list');
 		shareViewerListElt = modalElt.querySelector('.share-viewer-list');
+		$msgNoShareElt = $(modalElt.querySelectorAll('.msg-no-share'));
 		$msgNoShareEditorElt = $(modalElt.querySelectorAll('.msg-no-share-editor'));
 		$msgNoShareViewerElt = $(modalElt.querySelectorAll('.msg-no-share-viewer'));
 		$(modalElt).on('show.bs.modal', function() {

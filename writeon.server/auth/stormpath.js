@@ -50,7 +50,7 @@ app.use(stormpath.init(app, {
     redirectUrl: '/pad',
     enableAutoLogin: true,
     enableForgotPassword: true,
-    enableAccountVerification: true,
+    enableAccountVerification: false,
     enableUsername: false,
     requireUsername: false,
     sessionDuration: 1000 * 60 * 120, // Make sessions expire after 120 minutes.
