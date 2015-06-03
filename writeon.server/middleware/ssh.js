@@ -16,7 +16,7 @@ exports.publish = function(req, res) {
 	conn.on('ready', function() {
 		conn.sftp(function(err, sftp) {
 			if(err) {
-				return sendError('Unable to establish SFTP connection');
+				return sendError('Unable to establish an SFTP connection');
 			}
 
 			var writeStream = sftp.createWriteStream(req.query.path);
@@ -41,10 +41,10 @@ exports.publish = function(req, res) {
 			return sendError('Authentication failure');
 		}
 		if(err.code == "ENOTFOUND") {
-			return sendError('Host not found');
+			return sendError('That host was not found');
 		}
 		if(err.code == "ETIMEDOUT") {
-			return sendError('Connection timeout');
+			return sendError('There was a connection timeout');
 		}
 		sendError(err);
 	});

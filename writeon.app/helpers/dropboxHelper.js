@@ -293,7 +293,7 @@ define([
 				return task.chain();
 			}
 			function chooserRedirect() {
-				utils.redirectConfirm('We are being redirected to the <strong>Dropbox Chooser</strong> page.', function() {
+				utils.redirectConfirm('You are being redirected to the <strong>Dropbox Chooser</strong> page.', function() {
 					task.chain();
 				}, function() {
 					task.error(new Error('You canceled.'));
@@ -320,7 +320,7 @@ define([
 	dropboxHelper.picker = function(callback) {
 		var paths = [];
 		var task = new AsyncTask();
-		// Add some time for user to choose his files
+		// Add some time for user to choose their files
 		task.timeout = constants.ASYNC_TASK_LONG_TIMEOUT;
 		connect(task);
 		loadPicker(task);

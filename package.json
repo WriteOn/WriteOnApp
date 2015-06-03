@@ -27,7 +27,8 @@
     "express-jwt": "~3.0.1",
     "tumblr.js": "~0.0.5",
     "oauth": "~0.9.13",
-    "body-parser": "~1.12.4"
+    "body-parser": "~1.12.4",
+    "follow-redirects": "0.0.3"
   },
   "devDependencies": {
     "gulp": "^3.8.7",
