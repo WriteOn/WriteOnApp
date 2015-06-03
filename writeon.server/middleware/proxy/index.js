@@ -24,6 +24,17 @@ module.exports = function(app, req, res) {
 
 	// Set up and load the Tumblr API proxy server middleware
 	require('./tumblr.js')(app, req, res);
-	
-	
+
+	// Set up and load the Wordpress API proxy server middleware
+	require('./wordpress.js')(app, req, res);
+
+	// Set up and load the Github Gatekeeper API proxy server middleware
+	//require('./github.js')(app, req, res);
+
+	// Set up and load the SSH API proxy server middleware
+	//require('./ssh.js')(app, req, res);
+
+	// Set up and load the DOwnload API proxy server middleware
+	//require('./download.js')(app, req, res);
+
 };
