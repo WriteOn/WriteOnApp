@@ -94,7 +94,7 @@ define([], function() {
 		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/";
 		constants.TUMBLR_PROXY_URL = "/api/";
 		constants.WORDPRESS_CLIENT_ID = '37431';
-		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
+		constants.WORDPRESS_PROXY_URL = "/api/";
         constants.COUCHDB_DB = 'documents';
         constants.COUCHDB_SERVER = 'https://cloud3.writeon.io';
 	}

@@ -71,7 +71,7 @@ define([
 			}
 
 			function getToken() {
-				$.getJSON(constants.WORDPRESS_PROXY_URL + "authenticate/" + code, function(data) {
+				$.getJSON(constants.WORDPRESS_PROXY_URL + "wordpress/auth/" + code, function(data) {
 					if(data.token !== undefined) {
 						token = data.token;
 						storage.wordpressToken = token;
@@ -101,7 +101,7 @@ define([
 		authenticate(task);
 		var siteId;
 		task.onRun(function() {
-			var url = constants.WORDPRESS_PROXY_URL + "post";
+			var url = constants.WORDPRESS_PROXY_URL + "wordpress/post";
 			var data = {
 				token: token,
 				site: site,
@@ -131,10 +131,10 @@ define([
 				// Handle error
 				if(error.code === 404) {
 					if(error.message == "unknown_blog") {
-						error = 'We could not find Site "' + site + '" on WordPress.|removePublish';
+						error = 'We could not find the Wordpress Site "' + site + '" on WordPress.|removePublish';
 					}
 					else if(error.message == "unknown_post") {
-						error = 'We could not find Post ' + postId + ' on WordPress.|removePublish';
+						error = 'We could not find the Wordpress Post ' + postId + ' on WordPress.|removePublish';
 					}
 				}
 				handleError(error, task);
@@ -164,7 +164,7 @@ define([
 				errorMsg = error;
 			}
 			else {
-				errorMsg = "Could not publish to WordPress.";
+				errorMsg = "We could not publish to WordPress.";
 				if((error.code === 400 && error.message == "invalid_token") || error.code === 401 || error.code === 403) {
 					storage.removeItem("wordpressToken");
 					errorMsg = "Access to that WordPress account was not authorized.";

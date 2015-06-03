@@ -50,7 +50,7 @@ define([
             task.timeout = constants.ASYNC_TASK_LONG_TIMEOUT;
             var oauth_object;
             function getOauthToken() {
-                $.getJSON(constants.TUMBLR_PROXY_URL + "tumblr_request_token", function(data) {
+                $.getJSON(constants.TUMBLR_PROXY_URL + "tumblr/request_token", function(data) {
                     if(data.oauth_token !== undefined) {
                         oauth_object = data;
                         task.chain(oauthRedirect);
@@ -89,7 +89,7 @@ define([
             }
             var errorMsg = "We `failed` to retrieve the access token from Tumblr.";
 			function getAccessToken() {
-                $.getJSON(constants.TUMBLR_PROXY_URL + "tumblr_access_token", oauth_object, function(data) {
+                $.getJSON(constants.TUMBLR_PROXY_URL + "tumblr/access_token", oauth_object, function(data) {
                     if(data.access_token !== undefined && data.access_token_secret !== undefined) {
                         storage.tumblrOauthParams = JSON.stringify(data);
                         oauthParams = data;
@@ -128,7 +128,7 @@ define([
                 content: content
             }, oauthParams);
             $.ajax({
-                url: constants.TUMBLR_PROXY_URL + "tumblr_post",
+                url: constants.TUMBLR_PROXY_URL + "tumblr/post",
                 data: data,
                 type: "POST",
                 dataType: "json",
@@ -143,7 +143,7 @@ define([
                 };
                 // Handle error
                 if(error.code === 404 && postId !== undefined) {
-                    error = 'We could not find post `' + postId + '` on Tumblr.|removePublish';
+                    error = 'We could not find post ID `' + postId + '` on Tumblr.|removePublish';
                 }
                 handleError(error, task);
             });
@@ -166,11 +166,11 @@ define([
                 errorMsg = error;
             }
             else {
-                errorMsg = "We could not publish to Tumblr. Here's why: '" + error.message + "' and the code: " + error.code;
+                errorMsg = "We could not publish to Tumblr. Here's why: '" + error.message + "'";
                 if(error.code === 401 || error.code === 403) {
                     oauthParams = undefined;
                     storage.removeItem("tumblrOauthParams");
-                    errorMsg = "Access to that Tumblr account is not authorized.";
+                    errorMsg = "Access to this Tumblr account is not authorized.";
                     task.retry(new Error(errorMsg), 1);
                     return;
                 }

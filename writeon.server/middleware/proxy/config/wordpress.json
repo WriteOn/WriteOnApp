@@ -1,0 +1,8 @@
+{
+  "oauth_client_id": "37431",
+  "oauth_client_secret": "kpOHY5iTXGi0UxlRfaWELvQaU9czpZuA181lwAEvFQkPqI41fFTFNnK2tOFHZPUV",
+  "oauth_base_site": "https://public-api.wordpress.com",
+  "oauth_authorize_path": "/oauth2/authorize",
+  "oauth_access_token_path": "/oauth2/token",
+  "redirect_uri": "https://mammal-charter.codio.io:9501/html/wordpress-oauth-client.html"
+}

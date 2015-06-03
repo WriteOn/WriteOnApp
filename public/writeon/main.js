@@ -7389,7 +7389,7 @@ var saveAs = saveAs || function(e) {
  e.COUCHDB_SERVER = "https://cloud2.writeon.io") : 0 === location.hostname.indexOf("mammal-charter.codio.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
  e.BASE_URL = "https://mammal-charter.codio.io:9500/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/", 
- e.TUMBLR_PROXY_URL = "/api/", e.WORDPRESS_CLIENT_ID = "37431", e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", 
+ e.TUMBLR_PROXY_URL = "/api/", e.WORDPRESS_CLIENT_ID = "37431", e.WORDPRESS_PROXY_URL = "/api/", 
  e.COUCHDB_DB = "documents", e.COUCHDB_SERVER = "https://cloud3.writeon.io") : 0 === location.hostname.indexOf("mammal-charter.codio.io:9500") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
  e.BASE_URL = "https://mammal-charter.codio.io:9500/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/", 
@@ -28640,7 +28640,7 @@ Prism.languages.latex = {
   var o, a;
   n.onRun(function() {
    function s() {
-    e.getJSON(t.TUMBLR_PROXY_URL + "tumblr_request_token", function(e) {
+    e.getJSON(t.TUMBLR_PROXY_URL + "tumblr/request_token", function(e) {
      void 0 !== e.oauth_token ? (f = e, n.chain(l)) : n.error(new Error(h));
     });
    }
@@ -28662,7 +28662,7 @@ Prism.languages.latex = {
     }, 500);
    }
    function u() {
-    e.getJSON(t.TUMBLR_PROXY_URL + "tumblr_access_token", f, function(e) {
+    e.getJSON(t.TUMBLR_PROXY_URL + "tumblr/access_token", f, function(e) {
      void 0 !== e.access_token && void 0 !== e.access_token_secret ? (r.tumblrOauthParams = JSON.stringify(e), 
      d = e, n.chain()) : n.error(new Error(h));
     });
@@ -28681,9 +28681,9 @@ Prism.languages.latex = {
  function u(e, t) {
   var i;
   if (e) if (o.error(e), "string" == typeof e) i = e; else {
-   if (i = "We could not publish to Tumblr. Here's why: '" + e.message + "' and the code: " + e.code, 
-   401 === e.code || 403 === e.code) return d = void 0, r.removeItem("tumblrOauthParams"), 
-   i = "Access to that Tumblr account is not authorized.", void t.retry(new Error(i), 1);
+   if (i = "We could not publish to Tumblr. Here's why: '" + e.message + "'", 401 === e.code || 403 === e.code) return d = void 0, 
+   r.removeItem("tumblrOauthParams"), i = "Access to this Tumblr account is not authorized.", 
+   void t.retry(new Error(i), 1);
    e.code <= 0 && (n.setOffline(), i = "|stopPublish");
   }
   t.error(new Error(i));
@@ -28705,7 +28705,7 @@ Prism.languages.latex = {
     content: f
    }, d);
    e.ajax({
-    url: t.TUMBLR_PROXY_URL + "tumblr_post",
+    url: t.TUMBLR_PROXY_URL + "tumblr/post",
     data: s,
     type: "POST",
     dataType: "json",
@@ -28717,7 +28717,7 @@ Prism.languages.latex = {
      code: e.status,
      message: e.statusText
     };
-    404 === t.code && void 0 !== i && (t = "We could not find post `" + i + "` on Tumblr.|removePublish"), 
+    404 === t.code && void 0 !== i && (t = "We could not find post ID `" + i + "` on Tumblr.|removePublish"), 
     u(t, g);
    });
   }), g.onSuccess(function() {
@@ -28775,7 +28775,7 @@ Prism.languages.latex = {
     }, 500);
    }
    function c() {
-    e.getJSON(t.WORDPRESS_PROXY_URL + "authenticate/" + p, function(e) {
+    e.getJSON(t.WORDPRESS_PROXY_URL + "wordpress/auth/" + p, function(e) {
      void 0 !== e.token ? (d = e.token, r.wordpressToken = d, n.chain()) : n.error(new Error(u));
     });
    }
@@ -28791,7 +28791,7 @@ Prism.languages.latex = {
  function u(e, t) {
   var i;
   if (e) if (o.error(e), "string" == typeof e) i = e; else {
-   if (i = "Could not publish to WordPress.", 400 === e.code && "invalid_token" == e.message || 401 === e.code || 403 === e.code) return r.removeItem("wordpressToken"), 
+   if (i = "We could not publish to WordPress.", 400 === e.code && "invalid_token" == e.message || 401 === e.code || 403 === e.code) return r.removeItem("wordpressToken"), 
    i = "Access to that WordPress account was not authorized.", t.retry(new Error(i), 1);
    e.code <= 0 && (n.setOffline(), i = "|stopPublish");
   }
@@ -28805,7 +28805,7 @@ Prism.languages.latex = {
   l(m), c(m);
   var g;
   m.onRun(function() {
-   var s = t.WORDPRESS_PROXY_URL + "post", l = {
+   var s = t.WORDPRESS_PROXY_URL + "wordpress/post", l = {
     token: d,
     site: n,
     postId: i,
@@ -28827,7 +28827,7 @@ Prism.languages.latex = {
      code: e.code,
      message: e.body.error
     };
-    404 === t.code && ("unknown_blog" == t.message ? t = 'We could not find Site "' + n + '" on WordPress.|removePublish' : "unknown_post" == t.message && (t = "We could not find Post " + i + " on WordPress.|removePublish")), 
+    404 === t.code && ("unknown_blog" == t.message ? t = 'We could not find the Site "' + n + '" on WordPress.|removePublish' : "unknown_post" == t.message && (t = "We could not find the Post " + i + " on WordPress.|removePublish")), 
     u(t, m);
    }).fail(function(e) {
     var t = {

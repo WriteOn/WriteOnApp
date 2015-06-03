@@ -616,6 +616,7 @@ define([
 		utils.createTooltip(".tooltip-autosync-help", "If no folder is specified, your stories will be created in the root Drive folder", "right", "hover", "modal");		
 		utils.createTooltip(".tooltip-gdrivesync-help", "This will overwrite the existing story on your Drive", "right", "hover", "modal");		
 		utils.createTooltip(".tooltip-gdrivesync-folder", "Choose which Drive folder to save this story in", "top", "hover", "modal");		
+		utils.createTooltip(".tooltip-manage-publications", "<b>Stating the Obvious?</b> Maybe, but removing a published location here will not delete the actual post out in the wild.", "top", "hover", "modal");		
 		
 		// Avoid dropdown panels to close on click
 		$("div.dropdown-menu").click(function(e) {

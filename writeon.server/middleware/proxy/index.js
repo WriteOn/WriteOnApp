@@ -4,21 +4,13 @@
 
 module.exports = function(app, req, res) {
 	
-	/*
-	// Load config defaults from JSON file.
-    // Environment variables override defaults.
-    function loadConfig() {
-        var config = JSON.parse(fs.readFileSync(__dirname + '/config.___.json', 'utf-8'));
-        for(var i in config) {
-            config[i] = process.env[i.toUpperCase()] || config[i];
-        }
-        console.log('Configuration');
-        console.log(config);
-        return config;
-    }
-    var config = loadConfig();
-    //app.use(express.bodyParser());
-	*/
+    // Convenience for allowing CORS on Proxy / API routes - GET only
+    app.all('/api/*', function(req, res, next) {
+        res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
+        res.header('Access-Control-Allow-Headers', 'Content-Type');
+        next();
+    });
 
 // Load Proxy Middleware ======================================================================
 
