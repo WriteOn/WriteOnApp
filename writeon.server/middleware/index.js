@@ -16,6 +16,6 @@ module.exports = function(app) {
 	app.get('/downloadImport', require('./download').importPublic);
 	
 	//connect the proxy API middleware
-	require('./proxy')(app);
+	require('./api/proxy')(app);
 	
 };

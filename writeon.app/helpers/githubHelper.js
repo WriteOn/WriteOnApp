@@ -101,7 +101,7 @@ define([
                 }, 500);
             }
             function getToken() {
-                $.getJSON(constants.GATEKEEPER_URL + "authenticate/" + code, function(data) {
+                $.getJSON(constants.GATEKEEPER_URL + "auth/" + code, function(data) {
                     if(data.token !== undefined) {
                         token = data.token;
                         storage.githubToken = token;

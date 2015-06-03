@@ -21,7 +21,7 @@ module.exports = function(app, req, res) {
 	require('./wordpress.js')(app, req, res);
 
 	// Set up and load the Github Gatekeeper API proxy server middleware
-	//require('./github.js')(app, req, res);
+	require('./github.js')(app, req, res);
 
 	// Set up and load the SSH API proxy server middleware
 	//require('./ssh.js')(app, req, res);

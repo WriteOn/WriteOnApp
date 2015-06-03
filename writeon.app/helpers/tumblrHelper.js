@@ -50,7 +50,7 @@ define([
             task.timeout = constants.ASYNC_TASK_LONG_TIMEOUT;
             var oauth_object;
             function getOauthToken() {
-                $.getJSON(constants.TUMBLR_PROXY_URL + "tumblr/request_token", function(data) {
+                $.getJSON(constants.TUMBLR_PROXY_URL + "request_token", function(data) {
                     if(data.oauth_token !== undefined) {
                         oauth_object = data;
                         task.chain(oauthRedirect);
@@ -89,7 +89,7 @@ define([
             }
             var errorMsg = "We `failed` to retrieve the access token from Tumblr.";
 			function getAccessToken() {
-                $.getJSON(constants.TUMBLR_PROXY_URL + "tumblr/access_token", oauth_object, function(data) {
+                $.getJSON(constants.TUMBLR_PROXY_URL + "access_token", oauth_object, function(data) {
                     if(data.access_token !== undefined && data.access_token_secret !== undefined) {
                         storage.tumblrOauthParams = JSON.stringify(data);
                         oauthParams = data;
@@ -128,7 +128,7 @@ define([
                 content: content
             }, oauthParams);
             $.ajax({
-                url: constants.TUMBLR_PROXY_URL + "tumblr/post",
+                url: constants.TUMBLR_PROXY_URL + "post",
                 data: data,
                 type: "POST",
                 dataType: "json",

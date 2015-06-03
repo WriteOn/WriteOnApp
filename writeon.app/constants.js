@@ -91,10 +91,10 @@ define([], function() {
         constants.BASE_URL = 'https://mammal-charter.codio.io:9500/';
 		constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
 		constants.GITHUB_CLIENT_ID = '235008232d0259c2f036';
-		constants.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/";
-		constants.TUMBLR_PROXY_URL = "/api/";
+		constants.GATEKEEPER_URL = "/api/github/";
+		constants.TUMBLR_PROXY_URL = "/api/tumblr/";
 		constants.WORDPRESS_CLIENT_ID = '37431';
-		constants.WORDPRESS_PROXY_URL = "/api/";
+		constants.WORDPRESS_PROXY_URL = "/api/wordpress/";
         constants.COUCHDB_DB = 'documents';
         constants.COUCHDB_SERVER = 'https://cloud3.writeon.io';
 	}

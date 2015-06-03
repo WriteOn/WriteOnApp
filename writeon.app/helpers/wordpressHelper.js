@@ -71,7 +71,7 @@ define([
 			}
 
 			function getToken() {
-				$.getJSON(constants.WORDPRESS_PROXY_URL + "wordpress/auth/" + code, function(data) {
+				$.getJSON(constants.WORDPRESS_PROXY_URL + "auth/" + code, function(data) {
 					if(data.token !== undefined) {
 						token = data.token;
 						storage.wordpressToken = token;
@@ -101,7 +101,7 @@ define([
 		authenticate(task);
 		var siteId;
 		task.onRun(function() {
-			var url = constants.WORDPRESS_PROXY_URL + "wordpress/post";
+			var url = constants.WORDPRESS_PROXY_URL + "post";
 			var data = {
 				token: token,
 				site: site,
