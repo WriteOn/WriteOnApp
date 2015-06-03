@@ -45,12 +45,12 @@ define([
                 task.chain();
                 return;
             }
-            var errorMsg = " We `failed` to retrieve a token from Tumblr.";
-            // We add time for user to enter his credentials
+            var errorMsg = "We `failed` to retrieve a request token from Tumblr.";
+            // We add time for user to enter their credentials
             task.timeout = constants.ASYNC_TASK_LONG_TIMEOUT;
             var oauth_object;
             function getOauthToken() {
-                $.getJSON(constants.TUMBLR_PROXY_URL + "request_token", function(data) {
+                $.getJSON(constants.TUMBLR_PROXY_URL + "tumblr_request_token", function(data) {
                     if(data.oauth_token !== undefined) {
                         oauth_object = data;
                         task.chain(oauthRedirect);
@@ -67,7 +67,8 @@ define([
                     task.error(new Error('You canceled.'));
                 });
             }
-            function getVerifier() {
+            var errorMsg = "We `failed` to verify the request token from Tumblr.";
+				function getVerifier() {
                 storage.removeItem("tumblrVerifier");
                 authWindow = utils.popupWindow('html/tumblr-oauth-client.html?oauth_token=' + oauth_object.oauth_token, 'writeon-tumblr-oauth', 800, 600);
                 authWindow.focus();
@@ -86,8 +87,9 @@ define([
                     }
                 }, 500);
             }
-            function getAccessToken() {
-                $.getJSON(constants.TUMBLR_PROXY_URL + "access_token", oauth_object, function(data) {
+            var errorMsg = "We `failed` to retrieve the access token from Tumblr.";
+			function getAccessToken() {
+                $.getJSON(constants.TUMBLR_PROXY_URL + "tumblr_access_token", oauth_object, function(data) {
                     if(data.access_token !== undefined && data.access_token_secret !== undefined) {
                         storage.tumblrOauthParams = JSON.stringify(data);
                         oauthParams = data;
@@ -126,7 +128,7 @@ define([
                 content: content
             }, oauthParams);
             $.ajax({
-                url: constants.TUMBLR_PROXY_URL + "post",
+                url: constants.TUMBLR_PROXY_URL + "tumblr_post",
                 data: data,
                 type: "POST",
                 dataType: "json",
@@ -164,7 +166,7 @@ define([
                 errorMsg = error;
             }
             else {
-                errorMsg = "We could not publish on Tumblr.";
+                errorMsg = "We could not publish to Tumblr. Here's why: '" + error.message + "' and the code: " + error.code;
                 if(error.code === 401 || error.code === 403) {
                     oauthParams = undefined;
                     storage.removeItem("tumblrOauthParams");

@@ -1,0 +1,7 @@
+{
+  "oauth_consumer_key": "bxvxbTziudUCRj7WUWWw40iaaNoHkn2GnTYg4NRuyg4K0UWQMO",
+  "oauth_consumer_secret": "2yPBNL2uBKuOlIhT3RcvA618V49RCYHa602F6mHkTh7yclP8vr",
+  "oauth_request_token_url": "https://www.tumblr.com/oauth/request_token",
+  "oauth_access_token_url": "https://www.tumblr.com/oauth/access_token",
+    "oauth_redirect_url": "https://mammal-charter.codio.io:9501/html/tumblr-oauth-client.html"
+}

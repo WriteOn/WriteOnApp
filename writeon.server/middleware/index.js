@@ -15,4 +15,7 @@ module.exports = function(app) {
 	app.post('/picasaImportImg', require('./picasa').importImg);
 	app.get('/downloadImport', require('./download').importPublic);
 	
+	//connect the proxy API middleware
+	require('./proxy')(app);
+	
 };
