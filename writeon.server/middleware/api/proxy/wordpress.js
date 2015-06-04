@@ -18,8 +18,8 @@ var oauth2 = require('oauth').OAuth2,
         return config;
     }
     var config = loadConfig();
-    app.use(bodyParser.json())
-	app.use(bodyParser.urlencoded({ extended: false }))
+    app.use(bodyParser.json());
+	app.use(bodyParser.urlencoded({ extended: false }));
 	
     function createOauthObject() {
         return new oauth2(config.oauth_client_id, config.oauth_client_secret, config.oauth_base_site, config.oauth_authorize_path, config.oauth_access_token_path);

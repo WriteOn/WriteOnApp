@@ -67,7 +67,7 @@ define([
                     task.error(new Error('You canceled.'));
                 });
             }
-            var errorMsg = "We `failed` to verify the request token from Tumblr.";
+            errorMsg = "We `failed` to verify the request token from Tumblr.";
 				function getVerifier() {
                 storage.removeItem("tumblrVerifier");
                 authWindow = utils.popupWindow('html/tumblr-oauth-client.html?oauth_token=' + oauth_object.oauth_token, 'writeon-tumblr-oauth', 800, 600);
@@ -87,7 +87,7 @@ define([
                     }
                 }, 500);
             }
-            var errorMsg = "We `failed` to retrieve the access token from Tumblr.";
+            errorMsg = "We `failed` to retrieve the access token from Tumblr.";
 			function getAccessToken() {
                 $.getJSON(constants.TUMBLR_PROXY_URL + "access_token", oauth_object, function(data) {
                     if(data.access_token !== undefined && data.access_token_secret !== undefined) {

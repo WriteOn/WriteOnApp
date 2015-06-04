@@ -21,8 +21,8 @@ var url = require('url'),
         return config;
     }
     var config = loadConfig();
-	app.use(bodyParser.json())
-	app.use(bodyParser.urlencoded({ extended: false }))
+	app.use(bodyParser.json());
+	app.use(bodyParser.urlencoded({ extended: false }));
 
     function createOauthObject() {
         return new oauth(config.oauth_request_token_url, config.oauth_access_token_url, config.oauth_consumer_key, config.oauth_consumer_secret, "1.0", config.oauth_redirect_url, "HMAC-SHA1");
