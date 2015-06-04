@@ -16,8 +16,8 @@ var url = require('url'),
         for(var i in config) {
             config[i] = process.env[i.toUpperCase()] || config[i];
         }
-        console.log('Tumblr API Configuration');
-        console.log(config);
+        console.log('Tumblr API Configured');
+        // console.log(config);
         return config;
     }
     var config = loadConfig();

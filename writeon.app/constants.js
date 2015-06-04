@@ -40,11 +40,17 @@ define([], function() {
 
 	// App dependent
 	constants.BASE_URL = constants.MAIN_URL;
-	constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
-	constants.GITHUB_CLIENT_ID = 'af6858e3fa3165986ce7';
+	constants.DROPBOX_API_URL = "/api/dropbox/";
+	constants.GOOGLE_API_URL = "/api/google/";
+	constants.GHOST_API_URL = "/api/ghost/";
+	constants.GITHUB_API_URL = "/api/github/";
+	constants.TUMBLR_API_URL = "/api/tumblr/";
+	constants.WORDPRESS_API_URL = "/api/wordpress/";
 	constants.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/";
 	constants.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/";
     constants.GHOST_PROXY_URL = "https://writeon-ghost-proxy.herokuapp.com/";
+	constants.GOOGLE_CLIENT_ID = '1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com';
+	constants.GITHUB_CLIENT_ID = 'af6858e3fa3165986ce7';
 	constants.WORDPRESS_CLIENT_ID = '37535';
 	constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/";
     

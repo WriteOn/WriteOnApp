@@ -43,7 +43,7 @@ define([
 					secret: settings.dropboxFullAccess === true ? constants.DROPBOX_APP_SECRET : constants.DROPBOX_RESTRICTED_APP_SECRET
 				});
 				client.authDriver(new Dropbox.AuthDriver.Popup({
-					receiverUrl: constants.BASE_URL + "html/dropbox-oauth-receiver.html",
+					receiverUrl: constants.DROPBOX_API_URL + "oauth/receiver",
 					rememberUser: true
 				}));
 				task.chain();

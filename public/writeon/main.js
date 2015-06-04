@@ -7369,10 +7369,12 @@ var saveAs = saveAs || function(e) {
  e.PDF_EXPORT_URL = "/pdfExport", e.BOOT_MYWRITEON_URL = "/bootmywriteon", e.COUCHDB_DB = "documents", 
  e.COUCHDB_SERVER = "https://cloud1.writeon.io", e.COUCHDB_BASIC_AUTH = "YmVhcmRhbmRmZWRvcmE6eWFiMGlz", 
  e.COUCHDB_AUTH_SERVER = "aHR0cHM6Ly9iZWFyZGFuZGZlZG9yYTp5YWIwaXNAd3JpdGVvbi5jb3VjaGFwcHkuY29t", 
- e.BASE_URL = e.MAIN_URL, e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
- e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/", 
+ e.BASE_URL = e.MAIN_URL, e.DROPBOX_API_URL = "/api/dropbox/", e.GOOGLE_API_URL = "/api/google/", 
+ e.GHOST_API_URL = "/api/ghost/", e.GITHUB_API_URL = "/api/github/", e.TUMBLR_API_URL = "/api/tumblr/", 
+ e.WORDPRESS_API_URL = "/api/wordpress/", e.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/", 
  e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.GHOST_PROXY_URL = "https://writeon-ghost-proxy.herokuapp.com/", 
- e.WORDPRESS_CLIENT_ID = "37535", e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", 
+ e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
+ e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.WORDPRESS_CLIENT_ID = "37535", e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", 
  0 === location.hostname.indexOf("writeon.io") ? (e.BASE_URL = e.MAIN_URL, e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
  e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
  e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/", 
@@ -22123,7 +22125,7 @@ function() {
   }), D = I.find("i");
  }, f;
 }), define("text!html/findReplace.html", [], function() {
- return '<button type="button" class="close button-find-replace-dismiss">\xd7</button>\n<div class="form-inline">\n    <div class="form-group">\n        <label for="input-find-replace-search-for">Search for</label>\n        <input class="form-control" id="input-find-replace-search-for" placeholder="Search for">\n    </div>\n    <div class="form-group">\n        <label for="input-find-replace-replace-with">Replace with</label>\n        <input class="form-control" id="input-find-replace-replace-with" placeholder="Replace with">\n    </div>\n</div>\n<div class="pull-right">\n    <div class="help-block text-right">\n        <span class="found-counter">0</span> found\n    </div>\n    <div>\n        <button type="button" class="btn btn-primary search-button">Search</button>\n        <button type="button" class="btn btn-default replace-button">Replace</button>\n        <button type="button" class="btn btn-default replace-all-button">All</button>\n    </div>\n</div>\n<div class="pull-left">\n    <div class="checkbox">\n        <label>\n            <input type="checkbox" class="checkbox-case-sensitive"> Case sensitive\n        </label>\n    </div>\n    <div class="checkbox">\n        <label>\n            <input type="checkbox" class="checkbox-regexp"> Regular expression\n        </label>\n    </div>\n</div>\n';
+ return '<button type="button" class="close button-find-replace-dismiss">\xd7</button>\n<div class="form-inline">\n    <div class="form-group">\n        <label for="input-find-replace-search-for">Search for</label>\n        <input class="form-control" id="input-find-replace-search-for" placeholder="Search for">\n    </div>\n    <div class="form-group">\n        <label for="input-find-replace-replace-with">Replace with</label>\n        <input class="form-control" id="input-find-replace-replace-with" placeholder="Replace with">\n    </div>\n</div>\n<div class="pull-right">\n    <div class="help-block text-right">\n        <span class="found-counter">0</span> found\n    </div>\n    <div>\n        <button type="button" class="btn btn-link search-button">Search</button>\n        <button type="button" class="btn btn-link replace-button">Replace</button>\n        <button type="button" class="btn btn-link replace-all-button">All</button>\n    </div>\n</div>\n<div class="pull-left">\n    <div class="checkbox">\n        <label>\n            <input type="checkbox" class="checkbox-case-sensitive"> Case sensitive\n        </label>\n    </div>\n    <div class="checkbox">\n        <label>\n            <input type="checkbox" class="checkbox-regexp"> Regular expression\n        </label>\n    </div>\n</div>\n';
 }), define("text!html/findReplaceSettingsBlock.html", [], function() {
  return '<p>Helps find and replace text in the current story.</p>\n<div class="form-horizontal">\n	<div class="form-group">\n		<label class="col-sm-5 control-label"\n			for="input-find-replace-shortcut">Shortcut</label>\n		<div class="col-sm-6">\n			<input type="text" id="input-find-replace-shortcut"\n				class="form-control">\n		</div>\n	</div>\n</div>';
 }), define("extensions/findReplace", [ "jquery", "underscore", "crel", "utils", "classes/Extension", "mousetrap", "rangy", "text!html/findReplace.html", "text!html/findReplaceSettingsBlock.html" ], function(e, t, n, i, r, o, a, s, l) {
@@ -26677,7 +26679,7 @@ Prism.languages.latex = {
      key: s.dropboxFullAccess === !0 ? n.DROPBOX_APP_KEY : n.DROPBOX_RESTRICTED_APP_KEY,
      secret: s.dropboxFullAccess === !0 ? n.DROPBOX_APP_SECRET : n.DROPBOX_RESTRICTED_APP_SECRET
     }), f.authDriver(new Dropbox.AuthDriver.Popup({
-     receiverUrl: n.BASE_URL + "html/dropbox-oauth-receiver.html",
+     receiverUrl: n.DROPBOX_API_URL + "oauth/receiver",
      rememberUser: !0
     })), t.chain();
    }).fail(function(e) {
@@ -28438,7 +28440,7 @@ Prism.languages.latex = {
    function c() {
     r.removeItem("githubCode");
     var e = a.githubFullAccess ? "repo,gist" : "public_repo,gist";
-    o = i.popupWindow("html/github-oauth-client.html?client_id=" + t.GITHUB_CLIENT_ID + "&scope=" + e, "writeon-github-oauth", 960, 600), 
+    o = i.popupWindow(t.GATEKEEPER_URL + "oauth/client/?client_id=" + t.GITHUB_CLIENT_ID + "&scope=" + e, "writeon-github-oauth", 960, 600), 
     o.focus(), s = setInterval(function() {
      if (o.closed === !0) {
       if (clearInterval(s), o = void 0, s = void 0, f = r.githubCode, void 0 === f) return void n.error(new Error(p));
@@ -28654,7 +28656,7 @@ Prism.languages.latex = {
     });
    }
    function c() {
-    r.removeItem("tumblrVerifier"), o = i.popupWindow("html/tumblr-oauth-client.html?oauth_token=" + f.oauth_token, "writeon-tumblr-oauth", 800, 600), 
+    r.removeItem("tumblrVerifier"), o = i.popupWindow(t.TUMBLR_PROXY_URL + "oauth/client/?oauth_token=" + f.oauth_token, "writeon-tumblr-oauth", 800, 600), 
     o.focus(), a = setInterval(function() {
      if (o.closed === !0) {
       if (clearInterval(a), o = void 0, a = void 0, f.oauth_verifier = r.tumblrVerifier, 
@@ -28769,7 +28771,7 @@ Prism.languages.latex = {
     });
    }
    function l() {
-    r.removeItem("wordpressCode"), o = i.popupWindow("html/wordpress-oauth-client.html?client_id=" + t.WORDPRESS_CLIENT_ID, "writeon-wordpress-oauth", 960, 600), 
+    r.removeItem("wordpressCode"), o = i.popupWindow(t.WORDPRESS_PROXY_URL + "oauth/client/?client_id=" + t.WORDPRESS_CLIENT_ID, "writeon-wordpress-oauth", 960, 600), 
     o.focus(), a = setInterval(function() {
      if (o.closed === !0) {
       if (clearInterval(a), o = void 0, a = void 0, p = r.wordpressCode, void 0 === p) return n.error(new Error(u));

@@ -14,8 +14,8 @@ module.exports = function(app) {
         for(var i in config) {
             config[i] = process.env[i.toUpperCase()] || config[i];
         }
-        console.log('Github Configuration');
-        console.log(config);
+        console.log('Github API Configured');
+        // console.log(config);
         return config;
     }
     var config = loadConfig();

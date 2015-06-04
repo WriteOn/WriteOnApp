@@ -57,7 +57,13 @@ app.get('/paper', function(req, res) {
 	
 
 /* 
- * ROUTES. This is writeon.io specific routing 
+ * API ROUTES. This is API middleware specific routing 
+*/	
+// API Views -  includes fully configured static routes for APIs (wordpress, dropbox, etc)
+require('./api')(app);
+
+/* 
+ * WEB ROUTES. This is writeon.io specific routing 
 */	
 // Variant Static Pages -  includes fully configured static routes for landing pages
 require('./variant')(app);

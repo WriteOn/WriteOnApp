@@ -13,8 +13,8 @@ var oauth2 = require('oauth').OAuth2,
         for(var i in config) {
             config[i] = process.env[i.toUpperCase()] || config[i];
         }
-        console.log('Wordpress API Configuration');
-        console.log(config);
+        console.log('Wordpress API Configured');
+        // console.log(config);
         return config;
     }
     var config = loadConfig();
