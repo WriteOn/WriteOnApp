@@ -48,16 +48,16 @@
                 <li class="wmd-button-group5 btn-group hidden-xs"></li>
             </ul>
             <ul class="nav navbar-nav navbar-right extension-buttons syncing-menu">
-                <li class="offline-status hide">
+                <li class="dropdown offline-status hide">
                     <div class="text-danger">
-                        <a class="btn btn-danger" title="You are offline...It's a great time to write!"><i class="icon-attention-circled"></i></a>
+                        <a class="dropdown-toggle" title="You are offline...It's a great time to write!"><i class="icon-attention-circled"></i></a>
                     </div>
                 </li>
-                <li class="dropdown extension-buttons syncing-menu">
-                    <a href="#" class="dropdown-toggle tooltip-sync" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-cw"></i> <span class="caret"></span></a>
+                <li class="dropdown sync-buttons syncing-menu">
+                    <a href="#" class="dropdown-toggle tooltip-sync" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-upload-cloud"></i></a>
                     <ul class="dropdown-menu sync-menu" role="menu">
                         <li class="divider show-already-synchronized sync-divider"></li>
-                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-upload-cloud text-blue"></i> My.WriteOn</a>
+                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-inbox"></i> WriteOn</a>
                         </li>
                         <li><a href="#" class="action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
                         </li>
@@ -71,14 +71,14 @@
                         </li>
 					</ul>
                 </li>
-                <li class="dropdown extension-buttons publishing-menu">
-                    <a href="#" class="dropdown-toggle tooltip-publish" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-share"></i> <span class="caret"></span></a>
+                <li class="dropdown sync-buttons publishing-menu">
+                    <a href="#" class="dropdown-toggle tooltip-publish" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-share"></i></a>
                     <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
                         <li class="divider show-already-published publish-divider"></li>
                     </ul>
                 </li>
-                <li class="dropdown download-menu hidden-xs hidden-sm">
-                    <a href="#" class="dropdown-toggle tooltip-download" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-collapse"></i> <span class="caret"></span></a>
+                <li class="dropdown download-menu hidden-xs">
+                    <a href="#" class="dropdown-toggle tooltip-download" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-download"></i></a>
                     <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
                         <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>
                         </li>
@@ -184,7 +184,7 @@
         </div>
     </div>
 <div class="document-panel">
-    <button class="btn toggle-button" title="Select story Ctrl+[ Ctrl+]">
+    <button class="btn toggle-button tooltip-story-panel" title="My Stories">
         <i class="icon-folder-open fa-2x text-black"></i>
     </button>
     <div class="search-bar clearfix">
@@ -321,8 +321,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-default pull-left action-import-image-gplus" data-dismiss="modal"><i class="icon-provider-gplus"></i> Import from Google+</a>  
-				<a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal">Import</a>
+				<a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal">Insert</a> OR 
+                <a href="#" class="btn btn-link action-import-image-gplus" data-dismiss="modal"><i class="icon-provider-gplus"></i> Import from Google+</a>  
             </div>
         </div>
     </div>
@@ -839,14 +839,9 @@ story title will be used.</span>
             </div>
             <div class="modal-body">
                 <p>
-                    "<span class="file-title"></span>" is published on the following location(s):
+                    "<span class="file-title"></span>" is published on the following location(s): <a href="#" class=".tooltip-manage-publications">?</a>
                 </p>
                 <div class="publish-list"></div>
-				<blockquote class="alert alert-info">
-                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-					</button>
-                    <p><b>Stating the Obvious?</b> Maybe, but removing a published location will not delete the actual post out in the wild.</p>
-                </blockquote>
             </div>
         </div>
     </div>

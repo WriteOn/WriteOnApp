@@ -61,11 +61,11 @@ define([
 
     var isReady = false;
     var $offlineStatusElt;
-    var $extensionButtonsElt;
+    var $syncButtonsElt;
     notifications.onReady = function() {
         isReady = true;
         $offlineStatusElt = $('.navbar .offline-status');
-        $extensionButtonsElt = $('.navbar .extension-buttons');
+        $syncButtonsElt = $('.navbar .sync-buttons');
         updateOnlineStatus();
     };
 
@@ -89,7 +89,7 @@ define([
             return;
         }
         $offlineStatusElt.toggleClass('hide', !isOffline);
-        $extensionButtonsElt.toggleClass('hide', isOffline);
+        $syncButtonsElt.toggleClass('hide', isOffline);
     }
     notifications.onOfflineChanged = function(isOfflineParam) {
         isOffline = isOfflineParam;
