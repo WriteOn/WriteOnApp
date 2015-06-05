@@ -36,7 +36,7 @@ define([
             jGrowl.defaults.life = notifications.config.timeout;
             jGrowl.defaults.closer = false;
             jGrowl.defaults.closeTemplate = '';
-            jGrowl.defaults.position = 'bottom-right';
+            jGrowl.defaults.position = 'bottom-left';
             isInit = true;
         }
     }
