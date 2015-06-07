@@ -18,7 +18,7 @@ define([
 
 	var PROVIDER_COUCHDB = "mywriteon";
 
-	var couchdbProvider = new Provider(PROVIDER_COUCHDB, "My.WriteOn");
+	var couchdbProvider = new Provider(PROVIDER_COUCHDB, "WriteOn");
 	couchdbProvider.importPreferencesInputIds = [
 		PROVIDER_COUCHDB + "-tag"
 	];

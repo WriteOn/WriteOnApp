@@ -592,22 +592,8 @@ define([
 		// Tooltips and helpers within the app
 		// In this order: selector, content, placement, trigger, container
 		// See Bootstrap tooltip docs for help
-		utils.createTooltip(".tooltip-lazy-rendering", 'Disable preview rendering while typing in order to offload CPU. Refresh preview after 500 ms of inactivity.', "right", "hover", "modal");
-		utils.createTooltip(".tooltip-default-content", [
-			'Thanks for supporting WriteOn by adding a backlink in your stories! You can also leave this blank - thanks for using WriteOn!',
-		].join(''), "right", "hover", "modal");
-		utils.createTooltip(".tooltip-delete", '<p>This only deletes the local story.</p><p>Any synchronized or published stories will not be affected.</p>', "right", "hover", "modal");
-		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML, "right", "hover", "modal");
-		utils.createTooltip(".tooltip-dropbox", settingsDropboxTooltipHTML, "right", "hover", "modal");
-		utils.createTooltip(".tooltip-mywriteon", settingsMyWriteonTooltipHTML, "right", "hover", "modal");
-		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML, "right", "hover", "modal");
-		utils.createTooltip(".tooltip-dm-stories", "Number of Stories", "bottom", "hover", "modal");
-		utils.createTooltip(".tooltip-dm-folders", "Number of Storybooks", "bottom", "hover", "modal");
-		utils.createTooltip(".tooltip-autosync-help", "If no folder is specified, your stories will be created in the root Drive folder", "right", "hover", "modal");		
-		utils.createTooltip(".tooltip-gdrivesync-help", "This will overwrite the existing story on your Drive", "right", "hover", "modal");		
-		utils.createTooltip(".tooltip-gdrivesync-folder", "Choose which Drive folder to save this story into", "right", "hover", "modal");		
-		utils.createTooltip(".tooltip-manage-publications", "<b>Stating the Obvious?</b> Maybe, but removing a published location here will not delete the actual post out in the wild.", "top", "hover", "modal");		
-		// Toolbar & action tooltips
+		// 
+		// Toolbar & action tooltips. This should be in json. 
 		utils.createTooltip(".button-open-discussion", "Insert Comment", "bottom", "hover", "body");
 		utils.createTooltip(".title-container", "Rename Story", "bottom", "hover", "body");
 		utils.createTooltip(".create-fab", "New Story", "top", "hover", "editor-content");		
@@ -619,6 +605,24 @@ define([
 		utils.createTooltip(".tooltip-publish", "Publish", "bottom", "hover", "body");		
 		utils.createTooltip(".tooltip-download", "Download", "bottom", "hover", "body");
 		utils.createTooltip(".tooltip-story-panel", "My Stories", "left", "hover", "body");
+
+		// General purpose helpers. This should be in json
+		utils.createTooltip(".tooltip-lazy-rendering", 'Disable preview rendering while typing in order to offload CPU. Refresh preview after 500 ms of inactivity.', "right", "hover", "modal");
+		utils.createTooltip(".tooltip-default-content", [
+			'Thanks for supporting WriteOn by adding a backlink in your stories! You can also leave this blank - thanks for using WriteOn!',
+		].join(''), "right", "hover", "modal");
+		utils.createTooltip(".tooltip-delete", '<p>This only deletes the local story.</p><p>Any synchronized or published stories will not be affected.</p>', "right", "hover", "modal");
+		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML, "right", "hover", "modal");
+		utils.createTooltip(".tooltip-dropbox", settingsDropboxTooltipHTML, "right", "hover", "modal");
+		utils.createTooltip(".tooltip-mywriteon", settingsMyWriteonTooltipHTML, "right", "hover", "modal");
+		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML, "right", "hover", "modal");
+		utils.createTooltip(".tooltip-dm-stories", "Number of Stories", "bottom", "hover", "modal");
+		utils.createTooltip(".tooltip-dm-folders", "Number of Storybooks", "bottom", "hover", "modal");
+		utils.createTooltip(".tooltip-remove-sync-loc", "Removing a synchronized location will not delete the local story.", "right", "hover", "modal");
+		utils.createTooltip(".tooltip-autosync-help", "If no folder is specified, your stories will be created in the root Drive folder", "right", "hover", "modal");		
+		utils.createTooltip(".tooltip-gdrivesync-help", "This will overwrite the existing story on your Drive", "right", "hover", "modal");		
+		utils.createTooltip(".tooltip-gdrivesync-folder", "Choose which Drive folder to save this story into", "right", "hover", "modal");		
+		utils.createTooltip(".tooltip-manage-publications", "<b>Stating the Obvious?</b> Maybe, but removing a published location here will not delete the actual post out in the wild.", "top", "hover", "modal");		
 		
 		// Avoid dropdown panels to close on click
 		$("div.dropdown-menu").click(function(e) {

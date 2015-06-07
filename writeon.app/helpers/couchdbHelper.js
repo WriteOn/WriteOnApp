@@ -243,7 +243,7 @@ define([
 		var task = new AsyncTask();
 		task.onRun(function() {
 			$.ajax({
-				type: 'POST',
+				type: 'GET',
 				url: settings.couchdbUrl + '/_changes?' + $.param({
 					filter: '_doc_ids',
 					since: newChangeId,
