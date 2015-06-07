@@ -5,9 +5,8 @@ define([
     "classes/Extension",
 ], function($, _, crel, Extension) {
 
-    var buttonPublish = new Extension("buttonPublish", 'Button "Publish"');
-    // buttonPublish.settingsBlock = '<p>Adds a "Publish story" button in the
-    // navigation bar.</p>';
+    var buttonPublish = new Extension("buttonPublish", 'Publish', false, true);
+    buttonPublish.settingsBlock = '<p>Enables publishing to other platforms.</p>';
 
     var $button;
     var currentFileDesc;

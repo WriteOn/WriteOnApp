@@ -40,7 +40,7 @@ define([
 		task.onRun(function() {
         
         var xhr = new XMLHttpRequest();
-				xhr.open('PUT', mywriteonserver + '/' + mywriteondb, true);
+				xhr.open('PUT', mywriteonserver, true);
 				xhr.setRequestHeader('Content-type', 'application/json');
                 xhr.setRequestHeader('Authorization', 'Basic ' + mywriteonauth + ''); 
 				xhr.onreadystatechange = function() {
@@ -79,7 +79,7 @@ define([
 	couchdbHelper.configuremywriteondb = function(mywriteondb, callback) {
 	//set the base couchdb server
     var mywriteonserver = settings.couchdbserver;
-    var mywriteondesignurl = mywriteonserver + '/' + mywriteondb;
+    var mywriteondesignurl = mywriteonserver + '/_design/';
     var mywriteonauth = settings.couchdbauth;        //base64 encoded       
     var result;
  
@@ -89,7 +89,7 @@ define([
 			//create the `validate` design doc
 			$.ajax({
 				type: 'PUT',
-				url: mywriteondesignurl + '/_design/validate',
+				url: mywriteondesignurl + 'validate',
 				headers: {
                     Authorization: 'Basic ' + mywriteonauth + '',
 					Accept: 'application/json'
@@ -110,7 +110,7 @@ define([
             //create the `by_update` view
 			$.ajax({
 				type: 'PUT',
-				url: mywriteondesignurl + '/_design/by_update',
+				url: mywriteondesignurl + 'by_update',
 				headers: {
                     Authorization: 'Basic ' + mywriteonauth + '',
 					Accept: 'application/json'
@@ -135,7 +135,7 @@ define([
             //create the `by_tag_and_update` view
 			$.ajax({
 				type: 'PUT',
-				url: mywriteondesignurl + '/_design/by_tag_and_update',
+				url: mywriteondesignurl + 'by_tag_and_update',
 				headers: {
                     Authorization: 'Basic ' + mywriteonauth + '',
 					Accept: 'application/json'

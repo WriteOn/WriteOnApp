@@ -10,7 +10,7 @@ define([
 		lazyRendering: true,
 		editorFontClass: 'font-rich',
 		fontSizeRatio: 1,
-		maxWidthRatio: 1,
+		maxWidthRatio: 2,
 		cursorFocusRatio: 0.5,
 		defaultContent: "---\n> Written with [WriteOn](" + constants.MAIN_URL + ").",
 		commitMsg: "Published with " + constants.MAIN_URL,

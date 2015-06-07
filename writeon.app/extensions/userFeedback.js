@@ -4,8 +4,8 @@ define([
     "text!html/buttonUserFeedback.html",
 ], function($, Extension, buttonUserFeedbackHTML) {
 
-    var buttonUserFeedback = new Extension("buttonUserFeedback", 'Button "Feedback', false, true);
-    buttonUserFeedback.settingsBlock = '<p>Adds a "Feedback" button over the preview.</p>';
+    var buttonUserFeedback = new Extension("buttonUserFeedback", 'Feedback & Support', false, true);
+    buttonUserFeedback.settingsBlock = '<p>Adds a convenient "Feedback/Support" button.</p>';
 
     buttonUserFeedback.onCreatePreviewButton = function() {
         /* jshint ignore:start */

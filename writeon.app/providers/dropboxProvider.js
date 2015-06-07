@@ -14,6 +14,8 @@ define([
     var dropboxProvider = new Provider(PROVIDER_DROPBOX, "Dropbox");
     dropboxProvider.defaultPublishFormat = "template";
 
+	dropboxProvider.isPublishEnabled = false;
+	
 	dropboxProvider.getSyncLocationLink = dropboxProvider.getPublishLocationLink = function(attributes) {
 		var pathComponents = attributes.path.split('/').map(encodeURIComponent);
 		var filename = pathComponents.pop();

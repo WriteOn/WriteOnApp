@@ -20,6 +20,7 @@ define([
 
 		var gdriveProvider = new Provider(providerId, providerName);
 		gdriveProvider.defaultPublishFormat = "template";
+		gdriveProvider.isPublishEnabled = false;
 		gdriveProvider.exportPreferencesInputIds = [
 			providerId + "-parentid"
 		];

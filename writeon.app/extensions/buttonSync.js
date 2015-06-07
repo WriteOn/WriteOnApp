@@ -9,7 +9,7 @@ define([
     "text!html/buttonSyncSettingsBlock.html",
 ], function($, _, crel, utils, Extension, mousetrap, Slider, buttonSyncSettingsBlockHTML) {
 
-    var buttonSync = new Extension("buttonSync", 'Button "Synchronize"', false, true);
+    var buttonSync = new Extension("buttonSync", 'Synchronize', false, true);
     buttonSync.settingsBlock = buttonSyncSettingsBlockHTML;
     buttonSync.defaultConfig = {
         syncPeriod: 60000,
