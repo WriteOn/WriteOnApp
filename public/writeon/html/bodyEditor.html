@@ -11,41 +11,6 @@
                 <li>
                     <a href="paper" title="WriteOn Paper" role="menuitem" class="hide hidden"><i class="icon-doc-text"></i> Switch to Paper</a>
                 </li>
-				<li class="dropdown sync-buttons syncing-menu show-xs">
-                    <a href="#" class="dropdown-toggle tooltip-sync" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-upload-cloud"></i></a>
-                    <ul class="dropdown-menu sync-menu" role="menu">
-                        <li class="divider show-already-synchronized sync-divider"></li>
-                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-provider-writeon"></i> WriteOn</a>
-                        </li>
-                        <li><a href="#" class="action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
-                        </li>
-                        <li><a href="#" class="submenu-sync-gdrive action-sync-export-dialog-gdrive"><i class="icon-provider-gdrive"></i> Drive</a>
-                        </li>
-                        <li><a href="#" class="submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i class="icon-provider-gdrive"></i> Drive<sup>2</sup></a>
-                        </li>
-                        <li><a href="#" class="submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i class="icon-provider-gdrive"></i> Drive<sup>3</sup></a>
-                        </li>
-                        <li><a href="#" data-toggle="modal" data-target=".modal-manage-sharing" class="action-reset-input"><i class="icon-link text-green"></i> Sharing</a>
-                        </li>
-					</ul>
-                </li>
-                <li class="dropdown sync-buttons publishing-menu show-xs">
-                    <a href="#" class="dropdown-toggle tooltip-publish" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-share"></i></a>
-                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
-                        <li class="divider show-already-published publish-divider"></li>
-                    </ul>
-                </li>
-                <li class="dropdown download-menu show-xs">
-                    <a href="#" class="dropdown-toggle tooltip-download" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-download"></i></a>
-                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
-                        <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>
-                        </li>
-                        <li><a class="action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>
-                        </li>
-                        <li><a class="action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>
-                        </li>
-                    </ul>
-                </li>
                 <li>
                     <a href="#" title="Settings & Preferences" data-toggle="modal" data-target=".modal-settings" class="action-load-settings"><i class="icon-cog-alt"></i> Settings & Preferences</a>
                 </li>
@@ -88,7 +53,7 @@
                         <a class="dropdown-toggle" title="You are offline...It's a great time to write!"><i class="icon-attention-circled"></i></a>
                     </div>
                 </li>
-                <li class="dropdown sync-buttons syncing-menu hide-xs">
+                <li class="dropdown sync-buttons syncing-menu">
                     <a href="#" class="dropdown-toggle tooltip-sync" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-upload-cloud"></i></a>
                     <ul class="dropdown-menu sync-menu" role="menu">
                         <li class="divider show-already-synchronized sync-divider"></li>
@@ -106,7 +71,7 @@
                         </li>
 					</ul>
                 </li>
-                <li class="dropdown sync-buttons publishing-menu hiddex-xs">
+                <li class="dropdown sync-buttons publishing-menu">
                     <a href="#" class="dropdown-toggle tooltip-publish" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-share"></i></a>
                     <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
                         <li class="divider show-already-published publish-divider"></li>
@@ -278,9 +243,6 @@
                             <li>
                                 <a href="#" class="action-create-folder text-black" title="Create New Storybook"> <i class="icon-plus-squared"></i> New Storybook</a>
                             </li>
-                            <li>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="font-size: 3.2em;padding: 14.5px 0 14.5px 14.5px;">×</button>
-                            </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li class="tooltip-dm-stories"><a href="#" title="Number of Stories"><i class="icon-file"></i> <span class="document-count"></span></a>
@@ -300,6 +262,9 @@
                                     <li><a href="#" class="action-delete-items"><i class="icon-trash text-red"></i> Delete</a>
                                     </li>
                                 </ul>
+                            </li>
+							 <li>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="font-size: 3.2em;padding: 14.5px 0 14.5px 14.5px;">×</button>
                             </li>
                         </ul>
                     </div>
