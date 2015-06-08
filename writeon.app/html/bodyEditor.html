@@ -11,6 +11,41 @@
                 <li>
                     <a href="paper" title="WriteOn Paper" role="menuitem" class="hide hidden"><i class="icon-doc-text"></i> Switch to Paper</a>
                 </li>
+				<li class="dropdown sync-buttons syncing-menu show-xs">
+                    <a href="#" class="dropdown-toggle tooltip-sync" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-upload-cloud"></i></a>
+                    <ul class="dropdown-menu sync-menu" role="menu">
+                        <li class="divider show-already-synchronized sync-divider"></li>
+                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-provider-writeon"></i> WriteOn</a>
+                        </li>
+                        <li><a href="#" class="action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
+                        </li>
+                        <li><a href="#" class="submenu-sync-gdrive action-sync-export-dialog-gdrive"><i class="icon-provider-gdrive"></i> Drive</a>
+                        </li>
+                        <li><a href="#" class="submenu-sync-gdrivesec action-sync-export-dialog-gdrivesec"><i class="icon-provider-gdrive"></i> Drive<sup>2</sup></a>
+                        </li>
+                        <li><a href="#" class="submenu-sync-gdriveter action-sync-export-dialog-gdriveter"><i class="icon-provider-gdrive"></i> Drive<sup>3</sup></a>
+                        </li>
+                        <li><a href="#" data-toggle="modal" data-target=".modal-manage-sharing" class="action-reset-input"><i class="icon-link text-green"></i> Sharing</a>
+                        </li>
+					</ul>
+                </li>
+                <li class="dropdown sync-buttons publishing-menu show-xs">
+                    <a href="#" class="dropdown-toggle tooltip-publish" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-share"></i></a>
+                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
+                        <li class="divider show-already-published publish-divider"></li>
+                    </ul>
+                </li>
+                <li class="dropdown download-menu show-xs">
+                    <a href="#" class="dropdown-toggle tooltip-download" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-download"></i></a>
+                    <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
+                        <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>
+                        </li>
+                        <li><a class="action-download-html" href="#" title="Download HTML file"><i class="icon-shield"></i> HTML</a>
+                        </li>
+                        <li><a class="action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <a href="#" title="Settings & Preferences" data-toggle="modal" data-target=".modal-settings" class="action-load-settings"><i class="icon-cog-alt"></i> Settings & Preferences</a>
                 </li>
@@ -26,7 +61,7 @@
             </ul>
         </div>
         <div class="nav right-space pull-right"></div>
-        <div class="buttons-dropdown dropdown">
+        <div class="buttons-dropdown dropdown hide">
             <div class="nav">
                 <button class="btn btn-default" data-toggle="dropdown" title="Show buttons">
                     <i class="icon-th-large"></i>
@@ -53,11 +88,11 @@
                         <a class="dropdown-toggle" title="You are offline...It's a great time to write!"><i class="icon-attention-circled"></i></a>
                     </div>
                 </li>
-                <li class="dropdown sync-buttons syncing-menu">
+                <li class="dropdown sync-buttons syncing-menu hide-xs">
                     <a href="#" class="dropdown-toggle tooltip-sync" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-upload-cloud"></i></a>
                     <ul class="dropdown-menu sync-menu" role="menu">
                         <li class="divider show-already-synchronized sync-divider"></li>
-                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-inbox"></i> WriteOn</a>
+                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-provider-writeon"></i> WriteOn</a>
                         </li>
                         <li><a href="#" class="action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
                         </li>
@@ -71,7 +106,7 @@
                         </li>
 					</ul>
                 </li>
-                <li class="dropdown sync-buttons publishing-menu">
+                <li class="dropdown sync-buttons publishing-menu hiddex-xs">
                     <a href="#" class="dropdown-toggle tooltip-publish" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-share"></i></a>
                     <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
                         <li class="divider show-already-published publish-divider"></li>
@@ -193,7 +228,7 @@
                 <ul class="nav navbar-nav navbar-left" style="margin-bottom:0; margin-left: 3em;">
                     <li><a href="#" class="action-create-file" title="Create New Story" style="padding:8px;"><i class="icon-plus-circled fa-lg text-blue"></i></a></li>
 					<li><a href="#" class="action-remove-file-confirm" title="Delete Current Story"><i class="icon-trash text-red"></i></a></li>
-					<li><a href="#" class="file action-dm" data-toggle="modal" data-target=".modal-document-manager" title="Organize Stories"><i class="icon-layers text-purple"></i></a></li>
+					<li><a href="#" class="file action-dm" data-toggle="modal" data-target=".modal-document-manager" title="Organize Stories"><i class="icon-layers"></i></a></li>
 					<li class="dropdown story-menu pull-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true" title="Import Stories"><i class="icon-docs text-dark-yellow"></i><span class="caret"></span></a>
                         <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
@@ -236,13 +271,18 @@
     <div class="modal-content">
         <div class="modal-body">
             <div></div>
-            <nav class="navbar navbar-inverse document-list">
+            <nav class="navbar navbar-default document-list">
                 <div class="container-fluid">
-                    <div class="navbar-header">
-                        <span class="navbar-brand">Organize Stories</span>
-                    </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                         <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#" class="action-create-folder text-black" title="Create New Storybook"> <i class="icon-plus-squared"></i> New Storybook</a>
+                            </li>
+                            <li>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="font-size: 3.2em;padding: 14.5px 0 14.5px 14.5px;">×</button>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
                             <li class="tooltip-dm-stories"><a href="#" title="Number of Stories"><i class="icon-file"></i> <span class="document-count"></span></a>
                             </li>
                             <li class="tooltip-dm-folders"><a href="#" title="Number of Storybooks"><i class="icon-folder"></i> <span class="folder-count"></span></a>
@@ -262,14 +302,6 @@
                                 </ul>
                             </li>
                         </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="active">
-                                <a href="#" class="action-create-folder text-black" title="Create New Storybook"> <i class="icon-plus-squared"></i> New Storybook</a>
-                            </li>
-                            <li>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="font-size: 3.2em;padding: 14.5px 0 14.5px 14.5px;">×</button>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </nav>
@@ -281,7 +313,8 @@
             <div class="panel-group select-folder-list hide"></div>
         </div>
         <div class="modal-footer">
-            <a href="#" class="btn btn-danger confirm-delete action-delete-items-confirm hide">Delete</a>
+            <a href="#" class="btn btn-link btn-flat confirm-delete action-cancel hide">Cancel</a>  &nbsp; 
+			<a href="#" class="btn btn-danger confirm-delete action-delete-items-confirm hide">Delete</a>
         </div>
     </div>
 </div>
@@ -564,7 +597,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Save to My.WriteOn</h2>
+                <h2 class="modal-title">Save to My WriteOn Cloud <sup class="text-danger">Beta</sup></h2>
             </div>
             <div class="modal-body">
                 <p class="msg-default-mywriteon alert alert-warning hide">
@@ -576,7 +609,7 @@
                     Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">♥</span>
                 </p>
                 <p>
-                    This will save "<span class="file-title"></span>" to My.WriteOn <sup class="text-danger">Beta</sup> and keep it synchronized.
+                    This will save <code><span class="file-title"></span></code> to your WriteOn Cloud and keep it synchronized.
                 </p>
                 <blockquote class="alert alert-info hide hidden">
 					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
@@ -627,9 +660,48 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Publish to <span class="publish-provider-name"></span></h2>
             </div>
             <div class="modal-body">
+				<div class="row">
+				  <div class="col-md-5">
+					<div class="pull-left" style="padding-right:5px;">
+						<span class="fa fa-server fa-3x modal-publish-ssh"></span>
+						<span class="fa fa-github text-black fa-3x modal-publish-github"></span>
+						<span class="fa fa-code-fork fa-3x modal-publish-gist"></span>
+						<span class="fa fa-bars text-black fa-3x modal-publish-ghost"></span>
+						<img class="modal-publish-blogger modal-publish-bloggerpage" src="writeon/img/blogger-logo.png">
+						<span class="fa fa-tumblr fa-3x modal-publish-tumblr" style="color: #35506B;"></span>
+						<span class="fa fa-wordpress fa-3x modal-publish-wordpress" style="color: #2990B3;"></span>
+						<span class="fa fa-dropbox fa-3x text-primary modal-publish-dropbox"></span>
+						<img class="hide hidden modal-publish-gdrive" src="writeon/img/google-drive.png">
+					</div>
+					<h2 class="modal-title"><span class="publish-provider-name"></span></h2>
+					<p class="text-left">
+						This will publish <code><span class="file-title"></span></code> to <span class="publish-provider-name"></span>.
+					</p>
+					                      <div class="form-group">
+                        <label class="col-sm-4 control-label">Format</label>
+                        <div class="col-sm-7">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-format" value="markdown">Markdown
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-format" value="html">HTML
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-format" value="template">Template
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+				  </div>
+					
+			<div class="col-md-7 form-horizontal">
                 <div class="form-horizontal">
                     <div class="form-group modal-publish-ssh">
                         <label class="col-sm-4 control-label" for="input-publish-ssh-host">Host</label>
@@ -673,7 +745,7 @@
                         <label class="col-sm-4 control-label" for="input-publish-file-path">File path</label>
                         <div class="col-sm-7">
                             <input type="text" id="input-publish-file-path" placeholder="path/to/file.md" class="form-control">
-                            <span class="help-block"> File path is composed of both folder and filename. </span>
+                            <span class="help-block"> Include both folder and filename. </span>
                         </div>
                     </div>
                     <div class="form-group modal-publish-gist">
@@ -737,7 +809,7 @@
                         <label class="col-sm-4 control-label" for="input-publish-dropbox-path">File path</label>
                         <div class="col-sm-7">
                             <input type="text" id="input-publish-dropbox-path" placeholder="/path/to/My Story.md" class="form-control">
-                            <span class="help-block"> File path is composed of both folder and filename. </span>
+                            <span class="help-block"> Include both folder and filename. </span>
                         </div>
                     </div>
                     <div class="form-group modal-publish-gdrive">
@@ -755,45 +827,22 @@
 story title will be used.</span>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Format</label>
-                        <div class="col-sm-7">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="radio-publish-format" value="markdown">Markdown
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="radio-publish-format" value="html">HTML
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="radio-publish-format" value="template">Template
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="collapse publish-custom-template-collapse">
-                        <div class="form-group">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-7">
+				</div>
+				</div>
+                </div>
+				<div class="row collapse publish-custom-template-collapse">
+                        <div class="form-group col-md-offset-2 col-md-10">
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" id="checkbox-publish-custom-template">Custom template
                                     </label> <a href="#" class="tooltip-template">(?)</a>
                                 </div>
-                            </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-7">
-                                <textarea class="form-control" id="textarea-publish-custom-template"></textarea>
-                            </div>
+                        <div class=" form-group col-md-offset-2 col-md-10">
+                            <textarea class="form-control" id="textarea-publish-custom-template"></textarea>
                         </div>
-                    </div>
-                </div>
+                    </div>				
+				
                 <blockquote class="front-matter-info modal-publish-blogger modal-publish-tumblr modal-publish-wordpress alert alert-info hide hidden">
                     <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                     </button>
@@ -1077,7 +1126,7 @@ story title will be used.</span>
                                 <div class="col-sm-12">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" id="input-settings-gdrive-full-access" />Allow WriteOn to open any story in Google Drive
+                                            <input type="checkbox" id="input-settings-gdrive-full-access" />Allow WriteOn to open any story in <i class="icon-provider-gdrive"></i> Google Drive
                                         </label> <span class="help-block">Existing authorization has to be revoked in
 <a href="https://www.google.com/settings/dashboard" target="_blank">Google Dashboard</a>
 for this change to take effect.</span>
@@ -1088,7 +1137,7 @@ for this change to take effect.</span>
                                 <div class="col-sm-12">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" id="input-settings-dropbox-full-access" />Allow WriteOn to open any story in Dropbox
+                                            <input type="checkbox" id="input-settings-dropbox-full-access" />Allow WriteOn to open any story in <i class="icon-provider-dropbox"></i> Dropbox
                                         </label> <span class="help-block">If unchecked, access will be restricted to folder <b>/Applications/WriteOn</b> for existing stories.</span>
                                     </div>
                                 </div>
@@ -1097,7 +1146,7 @@ for this change to take effect.</span>
                                 <div class="col-sm-12">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" id="input-settings-github-full-access" />Allow WriteOn to access private repositories in GitHub
+                                            <input type="checkbox" id="input-settings-github-full-access" />Allow WriteOn to access private repositories in <i class="icon-provider-github"></i> GitHub
                                         </label> <span class="help-block">Existing authorization has to be revoked in
 <a href="https://github.com/settings/applications" target="_blank">GitHub settings</a>
 for this change to take effect.</span>
@@ -1114,7 +1163,7 @@ for this change to take effect.</span>
                             <a href="#" class="btn btn-block btn-default action-welcome-file" data-dismiss="modal"><i class="icon-help-circled"></i> Load Welcome Guide</a>
                             <a href="#" class="btn btn-block btn-default action-guide-file" data-dismiss="modal"><i class="icon-keyboard"></i> Load Syntax Guide</a>
                             <a href="#" class="btn btn-block btn-default action-welcome-tour" data-dismiss="modal"><i class="icon-comment"></i> Welcome tour</a>
-                            <a target="_blank" href="recovery" class="btn btn-block btn-primary"><i class="icon-medkit"></i> WriteOn recovery</a>
+                            <a target="_blank" href="recovery" class="btn btn-block btn-success"><i class="icon-medkit"></i> WriteOn recovery</a>
                         </div>
                         <div class="col-sm-offset-1 col-lg-5 col-sm-12 tab-pane-button-container">
                             <a href="#" class="btn btn-block btn-default action-import-docs-settings"><i class="icon-cog-alt"></i> Import everything</a>  

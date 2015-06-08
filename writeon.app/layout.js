@@ -24,7 +24,7 @@ define([
 		height: 160
 	};
 	var menuPanelWidth = 335;
-	var documentPanelWidth = 400;
+	var documentPanelWidth = 370;
 	var titleMinWidth = 200;
 	var previewButtonsClosedOffset = 18;
 	var previewButtonsDropdownMargin = 130;
@@ -338,7 +338,8 @@ define([
 		$navbarTitleElt.css({
 			maxWidth: titleWidth
 		});
-		$navbarDropdownBtnElt.toggleClass('hide', navbarDropdownElt.children.length === 0);
+		// toggle hide for action dropdown for small screens
+		//$navbarDropdownBtnElt.toggleClass('hide', navbarDropdownElt.children.length === 0);
 
 		eventMgr.onLayoutResize();
 	}

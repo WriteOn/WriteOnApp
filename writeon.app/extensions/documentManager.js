@@ -48,8 +48,8 @@ define([
         '<%= folderDesc.name %></div></a>'
     ].join('');
     var selectedDocumentEltTmpl = [
-        '<li class="panel-group-item file clearfix">',
-        '<div class="name"><%= fileDesc.composeTitle() %></div></li>'
+        '<li class="panel-group-item file clearfix text-center">',
+        '<div class="name"><code><%= fileDesc.composeTitle() %></code></div></li>'
     ].join('');
 
     var isVisible;

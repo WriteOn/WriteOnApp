@@ -293,6 +293,9 @@ transition: opacity .07s linear,top .1s ease-out;
 		p {
 			text-align: center;
 		}
+		p.text-left {
+			text-align: left;
+		}
     }
 
 }
@@ -726,6 +729,16 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 				}
 			}
 		}
+		/* Gradient Dropdown bg */
+		ul.dropdown-menu {
+			background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e3e3e3));
+			background: -webkit-linear-gradient(top, #fff, #e3e3e3);
+			background: -moz-linear-gradient(top, #fff, #e3e3e3);
+			background: -ms-linear-gradient(top, #fff, #e3e3e3);
+			background: -o-linear-gradient(top, #fff, #e3e3e3);
+			background: linear-gradient(top, #fff, #e3e3e3);
+			background-color: #fff;	
+		}
 	}
 	.navbar-pad {
 		margin-top: 11px !important;
@@ -1092,8 +1105,6 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 
 .modal-document-manager {
 	.modal-content {
-		-webkit-box-shadow: 0 27px 24px 0 rgba(0,0,0,.2);
-  		box-shadow: 0 27px 24px 0 rgba(0,0,0,.2);
   		-webkit-flex-direction: column;
   		-ms-flex-direction: column;
   		flex-direction: column;
@@ -1451,6 +1462,8 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 		min-height: 100px;
 	}
 }
+
+img.modal-publish-gdrive, img.modal-publish-blogger {max-width:52px;}
 
 
 /*********************************
