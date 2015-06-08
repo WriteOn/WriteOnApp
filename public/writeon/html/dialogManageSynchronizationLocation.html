@@ -1,16 +1,12 @@
-<div class="list-group">
-  <a href="#" class="list-group-item">
-	<div class="input-group col-md-9 left">
-    	<h4 class="list-group-item-heading"><i class="icon-provider-<%= syncAttributes.provider.providerId %>"></i> <%= syncAttributes.title %></h4>
-    	<p class="list-group-item-text">Revision <%= syncAttributes.title %></p>
-	</div>
-    <div class="text-right col-md-3 right">
-        <!--a class="btn btn-primary btn-sm open-location<%- syncLocationLink ? '' : ' hide' %>" title="Open in <%= syncAttributes.provider.providerName %>" 
+        <tr>
+          <th scope="row"><%= syncAttributes.title %></th>
+          <td><i class="icon-provider-<%= syncAttributes.provider.providerId %>"></i> <%= syncAttributes.provider.providerId %></td>
+          <td>
+		<!--a class="btn btn-primary btn-sm open-location<%- syncLocationLink ? '' : ' hide' %>" title="Open in <%= syncAttributes.provider.providerName %>" 
            target="_blank" href="<%- syncLocationLink %>"><i class="icon-link-ext-alt"></i></a-->
-        <a class="btn btn-default btn-sm remove-button" title="Delete <%= syncAttributes.title %> on <%= syncAttributes.provider.providerName %>" 
-           data-sync-index="<%= syncAttributes.syncIndex %>" style="margin-left: 10px;">
+        <a class="btn btn-link btn-sm remove-button" title="Delete <%= syncAttributes.title %> on <%= syncAttributes.provider.providerName %>" 
+           data-sync-index="<%= syncAttributes.syncIndex %>">
 			<i class="icon-trash text-danger"></i>
 		</a>
-    </div>
-  </a>
-</div>
+			</td>
+        </tr>

@@ -88,7 +88,7 @@ define([], function() {
 		constants.WORDPRESS_CLIENT_ID = '37430';
 		constants.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy-next.herokuapp.com/";
         constants.COUCHDB_DB = 'stories';
-        constants.COUCHDB_SERVER = 'https://cloud2.writeon.io';
+        constants.COUCHDB_SERVER = 'https://cloud1.writeon.io';
 
     }
      //DEVELOPMENT ENVIRONMENT VARIABLE CONSTANTS 

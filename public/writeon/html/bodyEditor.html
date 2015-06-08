@@ -461,23 +461,28 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Save to Dropbox</h2>
             </div>
             <div class="modal-body">
-                <p>
-                    This will save "<span class="file-title"></span>" to your <i class="icon-provider-dropbox"></i>
-                    <code>Dropbox</code>
-                    account and keep it synchronized.
+				<div class="row">
+					<div class="col-md-5">
+					<div class="pull-left" style="padding-right:5px;">
+						<span class="fa fa-dropbox fa-3x text-primary"></span>
+					</div>
+					<h2 class="modal-title">Dropbox</h2>
+	                <p>
+						This will save <code><span class="file-title text-primary"></span></code> to Dropbox and keep it synchronized.
                 </p>
-                <div class="form-horizontal">
+				</div>
+                <div class="col-md-7 form-horizontal">
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="input-sync-export-dropbox-path">File path <a href="#" class="tooltip-dropbox">(?)</a></label>
                         <div class="col-sm-8">
                             <input type="text" id="input-sync-export-dropbox-path" placeholder="/path/to/My Story.md" class="form-control">
-                            <span class="help-block"> File path is composed of both folder and filename. </span>
+                            <span class="help-block"> Folder and Filename. </span>
                         </div>
                     </div>
                 </div>
+				</div>
             </div>
             <div class="modal-footer">
                 <a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-dropbox">Save</a>
@@ -596,13 +601,23 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Saved</h2>
+                <h2 class="modal-title">Saved Locations</h2>
             </div>
             <div class="modal-body">
                 <p>
-                    "<span class="file-title"></span>" is synchronized in the following location(s): <a href="#" class="tooltip-remove-sync-loc">(?)</a>
+                    <code><span class="file-title"></span></code> is synchronized in the following location(s): <a href="#" class="tooltip-remove-sync-loc">(?)</a>
                 </p>
-                <div class="sync-list"></div>
+				<table class="table table-hover table-striped">
+					<thead>
+        				<tr>
+          					<th>Story Title</th>
+          					<th>Sync Location</th>
+          					<th>Action</th>
+        				</tr>
+      				</thead>
+					<tbody class="sync-list">
+					</tbody>
+				</table>
             </div>
         </div>
     </div>
@@ -612,17 +627,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">
-Publish on <span class="publish-provider-name"></span>
-</h2>
+                <h2 class="modal-title">Publish to <span class="publish-provider-name"></span></h2>
             </div>
             <div class="modal-body">
                 <div class="form-horizontal">
                     <div class="form-group modal-publish-ssh">
                         <label class="col-sm-4 control-label" for="input-publish-ssh-host">Host</label>
                         <div class="col-sm-7">
-                            <input type="text" id="input-publish-ssh-host" placeholder="hostname.or.ip" class="form-control"> <span class="help-block"> Host must be accessible publicly,
-unless you're hosting your own WriteOn instance.
+                            <input type="text" id="input-publish-ssh-host" placeholder="hostname.or.ip" class="form-control"> <span class="help-block"> Host must be accessible publicly.
 </span>
                         </div>
                     </div>
@@ -859,7 +871,7 @@ story title will be used.</span>
                 <p class="msg-no-share-viewer alert alert-info hide hidden" role="alert"><b>No sharing link yet!</b> To share a read-only version of this story, just 
                     <a href="#" class="action-sync-export-dialog-mywriteon alert-link" data-dismiss="modal">save it to <i class="icon-download-cloud text-blue"></i> My.WriteOn.</a></p>
                 <div class="share-viewer-list"></div>
-                <blockquote>
+                <blockquote class="hide hidden">
                     <p><b>Did You Know?</b> You can open any <code>.md</code> or <code>.markdown</code> URL using the <i>WriteOn Paper</i> like so: 
                         <a href="paper#!url=https://gist.githubusercontent.com/thinq4yourself/3bd5bb9c3d8694f075b9/raw/d81c9bc374b17a400db4a4e10ef8168720551107/gistfile1.md" title="Sharing example">
                             <code>writeon.io/paper#!url=http://sample.com/your_story.md</code></a>.</p>

@@ -8,7 +8,7 @@ define([
     "text!html/mysyncURLSettingsBlock.html"
 ], function(_, $, constants, utils, settings, Extension, mysyncURLSettingsBlockHTML) {
 
-	var mysyncURL = new Extension('mysyncURL', 'My.WriteOn Account', false, true);
+	var mysyncURL = new Extension('mysyncURL', 'My WriteOn Cloud Account', false, true);
     //var eventMgr;
     mysyncURL.settingsBlock = mysyncURLSettingsBlockHTML;
     mysyncURL.defaultConfig = {
