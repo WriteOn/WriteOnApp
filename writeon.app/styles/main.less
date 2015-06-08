@@ -52,6 +52,7 @@
 // Navbar
 @primary-bg: lighten(@primary-desaturated, 42%);
 @primary-border-color: fade(@primary, 10%);
+@navbar-default-link-active-bg: lighten(@primary-desaturated, 62%);
 
 // Preview and menus
 @secondary-bg-dark: lighten(@secondary-desaturated, 45%);
@@ -731,14 +732,15 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 		}
 		/* Gradient Dropdown bg */
 		ul.dropdown-menu {
-			background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e3e3e3));
-			background: -webkit-linear-gradient(top, #fff, #e3e3e3);
-			background: -moz-linear-gradient(top, #fff, #e3e3e3);
-			background: -ms-linear-gradient(top, #fff, #e3e3e3);
-			background: -o-linear-gradient(top, #fff, #e3e3e3);
-			background: linear-gradient(top, #fff, #e3e3e3);
+			background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f3f3f3));
+			background: -webkit-linear-gradient(top, #fff, #f3f3f3);
+			background: -moz-linear-gradient(top, #fff, #f3f3f3);
+			background: -ms-linear-gradient(top, #fff, #f3f3f3);
+			background: -o-linear-gradient(top, #fff, #f3f3f3);
+			background: linear-gradient(top, #fff, #f3f3f3);
 			background-color: #fff;	
 		}
+
 	}
 	.navbar-pad {
 		margin-top: 11px !important;
@@ -847,6 +849,12 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 	    padding: 5px;
         margin: 10px;
 	}
+	.navbar-brand {
+		padding: 5.5px 15px;
+		.menu-icon {
+			width: 42px;
+		}
+	}
 }
 
 .navbar-inner > .navbar-header {max-width: 60px;display: inline-table;}
@@ -918,6 +926,8 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 		}
 	}
 }
+
+settings-menu 
 
 .menu-panel {
 	.layout-panel();
@@ -1011,6 +1021,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 	}
     & .toggle-button:hover, &.panel-open > .toggle-button {
         left: -56px;
+		box-shadow: .box-shadow(@panel-button-box-shadow);
 	}
 	.panel-content {
 		background-color: @list-group-bg;
@@ -1199,10 +1210,6 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
     	border-radius: 3; 
         border-color: transparent;
 		box-shadow: none;
-		&:hover {
-			-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  			box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-		}
     }
     &:first-child > .btn,
     &:first-child > .btn {
@@ -1271,7 +1278,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 	}
 
 	.drag-me {
-		color: @btn-success-color;
+		// color: @btn-success-color;
 		i:before {
 			width: 5px;
 		}
