@@ -64,4 +64,9 @@ module.exports = function(app) {
             res.json(result);
         });
     });
+    app.get('/api/github/lib', function(req, res, next) {
+        res.sendFile('github.js', {
+            root: './public/libs'
+        });
+    });
 };

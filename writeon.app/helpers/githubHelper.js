@@ -35,7 +35,7 @@ define([
                 return;
             }
             $.ajax({
-                url: "libs/github.js",
+                url: constants.GATEKEEPER_URL + "lib",
                 dataType: "script",
                 timeout: constants.AJAX_TIMEOUT
             }).done(function() {
