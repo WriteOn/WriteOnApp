@@ -245,7 +245,7 @@ define([
 			$.ajax({
 				type: 'GET',
 				url: settings.couchdbUrl + '/_changes?' + $.param({
-					filter: '_doc_ids',
+					filter: '_changes/story',
 					since: newChangeId,
 					include_docs: true,
 					attachments: true
