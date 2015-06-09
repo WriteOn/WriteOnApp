@@ -62,7 +62,7 @@ module.exports = function(grunt) {
                 tasks: ['wiredep']
             },
             js: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+                files: ['<%= yeoman.app %>/scripts/{,**/}*.js'],
                 tasks: ['newer:jshint:all'],
                 options: {
                     livereload: '<%= connect.options.livereload %>'
@@ -79,13 +79,13 @@ module.exports = function(grunt) {
                 tasks: ['compass:server', 'autoprefixer']
             },
             gruntfile: {
-                files: ['Gruntfile.js']
+                files: ['../Gruntfile.js']
             },
             livereload: {
                 options: {
                     livereload: '<%= connect.options.livereload %>'
                 },
-                files: ['<%= yeoman.app %>/{,*/}*.html', '.tmp/styles/{,*/}*.css', '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}']
+                files: ['<%= yeoman.app %>/{,**/}*.html', '.tmp/styles/{,*/}*.css', '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}']
             }
         },
         // The actual grunt server settings

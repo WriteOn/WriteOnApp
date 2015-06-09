@@ -54,9 +54,7 @@ angular.module('angularApp', [
             redirectTo: '/home'
         }).when('/main', {
             redirectTo: '/home'
-		}).when('/go', {
-            redirectTo: '/login'
-        }).otherwise({
+		}).otherwise({
             templateUrl: 'views/404.html'
         });
 		
