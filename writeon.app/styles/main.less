@@ -335,7 +335,7 @@ a {
 }
 
 .nav-pills > li {
-    margin-legy: 3px;
+    margin-left: 3px;
     > a {
         border: 1px solid @transparent;
         &:hover,
@@ -927,7 +927,12 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 	}
 }
 
-settings-menu 
+.settings-menu {
+	.transition(350ms ease-in-out all);
+}
+.settings-menu:hover {
+    left: -51px;
+}
 
 .menu-panel {
 	.layout-panel();
@@ -1019,9 +1024,10 @@ settings-menu
        		padding-bottom: 1px;
        	}
 	}
-    & .toggle-button:hover, &.panel-open > .toggle-button {
+	& .toggle-button:hover, &.panel-open > .toggle-button {
         left: -56px;
-		box-shadow: .box-shadow(@panel-button-box-shadow);
+		box-shadow: 0 1px 6px 0 rgba(0,0,0,.32),0 1px 6px 0 rgba(0,0,0,.32);
+		-webkit-box-shadow: 0 1px 6px 0 rgba(0,0,0,.32),0 1px 6px 0 rgba(0,0,0,.32);
 	}
 	.panel-content {
 		background-color: @list-group-bg;
