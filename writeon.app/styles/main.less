@@ -89,7 +89,7 @@
 
 /* Layout Sizes */
 @title-max-width: 270px;
-@menu-panel-width: 335px;
+@menu-panel-width: 60px;
 @document-panel-width: 370px;
 @jgrowl-width: 280px;
 @resizer-size: 32px;
@@ -848,6 +848,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 	}
 		/* Gradient Dropdown bg */
 		ul.dropdown-menu {
+			position: absolute !important;
 			background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f3f3f3));
 			background: -webkit-linear-gradient(top, #fff, #f3f3f3);
 			background: -moz-linear-gradient(top, #fff, #f3f3f3);
@@ -940,12 +941,6 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 	}
 }
 
-.settings-menu {
-	.transition(350ms ease-in-out all);
-}
-.settings-menu:hover {
-    left: -51px;
-}
 
 .menu-panel {
 	.layout-panel();
@@ -1021,12 +1016,19 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 	}
 }
 .settings-menu {
-        .transition(350ms ease-in-out all);
-		padding-top: 10px;
-		.menu-icon {
+	display: block;
+	.transition(350ms ease-in-out all);
+	padding: 10px 4px 0 18px;
+	.menu-icon {
 		width: 37px;
-		}
+		display: block;
+    	margin: 0 auto;
+		.transition(350ms ease-in-out all);
 	}
+}
+.settings-menu:hover {
+    margin-right: 7px; 
+}
     //& .settings-menu:hover {
     //    padding-left: 11px;
 	//}
