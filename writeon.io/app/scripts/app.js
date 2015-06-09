@@ -28,7 +28,7 @@ angular.module('angularApp', [
 		$locationProvider.html5Mode(true);
         routes = [
             'home', 'main', 'features', 'privacy', 'beta', 'press', 
-            'we/love-you',
+            'we/love-you', 
             'design/theme', 'design/moodboard', '404'
         ];
     
@@ -48,7 +48,17 @@ angular.module('angularApp', [
         });
     
         return $routeProvider
-        .when('/', {
+        .when('/go',	 {
+			controller : function(){
+       			window.location.replace('/pad');
+    		}, 
+    		template : '<div></div>'
+		}).when('/start',	 {
+			controller : function(){
+       			window.location.replace('/register');
+    		}, 
+    		template : '<div></div>'
+		}).when('/', {
             templateUrl: 'views/home.html'
         }).when('/fG7tNpKU', {
             redirectTo: '/home'

@@ -451,6 +451,10 @@ gulp.task('html', function () {
  
 gulp.task('watch', function () {
   gulp.watch([options.server + '/views/*.html'], ['html']);
+  gulp.watch([options.app + '/**/*.css'], ['css']);
+  gulp.watch([options.app + '/**/*.js'], ['js']);
+  gulp.watch([options.app + '/**/*.html'], ['html']);
+  gulp.watch(['Gulpfile.js'], ['js']);
 });
 
 

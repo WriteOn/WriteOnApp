@@ -22,14 +22,14 @@ angular.module('app.controllers', []).controller('WriteOnCtrl', function($scope,
         $scope.main = isMain();
         $scope.inverse = isInverse();
     });
-    $scope.$on('$routeChangeSuccess', function(e, nextRoute) {
+    $scope.$on('$routeChangeSuccess', function() {
         window.scrollTo(0, 0);
         $scope.thePath = $location.path();
     });
 
-}).controller('MainCtrl', function($scope, $location, $routeParams) { 
+}).controller('MainCtrl', function($rootScope, $location, $window, $scope, $routeParams) { 
     $scope.full = ($routeParams.fG7tNpKU) ? true : false;
-}).controller('NavController', function($rootScope, $location, $window, $scope) { 
+	/* jshint ignore:start */
 	$rootScope.$on('$routeChangeStart', function(event, next, current) {
     if (next && next.$$route && next.$$route.originalPath === '/login') {
         // Stops the ngRoute to proceed
@@ -37,13 +37,24 @@ angular.module('app.controllers', []).controller('WriteOnCtrl', function($scope,
         // We have to do it async so that the route callback 
         // can be cleanly completed first, so $timeout works too
         $rootScope.$evalAsync(function() {
-          // next.$$route.redirectTo would equal be '/homepage'
+          // next.$$route.redirectTo would equal be '/login'
+          $window.location.href = next.$$route.redirectTo;
+        });
+      } else if (next && next.$$route && next.$$route.originalPath === '/register') {
+        // Stops the ngRoute to proceed
+        event.preventDefault();
+        // We have to do it async so that the route callback 
+        // can be cleanly completed first, so $timeout works too
+        $rootScope.$evalAsync(function() {
+          // next.$$route.redirectTo would equal be '/login'
           $window.location.href = next.$$route.redirectTo;
         });
       }
-  });
+  	});
+	/* jshint ignore:end */
     $scope.go = function(url) {
         $location.path(url);
     };
+}).controller('NavController', function() { 
 
 });

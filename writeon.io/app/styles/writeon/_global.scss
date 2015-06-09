@@ -62,7 +62,9 @@ body {
 //== Button Bootstrap Overwrites
 //
 //##
-
+.btn-lg {
+	padding: 22px;
+}
 .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
     outline: none;
 }
@@ -86,4 +88,14 @@ body {
             color: inherit;
         }
     }
+}
+
+.bg-success, .bg-primary, .bg-info, .bg-gray-darker, .bg-gray-dark, .bg-gray { 
+	.well {
+		background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.3) 100%);
+    	background-repeat: repeat-x;
+    	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66000000', endColorstr='#4D000000', GradientType=0);
+    	border-color: transparent;
+    	background-color: transparent;
+	}
 }

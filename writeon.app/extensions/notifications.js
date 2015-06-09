@@ -56,7 +56,7 @@ define([
         }
         options = options || {};
         iconClass = iconClass || "icon-info-circled";
-        jGrowl("<i class='icon-white " + iconClass + "'></i> " + _.escape(message).replace(/\n/g, '<br/>'), options);
+        jGrowl("<i class='text-primary " + iconClass + "'></i> " + _.escape(message).replace(/\n/g, '<br/>'), options);
     }
 
     var isReady = false;
