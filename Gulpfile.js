@@ -84,7 +84,7 @@ gulp.task('jshint', function() {
 });
 
 /** __________________________________________
- *  Require.js LESS.js and CSS.js
+ *  Copy Require.js LESS.js CSS.js Editor packages
  */
 
 gulp.task('clean-requireless', function() {
@@ -98,6 +98,14 @@ gulp.task('clean-requireless', function() {
         .pipe(clean());
 });
 
+gulp.task('clean-editors', function() {
+	return gulp.src([
+		options.bower_dist + '/codemirror/**/*',
+		options.bower_dist + '/ace/**/*'
+	])
+		// .pipe(debug())
+        .pipe(clean());
+});
 gulp.task('copy-requireless', function() {
 return gulp.src([
 		options.bower + '/require-less/less.js',
@@ -116,7 +124,21 @@ return gulp.src([
   .pipe(copy(options.bower_dist + '/require-css/', {prefix: 2}));
 });
 
+gulp.task('copy-codemirror', function() {
+return gulp.src([
+		options.bower + '/codemirror/lib/**/*',
+		options.bower + '/codemirror/mode/**/*.js',
+		options.bower + '/codemirror/theme/**/*.css'
+	])
+  .pipe(copy(options.bower_dist + '/codemirror/', {prefix: 2}));
+});
 
+gulp.task('copy-ace', function() {
+return gulp.src([
+		options.bower + '/ace/lib/ace/**/*'
+	])
+  .pipe(copy(options.bower_dist + '/ace/', {prefix: 2}));
+});
 /** __________________________________________
  * RequireJS
  */
@@ -338,17 +360,21 @@ gulp.task('cache-mathjax', function() {
 
 gulp.task('clean', [
 	'clean-requirejs',
-	'clean-requireless',
 	'clean-less',
 	'clean-font',
 	'clean-img',
 	'clean-html'
 ]);
 gulp.task('requireless', [
+	'clean-requireless',
 	'copy-requireless',
 	'copy-requirecss'
 ]);
-
+gulp.task('editors', [
+	'clean-editors',
+	'copy-codemirror',
+	'copy-ace'
+]);
 gulp.task('build', function(cb) {
 	runSequence([
 			'jshint',
