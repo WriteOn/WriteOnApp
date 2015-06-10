@@ -313,8 +313,8 @@ transition: opacity .07s linear,top .1s ease-out;
 /* bootstrap.css overrite */
 @media screen and (max-width: 768px) {
     .modal-dialog {
-        width: 100%;
-        margin: 20px auto;
+        width: 100% !important;
+        margin: 20px auto !important;
     }
 }
 
@@ -1794,6 +1794,12 @@ img.modal-publish-gdrive, img.modal-publish-blogger {max-width:52px;}
     > .editor-content {
         padding-bottom: 230px;
     }
+	@media (max-width: 672px) {
+    	> .editor-content {
+    		font-size: 16px !important;
+    		padding: 30px !important;
+		}
+	}
     > .editor-margin {
         .layout-panel();
 		.discussion {

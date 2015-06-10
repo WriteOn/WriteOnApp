@@ -17,12 +17,7 @@ requirejs.config({
 			name: 'less',
 			location: '../bower_components/require-less',
 			main: 'less'
-		},
-		{
-			name: "codemirror",
-    		location: "../bower_components/codemirror",
-    		main: "lib/codemirror"
-		}	
+		}
 	],
 	
 	paths: {
@@ -89,8 +84,7 @@ requirejs.config({
         couchdb: 'libs/jquery.couch',
         contextjs: '../bower_components/Context.js/context',
         pace: '../bower_components/pace/pace.min',
-        'dropdown-hover': '../bower_components/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js',
-		ace: '../bower_components/ace/lib/ace'
+        'dropdown-hover': '../bower_components/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js'
 	},
 	shim: {
 		underscore: {
@@ -239,9 +233,8 @@ require([
 	"mediaImporter",
 	"css",
 	"rangy-cssclassapplier",
-	"ace/ace",
 	themeModule
-], function(pace, $, rangy, core, eventMgr, CodeMirror) {
+], function(pace, $, rangy, core, eventMgr) {
 
 	if(window.noStart) {
 		return;
@@ -286,17 +279,6 @@ require([
 			setTimeout(function() {
 				loading_welcome_msg.style.opacity = 1;
 			}, 10);	
-		
-		/* Load the CodeMirror plugin 
-  			CodeMirror.fromTextArea(document.getElementsByClassName("codeme"), {
-    			lineNumbers: true,
-    			mode: "htmlmixed",
-				theme: "midnight"
-  			});
-		*/
-		var editor = ace.edit("textarea-settings-publish-template");
-    	editor.setTheme("ace/theme/cobalt");
-    	editor.getSession().setMode("ace/mode/javascript");
 		
 		// Check if a new cache / version is available on page load.
 		window.applicationCache.addEventListener('updateready', function() {

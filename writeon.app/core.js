@@ -19,7 +19,7 @@ define([
 	"text!html/tooltipMyWriteOnTemplate.html",
 	"text!html/tooltipSettingsPdfOptions.html",
 	"storage",
-	'pagedown'
+	"pagedown"
 ], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, MonetizeJS, Slider, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsDropboxTooltipHTML, settingsMyWriteonTooltipHTML, settingsPdfOptionsTooltipHTML) {
 
 	var core = {};
@@ -274,6 +274,20 @@ define([
 		pagedownEditor.hooks.chain("onPreviewRefresh", eventMgr.onAsyncPreview);
 		pagedownEditor.run();
 		editor.undoMgr.init();
+		
+		/* Load the CodeMirror plugin on textarea
+  			CodeMirror.fromTextArea(document.getElementsByClassName("codeme"), {
+    			lineNumbers: true,
+    			mode: "htmlmixed",
+				theme: "midnight"
+  			});
+		*/
+		/* Load the Ace editor plugin on textarea
+		var aceeditor = ace.edit("textarea-settings-publish-template");
+    	aceeditor.setTheme("ace/theme/cobalt");
+    	aceeditor.getSession().setMode("ace/mode/javascript");
+		*/
+		
 
 		// Hide default buttons
 		$(".wmd-button-row li").addClass("btn btn-default").css("left", 0).find("span").hide();

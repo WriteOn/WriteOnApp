@@ -58,7 +58,7 @@
                     <a href="#" class="dropdown-toggle tooltip-sync" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-upload-cloud"></i></a>
                     <ul class="dropdown-menu sync-menu" role="menu">
                         <li class="divider show-already-synchronized sync-divider"></li>
-                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-provider-writeon"></i> WriteOn</a>
+                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-provider-writeon"></i> My WriteOn</a>
                         </li>
                         <li><a href="#" class="action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
                         </li>
@@ -90,7 +90,7 @@
                     </ul>
                 </li>
             </ul>
-            <form class="navbar-form navbar-right title-container " role="search">
+            <form class="hidden-x navbar-form navbar-right title-container" role="search">
                 <div class="form-group">
                     <a class="btn btn-text file-title-navbar" href="#"></a>
                 </div>
@@ -194,11 +194,10 @@
                 <ul class="nav navbar-nav navbar-left" style="margin-bottom:0; margin-left: 3em;">
                     <li><a href="#" class="action-create-file" title="Create New Story" style="padding:8px;"><i class="icon-plus-circled fa-lg text-blue"></i></a></li>
 					<li><a href="#" class="action-remove-file-confirm" title="Delete Current Story"><i class="icon-trash text-red"></i></a></li>
-					<li><a href="#" class="file action-dm" data-toggle="modal" data-target=".modal-document-manager" title="Organize Stories"><i class="icon-layers"></i></a></li>
-					<li class="dropdown story-menu pull-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true" title="Import Stories"><i class="icon-docs text-dark-yellow"></i><span class="caret"></span></a>
+					<li class="dropdown story-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true" title="Import Stories"><i class="icon-docs"></i><span class="caret"></span></a>
                         <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
-                            <li><a href="#" class="file action-sync-import-dialog-mywriteon hide"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My.WriteOn</a>
+                            <li><a href="#" class="file action-sync-import-dialog-mywriteon hide"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My WriteOn</a>
                             </li>
                             <li><a href="#" class="file action-sync-import-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
                             </li>
@@ -217,7 +216,7 @@
                             </li>
                         </ul>
                     </li>
-
+					<li><a href="#" class="file action-dm" data-toggle="modal" data-target=".modal-document-manager" title="Organize Stories"><i class="icon-layers"></i></a></li>
                 </ul>
             </div>
     </nav>
@@ -575,7 +574,7 @@
                     Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">♥</span>
                 </p>
                 <p>
-                    This will save <code><span class="file-title"></span></code> to your WriteOn Cloud and keep it synchronized.
+                    This will save <code><span class="file-title"></span></code> to my WriteOn Cloud and keep it synchronized.
                 </p>
                 <blockquote class="alert alert-info hide hidden">
 					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>

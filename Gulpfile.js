@@ -25,7 +25,7 @@ var runSequence = require('run-sequence');
 var fs = require('fs');
 var connect = require('gulp-connect');
 var copy = require('gulp-copy');
-
+var livereload = require('gulp-livereload');
 
 var options = {
   app: 'writeon.app',
@@ -213,7 +213,7 @@ gulp.task('clean-less', function() {
         .pipe(clean());
 });
 
-gulp.task('less', ['clean-less'], function() {
+gulp.task('build-less', ['clean-less'], function() {
 	return gulp.src([
 		options.app + '/styles/base.less',
 		options.app + '/themes/*.less'
@@ -380,7 +380,7 @@ gulp.task('build', function(cb) {
 			'jshint',
 			'requireless',
 			'requirejs',
-			'less',
+			'build-less',
 			'copy-font',
 			'copy-img',
 			'copy-html'
@@ -461,23 +461,31 @@ function releaseTask(importance) {
 /*
  * Live Reload
 */
-
 gulp.task('connect', function() {
   connect.server({
-    root: 'app',
-	port: 3001,
-    livereload: true
+    root: 'writeon.app',
+	port: 9601,
+    livereload: false
   });
 });
  
+gulp.task('less', function() {
+  gulp.src([options.app + '/styles/*.less', options.app + '/themes/*.less'])
+    .pipe(less())
+    .pipe(gulp.dest('.tmp/css'))
+    .pipe(livereload());
+});
+
 gulp.task('html', function () {
   gulp.src(options.server + '/views/*.html')
     .pipe(connect.reload());
 });
  
 gulp.task('watch', function () {
+  livereload.listen();
   gulp.watch([options.server + '/views/*.html'], ['html']);
-  gulp.watch([options.app + '/**/*.css'], ['css']);
+  gulp.watch(options.app + 'styles/*.less', ['less']);
+  gulp.watch(options.app + 'themes/*.less', ['less']);
   gulp.watch([options.app + '/**/*.js'], ['js']);
   gulp.watch([options.app + '/**/*.html'], ['html']);
   gulp.watch(['Gulpfile.js'], ['js']);

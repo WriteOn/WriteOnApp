@@ -29,7 +29,7 @@ define([
 	var previewButtonsClosedOffset = 18;
 	var previewButtonsDropdownMargin = 130;
 	var previewButtonsOffset = {
-		x: -45,
+		x: -25,
 		y: -6
 	};
 	var windowSize;
