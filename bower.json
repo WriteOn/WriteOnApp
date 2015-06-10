@@ -50,5 +50,8 @@
   "main": [
     "/public/res/main.js",
     "/public/res/styles/jquery.jgrowl.css"
-  ]
+  ],
+  "devDependencies": {
+    "codemirror": "~5.3.0"
+  }
 }

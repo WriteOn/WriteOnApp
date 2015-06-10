@@ -17,8 +17,13 @@ requirejs.config({
 			name: 'less',
 			location: '../bower_components/require-less',
 			main: 'less'
-		}
+		},
+		{
+			name: "codemirror",
+    		location: "../bower_components/codemirror",
+    		main: "lib/codemirror"}
 	],
+	
 	paths: {
 		jquery: '../bower_components/jquery/dist/jquery.min',
 		underscore: '../bower_components/underscore/underscore',
@@ -232,8 +237,9 @@ require([
 	"mediaImporter",
 	"css",
 	"rangy-cssclassapplier",
+	"codemirror",
 	themeModule
-], function(pace, $, rangy, core, eventMgr) {
+], function(pace, $, rangy, core, eventMgr, CodeMirror) {
 
 	if(window.noStart) {
 		return;
@@ -279,11 +285,18 @@ require([
 				loading_welcome_msg.style.opacity = 1;
 			}, 10);	
 		
+		// Load the CodeMirror plugin 
+  			CodeMirror.fromTextArea(document.getElementsByClassName("codeme"), {
+    			lineNumbers: true,
+    			mode: "htmlmixed",
+				theme: "midnight"
+  			});
+		
 		// Check if a new cache / version is available on page load.
 		window.applicationCache.addEventListener('updateready', function() {
 				if(window.applicationCache.status === window.applicationCache.UPDATEREADY) {
 					window.applicationCache.swapCache();
-					eventMgr.onMessage('A new version of WriteOn is available.\nJust reload this tab when you are ready to upgrade.');
+					eventMgr.onMessage('A new version of WriteOn is available. Reload to upgrade.');
 				}
 		}, false);
 		
@@ -298,7 +311,7 @@ require([
 			window.applicationCache.addEventListener('updateready', function() {
 				if(window.applicationCache.status === window.applicationCache.UPDATEREADY) {
 					window.applicationCache.swapCache();
-					eventMgr.onMessage('A new version of WriteOn is available. Just reload this when you are ready to upgrade.');
+					eventMgr.onMessage('A new version of WriteOn is available. Reload to upgrade.');
 				}
 			}, false);
 		}
