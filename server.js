@@ -31,12 +31,12 @@ var app = require('./writeon.server');
  * FORCE HTTPS
  */
 /* Used to force SSL - required for security */
-app.use(function(req, res, next) {
+app.all('*', function(req, res, next) {
     if(req.headers['x-forwarded-proto'] != 'https') {
-        res.redirect('https://' + req.headers.host + req.path);
-    } else {
-        return next();
-    }
+		return res.redirect('https://' + req.headers.host + req.path);
+    } 
+	/\.(eot|ttf|woff|svg|png)$/.test(req.url) && res.header('Access-Control-Allow-Origin', '*');
+	next();
 });
 /* Legacy ...
 app.all('*', function(req, res, next) {

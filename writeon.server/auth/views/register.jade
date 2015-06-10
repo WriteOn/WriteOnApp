@@ -22,16 +22,17 @@ block body
         .box.row
           if app.get('stormpathEnableFacebook') || app.get('stormpathEnableGoogle')
             .social-area.col-xs-12.col-sm-4
-              .header
+              .header.hidden-xs
               label(style='display:block;margin:5px auto;text-align:center;font-size:1.2em;') 1-Click Registration:
-              if app.get('stormpathEnableFacebook')
-                include facebook_register_form.jade
-              if app.get('stormpathEnableGoogle')
-                include google_register_form.jade
+              div.text-center
+                if app.get('stormpathEnableFacebook')
+                  include facebook_register_form.jade
+                if app.get('stormpathEnableGoogle')
+                  include google_register_form.jade
               
                 hr
                 div
-                  span(style='display:block;text-align:center;padding:15px;') Already have an account?
+                  span(style='display:block;text-align:center;') Already have an account?
 
                   span(style='font-size: 1.2em;display:block;text-align:center;') <a href="#{app.get('stormpathLoginUrl')}" style="font-size:1.2em;"><i class="icon-login"></i> Login</a>
 
@@ -41,7 +42,7 @@ block body
             - var cls = 'large col-sm-12'
 
           div(class='email-password-area col-xs-12 #{cls}')
-            .header
+            .header.hidden-xs
               span.hide Create Your Free Account
 
             if error
@@ -93,4 +94,4 @@ block body
                 div(class='#{cls}')
                   input.form-control(placeholder='Password', name='password', required='true', type='password')
               div
-                button.btn.btn-register.btn-primary(type='submit') Create Account
+                button.btn.btn-register.btn-block.btn-primary(type='submit') Create Account

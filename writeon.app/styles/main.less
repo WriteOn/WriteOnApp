@@ -311,10 +311,10 @@ transition: opacity .07s linear,top .1s ease-out;
 }
 
 /* bootstrap.css overrite */
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
     .modal-dialog {
-        width: 730px;
-        margin: 30px auto;
+        width: 100%;
+        margin: 20px auto;
     }
 }
 
@@ -1347,14 +1347,28 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 .modal-about {
     .modal-dialog {
         width: 450px;
-		margin: 30px auto !important;
+		margin: 30px auto;
     }
+	/* bootstrap.css overrite */
+	@media screen and (max-width: 768px) {
+    	.modal-dialog {
+        	width: 100%;
+        	margin: 20px auto;
+    	}
+	}
 	.modal-content {
 		-webkit-box-shadow: 0 27px 24px 0 rgba(0,0,0,.2);
   		box-shadow: 0 27px 24px 0 rgba(0,0,0,.2);
   		-webkit-flex-direction: column;
   		-ms-flex-direction: column;
   		flex-direction: column;
+		background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#fff));
+			background: -webkit-linear-gradient(top, #f3f3f3, #fff);
+			background: -moz-linear-gradient(top, #f3f3f3, #fff);
+			background: -ms-linear-gradient(top, #f3f3f3, #fff);
+			background: -o-linear-gradient(top, #f3f3f3, #fff);
+			background: linear-gradient(top, #f3f3f3, #fff);
+			background-color: #fff;	
 	}
 }
 
@@ -1374,6 +1388,13 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
   		-webkit-flex-direction: column;
   		-ms-flex-direction: column;
   		flex-direction: column;
+			background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#fff));
+			background: -webkit-linear-gradient(top, #f3f3f3, #fff);
+			background: -moz-linear-gradient(top, #f3f3f3, #fff);
+			background: -ms-linear-gradient(top, #f3f3f3, #fff);
+			background: -o-linear-gradient(top, #f3f3f3, #fff);
+			background: linear-gradient(top, #f3f3f3, #fff);
+			background-color: #fff;	
 	}
     .modal-body {
         padding: 0 20px 0 0 !important;
