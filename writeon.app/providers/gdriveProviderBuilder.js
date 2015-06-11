@@ -12,8 +12,9 @@ define([
 	"editor",
 	"helpers/googleHelper",
 	"text!html/dialogExportGdrive.html",
-	"text!html/dialogAutoSyncGdrive.html"
-], function($, _, constants, utils, storage, logger, Provider, settings, eventMgr, fileMgr, editor, googleHelper, dialogExportGdriveHTML, dialogAutoSyncGdriveHTML) {
+	"text!html/dialogAutoSyncGdrive.html",
+	"text!html/tooltipGoogleTemplate.html"
+], function($, _, constants, utils, storage, logger, Provider, settings, eventMgr, fileMgr, editor, googleHelper, dialogExportGdriveHTML, dialogAutoSyncGdriveHTML, settingsGoogleTooltipHTML) {
 
 	return function(providerId, providerName, accountIndex) {
 		var accountId = 'google.gdrive' + accountIndex;
@@ -316,6 +317,15 @@ define([
 				providerId: providerId,
 				providerName: providerName
 			}));
+			// Create the tooltips on the new modals
+			utils.createTooltip(".tooltip-gdrivesync-folder-gdrive", settingsGoogleTooltipHTML, "right", "hover", "modal");		
+			utils.createTooltip(".tooltip-gdrivesync-folder-gdrivesec", settingsGoogleTooltipHTML, "right", "hover", "modal");		
+			utils.createTooltip(".tooltip-gdrivesync-folder-gdriveter", settingsGoogleTooltipHTML, "right", "hover", "modal");		
+			utils.createTooltip(".tooltip-gdrivesync-help-gdrive", "This will overwrite the existing story on your Drive", "right", "hover", "modal");		
+			utils.createTooltip(".tooltip-gdrivesync-help-gdrivesec", "This will overwrite the existing story on your Drive", "right", "hover", "modal");		
+			utils.createTooltip(".tooltip-gdrivesync-help-gdriveter", "This will overwrite the existing story on your Drive", "right", "hover", "modal");		
+			utils.createTooltip(".tooltip-autosync-help", "If no folder is specified, your stories will be created in the root Drive folder", "right", "hover", "modal");		
+
 
 			// Choose folder button in export modal
 			$('.action-export-' + providerId + '-choose-folder').click(function() {

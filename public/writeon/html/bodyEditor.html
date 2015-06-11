@@ -44,7 +44,7 @@
                 <li class="wmd-button-group3 btn-group hidden-xs hidden-sm"></li>
                 <li class="wmd-button-group4 btn-group hidden-xs">
                     <a class="btn btn-default button-open-discussion" title="Insert Comment">
-						<i class="icon-comment-alt tooltip-discussion"></i>
+						<i class="icon-comment-alt tooltip-trigger tooltip-discussion"></i>
 					</a>
                 </li>
                 <li class="wmd-button-group5 btn-group hidden-xs"></li>
@@ -56,10 +56,10 @@
                     </div>
                 </li>
                 <li class="dropdown sync-buttons syncing-menu">
-                    <a href="#" class="dropdown-toggle tooltip-sync" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-upload-cloud"></i></a>
+                    <a href="#" class="dropdown-toggle tooltip-trigger tooltip-sync" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-upload-cloud"></i></a>
                     <ul class="dropdown-menu sync-menu" role="menu">
                         <li class="divider show-already-synchronized sync-divider"></li>
-                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-provider-writeon"></i> My WriteOn</a>
+                        <li><a href="#" class="action-sync-export-dialog-mywriteon"><i class="icon-provider-writeon"></i> WriteOn</a>
                         </li>
                         <li><a href="#" class="action-sync-export-dialog-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
                         </li>
@@ -74,13 +74,13 @@
 					</ul>
                 </li>
                 <li class="dropdown sync-buttons publishing-menu">
-                    <a href="#" class="dropdown-toggle tooltip-publish" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-share"></i></a>
+                    <a href="#" class="dropdown-toggle tooltip-trigger tooltip-publish" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-share"></i></a>
                     <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
                         <li class="divider show-already-published publish-divider"></li>
                     </ul>
                 </li>
                 <li class="dropdown download-menu hidden-xs">
-                    <a href="#" class="dropdown-toggle tooltip-download" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-download"></i></a>
+                    <a href="#" class="dropdown-toggle tooltip-trigger tooltip-download" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true"><i class="icon-download"></i></a>
                     <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
                         <li><a class="action-download-md" href="#" title="Download Markdown file"><i class="icon-book"></i> Markdown</a>
                         </li>
@@ -186,7 +186,7 @@
         </div>
     </div>
 <div class="document-panel">
-    <button class="btn toggle-button tooltip-story-panel" title="My Stories">
+    <button class="btn toggle-button tooltip-trigger tooltip-story-panel" title="My Stories">
         <img src="writeon/img/stories-icon.png" class="story-icon">
     </button>
     <div class="search-bar clearfix">
@@ -198,7 +198,7 @@
 					<li class="dropdown story-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" data-hover="dropdown" data-delay="1000" data-close-others="true" title="Import Stories"><i class="icon-docs"></i><span class="caret"></span></a>
                         <ul class="dropdown-menu publish-menu publish-on-provider-list" role="menu">
-                            <li><a href="#" class="file action-sync-import-dialog-mywriteon hide"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> My WriteOn</a>
+                            <li><a href="#" class="file action-sync-import-dialog-mywriteon hide"><i class="icon-download-cloud text-blue" data-toggle="collapse" data-target=".file-list.cloudallcloudproviders"></i> WriteOn</a>
                             </li>
                             <li><a href="#" class="file action-sync-import-dropbox"><i class="icon-provider-dropbox"></i> Dropbox</a>
                             </li>
@@ -217,7 +217,7 @@
                             </li>
                         </ul>
                     </li>
-					<li><a href="#" class="file action-dm" data-toggle="modal" data-target=".modal-document-manager" title="Organize Stories"><i class="icon-layers"></i></a></li>
+					<li><a href="#" class="file action-dm" data-toggle="modal" data-target=".modal-document-manager" title="Organize Stories"><i class="icon-inbox"></i></a></li>
                 </ul>
             </div>
     </nav>
@@ -246,9 +246,9 @@
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="tooltip-dm-stories"><a href="#" title="Number of Stories"><i class="icon-file"></i> <span class="document-count"></span></a>
+                            <li class="tooltip-trigger tooltip-dm-stories"><a href="#" title="Number of Stories"><i class="icon-file"></i> <span class="document-count"></span></a>
                             </li>
-                            <li class="tooltip-dm-folders"><a href="#" title="Number of Storybooks"><i class="icon-folder"></i> <span class="folder-count"></span></a>
+                            <li class="tooltip-trigger tooltip-dm-folders"><a href="#" title="Number of Storybooks"><i class="icon-folder"></i> <span class="folder-count"></span></a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="icon-check"></i> Actions <span class="caret"></span></a>
@@ -369,7 +369,7 @@
             </div>
             <div class="modal-body">
                 <p>
-                    Are you sure you want to delete "<span class="file-title"></span>" <a href="#" class="tooltip-delete">(?)</a>
+                    Are you sure you want to delete "<span class="file-title"></span>" <a href="#" class="tooltip-trigger tooltip-delete">(?)</a>
                 </p>
             </div>
             <div class="modal-footer">
@@ -474,7 +474,7 @@
 				</div>
                 <div class="col-md-7 form-horizontal">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label" for="input-sync-export-dropbox-path">File path <a href="#" class="tooltip-dropbox">(?)</a></label>
+                        <label class="col-sm-3 control-label" for="input-sync-export-dropbox-path">File path <a href="#" class="tooltip-trigger tooltip-dropbox">(?)</a></label>
                         <div class="col-sm-8">
                             <input type="text" id="input-sync-export-dropbox-path" placeholder="/path/to/My Story.md" class="form-control">
                             <span class="help-block"> Folder and Filename. </span>
@@ -494,7 +494,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Open from My.WriteOn <a href="#" class="tooltip-mywriteon">?</a></h2>
+                <h2 class="modal-title">Open from My.WriteOn <a href="#" class="tooltip-trigger tooltip-mywriteon">?</a></h2>
                 <div class="form-horizontal list-mode">
                     <br>
                     <div class="form-group form-inline">
@@ -563,7 +563,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Save to My WriteOn Cloud <sup class="text-danger">βeta</sup></h2>
+                <h2 class="modal-title">Save to WriteOn Cloud <sup class="text-danger">βeta</sup></h2>
             </div>
             <div class="modal-body">
                 <p class="msg-default-mywriteon alert alert-warning hide">
@@ -575,7 +575,7 @@
                     Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">♥</span>
                 </p>
                 <p>
-                    This will save <code><span class="file-title"></span></code> to my WriteOn Cloud and keep it synchronized.
+                    This will save <code><span class="file-title"></span></code> to WriteOn Cloud and keep it synchronized.
                 </p>
                 <blockquote class="alert alert-info hide hidden">
 					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
@@ -604,7 +604,7 @@
             </div>
             <div class="modal-body">
                 <p>
-                    <code><span class="file-title"></span></code> is synchronized in the following location(s): <a href="#" class="tooltip-remove-sync-loc">(?)</a>
+                    <code><span class="file-title"></span></code> is synchronized in the following location(s): <a href="#" class="tooltip-trigger tooltip-remove-sync-loc">(?)</a>
                 </p>
 				<table class="table table-hover table-striped">
 					<thead>
@@ -817,7 +817,7 @@ story title will be used.</span>
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" id="checkbox-publish-custom-template">Custom template
-                                    </label> <a href="#" class="tooltip-template">(?)</a>
+                                    </label> <a href="#" class="tooltip-trigger tooltip-template">(?)</a>
                                 </div>
                         </div>
                         <div class=" form-group col-md-offset-2 col-md-10">
@@ -877,7 +877,7 @@ story title will be used.</span>
             </div>
             <div class="modal-body">
                 <p>
-                    "<span class="file-title"></span>" is published on the following location(s): <a href="#" class=".tooltip-manage-publications">?</a>
+                    "<span class="file-title"></span>" is published on the following location(s): <a href="#" class="tooltip-trigger tooltip-manage-publications">?</a>
                 </p>
                 <div class="publish-list"></div>
             </div>
@@ -894,7 +894,7 @@ story title will be used.</span>
             <div class="modal-body">
                 <p class="msg-no-share">To <strong>collaborate</strong> on "<span class="file-title"></span>" with other WriteOn users, share this link(s):</p>
                 <p class="msg-no-share-editor panel panel-info" role="alert" style="padding:20px;"><b>No sharing link yet.</b> To collaborate on this story, just
-                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link btn btn-link" data-dismiss="modal"><i class="icon-download-cloud text-blue"></i> Save To My WriteOn</a>
+                    <a href="#" class="action-sync-export-dialog-mywriteon alert-link btn btn-link" data-dismiss="modal"><i class="icon-download-cloud text-blue"></i> Save To WriteOn</a>
                 </p>
                 <div class="share-editor-list"></div>
                 <hr>
@@ -1059,7 +1059,7 @@ story title will be used.</span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-5 control-label" for="input-settings-lazy-rendering">Lazy rendering <a href="#" class="tooltip-lazy-rendering">(?)</a>
+                                <label class="col-sm-5 control-label" for="input-settings-lazy-rendering">Lazy rendering <a href="#" class="tooltip-trigger tooltip-lazy-rendering">(?)</a>
                                 </label>
                                 <div class="col-sm-7">
                                     <div class="checkbox">
@@ -1073,21 +1073,21 @@ story title will be used.</span>
                         <div class="form-horizontal">
                             <div class="form-group">
                                 <label class="col-sm-4 control-label" for="textarea-settings-default-content">Backlink
-                                    <a href="#" class="tooltip-default-content">(?)</a>
+                                    <a href="#" class="tooltip-trigger tooltip-default-content">(?)</a>
                                 </label>
                                 <div class="col-sm-8">
                                     <textarea id="textarea-settings-default-content" class="form-control sm"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4 control-label" for="textarea-settings-publish-template">Default Template <a href="#" class="tooltip-template">(?)</a>
+                                <label class="col-sm-4 control-label" for="textarea-settings-publish-template">Default Template <a href="#" class="tooltip-trigger tooltip-template">(?)</a>
                                 </label>
                                 <div class="col-sm-8">
 									<textarea id="textarea-settings-publish-template" class="form-control lg"></textarea>
                                 </div>
                             </div>
                             <div class="form-group hide">
-                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-template">PDF Template <a href="#" class="tooltip-template">(?)</a>
+                                <label class="col-sm-4 control-label" for="textarea-settings-pdf-template">PDF Template <a href="#" class="tooltip-trigger tooltip-template">(?)</a>
                                 </label>
                                 <div class="col-sm-8">
                                     <textarea id="textarea-settings-pdf-template" class="form-control"></textarea>
@@ -1095,7 +1095,7 @@ story title will be used.</span>
                             </div>
                             <div class="form-group hide">
                                 <label class="col-sm-4 control-label" for="textarea-settings-pdf-options">PDF options
-                                    <a href="#" class="tooltip-pdf-options">(?)</a>
+                                    <a href="#" class="tooltip-trigger tooltip-pdf-options">(?)</a>
                                 </label>
                                 <div class="col-sm-8">
                                     <textarea id="textarea-settings-pdf-options" class="form-control"></textarea>

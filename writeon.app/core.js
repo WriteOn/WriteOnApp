@@ -21,7 +21,7 @@ define([
 	"text!html/tooltipSettingsPdfOptions.html",
 	"storage",
 	"pagedown"
-], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, MonetizeJS, Slider, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsDropboxTooltipHTML, settingsGoogleTooltipHTML, settingsMyWriteonTooltipHTML, settingsPdfOptionsTooltipHTML) {
+], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, MonetizeJS, Slider, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsDropboxTooltipHTML, settingsMyWriteonTooltipHTML, settingsPdfOptionsTooltipHTML) {
 
 	var core = {};
 
@@ -631,21 +631,17 @@ define([
 		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".tooltip-dropbox", settingsDropboxTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".tooltip-mywriteon", settingsMyWriteonTooltipHTML, "right", "hover", "modal");
-		utils.createTooltip(".tooltip-gdrivesync-folder-gdrive", settingsGoogleTooltipHTML, "right", "hover", "modal");		
-		utils.createTooltip(".tooltip-gdrivesync-folder-gdrivesec", settingsGoogleTooltipHTML, "right", "hover", "modal");		
-		utils.createTooltip(".tooltip-gdrivesync-folder-gdriveter", settingsGoogleTooltipHTML, "right", "hover", "modal");		
-		utils.createTooltip(".tooltip-autosync-help-gdrive", "If no folder is specified, your stories will be created in the root Drive folder", "right", "hover", "modal");		
-		utils.createTooltip(".tooltip-autosync-help-gdrivesec", "If no folder is specified, your stories will be created in the root Drive folder", "right", "hover", "modal");		
-		utils.createTooltip(".tooltip-autosync-help-gdriveter", "If no folder is specified, your stories will be created in the root Drive folder", "right", "hover", "modal");		
-		utils.createTooltip(".tooltip-gdrivesync-help-gdrive", "This will overwrite the existing story on your Drive", "right", "hover", "modal");		
-		utils.createTooltip(".tooltip-gdrivesync-help-gdrivesec", "This will overwrite the existing story on your Drive", "right", "hover", "modal");		
-		utils.createTooltip(".tooltip-gdrivesync-help-gdriveter", "This will overwrite the existing story on your Drive", "right", "hover", "modal");		
 		utils.createTooltip(".tooltip-dm-stories", "Number of Stories", "bottom", "hover", "modal");
 		utils.createTooltip(".tooltip-dm-folders", "Number of Storybooks", "bottom", "hover", "modal");
 		utils.createTooltip(".tooltip-remove-sync-loc", "Removing a synchronized location will not delete the local story.", "right", "hover", "modal");
 		utils.createTooltip(".tooltip-manage-publications", "<b>Stating the Obvious?</b> Maybe, but removing a published location here will not delete the actual post out in the wild.", "top", "hover", "modal");		
 
 		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML, "right", "hover", "modal");
+		
+		// Close tooltips on click  
+		$('.tooltip-trigger').click(function(event) {
+    		$('.tooltip-trigger').tooltip('hide');
+		});
 		
 		// Avoid dropdown panels to close on click
 		$("div.dropdown-menu").click(function(e) {
