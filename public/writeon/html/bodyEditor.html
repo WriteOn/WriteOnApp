@@ -4,7 +4,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid navbar-inner">
         <div class="menu-panel">
-            <a class="settings-menu dropdown-toggle" href="#" data-toggle="dropdown" id="settings-menu" title="Menu">
+            <a class="text-primary settings-menu dropdown-toggle btn btn-default" href="#" data-toggle="dropdown" id="settings-menu" title="Menu" style="padding-top: 0;">
 				<img src="writeon/img/menu-icon.png" class="menu-icon hide">
 				<i class="icon-menu menu-icon"></i>
             </a>
@@ -106,9 +106,9 @@
             <pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>
             <div class="preview-panel">
                 <div class="layout-resizer layout-resizer-preview"></div>
-                <div class="layout-toggler layout-toggler-navbar btn btn-default" title="Toggle navigation bar"><i class="icon-resize-full"></i>
+                <div class="layout-toggler layout-toggler-navbar btn btn-default" title="Distraction free mode"><i class="icon-resize-full"></i>
                 </div>
-                <div class="layout-toggler layout-toggler-preview btn btn-default open" title="Toggle preview"><i class="icon-none"></i>
+                <div class="layout-toggler layout-toggler-preview btn btn-default open" title="Toggle live preview"><i class="icon-none"></i>
                 </div>
                 <div class="preview-container">
                     <div id="preview-contents">
@@ -315,13 +315,13 @@
             <div class="modal-body">
                 <p>Please provide the image URL and an optional title:</p>
                 <div class="input-group">
-                    <span class="input-group-addon"><i class="icon-picture"></i></span>
+                    <span class="input-group-addon"><i class="icon-picture text-success"></i></span>
                     <input id="input-insert-image" type="text" class="col-sm-5 form-control" placeholder='http://example.com/image.jpg "optional title"' />
                 </div>
             </div>
             <div class="modal-footer">
-				<a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal" style="margin-right: 30px;">Insert</a> OR 
-                <a href="#" class="btn btn-link action-import-image-gplus" data-dismiss="modal"><i class="icon-provider-gplus"></i> Import from Google+</a>  
+				<a href="#" class="btn btn-primary action-insert-image" data-dismiss="modal" style="margin-bottom: 30px;">Insert</a> 
+                <a href="#" class="btn btn-link btn-block action-import-image-gplus text-danger" data-dismiss="modal" style="margin-left: 0;"><i class="icon-provider-gplus"></i> Import from Google+</a>  
             </div>
         </div>
     </div>

@@ -14,13 +14,14 @@ define([
 	};
 
 	welcomeTour.onReady = function() {
-		function infoTooltip(btnSelector, title, placement) {
+		function infoTooltip(btnSelector, title, placement, container) {
 			var tooltip = $(btnSelector).tooltip({
 				html: true,
 				//container: $('.extension-preview-buttons'),
 				placement: placement,
 				trigger: 'manual',
-				title: title
+				title: title,
+				container: container
 			}).tooltip('show').addClass('info-tooltip');
 			tooltip.parent().addClass('info-tooltip-container');
 			tooltip.one('click', function() {
@@ -43,9 +44,9 @@ define([
 			},
 			onEnd: function() {
 				storage.welcomeTour = 'done';
-				infoTooltip('.drag-me', 'Open me!', 'left');
-				infoTooltip('.layout-toggler-preview', 'Toggle preview', 'left');
-				infoTooltip('.layout-toggler-navbar', 'Toggle menu bar', 'left');
+				infoTooltip('.drag-me', 'Hover to open me', 'left', 'body');
+				infoTooltip('.layout-toggler-preview', 'Toggle live preview', 'left', 'body');
+				infoTooltip('.layout-toggler-navbar', 'Distraction free mode', 'left', 'body');
 			},
 			template: [
 				'<div class="popover tour">',

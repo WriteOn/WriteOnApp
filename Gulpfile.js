@@ -213,7 +213,7 @@ gulp.task('clean-less', function() {
         .pipe(clean());
 });
 
-gulp.task('build-less', ['clean-less'], function() {
+gulp.task('less', ['clean-less'], function() {
 	return gulp.src([
 		options.app + '/styles/base.less',
 		options.app + '/themes/*.less'
@@ -380,7 +380,7 @@ gulp.task('build', function(cb) {
 			'jshint',
 			'requireless',
 			'requirejs',
-			'build-less',
+			'less',
 			'copy-font',
 			'copy-img',
 			'copy-html'
@@ -469,7 +469,7 @@ gulp.task('connect', function() {
   });
 });
  
-gulp.task('less', function() {
+gulp.task('connect-less', function() {
   gulp.src([options.app + '/styles/*.less', options.app + '/themes/*.less'])
     .pipe(less())
     .pipe(gulp.dest('.tmp/css'))

@@ -619,7 +619,7 @@ define([
 		utils.createTooltip(".tooltip-publish", "Publish", "bottom", "hover", "body");		
 		utils.createTooltip(".tooltip-download", "Download", "bottom", "hover", "body");
 		utils.createTooltip(".tooltip-story-panel", "My Stories", "left", "hover", "body");
-		utils.createTooltip(".settings-menu", "My Settings", "right", "hover", "body");
+		//utils.createTooltip(".settings-menu", "My Settings", "right", "hover", "body");
 
 		// General purpose helpers. This should be in json
 		utils.createTooltip(".tooltip-lazy-rendering", 'Disable preview rendering while typing in order to offload CPU. Refresh preview after 500 ms of inactivity.', "right", "hover", "modal");
