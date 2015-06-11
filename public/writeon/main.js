@@ -7354,7 +7354,7 @@ var saveAs = saveAs || function(e) {
  }, utils;
 }), define("constants", [], function() {
  var e = {};
- return e.VERSION = "1.9.14", e.MAIN_URL = "https://writeon.io/", e.DEFAULT_FILE_TITLE = "Story Title", 
+ return e.VERSION = "1.9.15", e.MAIN_URL = "https://writeon.io/", e.DEFAULT_FILE_TITLE = "Story Title", 
  e.DEFAULT_FOLDER_NAME = "New Storybook", e.GDRIVE_DEFAULT_FILE_TITLE = "New Story", 
  e.EDITOR_DEFAULT_PADDING = 120, e.CHECK_ONLINE_PERIOD = 12e4, e.AJAX_TIMEOUT = 3e4, 
  e.ASYNC_TASK_DEFAULT_TIMEOUT = 6e4, e.ASYNC_TASK_LONG_TIMEOUT = 18e4, e.USER_IDLE_THRESHOLD = 3e5, 
