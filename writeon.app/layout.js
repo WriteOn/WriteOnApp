@@ -29,13 +29,13 @@ define([
 	var previewButtonsClosedOffset = 18;
 	var previewButtonsDropdownMargin = 130;
 	var previewButtonsOffset = {
-		x: -25,
+		x: -37,
 		y: -6
 	};
 	var windowSize;
 
 	var wrapperL1, wrapperL2, wrapperL3;
-	var navbar, menuPanel, documentPanel, editor, previewPanel, previewContainer, navbarToggler, previewToggler, previewResizer, previewButtons;
+	var navbar, menuPanel, documentPanel, storyPanel, editor, previewPanel, previewContainer, navbarToggler, previewToggler, previewResizer, previewButtons;
 
 	var animate = false;
 
@@ -239,8 +239,28 @@ define([
 			resizeAll();
 		};
 	};
-    
- 
+/* 
+ * 
+ * Story Panel slide out
+ * 
+
+
+	DomObject.prototype.storyToggle = function() {
+		var hide = true;
+    	$('.toggle-story-panel').on('click',function (event){
+    		if (hide) {
+    			$('.story-panel').addClass("story-panel-show");
+    			$('.layout-wrapper-l3').addClass("pad-show");
+    			hide = false;
+    		}else {
+    			$('.story-panel').removeClass("story-panel-show");
+    			$('.layout-wrapper-l3').removeClass("pad-show");
+    			hide = true;
+    		}
+		});
+	
+	};	
+  */	
     
 	/* Get the Touch objects and instructions put into place */
     DomObject.prototype.initHammer = function(drag) {
@@ -519,6 +539,7 @@ define([
 		navbar = new DomObject('.navbar');
 		menuPanel = new DomObject('.menu-panel');
 		documentPanel = new DomObject('.document-panel');
+		storyPanel = new DomObject('.story-panel');
 		editor = new DomObject('#wmd-input');
 		previewPanel = new DomObject('.preview-panel');
 		previewContainer = new DomObject('.preview-container');
@@ -590,6 +611,8 @@ define([
 		documentPanel.isOpen = false;
 		documentPanel.createBackdropToggler(true);  // or createToggler()
 		documentPanel.$elt.find('.toggle-button').click(_.bind(documentPanel.toggle, documentPanel));
+		
+		//storyPanel.storyToggle();
 
 		// Hide documentPanel when clicking on a non collapse or dropdown element
 		documentPanel.$elt.on('click', 'a[data-toggle!=dropdown]', _.bind(documentPanel.toggle, documentPanel, false)) || documentPanel.$elt.on('click', 'a[data-toggle!=collapse]', _.bind(documentPanel.toggle, documentPanel, false));

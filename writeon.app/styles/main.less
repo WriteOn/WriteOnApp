@@ -1032,10 +1032,11 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 		display: block;
     	margin: 0 auto;
 		.transition(350ms ease-in-out all);
+		font-size: 1.6em;
 	}
 }
 .settings-menu:hover {
-    margin-right: 5px; 
+    margin-right: 3px; 
 }
     //& .settings-menu:hover {
     //    padding-left: 11px;
@@ -1154,6 +1155,48 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 	overflow-y: auto;
 }
 
+
+/**************************
+ * Document/Story Panel Slider
+ **************************/
+
+.panel-slide {
+    -webkit-transform: translateX(-250px);
+    -ms-transform: translateX(-250px);
+    -o-transform: translateX(-250px);
+    transform: translateX(-250px);
+    -webkit-transition: 500ms;
+    -o-transition: 500ms;
+    transition: 500ms;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 230px;
+    height: auto;
+    float: left;
+    background-color: #eee;
+}
+
+.story-panel-show {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.layout-wrapper-l3 {
+    position: absolute;
+    -webkit-transition: 500ms;
+    -o-transition: 500ms;
+    transition: 500ms;
+}
+
+.pad-show {
+    -webkit-transform: translateX(250px);
+    -ms-transform: translateX(250px);
+    -o-transform: translateX(250px);
+    transform: translateX(250px);
+}
 
 /**************************
  * Document manager
@@ -1687,7 +1730,7 @@ img.modal-publish-gdrive, img.modal-publish-blogger {max-width:52px;}
 }
 /* the range here for desktop/mobile simulation is between 85ms and 110ms */
 .layout-animate {
-	.transition-transform(92ms ease-in-out);
+	.transition-transform(110ms ease-in-out);
 }
 
 .layout-resizer {

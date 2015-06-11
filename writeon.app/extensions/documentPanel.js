@@ -33,7 +33,7 @@ define([
         '<a href="#"',
         ' class="list-group-item file<%= fileDesc === selectedFileDesc ? " active" : "" %>"',
         ' data-file-index="<%= fileDesc.fileIndex %>">',
-        '   <%= fileDesc.composeTitle() %>',
+        ' <i class="icon-doc-text text-blue"></i> <%= fileDesc.composeTitle() %>',
 		'<span class="anchorjs-link button-delete"><i class="icon-trash text-red"></i></span>',
         '</a>',
     ].join('');
