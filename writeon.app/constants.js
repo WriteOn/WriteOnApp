@@ -25,8 +25,8 @@ define([], function() {
 
 	// Provider dependent 
 	constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1";
-	constants.GOOGLE_API_KEY = "QUl6YVN5QlhMU3FkVnlHZTNEOFA5cllkX1lPYktwRVk2UzJjQ2ZR";
-	constants.GOOGLE_DRIVE_APP_ID = "MTAxNzI1MTQ5ODI1NA==";
+	constants.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ";
+	constants.GOOGLE_DRIVE_APP_ID = "1017251498254";
 	constants.DROPBOX_APP_KEY = "cjN2Z2FlZTIxNHpmdmM3";
 	constants.DROPBOX_APP_SECRET = "MW1lc3lja3NrY3puM2Y5";
 	constants.DROPBOX_RESTRICTED_APP_KEY = "cjN2Z2FlZTIxNHpmdmM3";

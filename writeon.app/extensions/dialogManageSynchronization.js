@@ -52,12 +52,24 @@ define([
 
 		$showAlreadySynchronizedElt = $(document.querySelectorAll(".show-already-synchronized"));
 
-		$(syncListElt).on('click', '.remove-button', function() {
-			var $removeButtonElt = $(this);
-			var syncAttributes = fileDesc.syncLocations[$removeButtonElt.data('syncIndex')];
-			fileDesc.removeSyncLocation(syncAttributes);
-			eventMgr.onSyncRemoved(fileDesc, syncAttributes);
+		/*
+		$(syncListElt).on('click', '.remove-button', function(e) {
+			//var $removeButtonElt = $(this);
+			e.preventDefault();
+    		$("#confirmDelete").modal('show');
 		});
+		*/
+		
+		$("#confirmDelete").on('show.bs.modal', function(event) {    // wire up the OK button to dismiss the modal when shown
+			$(".confirm-delete-button").on("click", function(e) {
+				var $removeButtonElt = $(event.relatedTarget);
+				var syncAttributes = fileDesc.syncLocations[$removeButtonElt.data('syncIndex')];
+				fileDesc.removeSyncLocation(syncAttributes);
+				eventMgr.onSyncRemoved(fileDesc, syncAttributes);
+            	$("#confirmDelete").modal('hide');     // dismiss the dialog
+        	});
+    	});
+		
 	};
 
 	return dialogManageSynchronization;

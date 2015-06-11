@@ -525,7 +525,18 @@ a {
 .btn-link:hover {
 	text-decoration: none;
 }
-
+.btn-link.text-danger {
+	color: @brand-danger;
+}
+.btn-link.text-warning {
+	color: @brand-warning;
+}
+.btn-link.text-success {
+	color: @brand-success;
+}
+.btn-link.text-info {
+	color: @brand-info;
+}
 .btn-group {
     .btn + .btn,
     .btn + .btn-group,
@@ -566,7 +577,7 @@ a {
     }
 	&.btn-primary {
 		background-color:#2196f3;
-		color:#fff;
+		color: @white-color;
 		&:hover {
 			background-color: #0d87e9;
 		}
@@ -652,7 +663,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 	&:first-child {
 		border: 0;
 		border-radius: 0;
-		background: #fff;
+		background: @white-color;
 		-webkit-appearance: none;
 		-webkit-box-shadow: inset 0 -1px 0 #ddd;
 		box-shadow: inset 0 -1px 0 #ddd;
@@ -2205,12 +2216,18 @@ input[type="file"] {
 
 // comments popover
 .comments-popover .popover {
-	max-width: 230px;
+	background-color: @secondary-blue;
+	color: @white-color;
+	width: 300px;
+	max-width: 300px;
 	padding: 10px 20px 0;
+	margin-left: 10px;
 	.popover-title {
-		padding: 5px 0 15px;
+		font-size: 16px;
+		padding: 5px 0;
 		border-bottom: 1px solid @hr-border;
 		line-height: @headings-line-height;
+		color : @white-color;
 		overflow: hidden;
 		.action-remove-discussion {
 			font-size: 16px;
@@ -2238,7 +2255,6 @@ input[type="file"] {
 		}
 		.comment-author {
 			font-weight: bold;
-			color: @input-color;
 		}
 		.icon-comment {
 			font-size: 15px;
@@ -2248,17 +2264,17 @@ input[type="file"] {
 			color: fade(@label-danger-bg, 70%);
 		}
 		.new-comment-block .icon-comment {
-			color: fade(@tertiary-color, 35%);
+			color: fade(@tertiary-color, 75%);
 		}
 		.input-comment-author {
 			border: none;
 			background: none;
 			.box-shadow(none);
-			font-weight: bold;
 			height: 28px;
 			padding: 0 0 5px;
-			width: 140px;
+			width: 85%;
 			display: inline-block;
+			color: @white-color;
 		}
 		hr {
 			margin: 0 0 10px;
@@ -2270,9 +2286,12 @@ input[type="file"] {
 		.arrow {
 			margin-right: 1px;
 			border-right-width: 0;
+			border-top-color: @secondary-blue;
 			&:after {
 				margin-left: -11px;
 				border-right-width: 0;
+				border-top-color: @secondary-blue;
+				border-bottom-color: @secondary-blue;
 			}
 		}
 	}
@@ -2411,7 +2430,7 @@ div.jGrowl {
 	left: 10px;
 	display: inline-block;
 	border-right: 6px solid transparent;
-	border-bottom: 6px solid #ffffff;
+	border-bottom: 6px solid @white-color;
 	border-left: 6px solid transparent;
 	content: '';
 	}
@@ -2428,7 +2447,7 @@ div.jGrowl {
 	}
 .dropdown-context-up:after{
 	border-right: 6px solid transparent;
-	border-top: 6px solid #ffffff;
+	border-top: 6px solid @white-color;
 	border-left: 6px solid transparent;
 	border-bottom:none;
 	}

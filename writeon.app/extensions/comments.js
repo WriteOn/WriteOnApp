@@ -21,7 +21,7 @@ define([
 	var popoverTitleTmpl = [
 		'<span class="clearfix">',
 		'    <a href="#" class="action-remove-discussion pull-right">',
-		'        <i class="icon-trash text-red"></i>',
+		'        <i class="icon-trash text-white"></i>',
 		'    </a>',
 		'    “<%- title %>”',
 		'</span>'

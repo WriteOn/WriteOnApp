@@ -43,7 +43,7 @@
                 <li class="wmd-button-group2 btn-group hidden-xs"></li>
                 <li class="wmd-button-group3 btn-group hidden-xs hidden-sm"></li>
                 <li class="wmd-button-group4 btn-group hidden-xs">
-                    <a class="btn btn-default button-open-discussion" title="Insert Comment (Ctrl/Cmd+M)">
+                    <a class="btn btn-default button-open-discussion" title="Insert Comment">
 						<i class="icon-comment-alt tooltip-discussion"></i>
 					</a>
                 </li>
@@ -208,12 +208,12 @@
                             </li>
                             <li><a href="#" class="file submenu-sync-gdriveter action-sync-import-gdriveter"><i class="icon-provider-gdrive"></i> Google Drive<sup>3</sup></a>
                             </li>
-                            <li><a data-toggle="modal" data-target=".modal-import-url" class="file action-reset-input" href="#" title="Import from URL"><i class="icon-globe text-green"></i> Import URL</a>
+                            <li><a data-toggle="modal" title="Import from disk" data-target=".modal-import-harddrive-markdown" class="file action-reset-input" href="#"><i class="icon-hdd text-orange"></i> Upload</a>
                             </li>
-                            <li><a data-toggle="modal" title="Import from disk" data-target=".modal-import-harddrive-markdown" class="file action-reset-input" href="#"><i class="icon-hdd text-orange"></i> Import from disk</a>
+                            <li><a data-toggle="modal" data-target=".modal-import-url" class="file action-reset-input" href="#" title="Import from URL"><i class="icon-globe text-green"></i> From URL</a>
                             </li>
                             <li>
-                                <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input"> <i class="icon-paste"></i>Import HTML</a>
+                                <a href="#" data-toggle="modal" data-target=".modal-import-harddrive-html" class="action-reset-input"> <i class="icon-paste"></i>Convert HTML</a>
                             </li>
                         </ul>
                     </li>
@@ -295,7 +295,7 @@
             <div class="modal-body">
                 <p>Please provide the link URL and an optional title:</p>
                 <div class="input-group">
-                    <span class="input-group-addon"><i class="icon-globe"></i></span>
+                    <span class="input-group-addon"><i class="icon-globe text-primary"></i></span>
                     <input id="input-insert-link" type="text" class="col-sm-5 form-control" placeholder='http://example.com/ "optional title"' />
                 </div>
             </div>
@@ -314,8 +314,8 @@
             </div>
             <div class="modal-body">
                 <p>Please provide the image URL and an optional title:</p>
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="icon-picture text-success"></i></span>
+                <div class="input-group has-error">
+                    <span class="input-group-addon"><i class="icon-picture text-danger"></i></span>
                     <input id="input-insert-image" type="text" class="col-sm-5 form-control" placeholder='http://example.com/image.jpg "optional title"' />
                 </div>
             </div>
@@ -620,6 +620,22 @@
             </div>
         </div>
     </div>
+</div>
+<div class="modal fade" id="confirmDelete" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true" style="background: #fff;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Delete Permanently</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure about this ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger confirm-delete-button" id="confirm">Delete</button>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="modal fade modal-publish">
     <div class="modal-dialog">

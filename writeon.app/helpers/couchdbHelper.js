@@ -12,6 +12,7 @@ define([
 ], function($, _, core, utils, storage, logger, constants, settings, eventMgr, AsyncTask) {
 
 	var couchdbHelper = {};
+	
 
 	// Listen to offline status changes
 	var isOffline = false;
