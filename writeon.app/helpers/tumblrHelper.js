@@ -50,7 +50,7 @@ define([
             task.timeout = constants.ASYNC_TASK_LONG_TIMEOUT;
             var oauth_object;
             function getOauthToken() {
-                $.getJSON(constants.TUMBLR_PROXY_URL + "request_token", function(data) {
+                $.getJSON(constants.TUMBLR_API_URL + "request_token", function(data) {
                     if(data.oauth_token !== undefined) {
                         oauth_object = data;
                         task.chain(oauthRedirect);

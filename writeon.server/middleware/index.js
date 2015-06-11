@@ -9,13 +9,13 @@
 module.exports = function(app) {
 
 	//connect some custom middleware
-	app.post('/bootmywriteon', require('./bootmywriteon').bootmywriteon);
-	app.post('/pdfExport', require('./pdf').export);
-	app.post('/sshPublish', require('./ssh').publish);
-	app.post('/picasaImportImg', require('./picasa').importImg);
-	app.get('/downloadImport', require('./download').importPublic);
+	app.post('/api/account/create', require('./bootmywriteon').bootmywriteon);
+	app.post('/api/publish/pdf', require('./pdf').export);
+	app.post('/api/publish/ssh', require('./ssh').publish);
+	app.post('/api/google/import/images', require('./picasa').importImg);
+	app.get('/api/import/local', require('./download').importPublic);
 	
-	//connect the proxy API middleware
-	require('./api/proxy')(app);
+	//connect the API middleware
+	require('./api')(app);
 	
 };

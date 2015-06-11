@@ -35,7 +35,7 @@ define([
                 return;
             }
             $.ajax({
-                url: constants.GATEKEEPER_URL + "lib",
+                url: "/libs/github.js",
                 dataType: "script",
                 timeout: constants.AJAX_TIMEOUT
             }).done(function() {
@@ -83,7 +83,7 @@ define([
             function getCode() {
                 storage.removeItem("githubCode");
                 var scope = settings.githubFullAccess ? 'repo,gist' : 'public_repo,gist';
-                authWindow = utils.popupWindow(constants.GATEKEEPER_URL + 'oauth/client/?client_id=' + constants.GITHUB_CLIENT_ID + '&scope=' + scope, 'writeon-github-oauth', 960, 600);
+                authWindow = utils.popupWindow(constants.GITHUB_API_URL + 'oauth/client/?client_id=' + constants.GITHUB_CLIENT_ID + '&scope=' + scope, 'writeon-github-oauth', 960, 600);
                 authWindow.focus();
                 intervalId = setInterval(function() {
                     if(authWindow.closed === true) {
@@ -101,7 +101,7 @@ define([
                 }, 500);
             }
             function getToken() {
-                $.getJSON(constants.GATEKEEPER_URL + "auth/" + code, function(data) {
+                $.getJSON(constants.GITHUB_API_URL + "auth/" + code, function(data) {
                     if(data.token !== undefined) {
                         token = data.token;
                         storage.githubToken = token;

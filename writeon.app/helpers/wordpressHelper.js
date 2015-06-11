@@ -53,7 +53,7 @@ define([
 
 			function getCode() {
 				storage.removeItem("wordpressCode");
-				authWindow = utils.popupWindow(constants.WORDPRESS_PROXY_URL + 'oauth/client/?client_id=' + constants.WORDPRESS_CLIENT_ID, 'writeon-wordpress-oauth', 960, 600);
+				authWindow = utils.popupWindow(constants.WORDPRESS_API_URL + 'oauth/client/?client_id=' + constants.WORDPRESS_CLIENT_ID, 'writeon-wordpress-oauth', 960, 600);
 				authWindow.focus();
 				intervalId = setInterval(function() {
 					if(authWindow.closed === true) {
@@ -71,7 +71,7 @@ define([
 			}
 
 			function getToken() {
-				$.getJSON(constants.WORDPRESS_PROXY_URL + "auth/" + code, function(data) {
+				$.getJSON(constants.WORDPRESS_API_URL + "auth/" + code, function(data) {
 					if(data.token !== undefined) {
 						token = data.token;
 						storage.wordpressToken = token;
@@ -101,7 +101,7 @@ define([
 		authenticate(task);
 		var siteId;
 		task.onRun(function() {
-			var url = constants.WORDPRESS_PROXY_URL + "post";
+			var url = constants.WORDPRESS_API_URL + "post";
 			var data = {
 				token: token,
 				site: site,

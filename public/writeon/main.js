@@ -4,11 +4,11 @@ function diff_match_patch() {
 }
 
 (function() {
- var e, t, n, i, r, o, a, s, l, c, u, d, p, h, f, m, g, v, b, y, x, w, S, C, _, T, k, E, I, D, N, L, M, A, R, P, O, F, B, j, $, U, H, q, G, z, W, V, X, Y = [].slice, Q = {}.hasOwnProperty, K = function(e, t) {
+ var e, t, n, i, r, o, a, s, l, c, u, d, p, h, f, m, g, v, b, y, x, w, S, C, _, T, k, E, I, D, N, L, M, A, R, P, O, F, B, j, $, U, H, q, G, z, W, V, X, Q = [].slice, Y = {}.hasOwnProperty, K = function(e, t) {
   function n() {
    this.constructor = e;
   }
-  for (var i in t) Q.call(t, i) && (e[i] = t[i]);
+  for (var i in t) Y.call(t, i) && (e[i] = t[i]);
   return n.prototype = t.prototype, e.prototype = new n(), e.__super__ = t.prototype, 
   e;
  }, J = [].indexOf || function(e) {
@@ -58,12 +58,12 @@ function diff_match_patch() {
   })();
  }, L = function() {
   var e, t, n;
-  return n = arguments[0], t = arguments[1], e = 3 <= arguments.length ? Y.call(arguments, 2) : [], 
+  return n = arguments[0], t = arguments[1], e = 3 <= arguments.length ? Q.call(arguments, 2) : [], 
   "function" == typeof n[t] ? n[t].apply(n, e) : n[t];
  }, w = function() {
   var e, t, n, i, r, o, a;
-  for (t = arguments[0], i = 2 <= arguments.length ? Y.call(arguments, 1) : [], o = 0, 
-  a = i.length; a > o; o++) if (n = i[o]) for (e in n) Q.call(n, e) && (r = n[e], 
+  for (t = arguments[0], i = 2 <= arguments.length ? Q.call(arguments, 1) : [], o = 0, 
+  a = i.length; a > o; o++) if (n = i[o]) for (e in n) Y.call(n, e) && (r = n[e], 
   null != t[e] && "object" == typeof t[e] && null != r && "object" == typeof r ? w(t[e], r) : t[e] = r);
   return t;
  }, g = function(e) {
@@ -101,7 +101,7 @@ function diff_match_patch() {
    }
   }, e.prototype.trigger = function() {
    var e, t, n, i, r, o, a, s, l;
-   if (n = arguments[0], e = 2 <= arguments.length ? Y.call(arguments, 1) : [], null != (a = this.bindings) ? a[n] : void 0) {
+   if (n = arguments[0], e = 2 <= arguments.length ? Q.call(arguments, 1) : [], null != (a = this.bindings) ? a[n] : void 0) {
     for (r = 0, l = []; r < this.bindings[n].length; ) s = this.bindings[n][r], i = s.handler, 
     t = s.ctx, o = s.once, i.apply(null != t ? t : this, e), l.push(o ? this.bindings[n].splice(r, 1) : r++);
     return l;
@@ -186,11 +186,11 @@ function diff_match_patch() {
   return r;
  }, k = [], c.ignore = function() {
   var e, t, n;
-  return t = arguments[0], e = 2 <= arguments.length ? Y.call(arguments, 1) : [], 
+  return t = arguments[0], e = 2 <= arguments.length ? Q.call(arguments, 1) : [], 
   k.unshift("ignore"), n = t.apply(null, e), k.shift(), n;
  }, c.track = function() {
   var e, t, n;
-  return t = arguments[0], e = 2 <= arguments.length ? Y.call(arguments, 1) : [], 
+  return t = arguments[0], e = 2 <= arguments.length ? Q.call(arguments, 1) : [], 
   k.unshift("track"), n = t.apply(null, e), k.shift(), n;
  }, P = function(e) {
   var t;
@@ -535,7 +535,7 @@ function diff_match_patch() {
  }
  function C(e, t) {
   if (t in e) return t;
-  for (var n = t[0].toUpperCase() + t.slice(1), i = t, r = Ye.length; r--; ) if (t = Ye[r] + n, 
+  for (var n = t[0].toUpperCase() + t.slice(1), i = t, r = Qe.length; r--; ) if (t = Qe[r] + n, 
   t in e) return t;
   return i;
  }
@@ -553,7 +553,7 @@ function diff_match_patch() {
   var i = !0, r = "width" === t ? e.offsetWidth : e.offsetHeight, o = qe(e), a = "border-box" === Z.css(e, "boxSizing", !1, o);
   if (0 >= r || null == r) {
    if (r = w(e, t, o), (0 > r || null == r) && (r = e.style[t]), He.test(r)) return r;
-   i = a && (Q.boxSizingReliable() || r === e.style[t]), r = parseFloat(r) || 0;
+   i = a && (Y.boxSizingReliable() || r === e.style[t]), r = parseFloat(r) || 0;
   }
   return r + T(e, t, n || (a ? "border" : "content"), i, o) + "px";
  }
@@ -569,8 +569,8 @@ function diff_match_patch() {
  }
  function D() {
   return setTimeout(function() {
-   Qe = void 0;
-  }), Qe = Z.now();
+   Ye = void 0;
+  }), Ye = Z.now();
  }
  function N(e, t) {
   var n, i = 0, r = {
@@ -630,7 +630,7 @@ function diff_match_patch() {
    delete l.elem;
   }), l = function() {
    if (r) return !1;
-   for (var t = Qe || D(), n = Math.max(0, c.startTime + c.duration - t), i = n / c.duration || 0, o = 1 - i, a = 0, l = c.tweens.length; l > a; a++) c.tweens[a].run(o);
+   for (var t = Ye || D(), n = Math.max(0, c.startTime + c.duration - t), i = n / c.duration || 0, o = 1 - i, a = 0, l = c.tweens.length; l > a; a++) c.tweens[a].run(o);
    return s.notifyWith(e, [ c, o, n ]), 1 > o && l ? n : (s.resolveWith(e, [ c ]), 
    !1);
   }, c = s.promise({
@@ -641,7 +641,7 @@ function diff_match_patch() {
    }, n),
    originalProperties: t,
    originalOptions: n,
-   startTime: Qe || D(),
+   startTime: Ye || D(),
    duration: n.duration,
    tweens: [],
    createTween: function(t, n) {
@@ -738,7 +738,7 @@ function diff_match_patch() {
  function U(e) {
   return Z.isWindow(e) ? e : 9 === e.nodeType && e.defaultView;
  }
- var H = [], q = H.slice, G = H.concat, z = H.push, W = H.indexOf, V = {}, X = V.toString, Y = V.hasOwnProperty, Q = {}, K = e.document, J = "2.1.3", Z = function(e, t) {
+ var H = [], q = H.slice, G = H.concat, z = H.push, W = H.indexOf, V = {}, X = V.toString, Q = V.hasOwnProperty, Y = {}, K = e.document, J = "2.1.3", Z = function(e, t) {
   return new Z.fn.init(e, t);
  }, ee = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, te = /^-ms-/, ne = /-([\da-z])/gi, ie = function(e, t) {
   return t.toUpperCase();
@@ -810,7 +810,7 @@ function diff_match_patch() {
    return !Z.isArray(e) && e - parseFloat(e) + 1 >= 0;
   },
   isPlainObject: function(e) {
-   return "object" !== Z.type(e) || e.nodeType || Z.isWindow(e) ? !1 : e.constructor && !Y.call(e.constructor.prototype, "isPrototypeOf") ? !1 : !0;
+   return "object" !== Z.type(e) || e.nodeType || Z.isWindow(e) ? !1 : e.constructor && !Q.call(e.constructor.prototype, "isPrototypeOf") ? !1 : !0;
   },
   isEmptyObject: function(e) {
    var t;
@@ -874,7 +874,7 @@ function diff_match_patch() {
    }, r.guid = e.guid = e.guid || Z.guid++, r) : void 0;
   },
   now: Date.now,
-  support: Q
+  support: Y
  }), Z.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(e, t) {
   V["[object " + t + "]"] = t.toLowerCase();
  });
@@ -1045,7 +1045,7 @@ function diff_match_patch() {
     if (h += f, r && f !== h) {
      for (d = 0; p = n[d++]; ) p(m, v, a, s);
      if (i) {
-      if (h > 0) for (;f--; ) m[f] || v[f] || (v[f] = Q.call(l));
+      if (h > 0) for (;f--; ) m[f] || v[f] || (v[f] = Y.call(l));
       v = g(v);
      }
      J.apply(l, v), c && !i && v.length > 0 && h + n.length > 1 && t.uniqueSort(l);
@@ -1056,7 +1056,7 @@ function diff_match_patch() {
   }
   var x, w, S, C, _, T, k, E, I, D, N, L, M, A, R, P, O, F, B, j = "sizzle" + 1 * new Date(), $ = e.document, U = 0, H = 0, q = n(), G = n(), z = n(), W = function(e, t) {
    return e === t && (N = !0), 0;
-  }, V = 1 << 31, X = {}.hasOwnProperty, Y = [], Q = Y.pop, K = Y.push, J = Y.push, Z = Y.slice, ee = function(e, t) {
+  }, V = 1 << 31, X = {}.hasOwnProperty, Q = [], Y = Q.pop, K = Q.push, J = Q.push, Z = Q.slice, ee = function(e, t) {
    for (var n = 0, i = e.length; i > n; n++) if (e[n] === t) return n;
    return -1;
   }, te = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped", ne = "[\\x20\\t\\r\\n\\f]", ie = "(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+", re = ie.replace("w", "w#"), oe = "\\[" + ne + "*(" + ie + ")(?:" + ne + "*([*^$|!~]?=)" + ne + "*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + re + "))|)" + ne + "*\\]", ae = ":(" + ie + ")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|" + oe + ")*)|.*)\\)|)", se = new RegExp(ne + "+", "g"), le = new RegExp("^" + ne + "+|((?:^|[^\\\\])(?:\\\\.)*)" + ne + "+$", "g"), ce = new RegExp("^" + ne + "*," + ne + "*"), ue = new RegExp("^" + ne + "*([>+~]|" + ne + ")" + ne + "*"), de = new RegExp("=" + ne + "*([^\\]'\"]*?)" + ne + "*\\]", "g"), pe = new RegExp(ae), he = new RegExp("^" + re + "$"), fe = {
@@ -1075,10 +1075,10 @@ function diff_match_patch() {
    L();
   };
   try {
-   J.apply(Y = Z.call($.childNodes), $.childNodes), Y[$.childNodes.length].nodeType;
+   J.apply(Q = Z.call($.childNodes), $.childNodes), Q[$.childNodes.length].nodeType;
   } catch (_e) {
    J = {
-    apply: Y.length ? function(e, t) {
+    apply: Q.length ? function(e, t) {
      K.apply(e, Z.call(t));
     } : function(e, t) {
      for (var n = e.length, i = 0; e[n++] = t[i++]; ) ;
@@ -1862,11 +1862,11 @@ function diff_match_patch() {
  !function() {
   var e = K.createDocumentFragment(), t = e.appendChild(K.createElement("div")), n = K.createElement("input");
   n.setAttribute("type", "radio"), n.setAttribute("checked", "checked"), n.setAttribute("name", "t"), 
-  t.appendChild(n), Q.checkClone = t.cloneNode(!0).cloneNode(!0).lastChild.checked, 
-  t.innerHTML = "<textarea>x</textarea>", Q.noCloneChecked = !!t.cloneNode(!0).lastChild.defaultValue;
+  t.appendChild(n), Y.checkClone = t.cloneNode(!0).cloneNode(!0).lastChild.checked, 
+  t.innerHTML = "<textarea>x</textarea>", Y.noCloneChecked = !!t.cloneNode(!0).lastChild.defaultValue;
  }();
  var Te = "undefined";
- Q.focusinBubbles = "onfocusin" in e;
+ Y.focusinBubbles = "onfocusin" in e;
  var ke = /^key/, Ee = /^(?:mouse|pointer|contextmenu)|click/, Ie = /^(?:focusinfocus|focusoutblur)$/, De = /^([^.]*)(?:\.(.+)|)$/;
  Z.event = {
   global: {},
@@ -1906,7 +1906,7 @@ function diff_match_patch() {
    }
   },
   trigger: function(t, n, i, r) {
-   var o, a, s, l, c, u, d, p = [ i || K ], h = Y.call(t, "type") ? t.type : t, f = Y.call(t, "namespace") ? t.namespace.split(".") : [];
+   var o, a, s, l, c, u, d, p = [ i || K ], h = Q.call(t, "type") ? t.type : t, f = Q.call(t, "namespace") ? t.namespace.split(".") : [];
    if (a = s = i = i || K, 3 !== i.nodeType && 8 !== i.nodeType && !Ie.test(h + Z.event.triggered) && (h.indexOf(".") >= 0 && (f = h.split("."), 
    h = f.shift(), f.sort()), c = h.indexOf(":") < 0 && "on" + h, t = t[Z.expando] ? t : new Z.Event(h, "object" == typeof t && t), 
    t.isTrigger = r ? 2 : 3, t.namespace = f.join("."), t.namespace_re = t.namespace ? new RegExp("(^|\\.)" + f.join("\\.(?:.*\\.|)") + "(\\.|$)") : null, 
@@ -2056,7 +2056,7 @@ function diff_match_patch() {
     e.type = t), n;
    }
   };
- }), Q.focusinBubbles || Z.each({
+ }), Y.focusinBubbles || Z.each({
   focus: "focusin",
   blur: "focusout"
  }, function(e, t) {
@@ -2127,7 +2127,7 @@ function diff_match_patch() {
  Be.th = Be.td, Z.extend({
   clone: function(e, t, n) {
    var i, r, o, a, s = e.cloneNode(!0), l = Z.contains(e.ownerDocument, e);
-   if (!(Q.noCloneChecked || 1 !== e.nodeType && 11 !== e.nodeType || Z.isXMLDoc(e))) for (a = v(s), 
+   if (!(Y.noCloneChecked || 1 !== e.nodeType && 11 !== e.nodeType || Z.isXMLDoc(e))) for (a = v(s), 
    o = v(e), i = 0, r = o.length; r > i; i++) b(o[i], a[i]);
    if (t) if (n) for (o = o || v(e), a = a || v(s), i = 0, r = o.length; r > i; i++) g(o[i], a[i]); else g(e, s);
    return a = v(s, "script"), a.length > 0 && m(a, !l && v(e, "script")), s;
@@ -2229,7 +2229,7 @@ function diff_match_patch() {
   domManip: function(e, t) {
    e = G.apply([], e);
    var n, i, r, o, a, s, l = 0, c = this.length, u = this, d = c - 1, p = e[0], m = Z.isFunction(p);
-   if (m || c > 1 && "string" == typeof p && !Q.checkClone && Re.test(p)) return this.each(function(n) {
+   if (m || c > 1 && "string" == typeof p && !Y.checkClone && Re.test(p)) return this.each(function(n) {
     var i = u.eq(n);
     m && (e[0] = p.call(this, n, i.html())), i.domManip(e, t);
    });
@@ -2267,8 +2267,8 @@ function diff_match_patch() {
   }
   var n, i, r = K.documentElement, o = K.createElement("div"), a = K.createElement("div");
   a.style && (a.style.backgroundClip = "content-box", a.cloneNode(!0).style.backgroundClip = "", 
-  Q.clearCloneStyle = "content-box" === a.style.backgroundClip, o.style.cssText = "border:0;width:0;height:0;top:0;left:-9999px;margin-top:1px;position:absolute", 
-  o.appendChild(a), e.getComputedStyle && Z.extend(Q, {
+  Y.clearCloneStyle = "content-box" === a.style.backgroundClip, o.style.cssText = "border:0;width:0;height:0;top:0;left:-9999px;margin-top:1px;position:absolute", 
+  o.appendChild(a), e.getComputedStyle && Z.extend(Y, {
    pixelPosition: function() {
     return t(), n;
    },
@@ -2297,7 +2297,7 @@ function diff_match_patch() {
  }, Xe = {
   letterSpacing: "0",
   fontWeight: "400"
- }, Ye = [ "Webkit", "O", "Moz", "ms" ];
+ }, Qe = [ "Webkit", "O", "Moz", "ms" ];
  Z.extend({
   cssHooks: {
    opacity: {
@@ -2333,7 +2333,7 @@ function diff_match_patch() {
     void 0 === n ? a && "get" in a && void 0 !== (r = a.get(e, !1, i)) ? r : l[t] : (o = typeof n, 
     "string" === o && (r = We.exec(n)) && (n = (r[1] + 1) * r[2] + parseFloat(Z.css(e, t)), 
     o = "number"), void (null != n && n === n && ("number" !== o || Z.cssNumber[s] || (n += "px"), 
-    Q.clearCloneStyle || "" !== n || 0 !== t.indexOf("background") || (l[t] = "inherit"), 
+    Y.clearCloneStyle || "" !== n || 0 !== t.indexOf("background") || (l[t] = "inherit"), 
     a && "set" in a && void 0 === (n = a.set(e, n, i)) || (l[t] = n))));
    }
   },
@@ -2355,7 +2355,7 @@ function diff_match_patch() {
     return _(e, n, i ? T(e, t, i, "border-box" === Z.css(e, "boxSizing", !1, r), r) : 0);
    }
   };
- }), Z.cssHooks.marginRight = S(Q.reliableMarginRight, function(e, t) {
+ }), Z.cssHooks.marginRight = S(Y.reliableMarginRight, function(e, t) {
   return t ? Z.swap(e, {
    display: "inline-block"
   }, w, [ e, "marginRight" ]) : void 0;
@@ -2431,7 +2431,7 @@ function diff_match_patch() {
    return .5 - Math.cos(e * Math.PI) / 2;
   }
  }, Z.fx = I.prototype.init, Z.fx.step = {};
- var Qe, Ke, Je = /^(?:toggle|show|hide)$/, Ze = new RegExp("^(?:([+-])=|)(" + we + ")([a-z%]*)$", "i"), et = /queueHooks$/, tt = [ M ], nt = {
+ var Ye, Ke, Je = /^(?:toggle|show|hide)$/, Ze = new RegExp("^(?:([+-])=|)(" + we + ")([a-z%]*)$", "i"), et = /queueHooks$/, tt = [ M ], nt = {
   "*": [ function(e, t) {
    var n = this.createTween(e, t), i = n.cur(), r = Ze.exec(t), o = r && r[3] || (Z.cssNumber[e] ? "" : "px"), a = (Z.cssNumber[e] || "px" !== o && +i) && Ze.exec(Z.css(n.elem, e)), s = 1, l = 20;
    if (a && a[3] !== o) {
@@ -2521,8 +2521,8 @@ function diff_match_patch() {
   };
  }), Z.timers = [], Z.fx.tick = function() {
   var e, t = 0, n = Z.timers;
-  for (Qe = Z.now(); t < n.length; t++) e = n[t], e() || n[t] !== e || n.splice(t--, 1);
-  n.length || Z.fx.stop(), Qe = void 0;
+  for (Ye = Z.now(); t < n.length; t++) e = n[t], e() || n[t] !== e || n.splice(t--, 1);
+  n.length || Z.fx.stop(), Ye = void 0;
  }, Z.fx.timer = function(e) {
   Z.timers.push(e), e() ? Z.fx.start() : Z.timers.pop();
  }, Z.fx.interval = 13, Z.fx.start = function() {
@@ -2542,9 +2542,9 @@ function diff_match_patch() {
   });
  }, function() {
   var e = K.createElement("input"), t = K.createElement("select"), n = t.appendChild(K.createElement("option"));
-  e.type = "checkbox", Q.checkOn = "" !== e.value, Q.optSelected = n.selected, t.disabled = !0, 
-  Q.optDisabled = !n.disabled, e = K.createElement("input"), e.value = "t", e.type = "radio", 
-  Q.radioValue = "t" === e.value;
+  e.type = "checkbox", Y.checkOn = "" !== e.value, Y.optSelected = n.selected, t.disabled = !0, 
+  Y.optDisabled = !n.disabled, e = K.createElement("input"), e.value = "t", e.type = "radio", 
+  Y.radioValue = "t" === e.value;
  }();
  var it, rt, ot = Z.expr.attrHandle;
  Z.fn.extend({
@@ -2572,7 +2572,7 @@ function diff_match_patch() {
   attrHooks: {
    type: {
     set: function(e, t) {
-     if (!Q.radioValue && "radio" === t && Z.nodeName(e, "input")) {
+     if (!Y.radioValue && "radio" === t && Z.nodeName(e, "input")) {
       var n = e.value;
       return e.setAttribute("type", t), n && (e.value = n), t;
      }
@@ -2618,7 +2618,7 @@ function diff_match_patch() {
     }
    }
   }
- }), Q.optSelected || (Z.propHooks.selected = {
+ }), Y.optSelected || (Z.propHooks.selected = {
   get: function(e) {
    var t = e.parentNode;
    return t && t.parentNode && t.parentNode.selectedIndex, null;
@@ -2687,7 +2687,7 @@ function diff_match_patch() {
    select: {
     get: function(e) {
      for (var t, n, i = e.options, r = e.selectedIndex, o = "select-one" === e.type || 0 > r, a = o ? null : [], s = o ? r + 1 : i.length, l = 0 > r ? s : o ? r : 0; s > l; l++) if (n = i[l], 
-     !(!n.selected && l !== r || (Q.optDisabled ? n.disabled : null !== n.getAttribute("disabled")) || n.parentNode.disabled && Z.nodeName(n.parentNode, "optgroup"))) {
+     !(!n.selected && l !== r || (Y.optDisabled ? n.disabled : null !== n.getAttribute("disabled")) || n.parentNode.disabled && Z.nodeName(n.parentNode, "optgroup"))) {
       if (t = Z(n).val(), o) return t;
       a.push(t);
      }
@@ -2705,7 +2705,7 @@ function diff_match_patch() {
    set: function(e, t) {
     return Z.isArray(t) ? e.checked = Z.inArray(Z(e).val(), t) >= 0 : void 0;
    }
-  }, Q.checkOn || (Z.valHooks[this].get = function(e) {
+  }, Y.checkOn || (Z.valHooks[this].get = function(e) {
    return null === e.getAttribute("value") ? "on" : e.value;
   });
  }), Z.each("blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu".split(" "), function(e, t) {
@@ -2968,9 +2968,9 @@ function diff_match_patch() {
  }, Lt = Z.ajaxSettings.xhr();
  e.attachEvent && e.attachEvent("onunload", function() {
   for (var e in Dt) Dt[e]();
- }), Q.cors = !!Lt && "withCredentials" in Lt, Q.ajax = Lt = !!Lt, Z.ajaxTransport(function(e) {
+ }), Y.cors = !!Lt && "withCredentials" in Lt, Y.ajax = Lt = !!Lt, Z.ajaxTransport(function(e) {
   var t;
-  return Q.cors || Lt && !e.crossDomain ? {
+  return Y.cors || Lt && !e.crossDomain ? {
    send: function(n, i) {
     var r, o = e.xhr(), a = ++It;
     if (o.open(e.type, e.url, e.async, e.username, e.password), e.xhrFields) for (r in e.xhrFields) o[r] = e.xhrFields[r];
@@ -3133,7 +3133,7 @@ function diff_match_patch() {
    }, t, r, arguments.length, null);
   };
  }), Z.each([ "top", "left" ], function(e, t) {
-  Z.cssHooks[t] = S(Q.pixelPosition, function(e, n) {
+  Z.cssHooks[t] = S(Y.pixelPosition, function(e, n) {
    return n ? (n = w(e, t), He.test(n) ? Z(e).position()[t] + "px" : n) : void 0;
   });
  }), Z.each({
@@ -3547,7 +3547,7 @@ function diff_match_patch() {
   };
  }
  function b(e, t) {
-  if (Y(e, t)) throw new m("INVALID_NODE_TYPE_ERR");
+  if (Q(e, t)) throw new m("INVALID_NODE_TYPE_ERR");
  }
  function y(e) {
   if (!e.startContainer) throw new $("INVALID_STATE_ERR");
@@ -3775,9 +3775,9 @@ function diff_match_patch() {
    this._current = this._next = this.nodes = null;
   }
  };
- var U = [ 1, 3, 4, 5, 7, 8, 10 ], H = [ 2, 9, 11 ], q = [ 5, 6, 10, 12 ], G = [ 1, 3, 4, 5, 7, 8, 10, 11 ], z = [ 1, 3, 4, 5, 7, 8 ], W = B.getRootContainer, V = v([ 9, 11 ]), X = v(q), Y = v([ 6, 10, 12 ]), Q = document.createElement("style"), K = !1;
+ var U = [ 1, 3, 4, 5, 7, 8, 10 ], H = [ 2, 9, 11 ], q = [ 5, 6, 10, 12 ], G = [ 1, 3, 4, 5, 7, 8, 10, 11 ], z = [ 1, 3, 4, 5, 7, 8 ], W = B.getRootContainer, V = v([ 9, 11 ]), X = v(q), Q = v([ 6, 10, 12 ]), Y = document.createElement("style"), K = !1;
  try {
-  Q.innerHTML = "<b>x</b>", K = 3 == Q.firstChild.nodeType;
+  Y.innerHTML = "<b>x</b>", K = 3 == Y.firstChild.nodeType;
  } catch (J) {}
  e.features.htmlParsingConforms = K;
  var Z = K ? function(e) {
@@ -7354,59 +7354,47 @@ var saveAs = saveAs || function(e) {
  }, utils;
 }), define("constants", [], function() {
  var e = {};
- return e.VERSION = "1.9.14", e.MAIN_URL = "https://writeon.io/", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
- e.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ", e.GOOGLE_DRIVE_APP_ID = "1017251498254", 
- e.DROPBOX_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_APP_SECRET = "1mesyckskczn3f9", 
- e.DROPBOX_RESTRICTED_APP_KEY = "r3vgaee214zfvc7", e.DROPBOX_RESTRICTED_APP_SECRET = "1mesyckskczn3f9", 
- e.BITLY_ACCESS_TOKEN = "c93d4289b9c1a0313378f1dad028c2d334bbc3c6", e.DEFAULT_FILE_TITLE = "Story Title", 
+ return e.VERSION = "1.9.14", e.MAIN_URL = "https://writeon.io/", e.DEFAULT_FILE_TITLE = "Story Title", 
  e.DEFAULT_FOLDER_NAME = "New Storybook", e.GDRIVE_DEFAULT_FILE_TITLE = "New Story", 
  e.EDITOR_DEFAULT_PADDING = 120, e.CHECK_ONLINE_PERIOD = 12e4, e.AJAX_TIMEOUT = 3e4, 
  e.ASYNC_TASK_DEFAULT_TIMEOUT = 6e4, e.ASYNC_TASK_LONG_TIMEOUT = 18e4, e.USER_IDLE_THRESHOLD = 3e5, 
  e.IMPORT_FILE_MAX_CONTENT_SIZE = 1e5, e.IMPORT_IMG_MAX_CONTENT_SIZE = 1e7, e.COUCHDB_PAGE_SIZE = 25, 
  e.TEMPORARY_FILE_INDEX = "file.tempIndex", e.WELCOME_DOCUMENT_TITLE = "Welcome Guide", 
- e.GUIDE_DOCUMENT_TITLE = "Syntax Guide", e.DOWNLOAD_IMPORT_URL = "/downloadImport", 
- e.PICASA_IMPORT_IMG_URL = "/picasaImportImg", e.SSH_PUBLISH_URL = "/sshPublish", 
- e.PDF_EXPORT_URL = "/pdfExport", e.BOOT_MYWRITEON_URL = "/bootmywriteon", e.COUCHDB_DB = "documents", 
+ e.GUIDE_DOCUMENT_TITLE = "Syntax Guide", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
+ e.GOOGLE_API_KEY = "QUl6YVN5QlhMU3FkVnlHZTNEOFA5cllkX1lPYktwRVk2UzJjQ2ZR", e.GOOGLE_DRIVE_APP_ID = "MTAxNzI1MTQ5ODI1NA==", 
+ e.DROPBOX_APP_KEY = "cjN2Z2FlZTIxNHpmdmM3", e.DROPBOX_APP_SECRET = "MW1lc3lja3NrY3puM2Y5", 
+ e.DROPBOX_RESTRICTED_APP_KEY = "cjN2Z2FlZTIxNHpmdmM3", e.DROPBOX_RESTRICTED_APP_SECRET = "MW1lc3lja3NrY3puM2Y5", 
+ e.BITLY_ACCESS_TOKEN = "YzkzZDQyODliOWMxYTAzMTMzNzhmMWRhZDAyOGMyZDMzNGJiYzNjNg==", 
+ e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
+ e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.WORDPRESS_CLIENT_ID = "37535", e.BASE_URL = e.MAIN_URL, 
+ e.DOWNLOAD_IMPORT_URL = "api/import/local/", e.PICASA_IMPORT_IMG_URL = "api/google/import/images/", 
+ e.SSH_PUBLISH_URL = "api/publish/ssh/", e.PDF_EXPORT_URL = "api/publish/pdf/", e.BOOT_MYWRITEON_URL = "api/account/create/", 
+ e.DOWNLOAD_API_URL = "download/", e.DROPBOX_API_URL = "api/dropbox/", e.GOOGLE_API_URL = "api/google/", 
+ e.GHOST_API_URL = "api/ghost/", e.GITHUB_API_URL = "api/github/", e.TUMBLR_API_URL = "api/tumblr/", 
+ e.WORDPRESS_API_URL = "api/wordpress/", e.GATEKEEPER_URL = "api/github/", e.TUMBLR_PROXY_URL = "api/tumblr/", 
+ e.GHOST_PROXY_URL = "api/ghost/", e.WORDPRESS_PROXY_URL = "api/wordpress/", e.COUCHDB_DB = "stories", 
  e.COUCHDB_SERVER = "https://cloud1.writeon.io", e.COUCHDB_BASIC_AUTH = "dGhpYWJvcnRzcGVjaWFsbGVldGhlcmVuOmJTV2RwRVlKMjhHbEdFRWZXTkJyeWFtdA==", 
  e.COUCHDB_AUTH_SERVER = "aHR0cHM6Ly90aGlhYm9ydHNwZWNpYWxsZWV0aGVyZW46YlNXZHBFWUoyOEdsR0VFZldOQnJ5YW10QGNsb3VkMS53cml0ZW9uLmlv", 
- e.BASE_URL = e.MAIN_URL, e.DROPBOX_API_URL = "/api/dropbox/", e.GOOGLE_API_URL = "/api/google/", 
- e.GHOST_API_URL = "/api/ghost/", e.GITHUB_API_URL = "/api/github/", e.TUMBLR_API_URL = "/api/tumblr/", 
- e.WORDPRESS_API_URL = "/api/wordpress/", e.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/", 
- e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.GHOST_PROXY_URL = "https://writeon-ghost-proxy.herokuapp.com/", 
- e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
- e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.WORDPRESS_CLIENT_ID = "37535", e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", 
  0 === location.hostname.indexOf("writeon.io") ? (e.BASE_URL = e.MAIN_URL, e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
  e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
- e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.GATEKEEPER_URL = "https://writeon-gatekeeper.herokuapp.com/", 
- e.TUMBLR_PROXY_URL = "https://writeon-tumblr.herokuapp.com/", e.COUCHDB_SERVER = "https://cloud1.writeon.io") : 0 === location.hostname.indexOf("beta.writeon.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
+ e.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7", e.COUCHDB_SERVER = "https://cloud1.writeon.io") : 0 === location.hostname.indexOf("beta.writeon.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
  e.BASE_URL = "https://beta.writeon.io/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
- e.GITHUB_CLIENT_ID = "302c5c415085534c1346", e.GATEKEEPER_URL = "https://writeon-gatekeeper-beta.herokuapp.com/", 
- e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy-beta.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "38332", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy-beta.herokuapp.com/", e.COUCHDB_DB = "stories", 
- e.COUCHDB_SERVER = "https://cloud2.writeon.io") : 0 === location.hostname.indexOf("next.writeon.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
+ e.GITHUB_CLIENT_ID = "302c5c415085534c1346", e.WORDPRESS_CLIENT_ID = "38332", e.COUCHDB_DB = "stories", 
+ e.COUCHDB_SERVER = "https://cloud2.writeon.io") : 0 === location.hostname.indexOf("next.writeon.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
  e.BASE_URL = "https://next.writeon.io/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
- e.GITHUB_CLIENT_ID = "e4fb02a63b777728ee2d", e.GATEKEEPER_URL = "https://writeon-gatekeeper-next.herokuapp.com/", 
- e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy-next.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "37430", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy-next.herokuapp.com/", e.COUCHDB_DB = "stories", 
- e.COUCHDB_SERVER = "https://cloud1.writeon.io") : 0 === location.hostname.indexOf("mammal-charter.codio.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
+ e.GITHUB_CLIENT_ID = "e4fb02a63b777728ee2d", e.WORDPRESS_CLIENT_ID = "37430", e.COUCHDB_DB = "stories", 
+ e.COUCHDB_SERVER = "https://cloud2.writeon.io") : 0 === location.hostname.indexOf("mammal-charter.codio.io") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
+ e.BASE_URL = "https://mammal-charter.codio.io:9501/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
+ e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.WORDPRESS_CLIENT_ID = "37431", e.COUCHDB_DB = "stories", 
+ e.COUCHDB_SERVER = "https://cloud3.writeon.io") : 0 === location.hostname.indexOf("mammal-charter.codio.io:9500") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
  e.BASE_URL = "https://mammal-charter.codio.io:9500/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
- e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.GATEKEEPER_URL = "/api/github/", 
- e.TUMBLR_PROXY_URL = "/api/tumblr/", e.WORDPRESS_CLIENT_ID = "37431", e.WORDPRESS_PROXY_URL = "/api/wordpress/", 
- e.COUCHDB_DB = "stories", e.COUCHDB_SERVER = "https://cloud3.writeon.io") : 0 === location.hostname.indexOf("mammal-charter.codio.io:9500") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
- e.BASE_URL = "https://mammal-charter.codio.io:9500/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
- e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/", 
- e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "37431", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_DB = "stories", 
+ e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.WORDPRESS_CLIENT_ID = "37431", e.COUCHDB_DB = "stories", 
  e.COUCHDB_SERVER = "https://cloud3.writeon.io") : 0 === location.hostname.indexOf("mammal-charter.codio.io:3000") ? (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
  e.BASE_URL = "http://mammal-charter.codio.io:3000/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
- e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/", 
- e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "37431", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_DB = "stories", 
+ e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.WORDPRESS_CLIENT_ID = "37431", e.COUCHDB_DB = "stories", 
  e.COUCHDB_SERVER = "https://cloud3.writeon.io") : 0 === location.hostname.indexOf("mammal-charter.codio.io:9501") && (e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2", 
  e.BASE_URL = "https://mammal-charter.codio.io:9501/", e.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com", 
- e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.GATEKEEPER_URL = "https://writeon-gatekeeper-mammal.herokuapp.com/", 
- e.TUMBLR_PROXY_URL = "https://writeon-tumblr-proxy.herokuapp.com/", e.WORDPRESS_CLIENT_ID = "37431", 
- e.WORDPRESS_PROXY_URL = "https://writeon-wordpress-proxy.herokuapp.com/", e.COUCHDB_DB = "stories", 
+ e.GITHUB_CLIENT_ID = "235008232d0259c2f036", e.WORDPRESS_CLIENT_ID = "37431", e.COUCHDB_DB = "stories", 
  e.COUCHDB_SERVER = "https://cloud3.writeon.io"), e.THEME_LIST = {
   gray: "Default",
   neat: "Minimal",
@@ -15881,8 +15869,8 @@ function() {
   mousedown: "touchstart",
   mousemove: "touchmove",
   mouseup: "touchend"
- }, B = R.prototype.toLowerCase, j = Math, $ = j.max, U = j.min, H = j.abs, q = j.pow, G = j.PI, z = "number", W = "string", V = "array", X = Object.prototype.toString, Y = (n._ISURL = /^url\(['"]?(.+?)['"]?\)$/i, 
- /^\s*((#[a-f\d]{6})|(#[a-f\d]{3})|rgba?\(\s*([\d\.]+%?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+%?(?:\s*,\s*[\d\.]+%?)?)\s*\)|hsba?\(\s*([\d\.]+(?:deg|\xb0|%)?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+(?:%?\s*,\s*[\d\.]+)?)%?\s*\)|hsla?\(\s*([\d\.]+(?:deg|\xb0|%)?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+(?:%?\s*,\s*[\d\.]+)?)%?\s*\))\s*$/i), Q = {
+ }, B = R.prototype.toLowerCase, j = Math, $ = j.max, U = j.min, H = j.abs, q = j.pow, G = j.PI, z = "number", W = "string", V = "array", X = Object.prototype.toString, Q = (n._ISURL = /^url\(['"]?(.+?)['"]?\)$/i, 
+ /^\s*((#[a-f\d]{6})|(#[a-f\d]{3})|rgba?\(\s*([\d\.]+%?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+%?(?:\s*,\s*[\d\.]+%?)?)\s*\)|hsba?\(\s*([\d\.]+(?:deg|\xb0|%)?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+(?:%?\s*,\s*[\d\.]+)?)%?\s*\)|hsla?\(\s*([\d\.]+(?:deg|\xb0|%)?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+(?:%?\s*,\s*[\d\.]+)?)%?\s*\))\s*$/i), Y = {
   NaN: 1,
   Infinity: 1,
   "-Infinity": 1
@@ -16002,7 +15990,7 @@ function() {
  }
  n.svg = !(n.vml = "VML" == n.type), n._Paper = I, n.fn = w = I.prototype = n.prototype, 
  n._id = 0, n._oid = 0, n.is = function(e, t) {
-  return t = B.call(t), "finite" == t ? !Q[T](+e) : "array" == t ? e instanceof Array : "null" == t && null === e || t == typeof e && null !== e || "object" == t && e === Object(e) || "array" == t && Array.isArray && Array.isArray(e) || X.call(e).slice(8, -1).toLowerCase() == t;
+  return t = B.call(t), "finite" == t ? !Y[T](+e) : "array" == t ? e instanceof Array : "null" == t && null === e || t == typeof e && null !== e || "object" == t && e === Object(e) || "array" == t && Array.isArray && Array.isArray(e) || X.call(e).slice(8, -1).toLowerCase() == t;
  }, n.angle = function(e, t, i, r, o, a) {
   if (null == o) {
    var s = e - i, l = t - r;
@@ -16158,7 +16146,7 @@ function() {
    toString: a
   };
   !(oe[T](e.toLowerCase().substring(0, 2)) || "#" == e.charAt()) && (e = xe(e));
-  var t, i, r, o, s, l, c = e.match(Y);
+  var t, i, r, o, s, l, c = e.match(Q);
   return c ? (c[2] && (r = ee(c[2].substring(5), 16), i = ee(c[2].substring(3, 5), 16), 
   t = ee(c[2].substring(1, 3), 16)), c[3] && (r = ee((s = c[3].charAt(3)) + s, 16), 
   i = ee((s = c[3].charAt(2)) + s, 16), t = ee((s = c[3].charAt(1)) + s, 16)), c[4] && (l = c[4][P](re), 
@@ -16797,9 +16785,9 @@ function() {
    };
    return o;
   } : void 0;
- }(), Ye = [], Qe = function(e) {
-  for (var n, i = e.clientX, r = e.clientY, o = k.doc.documentElement.scrollTop || k.doc.body.scrollTop, a = k.doc.documentElement.scrollLeft || k.doc.body.scrollLeft, s = Ye.length; s--; ) {
-   if (n = Ye[s], L && e.touches) {
+ }(), Qe = [], Ye = function(e) {
+  for (var n, i = e.clientX, r = e.clientY, o = k.doc.documentElement.scrollTop || k.doc.body.scrollTop, a = k.doc.documentElement.scrollLeft || k.doc.body.scrollLeft, s = Qe.length; s--; ) {
+   if (n = Qe[s], L && e.touches) {
     for (var l, c = e.touches.length; c--; ) if (l = e.touches[c], l.identifier == n.el._drag.id) {
      i = l.clientX, r = l.clientY, (e.originalEvent ? e.originalEvent : e).preventDefault();
      break;
@@ -16811,9 +16799,9 @@ function() {
    u && t("raphael.drag.over." + n.el.id, n.el, u), i += a, r += o, t("raphael.drag.move." + n.el.id, n.move_scope || n.el, i - n.el._drag.x, r - n.el._drag.y, i, r, e);
   }
  }, Ke = function(e) {
-  n.unmousemove(Qe).unmouseup(Ke);
-  for (var i, r = Ye.length; r--; ) i = Ye[r], i.el._drag = {}, t("raphael.drag.end." + i.el.id, i.end_scope || i.start_scope || i.move_scope || i.el, e);
-  Ye = [];
+  n.unmousemove(Ye).unmouseup(Ke);
+  for (var i, r = Qe.length; r--; ) i = Qe[r], i.el._drag = {}, t("raphael.drag.end." + i.el.id, i.end_scope || i.start_scope || i.move_scope || i.el, e);
+  Qe = [];
  }, Je = n.el = {}, Ze = O.length; Ze--; ) !function(e) {
   n[e] = Je[e] = function(t, i) {
    return n.is(t, "function") && (this.events = this.events || [], this.events.push({
@@ -16857,8 +16845,8 @@ function() {
     c = h.clientX, u = h.clientY;
     break;
    }
-   this._drag.x = c + p, this._drag.y = u + d, !Ye.length && n.mousemove(Qe).mouseup(Ke), 
-   Ye.push({
+   this._drag.x = c + p, this._drag.y = u + d, !Qe.length && n.mousemove(Ye).mouseup(Ke), 
+   Qe.push({
     el: this,
     move_scope: o,
     start_scope: a,
@@ -16875,7 +16863,7 @@ function() {
  }, Je.undrag = function() {
   for (var e = et.length; e--; ) et[e].el == this && (this.unmousedown(et[e].start), 
   et.splice(e, 1), t.unbind("raphael.drag.*." + this.id));
-  !et.length && n.unmousemove(Qe).unmouseup(Ke), Ye = [];
+  !et.length && n.unmousemove(Ye).unmouseup(Ke), Qe = [];
  }, w.circle = function(e, t, i) {
   var r = n._engine.circle(this, e || 0, t || 0, i || 0);
   return this.__set__ && this.__set__.push(r), r;
@@ -18257,10 +18245,10 @@ function() {
      m = W.style, p.font && (m.font = p.font), p["font-family"] && (m.fontFamily = p["font-family"]), 
      p["font-weight"] && (m.fontWeight = p["font-weight"]), p["font-style"] && (m.fontStyle = p["font-style"]), 
      X = i(p["font-size"] || X && X[0]) || 10, m.fontSize = X * V + "px", b.textpath.string && (W.innerHTML = t(b.textpath.string).replace(/</g, "&#60;").replace(/&/g, "&#38;").replace(/\n/g, "<br>"));
-     var Y = W.getBoundingClientRect();
-     b.W = p.w = (Y.right - Y.left) / V, b.H = p.h = (Y.bottom - Y.top) / V, b.X = p.x, 
+     var Q = W.getBoundingClientRect();
+     b.W = p.w = (Q.right - Q.left) / V, b.H = p.h = (Q.bottom - Q.top) / V, b.X = p.x, 
      b.Y = p.y + b.H / 2, ("x" in l || "y" in l) && (b.path.v = n.format("m{0},{1}l{2},{1}", o(p.x * x), o(p.y * x), o(p.x * x) + 1));
-     for (var Q = [ "x", "y", "text", "font", "font-family", "font-weight", "font-style", "font-size" ], K = 0, J = Q.length; J > K; K++) if (Q[K] in l) {
+     for (var Y = [ "x", "y", "text", "font", "font-family", "font-weight", "font-style", "font-size" ], K = 0, J = Y.length; J > K; K++) if (Y[K] in l) {
       b._.dirty = 1;
       break;
      }
@@ -21745,7 +21733,7 @@ function() {
     o.tooltip("hide").removeClass("info-tooltip").parent().removeClass("info-tooltip-container");
    }), setTimeout(function() {
     o.tooltip("hide").removeClass("info-tooltip").parent().removeClass("info-tooltip-container");
-   }, 3e4);
+   }, 1e4);
   }
   var a = new r({
    keyboard: !1,
@@ -24616,7 +24604,7 @@ Prism.languages.latex = {
    U.newDiscussion && n.push(U.newDiscussion);
    var i = C(V, e, n);
    V = e, i === !0 && (U.discussionList = U.discussionList), U.content = V, W.saveSelectionState(), 
-   r.onContentChanged(U, V), i && r.onCommentsChanged(U), X.saveState(), Y();
+   r.onContentChanged(U, V), i && r.onCommentsChanged(U), X.saveState(), Q();
   } else V = e, U.content = V, W.setSelectionStartEnd(U.editorStart, U.editorEnd), 
   W.updateSelectionRange(), W.updateCursorCoordinates(), X.saveSelectionState(), r.onFileOpen(U, V), 
   R.scrollTop = U.previewScrollTop, B = U.editorScrollTop, I.scrollTop = B, H = !1;
@@ -24638,7 +24626,7 @@ Prism.languages.latex = {
   }
  }
  function _(e) {
-  if (Z = [], J = [], Q = void 0, H === !0) return J = K, K = e, void (Z = e);
+  if (Z = [], J = [], Y = void 0, H === !0) return J = K, K = e, void (Z = e);
   var n = K.length;
   t.some(K, function(t, i) {
    var r = e[i];
@@ -24654,7 +24642,7 @@ Prism.languages.latex = {
   var r = K.slice(0, n);
   Z = e.slice(n, e.length + i);
   var o = K.slice(K.length + i, K.length);
-  Q = t.first(o), J = K.slice(n, K.length + i), K = r.concat(Z).concat(o);
+  Y = t.first(o), J = K.slice(n, K.length + i), K = r.concat(Z).concat(o);
  }
  function T() {
   var e = document.createDocumentFragment();
@@ -24664,7 +24652,7 @@ Prism.languages.latex = {
    if (H === !0) N.innerHTML = "", N.appendChild(e); else {
     J.forEach(function(e) {
      e.elt.parentNode === N && N.removeChild(e.elt);
-    }), void 0 !== Q ? N.insertBefore(e, Q.elt) : N.appendChild(e);
+    }), void 0 !== Y ? N.insertBefore(e, Y.elt) : N.appendChild(e);
     for (var t = N.firstChild; t; ) {
      var n = t.nextSibling;
      t.generated || N.removeChild(t), t = n;
@@ -24731,7 +24719,7 @@ Prism.languages.latex = {
  var X = new x();
  F.undoMgr = X, r.addListener("onDiscussionCreated", w), r.addListener("onDiscussionRemoved", w), 
  r.addListener("onCommentsChanged", w);
- var Y = t.debounce(function() {
+ var Q = t.debounce(function() {
   var e = window.getSelection();
   W.hasFocus && !$ && W.selectionStart === W.selectionEnd && e.modify && (W.selectionStart ? (e.modify("move", "backward", "character"), 
   e.modify("move", "forward", "character")) : (e.modify("move", "forward", "character"), 
@@ -24848,7 +24836,7 @@ Prism.languages.latex = {
    }
   };
  };
- var Q, K = [], J = [], Z = [], ee = function() {
+ var Y, K = [], J = [], Z = [], ee = function() {
   var e = {
    "&": "&amp;",
    "<": "&lt;",
@@ -25328,7 +25316,7 @@ Prism.languages.latex = {
  function f() {
   var e = x.height - 60, t = (T.elt.offsetWidth - h()) / 2;
   t < i.EDITOR_DEFAULT_PADDING && (t = i.EDITOR_DEFAULT_PADDING), V.style.paddingLeft = t + "px", 
-  V.style.paddingRight = t + "px", V.style.paddingBottom = e + "px", Y.style.width = t + "px";
+  V.style.paddingRight = t + "px", V.style.paddingBottom = e + "px", Q.style.width = t + "px";
   var n = (E.elt.offsetWidth - h()) / 2;
   n < i.EDITOR_DEFAULT_PADDING && (n = i.EDITOR_DEFAULT_PADDING), X.style.paddingLeft = n + "px", 
   X.style.paddingRight = n + "px", X.style.paddingBottom = e + "px";
@@ -25336,7 +25324,7 @@ Prism.languages.latex = {
   window.viewerMode && (r = oe + U + se);
   var a = v.width - r + U;
   ie.forEach(function(e, t) {
-   r += e.width, t === ie.length - 1 && (r -= ae), v.width < r ? K.appendChild(e.elt) : Q.insertBefore(e.elt, Z);
+   r += e.width, t === ie.length - 1 && (r -= ae), v.width < r ? K.appendChild(e.elt) : Y.insertBefore(e.elt, Z);
   }), ee.css({
    maxWidth: a
   }), o.onLayoutResize();
@@ -25464,7 +25452,7 @@ Prism.languages.latex = {
    transform: !1
   });
  };
- var V, X, Y, Q, K, J, Z, ee, te = [ {
+ var V, X, Q, Y, K, J, Z, ee, te = [ {
   screenWidth: 0,
   maxWidth: 600 * r.maxWidthRatio
  }, {
@@ -25496,8 +25484,8 @@ Prism.languages.latex = {
   T = new d("#wmd-input"), k = new d(".preview-panel"), E = new d(".preview-container"), 
   I = new d(".layout-toggler-navbar"), D = new d(".layout-toggler-preview"), N = new d(".layout-resizer-preview"), 
   L = new d(".extension-preview-buttons"), V = T.elt.querySelector(".editor-content"), 
-  X = document.getElementById("preview-contents"), Y = T.elt.querySelector(".editor-margin"), 
-  Q = w.elt.querySelector(".navbar-inner"), K = w.elt.querySelector(".buttons-dropdown .dropdown-menu"), 
+  X = document.getElementById("preview-contents"), Q = T.elt.querySelector(".editor-margin"), 
+  Y = w.elt.querySelector(".navbar-inner"), K = w.elt.querySelector(".buttons-dropdown .dropdown-menu"), 
   J = w.$elt.find(".buttons-dropdown"), Z = w.elt.querySelector(".main-navbar-collapse"), 
   ee = w.$elt.find(".file-title-navbar, .input-file-title"), e([ b.elt, y.elt, x.elt ]).on("scroll", function() {
    this.scrollLeft = 0;
@@ -26574,14 +26562,14 @@ Prism.languages.latex = {
    E && (P && (q = !0), O ? G = !0 : (q = !0, H = b)), B && (z = !0), R && (N = c.patch_make(a.title, g), 
    U = c.patch_apply(N, l)[0]);
   }
-  var Y;
+  var Q;
   if (E) {
-   var Q = [];
-   r.currentFile === n && (Y = {
+   var Y = [];
+   r.currentFile === n && (Q = {
     selectionStart: o.selectionMgr.selectionStart,
     selectionEnd: o.selectionMgr.selectionEnd
-   }, Q.push(Y), n.newDiscussion && Q.push(n.newDiscussion)), q && (Q = Q.concat(e.values(b))), 
-   F |= o.adjustCommentOffsets(m, $, Q);
+   }, Y.push(Q), n.newDiscussion && Y.push(n.newDiscussion)), q && (Y = Y.concat(e.values(b))), 
+   F |= o.adjustCommentOffsets(m, $, Y);
   }
   if (G) {
    var K = e.values(p);
@@ -26599,7 +26587,7 @@ Prism.languages.latex = {
    n.discussionIndex = i, H[i] = n;
   })), A && (n.title = U, i.onTitleChanged(n), i.onMessage('"' + g + '" has been renamed to "' + U + '" on ' + this.providerName + ".")), 
   (E || F) && o.watcher.noWatch(e.bind(function() {
-   if (E && (r.currentFile === n && (o.setValueNoWatch($), Y && o.selectionMgr.setSelectionStartEnd(Y.selectionStart, Y.selectionEnd)), 
+   if (E && (r.currentFile === n && (o.setValueNoWatch($), Q && o.selectionMgr.setSelectionStartEnd(Q.selectionStart, Q.selectionEnd)), 
    n.content = $, i.onContentChanged(n, $)), F) {
     n.discussionList = H;
     var t = u.diff(b, H), a = !1;
@@ -26675,15 +26663,15 @@ Prism.languages.latex = {
  function u(t) {
   t.onRun(function() {
    return v === !0 ? (f = void 0, t.error(new Error("That is not available in offline mode.|stopPublish"))) : void 0 !== f ? t.chain() : void e.ajax({
-    url: "libs/dropbox.min.js",
+    url: "/libs/dropbox.min.js",
     dataType: "script",
     timeout: n.AJAX_TIMEOUT
    }).done(function() {
     f = new Dropbox.Client({
-     key: s.dropboxFullAccess === !0 ? n.DROPBOX_APP_KEY : n.DROPBOX_RESTRICTED_APP_KEY,
-     secret: s.dropboxFullAccess === !0 ? n.DROPBOX_APP_SECRET : n.DROPBOX_RESTRICTED_APP_SECRET
+     key: r.decodeBase64(s.dropboxFullAccess === !0 ? n.DROPBOX_APP_KEY : n.DROPBOX_RESTRICTED_APP_KEY),
+     secret: r.decodeBase64(s.dropboxFullAccess === !0 ? n.DROPBOX_APP_SECRET : n.DROPBOX_RESTRICTED_APP_SECRET)
     }), f.authDriver(new Dropbox.AuthDriver.Popup({
-     receiverUrl: n.DROPBOX_API_URL + "oauth/receiver",
+     receiverUrl: n.BASE_URL + n.DROPBOX_API_URL + "oauth/receiver",
      rememberUser: !0
     })), t.chain();
    }).fail(function(e) {
@@ -28417,7 +28405,7 @@ Prism.languages.latex = {
  function c(n) {
   n.onRun(function() {
    return m === !0 ? (p = !1, void n.error(new Error("This is not available in offline mode.|stopPublish"))) : p === !0 ? void n.chain() : void e.ajax({
-    url: t.GATEKEEPER_URL + "lib",
+    url: "/libs/github.js",
     dataType: "script",
     timeout: t.AJAX_TIMEOUT
    }).done(function() {
@@ -28444,7 +28432,7 @@ Prism.languages.latex = {
    function c() {
     r.removeItem("githubCode");
     var e = a.githubFullAccess ? "repo,gist" : "public_repo,gist";
-    o = i.popupWindow(t.GATEKEEPER_URL + "oauth/client/?client_id=" + t.GITHUB_CLIENT_ID + "&scope=" + e, "writeon-github-oauth", 960, 600), 
+    o = i.popupWindow(t.GITHUB_API_URL + "oauth/client/?client_id=" + t.GITHUB_CLIENT_ID + "&scope=" + e, "writeon-github-oauth", 960, 600), 
     o.focus(), s = setInterval(function() {
      if (o.closed === !0) {
       if (clearInterval(s), o = void 0, s = void 0, f = r.githubCode, void 0 === f) return void n.error(new Error(p));
@@ -28453,7 +28441,7 @@ Prism.languages.latex = {
     }, 500);
    }
    function u() {
-    e.getJSON(t.GATEKEEPER_URL + "auth/" + f, function(e) {
+    e.getJSON(t.GITHUB_API_URL + "auth/" + f, function(e) {
      void 0 !== e.token ? (d = e.token, r.githubToken = d, h = new Github({
       token: d,
       auth: "oauth"
@@ -28648,7 +28636,7 @@ Prism.languages.latex = {
   var o, a;
   n.onRun(function() {
    function s() {
-    e.getJSON(t.TUMBLR_PROXY_URL + "request_token", function(e) {
+    e.getJSON(t.TUMBLR_API_URL + "request_token", function(e) {
      void 0 !== e.oauth_token ? (f = e, n.chain(l)) : n.error(new Error(h));
     });
    }
@@ -28775,7 +28763,7 @@ Prism.languages.latex = {
     });
    }
    function l() {
-    r.removeItem("wordpressCode"), o = i.popupWindow(t.WORDPRESS_PROXY_URL + "oauth/client/?client_id=" + t.WORDPRESS_CLIENT_ID, "writeon-wordpress-oauth", 960, 600), 
+    r.removeItem("wordpressCode"), o = i.popupWindow(t.WORDPRESS_API_URL + "oauth/client/?client_id=" + t.WORDPRESS_CLIENT_ID, "writeon-wordpress-oauth", 960, 600), 
     o.focus(), a = setInterval(function() {
      if (o.closed === !0) {
       if (clearInterval(a), o = void 0, a = void 0, p = r.wordpressCode, void 0 === p) return n.error(new Error(u));
@@ -28784,7 +28772,7 @@ Prism.languages.latex = {
     }, 500);
    }
    function c() {
-    e.getJSON(t.WORDPRESS_PROXY_URL + "auth/" + p, function(e) {
+    e.getJSON(t.WORDPRESS_API_URL + "auth/" + p, function(e) {
      void 0 !== e.token ? (d = e.token, r.wordpressToken = d, n.chain()) : n.error(new Error(u));
     });
    }
@@ -28814,7 +28802,7 @@ Prism.languages.latex = {
   l(m), c(m);
   var g;
   m.onRun(function() {
-   var s = t.WORDPRESS_PROXY_URL + "post", l = {
+   var s = t.WORDPRESS_API_URL + "post", l = {
     token: d,
     site: n,
     postId: i,

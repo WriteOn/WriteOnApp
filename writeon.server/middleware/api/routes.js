@@ -10,11 +10,17 @@ module.exports = function(app) {
     app.get('/api/dropbox/oauth/receiver', function(req, res, next) {
         res.renderDebug('api/dropbox-oauth-receiver.html');
     });
+    app.get('/api/dropbox/worker', function(req, res, next) {
+        res.renderDebug('api/lib/dropbox.min.js');
+    });
      app.get('/api/gdrive/action', function(req, res, next) {
         res.renderDebug('api/gdrive-action.html');
     });
      app.get('/api/github/oauth/client', function(req, res, next) {
         res.renderDebug('api/github-oauth-client.html');
+    });
+     app.get('/api/github/worker', function(req, res, next) {
+        res.renderDebug('api/lib/github.js');
     });
      app.get('/api/tumblr/oauth/client', function(req, res, next) {
         res.renderDebug('api/tumblr-oauth-client.html');

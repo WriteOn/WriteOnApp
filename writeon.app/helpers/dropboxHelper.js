@@ -34,16 +34,16 @@ define([
 				return task.chain();
 			}
 			$.ajax({
-				url: "libs/dropbox.min.js",
+				url: "/libs/dropbox.min.js",
 				dataType: "script",
 				timeout: constants.AJAX_TIMEOUT
 			}).done(function() {
 				client = new Dropbox.Client({
-					key: settings.dropboxFullAccess === true ? constants.DROPBOX_APP_KEY : constants.DROPBOX_RESTRICTED_APP_KEY,
-					secret: settings.dropboxFullAccess === true ? constants.DROPBOX_APP_SECRET : constants.DROPBOX_RESTRICTED_APP_SECRET
+					key: settings.dropboxFullAccess === true ? utils.decodeBase64(constants.DROPBOX_APP_KEY) : utils.decodeBase64(constants.DROPBOX_RESTRICTED_APP_KEY),
+					secret: settings.dropboxFullAccess === true ? utils.decodeBase64(constants.DROPBOX_APP_SECRET) : utils.decodeBase64(constants.DROPBOX_RESTRICTED_APP_SECRET)
 				});
 				client.authDriver(new Dropbox.AuthDriver.Popup({
-					receiverUrl: constants.DROPBOX_API_URL + "oauth/receiver",
+					receiverUrl: constants.BASE_URL + constants.DROPBOX_API_URL + "oauth/receiver",
 					rememberUser: true
 				}));
 				task.chain();
