@@ -324,7 +324,7 @@ define([
 		}
 		editorContentElt.style.paddingLeft = editorPadding + 'px';
 		editorContentElt.style.paddingRight = editorPadding + 'px';
-		editorContentElt.style.paddingBottom = paddingBottom + 'px';
+		// editorContentElt.style.paddingBottom = paddingBottom + 'px';
 		editorMarginElt.style.width = editorPadding + 'px';
 
 		var previewPadding = (previewContainer.elt.offsetWidth - getMaxWidth()) / 2;
@@ -333,7 +333,7 @@ define([
 		}
 		previewContentElt.style.paddingLeft = previewPadding + 'px';
 		previewContentElt.style.paddingRight = previewPadding + 'px';
-		previewContentElt.style.paddingBottom = paddingBottom + 'px';
+		// previewContentElt.style.paddingBottom = paddingBottom + 'px';
 
 		// var maxWidth = navbarMarginWidth + workingIndicatorWidth + titleMinWidth + buttonsDropdownWidth;
         var maxWidth = navbarMarginWidth + titleMinWidth + buttonsDropdownWidth;
