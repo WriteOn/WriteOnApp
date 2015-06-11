@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#Date Thu Jun 11 2015 19:19:44 GMT+0000 (UTC)
+#Date Thu Jun 11 2015 19:48:01 GMT+0000 (UTC)
 #Version 1.9.15
 
 CACHE:
@@ -69,6 +69,7 @@ CACHE:
 /writeon/html/supportWriteonSettingsBlock.html
 /writeon/html/tocSettingsBlock.html
 /writeon/html/tooltipDropboxTemplate.html
+/writeon/html/tooltipGoogleTemplate.html
 /writeon/html/tooltipMyWriteOnTemplate.html
 /writeon/html/tooltipSettingsPdfOptions.html
 /writeon/html/tooltipSettingsShortcutsExtension.html

@@ -4,11 +4,11 @@ function diff_match_patch() {
 }
 
 (function() {
- var e, t, n, i, r, o, a, s, l, c, u, d, p, h, f, m, g, v, b, y, x, w, S, C, _, T, k, E, I, D, N, L, M, A, R, P, O, F, B, j, $, U, H, q, G, z, W, V, X, Q = [].slice, Y = {}.hasOwnProperty, K = function(e, t) {
+ var e, t, n, i, r, o, a, s, l, c, u, d, p, h, f, m, g, v, b, y, x, w, S, C, _, T, k, E, I, D, N, L, M, A, R, P, O, F, B, j, $, U, H, q, G, z, W, V, X, Y = [].slice, Q = {}.hasOwnProperty, K = function(e, t) {
   function n() {
    this.constructor = e;
   }
-  for (var i in t) Y.call(t, i) && (e[i] = t[i]);
+  for (var i in t) Q.call(t, i) && (e[i] = t[i]);
   return n.prototype = t.prototype, e.prototype = new n(), e.__super__ = t.prototype, 
   e;
  }, J = [].indexOf || function(e) {
@@ -58,12 +58,12 @@ function diff_match_patch() {
   })();
  }, L = function() {
   var e, t, n;
-  return n = arguments[0], t = arguments[1], e = 3 <= arguments.length ? Q.call(arguments, 2) : [], 
+  return n = arguments[0], t = arguments[1], e = 3 <= arguments.length ? Y.call(arguments, 2) : [], 
   "function" == typeof n[t] ? n[t].apply(n, e) : n[t];
  }, w = function() {
   var e, t, n, i, r, o, a;
-  for (t = arguments[0], i = 2 <= arguments.length ? Q.call(arguments, 1) : [], o = 0, 
-  a = i.length; a > o; o++) if (n = i[o]) for (e in n) Y.call(n, e) && (r = n[e], 
+  for (t = arguments[0], i = 2 <= arguments.length ? Y.call(arguments, 1) : [], o = 0, 
+  a = i.length; a > o; o++) if (n = i[o]) for (e in n) Q.call(n, e) && (r = n[e], 
   null != t[e] && "object" == typeof t[e] && null != r && "object" == typeof r ? w(t[e], r) : t[e] = r);
   return t;
  }, g = function(e) {
@@ -101,7 +101,7 @@ function diff_match_patch() {
    }
   }, e.prototype.trigger = function() {
    var e, t, n, i, r, o, a, s, l;
-   if (n = arguments[0], e = 2 <= arguments.length ? Q.call(arguments, 1) : [], null != (a = this.bindings) ? a[n] : void 0) {
+   if (n = arguments[0], e = 2 <= arguments.length ? Y.call(arguments, 1) : [], null != (a = this.bindings) ? a[n] : void 0) {
     for (r = 0, l = []; r < this.bindings[n].length; ) s = this.bindings[n][r], i = s.handler, 
     t = s.ctx, o = s.once, i.apply(null != t ? t : this, e), l.push(o ? this.bindings[n].splice(r, 1) : r++);
     return l;
@@ -186,11 +186,11 @@ function diff_match_patch() {
   return r;
  }, k = [], c.ignore = function() {
   var e, t, n;
-  return t = arguments[0], e = 2 <= arguments.length ? Q.call(arguments, 1) : [], 
+  return t = arguments[0], e = 2 <= arguments.length ? Y.call(arguments, 1) : [], 
   k.unshift("ignore"), n = t.apply(null, e), k.shift(), n;
  }, c.track = function() {
   var e, t, n;
-  return t = arguments[0], e = 2 <= arguments.length ? Q.call(arguments, 1) : [], 
+  return t = arguments[0], e = 2 <= arguments.length ? Y.call(arguments, 1) : [], 
   k.unshift("track"), n = t.apply(null, e), k.shift(), n;
  }, P = function(e) {
   var t;
@@ -535,7 +535,7 @@ function diff_match_patch() {
  }
  function C(e, t) {
   if (t in e) return t;
-  for (var n = t[0].toUpperCase() + t.slice(1), i = t, r = Qe.length; r--; ) if (t = Qe[r] + n, 
+  for (var n = t[0].toUpperCase() + t.slice(1), i = t, r = Ye.length; r--; ) if (t = Ye[r] + n, 
   t in e) return t;
   return i;
  }
@@ -553,7 +553,7 @@ function diff_match_patch() {
   var i = !0, r = "width" === t ? e.offsetWidth : e.offsetHeight, o = qe(e), a = "border-box" === Z.css(e, "boxSizing", !1, o);
   if (0 >= r || null == r) {
    if (r = w(e, t, o), (0 > r || null == r) && (r = e.style[t]), He.test(r)) return r;
-   i = a && (Y.boxSizingReliable() || r === e.style[t]), r = parseFloat(r) || 0;
+   i = a && (Q.boxSizingReliable() || r === e.style[t]), r = parseFloat(r) || 0;
   }
   return r + T(e, t, n || (a ? "border" : "content"), i, o) + "px";
  }
@@ -569,8 +569,8 @@ function diff_match_patch() {
  }
  function D() {
   return setTimeout(function() {
-   Ye = void 0;
-  }), Ye = Z.now();
+   Qe = void 0;
+  }), Qe = Z.now();
  }
  function N(e, t) {
   var n, i = 0, r = {
@@ -630,7 +630,7 @@ function diff_match_patch() {
    delete l.elem;
   }), l = function() {
    if (r) return !1;
-   for (var t = Ye || D(), n = Math.max(0, c.startTime + c.duration - t), i = n / c.duration || 0, o = 1 - i, a = 0, l = c.tweens.length; l > a; a++) c.tweens[a].run(o);
+   for (var t = Qe || D(), n = Math.max(0, c.startTime + c.duration - t), i = n / c.duration || 0, o = 1 - i, a = 0, l = c.tweens.length; l > a; a++) c.tweens[a].run(o);
    return s.notifyWith(e, [ c, o, n ]), 1 > o && l ? n : (s.resolveWith(e, [ c ]), 
    !1);
   }, c = s.promise({
@@ -641,7 +641,7 @@ function diff_match_patch() {
    }, n),
    originalProperties: t,
    originalOptions: n,
-   startTime: Ye || D(),
+   startTime: Qe || D(),
    duration: n.duration,
    tweens: [],
    createTween: function(t, n) {
@@ -738,7 +738,7 @@ function diff_match_patch() {
  function U(e) {
   return Z.isWindow(e) ? e : 9 === e.nodeType && e.defaultView;
  }
- var H = [], q = H.slice, G = H.concat, z = H.push, W = H.indexOf, V = {}, X = V.toString, Q = V.hasOwnProperty, Y = {}, K = e.document, J = "2.1.3", Z = function(e, t) {
+ var H = [], q = H.slice, G = H.concat, z = H.push, W = H.indexOf, V = {}, X = V.toString, Y = V.hasOwnProperty, Q = {}, K = e.document, J = "2.1.3", Z = function(e, t) {
   return new Z.fn.init(e, t);
  }, ee = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, te = /^-ms-/, ne = /-([\da-z])/gi, ie = function(e, t) {
   return t.toUpperCase();
@@ -810,7 +810,7 @@ function diff_match_patch() {
    return !Z.isArray(e) && e - parseFloat(e) + 1 >= 0;
   },
   isPlainObject: function(e) {
-   return "object" !== Z.type(e) || e.nodeType || Z.isWindow(e) ? !1 : e.constructor && !Q.call(e.constructor.prototype, "isPrototypeOf") ? !1 : !0;
+   return "object" !== Z.type(e) || e.nodeType || Z.isWindow(e) ? !1 : e.constructor && !Y.call(e.constructor.prototype, "isPrototypeOf") ? !1 : !0;
   },
   isEmptyObject: function(e) {
    var t;
@@ -874,7 +874,7 @@ function diff_match_patch() {
    }, r.guid = e.guid = e.guid || Z.guid++, r) : void 0;
   },
   now: Date.now,
-  support: Y
+  support: Q
  }), Z.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(e, t) {
   V["[object " + t + "]"] = t.toLowerCase();
  });
@@ -1045,7 +1045,7 @@ function diff_match_patch() {
     if (h += f, r && f !== h) {
      for (d = 0; p = n[d++]; ) p(m, v, a, s);
      if (i) {
-      if (h > 0) for (;f--; ) m[f] || v[f] || (v[f] = Y.call(l));
+      if (h > 0) for (;f--; ) m[f] || v[f] || (v[f] = Q.call(l));
       v = g(v);
      }
      J.apply(l, v), c && !i && v.length > 0 && h + n.length > 1 && t.uniqueSort(l);
@@ -1056,7 +1056,7 @@ function diff_match_patch() {
   }
   var x, w, S, C, _, T, k, E, I, D, N, L, M, A, R, P, O, F, B, j = "sizzle" + 1 * new Date(), $ = e.document, U = 0, H = 0, q = n(), G = n(), z = n(), W = function(e, t) {
    return e === t && (N = !0), 0;
-  }, V = 1 << 31, X = {}.hasOwnProperty, Q = [], Y = Q.pop, K = Q.push, J = Q.push, Z = Q.slice, ee = function(e, t) {
+  }, V = 1 << 31, X = {}.hasOwnProperty, Y = [], Q = Y.pop, K = Y.push, J = Y.push, Z = Y.slice, ee = function(e, t) {
    for (var n = 0, i = e.length; i > n; n++) if (e[n] === t) return n;
    return -1;
   }, te = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped", ne = "[\\x20\\t\\r\\n\\f]", ie = "(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+", re = ie.replace("w", "w#"), oe = "\\[" + ne + "*(" + ie + ")(?:" + ne + "*([*^$|!~]?=)" + ne + "*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + re + "))|)" + ne + "*\\]", ae = ":(" + ie + ")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|" + oe + ")*)|.*)\\)|)", se = new RegExp(ne + "+", "g"), le = new RegExp("^" + ne + "+|((?:^|[^\\\\])(?:\\\\.)*)" + ne + "+$", "g"), ce = new RegExp("^" + ne + "*," + ne + "*"), ue = new RegExp("^" + ne + "*([>+~]|" + ne + ")" + ne + "*"), de = new RegExp("=" + ne + "*([^\\]'\"]*?)" + ne + "*\\]", "g"), pe = new RegExp(ae), he = new RegExp("^" + re + "$"), fe = {
@@ -1075,10 +1075,10 @@ function diff_match_patch() {
    L();
   };
   try {
-   J.apply(Q = Z.call($.childNodes), $.childNodes), Q[$.childNodes.length].nodeType;
+   J.apply(Y = Z.call($.childNodes), $.childNodes), Y[$.childNodes.length].nodeType;
   } catch (_e) {
    J = {
-    apply: Q.length ? function(e, t) {
+    apply: Y.length ? function(e, t) {
      K.apply(e, Z.call(t));
     } : function(e, t) {
      for (var n = e.length, i = 0; e[n++] = t[i++]; ) ;
@@ -1862,11 +1862,11 @@ function diff_match_patch() {
  !function() {
   var e = K.createDocumentFragment(), t = e.appendChild(K.createElement("div")), n = K.createElement("input");
   n.setAttribute("type", "radio"), n.setAttribute("checked", "checked"), n.setAttribute("name", "t"), 
-  t.appendChild(n), Y.checkClone = t.cloneNode(!0).cloneNode(!0).lastChild.checked, 
-  t.innerHTML = "<textarea>x</textarea>", Y.noCloneChecked = !!t.cloneNode(!0).lastChild.defaultValue;
+  t.appendChild(n), Q.checkClone = t.cloneNode(!0).cloneNode(!0).lastChild.checked, 
+  t.innerHTML = "<textarea>x</textarea>", Q.noCloneChecked = !!t.cloneNode(!0).lastChild.defaultValue;
  }();
  var Te = "undefined";
- Y.focusinBubbles = "onfocusin" in e;
+ Q.focusinBubbles = "onfocusin" in e;
  var ke = /^key/, Ee = /^(?:mouse|pointer|contextmenu)|click/, Ie = /^(?:focusinfocus|focusoutblur)$/, De = /^([^.]*)(?:\.(.+)|)$/;
  Z.event = {
   global: {},
@@ -1906,7 +1906,7 @@ function diff_match_patch() {
    }
   },
   trigger: function(t, n, i, r) {
-   var o, a, s, l, c, u, d, p = [ i || K ], h = Q.call(t, "type") ? t.type : t, f = Q.call(t, "namespace") ? t.namespace.split(".") : [];
+   var o, a, s, l, c, u, d, p = [ i || K ], h = Y.call(t, "type") ? t.type : t, f = Y.call(t, "namespace") ? t.namespace.split(".") : [];
    if (a = s = i = i || K, 3 !== i.nodeType && 8 !== i.nodeType && !Ie.test(h + Z.event.triggered) && (h.indexOf(".") >= 0 && (f = h.split("."), 
    h = f.shift(), f.sort()), c = h.indexOf(":") < 0 && "on" + h, t = t[Z.expando] ? t : new Z.Event(h, "object" == typeof t && t), 
    t.isTrigger = r ? 2 : 3, t.namespace = f.join("."), t.namespace_re = t.namespace ? new RegExp("(^|\\.)" + f.join("\\.(?:.*\\.|)") + "(\\.|$)") : null, 
@@ -2056,7 +2056,7 @@ function diff_match_patch() {
     e.type = t), n;
    }
   };
- }), Y.focusinBubbles || Z.each({
+ }), Q.focusinBubbles || Z.each({
   focus: "focusin",
   blur: "focusout"
  }, function(e, t) {
@@ -2127,7 +2127,7 @@ function diff_match_patch() {
  Be.th = Be.td, Z.extend({
   clone: function(e, t, n) {
    var i, r, o, a, s = e.cloneNode(!0), l = Z.contains(e.ownerDocument, e);
-   if (!(Y.noCloneChecked || 1 !== e.nodeType && 11 !== e.nodeType || Z.isXMLDoc(e))) for (a = v(s), 
+   if (!(Q.noCloneChecked || 1 !== e.nodeType && 11 !== e.nodeType || Z.isXMLDoc(e))) for (a = v(s), 
    o = v(e), i = 0, r = o.length; r > i; i++) b(o[i], a[i]);
    if (t) if (n) for (o = o || v(e), a = a || v(s), i = 0, r = o.length; r > i; i++) g(o[i], a[i]); else g(e, s);
    return a = v(s, "script"), a.length > 0 && m(a, !l && v(e, "script")), s;
@@ -2229,7 +2229,7 @@ function diff_match_patch() {
   domManip: function(e, t) {
    e = G.apply([], e);
    var n, i, r, o, a, s, l = 0, c = this.length, u = this, d = c - 1, p = e[0], m = Z.isFunction(p);
-   if (m || c > 1 && "string" == typeof p && !Y.checkClone && Re.test(p)) return this.each(function(n) {
+   if (m || c > 1 && "string" == typeof p && !Q.checkClone && Re.test(p)) return this.each(function(n) {
     var i = u.eq(n);
     m && (e[0] = p.call(this, n, i.html())), i.domManip(e, t);
    });
@@ -2267,8 +2267,8 @@ function diff_match_patch() {
   }
   var n, i, r = K.documentElement, o = K.createElement("div"), a = K.createElement("div");
   a.style && (a.style.backgroundClip = "content-box", a.cloneNode(!0).style.backgroundClip = "", 
-  Y.clearCloneStyle = "content-box" === a.style.backgroundClip, o.style.cssText = "border:0;width:0;height:0;top:0;left:-9999px;margin-top:1px;position:absolute", 
-  o.appendChild(a), e.getComputedStyle && Z.extend(Y, {
+  Q.clearCloneStyle = "content-box" === a.style.backgroundClip, o.style.cssText = "border:0;width:0;height:0;top:0;left:-9999px;margin-top:1px;position:absolute", 
+  o.appendChild(a), e.getComputedStyle && Z.extend(Q, {
    pixelPosition: function() {
     return t(), n;
    },
@@ -2297,7 +2297,7 @@ function diff_match_patch() {
  }, Xe = {
   letterSpacing: "0",
   fontWeight: "400"
- }, Qe = [ "Webkit", "O", "Moz", "ms" ];
+ }, Ye = [ "Webkit", "O", "Moz", "ms" ];
  Z.extend({
   cssHooks: {
    opacity: {
@@ -2333,7 +2333,7 @@ function diff_match_patch() {
     void 0 === n ? a && "get" in a && void 0 !== (r = a.get(e, !1, i)) ? r : l[t] : (o = typeof n, 
     "string" === o && (r = We.exec(n)) && (n = (r[1] + 1) * r[2] + parseFloat(Z.css(e, t)), 
     o = "number"), void (null != n && n === n && ("number" !== o || Z.cssNumber[s] || (n += "px"), 
-    Y.clearCloneStyle || "" !== n || 0 !== t.indexOf("background") || (l[t] = "inherit"), 
+    Q.clearCloneStyle || "" !== n || 0 !== t.indexOf("background") || (l[t] = "inherit"), 
     a && "set" in a && void 0 === (n = a.set(e, n, i)) || (l[t] = n))));
    }
   },
@@ -2355,7 +2355,7 @@ function diff_match_patch() {
     return _(e, n, i ? T(e, t, i, "border-box" === Z.css(e, "boxSizing", !1, r), r) : 0);
    }
   };
- }), Z.cssHooks.marginRight = S(Y.reliableMarginRight, function(e, t) {
+ }), Z.cssHooks.marginRight = S(Q.reliableMarginRight, function(e, t) {
   return t ? Z.swap(e, {
    display: "inline-block"
   }, w, [ e, "marginRight" ]) : void 0;
@@ -2431,7 +2431,7 @@ function diff_match_patch() {
    return .5 - Math.cos(e * Math.PI) / 2;
   }
  }, Z.fx = I.prototype.init, Z.fx.step = {};
- var Ye, Ke, Je = /^(?:toggle|show|hide)$/, Ze = new RegExp("^(?:([+-])=|)(" + we + ")([a-z%]*)$", "i"), et = /queueHooks$/, tt = [ M ], nt = {
+ var Qe, Ke, Je = /^(?:toggle|show|hide)$/, Ze = new RegExp("^(?:([+-])=|)(" + we + ")([a-z%]*)$", "i"), et = /queueHooks$/, tt = [ M ], nt = {
   "*": [ function(e, t) {
    var n = this.createTween(e, t), i = n.cur(), r = Ze.exec(t), o = r && r[3] || (Z.cssNumber[e] ? "" : "px"), a = (Z.cssNumber[e] || "px" !== o && +i) && Ze.exec(Z.css(n.elem, e)), s = 1, l = 20;
    if (a && a[3] !== o) {
@@ -2521,8 +2521,8 @@ function diff_match_patch() {
   };
  }), Z.timers = [], Z.fx.tick = function() {
   var e, t = 0, n = Z.timers;
-  for (Ye = Z.now(); t < n.length; t++) e = n[t], e() || n[t] !== e || n.splice(t--, 1);
-  n.length || Z.fx.stop(), Ye = void 0;
+  for (Qe = Z.now(); t < n.length; t++) e = n[t], e() || n[t] !== e || n.splice(t--, 1);
+  n.length || Z.fx.stop(), Qe = void 0;
  }, Z.fx.timer = function(e) {
   Z.timers.push(e), e() ? Z.fx.start() : Z.timers.pop();
  }, Z.fx.interval = 13, Z.fx.start = function() {
@@ -2542,9 +2542,9 @@ function diff_match_patch() {
   });
  }, function() {
   var e = K.createElement("input"), t = K.createElement("select"), n = t.appendChild(K.createElement("option"));
-  e.type = "checkbox", Y.checkOn = "" !== e.value, Y.optSelected = n.selected, t.disabled = !0, 
-  Y.optDisabled = !n.disabled, e = K.createElement("input"), e.value = "t", e.type = "radio", 
-  Y.radioValue = "t" === e.value;
+  e.type = "checkbox", Q.checkOn = "" !== e.value, Q.optSelected = n.selected, t.disabled = !0, 
+  Q.optDisabled = !n.disabled, e = K.createElement("input"), e.value = "t", e.type = "radio", 
+  Q.radioValue = "t" === e.value;
  }();
  var it, rt, ot = Z.expr.attrHandle;
  Z.fn.extend({
@@ -2572,7 +2572,7 @@ function diff_match_patch() {
   attrHooks: {
    type: {
     set: function(e, t) {
-     if (!Y.radioValue && "radio" === t && Z.nodeName(e, "input")) {
+     if (!Q.radioValue && "radio" === t && Z.nodeName(e, "input")) {
       var n = e.value;
       return e.setAttribute("type", t), n && (e.value = n), t;
      }
@@ -2618,7 +2618,7 @@ function diff_match_patch() {
     }
    }
   }
- }), Y.optSelected || (Z.propHooks.selected = {
+ }), Q.optSelected || (Z.propHooks.selected = {
   get: function(e) {
    var t = e.parentNode;
    return t && t.parentNode && t.parentNode.selectedIndex, null;
@@ -2687,7 +2687,7 @@ function diff_match_patch() {
    select: {
     get: function(e) {
      for (var t, n, i = e.options, r = e.selectedIndex, o = "select-one" === e.type || 0 > r, a = o ? null : [], s = o ? r + 1 : i.length, l = 0 > r ? s : o ? r : 0; s > l; l++) if (n = i[l], 
-     !(!n.selected && l !== r || (Y.optDisabled ? n.disabled : null !== n.getAttribute("disabled")) || n.parentNode.disabled && Z.nodeName(n.parentNode, "optgroup"))) {
+     !(!n.selected && l !== r || (Q.optDisabled ? n.disabled : null !== n.getAttribute("disabled")) || n.parentNode.disabled && Z.nodeName(n.parentNode, "optgroup"))) {
       if (t = Z(n).val(), o) return t;
       a.push(t);
      }
@@ -2705,7 +2705,7 @@ function diff_match_patch() {
    set: function(e, t) {
     return Z.isArray(t) ? e.checked = Z.inArray(Z(e).val(), t) >= 0 : void 0;
    }
-  }, Y.checkOn || (Z.valHooks[this].get = function(e) {
+  }, Q.checkOn || (Z.valHooks[this].get = function(e) {
    return null === e.getAttribute("value") ? "on" : e.value;
   });
  }), Z.each("blur focus focusin focusout load resize scroll unload click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup error contextmenu".split(" "), function(e, t) {
@@ -2968,9 +2968,9 @@ function diff_match_patch() {
  }, Lt = Z.ajaxSettings.xhr();
  e.attachEvent && e.attachEvent("onunload", function() {
   for (var e in Dt) Dt[e]();
- }), Y.cors = !!Lt && "withCredentials" in Lt, Y.ajax = Lt = !!Lt, Z.ajaxTransport(function(e) {
+ }), Q.cors = !!Lt && "withCredentials" in Lt, Q.ajax = Lt = !!Lt, Z.ajaxTransport(function(e) {
   var t;
-  return Y.cors || Lt && !e.crossDomain ? {
+  return Q.cors || Lt && !e.crossDomain ? {
    send: function(n, i) {
     var r, o = e.xhr(), a = ++It;
     if (o.open(e.type, e.url, e.async, e.username, e.password), e.xhrFields) for (r in e.xhrFields) o[r] = e.xhrFields[r];
@@ -3133,7 +3133,7 @@ function diff_match_patch() {
    }, t, r, arguments.length, null);
   };
  }), Z.each([ "top", "left" ], function(e, t) {
-  Z.cssHooks[t] = S(Y.pixelPosition, function(e, n) {
+  Z.cssHooks[t] = S(Q.pixelPosition, function(e, n) {
    return n ? (n = w(e, t), He.test(n) ? Z(e).position()[t] + "px" : n) : void 0;
   });
  }), Z.each({
@@ -3547,7 +3547,7 @@ function diff_match_patch() {
   };
  }
  function b(e, t) {
-  if (Q(e, t)) throw new m("INVALID_NODE_TYPE_ERR");
+  if (Y(e, t)) throw new m("INVALID_NODE_TYPE_ERR");
  }
  function y(e) {
   if (!e.startContainer) throw new $("INVALID_STATE_ERR");
@@ -3775,9 +3775,9 @@ function diff_match_patch() {
    this._current = this._next = this.nodes = null;
   }
  };
- var U = [ 1, 3, 4, 5, 7, 8, 10 ], H = [ 2, 9, 11 ], q = [ 5, 6, 10, 12 ], G = [ 1, 3, 4, 5, 7, 8, 10, 11 ], z = [ 1, 3, 4, 5, 7, 8 ], W = B.getRootContainer, V = v([ 9, 11 ]), X = v(q), Q = v([ 6, 10, 12 ]), Y = document.createElement("style"), K = !1;
+ var U = [ 1, 3, 4, 5, 7, 8, 10 ], H = [ 2, 9, 11 ], q = [ 5, 6, 10, 12 ], G = [ 1, 3, 4, 5, 7, 8, 10, 11 ], z = [ 1, 3, 4, 5, 7, 8 ], W = B.getRootContainer, V = v([ 9, 11 ]), X = v(q), Y = v([ 6, 10, 12 ]), Q = document.createElement("style"), K = !1;
  try {
-  Y.innerHTML = "<b>x</b>", K = 3 == Y.firstChild.nodeType;
+  Q.innerHTML = "<b>x</b>", K = 3 == Q.firstChild.nodeType;
  } catch (J) {}
  e.features.htmlParsingConforms = K;
  var Z = K ? function(e) {
@@ -7361,7 +7361,7 @@ var saveAs = saveAs || function(e) {
  e.IMPORT_FILE_MAX_CONTENT_SIZE = 1e5, e.IMPORT_IMG_MAX_CONTENT_SIZE = 1e7, e.COUCHDB_PAGE_SIZE = 25, 
  e.TEMPORARY_FILE_INDEX = "file.tempIndex", e.WELCOME_DOCUMENT_TITLE = "Welcome Guide", 
  e.GUIDE_DOCUMENT_TITLE = "Syntax Guide", e.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1", 
- e.GOOGLE_API_KEY = "QUl6YVN5QlhMU3FkVnlHZTNEOFA5cllkX1lPYktwRVk2UzJjQ2ZR", e.GOOGLE_DRIVE_APP_ID = "MTAxNzI1MTQ5ODI1NA==", 
+ e.GOOGLE_API_KEY = "AIzaSyBXLSqdVyGe3D8P9rYd_YObKpEY6S2cCfQ", e.GOOGLE_DRIVE_APP_ID = "1017251498254", 
  e.DROPBOX_APP_KEY = "cjN2Z2FlZTIxNHpmdmM3", e.DROPBOX_APP_SECRET = "MW1lc3lja3NrY3puM2Y5", 
  e.DROPBOX_RESTRICTED_APP_KEY = "cjN2Z2FlZTIxNHpmdmM3", e.DROPBOX_RESTRICTED_APP_SECRET = "MW1lc3lja3NrY3puM2Y5", 
  e.BITLY_ACCESS_TOKEN = "YzkzZDQyODliOWMxYTAzMTMzNzhmMWRhZDAyOGMyZDMzNGJiYzNjNg==", 
@@ -13975,7 +13975,7 @@ function() {
   });
  }, o;
 }), define("text!html/dialogManageSynchronizationLocation.html", [], function() {
- return '        <tr>\n          <td scope="row"><%= syncAttributes.title %></td>\n          <td><i class="icon-provider-<%= syncAttributes.provider.providerId %>"></i> <%= syncAttributes.provider.providerId %></td>\n          <td>\n		<!--a class="btn btn-primary btn-sm open-location<%- syncLocationLink ? \'\' : \' hide\' %>" title="Open in <%= syncAttributes.provider.providerName %>" \n           target="_blank" href="<%- syncLocationLink %>"><i class="icon-link-ext-alt"></i></a-->\n        <a class="btn btn-link btn-sm remove-button" title="Delete <%= syncAttributes.title %> on <%= syncAttributes.provider.providerName %>" \n           data-sync-index="<%= syncAttributes.syncIndex %>"\n		   data-toggle="modal" data-target="#confirmModal">\n			<i class="icon-trash text-danger"></i>\n		</a>\n			</td>\n        </tr>';
+ return '        <tr>\n          <td scope="row"><%= syncAttributes.title %></td>\n          <td><i class="icon-provider-<%= syncAttributes.provider.providerId %>"></i> <%= syncAttributes.provider.providerId %></td>\n          <td>\n		<!--a class="btn btn-primary btn-sm open-location<%- syncLocationLink ? \'\' : \' hide\' %>" title="Open in <%= syncAttributes.provider.providerName %>" \n           target="_blank" href="<%- syncLocationLink %>"><i class="icon-link-ext-alt"></i></a-->\n        <a class="btn btn-link btn-sm remove-button" title="Delete <%= syncAttributes.title %> on <%= syncAttributes.provider.providerName %>" \n           data-sync-index="<%= syncAttributes.syncIndex %>"\n		   data-toggle="modal" data-target="#confirmDelete">\n			<i class="icon-trash text-danger"></i>\n		</a>\n			</td>\n        </tr>';
 }), define("extensions/dialogManageSynchronization", [ "jquery", "underscore", "classes/Extension", "text!html/dialogManageSynchronizationLocation.html" ], function(e, t, n, i) {
  var r, o = new n("dialogManageSynchronization", 'Dialog "Manage synchronization"', !1, !0);
  o.onEventMgrCreated = function(e) {
@@ -14006,8 +14006,7 @@ function() {
   e("#confirmDelete").on("show.bs.modal", function(t) {
    e(".confirm-delete-button").on("click", function(n) {
     var i = e(t.relatedTarget), o = s.syncLocations[i.data("syncIndex")];
-    alert("$removeButtonElt = " + i), alert("syncAttributes = " + o), s.removeSyncLocation(o), 
-    r.onSyncRemoved(s, o), alert("fileDesc = " + s), e("#confirmDelete").modal("hide");
+    s.removeSyncLocation(o), r.onSyncRemoved(s, o), e("#confirmDelete").modal("hide");
    });
   });
  }, o;
@@ -15872,8 +15871,8 @@ function() {
   mousedown: "touchstart",
   mousemove: "touchmove",
   mouseup: "touchend"
- }, B = R.prototype.toLowerCase, j = Math, $ = j.max, U = j.min, H = j.abs, q = j.pow, G = j.PI, z = "number", W = "string", V = "array", X = Object.prototype.toString, Q = (n._ISURL = /^url\(['"]?(.+?)['"]?\)$/i, 
- /^\s*((#[a-f\d]{6})|(#[a-f\d]{3})|rgba?\(\s*([\d\.]+%?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+%?(?:\s*,\s*[\d\.]+%?)?)\s*\)|hsba?\(\s*([\d\.]+(?:deg|\xb0|%)?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+(?:%?\s*,\s*[\d\.]+)?)%?\s*\)|hsla?\(\s*([\d\.]+(?:deg|\xb0|%)?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+(?:%?\s*,\s*[\d\.]+)?)%?\s*\))\s*$/i), Y = {
+ }, B = R.prototype.toLowerCase, j = Math, $ = j.max, U = j.min, H = j.abs, q = j.pow, G = j.PI, z = "number", W = "string", V = "array", X = Object.prototype.toString, Y = (n._ISURL = /^url\(['"]?(.+?)['"]?\)$/i, 
+ /^\s*((#[a-f\d]{6})|(#[a-f\d]{3})|rgba?\(\s*([\d\.]+%?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+%?(?:\s*,\s*[\d\.]+%?)?)\s*\)|hsba?\(\s*([\d\.]+(?:deg|\xb0|%)?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+(?:%?\s*,\s*[\d\.]+)?)%?\s*\)|hsla?\(\s*([\d\.]+(?:deg|\xb0|%)?\s*,\s*[\d\.]+%?\s*,\s*[\d\.]+(?:%?\s*,\s*[\d\.]+)?)%?\s*\))\s*$/i), Q = {
   NaN: 1,
   Infinity: 1,
   "-Infinity": 1
@@ -15993,7 +15992,7 @@ function() {
  }
  n.svg = !(n.vml = "VML" == n.type), n._Paper = I, n.fn = w = I.prototype = n.prototype, 
  n._id = 0, n._oid = 0, n.is = function(e, t) {
-  return t = B.call(t), "finite" == t ? !Y[T](+e) : "array" == t ? e instanceof Array : "null" == t && null === e || t == typeof e && null !== e || "object" == t && e === Object(e) || "array" == t && Array.isArray && Array.isArray(e) || X.call(e).slice(8, -1).toLowerCase() == t;
+  return t = B.call(t), "finite" == t ? !Q[T](+e) : "array" == t ? e instanceof Array : "null" == t && null === e || t == typeof e && null !== e || "object" == t && e === Object(e) || "array" == t && Array.isArray && Array.isArray(e) || X.call(e).slice(8, -1).toLowerCase() == t;
  }, n.angle = function(e, t, i, r, o, a) {
   if (null == o) {
    var s = e - i, l = t - r;
@@ -16149,7 +16148,7 @@ function() {
    toString: a
   };
   !(oe[T](e.toLowerCase().substring(0, 2)) || "#" == e.charAt()) && (e = xe(e));
-  var t, i, r, o, s, l, c = e.match(Q);
+  var t, i, r, o, s, l, c = e.match(Y);
   return c ? (c[2] && (r = ee(c[2].substring(5), 16), i = ee(c[2].substring(3, 5), 16), 
   t = ee(c[2].substring(1, 3), 16)), c[3] && (r = ee((s = c[3].charAt(3)) + s, 16), 
   i = ee((s = c[3].charAt(2)) + s, 16), t = ee((s = c[3].charAt(1)) + s, 16)), c[4] && (l = c[4][P](re), 
@@ -16788,9 +16787,9 @@ function() {
    };
    return o;
   } : void 0;
- }(), Qe = [], Ye = function(e) {
-  for (var n, i = e.clientX, r = e.clientY, o = k.doc.documentElement.scrollTop || k.doc.body.scrollTop, a = k.doc.documentElement.scrollLeft || k.doc.body.scrollLeft, s = Qe.length; s--; ) {
-   if (n = Qe[s], L && e.touches) {
+ }(), Ye = [], Qe = function(e) {
+  for (var n, i = e.clientX, r = e.clientY, o = k.doc.documentElement.scrollTop || k.doc.body.scrollTop, a = k.doc.documentElement.scrollLeft || k.doc.body.scrollLeft, s = Ye.length; s--; ) {
+   if (n = Ye[s], L && e.touches) {
     for (var l, c = e.touches.length; c--; ) if (l = e.touches[c], l.identifier == n.el._drag.id) {
      i = l.clientX, r = l.clientY, (e.originalEvent ? e.originalEvent : e).preventDefault();
      break;
@@ -16802,9 +16801,9 @@ function() {
    u && t("raphael.drag.over." + n.el.id, n.el, u), i += a, r += o, t("raphael.drag.move." + n.el.id, n.move_scope || n.el, i - n.el._drag.x, r - n.el._drag.y, i, r, e);
   }
  }, Ke = function(e) {
-  n.unmousemove(Ye).unmouseup(Ke);
-  for (var i, r = Qe.length; r--; ) i = Qe[r], i.el._drag = {}, t("raphael.drag.end." + i.el.id, i.end_scope || i.start_scope || i.move_scope || i.el, e);
-  Qe = [];
+  n.unmousemove(Qe).unmouseup(Ke);
+  for (var i, r = Ye.length; r--; ) i = Ye[r], i.el._drag = {}, t("raphael.drag.end." + i.el.id, i.end_scope || i.start_scope || i.move_scope || i.el, e);
+  Ye = [];
  }, Je = n.el = {}, Ze = O.length; Ze--; ) !function(e) {
   n[e] = Je[e] = function(t, i) {
    return n.is(t, "function") && (this.events = this.events || [], this.events.push({
@@ -16848,8 +16847,8 @@ function() {
     c = h.clientX, u = h.clientY;
     break;
    }
-   this._drag.x = c + p, this._drag.y = u + d, !Qe.length && n.mousemove(Ye).mouseup(Ke), 
-   Qe.push({
+   this._drag.x = c + p, this._drag.y = u + d, !Ye.length && n.mousemove(Qe).mouseup(Ke), 
+   Ye.push({
     el: this,
     move_scope: o,
     start_scope: a,
@@ -16866,7 +16865,7 @@ function() {
  }, Je.undrag = function() {
   for (var e = et.length; e--; ) et[e].el == this && (this.unmousedown(et[e].start), 
   et.splice(e, 1), t.unbind("raphael.drag.*." + this.id));
-  !et.length && n.unmousemove(Ye).unmouseup(Ke), Qe = [];
+  !et.length && n.unmousemove(Qe).unmouseup(Ke), Ye = [];
  }, w.circle = function(e, t, i) {
   var r = n._engine.circle(this, e || 0, t || 0, i || 0);
   return this.__set__ && this.__set__.push(r), r;
@@ -18248,10 +18247,10 @@ function() {
      m = W.style, p.font && (m.font = p.font), p["font-family"] && (m.fontFamily = p["font-family"]), 
      p["font-weight"] && (m.fontWeight = p["font-weight"]), p["font-style"] && (m.fontStyle = p["font-style"]), 
      X = i(p["font-size"] || X && X[0]) || 10, m.fontSize = X * V + "px", b.textpath.string && (W.innerHTML = t(b.textpath.string).replace(/</g, "&#60;").replace(/&/g, "&#38;").replace(/\n/g, "<br>"));
-     var Q = W.getBoundingClientRect();
-     b.W = p.w = (Q.right - Q.left) / V, b.H = p.h = (Q.bottom - Q.top) / V, b.X = p.x, 
+     var Y = W.getBoundingClientRect();
+     b.W = p.w = (Y.right - Y.left) / V, b.H = p.h = (Y.bottom - Y.top) / V, b.X = p.x, 
      b.Y = p.y + b.H / 2, ("x" in l || "y" in l) && (b.path.v = n.format("m{0},{1}l{2},{1}", o(p.x * x), o(p.y * x), o(p.x * x) + 1));
-     for (var Y = [ "x", "y", "text", "font", "font-family", "font-weight", "font-style", "font-size" ], K = 0, J = Y.length; J > K; K++) if (Y[K] in l) {
+     for (var Q = [ "x", "y", "text", "font", "font-family", "font-weight", "font-style", "font-size" ], K = 0, J = Q.length; J > K; K++) if (Q[K] in l) {
       b._.dirty = 1;
       break;
      }
@@ -24607,7 +24606,7 @@ Prism.languages.latex = {
    U.newDiscussion && n.push(U.newDiscussion);
    var i = C(V, e, n);
    V = e, i === !0 && (U.discussionList = U.discussionList), U.content = V, W.saveSelectionState(), 
-   r.onContentChanged(U, V), i && r.onCommentsChanged(U), X.saveState(), Q();
+   r.onContentChanged(U, V), i && r.onCommentsChanged(U), X.saveState(), Y();
   } else V = e, U.content = V, W.setSelectionStartEnd(U.editorStart, U.editorEnd), 
   W.updateSelectionRange(), W.updateCursorCoordinates(), X.saveSelectionState(), r.onFileOpen(U, V), 
   R.scrollTop = U.previewScrollTop, B = U.editorScrollTop, I.scrollTop = B, H = !1;
@@ -24629,7 +24628,7 @@ Prism.languages.latex = {
   }
  }
  function _(e) {
-  if (Z = [], J = [], Y = void 0, H === !0) return J = K, K = e, void (Z = e);
+  if (Z = [], J = [], Q = void 0, H === !0) return J = K, K = e, void (Z = e);
   var n = K.length;
   t.some(K, function(t, i) {
    var r = e[i];
@@ -24645,7 +24644,7 @@ Prism.languages.latex = {
   var r = K.slice(0, n);
   Z = e.slice(n, e.length + i);
   var o = K.slice(K.length + i, K.length);
-  Y = t.first(o), J = K.slice(n, K.length + i), K = r.concat(Z).concat(o);
+  Q = t.first(o), J = K.slice(n, K.length + i), K = r.concat(Z).concat(o);
  }
  function T() {
   var e = document.createDocumentFragment();
@@ -24655,7 +24654,7 @@ Prism.languages.latex = {
    if (H === !0) N.innerHTML = "", N.appendChild(e); else {
     J.forEach(function(e) {
      e.elt.parentNode === N && N.removeChild(e.elt);
-    }), void 0 !== Y ? N.insertBefore(e, Y.elt) : N.appendChild(e);
+    }), void 0 !== Q ? N.insertBefore(e, Q.elt) : N.appendChild(e);
     for (var t = N.firstChild; t; ) {
      var n = t.nextSibling;
      t.generated || N.removeChild(t), t = n;
@@ -24722,7 +24721,7 @@ Prism.languages.latex = {
  var X = new x();
  F.undoMgr = X, r.addListener("onDiscussionCreated", w), r.addListener("onDiscussionRemoved", w), 
  r.addListener("onCommentsChanged", w);
- var Q = t.debounce(function() {
+ var Y = t.debounce(function() {
   var e = window.getSelection();
   W.hasFocus && !$ && W.selectionStart === W.selectionEnd && e.modify && (W.selectionStart ? (e.modify("move", "backward", "character"), 
   e.modify("move", "forward", "character")) : (e.modify("move", "forward", "character"), 
@@ -24839,7 +24838,7 @@ Prism.languages.latex = {
    }
   };
  };
- var Y, K = [], J = [], Z = [], ee = function() {
+ var Q, K = [], J = [], Z = [], ee = function() {
   var e = {
    "&": "&amp;",
    "<": "&lt;",
@@ -25319,7 +25318,7 @@ Prism.languages.latex = {
  function f() {
   var e = x.height - 60, t = (T.elt.offsetWidth - h()) / 2;
   t < i.EDITOR_DEFAULT_PADDING && (t = i.EDITOR_DEFAULT_PADDING), V.style.paddingLeft = t + "px", 
-  V.style.paddingRight = t + "px", V.style.paddingBottom = e + "px", Q.style.width = t + "px";
+  V.style.paddingRight = t + "px", V.style.paddingBottom = e + "px", Y.style.width = t + "px";
   var n = (E.elt.offsetWidth - h()) / 2;
   n < i.EDITOR_DEFAULT_PADDING && (n = i.EDITOR_DEFAULT_PADDING), X.style.paddingLeft = n + "px", 
   X.style.paddingRight = n + "px", X.style.paddingBottom = e + "px";
@@ -25327,7 +25326,7 @@ Prism.languages.latex = {
   window.viewerMode && (r = oe + U + se);
   var a = v.width - r + U;
   ie.forEach(function(e, t) {
-   r += e.width, t === ie.length - 1 && (r -= ae), v.width < r ? K.appendChild(e.elt) : Y.insertBefore(e.elt, Z);
+   r += e.width, t === ie.length - 1 && (r -= ae), v.width < r ? K.appendChild(e.elt) : Q.insertBefore(e.elt, Z);
   }), ee.css({
    maxWidth: a
   }), o.onLayoutResize();
@@ -25455,7 +25454,7 @@ Prism.languages.latex = {
    transform: !1
   });
  };
- var V, X, Q, Y, K, J, Z, ee, te = [ {
+ var V, X, Y, Q, K, J, Z, ee, te = [ {
   screenWidth: 0,
   maxWidth: 600 * r.maxWidthRatio
  }, {
@@ -25487,8 +25486,8 @@ Prism.languages.latex = {
   T = new d("#wmd-input"), k = new d(".preview-panel"), E = new d(".preview-container"), 
   I = new d(".layout-toggler-navbar"), D = new d(".layout-toggler-preview"), N = new d(".layout-resizer-preview"), 
   L = new d(".extension-preview-buttons"), V = T.elt.querySelector(".editor-content"), 
-  X = document.getElementById("preview-contents"), Q = T.elt.querySelector(".editor-margin"), 
-  Y = w.elt.querySelector(".navbar-inner"), K = w.elt.querySelector(".buttons-dropdown .dropdown-menu"), 
+  X = document.getElementById("preview-contents"), Y = T.elt.querySelector(".editor-margin"), 
+  Q = w.elt.querySelector(".navbar-inner"), K = w.elt.querySelector(".buttons-dropdown .dropdown-menu"), 
   J = w.$elt.find(".buttons-dropdown"), Z = w.elt.querySelector(".main-navbar-collapse"), 
   ee = w.$elt.find(".file-title-navbar, .input-file-title"), e([ b.elt, y.elt, x.elt ]).on("scroll", function() {
    this.scrollLeft = 0;
@@ -25599,7 +25598,9 @@ Prism.languages.latex = {
 }), define("text!html/tooltipSettingsTemplate.html", [], function() {
  return 'Available variables:\n<br>\n<ul>\n    <li>\n        <b>documentTitle</b>: story title</li>\n    <li>\n        <b>documentMarkdown</b>: story in Markdown format</li>\n    <li>\n        <b>strippedDocumentMarkdown</b>: story without front matter</li>\n    <li>\n        <b>documentHTML</b>: story in HTML format</li>\n    <li>\n        <b>documentHTMLWithFrontMatter</b></li>\n    <li>\n        <b>frontMatter</b>: undefined if no front matter</li>\n    <li>\n        <b>publishAttributes</b>: undefined if\n        not publishing</li>\n</ul>\n<b>Examples:</b>\n<br />&lt;title&gt;&lt;%= documentTitle %&gt;&lt;&#x2F;title&gt;\n<br />&lt;div&gt;&lt;%- documentHTML %&gt;&lt;&#x2F;div&gt;\n<br />&lt;%\n<br />if(publishAttributes.provider.providerId == &quot;github&quot;) print(documentMarkdown);\n<br\n/>%&gt;\n<br />\n<br />\n<p class="alert alert-danger">\n    <i class="icon-attention"></i>Careful! Templates are subject to malicious code. Don\'t copy/paste untrusted content.\n<a target="_blank" href="http://underscorejs.org/#template">More info</a>\n</p>\n';
 }), define("text!html/tooltipDropboxTemplate.html", [], function() {
- return "<b>Note:</b>\n                    <ul>\n                        <li>Dropbox file path does not depend on story title.</li>\n                        <li>The title of your story will not be synchronized.</li>\n                        <li>Destination folder must exist.</li>\n                        <li>Any existing file at this location will be overwritten.</li>\n                    </ul>";
+ return "<p>This is the relative path in your Dropbox account.</p>\n<b>Note:</b>\n                    <ul>\n                        <li>Dropbox file path does not depend on story title.</li>\n                        <li>The title of your story will not be synchronized.</li>\n                        <li>Destination folder must exist.</li>\n                        <li>Any existing file at this location will be overwritten.</li>\n                    </ul>";
+}), define("text!html/tooltipGoogleTemplate.html", [], function() {
+ return "<p>This is the folder in your Google Drive.</p>\n<b>Note:</b>\n                    <ul>\n                        <li>We use the folder ID, but you can probably ignore this.</li>\n                        <li>Any existing file at this location will be overwritten.</li>\n                    </ul>";
 }), define("text!html/tooltipMyWriteOnTemplate.html", [], function() {
  return '<i class="icon-attention"></i>  <b>Careful:</b>\n                    This is Beta software, and you\'re using our public My.WriteOn instance.\n                    <b>That means anybody can open, edit and delete these stories.</b>\n                    Soon you will have your own secure cloud instance, but not quite yet. <span class="text-red" data-dismiss="alert">\u2665</span>';
 }), define("text!html/tooltipSettingsPdfOptions.html", [], function() {
@@ -26159,39 +26160,39 @@ Prism.languages.latex = {
  }, y.doHorizontalRule = function(e, t) {
   e.startTag = "----------\n", e.selection = "", e.skipLines(2, 1, !0);
  };
-}(), define("pagedown", function() {}), define("core", [ "jquery", "underscore", "crel", "editor", "layout", "constants", "utils", "storage", "settings", "eventMgr", "monetizejs", "Slider", "text!html/bodyEditor.html", "text!html/bodyViewer.html", "text!html/tooltipSettingsTemplate.html", "text!html/tooltipDropboxTemplate.html", "text!html/tooltipMyWriteOnTemplate.html", "text!html/tooltipSettingsPdfOptions.html", "storage", "pagedown" ], function(e, t, n, i, r, o, a, s, l, c, u, d, p, h, f, m, g, v) {
- function b() {
-  I = !0, D = !0;
-  var e = a.currentTime;
-  e > L + 1e3 && (L = e, c.onUserActive());
- }
+}(), define("pagedown", function() {}), define("core", [ "jquery", "underscore", "crel", "editor", "layout", "constants", "utils", "storage", "settings", "eventMgr", "monetizejs", "Slider", "text!html/bodyEditor.html", "text!html/bodyViewer.html", "text!html/tooltipSettingsTemplate.html", "text!html/tooltipDropboxTemplate.html", "text!html/tooltipGoogleTemplate.html", "text!html/tooltipMyWriteOnTemplate.html", "text!html/tooltipSettingsPdfOptions.html", "storage", "pagedown" ], function(e, t, n, i, r, o, a, s, l, c, u, d, p, h, f, m, g, v, b) {
  function y() {
-  return a.currentTime - L > o.USER_IDLE_THRESHOLD && (D = !1), D && N;
+  D = !0, N = !0;
+  var e = a.currentTime;
+  e > M + 1e3 && (M = e, c.onUserActive());
  }
  function x() {
-  if (I !== !1 && N !== !1) {
-   void 0 === k && (k = a.id(), s.frontWindowId = k);
+  return a.currentTime - M > o.USER_IDLE_THRESHOLD && (N = !1), N && L;
+ }
+ function w() {
+  if (D !== !1 && L !== !1) {
+   void 0 === E && (E = a.id(), s.frontWindowId = E);
    var t = s.frontWindowId;
-   t != k && (N = !1, void 0 !== T && clearInterval(T), e(".modal").modal("hide"), 
+   t != E && (L = !1, void 0 !== k && clearInterval(k), e(".modal").modal("hide"), 
    e(".modal-non-unique").modal("show"), window.close());
   }
  }
- function w() {
-  M === !0 && (M = !1, c.onOfflineChanged(!1));
- }
  function S() {
-  M === !0 && navigator.onLine === !0 && A + o.CHECK_ONLINE_PERIOD < a.currentTime && (A = a.currentTime, 
+  A === !0 && (A = !1, c.onOfflineChanged(!1));
+ }
+ function C() {
+  A === !0 && navigator.onLine === !0 && R + o.CHECK_ONLINE_PERIOD < a.currentTime && (R = a.currentTime, 
   e.ajax({
    url: "//www.google.com/jsapi",
    timeout: o.AJAX_TIMEOUT,
    dataType: "script"
   }).done(function() {
-   w();
+   S();
   }));
  }
- function C() {
-  a.setInputRadio("radio-layout-orientation", l.layoutOrientation), a.setInputValue(R, window.theme), 
-  R.change(), a.setInputChecked("#input-settings-lazy-rendering", l.lazyRendering), 
+ function _() {
+  a.setInputRadio("radio-layout-orientation", l.layoutOrientation), a.setInputValue(P, window.theme), 
+  P.change(), a.setInputChecked("#input-settings-lazy-rendering", l.lazyRendering), 
   a.setInputRadio("radio-settings-editor-font-class", l.editorFontClass), a.setInputValue("#input-settings-font-size", l.fontSizeRatio), 
   a.setInputValue("#input-settings-max-width", l.maxWidthRatio), a.setInputValue("#input-settings-cursor-focus", l.cursorFocusRatio), 
   a.setInputValue("#textarea-settings-default-content", l.defaultContent), a.setInputRadio("radio-settings-edit-mode", l.editMode), 
@@ -26201,10 +26202,10 @@ Prism.languages.latex = {
   a.setInputValue("#textarea-settings-pdf-template", l.pdfTemplate), a.setInputValue("#textarea-settings-pdf-options", l.pdfOptions), 
   a.setInputValue("#input-settings-publish-commit-msg", l.commitMsg), c.onLoadSettings();
  }
- function _(t) {
+ function T(t) {
   var n = {};
   n.layoutOrientation = a.getInputRadio("radio-layout-orientation");
-  var i = a.getInputValue(R);
+  var i = a.getInputValue(P);
   n.lazyRendering = a.getInputChecked("#input-settings-lazy-rendering"), n.editorFontClass = a.getInputRadio("radio-settings-editor-font-class"), 
   n.fontSizeRatio = a.getInputFloatValue("#input-settings-font-size", t, .1, 10), 
   n.maxWidthRatio = a.getInputFloatValue("#input-settings-max-width", t, .1, 20), 
@@ -26220,30 +26221,30 @@ Prism.languages.latex = {
   c.onSaveSettings(n.extensionSettings, t), t.isPropagationStopped() || (l.dropboxFullAccess !== n.dropboxFullAccess && s.removeItem("dropbox.lastChangeId"), 
   e.extend(l, n), s.settings = JSON.stringify(l), s.themeV4 = i);
  }
- var T, k, E = {}, I = !1, D = !1, N = !0, L = 0, M = !1, A = a.currentTime;
- E.setOffline = function() {
-  A = a.currentTime, M === !1 && (M = !0, c.onOfflineChanged(!0));
+ var k, E, I = {}, D = !1, N = !1, L = !0, M = 0, A = !1, R = a.currentTime;
+ I.setOffline = function() {
+  R = a.currentTime, A === !1 && (A = !0, c.onOfflineChanged(!0));
  };
- var R, P, O;
- return E.initEditor = function(t) {
-  if (void 0 !== O && c.onFileClosed(O), O = t, void 0 !== P) return i.undoMgr.init(), 
-  P.uiManager.setUndoRedoButtonStates();
+ var P, O, F;
+ return I.initEditor = function(t) {
+  if (void 0 !== F && c.onFileClosed(F), F = t, void 0 !== O) return i.undoMgr.init(), 
+  O.uiManager.setUndoRedoButtonStates();
   var n = new Markdown.Converter(), r = {
    _DoItalicsAndBold: function(e) {
     return e = e.replace(/(\*\*|__)(?=\S)(.+?[*_]*)(?=\S)\1/g, "<strong>$2</strong>"), 
     e = e.replace(/(\*|_)(?=\S)(.+?)(?=\S)\1/g, "<em>$2</em>");
    }
   };
-  n.setOptions(r), P = new Markdown.Editor(n, void 0, {
+  n.setOptions(r), O = new Markdown.Editor(n, void 0, {
    undoManager: i.undoMgr
-  }), P.hooks.set("insertLinkDialog", function(t) {
-   return E.insertLinkCallback = t, a.resetModalInputs(), e(".modal-insert-link").modal(), 
+  }), O.hooks.set("insertLinkDialog", function(t) {
+   return I.insertLinkCallback = t, a.resetModalInputs(), e(".modal-insert-link").modal(), 
    !0;
-  }), P.hooks.set("insertImageDialog", function(t) {
-   return E.insertLinkCallback = t, E.catchModal ? !0 : (a.resetModalInputs(), e(".modal-insert-image").modal(), 
+  }), O.hooks.set("insertImageDialog", function(t) {
+   return I.insertLinkCallback = t, I.catchModal ? !0 : (a.resetModalInputs(), e(".modal-insert-image").modal(), 
    !0);
-  }), c.onPagedownConfigure(P), P.hooks.chain("onPreviewRefresh", c.onAsyncPreview), 
-  P.run(), i.undoMgr.init(), e(".wmd-button-row li").addClass("btn btn-default").css("left", 0).find("span").hide();
+  }), c.onPagedownConfigure(O), O.hooks.chain("onPreviewRefresh", c.onAsyncPreview), 
+  O.run(), i.undoMgr.init(), e(".wmd-button-row li").addClass("btn btn-default").css("left", 0).find("span").hide();
   var o = e(".wmd-button-group1");
   e("#wmd-bold-button").append(e('<i class="icon-bold">')).appendTo(o), e("#wmd-italic-button").append(e('<i class="icon-italic">')).appendTo(o), 
   o = e(".wmd-button-group2"), e("#wmd-link-button").append(e('<i class="icon-globe">')).appendTo(o), 
@@ -26260,12 +26261,12 @@ Prism.languages.latex = {
   a.createTooltip(".wmd-ulist-button", "Bullet List", "bottom", "hover", "body"), 
   a.createTooltip(".wmd-heading-button", "Heading", "bottom", "hover", "body"), a.createTooltip(".wmd-hr-button", "Insert Horizontal Rule", "bottom", "hover", "body"), 
   a.createTooltip(".wmd-undo-button", "Undo", "bottom", "hover", "body"), a.createTooltip(".wmd-redo-button", "Redo", "bottom", "hover", "body");
- }, E.onReady = function() {
+ }, I.onReady = function() {
   document.body.className += " " + l.editMode, document.body.innerHTML = window.viewerMode === !0 ? h : p, 
-  a.init(), e(window).on("offline", E.setOffline), e(window).on("online", w), navigator.onLine === !1 && E.setOffline(), 
-  e(document).mousemove(b).keypress(b), r.init(), i.init(), T = window.setInterval(function() {
-   a.updateCurrentTime(), x(), (y() === !0 || window.viewerMode === !0) && (c.onPeriodicRun(), 
-   S());
+  a.init(), e(window).on("offline", I.setOffline), e(window).on("online", S), navigator.onLine === !1 && I.setOffline(), 
+  e(document).mousemove(y).keypress(y), r.init(), i.init(), k = window.setInterval(function() {
+   a.updateCurrentTime(), w(), (x() === !0 || window.viewerMode === !0) && (c.onPeriodicRun(), 
+   C());
   }, 1e3), c.onReady();
  }, c.addListener("onOfflineChanged"), c.addListener("onReady", function() {
   function n(e) {
@@ -26286,22 +26287,22 @@ Prism.languages.latex = {
    13 != t.which || e(t.target).is("textarea") || e(this).find(".modal-footer a:last").click();
   }), e(".action-insert-link").click(function(t) {
    var n = a.getInputTextValue(e("#input-insert-link"), t);
-   void 0 !== n && (E.insertLinkCallback(n), E.insertLinkCallback = void 0);
+   void 0 !== n && (I.insertLinkCallback(n), I.insertLinkCallback = void 0);
   }), e(".action-insert-image").click(function(t) {
    var n = a.getInputTextValue(e("#input-insert-image"), t);
-   void 0 !== n && (E.insertLinkCallback(n), E.insertLinkCallback = void 0);
+   void 0 !== n && (I.insertLinkCallback(n), I.insertLinkCallback = void 0);
   }), e(".modal-insert-link, .modal-insert-image").on("hidden.bs.modal", function() {
-   void 0 !== E.insertLinkCallback && (E.insertLinkCallback(null), E.insertLinkCallback = void 0);
+   void 0 !== I.insertLinkCallback && (I.insertLinkCallback(null), I.insertLinkCallback = void 0);
   }), e(".action-load-settings").click(function() {
-   C();
+   _();
   }), e(".action-apply-settings").click(function(e) {
-   _(e), e.isPropagationStopped() || window.location.reload();
+   T(e), e.isPropagationStopped() || window.location.reload();
   }), e(".action-add-google-drive-account").click(function() {
    3 !== l.gdriveMultiAccount && (l.gdriveMultiAccount++, s.settings = JSON.stringify(l), 
    window.location.reload());
   });
   var r = window.theme;
-  R = e("#input-settings-theme"), R.on("change", function() {
+  P = e("#input-settings-theme"), P.on("change", function() {
    n(this.value);
   }), e(".action-import-docs-settings").click(function() {
    e("#input-file-import-docs-settings").click();
@@ -26350,15 +26351,20 @@ Prism.languages.latex = {
   a.createTooltip(".tooltip-default-content", [ "Thanks for supporting WriteOn by adding a backlink in your stories! You can also leave this blank - thanks for using WriteOn!" ].join(""), "right", "hover", "modal"), 
   a.createTooltip(".tooltip-delete", "<p>This only deletes the local story.</p><p>Any synchronized or published stories will not be affected.</p>", "right", "hover", "modal"), 
   a.createTooltip(".tooltip-template", f, "right", "hover", "modal"), a.createTooltip(".tooltip-dropbox", m, "right", "hover", "modal"), 
-  a.createTooltip(".tooltip-mywriteon", g, "right", "hover", "modal"), a.createTooltip(".tooltip-pdf-options", v, "right", "hover", "modal"), 
+  a.createTooltip(".tooltip-mywriteon", v, "right", "hover", "modal"), a.createTooltip(".tooltip-gdrivesync-folder-gdrive", g, "right", "hover", "modal"), 
+  a.createTooltip(".tooltip-gdrivesync-folder-gdrivesec", g, "right", "hover", "modal"), 
+  a.createTooltip(".tooltip-gdrivesync-folder-gdriveter", g, "right", "hover", "modal"), 
+  a.createTooltip(".tooltip-autosync-help-gdrive", "If no folder is specified, your stories will be created in the root Drive folder", "right", "hover", "modal"), 
+  a.createTooltip(".tooltip-autosync-help-gdrivesec", "If no folder is specified, your stories will be created in the root Drive folder", "right", "hover", "modal"), 
+  a.createTooltip(".tooltip-autosync-help-gdriveter", "If no folder is specified, your stories will be created in the root Drive folder", "right", "hover", "modal"), 
+  a.createTooltip(".tooltip-gdrivesync-help-gdrive", "This will overwrite the existing story on your Drive", "right", "hover", "modal"), 
+  a.createTooltip(".tooltip-gdrivesync-help-gdrivesec", "This will overwrite the existing story on your Drive", "right", "hover", "modal"), 
+  a.createTooltip(".tooltip-gdrivesync-help-gdriveter", "This will overwrite the existing story on your Drive", "right", "hover", "modal"), 
   a.createTooltip(".tooltip-dm-stories", "Number of Stories", "bottom", "hover", "modal"), 
   a.createTooltip(".tooltip-dm-folders", "Number of Storybooks", "bottom", "hover", "modal"), 
   a.createTooltip(".tooltip-remove-sync-loc", "Removing a synchronized location will not delete the local story.", "right", "hover", "modal"), 
-  a.createTooltip(".tooltip-autosync-help", "If no folder is specified, your stories will be created in the root Drive folder", "right", "hover", "modal"), 
-  a.createTooltip(".tooltip-gdrivesync-help", "This will overwrite the existing story on your Drive", "right", "hover", "modal"), 
-  a.createTooltip(".tooltip-gdrivesync-folder", "Choose which Drive folder to save this story into", "right", "hover", "modal"), 
   a.createTooltip(".tooltip-manage-publications", "<b>Stating the Obvious?</b> Maybe, but removing a published location here will not delete the actual post out in the wild.", "top", "hover", "modal"), 
-  e("div.dropdown-menu").click(function(e) {
+  a.createTooltip(".tooltip-pdf-options", b, "right", "hover", "modal"), e("div.dropdown-menu").click(function(e) {
    e.stopPropagation();
   }), e(".modal-non-unique").modal({
    backdrop: "static",
@@ -26380,7 +26386,7 @@ Prism.languages.latex = {
   }), e("#input-settings-cursor-focus").slider({
    value: l.cursorFocusRatio
   });
- }), E;
+ }), I;
 }), define("text!WELCOME.md", [], function() {
  return 'Welcome to WriteOn!\n===================\n\n\nHey! I\'m your first story in **WriteOn**[^writeon]. Don\'t delete me, I\'m very helpful! I can be recovered anyway in the **Utils** tab of the <i class="icon-cog"></i> **Settings** dialog.\n\n----------\n\n\nStories\n-------------\n\nWriteOn stores your stories in your browser, which means all your stories are automatically saved locally and are accessible **offline!**\n\n> **Note:**\n\n> - WriteOn is accessible offline after the application has been loaded for the first time.\n> - Your local stories are not shared between different browsers or computers.\n> - Clearing your browser\'s data may **delete all your local stories!** Make sure your stories are synchronized with **Google Drive** or **Dropbox** (check out the [<i class="icon-refresh"></i> Synchronization](#synchronization) section).\n\n#### <i class="icon-file"></i> Create a story\n\nThe story panel is accessible using the <i class="icon-folder-open"></i> button in the navigation bar. You can create a new story by clicking <i class="icon-file"></i> **New story** in the story panel.\n\n#### <i class="icon-folder-open"></i> Switch to another story\n\nAll your local stories are listed in the story panel. You can switch from one to another by clicking a story in the list or you can toggle stories using <kbd>Ctrl+[</kbd> and <kbd>Ctrl+]</kbd>.\n\n#### <i class="icon-pencil"></i> Rename a story\n\nYou can rename the current story by clicking the story title in the navigation bar.\n\n#### <i class="icon-trash"></i> Delete a story\n\nYou can delete the current story by clicking <i class="icon-trash"></i> **Delete story** in the story panel.\n\n#### <i class="icon-hdd"></i> Export a story\n\nYou can save the current story to a file by clicking <i class="icon-hdd"></i> **Export to disk** from the <i class="icon-provider-writeon"></i> menu panel.\n\n> **Tip:** Check out the [<i class="icon-upload"></i> Publish a story](#publish-a-document) section for a description of the different output formats.\n\n\n----------\n\n\nSynchronization\n-------------------\n\nWriteOn can be combined with <i class="icon-provider-gdrive"></i> **Google Drive** and <i class="icon-provider-dropbox"></i> **Dropbox** to have your stories saved in the *Cloud*. The synchronization mechanism takes care of uploading your modifications or downloading the latest version of your stories.\n\n> **Note:**\n\n> - Full access to **Google Drive** or **Dropbox** is required to be able to import any story in WriteOn. Permission restrictions can be configured in the settings.\n> - Imported stories are downloaded in your browser and are not transmitted to a server.\n> - If you experience problems saving your stories on Google Drive, check and optionally disable browser extensions, such as Disconnect.\n\n#### <i class="icon-refresh"></i> Open a story\n\nYou can open a story from <i class="icon-provider-gdrive"></i> **Google Drive** or the <i class="icon-provider-dropbox"></i> **Dropbox** by opening the <i class="icon-refresh"></i> **Synchronize** sub-menu and by clicking **Open from...**. Once opened, any modification in your story will be automatically synchronized with the file in your **Google Drive** / **Dropbox** account.\n\n#### <i class="icon-refresh"></i> Save a story\n\nYou can save any story by opening the <i class="icon-refresh"></i> **Synchronize** sub-menu and by clicking **Save on...**. Even if your story is already synchronized with **Google Drive** or **Dropbox**, you can export it to a another location. WriteOn can synchronize one story with multiple locations and accounts.\n\n#### <i class="icon-refresh"></i> Synchronize a story\n\nOnce your story is linked to a <i class="icon-provider-gdrive"></i> **Google Drive** or a <i class="icon-provider-dropbox"></i> **Dropbox** file, WriteOn will periodically (every 3 minutes) synchronize it by downloading/uploading any modification. A merge will be performed if necessary and conflicts will be detected.\n\nIf you just have modified your story and you want to force the synchronization, click the <i class="icon-refresh"></i> button in the navigation bar.\n\n> **Note:** The <i class="icon-refresh"></i> button is disabled when you have no story to synchronize.\n\n#### <i class="icon-refresh"></i> Manage story synchronization\n\nSince one story can be synchronized with multiple locations, you can list and manage synchronized locations by clicking <i class="icon-refresh"></i> **Manage synchronization** in the <i class="icon-refresh"></i> **Synchronize** sub-menu. This will let you remove synchronization locations that are associated to your story.\n\n> **Note:** If you delete the file from **Google Drive** or from **Dropbox**, the story will no longer be synchronized with that location.\n\n----------\n\n\nPublication\n-------------\n\nOnce you are happy with your story, you can publish it on different websites directly from WriteOn. As for now, WriteOn can publish on **Blogger**, **Dropbox**, **Gist**, **GitHub**, **Google Drive**, **Tumblr**, **WordPress** and on any SSH server.\n\n#### <i class="icon-upload"></i> Publish a story\n\nYou can publish your story by opening the <i class="icon-upload"></i> **Publish** sub-menu and by choosing a website. In the dialog box, you can choose the publication format:\n\n- Markdown, to publish the Markdown text on a website that can interpret it (**GitHub** for instance),\n- HTML, to publish the story converted into HTML (on a blog for example),\n- Template, to have a full control of the output.\n\n> **Note:** The default template is a simple webpage wrapping your story in HTML format. You can customize it in the **Advanced** tab of the <i class="icon-cog"></i> **Settings** dialog.\n\n#### <i class="icon-upload"></i> Update a publication\n\nAfter publishing, WriteOn will keep your story linked to that publication which makes it easy for you to update it. Once you have modified your story and you want to update your publication, click on the <i class="icon-upload"></i> button in the navigation bar.\n\n> **Note:** The <i class="icon-upload"></i> button is disabled when your story has not been published yet.\n\n#### <i class="icon-upload"></i> Manage story publication\n\nSince one story can be published on multiple locations, you can list and manage publish locations by clicking <i class="icon-upload"></i> **Manage publication** in the <i class="icon-provider-writeon"></i> menu panel. This will let you remove publication \n\n\n----------\n\n\nlocations that are associated to your story.\n\n> **Note:** If the file has been removed from the website or the blog, the story will no longer be published on that location.\n\n----------\n\n\nMarkdown Extra\n--------------------\n\nWriteOn supports **Markdown Extra**, which extends **Markdown** syntax with some nice features.\n\n> **Tip:** You can disable any **Markdown Extra** feature in the **Extensions** tab of the <i class="icon-cog"></i> **Settings** dialog.\n\n> **Note:** You can find more information about **Markdown** syntax [here][2] and **Markdown Extra** extension [here][3].\n\n\n### Tables\n\n**Markdown Extra** has a special syntax for tables:\n\nItem     | Value\n-------- | ---\nComputer | $1600\nPhone    | $12\nPipe     | $1\n\nYou can specify column alignment with one or two colons:\n\n| Item     | Value | Qty   |\n| :------- | ----: | :---: |\n| Computer | $1600 |  5    |\n| Phone    | $12   |  12   |\n| Pipe     | $1    |  234  |\n\n\n### Definition Lists\n\n**Markdown Extra** has a special syntax for definition lists too:\n\nTerm 1\nTerm 2\n:   Definition A\n:   Definition B\n\nTerm 3\n\n:   Definition C\n\n:   Definition D\n\n	> part of definition D\n\n\n### Fenced code blocks\n\nGitHub\'s fenced code blocks are also supported with **Highlight.js** syntax highlighting:\n\n```\n// Foo\nvar bar = 0;\n```\n\n> **Tip:** To use **Prettify** instead of **Highlight.js**, just configure the **Markdown Extra** extension in the <i class="icon-cog"></i> **Settings** dialog.\n\n> **Note:** You can find more information:\n\n> - about **Prettify** syntax highlighting [here][5],\n> - about **Highlight.js** syntax highlighting [here][6].\n\n\n### Footnotes\n\nYou can create footnotes like this[^footnote].\n\n  [^footnote]: Here is the *text* of the **footnote**.\n\n\n### SmartyPants\n\nSmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:\n\n|                  | ASCII                        | HTML              |\n ----------------- | ---------------------------- | ------------------\n| Single backticks | `\'Isn\'t this fun?\'`            | \'Isn\'t this fun?\' |\n| Quotes           | `"Isn\'t this fun?"`            | "Isn\'t this fun?" |\n| Dashes           | `-- is en-dash, --- is em-dash` | -- is en-dash, --- is em-dash |\n\n\n### Table of contents\n\nYou can insert a table of contents using the marker `[TOC]`:\n\n[TOC]\n\n\n### UML diagrams\n\nYou can render sequence diagrams like this:\n\n```sequence\nBeard->Fedora: Hello Beard, how are you?\nNote right of Beard: Beard thinks\nBeard-->Fedora: I am good thanks!\n```\n\nAnd flow charts like this:\n\n```flow\nst=>start: Start\ne=>end\nop=>operation: My Operation\ncond=>condition: Yes or No?\n\nst->op->cond\ncond(yes)->e\ncond(no)->op\n```\n\n> **Note:** You can find more information:\n\n> - about **Sequence diagrams** syntax [here][7],\n> - about **Flow charts** syntax [here][8].\n\n\n  [^writeon]: [WriteOn](https://writeon.io/) let\'s you write without distraction, and publish without effort. WriteOn is an in-browser story editor which is fast, easy and unique. The refined text editor of WriteOn helps you focus on your writing, while visualizing the shape of it in real time.\n\n\n  [1]: http://math.stackexchange.com/\n  [2]: http://daringfireball.net/projects/markdown/syntax "Markdown"\n  [3]: https://github.com/jmcmanus/pagedown-extra "Pagedown Extra"\n  [5]: https://code.google.com/p/google-code-prettify/\n  [6]: http://highlightjs.org/\n  [7]: http://bramp.github.io/js-sequence-diagrams/\n  [8]: http://adrai.github.io/flowchart.js/\n';
 }), define("text!GUIDE.md", [], function() {
@@ -26565,14 +26571,14 @@ Prism.languages.latex = {
    E && (P && (q = !0), O ? G = !0 : (q = !0, H = b)), B && (z = !0), R && (N = c.patch_make(a.title, g), 
    U = c.patch_apply(N, l)[0]);
   }
-  var Q;
+  var Y;
   if (E) {
-   var Y = [];
-   r.currentFile === n && (Q = {
+   var Q = [];
+   r.currentFile === n && (Y = {
     selectionStart: o.selectionMgr.selectionStart,
     selectionEnd: o.selectionMgr.selectionEnd
-   }, Y.push(Q), n.newDiscussion && Y.push(n.newDiscussion)), q && (Y = Y.concat(e.values(b))), 
-   F |= o.adjustCommentOffsets(m, $, Y);
+   }, Q.push(Y), n.newDiscussion && Q.push(n.newDiscussion)), q && (Q = Q.concat(e.values(b))), 
+   F |= o.adjustCommentOffsets(m, $, Q);
   }
   if (G) {
    var K = e.values(p);
@@ -26590,7 +26596,7 @@ Prism.languages.latex = {
    n.discussionIndex = i, H[i] = n;
   })), A && (n.title = U, i.onTitleChanged(n), i.onMessage('"' + g + '" has been renamed to "' + U + '" on ' + this.providerName + ".")), 
   (E || F) && o.watcher.noWatch(e.bind(function() {
-   if (E && (r.currentFile === n && (o.setValueNoWatch($), Q && o.selectionMgr.setSelectionStartEnd(Q.selectionStart, Q.selectionEnd)), 
+   if (E && (r.currentFile === n && (o.setValueNoWatch($), Y && o.selectionMgr.setSelectionStartEnd(Y.selectionStart, Y.selectionEnd)), 
    n.content = $, i.onContentChanged(n, $)), F) {
     n.discussionList = H;
     var t = u.diff(b, H), a = !1;
@@ -28072,7 +28078,7 @@ Prism.languages.latex = {
   void 0 !== window.delayedFunction && window.delayedFunction();
  }, b;
 }), define("text!html/dialogExportGdrive.html", [], function() {
- return '<div class="modal-dialog">\n	<div class="modal-content">\n\n		<div class="modal-header">\n			<button type="button" class="close" data-dismiss="modal"\n				aria-hidden="true">&times;</button>\n		</div>\n		<div class="modal-body">\n				<div class="row">\n					<div class="col-md-5">\n					<div class="pull-left" style="padding-right:5px;">\n						<img src="writeon/img/google-drive.png" style="max-height:52px;">\n					</div>\n					<h2 class="modal-title"><%= providerName %></h2>\n					<p>\n						This will save <code><span class="file-title text-success"></span></code> to Google Drive and keep it synchronized.\n					</p>\n						\n					</div>\n			<div class="col-md-7 form-horizontal">\n				<div class="form-group">\n					<label class="col-lg-3 control-label"\n						for="input-sync-export-<%= providerId %>-parentid">Folder <a href="#" class="tooltip-gdrivesync-folder">(?)</a></label>\n					<div class="col-lg-8">\n						<div class="input-group has-success">\n                        <div class="input-group-btn">\n                            <a class="btn btn-link btn-sm action-export-<%= providerId %>-choose-folder"\n                               title="Choose <%= providerName %> folder" data-dismiss="modal"><i class="icon-folder-open text-success"></i></a>\n                        </div>\n                        <input type="text" id="input-sync-export-<%= providerId %>-parentid"\n                            placeholder="Google Folder ID" class="form-control">\n					</div>\n					</div>\n				</div>\n				<div class="form-group">\n					<a href="#" class="btn btn-link btn-block text-success text-center action-autosync-dialog-<%= providerId %>" data-dismiss="modal"><i class="icon-provider-gdrive"></i> Setup AutoSync</a>\n				</div>\n				<div class="form-group hide">\n					<label class="col-lg-3 control-label"\n						for="input-sync-export-<%= providerId %>-fileid">Existing Story ID <a href="#" class="tooltip-gdrivesync-help">(?)</a></label>\n					<div class="col-lg-8">\n						<input type="text" id="input-sync-export-<%= providerId %>-fileid"\n							placeholder="Google Doc ID" class="form-control"> \n					</div>\n				</div>\n				<blockquote class="alert alert-info hide hidden">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    	</button>\n					<p><b>Tip:</b> You can move or rename the file afterwards in Google Drive.</p>\n				</blockquote>\n			</div>\n		</div>\n			</div>\n		<div class="modal-footer">\n			<a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-<%= providerId %>">Save</a>\n\n		</div>\n	</div>\n</div>\n';
+ return '<div class="modal-dialog">\n	<div class="modal-content">\n\n		<div class="modal-header">\n			<button type="button" class="close" data-dismiss="modal"\n				aria-hidden="true">&times;</button>\n		</div>\n		<div class="modal-body">\n				<div class="row">\n					<div class="col-md-5">\n					<div class="pull-left" style="padding-right:5px;">\n						<img src="writeon/img/google-drive.png" style="max-height:52px;">\n					</div>\n					<h2 class="modal-title"><%= providerName %></h2>\n					<p>\n						This will save <code><span class="file-title text-success"></span></code> to Google Drive and keep it synchronized.\n					</p>\n						\n					</div>\n			<div class="col-md-7 form-horizontal">\n				<div class="form-group">\n					<label class="col-lg-3 control-label"\n						for="input-sync-export-<%= providerId %>-parentid">Folder <a href="#" class="tooltip-gdrivesync-folder-<%= providerId %>">(?)</a></label>\n					<div class="col-lg-8">\n						<div class="input-group has-success">\n                        <div class="input-group-btn">\n                            <a class="btn btn-link btn-sm action-export-<%= providerId %>-choose-folder"\n                               title="Choose <%= providerName %> folder" data-dismiss="modal"><i class="icon-folder-open text-success"></i></a>\n                        </div>\n                        <input type="text" id="input-sync-export-<%= providerId %>-parentid"\n                            placeholder="Google Folder ID" class="form-control">\n					</div>\n					</div>\n				</div>\n				<div class="form-group">\n					<a href="#" class="btn btn-link btn-block text-success text-center action-autosync-dialog-<%= providerId %>" data-dismiss="modal"><i class="icon-provider-gdrive"></i> Setup AutoSync</a>\n				</div>\n				<div class="form-group hide">\n					<label class="col-lg-3 control-label"\n						for="input-sync-export-<%= providerId %>-fileid">Existing Story ID <a href="#" class="tooltip-gdrivesync-help-<%= providerId %>">(?)</a></label>\n					<div class="col-lg-8">\n						<input type="text" id="input-sync-export-<%= providerId %>-fileid"\n							placeholder="Google Doc ID" class="form-control"> \n					</div>\n				</div>\n				<blockquote class="alert alert-info hide hidden">\n					<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>\n                    	</button>\n					<p><b>Tip:</b> You can move or rename the file afterwards in Google Drive.</p>\n				</blockquote>\n			</div>\n		</div>\n			</div>\n		<div class="modal-footer">\n			<a href="#" data-dismiss="modal" class="btn btn-primary action-sync-export-<%= providerId %>">Save</a>\n\n		</div>\n	</div>\n</div>\n';
 }), define("text!html/dialogAutoSyncGdrive.html", [], function() {
  return '<div class="modal-dialog">\n	<div class="modal-content">\n\n		<div class="modal-header">\n			<button type="button" class="close" data-dismiss="modal"\n				aria-hidden="true">&times;</button>\n		</div>\n		<div class="modal-body">\n				<div class="row">\n					<div class="col-md-5">\n					<div class="pull-left" style="padding-right:5px;">\n						<img src="writeon/img/google-drive.png" style="max-height:52px;">\n					</div>\n					<h2 class="modal-title">Drive Autosync</h2>\n					<p>\n						This saves all your stories to <%= providerName %> and automatically keeps them synchronized.\n					</p>\n						\n					</div>\n			<div class="col-md-7 form-horizontal">\n    			<div class="form-group">\n    				<label class="col-lg-3 control-label"\n    					for="input-autosync-<%= providerId %>-parentid">Folder <a href="#" class="tooltip-autosync-help">(?)</a></label>\n    				<div class="col-lg-8">\n    					<div class="input-group">\n    						<div class="input-group-btn">\n    							<a class="btn btn-link action-autosync-<%= providerId %>-choose-folder"\n    								title="Choose <%= providerName %> folder" data-dismiss="modal"><i\n    								class="icon-folder-open text-success"></i></a>\n    						</div>\n    						<input type="text" id="input-autosync-<%= providerId %>-parentid" placeholder=" <%= providerName %> folder" class="form-control">\n    					</div>\n    				</div>\n    			</div>\n				<div class="form-group">\n    				<div class="col-lg-3 control-label"></div>\n    				<div class="col-lg-8">\n						<div class="radio">\n							<label> <input type="radio" name="radio-autosync-<%= providerId %>-mode" value="off">Disabled\n							</label>\n						</div>\n						<div class="radio">\n							<label> <input type="radio"\n								name="radio-autosync-<%= providerId %>-mode" value="new">\n								New stories (not current)\n							</label>\n						</div>\n						<div class="radio">\n							<label> <input type="radio"\n								name="radio-autosync-<%= providerId %>-mode" value="all">\n								Every story not yet synchronized\n							</label>\n						</div>\n    				</div>\n    			</div>\n    		</div>\n		</div>\n		<div class="modal-footer">\n			<a href="#" data-dismiss="modal" class="btn btn-success text-success action-autosync-<%= providerId %>">Start Autosync</a>\n		</div>\n	</div>\n</div>\n';
 }), define("providers/gdriveProviderBuilder", [ "jquery", "underscore", "constants", "utils", "storage", "logger", "classes/Provider", "settings", "eventMgr", "fileMgr", "editor", "helpers/googleHelper", "text!html/dialogExportGdrive.html", "text!html/dialogAutoSyncGdrive.html" ], function(e, t, n, i, r, o, a, s, l, c, u, d, p, h) {
