@@ -850,6 +850,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 	.offline-status > div {
 		display: inline-block;
 		vertical-align: middle;
+		margin-top: 15px;
 	}
 
 	.buttons-dropdown {
@@ -1052,6 +1053,23 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
     //& .settings-menu:hover {
     //    padding-left: 11px;
 	//}
+
+.panel-slide {
+    -webkit-transform: translateX(@document-panel-width);
+    -ms-transform: translateX(@document-panel-width);
+    -o-transform: translateX(@document-panel-width);
+    transform: translateX(@document-panel-width);
+    -webkit-transition: 500ms;
+    -o-transition: 500ms;
+    transition: 500ms;
+}
+
+.panel-slide-show {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+}
 
 .document-panel {
 	position: absolute;
@@ -1750,6 +1768,9 @@ img.modal-publish-gdrive, img.modal-publish-blogger {max-width:52px;}
 /* the range here for desktop/mobile simulation is between 85ms and 110ms */
 .layout-animate {
 	.transition-transform(110ms ease-in-out);
+	.slow {
+		.transition-transform(410ms ease-in-out);
+	}
 }
 
 .layout-resizer {

@@ -23,7 +23,7 @@ define([
 		width: 330,
 		height: 160
 	};
-	var menuPanelWidth = 335;
+	var menuPanelWidth = 0;
 	var documentPanelWidth = 370;
 	var titleMinWidth = 200;
 	var previewButtonsClosedOffset = 18;
@@ -324,7 +324,7 @@ define([
 		}
 		editorContentElt.style.paddingLeft = editorPadding + 'px';
 		editorContentElt.style.paddingRight = editorPadding + 'px';
-		// editorContentElt.style.paddingBottom = paddingBottom + 'px';
+		editorContentElt.style.paddingBottom = paddingBottom + 'px';
 		editorMarginElt.style.width = editorPadding + 'px';
 
 		var previewPadding = (previewContainer.elt.offsetWidth - getMaxWidth()) / 2;
@@ -333,7 +333,7 @@ define([
 		}
 		previewContentElt.style.paddingLeft = previewPadding + 'px';
 		previewContentElt.style.paddingRight = previewPadding + 'px';
-		// previewContentElt.style.paddingBottom = paddingBottom + 'px';
+		previewContentElt.style.paddingBottom = paddingBottom + 'px';
 
 		// var maxWidth = navbarMarginWidth + workingIndicatorWidth + titleMinWidth + buttonsDropdownWidth;
         var maxWidth = navbarMarginWidth + titleMinWidth + buttonsDropdownWidth;
@@ -615,7 +615,7 @@ define([
 		//storyPanel.storyToggle();
 
 		// Hide documentPanel when clicking on a non collapse or dropdown element
-		documentPanel.$elt.on('click', 'a[data-toggle!=dropdown]', _.bind(documentPanel.toggle, documentPanel, false)) || documentPanel.$elt.on('click', 'a[data-toggle!=collapse]', _.bind(documentPanel.toggle, documentPanel, false));
+		documentPanel.$elt.on('click', 'ul.nav li .file', _.bind(documentPanel.toggle, documentPanel, false));
 		
 		// Focus on editor when document panel is closed
 		documentPanel.$elt.on('hidden.layout.toggle', function() {

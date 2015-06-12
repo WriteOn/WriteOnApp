@@ -186,7 +186,7 @@ gulp.task('requirejs', [
 	})
 		.pipe(uglify({
 			output: {
-				beautify: true,
+				beautify: false,
 				indent_level: 1,
 				ascii_only: true
 			}
@@ -463,9 +463,9 @@ function releaseTask(importance) {
 */
 gulp.task('connect', function() {
   connect.server({
-    root: 'writeon.app',
+    root: 'server.js',
 	port: 9601,
-    livereload: false
+    livereload: true
   });
 });
  
