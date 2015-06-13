@@ -143,7 +143,7 @@ define([
     }
 
     documentPanel.onReady = function() {
-        panelElt = document.querySelector('.document-panel');
+        panelElt = document.querySelector('.story-panel'); // or .document-panel
         panelContentElt = panelElt.querySelector('.panel-content');
         documentListElt = panelElt.querySelector('.document-list');
         $documentListElt = $(documentListElt);

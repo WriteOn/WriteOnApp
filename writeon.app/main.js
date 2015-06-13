@@ -84,7 +84,8 @@ requirejs.config({
         couchdb: 'libs/jquery.couch',
         contextjs: '../bower_components/Context.js/context',
         pace: '../bower_components/pace/pace.min',
-        'dropdown-hover': '../bower_components/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js'
+        'dropdown-hover': '../bower_components/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js', 
+        slidebar: '../bower_components/Slidebars/dist/slidebars.min'
 	},
 	shim: {
 		underscore: {

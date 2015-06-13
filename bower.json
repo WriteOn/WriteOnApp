@@ -39,7 +39,8 @@
     "seiyria-bootstrap-slider": "~4.8.1",
     "writeon-pad": "*",
     "bootstrap-social": "~4.9.0",
-    "pace": "~1.0.2"
+    "pace": "~1.0.2",
+    "Slidebars": "~0.10.3"
   },
   "resolutions": {
     "pagedown-extra": "ea782c3d11eb78f57d00aa819527338996a70721",

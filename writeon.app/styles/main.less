@@ -1071,11 +1071,12 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
     transform: translateX(0);
 }
 
-.document-panel {
+.document-panel, .story-panel {
 	position: absolute;
 	top: 0;
 	right: 0;
 	width: @document-panel-width;
+	background-color: @list-group-bg;
 	.toggle-button {
 		.transition(350ms ease-in-out all);
         /*
@@ -1100,23 +1101,19 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 	}
 	.panel-content {
 		background-color: @list-group-bg;
-		padding-top: 150px;
+		margin-top: 100px;
+		padding-top: 20px;
         .viewer & {
             padding-top: 75px;
         }
-		border-left: 1px solid @secondary-border-color-light;
 		.icon-layers {
 			font-size: 135%;
 		}
 	}
 	.search-bar {
 		position: absolute;
-		background-color: @secondary-bg;
-		margin: -10px 15px 0;
 		padding: 15px;
 		z-index: 3;
-		border: 1px solid @secondary-border-color;
-		border-radius: 6px;
         .nav {
             margin-bottom: 10px;
             > li > a {
@@ -1194,32 +1191,16 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 
 
 /**************************
- * Document/Story Panel Slider
+ * Story Panel Slider (ala slidebars)
  **************************/
 
-.panel-slide {
-    -webkit-transform: translateX(-250px);
-    -ms-transform: translateX(-250px);
-    -o-transform: translateX(-250px);
-    transform: translateX(-250px);
-    -webkit-transition: 500ms;
-    -o-transition: 500ms;
-    transition: 500ms;
-    position: relative;
-    margin: 0;
-    padding: 0;
-    width: 230px;
-    height: auto;
-    float: left;
-    background-color: #eee;
+.story-toggle {
+	margin-top: 3.5px !important;
+	img {
+		max-height: 37px;
+	}
 }
 
-.story-panel-show {
-    -webkit-transform: translateX(0);
-    -ms-transform: translateX(0);
-    -o-transform: translateX(0);
-    transform: translateX(0);
-}
 
 .layout-wrapper-l3 {
     position: absolute;

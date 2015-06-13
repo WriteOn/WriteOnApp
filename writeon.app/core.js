@@ -12,6 +12,7 @@ define([
 	"eventMgr",
 	"monetizejs",
 	"Slider",
+	"slidebar",
 	"text!html/bodyEditor.html",
 	"text!html/bodyViewer.html",
 	"text!html/tooltipSettingsTemplate.html",
@@ -21,7 +22,7 @@ define([
 	"text!html/tooltipSettingsPdfOptions.html",
 	"storage",
 	"pagedown"
-], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, MonetizeJS, Slider, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsDropboxTooltipHTML, settingsMyWriteonTooltipHTML, settingsPdfOptionsTooltipHTML) {
+], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, MonetizeJS, Slider, slidebar, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsDropboxTooltipHTML, settingsMyWriteonTooltipHTML, settingsPdfOptionsTooltipHTML) {
 
 	var core = {};
 
@@ -619,7 +620,7 @@ define([
 		utils.createTooltip(".tooltip-sync", "Sync", "bottom", "hover", "body");		
 		utils.createTooltip(".tooltip-publish", "Publish", "bottom", "hover", "body");		
 		utils.createTooltip(".tooltip-download", "Download", "bottom", "hover", "body");
-		utils.createTooltip(".tooltip-story-panel", "My Stories", "left", "hover", "body");
+		utils.createTooltip(".tooltip-story-panel", "My Stories", "bottom", "hover", "body");
 		//utils.createTooltip(".settings-menu", "My Settings", "right", "hover", "body");
 
 		// General purpose helpers. This should be in json
@@ -675,6 +676,17 @@ define([
 		$("#input-settings-font-size").slider({value: settings.fontSizeRatio});
 		$("#input-settings-max-width").slider({value: settings.maxWidthRatio});
 		$("#input-settings-cursor-focus").slider({value: settings.cursorFocusRatio});
+		
+		// Load side panel sliders
+		var mySlidebars = new $.slidebars({
+        siteClose: false, 
+        disableOver: false, // integer or false
+        hideControlClasses: false,
+        scrollLock: false
+      });
+		$('.story-toggle').on('click', function() {
+        	mySlidebars.slidebars.toggle('right');
+      	});
 
 		//$('.modal-header').append('<a class="dialog-header-message" href="https://github.com/beardandfedora/WriteOn/issues" target="_blank">Give your feedback <i class="icon-megaphone"></i></a>');
 		
