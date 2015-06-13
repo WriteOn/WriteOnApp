@@ -186,7 +186,7 @@ gulp.task('requirejs', [
 	})
 		.pipe(uglify({
 			output: {
-				beautify: false,
+				beautify: true,
 				indent_level: 1,
 				ascii_only: true
 			}

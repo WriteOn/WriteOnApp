@@ -12,7 +12,6 @@ define([
 	"eventMgr",
 	"monetizejs",
 	"Slider",
-	"slidebar",
 	"text!html/bodyEditor.html",
 	"text!html/bodyViewer.html",
 	"text!html/tooltipSettingsTemplate.html",
@@ -22,7 +21,7 @@ define([
 	"text!html/tooltipSettingsPdfOptions.html",
 	"storage",
 	"pagedown"
-], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, MonetizeJS, Slider, slidebar, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsDropboxTooltipHTML, settingsMyWriteonTooltipHTML, settingsPdfOptionsTooltipHTML) {
+], function($, _, crel, editor, layout, constants, utils, storage, settings, eventMgr, MonetizeJS, Slider, bodyEditorHTML, bodyViewerHTML, settingsTemplateTooltipHTML, settingsDropboxTooltipHTML, settingsMyWriteonTooltipHTML, settingsPdfOptionsTooltipHTML) {
 
 	var core = {};
 
@@ -315,6 +314,8 @@ define([
 		// Custom editor button tooltips loaded with the editor
 		// In this order: selector, content, placement, trigger, container
 		// See Bootstrap tooltip docs for help
+		utils.createTooltip(".wmd-bold-button", "Bold", "bottom", "hover", "body");
+		utils.createTooltip(".wmd-italic-button", "Italicize", "bottom", "hover", "body");
 		utils.createTooltip(".wmd-link-button", "Insert Hyperlink", "bottom", "hover", "body");
 		utils.createTooltip(".wmd-image-button", "Insert Image", "bottom", "hover", "body");
 		utils.createTooltip(".wmd-quote-button", "Blockquote", "bottom", "hover", "body");
@@ -460,7 +461,7 @@ define([
 			}, 50);
 		}).on('hidden.bs.modal', '.modal', function() {
 			// Focus on the editor when modal is gone
-			editor.focus();
+			// editor.focus();
 			// Revert to current theme when settings modal is closed
 			applyTheme(window.theme);
 		}).on('keypress', '.modal', function(e) {
@@ -612,15 +613,14 @@ define([
 		// Toolbar & action tooltips. This should be in json. 
 		utils.createTooltip(".button-open-discussion", "Insert Comment", "bottom", "hover", "body");
 		utils.createTooltip(".title-container", "Rename Story", "bottom", "hover", "body");
-		utils.createTooltip(".create-fab", "New Story", "top", "hover", "editor-content");		
-		utils.createTooltip(".action-create-file", "New Story", "bottom", "hover", "body");
-		utils.createTooltip(".action-remove-file-confirm", "Delete Story", "bottom", "hover", "body");		
-		utils.createTooltip(".action-dm", "Manage Stories", "bottom", "hover", "body");		
-		utils.createTooltip(".story-menu", "Import Stories", "bottom", "hover", "body");		
 		utils.createTooltip(".tooltip-sync", "Sync", "bottom", "hover", "body");		
 		utils.createTooltip(".tooltip-publish", "Publish", "bottom", "hover", "body");		
 		utils.createTooltip(".tooltip-download", "Download", "bottom", "hover", "body");
-		utils.createTooltip(".tooltip-story-panel", "My Stories", "bottom", "hover", "body");
+		utils.createTooltip(".tooltip-story-panel", "My Stories", "left", "hover", "body");
+		utils.createTooltip(".action-create-file", "New Story", "bottom", "hover", ".story-panel");
+		utils.createTooltip(".action-remove-file-confirm", "Delete Story", "bottom", "hover", ".story-panel");		
+		utils.createTooltip(".action-dm", "Manage Stories", "bottom", "hover", ".story-panel");		
+		utils.createTooltip(".story-menu", "Import Stories", "bottom", "hover", ".story-panel");		
 		//utils.createTooltip(".settings-menu", "My Settings", "right", "hover", "body");
 
 		// General purpose helpers. This should be in json
@@ -636,8 +636,9 @@ define([
 		utils.createTooltip(".tooltip-dm-folders", "Number of Storybooks", "bottom", "hover", "modal");
 		utils.createTooltip(".tooltip-remove-sync-loc", "Removing a synchronized location will not delete the local story.", "right", "hover", "modal");
 		utils.createTooltip(".tooltip-manage-publications", "<b>Stating the Obvious?</b> Maybe, but removing a published location here will not delete the actual post out in the wild.", "top", "hover", "modal");		
-
 		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML, "right", "hover", "modal");
+		utils.createTooltip(".layout-toggler-navbar", "Distraction free mode", "left", "hover", ".layout-wrapper-l3");		
+		utils.createTooltip(".layout-toggler-preview", "Live preview", "top", "hover", ".layout-wrapper-l3");		
 		
 		// Close tooltips on click  
 		$('.tooltip-trigger').click(function(event) {
@@ -677,16 +678,6 @@ define([
 		$("#input-settings-max-width").slider({value: settings.maxWidthRatio});
 		$("#input-settings-cursor-focus").slider({value: settings.cursorFocusRatio});
 		
-		// Load side panel sliders
-		var mySlidebars = new $.slidebars({
-        siteClose: false, 
-        disableOver: false, // integer or false
-        hideControlClasses: false,
-        scrollLock: false
-      });
-		$('.story-toggle').on('click', function() {
-        	mySlidebars.slidebars.toggle('right');
-      	});
 
 		//$('.modal-header').append('<a class="dialog-header-message" href="https://github.com/beardandfedora/WriteOn/issues" target="_blank">Give your feedback <i class="icon-megaphone"></i></a>');
 		

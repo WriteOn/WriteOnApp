@@ -48,16 +48,16 @@ angular.module('angularApp', [
         });
     
         return $routeProvider
-        .when('/go',	 {
+       .when('/go',	 {
 			controller : function(){
        			window.location.replace('/pad');
     		}, 
-    		template : '<div></div>'
+    		templateUrl : 'views/we/love-you.html'
 		}).when('/start',	 {
 			controller : function(){
        			window.location.replace('/register');
     		}, 
-    		template : '<div></div>'
+    		templateUrl : 'views/we/love-you.html'
 		}).when('/', {
             templateUrl: 'views/home.html'
         }).when('/fG7tNpKU', {

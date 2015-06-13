@@ -239,28 +239,37 @@ define([
 			resizeAll();
 		};
 	};
+
 /* 
  * 
  * Story Panel slide out
- * 
+ */ 
 
 
 	DomObject.prototype.storyToggle = function() {
-		var hide = true;
-    	$('.toggle-story-panel').on('click',function (event){
-    		if (hide) {
-    			$('.story-panel').addClass("story-panel-show");
-    			$('.layout-wrapper-l3').addClass("pad-show");
-    			hide = false;
-    		}else {
-    			$('.story-panel').removeClass("story-panel-show");
-    			$('.layout-wrapper-l3').removeClass("pad-show");
-    			hide = true;
-    		}
-		});
+		// Load side panel sliders
+		var woSlidebars = new $.slidebars({
+        	siteClose: false, 
+        	disableOver: false, // integer or false
+        	hideControlClasses: false,
+        	scrollLock: false
+      	});
+		$('.story-toggle').on('click', function() {
+        	woSlidebars.slidebars.toggle('right');
+      	});
+		$('.syncing-menu > .dropdown').on('click', function() {
+        	woSlidebars.slidebars.close();
+      	});
+		$('.button-open-discussion').on('click', function() {
+        	woSlidebars.slidebars.close();
+      	});
+		this.toggle = function() {
+			woSlidebars.slidebars.close();
+		};
+
 	
 	};	
-  */	
+  	
     
 	/* Get the Touch objects and instructions put into place */
     DomObject.prototype.initHammer = function(drag) {
@@ -611,11 +620,13 @@ define([
 		documentPanel.isOpen = false;
 		documentPanel.createBackdropToggler(true);  // or createToggler()
 		documentPanel.$elt.find('.toggle-button').click(_.bind(documentPanel.toggle, documentPanel));
+		documentPanel.$elt.on('click', 'ul.nav li .file', _.bind(documentPanel.toggle, documentPanel, false)); // Hide  documentPanel when clicking on a non collapse or dropdown element
 		
-		//storyPanel.storyToggle();
+		storyPanel.isOpen = false;
+		storyPanel.storyToggle();
+		storyPanel.$elt.on('click', 'ul.nav li .file', _.bind(storyPanel.toggle, storyPanel, false)); // Hide storyPanel when clicking on a story to open
+		storyPanel.$elt.on('click', '.action-create-file', _.bind(storyPanel.toggle, storyPanel, false)); // Hide storyPanel when clicking to create new story
 
-		// Hide documentPanel when clicking on a non collapse or dropdown element
-		documentPanel.$elt.on('click', 'ul.nav li .file', _.bind(documentPanel.toggle, documentPanel, false));
 		
 		// Focus on editor when document panel is closed
 		documentPanel.$elt.on('hidden.layout.toggle', function() {

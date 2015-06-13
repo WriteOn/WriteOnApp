@@ -473,7 +473,7 @@ define([
 			if($commentElt.length === 0) {
 				// Close the popover properly
 				closeCurrentPopover();
-				editor.focus();
+				// editor.focus();
 				editor.adjustCursorPosition(true);
 			}
 			else {

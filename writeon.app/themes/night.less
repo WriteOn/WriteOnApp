@@ -30,13 +30,36 @@
 @kbd-border-color: fade(@text-color, 40%);
 
 .navbar-default {
-	background-image: linear-gradient(to bottom,#444 0,rgba(9,9,9,.4)100%);
+	background-image: linear-gradient(to bottom,@primary-bg 0,rgba(6,6,6,.4)100%);
   	background-repeat: repeat;
-  	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#444444FF', endColorstr='#999999FF', GradientType=0);
+  	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@primary-bg444FF', endColorstr='#666FF', GradientType=0);
   	box-shadow: none;
   	border-color: transparent;
 }
+.navbar-inverse {
+	background: @primary-bg;
+    background: -moz-linear-gradient(-45deg, @primary-bg 32%, rgba(9,9,9,.4) 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(32%, @primary-bg), color-stop(100%, rgba(9,9,9,.4)));
+    background: -webkit-linear-gradient(-45deg, @primary-bg 32%, rgba(9,9,9,.4) 100%);
+    background: -o-linear-gradient(-45deg, @primary-bg 32%, rgba(9,9,9,.4) 100%);
+    background: -ms-linear-gradient(-45deg, @primary-bg 32%, rgba(9,9,9,.4) 100%);
+    background: linear-gradient(135deg, @primary-bg 32%,rgba(9,9,9,.4) 100%);
+}
 
+/* Gradient Dropdown bg */
+ul.dropdown-menu {
+			position: absolute !important;
+			background: -webkit-gradient(linear, left top, left bottom, from(@primary-bg), to(rgba(9,9,9,.4)));
+			background: -webkit-linear-gradient(top, @primary-bg, rgba(9,9,9,.4));
+			background: -moz-linear-gradient(top, @primary-bg, rgba(9,9,9,.4));
+			background: -ms-linear-gradient(top, @primary-bg, rgba(9,9,9,.4));
+			background: -o-linear-gradient(top, @primary-bg, rgba(9,9,9,.4));
+			background: linear-gradient(top, @primary-bg, rgba(9,9,9,.4));
+			background-color: @primary-bg;	
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+	background-color: #666;
+}
 .form-control:focus {
     .box-shadow(~"inset 0 1px 1px rgba(255, 255, 255, 0), 0 0 12px rgba(255, 255, 255, 1)");
 }
@@ -51,6 +74,22 @@
 	background-color: @secondary-bg;
 }
 
+.input-group-addon:first-child {background-color: @primary-bg;}
+
+.panel {background-color: inherit;}
+
+
 .modal-settings .modal-nav {background: @tertiary-bg;}
 
 .modal-settings .modal-header .modal-title {color: @panel-button-bg-color;}
+.modal-settings, .modal-about {
+	.modal-content {
+			background: -webkit-gradient(linear, left top, left bottom, from(@primary-bg), to(rgba(9,9,9,.4)));
+			background: -webkit-linear-gradient(top, @primary-bg, rgba(9,9,9,.4));
+			background: -moz-linear-gradient(top, @primary-bg, rgba(9,9,9,.4));
+			background: -ms-linear-gradient(top, @primary-bg, rgba(9,9,9,.4));
+			background: -o-linear-gradient(top, @primary-bg, rgba(9,9,9,.4));
+			background: linear-gradient(top, @primary-bg, rgba(9,9,9,.4));
+			background-color: @primary-bg;	
+	}
+}

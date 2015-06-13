@@ -29,7 +29,7 @@ define([
 			});
 			setTimeout(function() {
 				tooltip.tooltip('hide').removeClass('info-tooltip').parent().removeClass('info-tooltip-container');
-			}, 10000);
+			}, 8000);
 		}
 
 		var tour = new Tour({

@@ -253,7 +253,14 @@ body {
         }
     }
 }
-
+@media (max-width: 767px) {
+.dropdown-menu > li > a {
+    color: inherit;
+	&:hover {
+		color: inherit;
+	}
+}
+}
 .collapsed > .icon-up-dir:before {
 	content: '\e94d';
 }
@@ -1072,11 +1079,13 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 }
 
 .document-panel, .story-panel {
+	z-index: 99;
 	position: absolute;
-	top: 56px;
+	top: 62px;
 	right: 0;
 	width: @document-panel-width;
 	background-color: @list-group-bg;
+	box-shadow: 0 2px 4px -1px rgba(0,0,0,.14),0 4px 5px 0 rgba(0,0,0,.098),0 1px 10px 0 rgba(0,0,0,.084);
 	.toggle-button {
 		.transition(350ms ease-in-out all);
         /*
@@ -1099,9 +1108,17 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 	& .toggle-button:hover, &.panel-open > .toggle-button {
         left: -56px;
 	}
+	.navbar {
+		position: relative; margin-bottom: 0;  border-top-left-radius: 2px;
+		.nav {
+			margin: 0 auto;
+    		float: none !important;
+    		display: table;
+		}
+	}
 	.panel-content {
 		background-color: @list-group-bg;
-		margin-top: 100px;
+		margin-top: 80px;
 		padding-top: 20px;
         .viewer & {
             padding-top: 75px;
@@ -1115,7 +1132,6 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 		padding: 0;
 		z-index: 3;
         .nav {
-            margin-bottom: 10px;
             > li > a {
                 padding: 8px 15px;
                 &:hover,
@@ -1195,7 +1211,9 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
  **************************/
 
 .story-toggle {
-	margin-top: 3.5px !important;
+	padding-top: 9.5px !important;
+	padding-right: 0 !important;
+    cursor: pointer;
 	img {
 		max-height: 37px;
 	}
@@ -2280,6 +2298,7 @@ input[type="file"] {
 		}
 		hr {
 			margin: 0 0 10px;
+			border-color: transparent;
 		}
 	}
 
