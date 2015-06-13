@@ -7,9 +7,10 @@ define([
 	'eventMgr',
 	'crel',
 	'mousetrap',
-	'hammerjs'
+	'hammerjs',
+	'slidebar'
     //'contextjs'
-], function($, _, utils, constants, settings, eventMgr, crel, mousetrap, hammer) {
+], function($, _, utils, constants, settings, eventMgr, crel, mousetrap, hammer, slidebar) {
 	var layout = {};
 
 	var resizerSize = 32;
