@@ -60,6 +60,18 @@
 @primary-bg: lighten(@primary-desaturated, 42%);
 @primary-border-color: fade(@primary, 10%);
 @navbar-default-link-active-bg: lighten(@primary-desaturated, 62%);
+@navbar-default-link-color: @secondary-blue;
+@navbar-default-link-hover-color: @primary-blue;
+
+// Dropdowns
+@dropdown-bg: @secondary-bg-lighter;
+@dropdown-border: @secondary-border-color;
+@dropdown-link-color: @secondary-blue;
+@dropdown-link-hover-color: darken(@primary-desaturated, 25%);
+@dropdown-link-hover-bg: @btn-default-hover-bg;
+@dropdown-header-color: fade(@secondary-color, 60%);
+@dropdown-link-disabled-color: @disabled-color;
+@dropdown-divider-bg: @dropdown-border;
 
 // Preview and menus
 @secondary-bg-dark: lighten(@secondary-desaturated, 45%);
@@ -90,7 +102,7 @@
 
 @error-border: @red-color;
 @disabled-color: mix(@secondary-color, @input-bg, 33%);
-@folder-color: @secondary-color-darker;
+@folder-color: @secondary-blue;
 @jgrowl-bg-color: fade(@secondary-blue, 90%);
 
 /* Layout Sizes */
@@ -102,12 +114,12 @@
 @editor-line-weight: 1.65;
 	
 /* Buttons */
-@btn-default-color: @secondary-color-darker;
+@btn-default-color: @secondary-blue;
 @btn-default-bg: @transparent;
 @btn-default-border: @transparent;
 @btn-default-hover-bg: fade(@secondary-desaturated, 4%);
 @btn-default-hover-border: fade(@secondary, 10%);
-@btn-primary-color: @secondary-color-darker;
+@btn-primary-color: @secondary-blue;
 @btn-primary-bg: @primary-bg;
 @btn-primary-border: fade(@secondary, 5%);
 @btn-primary-hover-bg: mix(@primary-desaturated, @btn-primary-bg, 7.5%);
@@ -150,14 +162,6 @@
 @nav-disabled-link-hover-color: @disabled-color;
 @nav-tabs-border-color: @transparent;
 @nav-tabs-link-hover-border-color: @transparent;
-@dropdown-bg: @secondary-bg-lighter;
-@dropdown-border: @secondary-border-color;
-@dropdown-link-color: @secondary-color-darkest;
-@dropdown-link-hover-color: darken(@primary-desaturated, 25%);
-@dropdown-link-hover-bg: @btn-default-hover-bg;
-@dropdown-header-color: fade(@secondary-color, 60%);
-@dropdown-link-disabled-color: @disabled-color;
-@dropdown-divider-bg: @dropdown-border;
 @list-group-default-hover-bg: @secondary-bg-light;
 @list-group-default-hover-border: @secondary-border-color;
 @list-group-link-color: @secondary-color-darkest;
@@ -887,14 +891,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 }
 
 .navbar-inverse {
-	background: #1976D2;
-    background: -moz-linear-gradient(-45deg, #1976D2 32%, #1c4973 100%);
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(32%, #1976D2), color-stop(100%, #1c4973));
-    background: -webkit-linear-gradient(-45deg, #1976D2 32%, #1c4973 100%);
-    background: -o-linear-gradient(-45deg, #1976D2 32%, #1c4973 100%);
-    background: -ms-linear-gradient(-45deg, #1976D2 32%, #1c4973 100%);
-    background: linear-gradient(135deg, #1976D2 32%,#1c4973 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1976D2', endColorstr='#1c4973',GradientType=1 );
+	background: @secondary-blue;
 }
 
 .navbar-inner > .navbar-header {max-width: 60px;display: inline-table;}
@@ -1043,23 +1040,18 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 }
 .settings-menu {
 	display: block;
-	.transition(350ms ease-in-out all);
+	.transition(150ms ease-in-out all);
 	margin-top: 9px;
 	padding-top: 0;
 	.menu-icon {
 		width: 37px;
 		display: block;
     	margin: 0 auto;
-		.transition(350ms ease-in-out all);
+		.transition(150ms ease-in-out all);
 		font-size: 1.6em;
 	}
 }
-.settings-menu:hover {
-    margin-right: 3px; 
-}
-    //& .settings-menu:hover {
-    //    padding-left: 11px;
-	//}
+
 
 .panel-slide {
     -webkit-transform: translateX(@document-panel-width);
@@ -1882,6 +1874,7 @@ img.modal-publish-gdrive, img.modal-publish-blogger {max-width:52px;}
     		padding: 30px !important;
 		}
 	}
+
     > .editor-margin {
         .layout-panel();
 		.discussion {
@@ -2072,7 +2065,7 @@ img.modal-publish-gdrive, img.modal-publish-blogger {max-width:52px;}
 	padding: 15px 20px;
 	border-top: 1px solid @secondary-border-color;
 	border-right: 1px solid @secondary-border-color;
-	border-top-right-radius: 6px;
+	border-top-right-radius: 2px;
 	.form-group {
 		width: 180px;
 		padding: 0 5px;

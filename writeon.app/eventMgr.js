@@ -208,6 +208,7 @@ define([
 
 	// Operations on editor
 	// TODO: implement {writeon-pad} editor
+	//       https://github.com/BeardandFedora/WriteOn-Pad/
 	addEventHook("onPagedownConfigure");
 	addEventHook("onSectionsCreated");
 	addEventHook("onCursorCoordinates");

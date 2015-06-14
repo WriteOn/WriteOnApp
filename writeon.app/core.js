@@ -271,6 +271,7 @@ define([
 		});
 
 		// TODO: implement {writeon-pad} editor instance
+		//       https://github.com/BeardandFedora/WriteOn-Pad/
 		eventMgr.onPagedownConfigure(pagedownEditor);
 		pagedownEditor.hooks.chain("onPreviewRefresh", eventMgr.onAsyncPreview);
 		pagedownEditor.run();
@@ -457,7 +458,7 @@ define([
 				// Or on the first link if any
 				$elt.find('button:first').focus();
 				// Or on the first input if any
-				$elt.find("input:enabled:visible:first").focus();
+				// $elt.find("input:enabled:visible:first").focus();
 			}, 50);
 		}).on('hidden.bs.modal', '.modal', function() {
 			// Focus on the editor when modal is gone
@@ -609,14 +610,18 @@ define([
 		// Tooltips and helpers within the app
 		// In this order: selector, content, placement, trigger, container
 		// See Bootstrap tooltip docs for help
-		// 
+		
+		// Disable tooltips on mobile
+		$(".tooltip-trigger").on('show', function (e) {
+			if ('ontouchstart' in document.documentElement) { e.preventDefault(); }
+		});
 		// Toolbar & action tooltips. This should be in json. 
 		utils.createTooltip(".button-open-discussion", "Insert Comment", "bottom", "hover", "body");
 		utils.createTooltip(".title-container", "Rename Story", "bottom", "hover", "body");
 		utils.createTooltip(".tooltip-sync", "Sync", "bottom", "hover", "body");		
 		utils.createTooltip(".tooltip-publish", "Publish", "bottom", "hover", "body");		
 		utils.createTooltip(".tooltip-download", "Download", "bottom", "hover", "body");
-		utils.createTooltip(".tooltip-story-panel", "My Stories", "left", "hover", "body");
+		utils.createTooltip(".tooltip-story-panel", "My Stories", "bottom", "hover", "body");
 		utils.createTooltip(".action-create-file", "New Story", "bottom", "hover", ".story-panel");
 		utils.createTooltip(".action-remove-file-confirm", "Delete Story", "bottom", "hover", ".story-panel");		
 		utils.createTooltip(".action-dm", "Manage Stories", "bottom", "hover", ".story-panel");		
@@ -630,6 +635,8 @@ define([
 		].join(''), "right", "hover", "modal");
 		utils.createTooltip(".tooltip-delete", '<p>This only deletes the local story.</p><p>Any synchronized or published stories will not be affected.</p>', "right", "hover", "modal");
 		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML, "right", "hover", "modal");
+		utils.createTooltip(".tooltip-publish-template", settingsTemplateTooltipHTML, "right", "hover", "modal");
+		utils.createTooltip(".tooltip-pdf-template", settingsTemplateTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".tooltip-dropbox", settingsDropboxTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".tooltip-mywriteon", settingsMyWriteonTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".tooltip-dm-stories", "Number of Stories", "bottom", "hover", "modal");
@@ -638,7 +645,7 @@ define([
 		utils.createTooltip(".tooltip-manage-publications", "<b>Stating the Obvious?</b> Maybe, but removing a published location here will not delete the actual post out in the wild.", "top", "hover", "modal");		
 		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".layout-toggler-navbar", "Distraction free mode", "left", "hover", ".layout-wrapper-l3");		
-		utils.createTooltip(".layout-toggler-preview", "Live preview", "top", "hover", ".layout-wrapper-l3");		
+		utils.createTooltip(".layout-toggler-preview", "Live preview", "left", "hover", ".layout-wrapper-l3");		
 		
 		// Close tooltips on click  
 		$('.tooltip-trigger').click(function(event) {

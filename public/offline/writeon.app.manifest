@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#Date Sat Jun 13 2015 14:43:50 GMT+0000 (UTC)
+#Date Sun Jun 14 2015 16:10:00 GMT+0000 (UTC)
 #Version 1.9.17
 
 CACHE:
@@ -78,6 +78,8 @@ CACHE:
 /writeon/html/umlDiagramsSettingsBlock.html
 /writeon/html/userCustomSettingsBlock.html
 /writeon/img/THS-6.png
+/writeon/img/archive-icon-lg.png
+/writeon/img/archive-icon-md.png
 /writeon/img/blogger-logo.png
 /writeon/img/button.svg
 /writeon/img/code-block.png
@@ -113,6 +115,7 @@ CACHE:
 /writeon/img/plane.png
 /writeon/img/publish.png
 /writeon/img/stories-icon.png
+/writeon/img/storybook-icon.png
 /writeon/img/syntax-highlighting.gif
 /writeon/img/toc.gif
 /writeon/img/typewriter-icon-32.ico

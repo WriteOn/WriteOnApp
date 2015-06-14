@@ -10,8 +10,8 @@ define([], function() {
 	constants.DEFAULT_FILE_TITLE = "Story Title";
 	constants.DEFAULT_FOLDER_NAME = "New Storybook";
 	constants.GDRIVE_DEFAULT_FILE_TITLE = "New Story";
-	constants.EDITOR_DEFAULT_PADDING = 120;
-	constants.CHECK_ONLINE_PERIOD = 120000;
+	constants.EDITOR_DEFAULT_PADDING = 65;
+	constants.CHECK_ONLINE_PERIOD = 60000;
 	constants.AJAX_TIMEOUT = 30000;
 	constants.ASYNC_TASK_DEFAULT_TIMEOUT = 60000;
 	constants.ASYNC_TASK_LONG_TIMEOUT = 180000;

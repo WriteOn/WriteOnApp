@@ -247,14 +247,14 @@ define([
 				type: 'GET',
 				url: settings.couchdbUrl + '/_changes?' + $.param({
 					filter: '_changes/story',
-					since: newChangeId,
 					include_docs: true,
-					attachments: true
+					attachments: true,
+					since: newChangeId,
 				}),
 				contentType: 'application/json',
 				dataType: 'json',
 				data: JSON.stringify({
-					doc_ids: Object.keys(syncLocations)
+					keys: Object.keys(syncLocations)
 				})
 			}).done(function(data) {
 				newChangeId = data.last_seq;
