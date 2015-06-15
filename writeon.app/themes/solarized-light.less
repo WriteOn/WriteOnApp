@@ -1,0 +1,51 @@
+@import "../styles/solarized.less";
+
+@A03: @base3;
+@A02: @base2;
+@A01: @base1;
+@A00: @base0;
+@A0: @base00;
+@A1: @base01;
+@A2: @base02;
+@A3: @base03;
+
+.navbar-default {
+	background-image: linear-gradient(to bottom,#fff 0,rgba(255,255,255,.9)100%);
+}
+
+.navbar-inverse {
+	background: @base02;
+    background: -moz-linear-gradient(-45deg, @base02 32%, rgba(0,0,0,.4) 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(32%, @base02), color-stop(100%, rgba(0,0,0,.4)));
+    background: -webkit-linear-gradient(-45deg, @base02 32%, rgba(0,0,0,.4) 100%);
+    background: -o-linear-gradient(-45deg, @base02 32%, rgba(0,0,0,.4) 100%);
+    background: -ms-linear-gradient(-45deg, @base02 32%, rgba(0,0,0,.4) 100%);
+    background: linear-gradient(135deg, @base02 32%,rgba(0,0,0,.4) 100%);
+}
+/* Gradient Dropdown bg */
+.navbar ul.dropdown-menu {
+	position: absolute !important;
+	background: -webkit-gradient(linear, left top, left bottom, from(@base2), to(@base3));
+	background: -webkit-linear-gradient(top, @base2, @base3);
+	background: -moz-linear-gradient(top, @base2, @base3);
+	background: -ms-linear-gradient(top, @base2, @base3);
+	background: -o-linear-gradient(top, @base2, @base3);
+	background: linear-gradient(top, @base2, @base3);
+	background-color: @base2;	
+}
+
+.modal-settings, .modal-about {
+	.modal-content {
+			background: -webkit-gradient(linear, left top, left bottom, from(@base2), to(@base3));
+			background: -webkit-linear-gradient(top, @base2, @base3);
+			background: -moz-linear-gradient(top, @base2, @base3);
+			background: -ms-linear-gradient(top, @base2, @base3);
+			background: -o-linear-gradient(top, @base2, @base3);
+			background: linear-gradient(top, @base2, @base3);
+			background-color: @base2;	
+	}
+}
+
+.input-group-addon:first-child {background-color: @base2;}
+
+.panel {background-color: inherit;}

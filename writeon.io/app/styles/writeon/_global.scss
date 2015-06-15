@@ -1,0 +1,101 @@
+/*
+    Document   : app/styles/writeon/_global．scss
+    Created on : 2014-12-11 04:32 PM
+    Author     : yaboi
+    Description: All your global styles are belong to WriteOn
+    Version    : 1.0.0
+*/
+
+//== body resets
+body {
+    font-size: 2.7em;
+    font-weight: 300;
+}
+
+//== Browser Happy
+//
+//##
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+//== Angular for Bootstrap
+//
+//##
+.nav, .pagination, .carousel, .panel-title a { 
+    cursor: pointer; 
+}
+
+//== Navbar Bootstrap Overwrites
+//
+//##
+
+.navbar-default {
+    @include gradient-vertical(rgba(255,255,255,1), rgba(255,255,255,.9), 0, 100%);
+    @include box-shadow(0 1px 5px rgba(0,0,0,.075));
+    border-color: transparent;
+}
+.navbar-right {
+    margin-right: 0;
+}
+.navbar-nav > li > .dropdown-menu {margin-top:2px;}
+
+.dropdown-menu > li > a {
+    font-weight: 300;
+    font-size: 1.2em;
+}
+//== Jumbotron Bootstrap Overwrites
+//
+//##
+
+.jumbotron {
+    padding-top: ($jumbotron-padding + $navbar-height);
+    padding-bottom: ($jumbotron-padding + $navbar-height);
+    border: transparent;
+    margin-bottom: 0;
+}
+
+//== Button Bootstrap Overwrites
+//
+//##
+.btn-lg {
+	padding: 22px;
+}
+.btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
+    outline: none;
+}
+
+.btn-love {
+    @include button-variant(#CD2626, transparent, transparent);
+}
+
+.errorMessage {
+    position: relative;
+    
+    .alert {
+        text-shadow: none;
+        margin-top: 15px;
+        position: absolute;
+        width: 100%;
+		color: #ffffff;
+		text-shadow: 3px 3px 3px #ab2630;
+        
+        a {
+            color: inherit;
+        }
+    }
+}
+
+.bg-success, .bg-primary, .bg-info, .bg-gray-darker, .bg-gray-dark, .bg-gray { 
+	.well {
+		background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.3) 100%);
+    	background-repeat: repeat-x;
+    	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#66000000', endColorstr='#4D000000', GradientType=0);
+    	border-color: transparent;
+    	background-color: transparent;
+	}
+}

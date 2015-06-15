@@ -1,0 +1,40 @@
+/*
+    Document   : app/styles/writeon/_features．scss
+    Created on : 2015-01-11 11:58 PM
+    Author     : yaboi
+    Description: Custom styles for WriteOn:features.html
+*/
+
+//== Custom features.html Styling
+//
+//##
+
+.features {
+
+    margin-top: (($navbar-height + 1) * -1);
+        
+    .jumbotron {
+        @extend .jumbotron;
+        /* background: center center no-repeat url("/images/main/hero_2.png"); */
+		background-color: $color_asphalt;
+        background-size: cover;
+        text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        text-align: center;
+        padding-bottom: 30px;
+        
+        h1 {
+            text-transform: capitalize;
+            
+            @media (min-width: $screen-sm-min) { 
+                font-size: 54px;
+                margin-bottom: 22px;
+                margin-top: 50px;
+            }
+            
+            @media (min-width: $screen-md-min) {
+                font-size: 72px;
+                margin-top: 65px;
+            }
+        }
+    }
+}

@@ -7,16 +7,21 @@
         "Always On Node Server 3000 ($ disown -a)": "export PORT=3000 && node server.js&",
         "Always On Node Server 9500 ($ disown -a )": "export PORT=9500 && node server.js&",   
         "Temp Node Server 9501": "export PORT=9501 && node server.js",
-        "Build": "gulp build",
-        "Deploy Beta (Patch)": "gulp beep",
-        "Deploy Beta (Minor)": "gulp boop"
+		"Serve writeon.io (3000)": "grunt server-io",
+        "Build writeon.io": "grunt build-io",
+        "Deploy writeon.io": "grunt deploy-io",
+	    "Build writeon.app": "gulp build",
+	    "Release (Patch)": "gulp beep",
+        "Release (Minor)": "gulp boop",
+        "Release (Minor)": "gulp bop"
   },
 
 // Preview button configuration
   "preview": {
         "Project Index (static)": "https://{{domain}}/{{index}}",
         "Current File (static)": "https://{{domain}}/{{filepath}}",
-        "Box URL SSL": "https://{{domain}}:9500/",
+        "Box URL SSL": "https://{{domain}}:9501/",
+        "Box URL SSL 9500": "https://{{domain}}:9500/",
         "Box URL": "http://{{domain}}:3000/",
         "Ungit": "http://{{domain}}:8448/#/repository?path=%2Fhome%2Fcodio%2Fworkspace"
   }

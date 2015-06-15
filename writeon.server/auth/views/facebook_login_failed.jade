@@ -1,0 +1,29 @@
+extends base
+
+block vars
+  - var title = 'Facebook Login Failed'
+  - var description = "Your Facebook login attempt has failed!"
+  - var bodytag = 'login'
+
+block body
+
+  div.navbar.navbar-fixed.navbar-inverse.bar-header
+    div.navbar-inner
+
+  .container.custom-container
+    .va-wrapper
+      .view.login-view.container
+        .box-row
+
+          img(src='/writeon/img/logo.svg', style='max-width: 200px;margin: 0 auto;display: block;')
+        .box.row
+          .email-password-area.col-xs-12.large.col-sm-12
+            .header
+              h4.
+                Facebook Login Failed
+              p.
+                Your Facebook login attempt has failed.  This might happen for
+                several reasons: your verification token might be expired, it
+                might be invalid, or we may just be having issues right now.
+                Please <a href="login">try again</a>, and if you're still having problems, contact
+                <a id="send-feedback" href="#">our team</a> for help.

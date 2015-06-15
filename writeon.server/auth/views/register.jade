@@ -1,0 +1,94 @@
+extends base
+
+block vars
+  - var title = 'WriteOn - Create your free account'
+  - var description = 'Create your free WriteOn account.'
+  - var bodytag = 'register'
+
+block body
+
+  .container.custom-container
+    .va-wrapper
+      .view.login-view.container
+        .box-row
+
+          img(src='/writeon/img/logo.svg', style='max-width: 200px;margin: 0 auto;display: block;')
+        .box-row
+              h3.hide.text-primary(style='margin: 0 auto 20px auto;text-align:center;') Log In
+
+        .box.row
+          if app.get('stormpathEnableFacebook') || app.get('stormpathEnableGoogle')
+            .social-area.col-xs-12.col-sm-4
+              .header.hidden-xs
+              label(style='display:block;margin:5px auto;text-align:center;font-size:1.2em;') 1-Click Registration:
+              div.text-center
+                if app.get('stormpathEnableFacebook')
+                  include facebook_register_form.jade
+                if app.get('stormpathEnableGoogle')
+                  include google_register_form.jade
+              
+                hr
+                div
+                  span(style='display:block;text-align:center;') Already have an account?
+
+                  span(style='font-size: 1.2em;display:block;text-align:center;') <a href="#{app.get('stormpathLoginUrl')}" style="font-size:1.2em;"><i class="icon-login"></i> Login</a>
+
+          if app.get('stormpathEnableFacebook') || app.get('stormpathEnableGoogle')
+            - var cls = 'small col-sm-8'
+          else
+            - var cls = 'large col-sm-12'
+
+          div(class='email-password-area col-xs-12 #{cls}')
+            .header.hidden-xs
+              span.hide Create Your Free Account
+
+            if error
+              .alert.alert-danger
+                p #{error}
+
+            if formErrors
+              .alert.alert-danger
+                each error in formErrors
+                  p #{error.error}
+
+            form.registration-form.form-horizontal.sp-form(method='post', role='form', name='RegisterForm')
+              input(name='_csrf', type='hidden', value=csrfToken)
+              if app.get('stormpathEnableFacebook') || app.get('stormpathEnableGoogle')
+                - var cls = 'small col-sm-12'
+              else
+                - var cls = 'large col-sm-8'
+
+              .form-group.group-email(form-group='true')
+                div(class='#{cls}')
+                  - var value = form.data ? form.data.email : '';
+                  input.form-control(placeholder='Email', name='email', value=value, required='true', type='text')
+
+              if app.get('stormpathEnableUsername')
+                .form-group.group-username(form-group='true')
+                  div(class='#{cls}')
+                    - var value = form.data ? form.data.username : '';
+                    input.form-control(placeholder='Username', name='username', value=value, required=app.get('stormpathRequireUsername') ? true : false, type='text')
+
+              if app.get('stormpathEnableGivenName')
+                .form-group.group-first-name(form-group='true')
+                  div(class='#{cls}')
+                    - var value = form.data ? form.data.givenName : '';
+                    input.form-control(placeholder='First Name', name='givenName', value=value, required=app.get('stormpathRequireGivenName') ? true : false, type='text')
+
+              if app.get('stormpathEnableMiddleName')
+                .form-group.group-middle-name(form-group='true')
+                  div(class='#{cls}')
+                    - var value = form.data ? form.data.middleName : '';
+                    input.form-control(placeholder='Middle Name', name='middleName', value=value, required=app.get('stormpathRequireMiddleName') ? true : false, type='text')
+
+              if app.get('stormpathEnableSurname')
+                .form-group.group-last-name(form-group='true')
+                  div(class='#{cls}')
+                    - var value = form.data ? form.data.surname : '';
+                    input.form-control(placeholder='Last Name', name='surname', value=value, required=app.get('stormpathRequireSurname') ? true : false, type='text')
+
+              .form-group.group-password(form-group='true')
+                div(class='#{cls}')
+                  input.form-control(placeholder='Password', name='password', required='true', type='password')
+              div
+                button.btn.btn-register.btn-block.btn-primary(type='submit') Create Account

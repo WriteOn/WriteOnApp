@@ -1,0 +1,32 @@
+extends base
+
+block vars
+  - var title = 'Password Change Complete'
+  - var description = 'You have successfully changed your password!'
+  - var bodytag = 'login'
+
+block head
+  meta(http-equiv='refresh' content="3; url=#{app.get('stormpathRedirectUrl')}")
+
+
+block body
+
+  div.navbar.navbar-fixed.navbar-inverse.bar-header
+    div.navbar-inner
+
+  .container.custom-container
+    .va-wrapper
+      .view.login-view.container
+        .box-row
+
+          img(src='/writeon/img/logo.svg', style='max-width: 200px;margin: 0 auto;display: block;')
+
+        .box.row
+          .email-password-area.col-xs-12.large.col-sm-12
+            .header
+              span.
+                Password Change Complete!
+              p.
+                Your password has been changed, and you have been logged into
+                your account.  You will be redirected back to the site in 5
+                seconds.

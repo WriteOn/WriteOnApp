@@ -1,0 +1,51 @@
+extends base
+
+block vars
+  - var title = 'Forgot Your Password?'
+  - var description = 'Forgot your password? No worries!'
+  - var bodytag = 'login'
+
+block body
+
+  div.navbar.navbar-fixed.navbar-inverse.bar-header
+    div.navbar-inner
+
+  .container.custom-container
+    .va-wrapper
+      .view.login-view.container
+        .box-row
+
+          img(src='/writeon/img/logo.svg', style='max-width: 200px;margin: 0 auto;display: block;')
+
+        .box.row
+          .email-password-area.col-xs-12.large.col-sm-12
+            .header
+              h4.
+                Forgot your password?
+              p.
+                Enter your email address below to reset your password. You will
+                be sent an email which you will need to open to continue. You may
+                need to check your spam folder.
+
+            if error
+              .alert.alert-danger.bad-login
+                p #{error}
+
+            if formErrors
+              .alert.alert-danger.bad-login
+                each error in formErrors
+                  p #{error}
+                  
+            form.login-form.form-horizontal(method='post', role='form')
+              input(name='_csrf', type='hidden', value=csrfToken)
+
+              .form-group.group-email
+
+                div.col-sm-12
+                  input.form-control(placeholder=' Enter Your Email', required=true, name='email', type='text')
+
+              div
+                button.login.btn.btn-login.btn-waves.btn-block.btn-lg.btn-primary(type='submit') Reset Password
+
+        if app.get('stormpathEnableLogin')
+          a.btn.btn-link.btn-block(style='text-align=center;', href="#{app.get('stormpathLoginUrl')}") <i class="icon-login"></i> Back to Log In

@@ -1,0 +1,19 @@
+//
+// Padding
+// --------------------------------------------------
+
+.padding-vertical-xs {
+    @include padding-vertical(20px);
+}
+
+.padding-vertical-sm {
+    @include padding-vertical(35px);
+}
+
+.padding-vertical-md {
+    @include padding-vertical(50px);
+}
+
+.padding-vertical-lg {
+    @include padding-vertical(75px);
+}
