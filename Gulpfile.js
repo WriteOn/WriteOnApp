@@ -451,7 +451,7 @@ function releaseTask(importance) {
 	return function(cb) {
 		runSequence(
 			'bump-' + importance,
-			//'build',
+			'build',
 			'git-tag',
 			cb);
 	};
