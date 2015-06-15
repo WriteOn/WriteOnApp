@@ -27,33 +27,6 @@ var no_cluster = 1;
  */
 var app = require('./writeon.server');
 
-/* 
- * FORCE HTTPS
- */
-/* Used to force SSL - required for security 
-app.all('*', function(req, res, next) {
-    if(req.headers['x-forwarded-proto'] != 'https') {
-		return res.redirect('https://' + req.headers.host + req.path);
-    } 
-	/\.(eot|ttf|woff|svg|png)$/.test(req.url) && res.header('Access-Control-Allow-Origin', '*');
-	next();
-});
-*/
-
-/* Legacy support ... per domain */
-app.all('*', function(req, res, next) {
-	if (req.headers.host == 'writeon.io' && req.headers['x-forwarded-proto'] != 'https') {
-		return res.redirect('https://writeon.io' + req.url);
-	}
-	if (req.headers.host == 'beta.writeon.io' && req.headers['x-forwarded-proto'] != 'https') {
-		return res.redirect('https://writeon.io' + req.url);
-	}
-	if (req.headers.host == 'next.writeon.io' && req.headers['x-forwarded-proto'] != 'https') {
-		return res.redirect('https://next.writeon.io' + req.url);
-	}
-	/\.(eot|ttf|woff|svg)$/.test(req.url) && res.header('Access-Control-Allow-Origin', '*');
-	next();
-});
 
 /* 
  * NODE CLUSTERING

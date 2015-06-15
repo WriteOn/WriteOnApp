@@ -11,6 +11,39 @@ var morgan = require('morgan');
  */
 // This is supposed to help with certaink offlie browser issues
 // app.disable('etag');
+// 
+
+/* 
+ * FORCE HTTPS
+ */
+// Used to force SSL - required for security ==================================================
+app.use('*', function(req, res, next) {
+    if(req.headers['x-forwarded-proto'] != 'https') {
+		return res.redirect('https://' + req.headers.host + req.path);
+    } 
+	/\.(eot|ttf|woff|svg|png)$/.test(req.url) && res.header('Access-Control-Allow-Origin', '*');
+	return next();
+});
+
+/* Legacy support ... per domain 
+app.use('*', function(req, res, next) {
+	if (req.headers.host == 'writeon.io' && req.headers['x-forwarded-proto'] != 'https') {
+		return res.redirect('https://writeon.io' + req.url);
+	}
+	if (req.headers.host == 'next.writeon.io' && req.headers['x-forwarded-proto'] != 'https') {
+		return res.redirect('https://next.writeon.io' + req.url);
+	}
+	if (req.headers.host == 'beta.writeon.io' && req.headers['x-forwarded-proto'] != 'https') {
+		return res.redirect('https://writeon.io' + req.url);
+	}	
+	if (req.headers.host == 'mammal-charter.codio.io' && req.headers['x-forwarded-proto'] != 'https') {
+		return res.redirect('https://mammal-charter.codio.io:9501/testpassed' + req.url);
+	}
+	/\.(eot|ttf|woff|svg)$/.test(req.url) && res.header('Access-Control-Allow-Origin', '*');
+	next();
+});
+*/
+
 /* 
  * VIEW ENGINE. A keep it simple view-based http server.
  * Serve meta pages (static resources) that are isolated from the core application middleware
