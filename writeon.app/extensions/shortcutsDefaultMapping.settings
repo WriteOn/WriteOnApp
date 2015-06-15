@@ -35,6 +35,6 @@
         evt.preventDefault();
     },
     'W r i t e O n': function() {
-        eventMgr.onMessage("You are stunned, aren't you? Thanks for loving WriteOn");
+        eventMgr.onMessage("Thanks for loving WriteOn, we ♥ you for it.");
     }
 }

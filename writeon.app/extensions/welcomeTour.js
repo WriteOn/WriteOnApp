@@ -54,8 +54,8 @@ define([
 				'   <h3 class="popover-title"></h3>',
 				'   <div class="popover-content"></div>',
 				'   <nav class="popover-navigation">',
-				'       <button class="btn btn-primary" data-role="next">Next</button>',
 				'       <button class="btn btn-default" data-role="end">Got it</button>',
+				'       <button class="btn btn-primary" data-role="next">Next</button>',
 				'   </nav>',
 				'</div>'
 			].join("")

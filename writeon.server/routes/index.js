@@ -37,6 +37,17 @@ app.get('/pad', stormpath.authenticationRequired, function(req, res) {
   });
 });
 	
+// Serve pad-offline.html in /off
+// Let's also lock this down with stormpath, by directory groups
+//app.get('/off', stormpath.groupsRequired(['Tier 1', 'Tier 2', 'Admin', 'Beta'], false), function(req, res) {
+app.get('/off', stormpath.authenticationRequired, function(req, res) {
+    res.renderDebug('pad-offline.html'), extend({
+    givenName: req.user.givenName,
+    surname: req.user.surname,
+    username: req.user.username
+  });
+});
+	
 // Serve paper.html in /paper
 app.get('/paper', function(req, res) {
     res.renderDebug('paper.html');
