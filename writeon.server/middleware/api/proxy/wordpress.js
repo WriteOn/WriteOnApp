@@ -5,8 +5,11 @@ var oauth2 = require('oauth').OAuth2,
 	https = require('https'),
 	bodyParser = require('body-parser'),
 	configJson = '/config/wordpress.json',
-	environment = process.env.ENV;
+	environment = 'prod';
 	
+		if(process.env.ENV) {
+			environment = process.env.ENV;
+		}
 		if (environment == 'dev') {
 			configJson = '/config/wordpress.dev.json';
 		}

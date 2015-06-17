@@ -59,6 +59,7 @@ node_modules
 .settings
 .editorconfig
 
+.bash_profile
 .project
 .idea
 .settings

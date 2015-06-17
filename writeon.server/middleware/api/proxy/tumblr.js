@@ -10,8 +10,11 @@ var url = require('url'),
     qs = require('querystring'),
 	bodyParser = require('body-parser'),
 	configJson = '/config/tumblr.json',
-	environment = process.env.ENV;
+	environment = 'prod';
 	
+		if(process.env.ENV) {
+			environment = process.env.ENV;
+		}
 		if (environment == 'dev') {
 			configJson = '/config/tumblr.dev.json';
 		}

@@ -6,8 +6,11 @@ module.exports = function(app, req, res) {
         fs = require('fs'),
         qs = require('querystring'),
 		configJson = '/config/github.json',
-		environment = process.env.ENV;
+		environment = 'prod';
 	
+		if(process.env.ENV) {
+			environment = process.env.ENV;
+		}
 		if (environment == 'dev') {
 			configJson = '/config/github.dev.json';
 		}
