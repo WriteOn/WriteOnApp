@@ -450,8 +450,8 @@ gulp.task('bop', releaseTask('major'));     // bop
 function releaseTask(importance) {
 	return function(cb) {
 		runSequence(
-			'build',
 			'bump-' + importance,
+			'build',
 			'git-tag',
 			cb);
 	};
