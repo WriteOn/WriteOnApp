@@ -7,8 +7,8 @@ var oauth2 = require('oauth').OAuth2,
 	configJson = '/config/wordpress.json',
 	environment = 'prod';
 	
-		if(process.env.ENV) {
-			environment = process.env.ENV;
+		if(process.env.WRITEON_ENV) {
+			environment = process.env.WRITEON_ENV;
 		}
 		if (environment == 'dev') {
 			configJson = '/config/wordpress.dev.json';

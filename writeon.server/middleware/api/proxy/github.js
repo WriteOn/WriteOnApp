@@ -8,8 +8,8 @@ module.exports = function(app, req, res) {
 		configJson = '/config/github.json',
 		environment = 'prod';
 	
-		if(process.env.ENV) {
-			environment = process.env.ENV;
+		if(process.env.WRITEON_ENV) {
+			environment = process.env.WRITEON_ENV;
 		}
 		if (environment == 'dev') {
 			configJson = '/config/github.dev.json';

@@ -12,8 +12,8 @@ var url = require('url'),
 	configJson = '/config/tumblr.json',
 	environment = 'prod';
 	
-		if(process.env.ENV) {
-			environment = process.env.ENV;
+		if(process.env.WRITEON_ENV) {
+			environment = process.env.WRITEON_ENV;
 		}
 		if (environment == 'dev') {
 			configJson = '/config/tumblr.dev.json';
@@ -30,7 +30,7 @@ var url = require('url'),
             config[i] = process.env[i.toUpperCase()] || config[i];
         }
         console.log('Tumblr API Configured for ' + environment + '');
-        //console.log(config);
+        console.log(config);
         return config;
     }
     var config = loadConfig();
