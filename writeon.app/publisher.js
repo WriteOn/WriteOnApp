@@ -364,7 +364,7 @@ define([
 							pdf = this.response;
 						}
 						else {
-							eventMgr.onError("There was an error when trying to generate PDF: " + this.statusText);
+							eventMgr.onError("There was an error when trying to generate your PDF: " + this.statusText);
 						}
 						task.chain();
 					}

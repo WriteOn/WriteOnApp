@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html<%- cache ? ' manifest="offline/writeon.app.manifest"' : '' %>>
-
     <head>
-        <title>WriteOn Pad</title>
+        <title>WriteOn Offline Pad</title>
         <link rel="canonical" href="http://writeon.io/pad">
         <link rel="icon" href="writeon/img/favicon.ico" type="image/x-icon">
         <link rel="icon" sizes="192x192" href="writeon/img/logo-highres.png">
@@ -16,8 +15,6 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<script data-pace-options='{ "ajax": true, "document": true, "eventLag": true }' src="writeon/pace.min.js"></script>
-		<link href="writeon/pace-theme-writeon.css" rel="stylesheet">
 		<script type="text/javascript">
             paceOptions = {elements: false,ajax: true,document: true,eventLag: true}
 			window.baseDir="writeon";if(!/(\?|&)edge($|&)/.test(location.search)){window.baseDir+=""}window.require={baseUrl:window.baseDir,deps:["main"]}
@@ -56,9 +53,11 @@
 			}, 10);		
 		}
         </script>
+		<script data-pace-options='{ "ajax": true, "document": true, "eventLag": true }' src="writeon/pace.min.js"></script>
+		<link href="writeon/pace-theme-writeon.css" rel="stylesheet">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
-		<style>.load-writeon {font-family: 'Playfair Display', serif;} .load-writeon i {  position: relative;margin-top: 17%;left: 48.5%;font-size: 3em;color: #0c84e4;}@media screen and (max-width: 768px) {.load-writeon i {left: 44.5%;}}.load-writeon span {font-size: 20px;color: #4D394B;font-weight: 300;text-align: center;margin: 0 auto; opacity: 0;width: 600px;text-shadow: 0 1px #e3e3e3;line-height: 2rem;max-width: 400px;-webkit-transition: opacity .25s ease-in-out;-moz-transition: opacity .25s ease-in-out;-ms-transition: opacity .25s ease-in-out;-o-transition: opacity .25s ease-in-out;transition: opacity .25s ease-in-out;display: block;margin-top: 10px;}.load-writeon img {text-align: center;margin: 0 auto; opacity: 1;width: 50px;line-height: 2rem;max-width: 400px;-webkit-transition: opacity .25s ease-in-out;-moz-transition: opacity .25s ease-in-out;-ms-transition: opacity .25s ease-in-out;-o-transition: opacity .25s ease-in-out;transition: opacity .25s ease-in-out;display: block;margin-top: 10px;}</style>
+		<style>@-webkit-keyframes spinning_cog{0%{-webkit-transform:rotate(0deg)}20%{-webkit-transform:rotate(-45deg)}100%{-webkit-transform:rotate(360deg)}}@-moz-keyframes spinning_cog{0%{-moz-transform:rotate(0deg)}20%{-moz-transform:rotate(-45deg)}100%{-moz-transform:rotate(360deg)}}@-o-keyframes spinning_cog{0%{-o-transform:rotate(0deg)}20%{-o-transform:rotate(-45deg)}100%{-o-transform:rotate(360deg)}}@keyframes spinning_cog{0%{transform:rotate(0deg)}20%{transform:rotate(-45deg)}100%{transform:rotate(360deg)}}@-webkit-keyframes shrinking_cog{0%{-webkit-transform:scale(1)}20%{-webkit-transform:scale(1.2)}100%{-webkit-transform:scale(0)}}@-moz-keyframes shrinking_cog{0%{-moz-transform:scale(1)}20%{-moz-transform:scale(1.2)}100%{-moz-transform:scale(0)}}@-o-keyframes shrinking_cog{0%{-o-transform:scale(1)}20%{-o-transform:scale(1.2)}100%{-o-transform:scale(0)}}@keyframes shrinking_cog{0%{transform:scale(1)}20%{transform:scale(1.2)}100%{transform:scale(0)}}.load-writeon{font-family:'Playfair Display',serif}.load-writeon i{position:relative;margin-top:17%;left:48.2%;font-size:3.5em;color:#149290;background:-webkit-linear-gradient(#149290,#1c4973);-webkit-background-clip:text;-webkit-text-fill-color:transparent;-webkit-animation:spinning_cog 1.3s infinite ease;-moz-animation:spinning_cog 1.3s infinite ease;-ms-animation:spinning_cog 1.3s infinite ease;-o-animation:spinning_cog 1.3s infinite ease;animation:spinning_cog 1.3s infinite ease}@media screen and (max-width:768px){.load-writeon i{left:46.5%}}@media screen and (max-width:412px){.load-writeon i{left:43.5%}}.load-writeon span{font-size:20px;color:#4D394B;font-weight:300;text-align:center;margin:10px auto 0;opacity:0;width:600px;text-shadow:0 1px #e3e3e3;line-height:2rem;max-width:400px;-webkit-transition:opacity .25s ease-in-out;-moz-transition:opacity .25s ease-in-out;-ms-transition:opacity .25s ease-in-out;-o-transition:opacity .25s ease-in-out;transition:opacity .25s ease-in-out;display:block}.load-writeon img{text-align:center;margin:10px auto 0;opacity:1;width:50px;line-height:2rem;max-width:400px;-webkit-transition:opacity .25s ease-in-out;-moz-transition:opacity .25s ease-in-out;-ms-transition:opacity .25s ease-in-out;-o-transition:opacity .25s ease-in-out;transition:opacity .25s ease-in-out;display:block}</style>
     	<script>
         (function(i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -94,7 +93,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <noscript>
-        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TC7CFS" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MK3FZ3" height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
     <script>
         (function(w, d, s, l, i) {
@@ -112,7 +111,7 @@
         })(window, document, 'script', 'dataLayer', 'GTM-MK3FZ3');
     </script>	</head>
     <body class="pad">
-		<div class="load-writeon"><i id="indicator" class="fa fa-cog fa-spin"></i><span id="hello_love">&nbsp;</span><img src="writeon/img/writeon-logo.png"></div>
+		<div class="load-writeon"><i id="indicator" class="fa fa-cog"></i><span id="hello_love">&nbsp;</span><img src="writeon/img/writeon-logo.png"></div>
 		<script src="writeon/require.js" data-main="main.js"></script>
 	</body>
 </html>

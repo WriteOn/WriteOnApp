@@ -5,7 +5,9 @@ var fs = require('fs');
 var path = require('path');
 var os = require('os');
 var request = require('request');
-var blockspring = require("blockspring");
+//var blockspring = require("blockspring");
+var PDFDocument = require("pdfkit");
+var blobStream  = require('blob-stream');
 	
 	
 	function onError(err) {
@@ -31,11 +33,28 @@ var blockspring = require("blockspring");
 	catch(e) {
 		options = {};
 	}
+	
+	var doc = new PDFDocument();
+	var stream = doc.pipe(blobStream());
+	
+	// and some justified text wrapped into columns
+	doc.text(res, {
+     columns: 1
+   	});
+	
+	
+	doc.end();
+	
+	stream.on('finish', function() {
+		req.pipe(stream.toBlobURL('application/pdf'));
+	});
 
-	blockspring.runParsed("html-to-pdf", { "html": res }, { api_key: "br_3660_99f88815862a0dd72ca378d04460ea283626663f"}, function(res) {
+	/* 
+	var returnpdf = blockspring.runParsed("html-to-pdf", { "html": res }, { api_key: "br_3660_99f88815862a0dd72ca378d04460ea283626663f"}, function(res) {
   		console.log(res.params);
 	});
-		
+	req.pipe(returnpdf);
+	*/
 	
 	
 };

@@ -703,6 +703,16 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
  * .pace .pace-progress {height: 3px;}
  *******************/
 
+// Opening spinning cog loader
+@-webkit-keyframes spinning_cog{0%{-webkit-transform:rotate(0deg)}20%{-webkit-transform:rotate(-45deg)}100%{-webkit-transform:rotate(360deg)}}
+@-moz-keyframes spinning_cog{0%{-moz-transform:rotate(0deg)}20%{-moz-transform:rotate(-45deg)}100%{-moz-transform:rotate(360deg)}}
+@-o-keyframes spinning_cog{0%{-o-transform:rotate(0deg)}20%{-o-transform:rotate(-45deg)}100%{-o-transform:rotate(360deg)}}
+@keyframes spinning_cog{0%{transform:rotate(0deg)}20%{transform:rotate(-45deg)}100%{transform:rotate(360deg)}}
+@-webkit-keyframes shrinking_cog{0%{-webkit-transform:scale(1)}20%{-webkit-transform:scale(1.2)}100%{-webkit-transform:scale(0)}}
+@-moz-keyframes shrinking_cog{0%{-moz-transform:scale(1)}20%{-moz-transform:scale(1.2)}100%{-moz-transform:scale(0)}}
+@-o-keyframes shrinking_cog{0%{-o-transform:scale(1)}20%{-o-transform:scale(1.2)}100%{-o-transform:scale(0)}}
+@keyframes shrinking_cog{0%{transform:scale(1)}20%{transform:scale(1.2)}100%{transform:scale(0)}}
+
 
 
 /*******************
