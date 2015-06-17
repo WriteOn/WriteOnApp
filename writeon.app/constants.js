@@ -21,7 +21,7 @@ define([], function() {
 	constants.COUCHDB_PAGE_SIZE = 25;
 	constants.TEMPORARY_FILE_INDEX = "file.tempIndex";
 	constants.WELCOME_DOCUMENT_TITLE = "Welcome Guide";
-	constants.GUIDE_DOCUMENT_TITLE = "Syntax Guide";
+	constants.GUIDE_DOCUMENT_TITLE = "Writing Guide";
 
 	// Provider dependent 
 	constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1";
@@ -65,16 +65,10 @@ define([], function() {
      // PRODUCTION ENVIRONMENT VARIABLE CONSTANTS 
 	if(location.hostname.indexOf("writeon.io") === 0) {
 		constants.BASE_URL = constants.MAIN_URL;
-        constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1";
-		constants.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com";
-		constants.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7";
-        constants.COUCHDB_SERVER = "https://cloud1.writeon.io";
 	}
      // BETA ENVIRONMENT VARIABLE CONSTANTS 
 	else if(location.hostname.indexOf("beta.writeon.io") === 0) {
-		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-1";
         constants.BASE_URL = "https://beta.writeon.io/";
-		constants.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com";
 		constants.GITHUB_CLIENT_ID = "302c5c415085534c1346";
 		constants.WORDPRESS_CLIENT_ID = "38332";
         constants.COUCHDB_DB = "stories";
@@ -85,7 +79,6 @@ define([], function() {
 	else if(location.hostname.indexOf("next.writeon.io") === 0) {
 		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2";
         constants.BASE_URL = "https://next.writeon.io/";
-		constants.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com";
 		constants.GITHUB_CLIENT_ID = "e4fb02a63b777728ee2d";
 		constants.WORDPRESS_CLIENT_ID = "37430";
         constants.COUCHDB_DB = "stories";
@@ -96,7 +89,6 @@ define([], function() {
     else if(location.hostname.indexOf("mammal-charter.codio.io") === 0) {
 		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2";
         constants.BASE_URL = "https://mammal-charter.codio.io:9501/";
-		constants.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com";
 		constants.GITHUB_CLIENT_ID = "235008232d0259c2f036";
 		constants.WORDPRESS_CLIENT_ID = "37431";
         constants.COUCHDB_DB = "stories";
@@ -105,7 +97,6 @@ define([], function() {
     else if(location.hostname.indexOf("mammal-charter.codio.io:9500") === 0) {
 		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2";
         constants.BASE_URL = "https://mammal-charter.codio.io:9500/";
-		constants.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com";
 		constants.GITHUB_CLIENT_ID = "235008232d0259c2f036";
 		constants.WORDPRESS_CLIENT_ID = "37431";
         constants.COUCHDB_DB = "stories";
@@ -114,7 +105,6 @@ define([], function() {
     else if(location.hostname.indexOf("mammal-charter.codio.io:3000") === 0) {
 		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2";
         constants.BASE_URL = "http://mammal-charter.codio.io:3000/";
-		constants.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com";
 		constants.GITHUB_CLIENT_ID = "235008232d0259c2f036";
 		constants.WORDPRESS_CLIENT_ID = "37431";
         constants.COUCHDB_DB = "stories";
@@ -123,7 +113,6 @@ define([], function() {
     else if(location.hostname.indexOf("mammal-charter.codio.io:9501") === 0) {
 		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2";
         constants.BASE_URL = "https://mammal-charter.codio.io:9501/";
-		constants.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com";
 		constants.GITHUB_CLIENT_ID = "235008232d0259c2f036";
 		constants.WORDPRESS_CLIENT_ID = "37431";
         constants.COUCHDB_DB = "stories";

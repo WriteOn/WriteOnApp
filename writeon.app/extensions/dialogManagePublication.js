@@ -5,7 +5,7 @@ define([
 	"text!html/dialogManagePublicationLocation.html",
 ], function($, _, Extension, dialogManagePublicationLocationHTML) {
 
-	var dialogManagePublication = new Extension("dialogManagePublication", 'Dialog "Manage publication"', false, true);
+	var dialogManagePublication = new Extension("dialogManagePublication", 'Manage Publications', false, true);
 
 	var eventMgr;
 	dialogManagePublication.onEventMgrCreated = function(eventMgrParameter) {
@@ -50,12 +50,25 @@ define([
 
 		$showAlreadyPublishedElt = $(document.querySelectorAll(".show-already-published"));
 
-		$(publishListElt).on('click', '.remove-button', function() {
-			var $removeButtonElt = $(this);
-			var publishAttributes = fileDesc.publishLocations[$removeButtonElt.data('publishIndex')];
-			fileDesc.removePublishLocation(publishAttributes);
-			eventMgr.onPublishRemoved(fileDesc, publishAttributes);
+		/*
+		$(publishListElt).on('click', '.remove-button', function(e) {
+			//var $removeButtonElt = $(this);
+			e.preventDefault();
+    		$("#confirmPubDelete").modal('show');
 		});
+		*/
+		
+		$("#confirmPubDelete").on('show.bs.modal', function(event) {    // wire up the OK button to dismiss the modal when shown
+			$(".confirm-delete-button").on("click", function(e) {
+				var $removeButtonElt = $(event.relatedTarget);
+				var publishAttributes = fileDesc.publishLocations[$removeButtonElt.data('publishIndex')];
+				fileDesc.removePublishLocation(publishAttributes);
+				eventMgr.onPublishRemoved(fileDesc, publishAttributes);
+            	$("#confirmPubDelete").modal('hide');     // dismiss the dialog
+        	});
+    	});
+	
+	
 	};
 
 	return dialogManagePublication;

@@ -334,10 +334,6 @@ define([
 			var content = publisher.applyTemplate(fileDesc, undefined, currentHTML);
 			utils.saveAs(content, fileDesc.title + (settings.template.indexOf("documentHTML") === -1 ? ".md" : ".html"));
 		});
-        // Stripe payments via monetizeJS: http://api.monetizejs.com/
-        var monetize = new MonetizeJS({
-			applicationID: '5d7PNYmOeEl4ANys'
-		});
 		$(".action-download-pdf").click(function() {
 			var fileDesc = fileMgr.currentFile;
 			var content = publisher.applyTemplate(fileDesc, {
@@ -349,8 +345,61 @@ define([
 				if(isOffline === true) {
 					eventMgr.onError("That is not available in offline mode.");
 					return task.chain();
+				}					
+			});
+			task.onRun(function() {
+				if(!token) {
+					return task.chain();
 				}
-				if(!eventMgr.isSponsor) {
+				var xhr = new XMLHttpRequest();
+				xhr.open('POST', constants.PDF_EXPORT_URL + '?' + $.param({
+					token: token,
+					options: settings.pdfOptions
+				}), true);
+				xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+				xhr.responseType = 'blob';
+				xhr.onreadystatechange = function() {
+					if(this.readyState == 4) {
+						if(this.status == 200) {
+							pdf = this.response;
+						}
+						else {
+							eventMgr.onError("There was an error when trying to generate PDF: " + this.statusText);
+						}
+						task.chain();
+					}
+				};
+				xhr.send(content);
+			});
+			task.onSuccess(function() {
+				pdf && utils.saveAs(pdf, fileMgr.currentFile.title + ".pdf");
+			});
+			task.enqueue();
+		});
+
+		
+		
+		
+		
+		
+		
+		// Stripe payments via monetizeJS: http://api.monetizejs.com/
+        var monetize = new MonetizeJS({
+			applicationID: '5d7PNYmOeEl4ANys'
+		});
+		$(".action-download-sponsor").click(function() {
+			var fileDesc = fileMgr.currentFile;
+			var content = publisher.applyTemplate(fileDesc, {
+				customTmpl: settings.pdfTemplate
+			}, currentHTML);
+			var task = new AsyncTask();
+			var pdf, token;
+			task.onRun(function() {
+				if(isOffline === true) {
+					eventMgr.onError("That is not available in offline mode.");
+					return task.chain();
+				}
+				if(eventMgr.isSponsor) {
 					$('.modal-sponsor-only').modal('show');
 					return task.chain();
 				}

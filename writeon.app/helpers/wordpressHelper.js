@@ -53,7 +53,7 @@ define([
 
 			function getCode() {
 				storage.removeItem("wordpressCode");
-				authWindow = utils.popupWindow(constants.WORDPRESS_API_URL + 'oauth/client/?client_id=' + constants.WORDPRESS_CLIENT_ID, 'writeon-wordpress-oauth', 960, 600);
+				authWindow = utils.popupWindow(constants.WORDPRESS_API_URL + 'oauth/client/?client_id=' + constants.WORDPRESS_CLIENT_ID, 'writeon-wordpress-oauth', 600, 400);
 				authWindow.focus();
 				intervalId = setInterval(function() {
 					if(authWindow.closed === true) {

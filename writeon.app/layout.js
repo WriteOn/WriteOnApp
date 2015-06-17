@@ -258,12 +258,15 @@ define([
 		$('.story-toggle').on('click', function() {
         	woSlidebars.slidebars.toggle('right');
       	});
-		$('.syncing-menu > .dropdown').on('click', function() {
-        	woSlidebars.slidebars.close();
-      	});
-		$('.button-open-discussion').on('click', function() {
-        	woSlidebars.slidebars.close();
-      	});
+			$('.syncing-menu > .dropdown').on('click', function() {
+        		woSlidebars.slidebars.close();
+      		});
+			$('.wmd-button-group1, .wmd-button-group2, .wmd-button-group3, .wmd-button-group4, .wmd-button-group5').on('click', function() {
+        		woSlidebars.slidebars.close();
+      		});			
+			$('.layout-wrapper-l3').on('click', function() {
+        		woSlidebars.slidebars.close();
+      		});
 		this.toggle = function() {
 			woSlidebars.slidebars.close();
 		};

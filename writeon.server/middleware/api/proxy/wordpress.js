@@ -1,20 +1,30 @@
-module.exports = function(app) {
+module.exports = function(app, req, res) {
 	
 var oauth2 = require('oauth').OAuth2,
 	fs = require('fs'),
 	https = require('https'),
-	bodyParser = require('body-parser');
+	bodyParser = require('body-parser'),
+	configJson = '/config/wordpress.json',
+	environment = process.env.ENV;
 	
+		if (environment == 'dev') {
+			configJson = '/config/wordpress.dev.json';
+		}
+		else if (environment == 'next') {
+			configJson = '/config/wordpress.next.json';
+		}
+
+
     // Load config defaults from JSON file.
     // Environment variables override defaults.
 
     function loadConfig() {
-        var config = JSON.parse(fs.readFileSync(__dirname + '/config/wordpress.json', 'utf-8'));
+        var config = JSON.parse(fs.readFileSync(__dirname + configJson, 'utf-8'));
         for(var i in config) {
             config[i] = process.env[i.toUpperCase()] || config[i];
         }
-        console.log('Wordpress API Configured');
-        // console.log(config);
+        console.log('Wordpress API Configured for ' + environment + '');
+        //console.log(config);
         return config;
     }
     var config = loadConfig();

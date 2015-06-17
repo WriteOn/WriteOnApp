@@ -2,7 +2,8 @@ module.exports = function(app) {
 	
     var followRedirect = require('follow-redirects'),
         fs = require('fs'),
-        qs = require('querystring');
+        qs = require('querystring'),
+		environment = process.env.ENV;
 	
     // Load config defaults from JSON file.
     // Environment variables override defaults.
@@ -12,7 +13,7 @@ module.exports = function(app) {
         for(var i in config) {
             config[i] = process.env[i.toUpperCase()] || config[i];
         }
-        console.log('Download API Configured');
+        console.log('Download API Configured for ' + environment + '');
         // console.log(config);
         return config;
     }

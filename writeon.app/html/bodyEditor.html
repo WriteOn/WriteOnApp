@@ -3,7 +3,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid navbar-inner">
         <div class="menu-panel">
-            <a class="text-primary settings-menu dropdown-toggle btn btn-default" href="#" data-toggle="dropdown" id="settings-menu" title="Menu">
+            <a class="text-primary settings-menu dropdown-toggle btn btn-link" href="#" data-toggle="dropdown" id="settings-menu" title="Menu">
 				<img src="writeon/img/menu-icon.png" class="menu-icon hide">
 				<i class="icon-menu menu-icon"></i>
             </a>
@@ -87,6 +87,8 @@
                         </li>
                         <li><a class="action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>
                         </li>
+                        <li><a class="action-download-pdf" href="#" title="Download as PDF"><i class="fa fa-file-pdf-o" style="margin-right: .3em;margin-left: .2em;"></i> PDF</a>
+                        </li>
                     </ul>
                 </li>
 				<li>
@@ -110,9 +112,9 @@
             <pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>
             <div class="preview-panel">
                 <div class="layout-resizer layout-resizer-preview"></div>
-                <div class="layout-toggler layout-toggler-navbar btn btn-default tooltip-trigger" title="Distraction free mode"><i class="icon-resize-full"></i>
+                <div class="layout-toggler layout-toggler-navbar btn btn-link tooltip-trigger" title="Distraction free mode"><i class="icon-resize-full"></i>
                 </div>
-                <div class="layout-toggler layout-toggler-preview btn btn-default tooltip-trigger open" title="Live preview"><i class="icon-none"></i>
+                <div class="layout-toggler layout-toggler-preview btn btn-link tooltip-trigger open" title="Live preview"><i class="icon-none"></i>
                 </div>
                 <div class="preview-container">
                     <div id="preview-contents">
@@ -566,22 +568,6 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="confirmDelete" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true" style="background: #fff;">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Delete Permanently</h4>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure about this ?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger confirm-delete-button" id="confirm">Delete</button>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="modal fade modal-publish">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -633,8 +619,7 @@
                     <div class="form-group modal-publish-ssh">
                         <label class="col-sm-4 control-label" for="input-publish-ssh-host">Host</label>
                         <div class="col-sm-7">
-                            <input type="text" id="input-publish-ssh-host" placeholder="hostname.or.ip" class="form-control"> <span class="help-block"> Host must be accessible publicly.
-</span>
+                            <input type="text" id="input-publish-ssh-host" placeholder="hostname.or.ip" class="form-control"> <span class="help-block"> Host must be accessible publicly.</span>
                         </div>
                     </div>
                     <div class="form-group modal-publish-ssh">
@@ -750,8 +735,7 @@
                         <label class="col-sm-4 control-label" for="input-publish-gdrive-filename">Force filename (optional)
                         </label>
                         <div class="col-sm-7">
-                            <input type="text" id="input-publish-gdrive-filename" placeholder="Filename" class="form-control"> <span class="help-block">If no file name is supplied, the
-story title will be used.</span>
+                            <input type="text" id="input-publish-gdrive-filename" placeholder="Filename" class="form-control"> <span class="help-block">If no file name is supplied, the story title will be used.</span>
                         </div>
                     </div>
 				</div>
@@ -822,9 +806,20 @@ story title will be used.</span>
             </div>
             <div class="modal-body">
                 <p>
-                    "<span class="file-title"></span>" is published on the following location(s): <a href="#" class="tooltip-trigger tooltip-manage-publications">?</a>
+                    <code><span class="file-title"></span></code> is published in the following location(s): <a href="#" class="tooltip-trigger tooltip-manage-publications">(?)</a>
                 </p>
-                <div class="publish-list"></div>
+				<table class="table table-hover table-striped">
+					<thead>
+        				<tr>
+          					<th>Site</th>
+          					<th>Location</th>
+          					<th>Format</th>
+          					<th>Action</th>
+        				</tr>
+      				</thead>
+					<tbody class="publish-list">
+					</tbody>
+				</table>
             </div>
         </div>
     </div>
@@ -1031,14 +1026,14 @@ story title will be used.</span>
 									<textarea id="textarea-settings-publish-template" class="form-control lg"></textarea>
                                 </div>
                             </div>
-                            <div class="form-group hide">
+                            <div class="form-group">
                                 <label class="col-sm-4 control-label" for="textarea-settings-pdf-template">PDF Template <a href="#" class="tooltip-trigger tooltip-pdf-template">(?)</a>
                                 </label>
                                 <div class="col-sm-8">
                                     <textarea id="textarea-settings-pdf-template" class="form-control"></textarea>
                                 </div>
                             </div>
-                            <div class="form-group hide">
+                            <div class="form-group">
                                 <label class="col-sm-4 control-label" for="textarea-settings-pdf-options">PDF options
                                     <a href="#" class="tooltip-trigger tooltip-pdf-options">(?)</a>
                                 </label>
@@ -1088,7 +1083,7 @@ for this change to take effect.</span>
                         <p>Some of these are quite powerful, and can result in the total loss of your data. </p>
                         <div class="col-lg-5 col-sm-12 tab-pane-button-container">
                             <a href="#" class="btn btn-block btn-link action-welcome-file" data-dismiss="modal"><i class="icon-help-circled"></i> Load Welcome Guide</a>
-                            <a href="#" class="btn btn-block btn-link action-guide-file" data-dismiss="modal"><i class="icon-keyboard"></i> Load Syntax Guide</a>
+                            <a href="#" class="btn btn-block btn-link action-guide-file" data-dismiss="modal"><i class="icon-keyboard"></i> Load Writing Guide</a>
                             <a href="#" class="btn btn-block btn-link action-welcome-tour" data-dismiss="modal"><i class="icon-comment"></i> Welcome tour</a>
                             <a target="_blank" href="recovery" class="btn btn-block btn-link text-success"><i class="icon-medkit"></i> WriteOn recovery</a>
                         </div>
@@ -1208,5 +1203,37 @@ for this change to take effect.</span>
             </div>
         </div>
     </div>
+</div>
+<div class="modal fade" id="confirmSyncDelete" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true" style="background: #fff;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Delete Permanently</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure about this ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger confirm-delete-button" id="confirm">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="confirmPubDelete" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true" style="background: #fff;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Delete Permanently</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure about this ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger confirm-delete-button" id="confirm">Delete</button>
+      </div>
+    </div>
+  </div>
 </div>
 <div id="dropboxjs" data-app-key="r3vgaee214zfvc7"></div>

@@ -1,4 +1,4 @@
-module.exports = function(app) {
+module.exports = function(app, req, res) {
 	
 var url = require('url'),
     http = require('http'),
@@ -8,16 +8,26 @@ var url = require('url'),
     fs = require('fs'),
     express = require('express'),
     qs = require('querystring'),
-	bodyParser = require('body-parser');
+	bodyParser = require('body-parser'),
+	configJson = '/config/tumblr.json',
+	environment = process.env.ENV;
 	
-	/* Setup Configuration */
+		if (environment == 'dev') {
+			configJson = '/config/tumblr.dev.json';
+		}
+		else if (environment == 'next') {
+			configJson = '/config/tumblr.next.json';
+		}
+		
+    // Load config defaults from JSON file.
+    // Environment variables override defaults.
 	function loadConfig() {
-        var config = JSON.parse(fs.readFileSync(__dirname + '/config/tumblr.json', 'utf-8'));
+        var config = JSON.parse(fs.readFileSync(__dirname + configJson, 'utf-8'));
         for(var i in config) {
             config[i] = process.env[i.toUpperCase()] || config[i];
         }
-        console.log('Tumblr API Configured');
-        // console.log(config);
+        console.log('Tumblr API Configured for ' + environment + '');
+        //console.log(config);
         return config;
     }
     var config = loadConfig();

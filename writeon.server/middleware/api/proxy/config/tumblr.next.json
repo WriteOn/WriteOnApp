@@ -1,0 +1,7 @@
+{
+  "oauth_consumer_key": "1ivyybvpoFNyT5mXDusSrN1tYN1CCeYGW3hi5IgP0qj6HBKbvQ",
+  "oauth_consumer_secret": "cX7M8xiD8iIi9goLVEbrGj4az0guDtQ6UqgmvSo17OciUxlVrI",
+  "oauth_request_token_url": "https://www.tumblr.com/oauth/request_token",
+  "oauth_access_token_url": "https://www.tumblr.com/oauth/access_token",
+  "oauth_redirect_url": "https://next.writeon.io/api/tumblr/oauth/client"
+}

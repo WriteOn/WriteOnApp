@@ -83,7 +83,7 @@ define([
             function getCode() {
                 storage.removeItem("githubCode");
                 var scope = settings.githubFullAccess ? 'repo,gist' : 'public_repo,gist';
-                authWindow = utils.popupWindow(constants.GITHUB_API_URL + 'oauth/client/?client_id=' + constants.GITHUB_CLIENT_ID + '&scope=' + scope, 'writeon-github-oauth', 960, 600);
+                authWindow = utils.popupWindow(constants.GITHUB_API_URL + 'oauth/client/?client_id=' + constants.GITHUB_CLIENT_ID + '&scope=' + scope, 'writeon-github-oauth', 600, 400);
                 authWindow.focus();
                 intervalId = setInterval(function() {
                     if(authWindow.closed === true) {
