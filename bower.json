@@ -1,6 +1,6 @@
 {
   "name": "WriteOn",
-  "version": "1.9.23",
+  "version": "1.9.24",
   "description": "On a mission to build the world's finest writing experience.",
   "devDependencies": {
     "bootstrap": "3.3.4",
