@@ -5,7 +5,7 @@ define([], function() {
 	var constants = {};
 	
 	// App dependent
-	constants.VERSION = "1.9.28";
+	constants.VERSION = "1.9.29";
 	constants.MAIN_URL = "https://writeon.io/";
 	constants.DEFAULT_FILE_TITLE = "Story Title";
 	constants.DEFAULT_FOLDER_NAME = "New Storybook";
