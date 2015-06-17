@@ -47,6 +47,9 @@ app.get('/off', stormpath.authenticationRequired, function(req, res) {
     username: req.user.username
   });
 });
+app.get('/norequire', function(req, res) {
+    res.renderDebug('norequire.html');
+});
 	
 // Serve paper.html in /paper
 app.get('/paper', function(req, res) {
