@@ -912,7 +912,6 @@ define([
 			dropdownOpen = false;
 			closePreviewButtons();
 		});
-		previewButtons.$elt.on('click', '.action-guide-file', _.bind(closePreviewButtons(), previewButtons, false));
 
 		_.each(previewButtons.elt.querySelectorAll('.btn-group'), function(btnGroupElt) {
 			var $btnGroupElt = $(btnGroupElt);

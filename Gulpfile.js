@@ -302,9 +302,31 @@ gulp.task('cache', function() {
 				}
 			}))
 		// .pipe(debug())
+		.pipe(replace('/writeon/main.js', '#/writeon/main.js'))
         .pipe(gulp.dest('./public/offline/'));
 });
 
+gulp.task('cache-offline', function() {
+	return gulp.src('./public/offline/writeon.offlineapp.manifest')
+		.pipe(replace(/(#Date ).*/, '$1' + Date()))
+		.pipe(replace(/(#Version ).*/, '$1' + getVersion()))
+		.pipe(inject(gulp.src([
+				'./writeon/**/*.*'
+			], {
+				read: false,
+				cwd: './public'
+			}),
+			{
+				starttag: '# start_inject_resources',
+				endtag: '# end_inject_resources',
+				ignoreExtensions: true,
+				transform: function(filepath) {
+					return filepath.substring('/' + 1);
+				}
+			}))
+		// .pipe(debug())
+        .pipe(gulp.dest('./public/offline/'));
+});
 gulp.task('cache-mathjax', function() {
 	return gulp.src('./public/writeon.mathjax.manifest')
 		.pipe(replace(/(#Date ).*/, '$1' + Date()))
