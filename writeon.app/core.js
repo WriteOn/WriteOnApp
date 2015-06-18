@@ -646,6 +646,7 @@ define([
 		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".layout-toggler-navbar", "Distraction free mode", "left", "hover", ".layout-wrapper-l3");		
 		utils.createTooltip(".layout-toggler-preview", "Live preview", "left", "hover", ".layout-wrapper-l3");		
+		utils.createTooltip(".tooltip-open-guide", "Open the Writer's Guide To Writing", "bottom", "hover", ".layout-wrapper-l3");		
 		
 		// Close tooltips on click  
 		$('.tooltip-trigger').click(function(event) {

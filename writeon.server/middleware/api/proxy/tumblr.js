@@ -30,7 +30,7 @@ var url = require('url'),
             config[i] = process.env[i.toUpperCase()] || config[i];
         }
         console.log('Tumblr API Configured for ' + environment + '');
-        console.log(config);
+        //console.log(config);
         return config;
     }
     var config = loadConfig();

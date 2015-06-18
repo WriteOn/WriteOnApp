@@ -185,10 +185,10 @@
 @modal-backdrop-opacity: 1;
 @tooltip-max-width: 250px;
 @close-color: @secondary-color-darkest;
-@popover-bg: @secondary-bg;
-@popover-border-color: @secondary-border-color;
-@popover-arrow-color: @secondary-bg;
-@popover-arrow-outer-color: @secondary-border-color;
+@popover-bg: @jgrowl-bg-color;
+@popover-border-color: @jgrowl-bg-color;
+@popover-arrow-color: @jgrowl-bg-color;
+@popover-arrow-outer-color: @jgrowl-bg-color;
 @popover-title-bg: @transparent;
 @label-warning-bg: spin(darken(@logo-yellow, 4%), -5);
 @state-warning-text: spin(darken(@logo-yellow, 14%), -5);
@@ -1374,6 +1374,10 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
         margin-top: 6px;
         margin-bottom: 6px;
     	padding-bottom: 20px;
+		border-radius: 1px;
+		h1, h2, h3, h4, h5, h6 {
+			margin: 6px;
+		}
 	}
 
     hr {
@@ -2234,16 +2238,17 @@ input[type="file"] {
 //Tour Popovers
 .tour.left .arrow , .tour.right .arrow {top: 25px;}
 .popover[class*="tour-"] {
-	.popover.bottom>.arrow {border-bottom-color: @jgrowl-bg-color;}
-	.popover.bottom>.arrow:after {border-bottom-color: @jgrowl-bg-color;}
-}
+	background-color: @jgrowl-bg-color;
+	color: #fff;
+	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {color: #fff;}
+}	.btn, a {color: #000;}
 
 // comments popover
 .comments-popover .popover {
-	background-color: @secondary-blue;
+	background-color: @jgrowl-bg-color;
 	color: @white-color;
-	width: 300px;
-	max-width: 300px;
+	width: 600px;
+	max-width: 700px;
 	padding: 10px 20px 0;
 	margin-left: 10px;
 	.popover-title {
@@ -2263,7 +2268,7 @@ input[type="file"] {
 		padding: 0;
 		.scrollport {
 			overflow: auto;
-			max-height: 230px;
+			max-height: 300px;
 			padding: 10px 20px 0;
 			margin: 0 -20px;
 		}
@@ -2311,12 +2316,12 @@ input[type="file"] {
 		.arrow {
 			margin-right: 1px;
 			border-right-width: 0;
-			border-top-color: @secondary-blue;
+			border-top-color: @jgrowl-bg-color;
 			&:after {
 				margin-left: -11px;
 				border-right-width: 0;
-				border-top-color: @secondary-blue;
-				border-bottom-color: @secondary-blue;
+				border-top-color: @jgrowl-bg-color;
+				border-bottom-color: @jgrowl-bg-color;
 			}
 		}
 	}

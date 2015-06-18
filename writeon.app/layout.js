@@ -267,6 +267,9 @@ define([
 			$('.layout-wrapper-l3').on('click', function() {
         		woSlidebars.slidebars.close();
       		});
+			$('.action-guide-file').on('click', function() {
+        		woSlidebars.slidebars.close();
+      		});
 		this.toggle = function() {
 			woSlidebars.slidebars.close();
 		};
@@ -611,6 +614,7 @@ define([
 		previewPanel.halfSize = true;
 		previewToggler.$elt.click(_.bind(previewPanel.toggle, previewPanel));
 
+		
 
 		// Open WriteOn Paper if failing to open the preview
 		previewPanel.$elt.on('show.layout.toggle', function() {
@@ -625,7 +629,6 @@ define([
 		documentPanel.createBackdropToggler(true);  // or createToggler()
 		documentPanel.$elt.find('.toggle-button').click(_.bind(documentPanel.toggle, documentPanel));
 		documentPanel.$elt.on('click', 'ul.nav li .file', _.bind(documentPanel.toggle, documentPanel, false)); // Hide  documentPanel when clicking on a non collapse or dropdown element
-		
 		storyPanel.isOpen = false;
 		storyPanel.storyToggle();
 		storyPanel.$elt.on('click', 'ul.nav li .file', _.bind(storyPanel.toggle, storyPanel, false)); // Hide storyPanel when clicking on a story to open
@@ -909,6 +912,7 @@ define([
 			dropdownOpen = false;
 			closePreviewButtons();
 		});
+		previewButtons.$elt.on('click', '.action-guide-file', _.bind(closePreviewButtons(), previewButtons, false));
 
 		_.each(previewButtons.elt.querySelectorAll('.btn-group'), function(btnGroupElt) {
 			var $btnGroupElt = $(btnGroupElt);

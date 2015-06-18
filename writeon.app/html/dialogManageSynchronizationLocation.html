@@ -1,15 +1,15 @@
-        <tr>
-          <td>
-			  <a class="btn btn-link btn-sm open-location<%- syncLocationLink ? '' : ' hide' %>" title="Open in <%= syncAttributes.provider.providerName %>" 
-           target="_blank" href="<%- syncLocationLink %>">
+<tr>
+    <td>
+        <a class="btn btn-link btn-sm open-location<%- syncLocationLink ? '' : ' hide' %>" title="Open in <%= syncAttributes.provider.providerName %>" target="_blank" href="<%- syncLocationLink %>">
 				  <i class="icon-provider-<%= syncAttributes.provider.providerId %>"></i> <%= syncAttributes.provider.providerName %>
-				  </a></td>
-          <td>
-          <td scope="row"><%= syncAttributes.title %></td>
-        <a class="btn btn-link btn-sm remove-button" title="Delete <%= syncAttributes.title %> on <%= syncAttributes.provider.providerName %>" 
-           data-sync-index="<%= syncAttributes.syncIndex %>"
-		   data-toggle="modal" data-target="#confirmDelete">
-			<i class="icon-trash text-danger"></i>
-		</a>
-			</td>
-        </tr>
+			  </a>
+    </td>
+    <td scope="row">
+        <%=s yncAttributes.title %>
+    </td>
+    <td>
+        <a class="btn btn-link btn-sm remove-button" title="Delete <%= syncAttributes.title %> on <%= syncAttributes.provider.providerName %>" data-sync-index="<%= syncAttributes.syncIndex %>" data-toggle="modal" data-target="#confirmSyncDelete">
+            <i class="icon-trash text-danger"></i>
+        </a>
+    </td>
+</tr>

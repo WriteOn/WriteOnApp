@@ -5,7 +5,7 @@ define([
 ], function($, Extension, buttonMarkdownSyntaxHTML) {
 
     var buttonMarkdownSyntax = new Extension("buttonMarkdownSyntax", 'Syntax Help', true, true);
-    buttonMarkdownSyntax.settingsBlock = '<p>Adds a "WriteOn Syntax Help" button.</p>';
+    buttonMarkdownSyntax.settingsBlock = '<p>Adds a "WriteOn Help" button.</p>';
 
     buttonMarkdownSyntax.onCreatePreviewButton = function() {
         return buttonMarkdownSyntaxHTML;
