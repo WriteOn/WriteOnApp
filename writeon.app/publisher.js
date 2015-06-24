@@ -22,8 +22,10 @@ define([
 	// "providers/gdriveterProvider",
 	"providers/sshProvider",
 	"providers/tumblrProvider",
-	"providers/wordpressProvider"
-], function($, _, constants, utils, storage, settings, eventMgr, fileSystem, fileMgr, MonetizeJS, Provider, AsyncTask) {
+	"providers/wordpressProvider",
+	"pace",
+	"https://cdn.blockspring.com/blockspring.js"
+], function($, _, constants, utils, storage, settings, eventMgr, fileSystem, fileMgr, MonetizeJS, Provider, AsyncTask, pace) {
 
 	var publisher = {};
 
@@ -335,6 +337,34 @@ define([
 			utils.saveAs(content, fileDesc.title + (settings.template.indexOf("documentHTML") === -1 ? ".md" : ".html"));
 		});
 		$(".action-download-pdf").click(function() {
+			/*pace.start({
+    			eventLag: true,
+				ajax: true
+  			}); */
+			var fileDesc = fileMgr.currentFile;
+			var content = publisher.applyTemplate(fileDesc, {
+				customTmpl: settings.pdfTemplate
+			}, currentHTML);
+			var task = new AsyncTask();
+			var pdf;
+			var pdfElt = document.querySelector('.display-converted-pdf');
+			var pdfTitle = fileMgr.currentFile.title + ".pdf";
+			var isLoaded = false;
+    		var isOffline = false;
+			var doctype = 'pdf';
+        	if(isLoaded === false && isOffline === false) {
+            	blockspring.runParsed("982c3b9d4ed99fa853dafe2a29d2170b", { "html": content, "filename": pdfTitle}, { "api_key": "br_3660_71f4961a5a12c890e029235eaa1cc800fa2438e8" }, function(res){
+					pdf = res.params.my_pdf.data;
+					pdfTitle = res.params.my_pdf.filename;
+					pdfElt.innerHTML = pdfTitle;
+					isLoaded = true;
+					pdf && utils.saveAs(pdf, pdfTitle, doctype);
+					console.log(pdfTitle + ' successfully created.');
+				});
+    		}
+			//pace.stop();
+		});
+		$(".action-download-pdf-api").click(function() {
 			var fileDesc = fileMgr.currentFile;
 			var content = publisher.applyTemplate(fileDesc, {
 				customTmpl: settings.pdfTemplate
@@ -348,9 +378,6 @@ define([
 				}					
 			});
 			task.onRun(function() {
-				if(!token) {
-					return task.chain();
-				}
 				var xhr = new XMLHttpRequest();
 				xhr.open('POST', constants.PDF_EXPORT_URL + '?' + $.param({
 					token: token,

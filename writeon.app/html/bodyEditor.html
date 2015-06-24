@@ -87,7 +87,7 @@
                         </li>
                         <li><a class="action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>
                         </li>
-                        <li><a class="action-download-pdf" href="#" title="Download as PDF"><i class="fa fa-file-pdf-o" style="margin-right: .3em;margin-left: .2em;"></i> PDF</a>
+                        <li class="hide hidden"><a class="action-download-pdf" href="#" title="Download as PDF"><i class="fa fa-file-pdf-o" style="margin-right: .3em;margin-left: .2em;"></i> PDF</a>
                         </li>
                     </ul>
                 </li>
@@ -386,6 +386,22 @@
             </div>
             <div class="modal-footer">
 				<a href="#" class="btn btn-primary action-convert-html" data-dismiss="modal">Convert</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-download-pdf">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title"><i class="fa fa-file-pdf-o text-danger"></i> Export To PDF</h2>
+            </div>
+            <div class="modal-body">
+                <p>Click the file below to download your story:</p>
+                <div class="display-converted-pdf text-center"></div>
+            </div>
+            <div class="modal-footer">
             </div>
         </div>
     </div>

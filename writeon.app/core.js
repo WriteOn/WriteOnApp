@@ -458,11 +458,11 @@ define([
 				// Or on the first link if any
 				$elt.find('button:first').focus();
 				// Or on the first input if any
-				// $elt.find("input:enabled:visible:first").focus();
+				 $elt.find("input:enabled:visible:first").focus();
 			}, 50);
 		}).on('hidden.bs.modal', '.modal', function() {
 			// Focus on the editor when modal is gone
-			// editor.focus();
+			editor.focus();
 			// Revert to current theme when settings modal is closed
 			applyTheme(window.theme);
 		}).on('keypress', '.modal', function(e) {

@@ -131,12 +131,12 @@ define([
 				reflex: true
 			},
 			{
-				element: '#wmd-input',
+				element: '.action-create-file ',
 				title: 'Happy Writing!',
 				content: [
-					'<p>Enjoy writing like you always wanted to! <p>We would ♥ your feedback, just look for these symbols: <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x fa-inverse"></i><i class="fa fa-bullhorn text-primary fa-stack-1x"></i></span><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x fa-inverse"></i><i class="fa fa-star-half-o text-info fa-stack-1x"></i></span><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x fa-inverse"></i><i class="fa fa-comments-o text-warning fa-stack-1x"></i></span>.</p>',
+					'<p>Enjoy writing like you always wanted to! Click here to create your first story. </p><p>We would ♥ your feedback, just look for these symbols: <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x fa-inverse"></i><i class="fa fa-bullhorn text-primary fa-stack-1x"></i></span><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x fa-inverse"></i><i class="fa fa-star-half-o text-info fa-stack-1x"></i></span><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x fa-inverse"></i><i class="fa fa-comments-o text-warning fa-stack-1x"></i></span>.</p>',
 				].join(""),
-				placement: 'bottom',
+				placement: 'left',
 				onShown: function() {
 					eventMgr.onTweet();
 				}

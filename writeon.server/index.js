@@ -1,4 +1,5 @@
 var express = require('express');
+var session = require('express-session');
 var stormpath = require('express-stormpath');
 var app = express();
 var compression = require('compression');
@@ -43,6 +44,28 @@ app.use('*', function(req, res, next) {
 	next();
 });
 */
+
+/* 
+ * SESSION STORE. A keep it simple session store.
+ * Helps us interact with the front end app
+ *
+ */
+var sesh = {
+  key: 'da39a3ee5e6b4b0d3255bfef95601890afd80709',
+  secret: 'db198a85842c8edca076ba66f35d6022f2a4163c',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {}
+};
+var environment = process.env.WRITEON_ENV;
+
+if (environment != 'dev') {
+  app.set('trust proxy', 1); // trust first proxy
+  sesh.cookie.secure = true; // serve secure cookies
+}
+
+app.use(session(sesh));
+
 
 /* 
  * VIEW ENGINE. A keep it simple view-based http server.

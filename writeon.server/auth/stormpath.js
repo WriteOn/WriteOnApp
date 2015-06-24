@@ -68,6 +68,13 @@ app.use(stormpath.init(app, {
     googleLoginFailedView: __dirname + '/views/google_login_failed.jade',
     facebookLoginFailedView: __dirname + '/views/facebook_login_failed.jade',
     unauthorizedView: __dirname + '/views/unauthorized.jade',
+	postLoginHandler: function(account, req, res, next) {
+    	console.log('Username ', account.email, ' just logged in to WriteOn.');
+		req.session.username=account.email;
+		req.session.surname=account.surname;
+		req.session.givenName=account.givenName;
+    	next();
+  	}
 	
 }));
 
