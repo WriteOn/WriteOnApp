@@ -1,6 +1,6 @@
 {
   "name": "WriteOn",
-  "version": "1.9.32",
+  "version": "1.9.33",
   "description": "On a mission to build the world's finest writing experience.",
   "devDependencies": {
     "bootstrap": "3.3.4",
@@ -54,5 +54,6 @@
   "main": [
     "/public/res/main.js",
     "/public/res/styles/jquery.jgrowl.css"
-  ]
+  ],
+  "dependencies": {}
 }

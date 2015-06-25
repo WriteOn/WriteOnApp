@@ -270,13 +270,20 @@ body {
 }
 
 .fade {
-    -webkit-transition: opacity 0.07s linear;
-    transition: opacity 0.07s linear;
-    
-    -webkit-transition: opacity .1s linear,top .07s ease-out;
+-webkit-transition: opacity 0.07s linear;
+transition: opacity 0.07s linear;    
+-webkit-transition: opacity .14s linear,top .07s ease-out;
 -moz-transition: opacity .07s linear,top .1s ease-out;
 -o-transition: opacity .07s linear,top .1s ease-out;
 transition: opacity .07s linear,top .1s ease-out;
+	&.tooltip {
+		-webkit-transition: opacity 0.14s linear;
+		transition: opacity 0.14s linear;    
+		-webkit-transition: opacity .14s linear;
+		-moz-transition: opacity .14s linear;
+		-o-transition: opacity .14s linear;
+		transition: opacity .14s linear;	
+	}
 }
 .modal {
 	&.fade .modal-dialog {
@@ -837,7 +844,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 		border: none;
 		a {
 			i {
-				.transition(~"all ease-in-out .15s");
+				.transition(~"color ease-in-out .15s");
 			}
 			.icon-link-ext-alt {
 				color: transparent;
