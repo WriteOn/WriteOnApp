@@ -4,7 +4,7 @@
            		target="_blank" href="<%- publishLocationLink %>">
 				 <i class="icon-provider-<%= publishAttributes.provider.providerId %>"></i> <%= publishAttributes.provider.providerName %></a>
 		  </td>          
-          <td><%= publishAttributes.blogID %> <%= publishAttributes.filename %> <%= publishAttributes.repository %> <%= publishAttributes.branch %> <%= publishAttributes.blogHostname %> <%= publishAttributes.siteID %></td>
+          <td><%= publishAttributes.blogID %> <%= publishAttributes.siteID %> <%= publishAttributes.filename %> <%= publishAttributes.repository %> <%= publishAttributes.branch %> <%= publishAttributes.blogHostname %> <%= publishAttributes.siteID %></td>
 		  <td><%= publishAttributes.format %></td>
           <td>
 		<!--a class="btn btn-primary btn-sm open-location<%- publishLocationLink ? '' : ' hide' %>" title="Open in <%= publishAttributes.provider.providerName %>" 

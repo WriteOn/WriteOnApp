@@ -567,7 +567,7 @@
             </div>
             <div class="modal-body">
                 <p>
-                    <code><span class="file-title"></span></code> is synchronized in the following location(s): <a href="#" class="tooltip-trigger tooltip-remove-sync-loc">(?)</a>
+                    <code><span class="file-title text-primary"></span></code> is synchronized in the following location(s): <a href="#" class="tooltip-trigger tooltip-remove-sync-loc">(?)</a>
                 </p>
 				<table class="table table-hover table-striped">
 					<thead>
@@ -822,7 +822,7 @@
             </div>
             <div class="modal-body">
                 <p>
-                    <code><span class="file-title"></span></code> is published in the following location(s): <a href="#" class="tooltip-trigger tooltip-manage-publications">(?)</a>
+                    <code><span class="file-title text-primary"></span></code> is published in the following location(s): <a href="#" class="tooltip-trigger tooltip-manage-publications">(?)</a>
                 </p>
 				<table class="table table-hover table-striped">
 					<thead>
@@ -1028,6 +1028,23 @@
                     <div class="tab-pane" id="tabpane-settings-templates">
                         <div class="form-horizontal">
                             <div class="form-group">
+                                <label class="col-sm-4 control-label" for="frontmatter-settings">Front Matter
+                                    <a href="#" class="tooltip-trigger tooltip-frontmatter-content">(?)</a>
+                                </label>
+                                <div class="col-sm-8">
+                                    <p class="panel text-left" id="frontmatter-settings"><b>Example:</b><br /> 
+										<code style="background-color:transparent;">
+											---<br />
+											title: My Published Title<br />
+											tags: tag1, tag2, tag3<br />
+											published: false<br />
+											date: YYYY-MM-DD HH:MM:SS +/-TTTT<br />
+											---
+										</code>
+									</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-sm-4 control-label" for="textarea-settings-default-content">Backlink
                                     <a href="#" class="tooltip-trigger tooltip-default-content">(?)</a>
                                 </label>
@@ -1042,14 +1059,14 @@
 									<textarea id="textarea-settings-publish-template" class="form-control lg"></textarea>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group hide hidden">
                                 <label class="col-sm-4 control-label" for="textarea-settings-pdf-template">PDF Template <a href="#" class="tooltip-trigger tooltip-pdf-template">(?)</a>
                                 </label>
                                 <div class="col-sm-8">
                                     <textarea id="textarea-settings-pdf-template" class="form-control"></textarea>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group hide hidden">
                                 <label class="col-sm-4 control-label" for="textarea-settings-pdf-options">PDF options
                                     <a href="#" class="tooltip-trigger tooltip-pdf-options">(?)</a>
                                 </label>
