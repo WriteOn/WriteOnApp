@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html<%- cache ? ' manifest="offline/writeon.offlineapp.manifest"' : '' %>>
     <head>
         <title>WriteOn Pad</title>
         <link rel="canonical" href="http://writeon.io/pad">
@@ -18,25 +18,25 @@
 		<script type="text/javascript">
             paceOptions = {elements: false,ajax: true,document: true,eventLag: true}
 			window.baseDir="writeon";if(!/(\?|&)edge($|&)/.test(location.search)){window.baseDir+=""}window.require={baseUrl:window.baseDir,deps:["main"]}
-			window.onload = function() {
+			document.addEventListener("DOMContentLoaded", function(event) {
 			// populate welcome message
 			var welcome_msgs = [
 				{"message": "Have a great day writing today."},
-				{"message": "What good shall I do this day?"},
-				{"message": "Remember to get up & stretch<br>once in a while."},
-				{"message": "We’re all in this together."},
-				{"message": "You look nice today."},
+				{"message": "The only way to make sense out of change is to plunge into it, move with it, and join the dance."},
+				{"message": "Remember to get up & stretch once in a while."},
+				{"message": "Either write something worth reading or do something worth writing."},
+				{"message": "Concentrate the mind on the present moment."},
 				{"message": "Thank you for using WriteOn.<br>We ♥ you!"},
-				{"message": "Please enjoy WriteOn responsibly."},
-				{"message": "Be cool. But also be warm."},
+				{"message": "It is better to travel well than to arrive."},
+				{"message": "There is nothing to writing. All you do is sit down at this here typewriter and bleed."},
 				{"message": "The mystery of life isn't a problem to solve, but a reality to experience."},
-				{"message": "We like you."},
+				{"message": "Be like you. Nobody else."},
 				{"message": "Please consider the environment before printing anything."},
 				{"message": "Always get plenty of sleep, if you can."},
-				{"message": "You're here! The day just got better."},
-				{"message": "Alright world, time to take you on!"},
+				{"message": "With our thoughts, we make the world."},
+				{"message": "Be open to truth, whatever it might turn out to be."},
 				{"message": "Each day will be better than the last. This one especially."},
-				{"message": "What a day! What cannot be accomplished on such a splendid day?"},
+				{"message": "What a day! What cannot be written on such a splendid day?"},
 			];	
 			var welcome_msg;
 			if (!welcome_msg && welcome_msgs.length){
@@ -51,7 +51,7 @@
 			setTimeout(function() {
 				loading_welcome_msg.style.opacity = 1;
 			}, 10);		
-		}
+		});
         </script>
 		<script data-pace-options='{ "ajax": true, "document": true, "eventLag": true }' src="writeon/pace.min.js"></script>
 		<link href="writeon/pace-theme-writeon.css" rel="stylesheet">

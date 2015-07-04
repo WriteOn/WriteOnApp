@@ -640,6 +640,7 @@ define([
 		utils.createTooltip(".tooltip-pdf-template", settingsTemplateTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".tooltip-dropbox", settingsDropboxTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".tooltip-mywriteon", settingsMyWriteonTooltipHTML, "right", "hover", "modal");
+		utils.createTooltip(".tooltip-create-storybook", "Create new Storybook", "bottom", "hover", "modal");
 		utils.createTooltip(".tooltip-dm-stories", "Number of Stories", "bottom", "hover", "modal");
 		utils.createTooltip(".tooltip-dm-folders", "Number of Storybooks", "bottom", "hover", "modal");
 		utils.createTooltip(".tooltip-remove-sync-loc", "Removing a synchronized location will not delete the local story.", "right", "hover", "modal");

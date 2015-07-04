@@ -54,9 +54,8 @@ define([
 				'   <h3 class="popover-title"></h3>',
 				'   <div class="popover-content"></div>',
 				'   <nav class="popover-navigation">',
-				'       <button class="btn btn-link text-gray" data-role="end">Got it</button>',
-				'       <button class="btn btn-link" data-role="previous">« Previous</button>',
-				'       <button class="btn btn-link" data-role="next">Next »</button>',
+				'       <button class="btn btn-link text-white" data-role="end">Got it</button>',
+				'       <button class="btn btn-link text-white" data-role="next">Next »</button>',
 				'   </nav>',
 				'</div>'
 			].join("")
@@ -131,7 +130,7 @@ define([
 				reflex: true
 			},
 			{
-				element: '.action-create-file ',
+				element: '.navbar-inner',
 				title: 'Happy Writing!',
 				content: [
 					'<p>Enjoy writing like you always wanted to! Click here to create your first story. </p><p>We would ♥ your feedback, just look for these symbols: <span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x fa-inverse"></i><i class="fa fa-bullhorn text-primary fa-stack-1x"></i></span><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x fa-inverse"></i><i class="fa fa-star-half-o text-info fa-stack-1x"></i></span><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x fa-inverse"></i><i class="fa fa-comments-o text-warning fa-stack-1x"></i></span>.</p>',

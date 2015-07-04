@@ -403,6 +403,7 @@ a {
 	border-left-width: 0;
 	border-right-width: 0;
 	margin-bottom: 0;
+	list-style: none;
 	.list-group & {
 		border-radius: 0;
 	}
@@ -1192,6 +1193,7 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 					color: @primary-blue;
 				}
 				&:hover {
+					background: transparent;
 				i {
 					color: @secondary-blue;
 				}
@@ -1254,6 +1256,13 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
   		flex-direction: column;
 		-webkit-box-shadow: 0 27px 24px 0 rgba(0,0,0,.2);
   		box-shadow: 0 27px 24px 0 rgba(0,0,0,.2);
+		background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#fff));
+		background: -webkit-linear-gradient(top, #f3f3f3, #fff);
+		background: -moz-linear-gradient(top, #f3f3f3, #fff);
+		background: -ms-linear-gradient(top, #f3f3f3, #fff);
+		background: -o-linear-gradient(top, #f3f3f3, #fff);
+		background: linear-gradient(top, #f3f3f3, #fff);
+		background-color: #fff;	
 	}
 	.nav-pills {
 		margin-bottom: 15px;
@@ -1312,10 +1321,20 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 		font-size: 17px;
 		background-color: @transparent;
 	}
+	.folder:hover, .folder:focus {
+		color: #9c27b0;
+		i {
+			color: inherit;
+		}
+		span {
+			border-bottom: 1px dashed;
+		}
+	}
 	.name, .date, .file-count {
 		margin: 16px 20px 9px 15px;
 		display: inline-block;
 	}
+	
 	.name i {
 		&.icon-file, &.icon-folder {
 			margin-right: 8px;
