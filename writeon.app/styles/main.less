@@ -410,7 +410,6 @@ a {
 	}
 	a&:hover,
 	a&:focus {
-    	background: inherit;
 		color: darken(@secondary, 30%);
 	    border-color: @list-group-hover-border-color;
     }
@@ -438,6 +437,12 @@ a {
 		&:hover {
 			background-color: rgba(128,128,128,0.4);
 		}
+	}
+}
+
+.button-rename {
+	.btn:hover {
+		background: inherit;
 	}
 }
 
@@ -1324,12 +1329,12 @@ textarea, textarea.form-control, input.form-control, input[type=text], input[typ
 		background-color: @transparent;
 	}
 	.folder:hover, .folder:focus {
-		color: #9c27b0;
 		i {
 			color: inherit;
 		}
 		span {
-			border-bottom: 1px dashed;
+			color: #9c27b0;
+			transition: all ease-in-out .15s;
 		}
 	}
 	.name, .date, .file-count {
