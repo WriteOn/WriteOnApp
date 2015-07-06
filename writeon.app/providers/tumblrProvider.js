@@ -21,7 +21,8 @@ define([
 	};
 
 	tumblrProvider.publish = function(publishAttributes, frontMatter, title, content, callback) {
-        var labelList = publishAttributes.tags || [];
+        var state = publishAttributes.visibility;
+		var labelList = publishAttributes.tags || [];
         if(frontMatter) {
             frontMatter.tags !== undefined && (labelList = frontMatter.tags);
         }
@@ -41,7 +42,7 @@ define([
             return 'markdown';
         })();
         
-        var state = (frontMatter && frontMatter.published === false) ? 'draft' : 'published';
+        state = (frontMatter && frontMatter.published === false) ? 'draft' : 'published';
         var date = frontMatter && frontMatter.date;
         tumblrHelper.upload(publishAttributes.blogHostname, publishAttributes.postId, labelList.join(','), format, state, date, title, content, function(error, postId) {
             if(error) {
@@ -57,6 +58,7 @@ define([
         var publishAttributes = {};
         publishAttributes.blogHostname = utils.getInputTextValue("#input-publish-tumblr-hostname", event, /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/);
         publishAttributes.postId = utils.getInputTextValue("#input-publish-postid");
+        publishAttributes.visibility = utils.getInputRadio("#radio-publish-tumblr-status");
         if(event.isPropagationStopped()) {
             return undefined;
         }

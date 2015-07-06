@@ -20,7 +20,7 @@ define([
 	].join('');
 	var popoverTitleTmpl = [
 		'<span class="clearfix">',
-		'    <a href="#" class="action-remove-discussion pull-right">',
+		'    <a href="#" class="action-remove-discussion pull-right tooltip-trigger tooltip-remove-comments">',
 		'        <i class="icon-trash text-white"></i>',
 		'    </a>',
 		'    “<%- title %>”',
@@ -369,7 +369,7 @@ define([
 
 				var discussion = context.getDiscussion();
 				context.$contentInputElt.val('');
-				closeCurrentPopover();
+				// closeCurrentPopover();
 
 				discussion.commentList = discussion.commentList || [];
 				discussion.commentList.push({

@@ -21,12 +21,13 @@ define([
 	};
 
 	bloggerProvider.publish = function(publishAttributes, frontMatter, title, content, callback) {
-        var labelList = publishAttributes.labelList || [];
+        var isDraft = publishAttributes.visibility;
+		var labelList = publishAttributes.labelList || [];
         if(frontMatter) {
             frontMatter.tags !== undefined && (labelList = frontMatter.tags);
         }
         _.isString(labelList) && (labelList = _.compact(labelList.split(/[\s,]/)));
-        var isDraft = frontMatter && frontMatter.published === false;
+        isDraft = frontMatter && frontMatter.published === false;
         var publishDate = frontMatter && frontMatter.date;
         googleHelper.uploadBlogger(publishAttributes.blogUrl, publishAttributes.blogId, publishAttributes.postId, labelList, isDraft, publishDate, title, content, function(error, blogId, postId) {
             if(error) {
@@ -46,6 +47,7 @@ define([
             publishAttributes.blogUrl = utils.checkUrl(blogUrl);
         }
         publishAttributes.postId = utils.getInputTextValue("#input-publish-postid");
+		publishAttributes.visibility = utils.getInputRadio("#radio-publish-blogger-status");
         if(event.isPropagationStopped()) {
             return undefined;
         }

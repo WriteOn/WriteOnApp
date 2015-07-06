@@ -317,7 +317,8 @@ transition: opacity .07s linear,top .1s ease-out;
     .modal-body {
         /*max-height: 100%; */
         /* overflow-y: auto; */
-		padding: 20px;
+		padding: 0 20px 20px 20px;
+    	margin-top: 20px;
 		p {
 			text-align: center;
 		}
@@ -409,7 +410,8 @@ a {
 	}
 	a&:hover,
 	a&:focus {
-    	color: darken(@secondary, 30%);
+    	background: inherit;
+		color: darken(@secondary, 30%);
 	    border-color: @list-group-hover-border-color;
     }
 	.checkbox {

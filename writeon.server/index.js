@@ -20,7 +20,7 @@ var morgan = require('morgan');
 // Used to force SSL - required for security ==================================================
 app.use('*', function(req, res, next) {
     if(req.headers['x-forwarded-proto'] != 'https') {
-		return res.redirect('https://' + req.headers.host + req.path);
+		return res.redirect('https://' + req.headers.host + req.url);
     } 
 	/\.(eot|ttf|woff|svg|png)$/.test(req.url) && res.header('Access-Control-Allow-Origin', '*');
 	return next();
