@@ -5,6 +5,7 @@
 #dist
 #public
 #newrelic.js
+mailchimp
 
 .tmp
 .sass-cache

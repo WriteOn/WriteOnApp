@@ -302,7 +302,7 @@ gulp.task('cache', function() {
 				}
 			}))
 		// .pipe(debug())
-		.pipe(replace('/writeon/main.js', '#/writeon/main.js'))
+		//.pipe(replace('/writeon/main.js', '#/writeon/main.js'))
         .pipe(gulp.dest('./public/offline/'));
 });
 
@@ -408,6 +408,7 @@ gulp.task('build', function(cb) {
 			'copy-html'
 		],
 		'cache',
+		'cache-offline',
 		cb);
 });
 
