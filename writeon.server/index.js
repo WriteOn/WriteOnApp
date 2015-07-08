@@ -18,16 +18,18 @@ var morgan = require('morgan');
  * FORCE HTTPS
  */
 // Used to force SSL - required for security ==================================================
-/*
 app.use('*', function(req, res, next) {
     if(req.headers['x-forwarded-proto'] != 'https') {
-		return res.redirect('https://' + req.headers.host + req.url);
+		return res.redirect('https://' + req.hostname + req.originalUrl);
     } 
-	/\.(eot|ttf|woff|svg|png)$/.test(req.url) && res.header('Access-Control-Allow-Origin', '*');
+	else if (req.headers.host == 'www.writeon.io') {
+		return res.redirect('https://' + req.hostname + req.originalUrl);
+	}
+	/\.(eot|ttf|woff|svg|png)$/.test(req.path) && res.header('Access-Control-Allow-Origin', '*');
 	return next();
 });
-*/
-/* Legacy support ... per domain */
+
+/* Legacy support ... per domain 
 app.use('*', function(req, res, next) {
 	if (req.headers.host == 'writeon.io' && req.headers['x-forwarded-proto'] != 'https') {
 		return res.redirect('https://writeon.io' + req.url);
@@ -42,11 +44,12 @@ app.use('*', function(req, res, next) {
 		return res.redirect('https://writeon.io' + req.url);
 	}	
 	else if (req.headers.host == 'mammal-charter.codio.io' && req.headers['x-forwarded-proto'] != 'https') {
-		return res.redirect('https://mammal-charter.codio.io:9501/testpassed' + req.url);
+		return res.redirect('https://mammal-charter.codio.io:9501' + req.url);
 	}
 	/\.(eot|ttf|woff|svg)$/.test(req.url) && res.header('Access-Control-Allow-Origin', '*');
 	next();
 });
+*/
 
 /* 
  * SESSION STORE. A keep it simple session store.
