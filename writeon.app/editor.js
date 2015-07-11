@@ -876,7 +876,7 @@ define([
 			.on('paste', function(evt) {
 				undoMgr.currentMode = 'paste';
 				evt.preventDefault();
-				var data = (evt.originalEvent || evt).clipboardData.getData('text/plain') || prompt('Paste something...');
+				var data = (evt.originalEvent || evt).clipboardData.getData('text/plain'); // || prompt('Paste something...');
 				data = escape(data);
 				adjustCursorPosition();
 				document.execCommand('insertHtml', false, data);

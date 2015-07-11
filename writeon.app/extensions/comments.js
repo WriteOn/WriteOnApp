@@ -20,7 +20,7 @@ define([
 	].join('');
 	var popoverTitleTmpl = [
 		'<span class="clearfix">',
-		'    <a href="#" class="action-remove-discussion pull-right">',
+		'    <a href="#" class="action-remove-discussion pull-right tooltip-trigger tooltip-remove-comments">',
 		'        <i class="icon-trash text-white"></i>',
 		'    </a>',
 		'    “<%- title %>”',
@@ -115,7 +115,7 @@ define([
 		}
 		someReplies = false;
 		sortedCommentEltList = [];
-		var author = storage['author.name'];
+		var author = storage['author.handle'];
 		yList = [];
 		var discussionList = _.sortBy(currentFileDesc.discussionList, function(discussion) {
 			return discussion.selectionEnd;
@@ -250,7 +250,7 @@ define([
 
 	function getDiscussionComments() {
 		var discussion = currentContext.getDiscussion();
-		var author = storage['author.name'];
+		var author = storage['author.handle'];
 		var result = [];
 		if(discussion.commentList) {
 			result = discussion.commentList.map(function(comment) {
@@ -344,7 +344,7 @@ define([
 		}).on('shown.bs.popover', function(evt) {
 			var context = currentContext;
 			var popoverElt = context.getPopoverElt();
-			context.$authorInputElt = $(popoverElt.querySelector('.input-comment-author')).val(storage['author.name']);
+			context.$authorInputElt = $(popoverElt.querySelector('.input-comment-author')).val(storage['author.handle']);
 			context.$contentInputElt = $(popoverElt.querySelector('.input-comment-content'));
 			context.hr = popoverElt.querySelector('hr');
 			movePopover(context.commentElt);
@@ -369,7 +369,7 @@ define([
 
 				var discussion = context.getDiscussion();
 				context.$contentInputElt.val('');
-				closeCurrentPopover();
+				// closeCurrentPopover();
 
 				discussion.commentList = discussion.commentList || [];
 				discussion.commentList.push({
@@ -393,6 +393,7 @@ define([
 					eventMgr.onCommentsChanged(context.fileDesc);
 				}
 				inputElt.focus();
+				storage['author.handle'] = author;
 			});
 
 			var $removeButton = $(popoverElt.querySelector('.action-remove-discussion'));
@@ -432,7 +433,7 @@ define([
 
 			// Save content and author for later
 			previousContent = currentContext.$contentInputElt.val();
-			storage['author.name'] = currentContext.$authorInputElt.val();
+			storage['author.handle'] = currentContext.$authorInputElt.val();
 
 			// Remove highlight
 			try {

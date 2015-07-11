@@ -3,7 +3,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid navbar-inner">
         <div class="menu-panel">
-            <a class="text-primary settings-menu dropdown-toggle btn btn-default" href="#" data-toggle="dropdown" id="settings-menu" title="Menu">
+            <a class="text-primary settings-menu dropdown-toggle btn btn-link" href="#" data-toggle="dropdown" id="settings-menu" title="Menu">
 				<img src="writeon/img/menu-icon.png" class="menu-icon hide">
 				<i class="icon-menu menu-icon"></i>
             </a>
@@ -87,6 +87,8 @@
                         </li>
                         <li><a class="action-download-template" href="#" title="Download as Template"><i class="icon-list-alt"></i> Template</a>
                         </li>
+                        <li class="hide hidden"><a class="action-download-pdf" href="#" title="Download as PDF"><i class="fa fa-file-pdf-o" style="margin-right: .3em;margin-left: .2em;"></i> PDF</a>
+                        </li>
                     </ul>
                 </li>
 				<li>
@@ -110,9 +112,9 @@
             <pre id="wmd-input" class="form-control"><div class="editor-content" contenteditable=true></div><div class="editor-margin"></div></pre>
             <div class="preview-panel">
                 <div class="layout-resizer layout-resizer-preview"></div>
-                <div class="layout-toggler layout-toggler-navbar btn btn-default tooltip-trigger" title="Distraction free mode"><i class="icon-resize-full"></i>
+                <div class="layout-toggler layout-toggler-navbar btn btn-link tooltip-trigger" title="Distraction free mode"><i class="icon-resize-full"></i>
                 </div>
-                <div class="layout-toggler layout-toggler-preview btn btn-default tooltip-trigger open" title="Live preview"><i class="icon-none"></i>
+                <div class="layout-toggler layout-toggler-preview btn btn-link tooltip-trigger open" title="Live preview"><i class="icon-none"></i>
                 </div>
                 <div class="preview-container">
                     <div id="preview-contents">
@@ -187,13 +189,13 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                         <ul class="nav navbar-nav">
                             <li>
-                                <a href="#" class="action-create-folder text-white" title="Create New Storybook"> <i class="icon-plus-squared"></i> New Storybook</a>
+                                <a href="#" class="action-create-folder tooltip-trigger tooltip-create-storybook" title="Create New Storybook"> <i class="icon-plus-squared"></i> New Storybook</a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="tooltip-trigger tooltip-dm-stories"><a href="#" title="Number of Stories"><i class="icon-file"></i> <span class="document-count"></span></a>
+                            <li class="tooltip-trigger tooltip-dm-stories"><a href="#" style="cursor: default;"><i class="icon-file text-primary"></i> <span class="document-count"></span></a>
                             </li>
-                            <li class="tooltip-trigger tooltip-dm-folders"><a href="#" title="Number of Storybooks"><i class="icon-folder"></i> <span class="folder-count"></span></a>
+                            <li class="tooltip-trigger tooltip-dm-folders"><a href="#" style="cursor: default;"><i class="icon-folder text-warning"></i> <span class="folder-count"></span></a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="icon-check"></i> Actions <span class="caret"></span></a>
@@ -216,7 +218,7 @@
                     </div>
                 </div>
             </nav>
-            <div class="panel-group document-list" id="accordion" role="tablist" aria-multiselectable="true"></div>
+            <div class="panel-group document-list" id="accordion" role="tablist" aria-multiselectable="true" style="padding-top: 40px;"></div>
             <p class="confirm-delete hide">The following stories will be deleted locally:</p>
             <p class="choose-folder hide">Please choose a destination storybook:
             </p>
@@ -328,7 +330,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Import from URL</h2>
+                <h2 class="modal-title"><i class="icon-globe text-green"></i> Import from URL</h2>
             </div>
             <div class="modal-body">
                 <p>Please provide a link to a Markdown formatted story (<code>.md</code> or <code>.markdown</code> extension).</p>
@@ -352,7 +354,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Import from disk</h2>
+                <h2 class="modal-title"><i class="icon-hdd text-orange"></i>  Import from disk</h2>
             </div>
             <div class="modal-body">
                 <p>Please select your Markdown files here (<code>.md</code> or <code>.markdown</code> extension):</p>
@@ -370,7 +372,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="modal-title">Convert HTML to Markdown</h2>
+                <h2 class="modal-title"><i class="icon-paste"></i> Convert HTML to Markdown</h2>
             </div>
             <div class="modal-body">
                 <p>Please select your HTML files here:</p>
@@ -384,6 +386,22 @@
             </div>
             <div class="modal-footer">
 				<a href="#" class="btn btn-primary action-convert-html" data-dismiss="modal">Convert</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-download-pdf">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title"><i class="fa fa-file-pdf-o text-danger"></i> Export To PDF</h2>
+            </div>
+            <div class="modal-body">
+                <p>Click the file below to download your story:</p>
+                <div class="display-converted-pdf text-center"></div>
+            </div>
+            <div class="modal-footer">
             </div>
         </div>
     </div>
@@ -549,13 +567,13 @@
             </div>
             <div class="modal-body">
                 <p>
-                    <code><span class="file-title"></span></code> is synchronized in the following location(s): <a href="#" class="tooltip-trigger tooltip-remove-sync-loc">(?)</a>
+                    <code><span class="file-title text-primary"></span></code> is synchronized in the following location(s): <a href="#" class="tooltip-trigger tooltip-remove-sync-loc">(?)</a>
                 </p>
 				<table class="table table-hover table-striped">
 					<thead>
         				<tr>
-          					<th>Story Title</th>
-          					<th>Sync Location</th>
+          					<th>Location</th>
+          					<th>Name</th>
           					<th>Action</th>
         				</tr>
       				</thead>
@@ -565,22 +583,6 @@
             </div>
         </div>
     </div>
-</div>
-<div class="modal fade" id="confirmDelete" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true" style="background: #fff;">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Delete Permanently</h4>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure about this ?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger confirm-delete-button" id="confirm">Delete</button>
-      </div>
-    </div>
-  </div>
 </div>
 <div class="modal fade modal-publish">
     <div class="modal-dialog">
@@ -604,10 +606,10 @@
 					</div>
 					<h2 class="modal-title"><span class="publish-provider-name"></span></h2>
 					<p class="text-left">
-						This will publish <code><span class="file-title"></span></code> to <span class="publish-provider-name"></span>.
+						This will publish <code><span class="file-title text-primary"></span></code> to <span class="publish-provider-name"></span>.
 					</p>
-					                      <div class="form-group">
-                        <label class="col-sm-4 control-label">Format</label>
+					<div class="form-group">
+                        <label class="col-sm-4 control-label"><i class="fa fa-code"></i> Format</label>
                         <div class="col-sm-7">
                             <div class="radio">
                                 <label>
@@ -631,17 +633,16 @@
 			<div class="col-md-7 form-horizontal">
                 <div class="form-horizontal">
                     <div class="form-group modal-publish-ssh">
-                        <label class="col-sm-4 control-label" for="input-publish-ssh-host">Host</label>
+                        <label class="col-sm-4 control-label" for="input-publish-ssh-host"><i class="fa fa-globe"></i> Host</label>
                         <div class="col-sm-7">
-                            <input type="text" id="input-publish-ssh-host" placeholder="hostname.or.ip" class="form-control"> <span class="help-block"> Host must be accessible publicly.
-</span>
+                            <input type="text" id="input-publish-ssh-host" placeholder="hostname.or.ip" class="form-control"> <span class="help-block"> Host must be accessible publicly.</span>
                         </div>
                     </div>
                     <div class="form-group modal-publish-ssh">
-                        <label class="col-sm-4 control-label" for="input-publish-ssh-port">Port (optional)
-                        </label>
+                        <label class="col-sm-4 control-label" for="input-publish-ssh-port">Port</label>
                         <div class="col-sm-2">
-                            <input type="text" id="input-publish-ssh-port" placeholder="22" class="form-control">
+                            <input type="text" id="input-publish-ssh-port" placeholder="22" class="form-control"> 
+							<span class="help-block"><em>Optional</em></span>
                         </div>
                     </div>
                     <div class="form-group modal-publish-ssh">
@@ -657,19 +658,19 @@
                         </div>
                     </div>
                     <div class="form-group modal-publish-github">
-                        <label class="col-sm-4 control-label" for="input-publish-github-repo">Repository</label>
+                        <label class="col-sm-4 control-label" for="input-publish-github-repo"><i class="fa fa-github"></i>  Repository</label>
                         <div class="col-sm-7">
                             <input type="text" id="input-publish-github-repo" placeholder="Repository name or URL" class="form-control">
                         </div>
                     </div>
                     <div class="form-group modal-publish-github">
-                        <label class="col-sm-4 control-label" for="input-publish-github-branch">Branch</label>
+                        <label class="col-sm-4 control-label" for="input-publish-github-branch"><i class="fa fa-code-fork"></i>  Branch</label>
                         <div class="col-sm-7">
                             <input type="text" id="input-publish-github-branch" placeholder="branch-name" class="form-control">
                         </div>
                     </div>
                     <div class="form-group modal-publish-ssh modal-publish-github">
-                        <label class="col-sm-4 control-label" for="input-publish-file-path">File path</label>
+                        <label class="col-sm-4 control-label" for="input-publish-file-path">File Path</label>
                         <div class="col-sm-7">
                             <input type="text" id="input-publish-file-path" placeholder="path/to/file.md" class="form-control">
                             <span class="help-block"> Include both folder and filename. </span>
@@ -678,20 +679,21 @@
                     <div class="form-group modal-publish-gist">
                         <label class="col-sm-4 control-label" for="input-publish-filename">Filename</label>
                         <div class="col-sm-7">
-                            <input type="text" id="input-publish-filename" placeholder="filename" class="form-control">
+							<input type="text" id="input-publish-filename" placeholder="filename" class="form-control">
                         </div>
                     </div>
                     <div class="form-group modal-publish-gist">
-                        <label class="col-sm-4 control-label" for="input-publish-gist-id">Existing ID (optional)</label>
+                        <label class="col-sm-4 control-label" for="input-publish-gist-id">Existing ID </label>
                         <div class="col-sm-7">
-                            <input type="text" id="input-publish-gist-id" placeholder="GistID" class="form-control">
+                            <input type="text" id="input-publish-gist-id" placeholder="GistID" class="form-control"> 
+							<span class="help-block"><em>Optional -  Enter a gistID</em></span>
                         </div>
                     </div>
                     <div class="form-group modal-publish-gist">
-                        <label class="col-sm-4 control-label" for="input-publish-gist-public">Public</label>
+                        <label class="col-sm-4 control-label" for="input-publish-gist-public"><i class="fa fa-eye"></i> Public</label>
                         <div class="col-sm-7">
                             <div class="checkbox">
-                                <input type="checkbox" id="input-publish-gist-public" checked="checked" />
+                                <input type="checkbox" id="input-publish-gist-public" checked="checked" style="margin-left: 0px;"/>
                             </div>
                         </div>
                     </div>
@@ -708,50 +710,102 @@
                         </div>
                     </div>
                     <div class="form-group modal-publish-tumblr">
-                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">Blog hostname</label>
+                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname"><i class="fa fa-tumblr"></i> Blog Hostname</label>
                         <div class="col-sm-7">
                             <input type="text" id="input-publish-tumblr-hostname" placeholder="example.tumblr.com" class="form-control">
                         </div>
                     </div>
                     <div class="form-group modal-publish-wordpress">
-                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname">WordPress site</label>
+                        <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname"><i class="fa fa-wordpress"></i> WordPress Site</label>
                         <div class="col-sm-7">
                             <input type="text" id="input-publish-wordpress-site" placeholder="example.wordpress.com" class="form-control">
-                            <span class="help-block"> <a target="_blank" href="http://jetpack.me/">Jetpack plugin</a> is required for self-hosted sites. </span>
+                            <span class="help-block"> The <a target="_blank" href="http://jetpack.me/">Jetpack plugin</a> is required for self-hosted sites. </span>
                         </div>
                     </div>
                     <div class="form-group modal-publish-blogger modal-publish-tumblr modal-publish-wordpress">
-                        <label class="col-sm-4 control-label" for="input-publish-postid">Update existing post ID (optional)</label>
+                        <label class="col-sm-4 control-label" for="input-publish-postid">Update Existing</label>
                         <div class="col-sm-7">
                             <input type="text" id="input-publish-postid" placeholder="PostID" class="form-control">
+							<span class="help-block"><em>Optional - Enter the PostID</em></span>
                         </div>
                     </div>
                     <div class="form-group modal-publish-bloggerpage">
-                        <label class="col-sm-4 control-label" for="input-publish-pageid">Update existing page ID (optional)</label>
+                        <label class="col-sm-4 control-label" for="input-publish-pageid">Update Existing</label>
                         <div class="col-sm-7">
                             <input type="text" id="input-publish-pageid" placeholder="PageID" class="form-control">
+							<span class="help-block"><em>Optional - Enter the PageID</em></span>
                         </div>
                     </div>
                     <div class="form-group modal-publish-dropbox">
-                        <label class="col-sm-4 control-label" for="input-publish-dropbox-path">File path</label>
+                        <label class="col-sm-4 control-label" for="input-publish-dropbox-path">File Path</label>
                         <div class="col-sm-7">
                             <input type="text" id="input-publish-dropbox-path" placeholder="/path/to/My Story.md" class="form-control">
                             <span class="help-block"> Include both folder and filename. </span>
                         </div>
                     </div>
                     <div class="form-group modal-publish-gdrive">
-                        <label class="col-sm-4 control-label" for="input-publish-gdrive-fileid">File ID (optional)</label>
+                        <label class="col-sm-4 control-label" for="input-publish-gdrive-fileid">File ID</label>
                         <div class="col-sm-7">
                             <input type="text" id="input-publish-gdrive-fileid" placeholder="FileID" class="form-control"> 
 							<span class="help-block">If no file ID is supplied, a new file will be created in your Google Drive root folder.</span>
                         </div>
                     </div>
                     <div class="form-group modal-publish-gdrive">
-                        <label class="col-sm-4 control-label" for="input-publish-gdrive-filename">Force filename (optional)
+                        <label class="col-sm-4 control-label" for="input-publish-gdrive-filename">Force Filename
                         </label>
                         <div class="col-sm-7">
-                            <input type="text" id="input-publish-gdrive-filename" placeholder="Filename" class="form-control"> <span class="help-block">If no file name is supplied, the
-story title will be used.</span>
+                            <input type="text" id="input-publish-gdrive-filename" placeholder="Filename" class="form-control"> <span class="help-block">If no file name is supplied, the story title will be used.</span>
+                        </div>
+                    </div>
+					<div class="form-group modal-publish-ghost modal-publish-wordpress modal-publish-tumblr modal-publish-blogger">
+                        <label class="col-sm-4 control-label"><i class="fa fa-eye"></i> Visibility</label>
+                        <div class="col-sm-7 modal-publish-ghost">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-ghost-status" value="published" checked>Published
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-ghost-status" value="draft">Draft
+                                </label>
+                            </div>
+                        </div>
+                         <div class="col-sm-7 modal-publish-wordpress">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-wordpress-status" value="publish" checked>Published
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-wordpress-status" value="draft">Draft
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 modal-publish-tumblr">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-tumblr-status" value="published" checked>Published
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-tumblr-status" value="draft">Draft
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 modal-publish-blogger">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-blogger-status" value="false" checked>Published
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-blogger-status" value="true">Draft
+                                </label>
+                            </div>
                         </div>
                     </div>
 				</div>
@@ -822,9 +876,21 @@ story title will be used.</span>
             </div>
             <div class="modal-body">
                 <p>
-                    "<span class="file-title"></span>" is published on the following location(s): <a href="#" class="tooltip-trigger tooltip-manage-publications">?</a>
+                    <code><span class="file-title text-primary"></span></code> is published in the following location(s): <a href="#" class="tooltip-trigger tooltip-manage-publications">(?)</a>
                 </p>
-                <div class="publish-list"></div>
+				<table class="table table-hover table-striped">
+					<thead>
+        				<tr>
+          					<th>Site</th>
+          					<th>Location</th>
+          					<th>Visibility</th>
+          					<th>Format</th>
+          					<th>Action</th>
+        				</tr>
+      				</thead>
+					<tbody class="publish-list">
+					</tbody>
+				</table>
             </div>
         </div>
     </div>
@@ -1017,6 +1083,23 @@ story title will be used.</span>
                     <div class="tab-pane" id="tabpane-settings-templates">
                         <div class="form-horizontal">
                             <div class="form-group">
+                                <label class="col-sm-4 control-label" for="frontmatter-settings">Front Matter
+                                    <a href="#" class="tooltip-trigger tooltip-frontmatter-content">(?)</a>
+                                </label>
+                                <div class="col-sm-8">
+                                    <p class="panel text-left" id="frontmatter-settings">
+										<code style="background-color:transparent;">
+											---<br />
+											title: My Published Title<br />
+											tags: tag1, tag2, tag3<br />
+											published: false<br />
+											date: YYYY-MM-DD HH:MM:SS +/-TTTT<br />
+											---
+										</code>
+									</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-sm-4 control-label" for="textarea-settings-default-content">Backlink
                                     <a href="#" class="tooltip-trigger tooltip-default-content">(?)</a>
                                 </label>
@@ -1031,14 +1114,14 @@ story title will be used.</span>
 									<textarea id="textarea-settings-publish-template" class="form-control lg"></textarea>
                                 </div>
                             </div>
-                            <div class="form-group hide">
+                            <div class="form-group hide hidden">
                                 <label class="col-sm-4 control-label" for="textarea-settings-pdf-template">PDF Template <a href="#" class="tooltip-trigger tooltip-pdf-template">(?)</a>
                                 </label>
                                 <div class="col-sm-8">
                                     <textarea id="textarea-settings-pdf-template" class="form-control"></textarea>
                                 </div>
                             </div>
-                            <div class="form-group hide">
+                            <div class="form-group hide hidden">
                                 <label class="col-sm-4 control-label" for="textarea-settings-pdf-options">PDF options
                                     <a href="#" class="tooltip-trigger tooltip-pdf-options">(?)</a>
                                 </label>
@@ -1088,7 +1171,7 @@ for this change to take effect.</span>
                         <p>Some of these are quite powerful, and can result in the total loss of your data. </p>
                         <div class="col-lg-5 col-sm-12 tab-pane-button-container">
                             <a href="#" class="btn btn-block btn-link action-welcome-file" data-dismiss="modal"><i class="icon-help-circled"></i> Load Welcome Guide</a>
-                            <a href="#" class="btn btn-block btn-link action-guide-file" data-dismiss="modal"><i class="icon-keyboard"></i> Load Syntax Guide</a>
+                            <a href="#" class="btn btn-block btn-link action-guide-file" data-dismiss="modal"><i class="icon-keyboard"></i> Load Writing Guide</a>
                             <a href="#" class="btn btn-block btn-link action-welcome-tour" data-dismiss="modal"><i class="icon-comment"></i> Welcome tour</a>
                             <a target="_blank" href="recovery" class="btn btn-block btn-link text-success"><i class="icon-medkit"></i> WriteOn recovery</a>
                         </div>
@@ -1208,5 +1291,37 @@ for this change to take effect.</span>
             </div>
         </div>
     </div>
+</div>
+<div class="modal fade" id="confirmSyncDelete" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true" style="background: #fff;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Delete Permanently</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure about this ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger confirm-delete-button" id="confirm">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="confirmPubDelete" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true" style="background: #fff;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Delete Permanently</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure about this ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger confirm-delete-button" id="confirm">Delete</button>
+      </div>
+    </div>
+  </div>
 </div>
 <div id="dropboxjs" data-app-key="r3vgaee214zfvc7"></div>

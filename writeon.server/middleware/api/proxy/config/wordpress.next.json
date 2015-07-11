@@ -1,0 +1,8 @@
+{
+  "oauth_client_id": "37430",
+  "oauth_client_secret": "Hi9iOhjacD3JzvPAHcGtUiFT3ckf4HdrAsd54xn07xIKtwqd4mgD8C01ZcRDLjgr",
+  "oauth_base_site": "https://public-api.wordpress.com",
+  "oauth_authorize_path": "/oauth2/authorize",
+  "oauth_access_token_path": "/oauth2/token",
+  "redirect_uri": "https://next.writeon.io/api/wordpress/oauth/client"
+}

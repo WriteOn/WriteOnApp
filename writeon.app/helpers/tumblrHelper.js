@@ -70,7 +70,7 @@ define([
             errorMsg = "We `failed` to verify the request token from Tumblr.";
 				function getVerifier() {
                 storage.removeItem("tumblrVerifier");
-                authWindow = utils.popupWindow(constants.TUMBLR_PROXY_URL + 'oauth/client/?oauth_token=' + oauth_object.oauth_token, 'writeon-tumblr-oauth', 800, 600);
+                authWindow = utils.popupWindow(constants.TUMBLR_PROXY_URL + 'oauth/client/?oauth_token=' + oauth_object.oauth_token, 'writeon-tumblr-oauth', 600, 400);
                 authWindow.focus();
                 intervalId = setInterval(function() {
                     if(authWindow.closed === true) {

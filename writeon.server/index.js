@@ -1,4 +1,5 @@
 var express = require('express');
+var session = require('express-session');
 var stormpath = require('express-stormpath');
 var app = express();
 var compression = require('compression');
@@ -9,8 +10,71 @@ var morgan = require('morgan');
 /* 
  * DEBUGGING HEADER ISSUES.
  */
-// This is supposed to help with certaink offlie browser issues
+// This is supposed to help with certain offline browser issues
 // app.disable('etag');
+// 
+
+/* 
+ * FORCE HTTPS
+ */
+// Used to force SSL - required for security ==================================================
+app.use('*', function(req, res, next) {
+    if(req.headers['x-forwarded-proto'] != 'https') {
+		return res.redirect('https://' + req.hostname + req.originalUrl);
+    } 
+	/* ************************* UNCOMMENT THIS after Tyler gets his shit out of www....
+	else if (req.headers.host == 'www.writeon.io') {
+		return res.redirect('https://writeon.io' + req.originalUrl);
+	}
+	*/
+	/\.(eot|ttf|woff|svg|png)$/.test(req.path) && res.header('Access-Control-Allow-Origin', '*');
+	return next();
+});
+
+/* Legacy support ... per domain 
+app.use('*', function(req, res, next) {
+	if (req.headers.host == 'writeon.io' && req.headers['x-forwarded-proto'] != 'https') {
+		return res.redirect('https://writeon.io' + req.url);
+	}
+	else if (req.headers.host == 'www.writeon.io') {
+		return res.redirect('https://writeon.io' + req.url);
+	}
+	else if (req.headers.host == 'next.writeon.io' && req.headers['x-forwarded-proto'] != 'https') {
+		return res.redirect('https://next.writeon.io' + req.url);
+	}
+	else if (req.headers.host == 'beta.writeon.io' && req.headers['x-forwarded-proto'] != 'https') {
+		return res.redirect('https://writeon.io' + req.url);
+	}	
+	else if (req.headers.host == 'mammal-charter.codio.io' && req.headers['x-forwarded-proto'] != 'https') {
+		return res.redirect('https://mammal-charter.codio.io:9501' + req.url);
+	}
+	/\.(eot|ttf|woff|svg)$/.test(req.url) && res.header('Access-Control-Allow-Origin', '*');
+	next();
+});
+*/
+
+/* 
+ * SESSION STORE. A keep it simple session store.
+ * Helps us interact with the front end app
+ *
+ */
+var sesh = {
+  key: 'da39a3ee5e6b4b0d3255bfef95601890afd80709',
+  secret: 'db198a85842c8edca076ba66f35d6022f2a4163c',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {}
+};
+var environment = process.env.WRITEON_ENV;
+
+if (environment != 'dev') {
+  app.set('trust proxy', 1); // trust first proxy
+  sesh.cookie.secure = true; // serve secure cookies
+}
+
+app.use(session(sesh));
+
+
 /* 
  * VIEW ENGINE. A keep it simple view-based http server.
  * Serve meta pages (static resources) that are isolated from the core application middleware

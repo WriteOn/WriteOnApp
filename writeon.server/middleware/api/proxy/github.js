@@ -1,21 +1,33 @@
-module.exports = function(app) {
+module.exports = function(app, req, res) {
 	
     var url = require('url'),
         http = require('http'),
         https = require('https'),
         fs = require('fs'),
-        qs = require('querystring');
+        qs = require('querystring'),
+		configJson = '/config/github.json',
+		environment = 'prod';
 	
+		if(process.env.WRITEON_ENV) {
+			environment = process.env.WRITEON_ENV;
+		}
+		if (environment == 'dev') {
+			configJson = '/config/github.dev.json';
+		}
+		else if (environment == 'next') {
+			configJson = '/config/github.next.json';
+		}
+
     // Load config defaults from JSON file.
     // Environment variables override defaults.
 
     function loadConfig() {
-        var config = JSON.parse(fs.readFileSync(__dirname + '/config/github.json', 'utf-8'));
+        var config = JSON.parse(fs.readFileSync(__dirname + configJson, 'utf-8'));
         for(var i in config) {
             config[i] = process.env[i.toUpperCase()] || config[i];
         }
-        console.log('Github API Configured');
-        // console.log(config);
+        console.log('Github API Configured for ' + environment + '');
+        //console.log(config);
         return config;
     }
     var config = loadConfig();

@@ -274,6 +274,21 @@ define([
 		}
 		version = "v22";
 	}
+	
+		// Look for any session info to add to storage
+		var givenName = sessionStorage.getItem("givenName");
+		var surname = sessionStorage.getItem("surname");
+		var username = sessionStorage.getItem("username");
+		if(givenName) {
+			localStorage['author.givenName'] = givenName;
+		}
+		if(surname) {
+			localStorage['author.surname'] = surname;
+		}
+		if(username) {
+			localStorage['author.username'] = username;
+		}
+
 
 	localStorage.version = version;
     return localStorage;

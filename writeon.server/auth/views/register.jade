@@ -31,7 +31,7 @@ block body
                 div
                   span(style='display:block;text-align:center;') Already have an account?
 
-                  span(style='font-size: 1.2em;display:block;text-align:center;') <a href="#{app.get('stormpathLoginUrl')}" style="font-size:1.2em;"><i class="icon-login"></i> Login</a>
+                  span(style='font-size: 1.2em;display:block;text-align:center;') <a href="#{app.get('stormpathLoginUrl')}" style="font-size:1.2em;" class="login-cta"><i class="icon-login"></i> Login</a>
 
           if app.get('stormpathEnableFacebook') || app.get('stormpathEnableGoogle')
             - var cls = 'small col-sm-8'

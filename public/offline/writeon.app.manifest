@@ -1,10 +1,9 @@
 CACHE MANIFEST
-#Date Sun Jun 14 2015 16:10:00 GMT+0000 (UTC)
-#Version 1.9.17
+#Date Sat Jul 11 2015 11:43:46 GMT+0000 (UTC)
+#Version 1.10.4
 
 CACHE:
 
-/paper
 /pad
 
 # start_inject_resources
@@ -88,6 +87,7 @@ CACHE:
 /writeon/img/device-sync.jpg
 /writeon/img/device-sync.png
 /writeon/img/diagram.png
+/writeon/img/empty-state.png
 /writeon/img/favicon.ico
 /writeon/img/gittip.png
 /writeon/img/google-drive.png

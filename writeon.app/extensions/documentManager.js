@@ -24,32 +24,32 @@ define([
 
     var folderEltTmpl = [
         '<a href="#" class="panel-group-item folder clearfix" data-folder-index="<%= folderDesc.folderIndex %>" data-toggle="collapse" data-target=".modal-document-manager .file-list.<%= id %>">',
-        '<label class="pull-right checkbox" title="Select"><input type="checkbox"></label>',
-        '<button class="pull-right btn btn-default button-delete" title="Delete"><i class="icon-trash text-red"></i></button>',
-        '<button class="pull-right btn btn-default button-rename" title="Rename"><i class="icon-pencil"></i></button>',
-        '<div class="pull-right file-count label label-primary"><%= _.size(folderDesc.fileList) %></div>',
-        '<div class="name"><i class="icon-folder"></i> ',
-        '<%= folderDesc.name %></div>',
+        '<label class="pull-right checkbox" title="Select all stories in storybook"><input type="checkbox"></label>',
+        '<button class="pull-right btn btn-default button-delete" title="Delete storybook"><i class="icon-trash text-red"></i></button>',
+        '<button class="pull-right btn btn-default button-rename" title="Rename storybook"><i class="icon-pencil"></i></button>',
+        '<div class="pull-right file-count label label-primary" title ="<%= _.size(folderDesc.fileList) %> stories in this storybook"><%= _.size(folderDesc.fileList) %></div>',
+        '<div class="name"><i class="icon-book"></i> ',
+        '<span><%= folderDesc.name %></span></div>',
         '<input type="text" class="input-rename form-control hide"></a>',
         '<div class="panel panel-primary file-list collapse <%= id %> clearfix"><%= fileListHtml %></div>'
     ].join('');
     var documentEltTmpl = [
         '<li class="panel-group-item file clearfix" data-file-index="<%= fileDesc.fileIndex %>">',
-        '<label class="pull-right checkbox" title="Select"><input type="checkbox"></label>',
-        '<button class="pull-right btn btn-default button-delete" title="Delete"><i class="icon-trash text-red"></i></button>',
-        '<button class="pull-right btn btn-default button-rename" title="Rename"><i class="icon-pencil"></i></button>',
-        '<div class="name"><%= fileDesc.composeTitle() %></div>',
+        '<label class="pull-right checkbox" title="Select story"><input type="checkbox"></label>',
+        '<button class="pull-right btn btn-default button-delete" title="Delete story"><i class="icon-trash text-red"></i></button>',
+        '<button class="pull-right btn btn-default button-rename" title="Rename story"><i class="icon-pencil"></i></button>',
+        '<div class="name button-rename"><a href="#" class="btn btn-link" title="Rename story"><%= fileDesc.composeTitle() %></a></div>',
         '<input type="text" class="input-rename form-control hide"></li>'
     ].join('');
     var selectFolderEltTmpl = [
-        '<a href="#" class="panel-group-item folder clearfix" data-folder-index="<%= folderDesc.folderIndex %>">',
+        '<a href="#" class="panel-group-item folder clearfix" data-folder-index="<%= folderDesc.folderIndex %>" title="Click to expand/close storybook">',
         '<div class="pull-right file-count label label-primary"><%= _.size(folderDesc.fileList) %></div>',
-        '<div class="name"><i class="icon-forward"></i> ',
+        '<div class="name"><i class="icon-forward text-info"></i> ',
         '<%= folderDesc.name %></div></a>'
     ].join('');
     var selectedDocumentEltTmpl = [
         '<li class="panel-group-item file clearfix text-center">',
-        '<div class="name"><code><%= fileDesc.composeTitle() %></code></div></li>'
+        '<div class="name"><code style="font-size: 1.8em;"><%= fileDesc.composeTitle() %></code></div></li>'
     ].join('');
 
     var isVisible;
@@ -141,13 +141,13 @@ define([
 
         // Root folder
         var documentListHtml = [
-            '<a href="#" class="panel-group-item folder root-folder clearfix" data-toggle="collapse" data-target=".modal-document-manager .file-list.root-folder">',
+            '<a href="#" class="panel-group-item folder root-folder clearfix" data-toggle="collapse" data-target=".modal-document-manager .file-list.root-folder" title="Click to expand/close storybook">',
             '<label class="pull-right checkbox" title="Select"><input type="checkbox"></label>',
             '<div class="pull-right file-count label label-primary">',
             _.size(orphanDocumentList),
             '</div>',
-            '<div class="name"><i class="icon-folder"></i> ',
-            'Default Storybook</div></a>'
+            '<div class="name"><i class="icon-book"></i> ',
+            '<span>Default Storybook</span></div></a>'
         ].join('');
 
         // Add orphan documents
@@ -172,12 +172,12 @@ define([
                     fileDesc: fileDesc
                 });
             }, '').value();
-            fileListHtml = fileListHtml && '<ul class="nav">' + fileListHtml + '</ul>';
             documentListHtml += _.template(folderEltTmpl, {
                 folderDesc: folderDesc,
                 fileListHtml: fileListHtml,
                 id: folderDesc.folderIndex.replace('.', '')
             });
+			fileListHtml = fileListHtml && '<ul class="nav">' + fileListHtml + '</ul>';
         });
 
         documentListElt.innerHTML = documentListHtml;
@@ -286,7 +286,7 @@ define([
                 '<div class="pull-right file-count label label-primary">',
                 _.size(orphanDocumentList),
                 '</div>',
-                '<div class="name"><i class="icon-forward"></i> ',
+                '<div class="name"><i class="icon-forward text-primary"></i> ',
                 'My Storybook</div></a>',
 				'</h4></div>'
             ].join('');

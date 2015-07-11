@@ -1,18 +1,19 @@
-<div class="row">
-    <div class="entry form-group">
-    <div class="input-group col-md-9 left">
-	<span class="input-group-addon" title="Open in <%= publishAttributes.provider.providerName %>">
-		<a class="open-location<%- publishLocationLink ? '' : ' hide' %>"
-           target="_blank" href="<%- publishLocationLink %>"><i class="icon-provider-<%= publishAttributes.provider.providerId %>"></i></a>
-	</span> <input class="form-control" type="text"
-                   value="<%= publishDesc %>" disabled/>
-    </div>
-    <div class="text-right col-md-3 right">
-        <a class="btn btn-primary btn-sm open-location<%- publishLocationLink ? '' : ' hide' %>" title="Open in <%= publishAttributes.provider.providerName %>" 
-           target="_blank" href="<%- publishLocationLink %>"><i class="icon-link-ext-alt"></i></a>
-        <a class="btn btn-danger btn-sm remove-button" title="Delete from <%= publishAttributes.provider.providerName %>"
-           data-publish-index="<%= publishAttributes.publishIndex %>" style="margin-left: 10px;"><i class="icon-trash"></i></a>
-    </div>
-</div>
-</div>
-     
+        <tr>
+          <td scope="row">
+			  <a class="btn btn-link btn-sm open-location<%- publishLocationLink ? '' : ' hide' %>" title="Open in <%= publishAttributes.provider.providerName %>" 
+           		target="_blank" href="<%- publishLocationLink %>">
+				 <i class="icon-provider-<%= publishAttributes.provider.providerId %>"></i> <%= publishAttributes.provider.providerName %></a>
+		  </td>          
+          <td><%= publishAttributes.blogID %> <%= publishAttributes.siteID %> <%= publishAttributes.filename %> <%= publishAttributes.repository %> <%= publishAttributes.branch %> <%= publishAttributes.blogHostname %> <%= publishAttributes.siteID %></td>
+		  <td><%= publishAttributes.visibility %> </td>
+		  <td><%= publishAttributes.format %></td>
+          <td>
+		<!--a class="btn btn-primary btn-sm open-location<%- publishLocationLink ? '' : ' hide' %>" title="Open in <%= publishAttributes.provider.providerName %>" 
+           target="_blank" href="<%- publishLocationLink %>"><i class="icon-link-ext-alt"></i></a-->
+        <a class="btn btn-link btn-sm remove-button" title="Delete <%= publishAttributes.title %> on <%= publishAttributes.provider.providerName %>" 
+           data-publish-index="<%= publishAttributes.publishIndex %>"
+		   data-toggle="modal" data-target="#confirmPubDelete">
+			<i class="icon-trash text-danger"></i>
+		</a>
+			</td>
+        </tr>

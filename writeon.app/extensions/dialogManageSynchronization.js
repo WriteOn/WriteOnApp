@@ -56,17 +56,17 @@ define([
 		$(syncListElt).on('click', '.remove-button', function(e) {
 			//var $removeButtonElt = $(this);
 			e.preventDefault();
-    		$("#confirmDelete").modal('show');
+    		$("#confirmSyncDelete").modal('show');
 		});
 		*/
 		
-		$("#confirmDelete").on('show.bs.modal', function(event) {    // wire up the OK button to dismiss the modal when shown
+		$("#confirmSyncDelete").on('show.bs.modal', function(event) {    // wire up the OK button to dismiss the modal when shown
 			$(".confirm-delete-button").on("click", function(e) {
 				var $removeButtonElt = $(event.relatedTarget);
 				var syncAttributes = fileDesc.syncLocations[$removeButtonElt.data('syncIndex')];
 				fileDesc.removeSyncLocation(syncAttributes);
 				eventMgr.onSyncRemoved(fileDesc, syncAttributes);
-            	$("#confirmDelete").modal('hide');     // dismiss the dialog
+            	$("#confirmSyncDelete").modal('hide');     // dismiss the dialog
         	});
     	});
 		

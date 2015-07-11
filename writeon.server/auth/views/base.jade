@@ -33,6 +33,21 @@ html(class='no-js', lang='en')
       .logo .subtitle{text-align:center;top:170px;width: 100%;}.transition{-webkit-transition:all ease-in-out 1.5s;transition:all ease-out 1.5s}.transparent{opacity:0}.scale{-webkit-transform:scale(1.04);-ms-transform:scale(1.04);transform:scale(1.04)}.navbar .nav2{float:right}.navbar .file-title-navbar{font-size:20px;line-height:1.6;padding: 3px 10px;margin-top: 12px;}.file-title-navbar i{line-height:1}.img{margin:20px auto;display:block}.social{font-size:26px;margin:0 16px 5px}.social i::before{margin-right:8px;margin-left:-3px}.social a{color:#555}.social img{width:100px;height:25px}.container{margin-bottom:40px}.dark{background-color:#aeaeae}.inset-shadow{-webkit-box-shadow:inset 0 4px 16px rgba(0,0,0,.2);box-shadow:inset 0 4px 16px rgba(0,0,0,.2)}
       .menu-img{background-image:url(writeon/img/menu.png);background-size:auto 240px;background-repeat:no-repeat;background-position:30%;height:240px}.offline-img{background-image:url(writeon/img/offline-editor.png);background-size:auto 260px;background-repeat:no-repeat;background-position:30%;height:206px}hr{margin:1em 0}
 
+    script.
+      (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+      (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-56730909-1');
+      //ga('send', 'pageview');
+
     | <!--[if lt IE 9]>
     |  <script src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'></script>
     |  <script src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'></script>
@@ -59,7 +74,7 @@ html(class='no-js', lang='en')
     | new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     | j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     | '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    | })(window,document,'script','dataLayer','#{googleTagContainer}');</script>
+    | })(window,document,'script','dataLayer','GTM-MK3FZ3');</script>
     | <!-- End Google Tag Manager -->
 
     block body

@@ -30,11 +30,33 @@ app.get('/signin', function(req, res) {
 // Let's also lock this down with stormpath, by directory groups
 //app.get('/pad', stormpath.groupsRequired(['Tier 1', 'Tier 2', 'Admin', 'Beta'], false), function(req, res) {
 app.get('/pad', stormpath.authenticationRequired, function(req, res) {
-    res.renderDebug('pad.html'), extend({
-    givenName: req.user.givenName,
-    surname: req.user.surname,
-    username: req.user.username
+    var user = req.user;
+	res.renderDebug('pad.html'), extend({
+    givenName: user.givenName,
+    surname: user.surname,
+    username: user.username
   });
+	req.session.username = user.email;
+	req.session.surname = user.surname;
+	req.session.givenName = user.givenName;
+});
+	
+// Serve pad-offline.html in /off
+// Let's also lock this down with stormpath, by directory groups
+//app.get('/off', stormpath.groupsRequired(['Tier 1', 'Tier 2', 'Admin', 'Beta'], false), function(req, res) {
+app.get('/off', stormpath.authenticationRequired, function(req, res) {
+    var user = req.user;
+	res.renderDebug('pad-offline.html'), extend({
+    givenName: user.givenName,
+    surname: user.surname,
+    username: user.username
+  });
+	req.session.username = user.email;
+	req.session.surname = user.surname;
+	req.session.givenName = user.givenName;
+});
+app.get('/norequire', function(req, res) {
+    res.renderDebug('norequire.html');
 });
 	
 // Serve paper.html in /paper

@@ -13,8 +13,8 @@ module.exports = function(app, stormpath) {
 //app.set('view engine', 'jade');
 app.use(stormpath.init(app, {
     apiKeyFile: __dirname + '/apiKey.properties',
-	// apiKeyId: '69ZDB6J0NHEE4LEBI81KPQP76',
-	// apiKeySecret: 'oGibdMjhQn+nKRXICQEmldp+CKydCj5Q+fLslVWm7jM',
+	// apiKeyId: '',
+	// apiKeySecret: '',
     application: 'https://api.stormpath.com/v1/applications/4SgKKI7uk6OY7vbVt8uW4c',
     secretKey: 'mgUkj8P4eFt8Gxo9B9&X4Ih9d0w#NWAlZU&vQ88RqmysRz0lC6',
     googleAnalyticsID: 'UA-56730909-3',
@@ -68,6 +68,13 @@ app.use(stormpath.init(app, {
     googleLoginFailedView: __dirname + '/views/google_login_failed.jade',
     facebookLoginFailedView: __dirname + '/views/facebook_login_failed.jade',
     unauthorizedView: __dirname + '/views/unauthorized.jade',
+	postLoginHandler: function(account, req, res, next) {
+    	console.log('Username ', account.email, ' just logged in to WriteOn.');
+		req.session.username=account.email;
+		req.session.surname=account.surname;
+		req.session.givenName=account.givenName;
+    	next();
+  	}
 	
 }));
 

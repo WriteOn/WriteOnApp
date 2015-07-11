@@ -449,16 +449,26 @@ define([
 	};
 
 	// Export data on disk
-	utils.saveAs = function(content, filename) {
+	utils.saveAs = function(content, filename, doctype) {
 		if(saveAs !== undefined && !/constructor/i.test(window.HTMLElement) /* safari does not support saveAs */) {
-			if(_.isString(content)) {
+			if(doctype == 'pdf') {
+				content = new Blob([
+					content
+				], {
+					type: 'application/pdf;charset=utf-8'
+				});
+				doctype = 'pdf';
+			}
+			else if(_.isString(content)) {
 				content = new Blob([
 					content
 				], {
 					type: "text/plain;charset=utf-8"
 				});
+				doctype = 'plaintext';
 			}
-			saveAs(content, filename);
+			saveAs(content, filename, doctype);
+			// console.log('saved as ' + doctype + '.');
 		}
 		else {
 			if(_.isString(content)) {

@@ -458,11 +458,11 @@ define([
 				// Or on the first link if any
 				$elt.find('button:first').focus();
 				// Or on the first input if any
-				// $elt.find("input:enabled:visible:first").focus();
+				 $elt.find("input:enabled:visible:first").focus();
 			}, 50);
 		}).on('hidden.bs.modal', '.modal', function() {
 			// Focus on the editor when modal is gone
-			// editor.focus();
+			editor.focus();
 			// Revert to current theme when settings modal is closed
 			applyTheme(window.theme);
 		}).on('keypress', '.modal', function(e) {
@@ -634,11 +634,13 @@ define([
 			'Thanks for supporting WriteOn by adding a backlink in your stories! You can also leave this blank - thanks for using WriteOn!',
 		].join(''), "right", "hover", "modal");
 		utils.createTooltip(".tooltip-delete", '<p>This only deletes the local story.</p><p>Any synchronized or published stories will not be affected.</p>', "right", "hover", "modal");
+		utils.createTooltip(".tooltip-frontmatter-content", "You can use YAML front matter to specify the title, status, date and tags of your published stories on Blogger, Ghost, Tumblr, and Wordpress. Using <strong><em>published: false</em></strong> will publish your story as a DRAFT. <br /><br />Copy/paste this example at the top of your story text. Don't worry, Fron Matter is only instructions to the software, and won't be seen in your story text by readers.", "right", "hover", "modal");
 		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".tooltip-publish-template", settingsTemplateTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".tooltip-pdf-template", settingsTemplateTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".tooltip-dropbox", settingsDropboxTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".tooltip-mywriteon", settingsMyWriteonTooltipHTML, "right", "hover", "modal");
+		utils.createTooltip(".tooltip-create-storybook", "Create new Storybook", "bottom", "hover", "modal");
 		utils.createTooltip(".tooltip-dm-stories", "Number of Stories", "bottom", "hover", "modal");
 		utils.createTooltip(".tooltip-dm-folders", "Number of Storybooks", "bottom", "hover", "modal");
 		utils.createTooltip(".tooltip-remove-sync-loc", "Removing a synchronized location will not delete the local story.", "right", "hover", "modal");
@@ -646,7 +648,10 @@ define([
 		utils.createTooltip(".tooltip-pdf-options", settingsPdfOptionsTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".layout-toggler-navbar", "Distraction free mode", "left", "hover", ".layout-wrapper-l3");		
 		utils.createTooltip(".layout-toggler-preview", "Live preview", "left", "hover", ".layout-wrapper-l3");		
+		utils.createTooltip(".tooltip-open-guide", "Open the Writer's Guide To Writing", "bottom", "hover", ".layout-wrapper-l3");		
+		utils.createTooltip(".tooltip-remove-comments", "Remove comments", "bottom", "hover", ".layout-wrapper-l3");		
 		
+		//
 		// Close tooltips on click  
 		$('.tooltip-trigger').click(function(event) {
     		$('.tooltip-trigger').tooltip('hide');

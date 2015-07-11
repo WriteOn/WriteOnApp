@@ -258,12 +258,18 @@ define([
 		$('.story-toggle').on('click', function() {
         	woSlidebars.slidebars.toggle('right');
       	});
-		$('.syncing-menu > .dropdown').on('click', function() {
-        	woSlidebars.slidebars.close();
-      	});
-		$('.button-open-discussion').on('click', function() {
-        	woSlidebars.slidebars.close();
-      	});
+			$('.syncing-menu > .dropdown').on('click', function() {
+        		woSlidebars.slidebars.close();
+      		});
+			$('.wmd-button-group1, .wmd-button-group2, .wmd-button-group3, .wmd-button-group4, .wmd-button-group5').on('click', function() {
+        		woSlidebars.slidebars.close();
+      		});			
+			$('.layout-wrapper-l3').on('click', function() {
+        		woSlidebars.slidebars.close();
+      		});
+			$('.action-guide-file').on('click', function() {
+        		woSlidebars.slidebars.close();
+      		});
 		this.toggle = function() {
 			woSlidebars.slidebars.close();
 		};
@@ -608,6 +614,7 @@ define([
 		previewPanel.halfSize = true;
 		previewToggler.$elt.click(_.bind(previewPanel.toggle, previewPanel));
 
+		
 
 		// Open WriteOn Paper if failing to open the preview
 		previewPanel.$elt.on('show.layout.toggle', function() {
@@ -622,7 +629,6 @@ define([
 		documentPanel.createBackdropToggler(true);  // or createToggler()
 		documentPanel.$elt.find('.toggle-button').click(_.bind(documentPanel.toggle, documentPanel));
 		documentPanel.$elt.on('click', 'ul.nav li .file', _.bind(documentPanel.toggle, documentPanel, false)); // Hide  documentPanel when clicking on a non collapse or dropdown element
-		
 		storyPanel.isOpen = false;
 		storyPanel.storyToggle();
 		storyPanel.$elt.on('click', 'ul.nav li .file', _.bind(storyPanel.toggle, storyPanel, false)); // Hide storyPanel when clicking on a story to open
