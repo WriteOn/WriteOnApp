@@ -145,7 +145,7 @@ define([
 
 		var data = couchdbProvider.serializeContent(content, discussionList);
 		var tags = getTags(frontMatter, title);
-		couchdbHelper.uploadDocument(syncAttributes.id, title, data, tags, syncAttributes.rev, function(error, result) {
+		couchdbHelper.syncDocument(syncAttributes.id, title, data, tags, syncAttributes.rev, function(error, result) {
 			if(error) {
 				return callback(error, true);
 			}

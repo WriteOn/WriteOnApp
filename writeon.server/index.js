@@ -10,7 +10,7 @@ var morgan = require('morgan');
 /* 
  * DEBUGGING HEADER ISSUES.
  */
-// This is supposed to help with certaink offlie browser issues
+// This is supposed to help with certain offline browser issues
 // app.disable('etag');
 // 
 
@@ -22,9 +22,11 @@ app.use('*', function(req, res, next) {
     if(req.headers['x-forwarded-proto'] != 'https') {
 		return res.redirect('https://' + req.hostname + req.originalUrl);
     } 
+	/* ************************* UNCOMMENT THIS after Tyler gets his shit out of www....
 	else if (req.headers.host == 'www.writeon.io') {
-		return res.redirect('https://' + req.hostname + req.originalUrl);
+		return res.redirect('https://writeon.io' + req.originalUrl);
 	}
+	*/
 	/\.(eot|ttf|woff|svg|png)$/.test(req.path) && res.header('Access-Control-Allow-Origin', '*');
 	return next();
 });
