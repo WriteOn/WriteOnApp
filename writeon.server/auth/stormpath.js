@@ -8,7 +8,6 @@
 
 module.exports = function(app, stormpath) {
 	
-	
 // get us some auth middleware loaded up...docs via stormpath.com
 //app.set('view engine', 'jade');
 app.use(stormpath.init(app, {
@@ -69,10 +68,18 @@ app.use(stormpath.init(app, {
     facebookLoginFailedView: __dirname + '/views/facebook_login_failed.jade',
     unauthorizedView: __dirname + '/views/unauthorized.jade',
 	postLoginHandler: function(account, req, res, next) {
-    	console.log('Username ', account.email, ' just logged in to WriteOn.');
-		req.session.username=account.email;
-		req.session.surname=account.surname;
-		req.session.givenName=account.givenName;
+		var sesh = req.session;
+		var accountID = account.href;
+  		accountID = accountID.substring(accountID.lastIndexOf("/") + 1, accountID.length);
+		sesh.username=account.email;
+		sesh.surname=account.surname;
+		sesh.givenname=account.givenName;
+		sesh.userid=accountID;
+		app.set("userid", accountID);
+		app.set("username",account.email);
+		app.set("surname", account.surname);
+		app.set("givenname", account.givenName);
+		console.log('Hi there ' + sesh.givenname + ' ' + account.surname + ', you just signed in as ', account.email, ' (' + accountID + ').');
     	next();
   	}
 	

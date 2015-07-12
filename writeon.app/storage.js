@@ -1,6 +1,7 @@
 // Setup an empty localStorage or upgrade an existing one
 define([
-    "underscore"
+    "jquery",
+	"underscore"
 ], function(_) {
 
     function retrieveIndexArray(storeIndex) {
@@ -275,12 +276,13 @@ define([
 		version = "v22";
 	}
 	
-		// Look for any session info to add to storage
-		var givenName = sessionStorage.getItem("givenName");
-		var surname = sessionStorage.getItem("surname");
-		var username = sessionStorage.getItem("username");
-		if(givenName) {
-			localStorage['author.givenName'] = givenName;
+		// Look for any session info stored in DOM to add to storage
+		var givenname = $('author').data('givenname');
+		var surname = $('author').data('surname');
+		var username = $('author').data('username');
+		var userid = $('author').data('userid');
+		if(givenname) {
+			localStorage['author.givenname'] = givenname;
 		}
 		if(surname) {
 			localStorage['author.surname'] = surname;
@@ -288,6 +290,10 @@ define([
 		if(username) {
 			localStorage['author.username'] = username;
 		}
+		if(userid) {
+			localStorage['author.userid'] = userid;
+		}
+        console.log('Hello ' + localStorage['author.givenname'] + ' ' + localStorage['author.surname'] + '. Your username is ' + localStorage['author.username'] + ' (' + localStorage['author.userid'] + ')');
 
 
 	localStorage.version = version;

@@ -2,7 +2,7 @@
 exports.bootmywriteon = function(req, res) {
 
 	//var mywriteonserver = req.param('mywriteonserver');
-    var mywriteonserver = 'https://writeon.couchappy.com';
+    var mywriteonserver = 'https://cloud1.writeon.io';
     var mywriteondb = req.param('mywriteondb');
     var mywriteonurl = mywriteonserver + '/' + mywriteondb;
 	if(!mywriteondb) {

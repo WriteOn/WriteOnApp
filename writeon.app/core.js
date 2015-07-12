@@ -627,6 +627,7 @@ define([
 		utils.createTooltip(".action-dm", "Manage Stories", "bottom", "hover", ".story-panel");		
 		utils.createTooltip(".story-menu", "Import Stories", "bottom", "hover", ".story-panel");		
 		//utils.createTooltip(".settings-menu", "My Settings", "right", "hover", "body");
+		utils.createTooltip(".tooltip-offline", "You are offline...and that's a great time to write ✒", "bottom", "hover", "body");		
 
 		// General purpose helpers. This should be in json
 		utils.createTooltip(".tooltip-lazy-rendering", 'Disable preview rendering while typing in order to offload CPU. Refresh preview after 500 ms of inactivity.', "right", "hover", "modal");
