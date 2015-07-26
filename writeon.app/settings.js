@@ -63,6 +63,9 @@ define([
         // No more requirement to use the database in the URL for the API
         couchdbUrl: constants.COUCHDB_SERVER,
         couchdbauth: constants.COUCHDB_BASIC_AUTH,
+		datastore: constants.DATA_STORE,
+		dataservice: constants.DATA_SERVER,
+		dataauth: constants.DATA_BASIC_AUTH,		
 		extensionSettings: {}
 	};
 

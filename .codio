@@ -13,7 +13,7 @@
 	    "Build writeon.app": "gulp build",
 	    "Release (Patch)": "gulp beep",
         "Release (Minor)": "gulp boop",
-        "Release (Minor)": "gulp bop",
+        "Release (Major)": "gulp bop",
 	    "Storpmath -> Mailchimp": "stormpath-mailchimp --directory 'WriteOn Directory' --list 'WriteOn User Directory'",
 	    "Storpmath Facebook -> Mailchimp": "stormpath-mailchimp --directory 'WriteOn Facebook' --list 'WriteOn User Directory'",
 	    "Storpmath Google -> Mailchimp": "stormpath-mailchimp --directory 'WriteOn Google' --list 'WriteOn User Directory'"

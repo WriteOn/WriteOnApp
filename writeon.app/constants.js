@@ -61,6 +61,9 @@ define([], function() {
     constants.COUCHDB_SERVER = "https://cloud1.writeon.io";
     constants.COUCHDB_BASIC_AUTH = "dGhpYWJvcnRzcGVjaWFsbGVldGhlcmVuOmJTV2RwRVlKMjhHbEdFRWZXTkJyeWFtdA==";
     constants.COUCHDB_AUTH_SERVER = "aHR0cHM6Ly90aGlhYm9ydHNwZWNpYWxsZWV0aGVyZW46YlNXZHBFWUoyOEdsR0VFZldOQnJ5YW10QGNsb3VkMS53cml0ZW9uLmlv";
+	constants.DATA_STORE = "stories";
+	constants.DATA_SERVICE = "https://cloud1.writeon.io";
+	constants.DATA_BASIC_AUTH = "dG9jdGlvbmx5YXJ6YW5kZXNlY2lhbGx5OmsxT2lxa2RZRFk4T1gyMGlrU1BCUDRE";
     
      // PRODUCTION ENVIRONMENT VARIABLE CONSTANTS 
 	if(location.hostname.indexOf("writeon.io") === 0) {

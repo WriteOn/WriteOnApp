@@ -13,6 +13,9 @@ define([
 
 	var couchdbHelper = {};
 	
+    var writeonservice = settings.dataservice;
+    var writeonauth = settings.dataauth;            //base64 encoded
+    var mywriteondb = settings.datastore;
 
 	// Listen to offline status changes
 	var isOffline = false;
@@ -32,18 +35,15 @@ define([
     
 	couchdbHelper.createmywriteondb = function(mywriteondb, callback) {
 	// set the base couchdb server
-    var mywriteonserver = settings.couchdbserver;
-    var mywriteonauth = settings.couchdbauth;            //base64 encoded
-    // var mywriteondb = utils.encodeBase64(mywriteondb);
     var result;
  
 	    var task = new AsyncTask();
 		task.onRun(function() {
         
         var xhr = new XMLHttpRequest();
-				xhr.open('PUT', mywriteonserver, true);
+				xhr.open('PUT', writeonservice, true);
 				xhr.setRequestHeader('Content-type', 'application/json');
-                xhr.setRequestHeader('Authorization', 'Basic ' + mywriteonauth + ''); 
+                xhr.setRequestHeader('Authorization', 'Basic ' + writeonauth + ''); 
 				xhr.onreadystatechange = function() {
 					if(this.readyState == 4) {
 						if(this.status == 201) {
@@ -66,7 +66,7 @@ define([
 		});
 		task.onSuccess(function() {
 			callback(undefined, result);
-            // couchdbHelper.configuremywriteondb(mywriteondb);
+            couchdbHelper.configuremywriteondb(mywriteondb);
 		});
 		task.onError(function(error) {
 			callback(error);
@@ -79,9 +79,7 @@ define([
     
 	couchdbHelper.configuremywriteondb = function(mywriteondb, callback) {
 	//set the base couchdb server
-    var mywriteonserver = settings.couchdbserver;
-    var mywriteondesignurl = mywriteonserver + '/_design/';
-    var mywriteonauth = settings.couchdbauth;        //base64 encoded       
+    var mywriteondesignurl = writeonservice + '/_design/';
     var result;
  
 	    var task = new AsyncTask();
@@ -92,7 +90,7 @@ define([
 				type: 'PUT',
 				url: mywriteondesignurl + 'validate',
 				headers: {
-                    Authorization: 'Basic ' + mywriteonauth + '',
+                    Authorization: 'Basic ' + writeonauth + '',
 					Accept: 'application/json'
 				},
                 contentType: 'application/json',
@@ -113,7 +111,7 @@ define([
 				type: 'PUT',
 				url: mywriteondesignurl + 'by_update',
 				headers: {
-                    Authorization: 'Basic ' + mywriteonauth + '',
+                    Authorization: 'Basic ' + writeonauth + '',
 					Accept: 'application/json'
 				},
                 contentType: 'application/json',
@@ -138,7 +136,7 @@ define([
 				type: 'PUT',
 				url: mywriteondesignurl + 'by_tag_and_update',
 				headers: {
-                    Authorization: 'Basic ' + mywriteonauth + '',
+                    Authorization: 'Basic ' + writeonauth + '',
 					Accept: 'application/json'
 				},
                 contentType: 'application/json',
@@ -262,7 +260,7 @@ define([
 			}
 			$.ajax({
 				type: 'PUT',
-				url: settings.couchdbUrl,
+				url: writeonservice,
 				contentType: 'application/json',
 				dataType: 'json',
 				data: JSON.stringify({
@@ -301,7 +299,7 @@ define([
 		task.onRun(function() {
 			$.ajax({
 				type: 'GET',
-				url: settings.couchdbUrl + '/_changes?' + $.param({
+				url: writeonservice + '/_changes?' + $.param({
 					filter: '_changes/story',
 					include_docs: true,
 					attachments: true,
@@ -349,7 +347,7 @@ define([
 					return task.chain(recursiveDownloadContent);
 				}
 				$.ajax({
-					url: settings.couchdbUrl + '/' + encodeURIComponent(document._id),
+					url: writeonservice + '/' + encodeURIComponent(document._id),
 					headers: {
 						Accept: 'application/json'
 					},
@@ -391,7 +389,7 @@ define([
 				tag
 			]) : undefined;
 			$.ajax({
-				url: settings.couchdbUrl + ddoc,
+				url: dataservice + ddoc,
 				data: {
 					start_key: startKey,
 					end_key: endKey,
@@ -422,7 +420,7 @@ define([
 		task.onRun(function() {
 			$.ajax({
 				type: 'POST',
-				url: settings.couchdbUrl + '/_bulk_docs',
+				url: writeonservice + '/_bulk_docs',
 				data: JSON.stringify({
 					docs: docs.map(function(doc) {
 						return {
