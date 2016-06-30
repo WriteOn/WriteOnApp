@@ -1,0 +1,8 @@
+{
+  "oauth_client_id": "5395e6ba67b4",
+  "oauth_client_secret": "e8978aca58ce25fc8aa2843184ca11b247d519b3",
+  "oauth_base_site": "https://medium.com",
+  "oauth_authorize_path": "/m/oauth2/authorize",
+  "oauth_access_token_path": "/v1/tokens",
+  "redirect_uri": "https://writeon-thinq4yourself-1.c9users.io/api/medium/oauth/client"
+}

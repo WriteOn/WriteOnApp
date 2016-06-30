@@ -599,6 +599,7 @@
 						<span class="fa fa-code-fork fa-3x modal-publish-gist"></span>
 						<span class="fa fa-bars text-black fa-3x modal-publish-ghost"></span>
 						<img class="modal-publish-blogger modal-publish-bloggerpage" src="writeon/img/blogger-logo.png">
+						<span class="fa fa-medium fa-3x modal-publish-medium" style="color: #14C867;"></span>
 						<span class="fa fa-tumblr fa-3x modal-publish-tumblr" style="color: #35506B;"></span>
 						<span class="fa fa-wordpress fa-3x modal-publish-wordpress" style="color: #2990B3;"></span>
 						<span class="fa fa-dropbox fa-3x text-primary modal-publish-dropbox"></span>
@@ -709,6 +710,12 @@
                             <input type="text" id="input-publish-blogger-url" placeholder="http://example.blogger.com/" class="form-control">
                         </div>
                     </div>
+                    <div class="form-group modal-publish-medium">
+                        <label class="col-sm-4 control-label" for="input-publish-medium-username"><i class="fa fa-medium"></i> Medium Username</label>
+                        <div class="col-sm-7">
+                            <input type="text" id="input-publish-medium-username" placeholder="@myusername" class="form-control">
+                        </div>
+                    </div>
                     <div class="form-group modal-publish-tumblr">
                         <label class="col-sm-4 control-label" for="input-publish-tumblr-hostname"><i class="fa fa-tumblr"></i> Blog Hostname</label>
                         <div class="col-sm-7">
@@ -757,7 +764,8 @@
                             <input type="text" id="input-publish-gdrive-filename" placeholder="Filename" class="form-control"> <span class="help-block">If no file name is supplied, the story title will be used.</span>
                         </div>
                     </div>
-					<div class="form-group modal-publish-ghost modal-publish-wordpress modal-publish-tumblr modal-publish-blogger">
+                    
+					<div class="form-group modal-publish-ghost modal-publish-wordpress modal-publish-medium modal-publish-tumblr modal-publish-blogger">
                         <label class="col-sm-4 control-label"><i class="fa fa-eye"></i> Visibility</label>
                         <div class="col-sm-7 modal-publish-ghost">
                             <div class="radio">
@@ -804,6 +812,18 @@
                             <div class="radio">
                                 <label>
                                     <input type="radio" name="radio-publish-blogger-status" value="true">Draft
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 modal-publish-medium">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-medium-status" value="false" checked>Published
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radio-publish-medium-status" value="true">Draft
                                 </label>
                             </div>
                         </div>

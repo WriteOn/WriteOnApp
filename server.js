@@ -2,7 +2,7 @@
  * LOAD APPLICATION MONITORING.
  */
 // Load Newrelic
-require('newrelic');
+//require('newrelic');
 
 
 /* 

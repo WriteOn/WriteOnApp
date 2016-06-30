@@ -90,7 +90,7 @@ Once you are happy with your story, you can publish it on different platforms di
 
 You can publish your story by opening the <i class="icon-share"></i> **Publish** menu and by choosing a platform. In the dialog box, you can choose the publication format:
 
-- Markdown, to publish the Markdown text on a website that can interpret it (**Tumblr**, **Wordpress**, and **GitHub** for instance),
+- Markdown, to publish the Markdown text on a website that can interpret it (**Medium**, **Tumblr**, **Wordpress**, and **GitHub** for instance),
 - HTML, to publish the story converted into HTML (on a blog for example)
 - Template, to have a full control of the output using the built-in template.
 

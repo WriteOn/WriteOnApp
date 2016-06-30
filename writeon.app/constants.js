@@ -35,6 +35,7 @@ define([], function() {
 	constants.GOOGLE_CLIENT_ID = "1017251498254-44f8se5ptroh284ie3ljl2t99s8vk209.apps.googleusercontent.com";
 	constants.GITHUB_CLIENT_ID = "af6858e3fa3165986ce7";
 	constants.WORDPRESS_CLIENT_ID = "37535";
+	constants.MEDIUM_CLIENT_ID = '5395e6ba67b4';
 
 	// API dependent
 	constants.BASE_URL = constants.MAIN_URL;
@@ -50,10 +51,12 @@ define([], function() {
 	constants.GHOST_API_URL = "api/ghost/";
 	constants.GITHUB_API_URL = "api/github/";
 	constants.TUMBLR_API_URL = "api/tumblr/";
+	constants.MEDIUM_API_URL = "/api/medium/";
 	constants.WORDPRESS_API_URL = "api/wordpress/";
 	constants.GATEKEEPER_URL = "api/github/";
 	constants.TUMBLR_PROXY_URL = "api/tumblr/";
     constants.GHOST_PROXY_URL = "api/ghost/";
+	constants.MEDIUM_PROXY_URL = "api/medium/";
 	constants.WORDPRESS_PROXY_URL = "api/wordpress/";
 	
     // Cloud data layer dependent
@@ -70,6 +73,7 @@ define([], function() {
 	else if(location.hostname.indexOf("beta.writeon.io") === 0) {
         constants.BASE_URL = "https://beta.writeon.io/";
 		constants.GITHUB_CLIENT_ID = "302c5c415085534c1346";
+		constants.MEDIUM_CLIENT_ID = '5395e6ba67b4';
 		constants.WORDPRESS_CLIENT_ID = "38332";
         constants.COUCHDB_DB = "stories";
         constants.COUCHDB_SERVER = "https://cloud2.writeon.io";
@@ -80,6 +84,7 @@ define([], function() {
 		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2";
         constants.BASE_URL = "https://next.writeon.io/";
 		constants.GITHUB_CLIENT_ID = "e4fb02a63b777728ee2d";
+		constants.MEDIUM_CLIENT_ID = '5395e6ba67b4';
 		constants.WORDPRESS_CLIENT_ID = "37430";
         constants.COUCHDB_DB = "stories";
         constants.COUCHDB_SERVER = "https://cloud2.writeon.io";
@@ -90,6 +95,7 @@ define([], function() {
 		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2";
         constants.BASE_URL = "https://mammal-charter.codio.io:9501/";
 		constants.GITHUB_CLIENT_ID = "235008232d0259c2f036";
+		constants.MEDIUM_CLIENT_ID = '5395e6ba67b4';
 		constants.WORDPRESS_CLIENT_ID = "37431";
         constants.COUCHDB_DB = "stories";
         constants.COUCHDB_SERVER = "https://cloud3.writeon.io";
@@ -98,6 +104,7 @@ define([], function() {
 		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2";
         constants.BASE_URL = "https://mammal-charter.codio.io:9500/";
 		constants.GITHUB_CLIENT_ID = "235008232d0259c2f036";
+		constants.MEDIUM_CLIENT_ID = '5395e6ba67b4';
 		constants.WORDPRESS_CLIENT_ID = "37431";
         constants.COUCHDB_DB = "stories";
         constants.COUCHDB_SERVER = "https://cloud3.writeon.io";
@@ -106,6 +113,7 @@ define([], function() {
 		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2";
         constants.BASE_URL = "http://mammal-charter.codio.io:3000/";
 		constants.GITHUB_CLIENT_ID = "235008232d0259c2f036";
+		constants.MEDIUM_CLIENT_ID = '5395e6ba67b4';
 		constants.WORDPRESS_CLIENT_ID = "37431";
         constants.COUCHDB_DB = "stories";
         constants.COUCHDB_SERVER = "https://cloud3.writeon.io";
@@ -114,6 +122,7 @@ define([], function() {
 		constants.GOOGLE_ANALYTICS_ACCOUNT_ID = "UA-56730909-2";
         constants.BASE_URL = "https://mammal-charter.codio.io:9501/";
 		constants.GITHUB_CLIENT_ID = "235008232d0259c2f036";
+		constants.MEDIUM_CLIENT_ID = '5395e6ba67b4';
 		constants.WORDPRESS_CLIENT_ID = "37431";
         constants.COUCHDB_DB = "stories";
         constants.COUCHDB_SERVER = "https://cloud3.writeon.io";

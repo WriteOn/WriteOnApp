@@ -6,7 +6,7 @@ define([
 ], function($, _, crel, Extension) {
 
     var buttonPublish = new Extension("buttonPublish", 'Publish', false, true);
-    buttonPublish.settingsBlock = '<p>Enables publishing local stories to other platforms like Wordpress, Tumblr, Blogger and more.</p>';
+    buttonPublish.settingsBlock = '<p>Enables publishing local stories to other platforms like Medium, Wordpress, Tumblr, Blogger and more.</p>';
 
     var $button;
     var currentFileDesc;

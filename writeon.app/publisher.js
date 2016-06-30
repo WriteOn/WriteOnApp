@@ -13,7 +13,6 @@ define([
 	"classes/AsyncTask",
 	"providers/bloggerProvider",
 	// "providers/bloggerPageProvider",
-	// "providers/ghostProvider",
 	//"providers/dropboxProvider",
 	"providers/gistProvider",
 	"providers/githubProvider",
@@ -23,6 +22,8 @@ define([
 	"providers/sshProvider",
 	"providers/tumblrProvider",
 	"providers/wordpressProvider",
+	"providers/mediumProvider",
+	// "providers/ghostProvider",
 	"pace",
 	"https://cdn.blockspring.com/blockspring.js"
 ], function($, _, constants, utils, storage, settings, eventMgr, fileSystem, fileMgr, MonetizeJS, Provider, AsyncTask, pace) {

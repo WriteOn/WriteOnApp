@@ -4,5 +4,5 @@
   "oauth_base_site": "https://public-api.wordpress.com",
   "oauth_authorize_path": "/oauth2/authorize",
   "oauth_access_token_path": "/oauth2/token",
-  "redirect_uri": "https://mammal-charter.codio.io:9501/api/wordpress/oauth/client"
+  "redirect_uri": "https://writeon-thinq4yourself-1.c9users.io/api/wordpress/oauth/client"
 }

@@ -28,4 +28,7 @@ module.exports = function(app) {
      app.get('/api/wordpress/oauth/client', function(req, res, next) {
         res.renderDebug('api/wordpress-oauth-client.html');
     });
+     app.get('/api/medium/oauth/client', function(req, res, next) {
+        res.renderDebug('api/medium-oauth-client.html');
+    });
 };

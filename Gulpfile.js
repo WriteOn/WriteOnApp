@@ -13,6 +13,7 @@ var gulp = require('gulp');
 var util = require('gulp-util');
 var clean = require('gulp-clean');
 var jshint = require('gulp-jshint');
+var stylish = require('jshint-stylish');
 var requirejs = require('gulp-requirejs');
 var bowerRequirejs = require('bower-requirejs');
 var uglify = require('gulp-uglify');
@@ -80,7 +81,8 @@ gulp.task('jshint', function() {
 		// .pipe(debug())
         .pipe(jshint())
 		.pipe(jshint.reporter('default'))
-		.pipe(jshint.reporter('fail'));
+		.pipe(jshint.reporter(stylish))
+		//.pipe(jshint.reporter('fail'));
 });
 
 /** __________________________________________
@@ -277,6 +279,7 @@ gulp.task('copy-html', ['clean-html'], function() {
 		// .pipe(debug())
         .pipe(gulp.dest(options.dist + '/html/'));
 });
+
 
 /** __________________________________________
  * CACHE.
@@ -484,10 +487,19 @@ function releaseTask(importance) {
 /*
  * Live Reload
 */
+gulp.task('server', [
+	'clean',
+	'build',
+	'connect',
+	'connect-less', 
+	'connect-html', 
+	'watch'
+]);
+
 gulp.task('connect', function() {
   connect.server({
     root: 'server.js',
-	port: 9601,
+	port: 8080,
     livereload: true
   });
 });
@@ -499,7 +511,7 @@ gulp.task('connect-less', function() {
     .pipe(livereload());
 });
 
-gulp.task('html', function () {
+gulp.task('connect-html', function () {
   gulp.src(options.server + '/views/*.html')
     .pipe(connect.reload());
 });

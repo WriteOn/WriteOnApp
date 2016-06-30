@@ -634,7 +634,7 @@ define([
 			'Thanks for supporting WriteOn by adding a backlink in your stories! You can also leave this blank - thanks for using WriteOn!',
 		].join(''), "right", "hover", "modal");
 		utils.createTooltip(".tooltip-delete", '<p>This only deletes the local story.</p><p>Any synchronized or published stories will not be affected.</p>', "right", "hover", "modal");
-		utils.createTooltip(".tooltip-frontmatter-content", "You can use YAML front matter to specify the title, status, date and tags of your published stories on Blogger, Ghost, Tumblr, and Wordpress. Using <strong><em>published: false</em></strong> will publish your story as a DRAFT. <br /><br />Copy/paste this example at the top of your story text. Don't worry, Fron Matter is only instructions to the software, and won't be seen in your story text by readers.", "right", "hover", "modal");
+		utils.createTooltip(".tooltip-frontmatter-content", "You can use YAML front matter to specify the title, status, date and tags of your published stories on Medium, Blogger, Ghost, Tumblr, and Wordpress. Using <strong><em>published: false</em></strong> will publish your story as a DRAFT. <br /><br />Copy/paste this example at the top of your story text. Don't worry, Fron Matter is only instructions to the software, and won't be seen in your story text by readers.", "right", "hover", "modal");
 		utils.createTooltip(".tooltip-template", settingsTemplateTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".tooltip-publish-template", settingsTemplateTooltipHTML, "right", "hover", "modal");
 		utils.createTooltip(".tooltip-pdf-template", settingsTemplateTooltipHTML, "right", "hover", "modal");
