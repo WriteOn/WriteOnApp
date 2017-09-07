@@ -27,6 +27,7 @@ _site
 *.zip
 *~
 *.log
+*.log.*
 
 # OS or Editor folders
 ._*
