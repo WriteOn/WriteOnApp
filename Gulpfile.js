@@ -399,7 +399,7 @@ gulp.task('editors', [
 ]);
 gulp.task('build', function(cb) {
 	runSequence([
-			'jshint',
+			// 'jshint',
 			'requireless',
 			'requirejs',
 			'less',

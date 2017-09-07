@@ -1,6 +1,5 @@
 var express = require('express');
 var session = require('express-session');
-var stormpath = require('express-stormpath');
 var app = express();
 var compression = require('compression');
 var serveStatic = require('serve-static');
@@ -129,13 +128,13 @@ app.use(gzippo.staticGzip(__dirname + '/../public'));
  */
 // Load Server Auth ======================================================================
 // Set up and load the Auth application
-require('./auth')(app, stormpath);
+// require('./auth')(app, stormpath);
 /* 
  * APP ROUTES. A keep it simple routing scheme... forever.
  */
 // Load Routes ======================================================================
-// Server Routes - load our routes and pass in stormpath middlware
-require('./routes')(app, stormpath);
+// Server Routes - load our routes
+require('./routes')(app);
 /* 
  * ERROR HANDLING. A keep it simple error scheme... forever.
  */
